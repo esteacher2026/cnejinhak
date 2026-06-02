@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="ko">
+<head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2028학년도 주요대학 학생부교과전형 한눈에 보기</title>
+<meta name="description" content="2028학년도 주요 대학 학생부교과전형 — 전형방법, 출결정량, 서류평가, 수능최저, 반영교과, 내신산출방식을 한 화면에서 비교합니다." />
+<style>
+  /* ===== Design Tokens ===== */
+  :root{
+    --bg: #f4f6fb;
+    --bg-grad-1: #eef3fb;
+    --bg-grad-2: #f7f4f0;
+    --paper: #ffffff;
+    --paper-2: #fafbfd;
+    --ink: #0f172a;
+    --ink-soft: #334155;
+    --muted: #64748b;
+    --muted-2: #94a3b8;
+    --line: #e2e8f0;
+    --line-strong: #cbd5e1;
+
+    /* Brand - 충남교육청 느낌의 진한 녹 + 포인트 */
+    --brand: #0e5e3e;
+    --brand-2: #14794f;
+    --brand-soft: #e6f4ec;
+    --accent: #d97706;        /* 주황 (출결) */
+    --accent-soft: #fef3e6;
+    --blue: #1d4ed8;          /* 파랑 (재수) */
+    --blue-soft: #e6efff;
+    --rose: #be123c;
+    --rose-soft: #fde9ee;
+    --violet: #6d28d9;
+    --violet-soft: #f0e9ff;
+    --slate: #475569;
+    --slate-soft: #eef2f6;
+
+    --radius: 14px;
+    --radius-sm: 10px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,.04), 0 1px 1px rgba(15,23,42,.03);
+    --shadow: 0 10px 30px rgba(18,38,63,.07), 0 2px 6px rgba(18,38,63,.04);
+    --shadow-lg: 0 20px 50px rgba(18,38,63,.10);
+    --font-size: 14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 90% -20%, #dbeafe55, transparent),
+      radial-gradient(900px 500px at -10% 10%, #dcfce755, transparent),
+      linear-gradient(180deg, var(--bg-grad-1) 0%, var(--bg) 40%, var(--bg-grad-2) 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+    font-size: var(--font-size);
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ===== Layout ===== */
+  .wrap{max-width:1400px;margin:0 auto;padding:24px 20px 80px}
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    margin-bottom:18px;flex-wrap:wrap;
+  }
+  .back-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#0f172a;color:#fff;text-decoration:none;
+    padding:9px 14px;border-radius:10px;font-weight:600;font-size:13px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .back-btn:hover{background:#1e293b;transform:translateY(-1px)}
+
+  /* ===== Hero ===== */
+  .hero{
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    color:#fff;border-radius: var(--radius-lg);
+    padding: 28px 30px;
+    box-shadow: var(--shadow-lg);
+    position:relative;overflow:hidden;
+    margin-bottom:18px;
+  }
+  .hero::before{
+    content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;
+    background: radial-gradient(circle, rgba(255,255,255,.18), transparent 70%);
+    border-radius:50%;
+  }
+  .hero::after{
+    content:"";position:absolute;left:-50px;bottom:-90px;width:220px;height:220px;
+    background: radial-gradient(circle, rgba(255,255,255,.10), transparent 70%);
+    border-radius:50%;
+  }
+  .hero .pill{
+    display:inline-block;background:rgba(255,255,255,.18);
+    padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;
+    letter-spacing:0;margin-bottom:10px;backdrop-filter: blur(6px);
+  }
+  .hero h1{
+    margin:0 0 8px;font-size:clamp(22px, 3vw, 30px);font-weight:800;letter-spacing:-.02em;
+    position:relative;z-index:1;
+  }
+  .hero .desc{margin:0;font-size:14.5px;color:rgba(255,255,255,.92);position:relative;z-index:1;max-width:780px}
+  .hero .meta{
+    margin-top:14px;display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;
+    color:rgba(255,255,255,.85);position:relative;z-index:1;
+  }
+  .hero .meta span::before{content:"·";margin-right:8px;opacity:.6}
+  .hero .meta span:first-child::before{content:"";margin:0}
+
+  /* ===== Stats ===== */
+  .stats{
+    display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-bottom:18px;
+  }
+  .stat{
+    background: var(--paper);border:1px solid var(--line);border-radius: var(--radius);
+    padding:14px 16px;box-shadow: var(--shadow-sm);
+    transition: transform .15s ease, box-shadow .15s ease;
+    position:relative;overflow:hidden;
+  }
+  .stat:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .stat::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background: var(--brand);border-radius: 3px 0 0 3px;
+  }
+  .stat.s2::before{background:var(--accent)}
+  .stat.s3::before{background:var(--blue)}
+  .stat.s4::before{background:var(--violet)}
+  .stat.s5::before{background:var(--rose)}
+  .stat.s6::before{background:var(--slate)}
+  .stat .label{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+  .stat .value{font-size:24px;font-weight:800;color:var(--ink);margin-top:2px;line-height:1.1;font-variant-numeric:tabular-nums}
+  .stat .unit{font-size:13px;color:var(--muted);font-weight:600;margin-left:2px}
+
+  /* ===== Panel ===== */
+  .panel{
+    background: var(--paper);border:1px solid var(--line);border-radius: var(--radius);
+    padding: 16px;box-shadow: var(--shadow-sm);margin-bottom: 14px;
+  }
+  .toolbar{
+    display:grid;grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;gap:10px;
+  }
+  .control label{
+    display:block;font-size:11.5px;font-weight:700;color:var(--muted);
+    margin-bottom:5px;letter-spacing:.02em;text-transform:uppercase;
+  }
+  .control input, .control select{
+    width:100%;height:38px;border:1px solid var(--line-strong);background:var(--paper);
+    border-radius: 9px;padding: 0 12px;font-size: 13.5px;color:var(--ink);
+    font-family:inherit;outline:none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .control input:focus, .control select:focus{
+    border-color: var(--brand);box-shadow: 0 0 0 3px rgba(14,94,62,.12);
+  }
+  .control input::placeholder{color:var(--muted-2)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:0}
+  .chips:empty{display:none}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;
+    background: var(--slate-soft);color:var(--ink-soft);
+    padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600;
+    border:1px solid var(--line);
+  }
+  .chip button{
+    background:transparent;border:0;cursor:pointer;color:var(--muted);
+    font-size:14px;line-height:1;padding:0;display:inline-flex;
+  }
+  .chip button:hover{color:var(--rose)}
+
+  /* ===== Action bar ===== */
+  .actions{
+    display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;
+    background: var(--paper);color: var(--ink);
+    border: 1px solid var(--line-strong);
+    padding: 8px 14px;border-radius:10px;font-size: 13px;font-weight:600;
+    cursor:pointer;font-family:inherit;
+    transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
+  }
+  .btn:hover{background:var(--paper-2);box-shadow:var(--shadow-sm)}
+  .btn:active{transform:translateY(1px)}
+  .btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .btn.primary:hover{background:var(--brand-2)}
+  .btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+  .btn.ghost:hover{background:var(--slate-soft);color:var(--ink)}
+
+  .view-toggle{
+    display:inline-flex;background:var(--paper);border:1px solid var(--line-strong);border-radius:10px;overflow:hidden;
+  }
+  .view-toggle button{
+    background:transparent;border:0;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);font-family:inherit;
+  }
+  .view-toggle button.active{background:var(--brand);color:#fff}
+
+  /* ===== Table ===== */
+  .table-card{
+    background: var(--paper);border:1px solid var(--line);border-radius: var(--radius);
+    overflow:hidden;box-shadow: var(--shadow-sm);
+  }
+  .table-top{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px;border-bottom:1px solid var(--line);background:var(--paper-2);
+    flex-wrap:wrap;gap:8px;
+  }
+  .table-top strong{font-size:14px;font-weight:700}
+  .mini-summary{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .hint{font-size:12px;color:var(--muted-2)}
+  .scroll-wrap{overflow:auto;max-height:none}
+  table{
+    border-collapse: separate;border-spacing: 0;width:100%;min-width: 1300px;
+    font-size: var(--font-size);
+  }
+  thead th{
+    background: #f1f5f9;color: var(--ink);font-weight: 700;
+    padding: 10px 8px;text-align:center;border-bottom:1px solid var(--line-strong);
+    font-size:12.5px;letter-spacing:0;
+    position:sticky;top:0;z-index:2;
+  }
+  thead tr:first-child th{border-bottom:1px solid var(--line)}
+  thead tr:nth-child(2) th{top:35px}
+  thead th.sortable{cursor:pointer;user-select:none;transition:background .15s ease}
+  thead th.sortable:hover{background:#e2e8f0}
+  thead th.sortable .arrow{opacity:.4;margin-left:3px;font-size:10px}
+  thead th.sortable.active .arrow{opacity:1;color:var(--brand)}
+
+  tbody td{
+    padding: 9px 8px;border-bottom: 1px solid var(--line);
+    text-align:center;vertical-align: middle;color: var(--ink-soft);
+    font-size: 13px;
+  }
+  tbody tr{transition: background .12s ease}
+  tbody tr:hover td{background: #f8fafc}
+  tbody tr.univ-start td{border-top: 2px solid var(--line-strong)}
+  tbody tr:first-child.univ-start td{border-top:0}
+
+  td.no{color:var(--muted-2);font-weight:600;font-variant-numeric:tabular-nums;width:42px}
+  td.univ{
+    text-align:left;font-weight:700;color:var(--ink);padding-left:12px;
+    width:110px;min-width:110px;
+  }
+  td.univ .region{
+    display:inline-block;font-size:10.5px;font-weight:600;color:var(--brand);
+    background:var(--brand-soft);padding:1px 7px;border-radius:6px;margin-top:3px;
+  }
+  td.method-name{
+    text-align:left;font-weight:600;color:var(--ink);min-width:130px;padding-left:10px;
+  }
+  td.method{
+    min-width:170px;text-align:left;padding-left:10px;
+  }
+  .method-bar{
+    display:flex;height:8px;border-radius:4px;overflow:hidden;
+    background:#e2e8f0;margin-top:4px;
+  }
+  .method-bar span{display:block;height:100%}
+  .method-bar .b-gyo{background:var(--brand)}
+  .method-bar .b-att{background:var(--accent)}
+  .method-bar .b-doc{background:var(--violet)}
+  .method-bar .b-int{background:var(--blue)}
+  .method-bar .b-vol{background:var(--rose)}
+  .method-text{font-size:12.5px;color:var(--ink-soft);font-weight:600;letter-spacing:0;font-variant-numeric:tabular-nums}
+
+  .badge{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;
+    border:1px solid transparent;line-height:1.4;min-width:24px;
+  }
+  .badge.yes{background:var(--accent-soft);color:var(--accent);border-color:#fcd9a8}
+  .badge.no{background:#f1f5f9;color:var(--muted);border-color:#e2e8f0}
+  .badge.csat-has{background:var(--rose-soft);color:var(--rose);border-color:#f9c4d0}
+  .badge.csat-none{background:var(--brand-soft);color:var(--brand);border-color:#b8e0c8}
+  .badge.repeat-o{background:var(--blue-soft);color:var(--blue);border-color:#bfd2ff}
+  .badge.repeat-x{background:#f1f5f9;color:var(--muted);border-color:#e2e8f0}
+
+  td.csat{font-weight:600}
+  td.subjects{font-size:12.5px;color:var(--ink-soft);min-width:170px}
+  td.calc{
+    font-size:12.5px;color:var(--ink-soft);min-width:140px;
+    line-height:1.4;text-align:left;padding-left:8px;padding-right:8px;
+  }
+  td.calc.empty{color:var(--muted-2);text-align:center}
+  td.doc-eval{font-size:12px;color:var(--ink-soft);min-width:140px;text-align:left;padding-left:8px}
+  td.doc-eval.empty{color:var(--muted-2);text-align:center}
+
+  .empty-state{
+    padding:60px 20px;text-align:center;color:var(--muted);
+  }
+  .empty-state .ico{font-size:36px;margin-bottom:8px;opacity:.5}
+
+  /* ===== Card view (mobile) ===== */
+  .cards{display:none;padding:14px;gap:12px;flex-direction:column}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;box-shadow:var(--shadow-sm);
+  }
+  .card-head{
+    display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+    padding-bottom:10px;border-bottom:1px dashed var(--line);margin-bottom:10px;
+  }
+  .card-head .uni{font-weight:800;font-size:16px;color:var(--ink)}
+  .card-head .uni-method{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .card-head .badges{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}
+  .card-grid.full{grid-template-columns:1fr}
+  .card-field{display:flex;flex-direction:column;gap:2px}
+  .card-field .k{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+  .card-field .v{font-size:13px;color:var(--ink);font-weight:500}
+  .card-calc{
+    margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+    display:grid;grid-template-columns:1fr;gap:6px;
+  }
+  .card-calc .row{display:grid;grid-template-columns:90px 1fr;gap:8px;font-size:12.5px}
+  .card-calc .row .lbl{color:var(--muted);font-weight:600}
+  .card-calc .row .val{color:var(--ink-soft)}
+
+  /* ===== Legend ===== */
+  .legend{
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+    padding:10px 14px;background:var(--paper-2);border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);
+  }
+  .legend .item{display:inline-flex;align-items:center;gap:5px}
+  .legend .sw{width:10px;height:10px;border-radius:3px}
+  .sw.b-gyo{background:var(--brand)}
+  .sw.b-att{background:var(--accent)}
+  .sw.b-doc{background:var(--violet)}
+  .sw.b-int{background:var(--blue)}
+  .sw.b-vol{background:var(--rose)}
+
+  /* ===== Footer ===== */
+  .footnote{
+    margin-top:18px;padding:14px 18px;background:#fffbeb;border:1px solid #fde68a;
+    border-radius:var(--radius);font-size:12.5px;color:#92400e;line-height:1.65;
+  }
+  .footnote strong{color:#78350f}
+
+  /* ===== Modal ===== */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(15,23,42,.55);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
+    backdrop-filter: blur(4px);
+  }
+  .modal-backdrop.open{display:flex}
+  .modal{
+    background:var(--paper);border-radius:var(--radius-lg);
+    max-width:560px;width:100%;max-height:85vh;overflow:auto;
+    box-shadow:var(--shadow-lg);position:relative;
+  }
+  .modal-head{
+    padding:18px 22px 12px;border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:var(--paper);
+  }
+  .modal-head h3{margin:0;font-size:18px;font-weight:800}
+  .modal-head .sub{font-size:13px;color:var(--muted);margin-top:3px}
+  .modal-head .close{
+    position:absolute;right:14px;top:14px;background:transparent;border:0;
+    width:32px;height:32px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:20px;
+  }
+  .modal-head .close:hover{background:var(--slate-soft);color:var(--ink)}
+  .modal-body{padding:16px 22px 22px}
+  .modal-section{margin-bottom:16px}
+  .modal-section .label{font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+  .modal-section .value{font-size:14px;color:var(--ink);font-weight:500;line-height:1.5}
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1100px){
+    .stats{grid-template-columns:repeat(3,1fr)}
+    .toolbar{grid-template-columns:1fr 1fr 1fr}
+  }
+  @media (max-width: 720px){
+    .wrap{padding:16px 12px 60px}
+    .hero{padding:22px 20px;border-radius:16px}
+    .stats{grid-template-columns:repeat(2,1fr);gap:8px}
+    .stat{padding:11px 12px}
+    .stat .value{font-size:20px}
+    .toolbar{grid-template-columns:1fr 1fr}
+    .actions{gap:6px}
+    .btn{padding:7px 11px;font-size:12.5px}
+    .scroll-wrap{display:none}
+    .cards{display:flex}
+    .table-top{padding:12px 14px}
+    .legend{display:none}
+  }
+
+  /* ===== Print ===== */
+  @media print{
+    body{background:#fff}
+    .topbar,.actions,.panel,.legend,.footnote,.hint{display:none !important}
+    .hero{box-shadow:none;background:#0e5e3e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .stat::before, .badge, .method-bar span, .region{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scroll-wrap{overflow:visible;max-height:none}
+    table{min-width:0;font-size:10px}
+    thead th{position:static}
+    .table-card{box-shadow:none;border:1px solid #cbd5e1}
+    .cards{display:none !important}
+    .scroll-wrap{display:block !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- TopBar -->
+  <div class="topbar">
+    <a href="index.html" class="back-btn">🏠 메인으로</a>
+    <div style="display:flex;gap:6px">
+      <button class="btn ghost" id="fontMinus" type="button" title="글자 작게">A−</button>
+      <button class="btn ghost" id="fontPlus" type="button" title="글자 크게">A+</button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="pill">2028학년도 대입전형</span>
+    <h1>학생부교과전형 한눈에 보기</h1>
+    <p class="desc">주요 47개 전형의 전형방법·출결정량·서류평가·수능최저·반영교과·내신산출방식을 한 화면에서 비교합니다. 같은 대학의 여러 전형은 함께 묶여 표시됩니다.</p>
+    <div class="meta">
+      <span>📅 기준: 2028학년도 대입전형시행계획(2026.5.12)</span>
+      <span>✍️ 자료 정리: 서산여고 유홍규</span>
+      <span>📬 제작: 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats" aria-label="요약 통계">
+    <div class="stat s1"><div class="label">전체 전형</div><div class="value"><span id="statRows">0</span><span class="unit">건</span></div></div>
+    <div class="stat s2"><div class="label">대학 수</div><div class="value"><span id="statUniversities">0</span><span class="unit">개</span></div></div>
+    <div class="stat s3"><div class="label">표시중</div><div class="value"><span id="statVisible">0</span><span class="unit">건</span></div></div>
+    <div class="stat s4"><div class="label">수능최저 없음</div><div class="value"><span id="statNoCsat">0</span><span class="unit">건</span></div></div>
+    <div class="stat s5"><div class="label">출결 정량반영</div><div class="value"><span id="statAttendance">0</span><span class="unit">건</span></div></div>
+    <div class="stat s6"><div class="label">재수생 지원가능</div><div class="value"><span id="statRepeat">0</span><span class="unit">건</span></div></div>
+  </section>
+
+  <!-- Filter Panel -->
+  <section class="panel" aria-label="필터">
+    <div class="toolbar">
+      <div class="control">
+        <label for="searchInput">검색</label>
+        <input id="searchInput" type="search" placeholder="대학명·전형명·반영교과 등" autocomplete="off" />
+      </div>
+      <div class="control">
+        <label for="regionFilter">지역</label>
+        <select id="regionFilter">
+          <option value="">전체</option>
+          <option value="서울">서울</option>
+          <option value="경기/인천">경기/인천</option>
+          <option value="충청권">충청권</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="csatFilter">수능최저</label>
+        <select id="csatFilter">
+          <option value="">전체</option>
+          <option value="with">있음</option>
+          <option value="none">없음</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="attendanceFilter">출결 정량</label>
+        <select id="attendanceFilter">
+          <option value="">전체</option>
+          <option value="O">반영 O</option>
+          <option value="X">미반영 X</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="repeatFilter">재수생</label>
+        <select id="repeatFilter">
+          <option value="">전체</option>
+          <option value="O">가능 O</option>
+          <option value="X">불가 X</option>
+        </select>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <!-- Action bar -->
+  <div class="actions">
+    <button class="btn" id="resetFilter" type="button">↻ 필터 초기화</button>
+    <div style="flex:1"></div>
+    <button class="btn" id="downloadCsv" type="button">⬇ CSV 저장</button>
+    <button class="btn primary" onclick="window.print()" type="button">🖨 인쇄</button>
+  </div>
+
+  <!-- Table card -->
+  <section class="table-card">
+    <div class="table-top">
+      <div>
+        <strong>학생부교과전형 비교표</strong>
+        <div class="mini-summary" id="miniSummary"></div>
+      </div>
+      <div class="hint">헤더 클릭 정렬 · 행 클릭 상세 보기</div>
+    </div>
+
+    <!-- Desktop: Table -->
+    <div class="scroll-wrap" id="scrollWrap">
+      <table id="mainTable">
+        <colgroup>
+          <col style="width:42px"><col style="width:120px"><col style="width:140px">
+          <col style="width:175px"><col style="width:68px"><col style="width:140px">
+          <col style="width:100px"><col style="width:165px">
+          <col style="width:155px"><col style="width:155px"><col style="width:155px">
+          <col style="width:80px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th rowspan="2" class="sortable" data-key="no">번호 <span class="arrow">↕</span></th>
+            <th rowspan="2" class="sortable" data-key="university">대학 <span class="arrow">↕</span></th>
+            <th rowspan="2" class="sortable" data-key="method_name">전형명 <span class="arrow">↕</span></th>
+            <th rowspan="2" class="sortable" data-key="method">전형방법 <span class="arrow">↕</span></th>
+            <th rowspan="2" class="sortable" data-key="attendance">출결<br>정량 <span class="arrow">↕</span></th>
+            <th rowspan="2" class="sortable" data-key="document_eval">서류평가영역 <span class="arrow">↕</span></th>
+            <th rowspan="2" class="sortable" data-key="csat">수능최저<br>(일반학과) <span class="arrow">↕</span></th>
+            <th rowspan="2" class="sortable" data-key="subjects">반영교과 <span class="arrow">↕</span></th>
+            <th colspan="3">내신산출방식</th>
+            <th rowspan="2" class="sortable" data-key="repeat">재수생<br>지원 <span class="arrow">↕</span></th>
+          </tr>
+          <tr>
+            <th>공통/일반선택</th>
+            <th>진로선택</th>
+            <th>융합선택</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="ico">🔍</div>
+        <div>조건에 맞는 전형이 없습니다.</div>
+      </div>
+    </div>
+
+    <!-- Mobile: Cards -->
+    <div class="cards" id="cardsView"></div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <span style="font-weight:700;color:var(--ink-soft)">📊 전형방법 색 안내</span>
+      <span class="item"><span class="sw b-gyo"></span>교과</span>
+      <span class="item"><span class="sw b-att"></span>출결</span>
+      <span class="item"><span class="sw b-doc"></span>서류</span>
+      <span class="item"><span class="sw b-int"></span>면접</span>
+      <span class="item"><span class="sw b-vol"></span>봉사</span>
+    </div>
+  </section>
+
+  <p class="footnote">
+    <strong>📌 안내사항</strong><br>
+    • 본 자료는 계속 수정 중이며, 오류 발견 시 알려주시면 즉시 반영합니다.<br>
+    • 내신산출방식은 <strong>공통/일반선택 → 진로선택 → 융합선택</strong> 순으로 보시면 흐름 이해가 쉽습니다.<br>
+    • 자세한 사항은 각 대학의 <strong>2028학년도 대입전형시행계획</strong>을 참고해주세요.
+  </p>
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h3 id="modalUni">—</h3>
+      <div class="sub" id="modalMethod">—</div>
+      <button class="close" id="modalClose" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ============= DATA ============= */
+const DATA = [{"no": 1, "university": "연세대", "univ_group_continue": false, "method_name": "추천형", "method": "교과80+서류20", "attendance": "X", "document_eval": "교과학습발달+출결", "csat": "2합4~5등급", "subjects": "전교과", "common": "등급+성취도(둘다)", "career": "등급+성취도(둘다)", "convergence": "성취도(감점)", "repeat": "X", "region": "서울"}, {"no": 2, "university": "고려대", "univ_group_continue": false, "method_name": "학교추천", "method": "교과80+서류20", "attendance": "X", "document_eval": "학생부 종합평가", "csat": "X", "subjects": "전교과", "common": "등급", "career": "등급", "convergence": "등급(탐구이외)+성취도(탐구)", "repeat": "X", "region": "서울"}, {"no": 3, "university": "서강대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "3등급 3개", "subjects": "전교과", "common": "등급+성취도(둘다)", "career": "등급+성취도(둘다)", "convergence": "등급+성취도(둘다)", "repeat": "X", "region": "서울"}, {"no": 4, "university": "성균관대", "univ_group_continue": false, "method_name": "추천인재", "method": "교과70+서류30", "attendance": "X", "document_eval": "교과학습발달+출결", "csat": "3합6~7등급", "subjects": "전교과", "common": "등급", "career": "등급", "convergence": "등급(탐구미반영)", "repeat": "X", "region": "서울"}, {"no": 5, "university": "한양대", "univ_group_continue": false, "method_name": "추천형", "method": "교과60+서류40", "attendance": "X", "document_eval": "학생부 종합평가", "csat": "3합6~7등급", "subjects": "국영수사과", "common": "등급", "career": "등급", "convergence": "등급(탐구미반영)", "repeat": "X", "region": "서울"}, {"no": 6, "university": "이화여대", "univ_group_continue": false, "method_name": "고교추천", "method": "교과80+출결5+서류15", "attendance": "O", "document_eval": "학생부 종합평가", "csat": "3합7등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "등급(탐구미반영)", "repeat": "X", "region": "서울"}, {"no": 7, "university": "중앙대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "3합7등급", "subjects": "전교과", "common": "등급", "career": "등급", "convergence": "등급(탐구미반영)", "repeat": "X", "region": "서울"}, {"no": 8, "university": "경희대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과56+출결7+봉사7+서류30", "attendance": "O", "document_eval": "교과학습발달상황", "csat": "2합5등급", "subjects": "국수영사과", "common": "등급", "career": "등급(국영수)+상위(탐구)", "convergence": "등급(탐구미반영)", "repeat": "X", "region": "서울"}, {"no": 9, "university": "한국외대", "univ_group_continue": false, "method_name": "학교장추천", "method": "교과70+서류30", "attendance": "X", "document_eval": "교과학습발달상황", "csat": "2합5등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "등급(탐구미반영)", "repeat": "X", "region": "서울"}, {"no": 10, "university": "서울시립대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과60+서류40", "attendance": "X", "document_eval": "교과영역+출결상황", "csat": "3합7등급", "subjects": "전교과", "common": "등급", "career": "등급", "convergence": "등급(탐구미반영)", "repeat": "X", "region": "서울"}, {"no": 11, "university": "건국대", "univ_group_continue": false, "method_name": "KU지역균형", "method": "교과70+서류30", "attendance": "X", "document_eval": "교과학습발달상황", "csat": "3합8등급(한국사포함)", "subjects": "국수영사과 상위 20과목", "common": "등급", "career": "등급", "convergence": "정성평가", "repeat": "O", "region": "서울"}, {"no": 12, "university": "동국대", "univ_group_continue": false, "method_name": "학교장추천인재", "method": "교과70+서류30", "attendance": "X", "document_eval": "교과 관련 영역", "csat": "X", "subjects": "국수영사과 상위 10과목", "common": "-", "career": "등급+성취도(상위)", "convergence": "등급+성취도(상위/탐구제외)", "repeat": "O", "region": "서울"}, {"no": 13, "university": "홍익대", "univ_group_continue": false, "method_name": "학교장추천자", "method": "교과95+출결5", "attendance": "O", "document_eval": "X", "csat": "2합5등급", "subjects": "국수영사/국수영과", "common": "등급+성취도(둘다)", "career": "등급+성취도(둘다)", "convergence": "등급+성취도(둘다/탐구제외)", "repeat": "X", "region": "서울"}, {"no": 14, "university": "숙명여대", "univ_group_continue": false, "method_name": "지역균형선발", "method": "교과70+서류30", "attendance": "X", "document_eval": "교과 위주", "csat": "X", "subjects": "국수영사과", "common": "등급+성취도(둘다)", "career": "등급+성취도(둘다)", "convergence": "정성평가", "repeat": "X", "region": "서울"}, {"no": 15, "university": "국민대", "univ_group_continue": false, "method_name": "학교장추천Ⅰ(고3)", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "등급", "convergence": "X", "repeat": "X", "region": "서울"}, {"no": 16, "university": "국민대", "univ_group_continue": true, "method_name": "학교장추천Ⅱ(N수)", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "성취도", "convergence": "X", "repeat": "O", "region": "서울"}, {"no": 17, "university": "숭실대", "univ_group_continue": false, "method_name": "교과우수자", "method": "교과90+서류10", "attendance": "X", "document_eval": "교과이수 등을 평가", "csat": "2합6등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "성취도", "convergence": "정성평가", "repeat": "O", "region": "서울"}, {"no": 18, "university": "세종대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합5등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "등급+성취도(상위)", "convergence": "X", "repeat": "O", "region": "서울"}, {"no": 19, "university": "아주대", "univ_group_continue": false, "method_name": "고교추천", "method": "교과90+서류10", "attendance": "O", "document_eval": "X", "csat": "2합5~6등급", "subjects": "국수영사과(각상위5과목)", "common": "등급+성취도(둘다)", "career": "등급+성취도(둘다)", "convergence": "등급+성취도(둘다)", "repeat": "X", "region": "경기/인천"}, {"no": 20, "university": "서울과기대", "univ_group_continue": false, "method_name": "고교추천", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "성취도", "convergence": "성취도", "repeat": "O", "region": "서울"}, {"no": 21, "university": "광운대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사과", "common": "등급", "career": "성취도", "convergence": "X", "repeat": "O", "region": "서울"}, {"no": 22, "university": "가천대", "univ_group_continue": false, "method_name": "학생부우수자", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사과 일부", "common": "등급", "career": "등급", "convergence": "등급(탐구 미반영)", "repeat": "O", "region": "경기/인천"}, {"no": 23, "university": "가천대", "univ_group_continue": true, "method_name": "지역균형", "method": "교과50+면접50", "attendance": "X", "document_eval": "X", "csat": "X", "subjects": "사과상위10과목", "common": "성취도", "career": "성취도", "convergence": "성취도", "repeat": "O", "region": "경기/인천"}, {"no": 24, "university": "단국대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과95+출결5", "attendance": "O", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "등급(국영수)+성취도(탐구)", "repeat": "O", "region": "경기/인천"}, {"no": 25, "university": "인하대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "성취도", "convergence": "성취도", "repeat": "O", "region": "경기/인천"}, {"no": 26, "university": "성신여대", "univ_group_continue": false, "method_name": "지역균형Ⅰ(고3)", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합7등급", "subjects": "공통 전부+그외상위10", "common": "등급+성취도(매트릭스) 공통+융합(탐구) 미반영", "career": "", "convergence": "", "repeat": "X", "region": "서울"}, {"no": 27, "university": "성신여대", "univ_group_continue": true, "method_name": "지역균형Ⅱ(N수)", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합7등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "X", "repeat": "O", "region": "서울"}, {"no": 28, "university": "서울여대", "univ_group_continue": false, "method_name": "교과우수자", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합7등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "등급(탐구 미반영)", "repeat": "X", "region": "서울"}, {"no": 29, "university": "덕성여대", "univ_group_continue": false, "method_name": "고교추천", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합7등급", "subjects": "국수영사과", "common": "등급+성취도(상위)", "career": "등급+성취도(상위)", "convergence": "X", "repeat": "O", "region": "서울"}, {"no": 30, "university": "동덕여대", "univ_group_continue": false, "method_name": "학생부교과우수자", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합7등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "등급(탐구 미반영)", "repeat": "O", "region": "서울"}, {"no": 31, "university": "경기대", "univ_group_continue": false, "method_name": "학교장추천", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "X", "subjects": "전교과", "common": "등급", "career": "등급+성취도(상위)", "convergence": "등급+성취도(상위 2개)", "repeat": "X", "region": "경기/인천"}, {"no": 32, "university": "경기대", "univ_group_continue": true, "method_name": "교과성적우수자", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합7등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "등급", "convergence": "X", "repeat": "O", "region": "경기/인천"}, {"no": 33, "university": "명지대", "univ_group_continue": false, "method_name": "학교장추천", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합6~7등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "등급", "convergence": "등급(국영수)+성취도(탐구)", "repeat": "O", "region": "경기/인천"}, {"no": 34, "university": "명지대", "univ_group_continue": true, "method_name": "교과면접", "method": "교과54+출결6+면접40", "attendance": "O", "document_eval": "X", "csat": "X", "subjects": "국수영사/국수영과", "common": "등급", "career": "등급", "convergence": "", "repeat": "O", "region": "경기/인천"}, {"no": 35, "university": "가톨릭대", "univ_group_continue": false, "method_name": "지역균형", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "2합7등급", "subjects": "국수영사과", "common": "등급", "career": "성취도", "convergence": "성취도", "repeat": "X", "region": "서울"}, {"no": 36, "university": "상명대", "univ_group_continue": false, "method_name": "고교추천", "method": "교과95+출결5", "attendance": "O", "document_eval": "X", "csat": "X", "subjects": "전교과", "common": "등급", "career": "등급", "convergence": "등급(탐구 미반영)", "repeat": "O", "region": "서울"}, {"no": 37, "university": "한양대(에)", "univ_group_continue": false, "method_name": "지역균형선발", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "등급(국영수)+성취도(탐구)", "repeat": "X", "region": "경기/인천"}, {"no": 38, "university": "한국항공대", "univ_group_continue": false, "method_name": "학교장추천", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "X", "subjects": "국수영사/과", "common": "등급", "career": "등급(국영수)+상위(탐구)", "convergence": "등급(국영수)+성취도(탐구)", "repeat": "X", "region": "경기/인천"}, {"no": 39, "university": "한국항공대", "univ_group_continue": true, "method_name": "교과성적우수자", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6등급", "subjects": "국수영사/과", "common": "등급", "career": "등급(국영수)+상위(탐구)", "convergence": "등급(국영수)+성취도(탐구)", "repeat": "O", "region": "경기/인천"}, {"no": 40, "university": "충남대", "univ_group_continue": false, "method_name": "교과일반/지역인재", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6~7등급", "subjects": "전교과", "common": "등급+성취도(둘다)", "career": "등급+성취도(둘다)", "convergence": "등급+성취도(둘다)", "repeat": "O", "region": "충청권"}, {"no": 41, "university": "충북대", "univ_group_continue": false, "method_name": "교과일반/지역인재", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합8등급", "subjects": "국수영사과", "common": "등급+성취도(둘다)", "career": "등급+성취도(둘다)", "convergence": "등급+성취도(둘다)", "repeat": "O", "region": "충청권"}, {"no": 42, "university": "국립공주대", "univ_group_continue": false, "method_name": "일반/지역/자율전공", "method": "교과100", "attendance": "X", "document_eval": "X", "csat": "2합6~11등급", "subjects": "전교과", "common": "등급", "career": "등급", "convergence": "등급(탐구 미반영)", "repeat": "O", "region": "충청권"}, {"no": 43, "university": "국립한밭대", "univ_group_continue": false, "method_name": "일반/지역인재", "method": "교과90+출결10", "attendance": "O", "document_eval": "X", "csat": "X", "subjects": "국수영사과", "common": "등급(국영수)+성취도(탐구)", "career": "등급(국영수)+성취도(탐구)", "convergence": "X", "repeat": "O", "region": "충청권"}, {"no": 44, "university": "국립한밭대", "univ_group_continue": true, "method_name": "학석사", "method": "교과63+출결7+서류40", "attendance": "O", "document_eval": "X", "csat": "X", "subjects": "국수영사과", "common": "등급(국영수)+성취도(탐구)", "career": "등급(국영수)+성취도(탐구)", "convergence": "X", "repeat": "O", "region": "충청권"}, {"no": 45, "university": "단국대(천안)", "univ_group_continue": false, "method_name": "교과우수자", "method": "교과95+출결5", "attendance": "O", "document_eval": "X", "csat": "2합8등급", "subjects": "국수영사과", "common": "등급", "career": "등급", "convergence": "등급(국영수)+성취도(탐구)", "repeat": "O", "region": "충청권"}, {"no": 46, "university": "한국기술교육대", "univ_group_continue": false, "method_name": "일반전형", "method": "교과100(일반)", "attendance": "X", "document_eval": "X", "csat": "2합8등급", "subjects": "국수영사/국수영과", "common": "등급", "career": "성취도", "convergence": "X", "repeat": "O", "region": "충청권"}, {"no": 47, "university": "한국기술교육대", "univ_group_continue": true, "method_name": "지역인재", "method": "교과100(지역)", "attendance": "X", "document_eval": "X", "csat": "2합8등급", "subjects": "국수영사/국수영과", "common": "성취도", "career": "성취도", "convergence": "X", "repeat": "O", "region": "충청권"}];
+
+/* ============= UTILS ============= */
+const $ = (id) => document.getElementById(id);
+const tableBody = $('tableBody');
+const cardsView = $('cardsView');
+const emptyState = $('emptyState');
+const searchInput = $('searchInput');
+const regionFilter = $('regionFilter');
+const csatFilter = $('csatFilter');
+const attendanceFilter = $('attendanceFilter');
+const repeatFilter = $('repeatFilter');
+const chipsBox = $('chips');
+
+let sortState = { key: 'no', dir: 1 };
+let fontSize = 14;
+
+/* Parse method like "교과80+출결10+서류10" -> segments */
+function parseMethod(method){
+  if(!method) return [];
+  // Remove parenthetical suffix like (일반), (N수생) for parsing, keep for display
+  const cleaned = method.replace(/\([^)]*\)/g, '');
+  const parts = cleaned.split('+').map(s => s.trim()).filter(Boolean);
+  const segs = [];
+  for(const p of parts){
+    const m = p.match(/(교과|출결|서류|면접|봉사)(\d+)/);
+    if(m){
+      segs.push({type: m[1], pct: parseInt(m[2])});
+    }
+  }
+  return segs;
+}
+
+function methodBar(method){
+  const segs = parseMethod(method);
+  if(!segs.length) return '';
+  const total = segs.reduce((a,b)=>a+b.pct,0) || 100;
+  const typeClass = {교과:'b-gyo', 출결:'b-att', 서류:'b-doc', 면접:'b-int', 봉사:'b-vol'};
+  return `<div class="method-bar" title="${escapeHtml(method)}">
+    ${segs.map(s => `<span class="${typeClass[s.type]||''}" style="width:${(s.pct/total*100).toFixed(1)}%"></span>`).join('')}
+  </div>`;
+}
+
+function escapeHtml(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function csatBadge(csat){
+  if(!csat) return '<span class="badge no">-</span>';
+  if(csat.toUpperCase() === 'X') return '<span class="badge csat-none">없음</span>';
+  return `<span class="badge csat-has">${escapeHtml(csat)}</span>`;
+}
+
+function ynBadge(val, kind){
+  if(val === 'O') return kind === 'repeat'
+    ? '<span class="badge repeat-o">O</span>'
+    : '<span class="badge yes">O</span>';
+  if(val === 'X') return kind === 'repeat'
+    ? '<span class="badge repeat-x">X</span>'
+    : '<span class="badge no">X</span>';
+  return '<span class="badge no">-</span>';
+}
+
+function calcCell(val){
+  if(!val || val === '-' || val === 'X' || val === '') {
+    return `<td class="calc empty">${val || '-'}</td>`;
+  }
+  return `<td class="calc">${escapeHtml(val)}</td>`;
+}
+
+function docEvalCell(val){
+  if(!val || val === 'X' || val === '-'){
+    return `<td class="doc-eval empty">미반영</td>`;
+  }
+  return `<td class="doc-eval">${escapeHtml(val)}</td>`;
+}
+
+/* ============= RENDER TABLE ============= */
+function buildRow(item, prev){
+  const isUnivStart = !item.univ_group_continue;
+  const tr = document.createElement('tr');
+  if(isUnivStart) tr.classList.add('univ-start');
+  tr.dataset.no = item.no;
+  tr.innerHTML = `
+    <td class="no">${item.no}</td>
+    <td class="univ">
+      ${item.univ_group_continue ? `<span style="color:var(--muted-2)">↳ ${escapeHtml(item.university)}</span>` : escapeHtml(item.university)}
+      ${isUnivStart ? `<div class="region">${escapeHtml(item.region)}</div>` : ''}
+    </td>
+    <td class="method-name">${escapeHtml(item.method_name || '-')}</td>
+    <td class="method">
+      <div class="method-text">${escapeHtml(item.method || '-')}</div>
+      ${methodBar(item.method)}
+    </td>
+    <td>${ynBadge(item.attendance, 'attendance')}</td>
+    ${docEvalCell(item.document_eval)}
+    <td class="csat">${csatBadge(item.csat)}</td>
+    <td class="subjects">${escapeHtml(item.subjects || '-')}</td>
+    ${calcCell(item.common)}
+    ${calcCell(item.career)}
+    ${calcCell(item.convergence)}
+    <td>${ynBadge(item.repeat, 'repeat')}</td>
+  `;
+  tr.addEventListener('click', () => openModal(item));
+  tr.style.cursor = 'pointer';
+  return tr;
+}
+
+function buildCard(item){
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-head">
+      <div>
+        <div class="uni">${escapeHtml(item.university)} <span style="font-size:11px;color:var(--brand);background:var(--brand-soft);padding:2px 7px;border-radius:6px;margin-left:4px;font-weight:600;">${escapeHtml(item.region)}</span></div>
+        <div class="uni-method">${escapeHtml(item.method_name || '-')}</div>
+      </div>
+      <div class="badges">
+        ${csatBadge(item.csat)}
+        ${item.repeat === 'O' ? '<span class="badge repeat-o">재수 O</span>' : '<span class="badge repeat-x">재수 X</span>'}
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="card-field">
+        <span class="k">전형방법</span>
+        <span class="v">${escapeHtml(item.method || '-')}</span>
+        ${methodBar(item.method)}
+      </div>
+      <div class="card-field">
+        <span class="k">출결정량</span>
+        <span class="v">${ynBadge(item.attendance, 'attendance')}</span>
+      </div>
+    </div>
+    <div class="card-grid full" style="margin-top:8px">
+      <div class="card-field">
+        <span class="k">서류평가영역</span>
+        <span class="v">${item.document_eval && item.document_eval !== 'X' ? escapeHtml(item.document_eval) : '<span style="color:var(--muted-2)">미반영</span>'}</span>
+      </div>
+      <div class="card-field">
+        <span class="k">반영교과</span>
+        <span class="v">${escapeHtml(item.subjects || '-')}</span>
+      </div>
+    </div>
+    <div class="card-calc">
+      <div class="row"><span class="lbl">공통/일반</span><span class="val">${escapeHtml(item.common || '-')}</span></div>
+      <div class="row"><span class="lbl">진로선택</span><span class="val">${escapeHtml(item.career || '-')}</span></div>
+      <div class="row"><span class="lbl">융합선택</span><span class="val">${escapeHtml(item.convergence || '-')}</span></div>
+    </div>
+  `;
+  card.style.cursor='pointer';
+  card.addEventListener('click', () => openModal(item));
+  return card;
+}
+
+/* ============= FILTERS ============= */
+function applyFilters(){
+  const q = searchInput.value.trim().toLowerCase();
+  const region = regionFilter.value;
+  const csat = csatFilter.value;
+  const att = attendanceFilter.value;
+  const rep = repeatFilter.value;
+  return DATA.filter(item => {
+    if(region && item.region !== region) return false;
+    if(csat === 'with' && item.csat.toUpperCase() === 'X') return false;
+    if(csat === 'none' && item.csat.toUpperCase() !== 'X') return false;
+    if(att && item.attendance !== att) return false;
+    if(rep && item.repeat !== rep) return false;
+    if(q){
+      const haystack = [item.university, item.method_name, item.method,
+        item.csat, item.subjects, item.common, item.career, item.convergence,
+        item.document_eval, item.region].join(' ').toLowerCase();
+      if(!haystack.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function applySort(list){
+  const { key, dir } = sortState;
+  if(!key) return list;
+  return list.slice().sort((a, b) => {
+    let va = a[key], vb = b[key];
+    if(typeof va === 'number' && typeof vb === 'number') return (va - vb) * dir;
+    va = String(va || ''); vb = String(vb || '');
+    return va.localeCompare(vb, 'ko') * dir;
+  });
+}
+
+function render(){
+  const filtered = applyFilters();
+  const sorted = applySort(filtered);
+
+  // Mark univ_group_continue when consecutive same uni
+  let prevUni = null;
+  const finalRows = sorted.map(item => {
+    const isStart = item.university !== prevUni;
+    prevUni = item.university;
+    return { ...item, univ_group_continue: !isStart };
+  });
+
+  // Table
+  tableBody.innerHTML = '';
+  cardsView.innerHTML = '';
+  if(finalRows.length === 0){
+    emptyState.hidden = false;
+  } else {
+    emptyState.hidden = true;
+    const frag = document.createDocumentFragment();
+    const fragC = document.createDocumentFragment();
+    finalRows.forEach(item => {
+      frag.appendChild(buildRow(item));
+      fragC.appendChild(buildCard(item));
+    });
+    tableBody.appendChild(frag);
+    cardsView.appendChild(fragC);
+  }
+
+  // Stats
+  const totalRows = DATA.length;
+  const uniSet = new Set(DATA.map(d => d.university));
+  $('statRows').textContent = totalRows;
+  $('statUniversities').textContent = uniSet.size;
+  $('statVisible').textContent = finalRows.length;
+  $('statNoCsat').textContent = DATA.filter(d => d.csat.toUpperCase() === 'X').length;
+  $('statAttendance').textContent = DATA.filter(d => d.attendance === 'O').length;
+  $('statRepeat').textContent = DATA.filter(d => d.repeat === 'O').length;
+
+  $('miniSummary').textContent = `전체 ${totalRows}건 중 ${finalRows.length}건 표시`;
+
+  // Chips
+  renderChips();
+}
+
+function renderChips(){
+  const chips = [];
+  if(searchInput.value.trim()) chips.push({k:'search', t:`검색: "${searchInput.value.trim()}"`});
+  if(regionFilter.value) chips.push({k:'region', t:`지역: ${regionFilter.value}`});
+  if(csatFilter.value) chips.push({k:'csat', t:`수능최저: ${csatFilter.value==='with'?'있음':'없음'}`});
+  if(attendanceFilter.value) chips.push({k:'attendance', t:`출결정량: ${attendanceFilter.value === 'O' ? '반영' : '미반영'}`});
+  if(repeatFilter.value) chips.push({k:'repeat', t:`재수생: ${repeatFilter.value === 'O' ? '가능' : '불가'}`});
+  chipsBox.innerHTML = chips.map(c => `<span class="chip">${escapeHtml(c.t)}<button data-k="${c.k}" type="button" aria-label="삭제">✕</button></span>`).join('');
+  chipsBox.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', e => {
+      const k = e.currentTarget.dataset.k;
+      if(k==='search') searchInput.value='';
+      if(k==='region') regionFilter.value='';
+      if(k==='csat') csatFilter.value='';
+      if(k==='attendance') attendanceFilter.value='';
+      if(k==='repeat') repeatFilter.value='';
+      render();
+    });
+  });
+}
+
+/* ============= MODAL ============= */
+function openModal(item){
+  $('modalUni').textContent = `${item.university} · ${item.method_name || ''}`;
+  $('modalMethod').textContent = `${item.region} | ${item.method}`;
+  const body = $('modalBody');
+  const fields = [
+    ['전형방법', item.method, true],
+    ['출결 정량반영', item.attendance === 'O' ? '반영' : '미반영', false],
+    ['서류평가영역', item.document_eval && item.document_eval !== 'X' ? item.document_eval : '미반영', false],
+    ['수능최저(일반학과)', item.csat.toUpperCase() === 'X' ? '없음' : item.csat, false],
+    ['반영교과', item.subjects, false],
+    ['공통/일반선택', item.common || '-', false],
+    ['진로선택', item.career || '-', false],
+    ['융합선택', item.convergence || '-', false],
+    ['재수생 지원', item.repeat === 'O' ? '가능' : '불가', false],
+  ];
+  body.innerHTML = fields.map(([k,v,bar]) => `
+    <div class="modal-section">
+      <div class="label">${escapeHtml(k)}</div>
+      <div class="value">${escapeHtml(v)}</div>
+      ${bar ? methodBar(item.method) : ''}
+    </div>
+  `).join('');
+  $('modalBackdrop').classList.add('open');
+}
+
+function closeModal(){ $('modalBackdrop').classList.remove('open'); }
+$('modalClose').addEventListener('click', closeModal);
+$('modalBackdrop').addEventListener('click', e => { if(e.target === $('modalBackdrop')) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+/* ============= EVENTS ============= */
+searchInput.addEventListener('input', render);
+regionFilter.addEventListener('change', render);
+csatFilter.addEventListener('change', render);
+attendanceFilter.addEventListener('change', render);
+repeatFilter.addEventListener('change', render);
+
+$('resetFilter').addEventListener('click', () => {
+  searchInput.value=''; regionFilter.value=''; csatFilter.value='';
+  attendanceFilter.value=''; repeatFilter.value='';
+  sortState = { key: 'no', dir: 1 };
+  render();
+});
+
+/* Sorting */
+document.querySelectorAll('th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const k = th.dataset.key;
+    if(sortState.key === k) sortState.dir = -sortState.dir;
+    else sortState = { key: k, dir: 1 };
+    document.querySelectorAll('th.sortable').forEach(t => t.classList.remove('active'));
+    th.classList.add('active');
+    const arrow = th.querySelector('.arrow');
+    if(arrow) arrow.textContent = sortState.dir === 1 ? '↑' : '↓';
+    render();
+  });
+});
+
+/* Font size */
+$('fontPlus').addEventListener('click', () => {
+  fontSize = Math.min(18, fontSize + 1);
+  document.documentElement.style.setProperty('--font-size', fontSize + 'px');
+});
+$('fontMinus').addEventListener('click', () => {
+  fontSize = Math.max(11, fontSize - 1);
+  document.documentElement.style.setProperty('--font-size', fontSize + 'px');
+});
+
+/* CSV download */
+$('downloadCsv').addEventListener('click', () => {
+  const headers = ['번호','대학','전형명','전형방법','출결정량','서류평가영역','수능최저','반영교과','공통/일반선택','진로선택','융합선택','재수생','지역'];
+  const rows = applySort(applyFilters());
+  const lines = [headers.join(',')];
+  rows.forEach(r => {
+    const fields = [r.no, r.university, r.method_name, r.method, r.attendance, r.document_eval, r.csat, r.subjects, r.common, r.career, r.convergence, r.repeat, r.region];
+    lines.push(fields.map(f => `"${String(f||'').replace(/"/g,'""')}"`).join(','));
+  });
+  const csv = '\ufeff' + lines.join('\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = '2028학년도_학생부교과전형.csv';
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 200);
+});
+
+/* Init */
+render();
+</script>
+</body>
+</html>

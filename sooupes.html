@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 지구과학 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 지구과학 16개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#0f6980;
+  --atmo-bg:#e1f0f3;
+  --geo:#8a5a1f;
+  --geo-bg:#f1e6d6;
+  --astro:#4c4f93;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(15,105,128,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(76,79,147,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:-.025em;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:-.045em;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.15em;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">地</div>
+      <div class="b-text">
+        <strong>일반선택 지구과학 수업설계 워크북</strong>
+        <span>개념기반탐구 · 16개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective Earth Science</div>
+        <h1 class="cover-title">지구과학 성취기준별 <em>개념기반탐구</em> 수업 플랫폼</h1>
+        <p class="lead">
+          일반선택 지구과학 16개 성취기준을 원문, 공식 탐구 활동, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 단계별 탐구수업, 관측 자료 처리, 학생부종합전형형 산출물,
+          평가·피드백까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button>
+          <button class="btn" onclick="openView('matrix')">16개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 지구과학 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책9] 과학과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>자료해석 수업 · 수행평가 · 재해 대응 탐구 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">3<small>영역</small></span>
+      <span class="label">대기·해양 · 지질 · 천문·우주</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">16<small>기준</small></span>
+      <span class="label">성취기준 원문 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 지구·우주 현상, 관측 자료, 시공간 규모, 전이의 통합</h2>
+    <p>
+      지구과학은 실제 관측 자료를 읽고, 시간 규모와 공간 규모를 구분하며, 지도·그래프·단면도·H-R도·시뮬레이션으로
+      자료를 변환해 해석할 때 수업의 질이 높아집니다. 본 워크북은 그 흐름을 교실 장면 단위로 구체화합니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>원문 보존</h3>
+      <p>성취기준 원문과 공식 탐구 활동은 그대로 유지하고, 교사가 바로 실행할 수 있는 수업 언어로 재구성합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>자료 기반 개념 형성</h3>
+      <p>현상, 개념 갈등, 관측 자료 처리, 모형화, 일반화, 전이로 이어지는 CBI 사고 흐름을 모든 성취기준에 적용합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>기록 가능성</h3>
+      <p>학생부종합전형 대비를 위해 자료 변환, 예측, 추론, 불확실성 분석, 대응 제안 장면을 먼저 설계합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 모든 차시의 뼈대</h2>
+    <p>학생이 지구·우주 현상에 대한 관찰에서 출발해 개념 간 관계를 일반화하고, 재해 대응·기후 해결·지질유산·우주론 맥락으로 전이하도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>실제 기상·해양·지질·천문 사례로 호기심을 유발한다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>관찰을 시공간 규모, 시스템, 증거 렌즈로 정렬한다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>조사·탐구</strong><p>실측 자료, 지도, 단면도, 시뮬레이션으로 증거를 만든다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>표·그래프·지도·모형·H-R도로 자료를 표상한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>개념 간 관계를 자기 언어로 진술하고 증거로 뒷받침한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>재해·기후·지질유산·우주 탐구 맥락에 일반화를 적용한다.</p></div>
+  </div>
+      <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. CBI는 학생이 단순히 결과를 외우는 것이 아니라, 자료를 만들고 해석하며 결론을 자신의 언어로 진술하는 과정을 거치게 합니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>대기와 해양의 상호작용</option>
+            <option>지구의 역사와 한반도의 암석</option>
+            <option>태양계 천체와 별과 우주의 진화</option>
+          </select>
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>자료</option>
+            <option>모형</option>
+            <option>시뮬레이션</option>
+            <option>재해</option>
+            <option>지질</option>
+            <option>천문</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>지구과학 16개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 수업 제목, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>지구과학 수업은 단순한 개념 설명이 아니라 실제 자료를 시간·공간·불확실성 관점에서 읽고, 예측·추론·대응으로 확장하도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>ARGO, 위성 영상, 일기도, 레이더 영상, 지질단면도, 천체 자료, 시뮬레이션 도구, 안전 조건을 먼저 확인합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 자료 출처, 시간 범위, 공간 범위, 그래프·지도화 과정, 해석 문장, 불확실성을 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>피드백 후 수정본, 예측 근거, 모델 한계, 재해 대응·기후 해결·지질유산 보전 전이 과제를 기록 근거로 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 지구과학 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+{
+code:"[12지구01-01]",
+domain:"대기와 해양의 상호작용",
+standard:"해수의 물리적, 화학적 성질을 이해하고, 실측 자료를 활용하여 해수의 온도, 염분, 밀도, 용존 산소량 등의 분포를 분석⋅해석할 수 있다.",
+official:["인공위성 및 ARGO 자료로 해수의 성질 비교하기"],
+title:"바닷물의 성질은 깊이와 지역에 따라 어떻게 달라지는가?",
+type:"실측 자료 해석형",
+period:"2차시",
+lens:"분포와 층상 구조",
+concept:"해수의 성질과 수괴 분포",
+related:"수온, 염분, 밀도, 용존 산소량, 수괴, 혼합층, 수온약층, 심해층, T-S 다이어그램, 수직 분포",
+phenomenon:"같은 바다라도 표층과 심층의 수온·염분·용존 산소량이 다르게 나타나는 ARGO 프로파일과 위성 해수면 온도 지도를 제시한다.",
+conflict:"학생은 바닷물의 성질을 수온 하나로 판단하거나, 깊어질수록 단순히 차가워진다고만 생각할 수 있다. 표층의 혼합층, 수온약층, 심해층이 구분되며 수온·염분·밀도·용존 산소량이 서로 다른 방식으로 변한다는 자료를 통해 복합적 판단의 필요성을 드러낸다.",
+general:"해수의 성질은 수온, 염분, 밀도, 용존 산소량의 공간적·수직적 분포로 표현되며, 이 분포는 수괴와 해양 환경을 해석하는 증거가 된다.",
+studentGeneral:"바닷물의 성질은 수온만이 아니라 염분, 밀도, 산소량을 함께 보아야 깊이와 지역 차이를 설명할 수 있다.",
+questions:["해수의 물리적·화학적 성질에는 무엇이 있는가?","해수의 밀도와 수괴 분포는 왜 수온과 염분을 함께 고려해야 설명되는가?","해양 관측 자료만으로 바다의 변화를 충분히 예측할 수 있는가?","해양 열파, 어장 변화, 산소 최소층 확대는 해수 성질 자료로 어떻게 분석할 수 있는가?"],
+products:["ARGO·위성 자료 분석표","수온·염분·밀도 수직 분포 그래프","해역별 성질 비교 보고서","자료 한계 분석문"],
+evidence:["실측 자료를 표와 그래프로 변환함","수온·염분·밀도를 함께 고려함","혼합층·수온약층·심해층의 구조를 구분함","해역별 수괴 특성을 비교함","관측 자료의 한계를 설명함"],
+data:"수심, 수온, 염분, 밀도, 용존 산소량을 표로 정리하고 수직 분포 그래프와 해역별 비교 그래프를 작성한다. 표층 혼합층, 수온약층, 심해층 구조를 표시한다.",
+modeling:"수온-염분 관계를 T-S 다이어그램 또는 수괴 판정표로 표현하고, 표층수·중층수·심층수의 차이를 해석 문장으로 정리한다.",
+source:"ARGO 플로트 프로파일, 인공위성 해수면 온도 지도, 제공 CSV 자료",
+scale:"공간: 특정 해역 또는 해양 분지 / 시간: 관측 시각 또는 계절 평균",
+uncertainty:"관측 시각 차이, 센서 보정, 수심 간격, 자료 결측, 그래프 축 설정에 따른 해석 차이",
+misconception:"해수의 밀도는 수온만으로 결정된다.",
+correction:"수온이 낮을수록 밀도가 커지는 경향은 있으나 염분도 밀도에 영향을 주며, 같은 수온이라도 염분이 높으면 밀도가 커진다는 점을 그래프로 확인하게 한다.",
+failure:"원자료가 복잡하면 교사가 전처리한 CSV를 제공하고, 먼저 수심-수온 그래프를 작성한 뒤 염분·밀도·산소량을 단계적으로 추가한다.",
+safe:"디지털 자료 해석 수업이며, 실제 해양 관측 자료의 출처와 단위, 결측값 처리 방법을 명시한다.",
+deepDive:"해양 열파 또는 산소 최소층 자료를 추가하여 해수의 성질 변화가 생태계와 수산자원에 미치는 영향을 분석한다.",
+career:"해양학, 기후과학, 수산자원, 환경자료 분석, 원격탐사",
+sample:"ARGO 프로파일 자료를 수심별 수온·염분·밀도 그래프로 변환하고, 표층 혼합층·수온약층·심해층 구조와 두 해역의 수괴 특성을 비교함. 밀도를 수온만으로 판단하던 초기 설명을 수정하여 같은 수온에서도 염분이 높으면 밀도가 커진다는 점을 T-S 다이어그램으로 설명하고, 해양 열파와 산소 최소층 문제로 전이 질문을 확장함.",
+tool:"지구과학-1 / 서·논술형 / 실측 자료를 활용한 해수의 온도, 염분, 밀도, 용존 산소량 분석하기"
+},
+{
+code:"[12지구01-02]",
+domain:"대기와 해양의 상호작용",
+standard:"심층 순환의 발생 원리와 분포를 알고, 표층 순환 및 기후변화의 관련성을 추론할 수 있다.",
+official:[],
+title:"심층 순환은 기후변화와 어떻게 연결되는가?",
+type:"해양 순환 모형·자료해석형",
+period:"2차시",
+lens:"밀도 차와 전 지구 연결성",
+concept:"심층 순환과 기후 연결성",
+related:"심층 순환, 열염 순환, 대서양 자오선 역전 순환(AMOC), 북대서양 심층수, 남극 저층수, 수괴, 침강, 용승, 표층 순환, 열 수송, 기후변화",
+phenomenon:"북대서양 심층수 형성 약화 가능성과 유럽 기후 영향, 그린란드 해 결빙, 전 지구 해양 컨베이어벨트 그림을 제시한다.",
+conflict:"학생은 해류를 바람이 표면 물을 움직이는 현상으로만 이해할 수 있다. 수온·염분에 따른 밀도 차가 심층 해수 이동을 만들고, 이 이동이 표층 순환과 연결된다는 점을 탐구한다.",
+general:"심층 순환은 수온과 염분 차이에 의한 밀도 차로 발생하며(열염 순환), 표층 순환과 연결되어 전 지구적 열 수송과 기후 변화에 영향을 준다.",
+studentGeneral:"차갑고 염분이 높은 해수는 가라앉아 깊은 바다를 흐르며, 이 흐름은 표층 해류와 기후에도 영향을 준다.",
+questions:["심층 순환은 어디에서 어떻게 발생하는가?","밀도 차로 발생한 심층 순환이 어떻게 전 지구 기후와 연결되는가?","심층 순환 약화는 먼 미래의 문제인가, 현재 기후위기의 신호인가?","북대서양 심층수가 약해지면 지역별 기온과 강수는 어떻게 달라질까?"],
+products:["심층 순환 모형","밀도 조건 비교표","기후 영향 추론 보고서","순환 약화 시나리오 분석"],
+evidence:["침강 조건을 수온·염분·밀도로 설명함","북대서양 심층수와 남극 저층수의 형성 지역을 구분함","심층 순환과 표층 순환의 연결을 표시함","기후 변화와 열 수송 변화를 추론함","모형의 단순화 한계를 설명함"],
+data:"지역, 수온, 염분, 밀도, 침강 가능성, 주요 수괴(북대서양 심층수·남극 저층수 등), 예상 기후 영향을 표로 정리한다.",
+modeling:"차갑고 염분 높은 해수가 침강하는 단면 모형과 전 지구 해양 순환 화살표를 작성하고, 대서양 자오선 역전 순환(AMOC) 약화 전후의 열 수송 변화를 비교한다.",
+source:"전 지구 해양 순환 모식도, 수온·염분 분포 자료, 기후 영향 시나리오 자료",
+scale:"공간: 전 지구 해양 / 시간: 수십 년~수천 년 규모 순환",
+uncertainty:"모형 단순화, 해저 지형 생략, 지역별 관측 밀도 차이, 기후 요인의 복합성",
+misconception:"해류는 표면에서만 흐른다.",
+correction:"표층 순환과 심층 순환은 연결되어 있으며, 심층 순환은 밀도 차로 천천히 전 지구적으로 이동한다는 점을 모형과 자료로 설명한다.",
+failure:"염분·온도 모형 실험이 뚜렷하지 않으면 색소를 넣은 밀도층 모형이나 제공 영상을 활용하고, 학생은 모형의 설명력과 한계를 함께 기록한다.",
+safe:"물과 염분 모형 실험 시 염수 흘림과 전자기기 접촉에 유의하고, 실험 후 바닥 미끄럼을 확인한다.",
+deepDive:"AMOC 약화 시나리오를 선택해 유럽 한랭화, 해수면 변화, 북반구 강수대 이동, 탄소 흡수 감소, 극지 해빙 변화를 연결하는 시스템 지도를 만든다.",
+career:"기후과학, 해양물리, 해양환경, 지구시스템 모델링",
+sample:"밀도 차에 의한 침강 조건을 수온·염분 자료로 비교하고, 북대서양 심층수와 남극 저층수의 형성 지역을 구분하여 전 지구 해양 순환 모형을 제작함. 해류를 표면 물의 이동으로만 보던 설명을 수정하여 대서양 자오선 역전 순환(AMOC) 변화가 유럽 한랭화와 북반구 강수대 이동 등 기후변화에 미치는 영향을 추론함.",
+tool:"지구과학-2 / 서·논술형 / 심층 순환의 발생 원리와 기후변화 관련성 추론"
+},
+{
+code:"[12지구01-03]",
+domain:"대기와 해양의 상호작용",
+standard:"중위도 저기압과 고기압이 통과할 때 날씨의 변화를 일기도, 위성 영상, 레이더 영상을 종합하여 예측할 수 있다.",
+official:["일기도와 위성 및 레이더 영상 등을 이용하여 기압계와 연관된 과거 날씨 분석하기"],
+title:"일기도와 위성·레이더 영상으로 날씨를 예측할 수 있을까?",
+type:"기상 자료 종합 해석형",
+period:"2~3차시",
+lens:"자료 종합과 예측",
+concept:"기상 자료 종합과 날씨 예측",
+related:"중위도(온대) 저기압, 고기압, 한랭전선, 온난전선, 폐색전선, 한대전선대, 기상 요소, 일기도, 위성 영상(가시·적외), 레이더 영상, 강수 에코",
+phenomenon:"같은 시각의 일기도, 위성 영상, 레이더 영상에서 서로 다른 정보가 나타나는 사례를 제시한다.",
+conflict:"학생은 일기도 하나만 보면 날씨를 충분히 예측할 수 있다고 생각할 수 있다. 일기도에는 기압계와 전선 구조, 위성 영상에는 구름 분포, 레이더 영상에는 강수 정보가 담긴다는 차이를 비교한다.",
+general:"중위도 저기압은 한대전선대에서 발생하며 한랭전선·온난전선의 구조를 가지고, 날씨 예측은 기압계 구조, 구름 분포, 강수 영역, 시간 변화를 종합적으로 해석하는 과정이다.",
+studentGeneral:"일기도는 기압계와 전선, 위성 영상은 구름, 레이더 영상은 강수를 보여 주므로 세 자료를 함께 보아야 날씨 변화를 더 잘 예측할 수 있다.",
+questions:["중위도 저기압과 고기압의 구조와 이동은 어떻게 나타나는가?","왜 일기도, 위성 영상, 레이더 영상을 함께 보아야 날씨 변화를 더 정확히 예측할 수 있는가?","기상 예측에서 사람의 해석과 인공지능 예측 중 무엇이 더 신뢰로운가?","집중호우가 예상될 때 어떤 자료를 근거로 위험 지역을 판단해야 하는가?"],
+products:["기상 자료 종합 해석표","기압계 통과 날씨 분석 보고서","예상 날씨 근거 발표","자료 한계 분석문"],
+evidence:["기압계와 전선 위치를 찾음","한랭전선·온난전선 통과 전후 기상 요소 변화를 설명함","위성 영상의 구름대를 해석함","레이더 영상의 강수 영역을 해석함","세 자료를 종합해 날씨 변화를 예측함"],
+data:"시간, 기압계 위치, 전선 종류와 위치, 구름 분포, 강수 에코, 풍향·기온·기압 변화, 예상 날씨, 실제 날씨를 표로 정리한다.",
+modeling:"시간 순서의 세 자료를 같은 지도 위에 겹쳐 표시하고, 한랭전선과 온난전선 통과 전후 특정 지역의 풍향·기온·기압·강수 변화를 예측 문장으로 작성한다.",
+source:"기상청 일기도, 위성 가시·적외 영상, 기상 레이더 영상, 지역별 관측값",
+scale:"공간: 한반도 주변 종관 규모와 지역 강수 영역 / 시간: 3~12시간 간격 자료",
+uncertainty:"관측 시각 차이, 레이더 음영, 구름과 강수의 불일치, 국지성 강수의 예측 한계",
+misconception:"일기도 하나만 보면 날씨를 충분히 예측할 수 있다.",
+correction:"일기도, 위성 영상, 레이더 영상은 서로 다른 기상 정보를 제공하므로 자료를 종합해야 예측 근거가 강화됨을 확인한다. 특히 한랭전선 후면의 적운형 강수와 온난전선 전면의 층운형 강수는 위성·레이더 자료로 함께 봐야 구분된다.",
+failure:"학생이 자료를 각각 따로 해석하면 세 자료의 같은 시각 위치를 한 지도 위에 겹쳐 표시하게 한다.",
+safe:"악기상 사례를 다룰 때 피해를 자극적으로 소비하지 않고, 실제 재난 대응 정보와 자료 해석의 한계를 함께 안내한다.",
+deepDive:"최근 집중호우 사례를 선택해 일기도, 위성, 레이더, 지상 관측값을 시간순으로 배열하고 위험 지역 판단 근거를 제시한다.",
+career:"기상학, 재난안전, 데이터 분석, 항공기상, 방송기상",
+sample:"일기도, 위성 영상, 레이더 영상을 시간 순서로 배열하여 중위도 저기압 통과 전후의 기압계 위치, 전선 구조(한랭·온난), 구름대, 강수 에코 변화를 비교함. 단일 자료만으로 날씨를 예측하기 어렵다는 점을 인식하고, 세 자료를 종합하여 특정 지역의 강수 가능성과 풍향 변화를 근거 있게 설명함.",
+tool:"지구과학-3 / 서·논술형 / 중위도 저기압 통과 시 기상 요소 변화 분석"
+},
+{
+code:"[12지구01-04]",
+domain:"대기와 해양의 상호작용",
+standard:"태풍의 발생, 이동, 소멸 과정 및 태풍 영향권에서 날씨를 예측하고, 뇌우, 집중호우, 폭설, 강풍, 황사 등 주요 악기상의 생성 메커니즘과 대처 방안을 제시할 수 있다.",
+official:[],
+title:"태풍과 악기상은 어떻게 발생하고 어떻게 대비해야 하는가?",
+type:"재해 예측·대응 설계형",
+period:"2~3차시",
+lens:"재해 발생과 과학적 대응",
+concept:"악기상 메커니즘과 재난 대응",
+related:"태풍, 뇌우, 집중호우, 폭설, 강풍, 황사, 위험 반원·가항 반원, 재난 대응",
+phenomenon:"최근 태풍 경로도, 호우 레이더 영상, 황사 예측 자료, 폭설 피해 사례를 제시한다.",
+conflict:"학생은 악기상을 모두 ‘나쁜 날씨’로 묶어 이해할 수 있다. 각 악기상은 생성 조건과 피해 양상이 다르므로 관측 자료와 대응 전략도 달라져야 함을 탐구한다.",
+general:"악기상은 특정 대기 조건과 해양 조건에서 발생하며, 생성 메커니즘을 이해하면 피해를 줄이는 과학적 대응 방안을 설계할 수 있다.",
+studentGeneral:"태풍, 집중호우, 폭설, 황사는 원인과 피해가 다르기 때문에 자료를 보고 상황에 맞게 대비해야 한다.",
+questions:["태풍과 주요 악기상은 어떤 조건에서 발생하는가?","악기상의 생성 메커니즘을 알면 왜 대처 방안이 달라지는가?","악기상 피해는 자연재해인가, 사회적 취약성의 문제인가?","우리 학교와 지역사회에 맞는 악기상 대응 매뉴얼은 어떻게 설계할 수 있는가?"],
+products:["악기상 생성 메커니즘 카드","재난 대응 제안서","지역 위험 분석표","학교 안전 매뉴얼 초안"],
+evidence:["악기상별 발생 조건을 구분함","태풍의 위험 반원·가항 반원을 구분함","태풍 영향권 날씨를 자료로 예측함","피해 양상과 대처 방안을 연결함","지역 상황에 맞는 대응 전략을 제안함"],
+data:"악기상, 발생 조건, 관측 자료, 피해 양상, 예측 지표, 사전·발생 중·발생 후 대처 방안을 비교표로 정리한다.",
+modeling:"태풍 경로도에 위험 반원, 가항 반원, 강수 영역, 바람 방향, 예상 피해 지역을 표시하고 악기상별 대응 흐름도를 작성한다.",
+source:"태풍 경로도, 레이더 영상, 위성 영상, 황사 예측 지도, 재난안전 행동요령",
+scale:"공간: 지역사회~한반도 / 시간: 수 시간~수일 예측",
+uncertainty:"태풍 경로 오차, 국지성 강수 예측 한계, 지형 효과, 사회적 취약성 자료 부족",
+misconception:"악기상은 모두 같은 방식으로 대비하면 된다.",
+correction:"뇌우, 집중호우, 폭설, 강풍, 황사는 생성 조건과 피해 유형이 다르므로 자료 해석과 대처 방안도 달라야 함을 사례로 비교한다. 태풍은 진행 방향 오른쪽이 위험 반원이고 왼쪽이 가항 반원임을 모식도로 확인한다.",
+failure:"발표가 재난 행동요령 나열에 머물면 반드시 생성 메커니즘, 관측 자료 근거, 지역 조건, 취약 대상 보호 방안을 포함하게 한다.",
+safe:"재난 사례를 다룰 때 피해자와 피해 지역을 존중하고, 실제 학교 대피 경로와 안전 계획을 확인한다.",
+deepDive:"학교 주변 침수 취약 지역, 통학로, 운동장, 지하 공간을 기준으로 악기상별 위험 지도를 작성하고 대응 우선순위를 제안한다.",
+career:"기상학, 재난안전공학, 도시계획, 환경정책, 방재공학",
+sample:"태풍 경로도와 레이더 자료를 바탕으로 태풍의 위험 반원·가항 반원과 영향권의 바람·강수 변화를 예측하고, 집중호우·폭설·황사 등 악기상별 발생 조건과 피해 양상을 비교함. 단순 행동요령 나열을 넘어 생성 메커니즘과 지역 취약성을 연결한 학교 안전 매뉴얼 초안을 작성함.",
+tool:"지구과학-4 / 서·논술형 / 태풍과 주요 악기상 특징·피해·대처 방안 제시"
+},
+{
+code:"[12지구01-05]",
+domain:"대기와 해양의 상호작용",
+standard:"대기와 해양의 상호작용의 사례로서 해수의 용승과 침강, 엘니뇨-남방진동(ENSO)의 현상의 진행 과정 및 관련 현상을 설명할 수 있다.",
+official:[],
+title:"엘니뇨와 용승은 우리 생활에 어떤 영향을 미치는가?",
+type:"대기-해양 상호작용 자료해석형",
+period:"2차시",
+lens:"상호작용과 주기적 변동",
+concept:"용승·침강과 ENSO",
+related:"용승, 침강, 무역풍, 워커 순환, 엘니뇨, 라니냐, 남방진동(SOI), 해수면 온도, 기후 변동",
+phenomenon:"페루 어장 변화, 호주 가뭄, 동태평양 해수면 온도 편차 지도, 다윈-타히티 기압 편차(남방진동 지수) 자료를 제시한다.",
+conflict:"학생은 엘니뇨를 단순히 ‘바닷물이 따뜻해지는 현상’으로 이해할 수 있다. 대기와 해양이 결합되어 무역풍 약화, 워커 순환 변화, 용승 약화, 강수 분포 이동이 함께 일어난다는 관점으로 확장한다.",
+general:"ENSO는 대기 순환(워커 순환)과 해양 순환의 결합 변동이며, 해수면 온도·기압·용승·강수 분포의 변화가 전 지구 기후와 생활에 영향을 준다.",
+studentGeneral:"엘니뇨와 라니냐는 바다 온도만의 문제가 아니라 바람, 용승, 강수, 어업과 농업까지 연결되는 대기-해양 상호작용이다.",
+questions:["용승, 침강, 엘니뇨-남방진동은 무엇인가?","대기와 해양은 어떻게 서로 영향을 주고받아 기후 변동을 만드는가?","ENSO의 피해는 자연 변동으로 받아들여야 하는가, 예측과 대응의 대상인가?","엘니뇨가 식량 가격, 어업, 산불, 홍수 위험에 미치는 영향을 어떻게 분석할 수 있을까?"],
+products:["ENSO 진행 과정 모형","해수면 온도 편차 지도 해석표","생활 영향 분석 보고서","빅데이터 활용 조사 카드"],
+evidence:["정상·엘니뇨·라니냐 상태를 비교함","무역풍·워커 순환·용승 변화를 설명함","남방진동 지수(SOI)의 의미를 해석함","기후 영향 자료를 지역별로 해석함","생활·산업 영향으로 전이함"],
+data:"상태, 무역풍, 워커 순환, 해수면 온도, 용승, 강수 변화, 어업·농업·재난 영향, 근거 자료를 비교표로 정리한다.",
+modeling:"정상 상태와 엘니뇨·라니냐 상태의 태평양 적도 단면에 무역풍, 따뜻한 해수 이동, 용승 변화, 워커 순환, 강수 영역 변화를 화살표로 표시한다.",
+source:"해수면 온도 편차 지도, 남방진동 지수(SOI: 다윈-타히티 기압 편차) 자료, 강수·기온 편차 지도, 피해 사례 자료",
+scale:"공간: 열대 태평양~전 지구 원격상관 / 시간: 계절~수년 변동",
+uncertainty:"ENSO 유형 다양성, 지역별 영향 차이, 다른 기후 요인과의 중첩, 자료 기간 선택",
+misconception:"엘니뇨는 단순히 바닷물이 따뜻해지는 현상이다.",
+correction:"엘니뇨는 대기와 해양의 결합 변동이며, 무역풍 약화·워커 순환 변화·동태평양 용승 약화·해수면 온도 상승·강수 분포 이동이 함께 일어나는 현상임을 모형화한다. 라니냐는 반대로 무역풍과 워커 순환이 강화되는 현상이다.",
+failure:"자료 해석이 복잡하면 정상 상태와 엘니뇨 상태를 두 장의 그림으로 단순화해 비교한 뒤 실제 자료로 확장한다.",
+safe:"기후 재해 사례를 다룰 때 특정 국가나 지역을 단순화하지 않고, 자료 출처와 기간을 명시한다.",
+deepDive:"ENSO와 식량 가격, 수산자원, 산불 위험, 홍수 위험 중 하나를 선택해 대기-해양 상호작용에서 사회경제 영향까지 연결한다.",
+career:"기후과학, 해양학, 농업기상, 수산자원, 국제재난관리",
+sample:"정상 상태와 엘니뇨 상태의 무역풍, 워커 순환, 해수면 온도, 용승, 강수 분포 변화를 비교하고 태평양 적도 단면 모형으로 ENSO 진행 과정을 표현함. 엘니뇨를 단순한 수온 상승이 아니라 대기-해양 결합 변동으로 설명하고, 남방진동 지수(SOI)의 의미를 해석하여 어업과 농업 영향으로 전이함.",
+tool:"지구과학-4 / 선다형·자료해석 / ENSO와 생활 영향 해석"
+},
+{
+code:"[12지구01-06]",
+domain:"대기와 해양의 상호작용",
+standard:"기후변화의 원인을 자연적 요인과 인위적 요인으로 구분하여 설명하고, 인간 활동에 의한 기후변화 문제를 과학적으로 해결하는 방법을 탐색할 수 있다.",
+official:["기후변화의 원인을 설명하는 다양한 가설 추론하기"],
+title:"기후변화 원인을 어떻게 과학적으로 구분할 수 있는가?",
+type:"가설 비교·쟁점 탐구형",
+period:"2~3차시",
+lens:"원인 구분과 증거 기반 의사결정",
+concept:"기후변화 원인과 과학적 해결",
+related:"기후변화, 자연적 요인(태양 활동·화산 활동·지구 자전축·궤도 변화), 인위적 요인(온실기체·토지 이용 변화·에어로졸), 기후 모델, 탄소중립",
+phenomenon:"최근 지구 평균 기온 상승 그래프와 태양 활동, 화산 활동, 온실기체 증가, 토지 이용 변화 가설을 함께 제시한다.",
+conflict:"학생은 ‘기후는 원래 변한다’는 주장만으로 현재 변화를 판단하거나, 기후변화를 단일 원인으로 설명할 수 있다. 서로 다른 가설의 예측과 관측 자료의 설명력을 비교한다.",
+general:"기후변화의 원인은 자연적 요인과 인위적 요인으로 구분하여 분석해야 하며, 과학적 해결은 자료 기반 원인 진단과 사회적 실천을 함께 필요로 한다.",
+studentGeneral:"기후변화 원인을 판단하려면 여러 가설을 자료와 비교하고, 인간 활동이 만든 문제는 과학기술과 사회적 선택으로 해결해야 한다.",
+questions:["기후변화의 자연적 요인과 인위적 요인에는 무엇이 있는가?","서로 다른 원인 가설을 과학적으로 비교하려면 어떤 증거가 필요한가?","기후변화 대응은 개인 실천보다 정책과 기술 변화가 더 중요한가?","우리 학교의 탄소 배출을 줄이기 위한 과학적 해결 방안은 무엇인가?"],
+products:["기후변화 원인 가설 비교표","자료 근거 논증문","학교 탄소저감 제안서","해결 방안 우선순위표"],
+evidence:["자연적·인위적 요인을 구분함","가설별 예측과 자료의 일치도를 비교함","과학적 해결 방안을 제안함","자료의 한계와 사회적 실행 조건을 논의함"],
+data:"가설, 예상되는 변화, 사용 자료, 관측 자료와의 일치, 설명 범위, 한계, 해결 방안을 비교표로 정리한다.",
+modeling:"자연 요인과 인위 요인의 영향을 인과도 또는 원인-증거-해결책 삼각도에 표시하고, 학교 적용 해결 방안을 실행 가능성 기준으로 평가한다.",
+source:"기온·CO₂ 장기 변화 그래프, 태양 활동 자료, 화산 에어로졸 자료, 기후 모델 비교 그림",
+scale:"공간: 지역~전 지구 / 시간: 수십 년~수백 년 기후 추세",
+uncertainty:"자료 기간 선택, 자연 변동과 인위 영향의 중첩, 모델 가정, 사회경제 시나리오 차이",
+misconception:"기후는 원래 변하므로 현재 기후변화도 인간 활동과 무관하다.",
+correction:"자연 변동과 인위적 영향은 구분해 분석해야 하며, 여러 자료의 설명력을 비교해야 한다는 점을 강조한다. 특히 최근 수십 년의 급격한 기온 상승은 태양 활동만으로는 설명되지 않고, 온실기체 농도 증가와 일치한다는 점을 그래프로 확인한다.",
+failure:"토론이 신념 대립으로 흐르면 모든 주장을 ‘자료 근거, 반증 가능성, 설명 범위, 한계’ 기준으로 평가하게 한다.",
+safe:"기후위기 논의에서 불안 조장보다 자료 기반 이해와 실천 가능한 해결 전략을 중심으로 운영한다.",
+deepDive:"학교 전력 사용, 냉난방, 급식 잔반, 통학 교통 중 하나를 선택해 탄소저감 방안을 과학적 근거와 실행 가능성 기준으로 평가한다.",
+career:"기후과학, 환경정책, 에너지공학, 탄소중립 컨설팅, 지속가능경영",
+sample:"기후변화 원인을 태양 활동, 화산 활동, 온실기체 증가, 토지 이용 변화 등 자연적 요인과 인위적 요인으로 구분하고 각 가설이 설명할 수 있는 관측 자료와 한계를 비교함. 최근 급격한 기온 상승이 태양 활동만으로는 설명되지 않음을 그래프로 확인하고, 학교 탄소저감 방안을 과학적 근거와 실행 가능성 기준으로 제안함.",
+tool:"재구성 수행평가 / 기후변화 원인 가설 비교와 과학적 해결 방안 제안"
+},
+{
+code:"[12지구02-01]",
+domain:"지구의 역사와 한반도의 암석",
+standard:"지층 형성의 선후 관계를 결정짓는 법칙들을 활용하여 상대 연령을 비교하고, 방사성 동위 원소를 이용한 광물의 절대 연령 자료로 암석의 절대 연령을 구할 수 있다.",
+official:["지질단면도에서 층서 대비하기"],
+title:"지층은 지구의 시간을 어떻게 기록하는가?",
+type:"지질단면도 해석·연대 측정형",
+period:"2차시",
+lens:"시간의 기록과 증거",
+concept:"상대 연령과 절대 연령",
+related:"지사학 법칙(수평퇴적·지층누중·동물군 천이·관입·부정합), 동일과정의 원리, 상대 연령, 절대 연령, 평행부정합·경사부정합·난정합, 관입, 단층, 방사성 동위 원소, 반감기",
+phenomenon:"복잡한 지질단면도를 제시하고 ‘어떤 사건이 먼저 일어났는가?’를 판단하게 한다.",
+conflict:"학생은 아래 지층이 항상 오래되었다고 단순 판단할 수 있다. 관입, 절단, 부정합, 지층의 역전 가능성, 절대 연령 자료를 통해 사건 순서를 재구성한다.",
+general:"지층과 암석은 지사학 법칙(상대 연령)과 방사성 동위 원소 자료(절대 연령)를 통해 지구의 사건 순서와 시간을 기록한다.",
+studentGeneral:"지층의 나이는 위치만으로 판단하지 않고, 지사학 법칙과 절대 연령 자료를 함께 사용해야 한다.",
+questions:["상대 연령과 절대 연령은 어떻게 다른가?","지층과 암석은 어떤 법칙을 통해 지구의 시간을 기록하는가?","지질단면도만으로 과거 지구 역사를 충분히 복원할 수 있는가?","화산재층이나 관입암의 절대 연령 자료는 지질 사건 순서를 어떻게 보완하는가?"],
+products:["지질단면도 해석표","상대·절대 연령 분석 보고서","지질 사건 순서 카드","오류 수정 기록"],
+evidence:["지사학 법칙을 적용함","평행부정합·경사부정합·난정합을 구분함","지질 사건의 선후 관계를 배열함","방사성 동위 원소 자료를 절대 연령으로 해석함","상대·절대 연령을 통합하여 설명함"],
+data:"지질 사건, 적용 법칙, 부정합 종류, 상대 순서, 절대 연령 근거(반감기 활용), 해석을 표로 정리한다.",
+modeling:"지층, 관입암, 단층, 부정합을 색으로 표시한 지질단면도에 사건 번호를 붙이고 지질 역사 서술문을 작성한다.",
+source:"지질단면도, 방사성 동위 원소 붕괴 곡선, 절대 연령 표",
+scale:"공간: 노두~지역 지질 단면 / 시간: 지질시대 수백만~수억 년",
+uncertainty:"단면도 단순화, 지층 역전 여부, 절대 연령 오차 범위, 표본 대표성",
+misconception:"아래에 있는 지층은 항상 가장 오래되었다.",
+correction:"지층 누중의 법칙은 지층이 뒤집히지 않았을 때 적용되며, 관입·단층·부정합은 별도의 법칙으로 판단해야 함을 단면도로 확인한다.",
+failure:"사건 순서 판단이 어려우면 ‘절단한 것이 나중’, ‘관입한 것이 나중’, ‘부정합은 퇴적-융기-침식-침강-퇴적의 시간 간격을 의미’ 기준을 체크리스트로 적용하게 한다.",
+safe:"야외 지질 답사와 연결할 경우 낙석, 절벽 접근, 도로변 관찰, 채집 허가 여부를 확인한다.",
+deepDive:"서로 다른 두 지역의 지질단면도를 비교하고 표준화석 또는 화산재 절대 연령 자료를 추가해 층서 대비를 수행한다.",
+career:"지질학, 자원탐사, 지질공학, 고환경 복원, 지질재해 연구",
+sample:"지질단면도에서 지층, 관입암, 단층, 부정합(평행·경사·난정합)을 구분하고 지사학 법칙을 적용해 지질 사건 순서를 배열함. 아래 지층이 항상 오래되었다는 단순 판단을 수정하고, 방사성 동위 원소의 반감기를 활용한 절대 연령 자료를 추가해 상대 연령과 절대 연령을 통합한 지질 역사 서술문을 작성함.",
+tool:"지구과학-5 / 서·논술형 / 지질단면도에서 상대 연령을 비교하고 절대 연령을 결정하기"
+},
+{
+code:"[12지구02-02]",
+domain:"지구의 역사와 한반도의 암석",
+standard:"지질시대를 기(紀) 수준에서 구분하고, 지층과 화석을 통해 지질시대의 생물과 환경 변화를 해석할 수 있다.",
+official:["고기후 연구 방법 비교⋅평가하기","한반도에서 산출되는 화석 분포 지도 그리기"],
+title:"화석과 지층으로 지질시대 환경을 어떻게 복원할까?",
+type:"지질시대·고환경 해석형",
+period:"2차시",
+lens:"과거 환경의 증거",
+concept:"지질시대와 고환경 해석",
+related:"지질시대(대-기-세), 캄브리아기·고생대·중생대·신생대, 표준화석(지리적 분포 넓고 생존 기간 짧음), 시상화석(특정 환경 지시, 생존 기간 김), 퇴적 구조, 고기후, 화석 분포, 층서 대비",
+phenomenon:"한반도 화석 산출 자료와 지층 사진을 제시하고 당시 환경이 바다였는지 육지였는지 추론하게 한다.",
+conflict:"학생은 화석을 오래된 생물 흔적으로만 볼 수 있다. 화석과 퇴적 구조가 시대 결정과 환경 복원에 쓰이는 증거임을 탐구한다.",
+general:"지층과 화석은 지질시대의 생물상과 퇴적 환경, 고기후 변화를 복원하는 핵심 증거이며, 표준화석은 시대를, 시상화석은 환경을 지시한다.",
+studentGeneral:"화석은 오래된 흔적일 뿐 아니라 그 지층의 시대(표준화석)와 당시 환경(시상화석)을 알려 주는 증거이다.",
+questions:["지질시대는 어떻게 구분되며 표준화석과 시상화석은 무엇인가?","지층과 화석은 과거 생물과 환경 변화를 어떻게 알려 주는가?","화석 기록은 지구 생물의 역사를 완전하게 보여 주는가?","한반도 화석 분포 자료로 당시 해양·육상 환경을 어떻게 추론할 수 있는가?"],
+products:["표준화석·시상화석 비교표","한반도 화석 분포 지도","고기후 연구 방법 비교표","고환경 복원 설명문"],
+evidence:["지질시대를 기 수준에서 구분함","표준화석의 시대 지시성과 시상화석의 환경 지시성을 구분함","한반도 화석 분포를 지도화함","고기후 연구 방법을 비교·평가함"],
+data:"화석, 산출 지층, 지질시대(기 수준), 표준화석/시상화석 구분, 환경 지시성, 퇴적 구조, 해석 근거를 표로 정리한다.",
+modeling:"한반도 지도에 화석 산출 위치를 표시하고, 시대별 해양·육상 환경 변화를 색상 영역으로 나타낸다.",
+source:"화석 사진, 한반도 화석 산출 위치 자료, 지층 사진, 고기후 연구 방법 자료(나이테·빙하 코어·화분 분석 등)",
+scale:"공간: 한반도 지역 / 시간: 고생대~신생대 지질시대",
+uncertainty:"화석 보존 편향, 산출지 자료의 공간 편중, 퇴적 환경 해석의 다의성",
+misconception:"화석은 단순히 오래된 생물의 흔적일 뿐이다.",
+correction:"화석은 지질시대 결정(표준화석: 지리적 분포가 넓고 생존 기간이 짧음), 고환경 복원(시상화석: 특정 환경 지시, 생존 기간 김), 생물 진화 해석에 활용되는 증거임을 사례로 구분한다.",
+failure:"지질시대 암기에 머물면 ‘이 화석이 왜 그 시대와 환경을 지시하는가’를 반드시 설명하게 한다.",
+safe:"화석 채집을 권장하지 않고, 자료 기반 분석 또는 허가된 표본 관찰로 운영한다.",
+deepDive:"한반도 특정 지질시대 화석 분포를 선택해 당시 해수면 변화, 기후, 생물상 변화를 하나의 고환경 복원 스토리로 구성한다.",
+career:"고생물학, 지질학, 고기후학, 박물관학, 지질유산 교육",
+sample:"한반도 화석 산출 자료를 지도로 표시하고 표준화석(지리적 분포가 넓고 생존 기간이 짧음)과 시상화석(특정 환경을 지시하고 생존 기간이 김)의 기능을 구분함. 화석을 단순한 생물 흔적으로 보던 설명을 수정하여 지질시대 결정과 고기후 복원의 증거로 활용하고, 화석 기록의 보존 편향을 한계로 제시함.",
+tool:"지구과학-6 / 서·논술형 / 지사학의 법칙과 표준화석을 통해 지층의 층서 비교하기"
+},
+{
+code:"[12지구02-03]",
+domain:"지구의 역사와 한반도의 암석",
+standard:"변동대에서 마그마가 생성되고, 그 조성에 따라 다양한 화성암이 생성됨을 설명할 수 있다.",
+official:[],
+title:"변동대에서는 왜 다양한 화성암이 만들어지는가?",
+type:"마그마 생성 환경 비교형",
+period:"2차시",
+lens:"생성 환경과 암석 조성",
+concept:"변동대와 화성암 생성",
+related:"변동대, 섭입대, 발산 경계(해령), 열점, 부분 용융, 압력 감소·물 공급·온도 상승, 마그마 조성(SiO₂ 함량), 현무암질·안산암질·유문암질 마그마",
+phenomenon:"해령, 섭입대, 열점 화산의 위치와 대표 화산암 자료를 비교한다.",
+conflict:"학생은 화산이 있으면 모두 같은 성질의 마그마가 분출된다고 생각할 수 있다. 판 경계별 환경과 마그마 생성 원인의 차이를 비교한다.",
+general:"마그마의 생성과 화성암의 종류는 변동대의 온도, 압력, 물 공급, SiO₂ 함량 등 조성 조건에 따라 달라진다.",
+studentGeneral:"마그마는 만들어지는 장소와 조건이 다르기 때문에 SiO₂ 함량과 점성, 만들어지는 화성암도 달라진다.",
+questions:["마그마는 어떤 변동대에서 어떤 원인(압력 감소·물 공급·온도 상승)으로 생성되는가?","변동대의 조건은 왜 마그마 조성과 화성암 종류를 달라지게 하는가?","화성암의 이름보다 생성 환경을 이해하는 것이 더 중요한가?","제주도, 울릉도, 백두산의 화산암 차이는 어떤 생성 환경과 관련될까?"],
+products:["마그마 생성 과정 비교표","변동대-화성암 연결 모형","한반도 화산암 사례 적용표","생성 환경 설명문"],
+evidence:["변동대별 마그마 생성 원인을 구분함","마그마의 SiO₂ 함량과 점성·분출 양상을 연결함","현무암질·안산암질·유문암질 마그마를 구분함","대표 지형 사례에 적용함","암석 이름보다 생성 환경으로 설명함"],
+data:"변동대 유형, 마그마 생성 원인, 마그마 조성(SiO₂ 함량), 점성, 분출 양상, 대표 화성암, 지형 사례를 표로 정리한다.",
+modeling:"발산 경계(해령), 섭입대, 열점의 단면도를 그리고 부분 용융 위치와 마그마 상승 경로, 생성되는 마그마의 종류(해령: 현무암질, 섭입대: 안산암질, 대륙 지각 용융: 유문암질)를 화살표로 표시한다.",
+source:"판 경계 지도, 화산암 조성표, 한반도 화산 지형 사례 자료",
+scale:"공간: 판 경계~지역 화산체 / 시간: 화산 활동과 지각 변동의 지질학적 시간",
+uncertainty:"마그마 혼합, 분화 과정, 암석 시료 대표성, 지질 환경 단순화",
+misconception:"모든 화산의 마그마는 같은 성질을 가진다.",
+correction:"마그마는 생성 환경과 SiO₂ 함량에 따라 점성, 분출 양상, 생성 암석이 달라진다는 점을 변동대별로 비교한다. 해령에서는 주로 현무암질, 섭입대에서는 주로 안산암질, 대륙 지각의 부분 용융으로는 유문암질 마그마가 생성됨을 정리한다.",
+failure:"화성암 이름 외우기로 흐르면 ‘생성 환경 → 조성(SiO₂ 함량) → 분출 양상 → 암석’ 흐름을 먼저 그리게 한다.",
+safe:"암석 표본 관찰 시 날카로운 절단면에 주의하고, 야외 화산 지형 조사에서는 낙석과 접근 금지 구역을 준수한다.",
+deepDive:"제주도, 울릉도, 백두산의 화산암과 분출 양상 자료를 비교하여 한반도 화산 활동의 생성 환경 차이를 추론한다.",
+career:"화산학, 암석학, 지질재해, 자원지질, 지질공원 해설",
+sample:"해령, 섭입대, 열점에서 마그마가 생성되는 원인(압력 감소·물 공급·온도 상승)을 비교하고 마그마의 SiO₂ 함량, 점성, 분출 양상, 대표 화성암(현무암질·안산암질·유문암질)을 연결한 표를 작성함. 모든 화산의 마그마가 같다는 오개념을 수정하고 제주도(현무암질)와 백두산(유문암질 포함)의 화산암 차이를 생성 환경으로 설명함.",
+tool:"지구과학-7 / 서·논술형 / 변동대에서 마그마의 생성 과정과 생성된 마그마의 특성 비교하기"
+},
+{
+code:"[12지구02-04]",
+domain:"지구의 역사와 한반도의 암석",
+standard:"변성작용의 종류와 지각 변동에 따른 구조를 변동대와 관련지어 설명하고, 지구시스템에서 암석이 순환함을 추론할 수 있다.",
+official:[],
+title:"암석은 지구시스템 안에서 어떻게 순환하는가?",
+type:"지질 구조·암석 순환 모형화형",
+period:"2차시",
+lens:"변형과 순환",
+concept:"변성작용과 암석 순환",
+related:"접촉 변성, 광역 변성, 습곡, 정단층·역단층, 엽리(편리·편마구조), 층리, 관입, 암석 순환, 지구시스템",
+phenomenon:"습곡 지층, 단층 사진, 편마암·대리암 표본, 관입암과 포획암 사진을 제시한다.",
+conflict:"학생은 암석 순환을 정해진 순서대로 한 바퀴 도는 그림으로만 이해할 수 있다. 실제 암석은 지구시스템의 조건 변화에 따라 다양한 경로로 순환한다는 점을 탐구한다.",
+general:"변동대의 열과 압력, 지각 변동은 암석의 조직과 구조를 변화시키며(접촉 변성·광역 변성), 암석은 지구시스템 안에서 다양한 경로로 순환한다.",
+studentGeneral:"암석은 정해진 한 길로만 도는 것이 아니라 열, 압력, 용융, 풍화, 퇴적 조건에 따라 여러 경로로 변한다.",
+questions:["변성작용(접촉·광역)과 지각 변동 구조(습곡·단층)에는 어떤 종류가 있는가?","변동대의 힘과 열은 암석의 조직과 구조를 어떻게 변화시키는가?","암석 순환은 실제 지구에서 순서대로 일어나는 과정인가?","한반도의 변성암과 습곡 구조는 과거 어떤 지각 변동을 기록하고 있을까?"],
+products:["지질 구조 분류표","암석 순환 모형","변동대와 형성 조건 설명문","구조 사진 해석 카드"],
+evidence:["접촉 변성과 광역 변성을 구분함","습곡·정단층·역단층의 형성 조건을 설명함","엽리 발달 정도로 변성 강도를 추론함","암석 순환을 지구시스템 관점으로 표현함","사진 자료에서 힘의 방향과 변형 양상을 추론함"],
+data:"암석·구조, 관찰 특징(엽리·습곡축·단층면), 형성 조건(열·압력·응력 방향), 관련 변동대, 암석 순환 위치, 해석 근거를 표로 정리한다.",
+modeling:"암석 순환도에 변성작용(접촉·광역), 용융, 결정화, 풍화·침식·퇴적, 압밀·교결 경로를 여러 방향 화살표로 표시하고 정단층(장력)과 역단층(압축력)을 응력 방향에 따라 구분한다.",
+source:"암석 표본, 지질 구조 사진, 변동대 단면도, 암석 순환 자료",
+scale:"공간: 암석 표본~산맥 규모 변동대 / 시간: 수천 년~수억 년",
+uncertainty:"사진 해석의 제한, 표본 대표성, 실제 암석 순환 경로의 복합성",
+misconception:"암석 순환은 정해진 순서대로 한 바퀴 도는 과정이다.",
+correction:"실제 암석 순환은 여러 경로로 일어나며, 변동대의 열·압력·용융·풍화·퇴적 조건에 따라 다양한 경로가 가능함을 모형으로 수정한다. 또한 변성작용은 마그마 관입부의 좁은 범위에서 일어나는 접촉 변성과 조산운동에서 광범위하게 일어나는 광역 변성으로 구분된다는 점을 함께 정리한다.",
+failure:"구조 이름 외우기로 흐르면 사진에서 힘의 방향, 변형 양상, 형성 환경을 함께 표시하게 한다.",
+safe:"암석 표본 파편과 야외 노두 접근에 유의하고, 표본 채집은 허가된 범위에서만 한다.",
+deepDive:"한반도 변성암 지대 또는 습곡 구조 사례를 선택해 암석 순환과 지각 변동사를 연결하는 지질 해석 자료를 제작한다.",
+career:"구조지질학, 지질공학, 자원탐사, 지질재해, 암석학",
+sample:"습곡, 정단층·역단층, 변성암(편마암·대리암) 사진을 관찰해 응력의 방향과 형성 조건을 추론하고, 접촉 변성과 광역 변성을 구분하여 암석 순환 모형에 변성작용과 지각 변동을 연결함. 암석 순환이 정해진 순서로 한 바퀴 도는 과정이라는 설명을 수정하여 실제 지구시스템에서는 다양한 경로가 가능함을 모형으로 표현함.",
+tool:"재구성 수행평가 / 변성작용·지질 구조·암석 순환 모형화"
+},
+{
+code:"[12지구02-05]",
+domain:"지구의 역사와 한반도의 암석",
+standard:"우리나라의 대표적인 지질공원의 지질학적 형성 과정을 추론하고, 지역사회와 함께하는 지질공원의 지속가능한 발전방안을 제안할 수 있다.",
+official:["한반도 지질 명소(국가지질공원)에서 관찰 가능한 암석과 지질 구조 탐구하기"],
+title:"우리 지역 지질공원은 어떻게 만들어졌고 어떻게 보전할까?",
+type:"지질 명소 탐구·지속가능 설계형",
+period:"2~3차시",
+lens:"지질유산과 지속가능성",
+concept:"지질공원의 형성 과정과 보전",
+related:"국가지질공원, 세계지질공원, 지질 명소, 암석, 지질 구조, 형성 과정, 보전, 지역사회, 지속가능 발전, 지오투어리즘",
+phenomenon:"제주도 주상절리, 한탄강 현무암 협곡, 무등산 주상절리, 태백 고생대 지층 등 지질 명소 사진과 지질도를 제시한다.",
+conflict:"학생은 지질공원을 경치 좋은 관광지로만 이해할 수 있다. 관찰 가능한 암석과 지질 구조를 근거로 형성 과정을 추론하고 보전·교육·지역경제의 균형을 고려한다.",
+general:"지질공원은 지질학적 형성 과정이 기록된 지질유산이며, 지역사회와 함께 보전과 교육, 지속가능한 발전을 동시에 추구해야 한다.",
+studentGeneral:"지질공원은 관광지만이 아니라 지구의 역사를 보여 주는 장소이므로 형성 과정을 이해하고 보전 방안을 함께 생각해야 한다.",
+questions:["지질공원에서 관찰 가능한 암석과 지질 구조에는 무엇이 있는가?","지질 구조는 그 지역의 지질학적 형성 과정을 어떻게 기록하는가?","지질공원은 관광 개발과 보전 중 무엇을 더 우선해야 하는가?","우리 지역의 지질 명소를 교육·관광·보전이 공존하는 공간으로 만들려면 무엇이 필요할까?"],
+products:["지질공원 형성 과정 보고서","지질 명소 해설 자료","지속가능 발전안","탐방객 동선 개선안"],
+evidence:["암석과 지질 구조를 관찰·기록함","형성 과정을 지질학적으로 추론함","보전 가치와 지역사회 필요를 함께 고려함","지속가능 발전 방안을 제안함"],
+data:"지질 명소, 관찰 특징, 암석 종류, 지질 구조, 형성 과정, 보전 가치, 발전 방안을 표로 정리한다.",
+modeling:"지질 명소의 형성 과정을 시간 순서 그림으로 표현하고, 탐방 동선·해설 지점·보전 구역을 지도에 표시한다.",
+source:"국가지질공원 안내 자료, 지질도, 현장 사진, 지질 구조 관찰 기록",
+scale:"공간: 지질 명소~지역사회 / 시간: 지질학적 형성 과정과 현재 보전 관리",
+uncertainty:"현장 접근 제한, 사진 자료만으로 형성 과정 추론의 한계, 지역사회 이해관계 차이",
+misconception:"지질공원은 경치 좋은 관광지이다.",
+correction:"지질공원은 지질유산의 학술·교육·관광·보전 가치가 결합된 공간이며, 지질 구조의 형성 과정 해석이 핵심임을 강조한다.",
+failure:"발표가 관광 홍보로 흐르면 암석, 지질 구조, 형성 과정, 보전 필요성, 지역사회 협력 방안을 반드시 포함하게 한다.",
+safe:"현장 답사 시 낙석, 미끄럼, 해안·하천 접근, 사유지 출입, 표본 채집 금지 규정을 확인한다.",
+deepDive:"지역 지질 명소 하나를 선택해 ‘지질 해설판 개선안’ 또는 ‘탐방객 동선·보전 구역 지도’를 제작한다.",
+career:"지질공원 해설사, 지질학, 지오투어리즘, 지역개발, 환경정책",
+sample:"한반도 지질 명소의 암석과 지질 구조 자료를 바탕으로 형성 과정을 추론하고, 지질공원을 단순 관광지가 아니라 지질유산·지역교육·지속가능한 발전의 관점에서 해석함. 탐방객 동선 관리와 지역 해설 프로그램 개선안을 제안함.",
+tool:"지구과학-8 / 실험·실습 / 지질 명소의 암석과 지질 구조 관찰 및 형성 과정 추론"
+},
+{
+code:"[12지구03-01]",
+domain:"태양계 천체와 별과 우주의 진화",
+standard:"태양-지구-달 시스템에서의 식 현상을 이해하고 모형을 이용하여 태양계 행성의 겉보기 운동을 설명할 수 있다.",
+official:["천체 관측 프로그램으로 행성의 운동과 식 현상 시뮬레이션하기"],
+title:"식 현상과 행성의 겉보기 운동은 왜 그렇게 보일까?",
+type:"천체 시뮬레이션·모형화형",
+period:"2차시",
+lens:"관측 관점과 상대 운동",
+concept:"천체의 상대 운동과 겉보기 현상",
+related:"태양-지구-달 시스템, 일식(개기·부분·금환), 월식(개기·부분), 내행성·외행성, 겉보기 운동, 순행·역행·유, 시뮬레이션",
+phenomenon:"일식·월식 사진, 화성 역행 영상, 행성 위치 변화 시뮬레이션 화면을 제시한다.",
+conflict:"학생은 월식이 달이 구름에 가려지는 현상이라고 생각하거나, 행성이 실제로 뒤로 움직인다고 이해할 수 있다. 관측자의 위치와 상대 운동 관점으로 재구성한다.",
+general:"식 현상과 행성의 겉보기 운동은 천체의 실제 운동, 관측자 위치, 상대적 배열이 결합되어 나타나는 관측 현상이다.",
+studentGeneral:"하늘에서 보이는 천체의 움직임은 실제 운동과 관측 위치가 함께 만든 겉보기 현상이다.",
+questions:["일식과 월식은 어떤 천체 배열에서 일어나며 어떤 종류로 구분되는가?","천체의 실제 운동과 지구에서 보이는 겉보기 운동은 왜 다를 수 있는가?","모형과 시뮬레이션은 실제 천체 관측을 대체할 수 있는가?","다음 식 현상의 종류와 관측 가능 지역을 어떻게 예측할 수 있을까?"],
+products:["식 현상 시뮬레이션 보고서","행성 겉보기 운동 모형","관측 조건 해석표","모형 한계 성찰문"],
+evidence:["태양-지구-달 배열을 정확히 표시함","일식과 월식의 종류를 구분함","내행성·외행성 겉보기 운동을 설명함","외행성의 순행·역행·유 현상을 해석함","시뮬레이션 결과를 관측 조건과 연결함"],
+data:"천체 배열, 관측 위치, 그림자 위치(본그림자·반그림자), 식 현상 종류, 행성 위치, 겉보기 운동 특징(순행·역행·유), 관측 가능성을 표로 정리한다.",
+modeling:"공·전등·관측자 모형 또는 천체 관측 프로그램으로 식 현상과 행성의 겉보기 운동을 재현하고, 관측자 시점과 우주 시점을 비교한다.",
+source:"천체 관측 프로그램, 식 현상 영상, 행성 위치 자료, 천문 달력",
+scale:"공간: 태양계 / 시간: 하루~수개월 천체 위치 변화",
+uncertainty:"시뮬레이션 설정값, 관측 위치 차이, 모형 크기 비율의 왜곡",
+misconception:"월식은 달이 구름이나 다른 천체에 가려지는 현상이다. 외행성은 실제로 뒤로 움직인다.",
+correction:"월식은 달이 지구의 그림자(본그림자)에 들어가는 현상이며, 일식은 달의 그림자가 지구 표면에 드리워지는 현상임을 모형으로 비교한다. 외행성의 역행은 지구의 공전 속도가 빨라 외행성을 추월할 때 나타나는 겉보기 현상임을 시뮬레이션으로 확인한다.",
+failure:"시뮬레이션 조작에 집중하지 못하면 정해진 날짜와 관측 위치를 제공하고, 관찰해야 할 장면을 체크리스트화한다.",
+safe:"야간 관측을 할 경우 이동 안전, 보호자 동의, 빛공해와 기상 조건을 확인하고 태양 관측은 전용 필터 없이 하지 않는다.",
+deepDive:"다음 일식 또는 월식의 관측 가능 지역과 시간을 천체 관측 프로그램으로 예측하고, 관측 조건의 한계를 설명한다.",
+career:"천문학, 과학교육, 우주과학, 천체 시뮬레이션, 과학관 교육",
+sample:"천체 관측 프로그램으로 태양-지구-달 배열을 조작하여 일식(개기·부분·금환)과 월식(개기·부분)을 구분하고, 외행성의 순행·역행·유를 관측자 시점과 우주 시점에서 비교함. 월식을 단순 가림 현상으로, 행성의 역행을 실제 후진으로 이해하던 설명을 수정하고 상대 운동과 관측 위치가 겉보기 현상을 만든다는 점을 모형으로 설명함.",
+tool:"지구과학-9 / 서·논술형 / 월식의 개념과 자료 해석을 통한 월식 종류 구분"
+},
+{
+code:"[12지구03-02]",
+domain:"태양계 천체와 별과 우주의 진화",
+standard:"별의 분광형 결정 및 별의 분류 과정을 이해하고, 흑체복사 법칙을 이용하여 별의 물리량을 추론할 수 있다.",
+official:["별의 분광형과 광도 자료를 분석하여 H-R도 작성하기"],
+title:"별빛 자료로 별의 물리량을 어떻게 추론할까?",
+type:"분광·H-R도 자료해석형",
+period:"2~3차시",
+lens:"빛의 증거와 물리량 추론",
+concept:"별의 분광형과 H-R도",
+related:"분광형(O-B-A-F-G-K-M), 흑체복사, 빈의 변위 법칙(λmax·T=상수), 슈테판-볼츠만 법칙(L=4πR²σT⁴), 표면 온도, 광도, 반지름, H-R도, 주계열성, 적색거성, 백색왜성",
+phenomenon:"색이 다른 별 사진, 별 스펙트럼 자료, H-R도 예시를 제시한다.",
+conflict:"학생은 별의 색을 단순한 시각적 차이로 볼 수 있다. 색과 스펙트럼이 표면 온도와 물리량 추론의 증거라는 점을 자료로 확인한다.",
+general:"별빛의 스펙트럼과 광도 자료는 흑체복사 법칙(빈의 변위 법칙으로 색-온도 관계, 슈테판-볼츠만 법칙으로 광도-반지름-온도 관계)을 통해 별의 표면 온도, 광도, 반지름, 진화 상태를 추론하는 핵심 증거이다.",
+studentGeneral:"별의 색과 스펙트럼을 분석하면 빈의 변위 법칙으로 온도를, 슈테판-볼츠만 법칙으로 광도와 반지름 같은 물리량을 추론할 수 있다.",
+questions:["별의 분광형(O-B-A-F-G-K-M)은 어떻게 결정되는가?","빈의 변위 법칙과 슈테판-볼츠만 법칙은 별의 어떤 물리량을 알려 주는가?","멀리 있는 별의 성질을 직접 가보지 않고 알 수 있다고 말할 수 있는 근거는 무엇인가?","H-R도에서 우리 태양은 어떤 위치에 있으며 앞으로 어떻게 변할까?"],
+products:["분광형·광도 자료 분석표","H-R도","별 물리량 추론 설명문","흑체복사 법칙 해석 카드"],
+evidence:["스펙트럼으로 분광형을 판단함","빈의 변위 법칙으로 색-온도 관계를 설명함","슈테판-볼츠만 법칙으로 광도-반지름-온도 관계를 적용함","별 자료를 H-R도에 배치함","주계열성·적색거성·백색왜성을 H-R도에서 구분함"],
+data:"별, 분광형(O-B-A-F-G-K-M), 표면 온도(빈의 변위 법칙 적용), 광도, 색, 반지름 추론(슈테판-볼츠만 법칙 적용), H-R도 위치를 표로 정리한다.",
+modeling:"별의 분광형과 광도 자료를 H-R도에 점으로 표시하고, 주계열성·적색거성·백색왜성 영역을 구분하며 같은 광도라도 표면 온도가 낮을수록 반지름이 크다는 관계를 슈테판-볼츠만 법칙으로 해석한다.",
+source:"별 스펙트럼, 분광형 표, 광도 자료, H-R도 좌표 자료",
+scale:"공간: 항성 거리 규모 / 시간: 별의 진화 시간과 관측 시점",
+uncertainty:"거리 추정 오차, 광도 보정, 성간 소광, 로그 축 해석 어려움",
+misconception:"별의 색은 단순히 보기 좋은 색의 차이일 뿐이다.",
+correction:"별의 색과 스펙트럼은 표면 온도와 관련되며, 빈의 변위 법칙(λmax·T=상수)으로 색에서 온도를, 슈테판-볼츠만 법칙(L=4πR²σT⁴)으로 광도·반지름·온도 관계를 추론할 수 있음을 자료로 확인한다.",
+failure:"로그 축 H-R도 작성이 어려우면 교사가 축을 제공하고 학생은 자료 점 찍기와 위치 해석에 집중하게 한다.",
+safe:"디지털 자료 분석 중심 수업이며, 실제 야간 관측과 연결할 경우 안전한 이동과 장비 관리, 관측 윤리를 안내한다.",
+deepDive:"태양과 시리우스, 베텔게우스, 백색왜성 자료를 H-R도에 표시하고 빈의 변위 법칙·슈테판-볼츠만 법칙으로 색·온도·광도·반지름 관계를 정량적으로 비교한다.",
+career:"천체물리학, 관측천문학, 데이터 과학, 분광 분석, 우주과학",
+sample:"별 스펙트럼과 광도 자료를 분석해 분광형(O-B-A-F-G-K-M), 표면 온도, 광도, H-R도 위치를 정리함. 별의 색이 단순한 시각적 차이가 아니라 빈의 변위 법칙으로 표면 온도와, 슈테판-볼츠만 법칙으로 광도·반지름과 직접 연결되는 물리적 증거임을 설명하고, 태양의 위치와 미래 진화 질문으로 확장함.",
+tool:"지구과학-10 / 서·논술형 / 흑체복사 법칙을 이용한 별의 물리량 추론, H-R도에서 주계열성 비교"
+},
+{
+code:"[12지구03-03]",
+domain:"태양계 천체와 별과 우주의 진화",
+standard:"다양한 질량을 가진 별의 진화 과정을 H-R도에 나타내고 해석할 수 있다.",
+official:[],
+title:"별은 질량에 따라 어떻게 다른 삶을 사는가?",
+type:"별 진화 경로 해석형",
+period:"2차시",
+lens:"질량과 진화 경로",
+concept:"별의 질량과 진화",
+related:"성운, 원시별, 주계열성, 적색거성, 행성상 성운, 백색왜성, 초신성(II형), 중성자별, 블랙홀, 찬드라세카르 한계(약 1.4 M☉), H-R도",
+phenomenon:"태양 질량 별과 대질량 별의 진화 경로, 초신성 잔해 사진, 백색왜성·중성자별·블랙홀 사례를 비교한다.",
+conflict:"학생은 모든 별이 같은 단계를 거쳐 죽는다고 생각할 수 있다. 초기 질량이 수명, 핵융합 속도, 진화 경로, 최종 산물을 결정한다는 점을 H-R도에서 확인한다.",
+general:"별의 초기 질량은 별의 진화 시간, H-R도 경로, 최종 상태(백색왜성·중성자별·블랙홀)를 결정하는 핵심 요인이다.",
+studentGeneral:"별은 처음 질량에 따라 수명과 마지막 모습(백색왜성·중성자별·블랙홀)이 달라진다.",
+questions:["질량이 다른 별은 어떤 진화 단계를 거치는가?","별의 질량은 왜 진화 시간과 최종 상태(백색왜성·중성자별·블랙홀)를 결정하는 핵심 요인인가?","별의 일생을 ‘탄생과 죽음’이라는 생명 비유로 설명하는 것은 적절한가?","태양은 앞으로 H-R도에서 어떤 경로를 따라 이동할까?"],
+products:["질량별 별 진화 H-R도","진화 단계 비교표","태양의 미래 진화 설명문","비유의 한계 성찰문"],
+evidence:["질량별 진화 단계를 배열함","H-R도에서 진화 경로를 표시함","초기 질량에 따른 최종 산물을 구분함","진화 시간과 물리량 변화를 해석함"],
+data:"초기 질량 범위(태양질량 ~8배 미만/8~25배/25배 이상), 주요 진화 단계, H-R도 위치 변화, 표면 온도 변화, 광도 변화, 최종 상태(백색왜성/중성자별/블랙홀), 근거를 표로 정리한다.",
+modeling:"저질량(태양질량 ~8배 미만)·중대질량(8~25배)·대질량(25배 이상) 별의 진화 경로를 H-R도 위에 서로 다른 선으로 표시하고, 각 경로의 최종 산물을 표시한다.",
+source:"별 진화 경로 그림, H-R도, 초신성·백색왜성·중성자별 관측 사례",
+scale:"공간: 항성 내부~은하 / 시간: 수백만~수백억 년",
+uncertainty:"질량 구간 단순화, 금속 함량 효과 생략, 관측 가능한 단계의 제한",
+misconception:"모든 별은 같은 방식으로 진화한다.",
+correction:"초기 질량에 따라 핵융합 속도, 진화 시간, 최종 산물(태양질량 ~8배 미만은 백색왜성, 8~25배는 중성자별, 25배 이상은 블랙홀)이 달라지므로 H-R도 경로도 달라짐을 비교하게 한다.",
+failure:"단계 명칭 암기로 흐르면 각 단계에서 표면 온도와 광도가 어떻게 변하는지 H-R도 좌표로 설명하게 한다.",
+safe:"우주 사진 자료 사용 시 출처를 표시하고, 과학적 비유와 실제 물리 과정을 구분한다.",
+deepDive:"태양의 미래 진화 경로(적색거성→행성상 성운→백색왜성)와 대질량 별의 초신성 경로(중성자별 또는 블랙홀)를 비교하여 최종 산물 차이가 우주 물질 순환에 미치는 의미를 탐구한다.",
+career:"천체물리학, 우주론, 핵물리, 과학시각화, 천문교육",
+sample:"저질량(태양질량 8배 미만), 중대질량(8~25배), 대질량(25배 이상) 별의 진화 단계를 비교하고 H-R도 위에 경로를 표시함. 모든 별이 같은 방식으로 진화한다는 설명을 수정하여 초기 질량이 수명, 광도 변화, 최종 산물(백색왜성·중성자별·블랙홀)을 결정한다는 점을 해석문으로 정리함.",
+tool:"재구성 수행평가 / 질량별 별 진화 경로 H-R도 작성·해석"
+},
+{
+code:"[12지구03-04]",
+domain:"태양계 천체와 별과 우주의 진화",
+standard:"허블의 은하 분류 체계에 따른 은하의 특징을 비교하고 외부은하의 자료를 이용하여 특이 은하의 관측적 특징을 추론할 수 있다.",
+official:["빅데이터와 인공지능을 이용하여 은하 분류하기"],
+title:"은하의 모양과 스펙트럼은 무엇을 말해 주는가?",
+type:"빅데이터·은하 분류형",
+period:"2차시",
+lens:"분류와 관측 증거",
+concept:"은하 분류와 특이 은하",
+related:"허블 분류(타원은하 E·정상나선은하 S·막대나선은하 SB·불규칙은하 Irr), 특이 은하(전파은하·세이퍼트은하·퀘이사), 활동은하핵(AGN), 스펙트럼, 적색편이",
+phenomenon:"여러 은하 이미지와 스펙트럼 자료를 제시하고 인간 분류와 AI 분류 결과를 비교한다.",
+conflict:"학생은 은하 분류를 모양 맞추기로만 이해할 수 있다. 형태, 색, 중심부 밝기, 스펙트럼, 적색편이 정보가 물리적 성질 해석으로 이어짐을 탐구한다. 또한 세이퍼트은하와 퀘이사는 단순한 모양 분류가 아니라 활동은하핵을 가진 ‘특이 은하’로 별도 분류된다는 점을 확인한다.",
+general:"허블 분류는 은하의 형태에 따른 체계이며, 특이 은하(전파은하·세이퍼트은하·퀘이사)는 활동은하핵(AGN)을 가진 은하로 별도 분류된다. 은하의 형태와 스펙트럼은 은하의 물리적 특징, 활동성, 진화 상태를 추론하는 관측 증거이다.",
+studentGeneral:"은하의 모양(허블 분류)과 스펙트럼을 함께 보면 은하가 어떤 종류이고 얼마나 활동적인지(특이 은하인지) 추론할 수 있다.",
+questions:["허블의 은하 분류 체계(타원·정상나선·막대나선·불규칙)는 은하를 어떻게 구분하는가?","은하의 형태와 스펙트럼은 은하의 물리적 특징(별의 나이·구성·활동성)을 어떻게 알려 주는가?","인공지능 은하 분류는 인간의 분류보다 더 신뢰할 수 있는가?","특이 은하(전파은하·세이퍼트·퀘이사)와 활동은하핵 연구는 우주 진화 이해에 어떤 의미가 있을까?"],
+products:["은하 분류표","특이 은하 관측 특징 분석","AI 분류 비교 보고서","스펙트럼 해석 카드"],
+evidence:["허블 분류 기준(E·S·SB·Irr)을 적용함","형태와 스펙트럼 자료를 함께 해석함","특이 은하(전파·세이퍼트·퀘이사)의 관측 특징을 추론함","활동은하핵의 의미를 설명함","AI와 인간 분류의 장단점을 논의함"],
+data:"은하 이미지, 형태 특징, 색, 중심부 밝기, 스펙트럼 특징(방출선 폭·강도), 적색편이, 허블 분류, 특이성(전파·세이퍼트·퀘이사 여부) 근거를 표로 정리한다.",
+modeling:"은하 이미지를 허블 분류 체계(E0-E7·Sa-Sc·SBa-SBc·Irr)에 따라 배열하고, 특이 은하(전파은하·세이퍼트은하·퀘이사)의 스펙트럼 특징을 일반 은하와 비교하는 증거 맵을 만든다.",
+source:"공개 은하 이미지 데이터, 스펙트럼 자료, AI 분류 결과, 허블 분류 도식",
+scale:"공간: 외부 은하~우주 규모 / 시간: 은하 진화 시간과 현재 관측 자료",
+uncertainty:"영상 해상도, 관측 파장, 은하 기울기, AI 학습 데이터 편향, 적색편이 해석 한계",
+misconception:"은하 분류는 단순히 모양을 보고 이름 붙이는 활동이다. 세이퍼트은하와 퀘이사는 또 다른 모양의 정상은하이다.",
+correction:"허블 분류는 형태에 따른 체계로 은하의 별 생성, 질량 분포, 진화 상태를 추론하는 출발점이며, 세이퍼트은하·퀘이사·전파은하는 모양보다 ‘활동은하핵’이라는 물리적 특성으로 묶이는 특이 은하로 별도 분류된다는 점을 명확히 한다.",
+failure:"학생이 외형만 보고 판단하면 스펙트럼 선 폭, 적색편이, 중심부 밝기, 전파 방출 같은 추가 증거를 반드시 반영하게 한다.",
+safe:"공개 천문 데이터 사용 시 출처와 라이선스를 표시하고, AI 결과를 무비판적으로 정답으로 처리하지 않는다.",
+deepDive:"AI 은하 분류 결과와 학생 분류 결과가 다른 사례를 골라 영상 품질, 기울기, 중심부 밝기, 스펙트럼 근거를 비교한다.",
+career:"천문학, 빅데이터, 인공지능, 우주론, 과학 데이터 시각화",
+sample:"은하 이미지를 허블 분류 체계(타원·정상나선·막대나선·불규칙)에 따라 분류하고, 색·중심부 밝기·스펙트럼 특징을 추가 근거로 특이 은하(전파은하·세이퍼트은하·퀘이사)의 관측적 특징과 활동은하핵 개념을 추론함. 은하 분류를 단순 모양 맞추기가 아니라 물리적 성질과 진화 상태를 해석하는 과정으로 설명함.",
+tool:"지구과학-11 / 선다형 / 특이 은하의 구분 및 스펙트럼 특징 설명"
+},
+{
+code:"[12지구03-05]",
+domain:"태양계 천체와 별과 우주의 진화",
+standard:"허블-르메트르 법칙으로 우주의 팽창을 이해하고 우주의 진화에 대한 다양한 설명 체계의 의의를 현대 우주론의 관점에서 비교할 수 있다.",
+official:[],
+title:"우주는 어떻게 팽창하고 진화해 왔는가?",
+type:"우주론 증거 기반 논증형",
+period:"2~3차시",
+lens:"증거와 설명 체계의 변화",
+concept:"우주 팽창과 현대 우주론",
+related:"허블-르메트르 법칙(v=H₀d), 적색편이, 빅뱅(대폭발) 우주론, 정상 우주론, 우주 배경 복사(2.7K), 가벼운 원소 비율, 급팽창(인플레이션) 이론, 가속 팽창(암흑에너지), 암흑물질",
+phenomenon:"은하 거리-후퇴 속도 자료, 적색편이 스펙트럼, 우주 배경 복사 자료, 우주론 설명 체계 변화를 제시한다.",
+conflict:"학생은 우주 팽창을 한 지점에서 폭발한 물질이 빈 공간으로 퍼지는 현상으로 이해할 수 있다. 거리-후퇴 속도 관계와 공간 자체의 팽창 개념을 비교하고, 빅뱅 우주론을 보완하는 ‘급팽창 이론’(빅뱅 직후의 사건)과 현재 관측되는 ‘가속 팽창’(암흑에너지)이 서로 다른 시점·원인의 현상임을 구분한다.",
+general:"현대 우주론(빅뱅 우주론)은 은하의 적색편이, 거리-후퇴 속도 관계(허블-르메트르 법칙), 우주 배경 복사, 가벼운 원소 비율 등 관측 증거에 기반하며, 빅뱅 직후의 급팽창 이론과 현재의 가속 팽창(암흑에너지)으로 보완·확장되어 왔다.",
+studentGeneral:"우주 팽창은 폭발 파편이 퍼지는 것이 아니라 공간 자체의 규모가 커지는 것으로 이해해야 하며, 빅뱅 직후의 급팽창과 현재의 가속 팽창은 시점이 서로 다른 별개의 현상이다.",
+questions:["허블-르메트르 법칙은 무엇을 설명하는가?","은하의 거리와 후퇴 속도 관계, 우주 배경 복사, 가벼운 원소 비율은 왜 빅뱅 우주론의 핵심 증거가 되는가?","과학 이론이 바뀐다는 것은 이전 이론이 틀렸다는 뜻인가, 설명 체계가 확장된다는 뜻인가?","빅뱅 직후의 급팽창 이론과 현재의 가속 팽창은 어떤 관측 증거로 뒷받침되며 서로 어떻게 다른가?"],
+products:["우주 팽창 그래프","우주론 비교표(빅뱅·정상 우주론·급팽창·가속 팽창)","관측 증거 기반 논증문","풍선 모형 한계 분석"],
+evidence:["거리-후퇴 속도 자료를 산점도로 표현함","허블-르메트르 법칙(v=H₀d)을 정성적으로 해석함","빅뱅 우주론의 3대 증거(허블 법칙·우주 배경 복사·가벼운 원소 비율)를 설명함","급팽창 이론과 가속 팽창을 시점·원인 차이로 구분함","관측 증거와 이론 변화를 연결함"],
+data:"은하, 거리, 후퇴 속도, 적색편이, 그래프 위치, 우주 팽창 해석을 표로 정리한다.",
+modeling:"은하 거리-후퇴 속도 산점도를 그리고, 풍선 표면 모형으로 공간 팽창을 설명하되 중심·가장자리 오개념을 한계로 기록한다. 급팽창(빅뱅 직후 10⁻³⁶~10⁻³² 초의 사건)과 가속 팽창(현재 우주의 팽창 가속)을 시간 축에 따로 표시한다.",
+source:"은하 거리-후퇴 속도 자료, 적색편이 스펙트럼, 우주론 비교 자료, 우주 배경 복사 관련 도식",
+scale:"공간: 관측 가능한 우주 / 시간: 우주 나이와 진화 단계",
+uncertainty:"거리 측정 오차, 표본 수, 적색편이 해석, 모형의 비유적 한계, 우주론 매개변수 불확실성",
+misconception:"우주 팽창은 한 지점에서 폭발한 물질이 빈 공간으로 퍼지는 것이다. 급팽창과 가속 팽창은 같은 현상이다.",
+correction:"우주 팽창은 공간 자체의 규모가 커지는 것으로 이해해야 하며, 풍선 표면 모형의 설명력과 한계를 함께 다룬다. 급팽창은 빅뱅 직후 극히 짧은 시간(10⁻³⁶~10⁻³² 초)에 일어난 사건이고, 가속 팽창은 현재 우주에서 암흑에너지에 의해 진행되는 현상으로 시점과 원인이 다른 별개의 현상임을 시간축에 표시한다.",
+failure:"그래프 해석이 어렵다면 후퇴 속도가 큰 은하가 대체로 더 멀리 있음을 산점도에서 먼저 찾게 하고, 수식 계산보다 관계 해석에 집중한다.",
+safe:"우주론 논의에서 과학 이론의 변화가 ‘아무 주장이나 가능하다’는 뜻이 아니라 관측 증거에 따라 설명 체계가 수정된다는 점을 강조한다.",
+deepDive:"정상 우주론, 빅뱅 우주론(허블 법칙·우주 배경 복사·가벼운 원소 비율의 3대 증거), 급팽창 이론(빅뱅 직후 사건), 가속 팽창(현재 암흑에너지)을 관측 증거와 설명하려는 문제 중심으로 시간축에 따라 비교한다.",
+career:"우주론, 천체물리학, 데이터 과학, 과학철학, 우주 관측",
+sample:"은하 거리-후퇴 속도 자료를 산점도로 표현하고 허블-르메트르 법칙(v=H₀d)을 정성적으로 해석함. 우주 팽창을 폭발 파편의 확산으로 이해하던 설명을 수정하여 공간 자체의 팽창으로 설명하고, 빅뱅 우주론의 3대 증거(허블 법칙·우주 배경 복사·가벼운 원소 비율)를 정리함. 또한 빅뱅 직후의 급팽창 이론과 현재의 가속 팽창(암흑에너지)이 시점과 원인이 다른 별개의 현상임을 시간축에 따라 구분하여 설명함.",
+tool:"지구과학-12 / 서·논술형 / 우주의 진화 설명 체계 비교, 급팽창 우주론의 관측적 증거 제시"
+}
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "대기와 해양의 상호작용":"atmo",
+  "지구의 역사와 한반도의 암석":"geo",
+  "태양계 천체와 별과 우주의 진화":"astro"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "atmo");}
+function accent(d){return "accent-" + (DOMAIN_KEY[d] || "atmo");}
+function openView(id){
+  var views=document.querySelectorAll(".view");
+  for(var i=0;i<views.length;i++) views[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle("on", btns[j].dataset.view===id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+(function bindNav(){
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var i=0;i<btns.length;i++){
+    (function(b){ b.onclick=function(){ openView(b.dataset.view); }; })(btns[i]);
+  }
+})();
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill' + (solid?' solid':'') + '">' + esc(x) + '</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">' +
+    '<div class="blk-h"><span>' + esc(title) + '</span>' + (hint?'<span class="hint">' + esc(hint) + '</span>':"") + '</div>' +
+    body +
+  '</div>';
+}
+function filtered(){
+  var s=document.getElementById("search");
+  var d=document.getElementById("domain");
+  var t=document.getElementById("type");
+  var q=(s && s.value ? s.value : "").toLowerCase();
+  var domainVal=d && d.value ? d.value : "전체 영역";
+  var typeVal=t && t.value ? t.value : "전체 수업 유형";
+  return DATA.filter(function(x){
+    return (domainVal==="전체 영역" || x.domain===domainVal) &&
+      (typeVal==="전체 수업 유형" || x.type.indexOf(typeVal)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  var inArr=false;
+  for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ inArr=true; break; } }
+  if(!inArr && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '' +
+      '<button class="std-item ' + (i===current ? "on" : "") + '" onclick="select(' + i + ')">' +
+        '<div>' +
+          '<span class="code">' + esc(x.code) + '</span>' +
+          '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+          (x.official.length ? '<span class="chip">공식탐구</span>' : '') +
+        '</div>' +
+        '<span class="std-title">' + esc(x.title) + '</span>' +
+        '<span class="std-text">' + esc(x.standard) + '</span>' +
+      '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+function tableRows(x){
+  return '' +
+    '<div class="lesson-hd">' +
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 01</span>도입<br>참여·초점</div>' +
+      '<div>교사는 <b>' + esc(x.phenomenon) + '</b>을(를) 제시하고 지구·우주 현상에 대한 사전 개념을 드러내는 발문을 한다.</div>' +
+      '<div>학생은 개인 예상을 적고, 자료에서 먼저 보이는 특징과 설명이 필요한 지점을 기록한다.</div>' +
+      '<div>사전 예상지<br>탐구 질문지</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 02</span>탐구 설계</div>' +
+      '<div>교사는 자료 출처, 시간 범위, 공간 범위, 비교 기준, 안전 조건, 불확실성 기록 방식을 안내한다.</div>' +
+      '<div>학생은 사용할 자료와 표·그래프·지도·단면도·모형 변환 방식을 정한다.</div>' +
+      '<div>탐구 설계표<br>자료 출처표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 03</span>자료 처리</div>' +
+      '<div>교사는 학생의 단위, 축, 범례, 시간 순서, 공간 위치, 자료 결측 처리 과정을 순회 관찰한다.</div>' +
+      '<div>학생은 ' + esc(x.data) + '</div>' +
+      '<div>' + esc(x.products[0]) + '</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 04</span>자료 조직화</div>' +
+      '<div>교사는 자료 해석 근거와 오개념을 점검하고, 모형의 설명력과 한계를 묻는다.</div>' +
+      '<div>학생은 ' + esc(x.modeling) + '</div>' +
+      '<div>모형·그래프·지도·해석표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 05</span>일반화·전이</div>' +
+      '<div>교사는 일반화 문장과 전이 질문을 통해 재해 대응, 기후 해결, 지질유산, 우주 탐구 맥락으로 확장한다.</div>' +
+      '<div>학생은 CER 결론문을 작성하고 자료의 불확실성 및 후속 탐구 질문을 제안한다.</div>' +
+      '<div>CER 결론문<br>심화 질문</div>' +
+    '</div>';
+}
+
+function rubric(x){
+  return '' +
+    '<div class="rubric">' +
+      '<div class="lv-row"><div class="lv A">A</div><div class="lv-text">' + esc(x.concept) + '을/를 복잡한 지구·우주 현상에 전이하고, 자료 출처·시간·공간 범위·불확실성을 고려하여 예측·추론·대응 방안을 통합적으로 제시한다.</div></div>' +
+      '<div class="lv-row"><div class="lv B">B</div><div class="lv-text">' + esc(x.concept) + '의 핵심 원리를 정확히 설명하고 관측 자료와 모형 근거를 사용하여 관련 사례에 적용한다.</div></div>' +
+      '<div class="lv-row"><div class="lv C">C</div><div class="lv-text">' + esc(x.concept) + '과 관련된 기본 개념을 알고, 안내된 절차에 따라 자료를 변환·해석하며 결과를 설명한다.</div></div>' +
+      '<div class="lv-row"><div class="lv D">D</div><div class="lv-text">' + esc(x.concept) + '과 관련된 주요 용어와 현상을 말하고, 제시된 자료 또는 절차의 일부를 활용한다.</div></div>' +
+      '<div class="lv-row"><div class="lv E">E</div><div class="lv-text">' + esc(x.concept) + '과 관련된 지구·우주 현상 또는 사례를 인식하고, 학습 활동에 참여하여 기초적인 관련성을 말한다.</div></div>' +
+    '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">' + arr.map(function(x){
+    return '<div class="step"><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={};
+
+  panels.overview =
+    block("성취기준 원문", '<div class="std-full"><b>' + esc(x.code) + '</b>' + esc(x.standard) + '</div>') +
+    '<div class="cards">' +
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4><span class="icon">i</span>수업 개요</h4>' +
+        '<p><b>제목 :</b> ' + esc(x.title) + '</p>' +
+        '<p><b>유형 :</b> ' + esc(x.type) + '</p>' +
+        '<p><b>권장 차시 :</b> ' + esc(x.period) + '</p>' +
+        '<p><b>공식 탐구 :</b> ' + (x.official.length ? esc(x.official.join(", ")) : "재구성 탐구 중심") + '</p>' +
+        '<p><b>핵심 개념 :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈 :</b> ' + esc(x.lens) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4><span class="icon">▲</span>핵심 산출물</h4>' +
+        pills(x.products) +
+      '</div>' +
+    '</div>' +
+    block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+    block("예시 평가도구 연결", '<div class="card"><p>' + esc(x.tool) + '</p></div>', "성취기준·성취수준 기반 평가");
+
+  panels.cbi =
+    block("개념 형성의 흐름",
+      '<div class="cards">' +
+        '<div class="card accent-gold">' +
+          '<h4><span class="icon">F</span>현상(Phenomenon)</h4>' +
+          '<p>' + esc(x.phenomenon) + '</p>' +
+        '</div>' +
+        '<div class="card ' + accent(x.domain) + '">' +
+          '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>' +
+          '<p>' + esc(x.conflict) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="general" style="margin-top:.9rem">' +
+        '<div class="gen-row">' +
+          '<b>교사용 일반화 진술 (Generalization)</b>' +
+          '<p>' + esc(x.general) + '</p>' +
+        '</div>' +
+        '<div class="gen-row">' +
+          '<b>학생용 일반화 진술 (Student-Friendly)</b>' +
+          '<p>' + esc(x.studentGeneral) + '</p>' +
+        '</div>' +
+      '</div>',
+      "Erickson & Lanning CBI 모형"
+    ) +
+    block("탐구 질문 4종 — 사실에서 전이까지",
+      '<div class="q-grid">' +
+        '<div class="q fact"><b>Factual · 사실적 질문</b><p>' + esc(qs[0]) + '</p></div>' +
+        '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>' + esc(qs[1]) + '</p></div>' +
+        '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>' + esc(qs[2]) + '</p></div>' +
+        '<div class="q transfer"><b>Transfer · 전이 질문</b><p>' + esc(qs[3]) + '</p></div>' +
+      '</div>',
+      "수업 도입·전개·마무리 3구간에 배치"
+    ) +
+    block("핵심 개념과 관련 개념",
+      '<div class="card">' +
+        '<p><b>핵심 개념(Macro Concept) :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈(Conceptual Lens) :</b> ' + esc(x.lens) + '</p>' +
+        '<p><b>관련 개념(Related Concepts) :</b> ' + esc(x.related) + '</p>' +
+      '</div>'
+    );
+
+  panels.lesson =
+    block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+    block("교사 발문 세트 — 즉시 사용 가능",
+      '<div class="cards">' +
+        '<div class="card accent-atmo">' +
+          '<h4>탐구 전 발문</h4>' +
+          '<ul>' +
+            '<li>이 현상에서 시간 규모와 공간 규모는 각각 어느 정도인가?</li>' +
+            '<li>우리는 어떤 자료를 근거로 판단해야 하는가?</li>' +
+            '<li>단일 자료로 설명할 때 빠지는 정보는 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>탐구 중 발문</h4>' +
+          '<ul>' +
+            '<li>자료를 어떤 표, 그래프, 지도, 단면도, H-R도, 모형으로 바꾸면 관계가 더 잘 보이는가?</li>' +
+            '<li>자료의 예외나 차이는 오차인가, 지역 차인가, 시간 차인가?</li>' +
+            '<li>우리 모형이 설명하지 못하는 부분은 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>탐구 후 발문</h4>' +
+          '<ul>' +
+            '<li>오늘 만든 일반화 문장을 새로운 재해·기후·지질·천문 사례에 적용해 보자.</li>' +
+            '<li>학생부 기록 근거로 남길 수 있는 산출물과 수행 장면은 무엇인가?</li>' +
+            '<li>다음 탐구에서 자료 출처, 시간 범위, 공간 범위를 어떻게 개선할 수 있는가?</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("오개념·실패 상황 대처·안전",
+      '<div class="cards3">' +
+        '<div class="card accent-red">' +
+          '<h4>예상 오개념</h4>' +
+          '<p>' + esc(x.misconception) + '</p>' +
+          '<p><b>피드백 :</b> ' + esc(x.correction) + '</p>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>실패 상황 대처</h4>' +
+          '<p>' + esc(x.failure) + '</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>안전·윤리</h4>' +
+          '<p>' + esc(x.safe) + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+
+  panels.worksheet =
+    block("학생 활동지 문항 — 실제 기록용",
+      steps([
+        "오늘의 현상에서 가장 설명이 필요한 지구과학 개념을 쓰시오.",
+        qs[1],
+        "탐구에서 사용할 자료의 출처, 시간 범위, 공간 범위를 쓰시오.",
+        x.data,
+        x.modeling,
+        "자료에서 찾은 규칙성 또는 관계를 한 문장으로 쓰시오.",
+        "주장-증거-추론 구조로 결론을 작성하시오.",
+        "자료의 불확실성 또는 한계를 2가지 이상 쓰시오.",
+        qs[3]
+      ])
+    ) +
+    block("자료 처리 안내 — 출처·규모·불확실성",
+      '<div class="card accent-atmo">' +
+        '<h4>자료 출처</h4>' +
+        '<p>' + esc(x.source) + '</p>' +
+      '</div>' +
+      '<div class="card accent-geo" style="margin-top:.8rem">' +
+        '<h4>시공간 규모</h4>' +
+        '<p>' + esc(x.scale) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green" style="margin-top:.8rem">' +
+        '<h4>자료 처리</h4>' +
+        '<p>' + esc(x.data) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro" style="margin-top:.8rem">' +
+        '<h4>모형화</h4>' +
+        '<p>' + esc(x.modeling) + '</p>' +
+      '</div>' +
+      '<div class="card accent-gold" style="margin-top:.8rem">' +
+        '<h4>불확실성·한계</h4>' +
+        '<p>' + esc(x.uncertainty) + '</p>' +
+        '<p><b>해석 문장 틀 :</b> “자료의 변화 경향은 <b>' + esc(x.concept) + '</b> 개념으로 설명할 수 있으며, 이 결과는 <b>' + esc(x.lens) + '</b> 관점에서 새로운 지구·우주 현상에 적용할 수 있다.”</p>' +
+      '</div>'
+    );
+
+  panels.assessment =
+    block("수행평가 과제",
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4>' + esc(x.title) + '</h4>' +
+        '<p>' + esc(x.products[0]) + '을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 관측 자료·지도·그래프·모형 근거로 설명한다.</p>' +
+      '</div>'
+    ) +
+    block("평가 요소",
+      '<div class="cards3">' +
+        '<div class="card accent-atmo">' +
+          '<h4>지식·이해</h4>' +
+          '<p>' + esc(x.concept) + '와 관련 개념의 정확한 설명</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>과정·기능</h4>' +
+          '<p>자료 수집, 지도화, 그래프화, 단면도 해석, 시뮬레이션, 예측·추론, CER 논증</p>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>가치·태도</h4>' +
+          '<p>안전, 재해 대응, 지속가능성, 과학 유용성, 지질유산·우주관 인식</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+    block("피드백 방향",
+      '<div class="card">' +
+        '<p><b>보충 :</b> 용어 나열에 머물지 말고 표·그래프·지도·모형 중 하나로 근거를 표현하게 한다.</p>' +
+        '<p><b>심화 :</b> 자료 출처 비교, 시공간 범위 확대, 모형 한계 분석, 재해·기후·지질유산·우주론 전이 과제를 추가하게 한다.</p>' +
+      '</div>'
+    );
+
+  panels.record =
+    '<div class="record">' +
+      '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>' +
+      '<p>' + esc(x.evidence.join(" / ")) + '</p>' +
+    '</div>' +
+    block("관찰 가능한 수행 증거 정리",
+      '<div class="cards">' +
+        '<div class="card accent-green">' +
+          '<h4>기록 가능한 산출물</h4>' +
+          pills(x.products) +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>권장 기록 소재</h4>' +
+          '<p>「' + esc(x.title) + '」 수업에서 <b>' + esc(x.products[0]) + '</b>을(를) 작성하며 <b>' + esc(x.concept) + '</b> 개념을 관측 자료·지도·그래프·모형 근거로 설명하고, 불확실성 또는 재해·기후·지질·천문 전이 가능성을 자기 언어로 제시함.</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("세부능력 및 특기사항 기록 예시",
+      '<div class="sample-record">' + esc(x.sample) + '</div>',
+      "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+    ) +
+    block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+      '<div class="card accent-astro">' +
+        '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
+        '<p>' + esc(x.deepDive) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>전이 질문</h4>' +
+        '<p style="font-family:\'Fraunces\',serif">' + esc(x.questions[3]) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>연계 진로 분야</h4>' +
+        pills(x.career.split(", ")) +
+      '</div>'
+    );
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="' + (tab===id?'on':'') + '" onclick="setTab(\'' + id + '\')">' +
+      '<span class="t-n">' + n + '</span>' + label +
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML =
+    '<div class="detail-hd">' +
+      '<div class="chip-row">' +
+        '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+        '<span class="chip">' + esc(x.code) + '</span>' +
+        (x.official.length ? '<span class="chip">공식 탐구 포함</span>' : '<span class="chip">재구성 중심</span>') +
+        '<span class="chip">' + esc(x.period) + '</span>' +
+      '</div>' +
+      '<h2>' + esc(x.title) + '</h2>' +
+      '<div class="std-full"><b>성취기준 원문</b>' + esc(x.standard) + '</div>' +
+    '</div>' +
+    '<div class="tabbar">' + tabbar + '</div>' +
+    '<div class="panel">' + panel(x) + '</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML = DATA.map(function(x,i){
+    return '<tr>' +
+      '<td><span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span></td>' +
+      '<td class="mcode" onclick="openStandard(' + i + ')">' + esc(x.code) + '</td>' +
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">' + esc(x.title) + '</b></td>' +
+      '<td>' + esc(x.type) + '</td>' +
+      '<td>' + esc(x.concept) + '</td>' +
+      '<td>' + esc(x.products.join(", ")) + '</td>' +
+      '<td>' + esc(x.evidence.join(" / ")) + '</td>' +
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","자료출처","시공간규모","불확실성","심화탐구","연계진로"]
+  ];
+  for(var i=0;i<DATA.length;i++){
+    var x=DATA[i];
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.source, x.scale, x.uncertainty, x.deepDive, x.career
+    ]);
+  }
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="지구과학_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>=0 && idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>

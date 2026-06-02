@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="ko">
+<head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2028 학생부종합전형 대학별 안내</title>
+<meta name="description" content="2028학년도 주요대학 학생부종합전형을 동일한 항목으로 정리한 안내 페이지" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1419;
+  --ink2:#1f2937;
+  --sub:#475569;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --line2:#f1f3f5;
+  --bg:#fafaf7;
+  --paper:#ffffff;
+  --accent:#1e3a8a;
+  --accent-soft:#eef2ff;
+  --warn:#9a3412;
+  --warn-soft:#fff7ed;
+  --ok:#166534;
+  --ok-soft:#f0fdf4;
+  --neutral-soft:#f3f4f6;
+  --shadow:0 1px 2px rgba(15,20,25,.04), 0 8px 24px rgba(15,20,25,.04);
+  --serif:"Noto Serif KR", "Nanum Myeongjo", Georgia, serif;
+  --sans:"Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.65;
+  letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+
+/* ============ 상단 헤더 ============ */
+.masthead{
+  border-bottom:1px solid var(--ink);
+  background:var(--paper);
+}
+.masthead-in{
+  max-width:1280px;
+  margin:0 auto;
+  padding:18px 28px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+}
+.masthead-left{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.home-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 14px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  color:var(--sub);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  border-radius:6px;
+  transition:all .15s;
+  white-space:nowrap;
+}
+.home-link:hover{
+  border-color:var(--ink);
+  color:var(--ink);
+  background:#fcfcfa;
+}
+.home-link svg{flex:none}
+.publisher{
+  font-size:12px;
+  letter-spacing:.18em;
+  color:var(--sub);
+  font-weight:700;
+  text-transform:uppercase;
+}
+.masthead h1{
+  font-family:var(--serif);
+  font-weight:900;
+  font-size:30px;
+  letter-spacing:-.03em;
+  margin:4px 0 0;
+  line-height:1.15;
+}
+.edition{
+  text-align:right;
+  font-size:12px;
+  color:var(--sub);
+  line-height:1.5;
+}
+.edition b{color:var(--ink);font-weight:700}
+
+/* ============ 뷰 전환 탭 ============ */
+.viewbar{
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+.viewbar-in{
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.tabs{display:flex;gap:0}
+.tab{
+  padding:14px 22px;
+  border:0;
+  background:transparent;
+  color:var(--sub);
+  font-weight:700;
+  font-size:14px;
+  border-bottom:3px solid transparent;
+  margin-bottom:-1px;
+  transition:color .15s;
+}
+.tab:hover{color:var(--ink)}
+.tab.active{
+  color:var(--accent);
+  border-bottom-color:var(--accent);
+}
+.viewbar-meta{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* ============ 본문 레이아웃 ============ */
+.layout{
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 28px;
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:40px;
+}
+.sidebar{
+  position:sticky;
+  top:60px;
+  height:calc(100vh - 60px);
+  overflow-y:auto;
+  padding:28px 0;
+  border-right:1px solid var(--line);
+}
+.sidebar-label{
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--muted);
+  font-weight:700;
+  text-transform:uppercase;
+  padding:0 8px 10px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:8px;
+}
+.navlist{list-style:none;margin:0;padding:0}
+.navlist a{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:8px;
+  padding:9px 8px;
+  font-size:14px;
+  color:var(--sub);
+  border-left:2px solid transparent;
+  margin-left:-2px;
+  transition:all .15s;
+}
+.navlist a:hover{
+  color:var(--ink);
+  background:var(--neutral-soft);
+}
+.navlist a.active{
+  color:var(--accent);
+  border-left-color:var(--accent);
+  background:var(--accent-soft);
+  font-weight:700;
+}
+.navlist a .count{
+  font-size:11px;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+.navlist a.active .count{color:var(--accent)}
+
+.content{padding:28px 0 80px;min-width:0}
+
+/* ============ 인트로 ============ */
+.intro{
+  border:1px solid var(--line);
+  background:var(--paper);
+  padding:24px 28px;
+  margin-bottom:32px;
+}
+.intro h2{
+  font-family:var(--serif);
+  font-size:22px;
+  font-weight:900;
+  margin:0 0 8px;
+  letter-spacing:-.02em;
+}
+.intro p{margin:0;color:var(--sub);font-size:14px;line-height:1.7}
+.intro p + p{margin-top:10px}
+.intro-notice{
+  margin-top:14px !important;
+  padding:12px 14px;
+  background:#fbfbf6;
+  border-left:3px solid var(--accent);
+  font-size:13.5px !important;
+  color:var(--ink2) !important;
+}
+.intro-notice b{color:var(--ink);font-weight:700}
+.intro-legend{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px dashed var(--line);
+  font-size:12px;
+  color:var(--sub);
+}
+.legend-item{display:inline-flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.dot-csat{background:var(--warn)}
+.dot-nocsat{background:var(--ok)}
+.dot-int{background:var(--accent)}
+.dot-noint{background:var(--muted)}
+
+/* ============ 대학 섹션 ============ */
+.uni{
+  background:var(--paper);
+  border:1px solid var(--line);
+  margin-bottom:28px;
+  scroll-margin-top:80px;
+}
+.uni-head{
+  padding:28px 32px 22px;
+  border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  align-items:flex-start;
+}
+.uni-name{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-.03em;
+  margin:0;
+  line-height:1.15;
+}
+.uni-name .campus{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:11px;
+  letter-spacing:.1em;
+  color:var(--sub);
+  font-weight:700;
+  vertical-align:middle;
+  margin-left:10px;
+  padding:3px 8px;
+  background:var(--neutral-soft);
+  border-radius:3px;
+}
+.uni-headline{
+  margin:8px 0 0;
+  color:var(--ink2);
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:-.01em;
+}
+.uni-core{
+  margin:6px 0 0;
+  color:var(--sub);
+  font-size:13.5px;
+  line-height:1.6;
+}
+.uni-counts{
+  text-align:right;
+  font-size:12px;
+  color:var(--sub);
+  white-space:nowrap;
+}
+.uni-counts b{
+  display:block;
+  font-family:var(--serif);
+  font-size:32px;
+  color:var(--ink);
+  font-weight:900;
+  line-height:1;
+  margin-bottom:4px;
+}
+
+/* 주의사항 */
+.warnings{
+  margin:0;
+  padding:14px 32px;
+  background:var(--warn-soft);
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+}
+.warnings-label{
+  font-weight:900;
+  color:var(--warn);
+  font-size:11px;
+  letter-spacing:.14em;
+  margin-bottom:6px;
+}
+.warnings ul{margin:0;padding:0;list-style:none}
+.warnings li{
+  position:relative;
+  padding-left:14px;
+  color:var(--warn);
+  line-height:1.55;
+  margin:2px 0;
+}
+.warnings li:before{
+  content:"";
+  position:absolute;
+  left:2px;
+  top:9px;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--warn);
+}
+
+/* 전형 카드 - 표 형식 */
+.admissions{padding:8px 32px 28px}
+.adm{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:0;
+  border-top:1px solid var(--line);
+  padding:22px 0;
+}
+.adm:first-child{border-top:0}
+
+.adm-title{padding-right:24px}
+.adm-name{
+  font-family:var(--serif);
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:-.02em;
+  margin:0 0 6px;
+  line-height:1.25;
+}
+.adm-quota{
+  font-size:12px;
+  color:var(--sub);
+  font-weight:500;
+}
+.adm-quota b{color:var(--ink);font-weight:700}
+
+.adm-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:10px;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:-.005em;
+  padding:3px 8px;
+  border-radius:3px;
+  border:1px solid transparent;
+  line-height:1.5;
+}
+.chip-nocsat{background:var(--ok-soft);color:var(--ok);border-color:#bbf7d0}
+.chip-csat{background:var(--warn-soft);color:var(--warn);border-color:#fed7aa}
+.chip-int{background:var(--accent-soft);color:var(--accent);border-color:#c7d2fe}
+.chip-noint{background:var(--neutral-soft);color:var(--sub);border-color:var(--line)}
+.chip-doc{background:#fef3c7;color:#854d0e;border-color:#fde68a}
+
+/* 전형 내용 - 6필드 그리드 */
+.adm-body{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border:1px solid var(--line);
+  background:#fcfcfa;
+}
+.field{
+  padding:12px 16px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.field:nth-child(2n){border-right:0}
+.field:nth-last-child(-n+2){border-bottom:0}
+.field-full{
+  grid-column:1 / -1;
+  border-right:0;
+}
+.field-label{
+  font-size:10.5px;
+  letter-spacing:.14em;
+  color:var(--muted);
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:4px;
+  display:block;
+}
+.field-value{
+  font-size:13.5px;
+  color:var(--ink2);
+  line-height:1.6;
+}
+.field-value b{color:var(--ink);font-weight:700}
+
+/* fit·prep 강조 영역 */
+.tips{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--line);
+  margin-top:12px;
+}
+.tip{
+  padding:12px 16px;
+  background:#fcfcfa;
+}
+.tip-fit{background:var(--ok-soft)}
+.tip-prep{background:#fffbeb}
+.tip-label{
+  font-size:10.5px;
+  letter-spacing:.14em;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.tip-fit .tip-label{color:var(--ok)}
+.tip-prep .tip-label{color:#854d0e}
+.tip-value{font-size:13px;line-height:1.6;color:var(--ink2)}
+
+/* ============ 비교표 뷰 ============ */
+.compare{display:none}
+.compare.active{display:block}
+.uni-view{display:block}
+.uni-view.hidden{display:none}
+
+.compare-wrap{
+  background:var(--paper);
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.compare-tools{
+  padding:14px 20px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  background:#fbfbf8;
+}
+.compare-tools .left{
+  font-family:var(--serif);
+  font-weight:900;
+  font-size:18px;
+  letter-spacing:-.02em;
+}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.fchip{
+  border:1px solid var(--line);
+  background:var(--paper);
+  color:var(--sub);
+  padding:6px 12px;
+  font-size:12.5px;
+  font-weight:700;
+  border-radius:999px;
+  transition:all .15s;
+}
+.fchip:hover{border-color:var(--ink2);color:var(--ink)}
+.fchip.active{
+  background:var(--ink);
+  border-color:var(--ink);
+  color:#fff;
+}
+
+.tablewrap{
+  overflow:auto;
+  max-height:calc(100vh - 220px);
+}
+table{
+  border-collapse:separate;
+  border-spacing:0;
+  width:100%;
+  font-size:13px;
+}
+thead th{
+  position:sticky;
+  top:0;
+  background:#f3f4f6;
+  border-bottom:2px solid var(--ink);
+  padding:12px 14px;
+  text-align:left;
+  font-weight:900;
+  font-size:11.5px;
+  letter-spacing:.08em;
+  color:var(--ink);
+  text-transform:uppercase;
+  z-index:2;
+  white-space:nowrap;
+}
+tbody td{
+  padding:14px 14px;
+  border-bottom:1px solid var(--line2);
+  vertical-align:top;
+  line-height:1.55;
+  color:var(--ink2);
+}
+tbody tr.uni-row td{
+  background:#f9fafb;
+  font-family:var(--serif);
+  font-weight:900;
+  font-size:15px;
+  letter-spacing:-.02em;
+  border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--ink2);
+  padding:14px;
+}
+tbody tr:hover td{background:#fcfcfa}
+tbody tr.uni-row:hover td{background:#f3f4f6}
+.col-name{
+  position:sticky;
+  left:0;
+  background:var(--paper);
+  font-weight:700;
+  color:var(--ink);
+  z-index:1;
+  min-width:160px;
+  border-right:1px solid var(--line);
+}
+tbody tr:hover .col-name{background:#fcfcfa}
+tbody tr.uni-row .col-name{background:#f9fafb;border-right-color:var(--ink2)}
+tbody tr.uni-row:hover .col-name{background:#f3f4f6}
+
+.cell-method{min-width:240px}
+.cell-eligibility{min-width:220px;font-size:12.5px;color:var(--sub)}
+.cell-csat{min-width:160px;font-size:12.5px}
+.cell-int{min-width:140px;font-size:12.5px}
+.cell-fit{min-width:200px;font-size:12.5px;color:var(--sub)}
+
+.tag{
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.tag-no{background:var(--ok-soft);color:var(--ok)}
+.tag-yes{background:var(--warn-soft);color:var(--warn)}
+.tag-w{background:var(--accent-soft);color:var(--accent)}
+
+.empty-row td{
+  text-align:center;
+  padding:40px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ============ 푸터 ============ */
+.foot{
+  max-width:1280px;
+  margin:32px auto 0;
+  padding:24px 28px 60px;
+  border-top:1px solid var(--ink);
+}
+.foot-grid{
+  display:grid;
+  grid-template-columns:auto auto 1fr;
+  gap:32px;
+  align-items:flex-start;
+}
+.foot-cell-wide{padding-left:8px;border-left:1px solid var(--line)}
+.foot-label{
+  font-size:10.5px;
+  letter-spacing:.16em;
+  color:var(--muted);
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.foot-value{
+  font-size:13px;
+  color:var(--ink2);
+  line-height:1.6;
+}
+.foot-value b{color:var(--ink);font-weight:700}
+@media (max-width:720px){
+  .foot-grid{grid-template-columns:1fr;gap:18px}
+  .foot-cell-wide{padding-left:0;border-left:0;padding-top:14px;border-top:1px dashed var(--line)}
+}
+
+/* ============ 우측 하단 플로팅 메인 버튼 ============ */
+.fab-home{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:50;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  background:var(--ink);
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  border-radius:999px;
+  box-shadow:0 4px 14px rgba(15,20,25,.18), 0 12px 32px rgba(15,20,25,.12);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .25s, transform .25s, visibility .25s, background .15s;
+}
+.fab-home.visible{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.fab-home:hover{background:var(--accent)}
+.fab-home svg{flex:none}
+
+/* ============ 반응형 ============ */
+@media (max-width:1024px){
+  .layout{grid-template-columns:1fr;gap:0}
+  .sidebar{
+    display:none;
+  }
+}
+@media (max-width:720px){
+  .masthead-in{padding:14px 18px;flex-direction:column;align-items:flex-start;gap:10px}
+  .masthead-left{flex-wrap:wrap;gap:12px}
+  .edition{text-align:left}
+  .viewbar-in{padding:0 18px}
+  .layout{padding:0 18px}
+  .uni-head{padding:20px;grid-template-columns:1fr;gap:12px}
+  .uni-counts{text-align:left}
+  .warnings{padding:12px 20px}
+  .admissions{padding:8px 20px 20px}
+  .adm{grid-template-columns:1fr;gap:12px}
+  .adm-body{grid-template-columns:1fr}
+  .field{border-right:0}
+  .field:nth-child(2n){border-right:0}
+  .field-full{border-bottom:1px solid var(--line)}
+  .tips{grid-template-columns:1fr}
+  .fab-home{right:16px;bottom:16px;padding:10px 14px;font-size:12px}
+}
+
+/* ============ 인쇄 ============ */
+@media print{
+  .viewbar,.sidebar,.compare-tools,.foot,.fab-home,.home-link{display:none!important}
+  body{background:#fff;font-size:11pt}
+  .layout{display:block;padding:0;max-width:none}
+  .masthead{border-bottom:2px solid #000}
+  .uni{
+    border:1px solid #000;
+    margin-bottom:14px;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .uni-name{font-size:18pt}
+  .adm-name{font-size:13pt}
+  .uni-head,.warnings,.admissions{padding:12px 16px}
+  .intro,.compare{display:none!important}
+  .tablewrap{max-height:none;overflow:visible}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 헤더 ============ -->
+<header class="masthead">
+  <div class="masthead-in">
+    <div class="masthead-left">
+      <a href="index.html" class="home-link" aria-label="메인으로">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+        <span>메인</span>
+      </a>
+      <div>
+        <div class="publisher">진로진학 자료 · 2028학년도</div>
+        <h1>학생부종합전형 대학별 안내</h1>
+      </div>
+    </div>
+    <div class="edition">
+      <b>2028 대학별 시행계획 기준</b><br/>
+      주요 13개 대학 · 55개 전형 트랙
+    </div>
+  </div>
+</header>
+
+<!-- ============ 뷰 전환 탭 ============ -->
+<div class="viewbar">
+  <div class="viewbar-in">
+    <div class="tabs">
+      <button class="tab active" data-view="uni">대학별 보기</button>
+      <button class="tab" data-view="compare">전체 비교표</button>
+    </div>
+    <div class="viewbar-meta" id="viewMeta">13개 대학을 동일한 항목으로 정리했습니다.</div>
+  </div>
+</div>
+
+<!-- ============ 본문 ============ -->
+<div class="layout">
+
+  <!-- 사이드바 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-label">대학 목록</div>
+    <ul class="navlist" id="navlist"></ul>
+  </aside>
+
+  <!-- 컨텐츠 -->
+  <main class="content">
+
+    <!-- 인트로 -->
+    <div class="intro" id="intro">
+      <h2>이 자료의 안내 방식</h2>
+      <p>주요 13개 대학의 학생부종합전형을 <b>동일한 7개 항목</b>(지원자격·모집인원·선발방법·수능최저·면접·이런 학생에게 적합·준비 전략)으로 정리했습니다. 각 대학 페이지에서는 전형 간 차이를 빠르게 비교할 수 있고, 상단의 <b>전체 비교표</b>에서는 모든 대학·전형을 한 화면에서 검색하고 걸러볼 수 있습니다.</p>
+      <p class="intro-notice">본 자료는 <b>2028 대학별 시행계획</b>을 기준으로 핵심만 요약한 것입니다. 자세한 사항은 각 대학의 <b>2028학년도 대입전형 시행계획</b>을 반드시 참고하십시오.</p>
+      <div class="intro-legend">
+        <span class="legend-item"><span class="dot dot-nocsat"></span>수능최저 없음</span>
+        <span class="legend-item"><span class="dot dot-csat"></span>수능최저 있음</span>
+        <span class="legend-item"><span class="dot dot-int"></span>면접 포함</span>
+        <span class="legend-item"><span class="dot dot-noint"></span>면접 없음(서류 100%)</span>
+      </div>
+    </div>
+
+    <!-- 대학별 보기 -->
+    <div class="uni-view" id="uniView"></div>
+
+    <!-- 비교표 보기 -->
+    <div class="compare" id="compareView">
+      <div class="compare-wrap">
+        <div class="compare-tools">
+          <div class="left">전체 비교표</div>
+          <div class="filters">
+            <button class="fchip active" data-filter="all">전체</button>
+            <button class="fchip" data-filter="nocsat">수능최저 없음</button>
+            <button class="fchip" data-filter="csat">수능최저 있음</button>
+            <button class="fchip" data-filter="noint">면접 없음</button>
+            <button class="fchip" data-filter="int">면접 있음</button>
+          </div>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th class="col-name">전형명</th>
+                <th>모집인원</th>
+                <th>선발방법</th>
+                <th>수능최저</th>
+                <th>면접</th>
+                <th>지원자격</th>
+                <th>적합한 학생</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div class="foot-cell">
+      <div class="foot-label">출처</div>
+      <div class="foot-value">2028 대학별 시행계획</div>
+    </div>
+    <div class="foot-cell">
+      <div class="foot-label">제작</div>
+      <div class="foot-value">충청남도교육청진로융합교육원<br/>교육연구사 정재연</div>
+    </div>
+    <div class="foot-cell foot-cell-wide">
+      <div class="foot-label">유의사항</div>
+      <div class="foot-value">본 자료는 핵심 항목만 요약한 안내용이며, 최종 모집요강 확정 시 변경될 수 있습니다. 자세한 사항은 각 대학의 <b>2028학년도 대입전형 시행계획</b>을 반드시 참고하십시오.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- 우측 하단 메인 버튼 -->
+<a href="index.html" class="fab-home" id="fabHome" aria-label="메인으로 이동">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+  <span>메인</span>
+</a>
+
+<script>
+const DATA = [{"university": "서울대학교", "short": "서울대", "campus": "서울", "headline": "수능최저 없이 서류와 면접으로 선발하는 최상위 면접 중심형", "core": "지역균형은 학교장추천·학생부 기반 면접, 일반전형은 공동 출제 문항 기반 심층 면접 비중이 큽니다.", "warnings": ["지역균형: 자사고·외고·국제고·과학고·영재학교 지원 불가", "지역균형: 고교별 추천 3명 이내", "일반전형: 모집단위별 면접 유형과 출제범위가 크게 다름"], "admissions": [{"name": "지역균형전형", "quota": "모집단위별", "eligibility": "소속 고교장의 추천을 받은 2028년 2월 국내 고교 졸업예정자", "method": "1단계 서류평가 100%(3배수) → 2단계 1단계 성적 70% + 면접 30%", "csat": "없음", "csatDetail": "전 모집단위 수능최저 미적용", "interview": "학생부 기반 면접", "interviewWeight": 30, "fit": "학교 추천을 받을 수 있고 학생부 전반의 학업·탐구 경험 설명력이 높은 학생", "prep": "학생부 기록의 선택 이유, 확장 과정, 실패·수정 경험을 구조로 정리"}, {"name": "일반전형", "quota": "모집단위별", "eligibility": "고교 졸업자·졸업예정자, 검정고시 합격자, 외국고 졸업자 포함", "method": "일반 모집단위 기준 1단계 서류 100%(2배수) → 2단계 1단계 50% + 면접 50%. 사범대학은 교직적성·인성 면접 포함", "csat": "없음", "csatDetail": "전 모집단위 수능최저 미적용", "interview": "공동 출제 문항 활용 면접 또는 모집단위별 별도 면접", "interviewWeight": 50, "fit": "제시문 분석, 토론, 교과 기반 문제해결, 융합 과제 수행에 강한 학생", "prep": "모집단위별 면접 유형을 먼저 확정한 뒤 답변준비 시간 활용 훈련 필요"}, {"name": "기회균형특별전형(사회통합)", "quota": "모집단위별", "eligibility": "농어촌, 저소득, 국가보훈, 서해5도, 자립지원, 농생명계열 고교 졸업예정자 등", "method": "일반 모집단위 기준 1단계 서류 100%(2배수) → 2단계 1단계 70% + 면접 30%", "csat": "없음", "csatDetail": "전 모집단위 수능최저 미적용", "interview": "학생부 기반 면접. 의과대학 등은 상황/제시문 기반 및 서류 기반 복수 면접 가능", "interviewWeight": 30, "fit": "자격요건을 충족하면서 학생부 기반 설명력이 안정적인 학생", "prep": "지원자격 유지 조건과 증빙서류를 먼저 확정하고 면접은 학생부 진위·확장 질문 중심으로 준비"}]}, {"university": "연세대학교", "short": "연세대", "campus": "서울", "headline": "종합인재형은 수능최저 결합, 탐구인재형은 최저 없는 제시문 면접형", "core": "전형명에 따라 수능최저 적용 여부와 면접 반영비율이 크게 달라집니다.", "warnings": ["종합인재형은 모집단위별 수능최저가 다름", "국제 트랙·언더우드국제대학은 영어 제시문 또는 영어 구술 가능", "국내고 출신자가 언더우드국제대학에 지원할 때 전형 경로 확인 필요"], "admissions": [{"name": "종합인재형", "quota": "1,015명", "eligibility": "국내·외 고교 졸업자 또는 동등 학력 인정자, 검정고시 포함", "method": "1단계 서류 100%(4배수) → 2단계 서류 70% + 면접 30%", "csat": "있음", "csatDetail": "인문(2합4)·자연(2합5)·의예/치의예/약학(1등급2개)·국제(2합5) 등 모집단위별 기준. 일부 언더우드학부는 미적용", "interview": "제시문 기반 면접. 일부 국제계열 영어 제시문·영어 구술 가능", "interviewWeight": 30, "fit": "수능최저 충족 가능성이 높고 제시문 면접까지 병행할 수 있는 학생", "prep": "수능최저 안정권 확보와 제시문 답변 구조화 훈련을 병행"}, {"name": "탐구인재형", "quota": "399명", "eligibility": "일반 트랙과 국제 트랙으로 구분. 국제 트랙은 외국고·국제학교·검정고시 등 별도 자격", "method": "일반 트랙 1단계 서류 100%(4배수), 국제 트랙 3배수 → 2단계 서류 60% + 면접 40%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제시문 기반 면접. 국제 트랙은 영어 제시문 가능", "interviewWeight": 40, "fit": "수능 부담 없이 탐구역량과 제시문 사고력을 보여주려는 학생", "prep": "탐구 경험을 제시문 논점과 연결하는 연습이 핵심"}, {"name": "기회균형", "quota": "225명", "eligibility": "국가보훈, 기초생활, 차상위, 한부모, 농어촌 등", "method": "1단계 서류 100%(3배수) → 2단계 서류 60% + 면접 40%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제시문 기반 면접", "interviewWeight": 40, "fit": "자격을 충족하고 면접 변별력을 활용할 수 있는 학생", "prep": "자격 증빙과 서류 강점, 제시문 답변 템플릿을 함께 준비"}]}, {"university": "고려대학교", "short": "고려대", "campus": "서울", "headline": "학업우수는 수능최저+면접, 계열적합은 최저 없는 서류 100%", "core": "수능을 활용할지, 서류 경쟁력만으로 승부할지가 전형 선택의 핵심입니다.", "warnings": ["고른기회·다문화·재직자 전형 간 복수지원 제한", "학업우수전형 의학과는 더 강한 수능최저와 적성·인성면접", "사이버국방은 신원조회·인성검사·신체검사·체력검정 등 기타 요소 포함"], "admissions": [{"name": "학업우수전형", "quota": "823명", "eligibility": "국내·외 정규 고교 졸업(예정)자 또는 동등 학력 인정자", "method": "1단계 서류 100%(5배수) → 2단계 1단계 성적 80% + 면접 20%", "csat": "있음", "csatDetail": "인문·자연 4개 영역 등급합 9 이내 및 한국사 4등급 이내. 의학과는 4개 영역 등급합 5 이내", "interview": "학생부 기반 면접. 의학과는 적성·인성면접 추가", "interviewWeight": 20, "fit": "수능최저를 안정적으로 맞추면서 학생부 학업역량이 강한 학생", "prep": "수능최저 충족 시뮬레이션과 학생부 기반 학업 질문 대비"}, {"name": "계열적합전형", "quota": "556명", "eligibility": "국내·외 정규 고교 졸업(예정)자 또는 동등 학력 인정자", "method": "일괄합산 서류 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "수능·면접 부담보다 학생부 서류 경쟁력이 강한 학생", "prep": "계열 선택의 일관성과 탐구 확장성을 서류 전체에서 드러내기"}, {"name": "고른기회전형", "quota": "200명", "eligibility": "국가보훈, 농어촌, 사회배려자, 자립지원대상자 등", "method": "1단계 서류 100%(3배수) → 2단계 1단계 성적 80% + 면접 20%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제시문 기반 면접", "interviewWeight": 20, "fit": "기회균형 자격과 서류 안정성을 모두 갖춘 학생", "prep": "자격 증빙, 서류 강점, 제시문 면접의 기본 논리 전개 훈련"}, {"name": "다문화전형", "quota": "20명", "eligibility": "다문화가족의 자녀인 대한민국 국적자", "method": "1단계 서류 100%(3배수) → 2단계 1단계 성적 80% + 면접 20%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제시문 기반 면접", "interviewWeight": 20, "fit": "다문화 자격과 학교생활 충실성을 갖춘 학생", "prep": "지원동기와 성장 환경을 학업역량·사회역량으로 연결"}, {"name": "재직자전형", "quota": "18명", "eligibility": "특성화고·마이스터고 등 졸업 후 산업체 근무경력 3년 이상인 재직자", "method": "1단계 서류 100%(3배수) → 2단계 1단계 성적 80% + 면접 20%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제시문 기반 면접", "interviewWeight": 20, "fit": "직무 경험을 학업 계획으로 구체화할 수 있는 재직자", "prep": "업무 경험, 전공 학습계획, 향후 활용 계획을 구조화"}, {"name": "사이버국방전형", "quota": "10명", "eligibility": "정규 고교 졸업(예정)자 또는 동등 학력 인정자로 군인사법상 요건 충족자", "method": "1단계 서류 100%(5배수) → 2단계 1단계 60% + 면접 20% + 기타 20%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 면접 + 신원조회·인성검사·신체검사·체력검정·군 면접평가", "interviewWeight": 20, "fit": "전공 적합성과 군 복무 적합성을 함께 보여줄 수 있는 학생", "prep": "학업역량과 신체·인성·보안 관련 절차를 동시에 관리"}]}, {"university": "성균관대학교", "short": "성균관대", "campus": "서울", "headline": "서류형·면접형이 모두 있으며, 융합인재만 수능최저 적용", "core": "탐구인재와 과학인재는 수능최저가 없지만, 과학인재는 수학/과학 제시문 기반 교과형 면접입니다.", "warnings": ["융합인재는 서류 100%이지만 수능최저 있음", "성균인재는 모집단위별 1단계 배수가 3~7배수로 다름", "과학인재는 일반 서류 확인 면접이 아니라 교과형 면접"], "admissions": [{"name": "융합인재(서류형)", "quota": "325명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "일괄합산 학생부 100%", "csat": "있음", "csatDetail": "국어·수학·영어·사회탐구·과학탐구 5개 영역 중 3개 등급합 6 이내", "interview": "없음", "interviewWeight": 0, "fit": "면접은 피하고 싶지만 수능최저 달성이 가능한 학생", "prep": "수능 3개 영역 조합별 안정권 관리와 학생부평가 영역 보완"}, {"name": "탐구인재(서류형)", "quota": "568명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "일괄합산 학생부 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "수능·면접 부담 없이 학생부 탐구역량으로 승부하려는 학생", "prep": "전공 관련 탐구의 깊이와 학습 과정의 자기주도성을 부각"}, {"name": "성균인재(면접형)", "quota": "218명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "1단계 학생부 100%(3~7배수) → 2단계 학생부 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "인·적성 면접", "interviewWeight": 30, "fit": "면접에서 인성·적성·학업 준비도를 안정적으로 보여줄 수 있는 학생", "prep": "전공 선택 동기, 협업 경험, 윤리적 판단 경험 정리"}, {"name": "성균인재-지역인재", "quota": "4명", "eligibility": "의예과 지역 권역 소재 중·고교 전 과정 이수 및 거주 요건 충족자", "method": "1단계 학생부 100%(6배수) → 2단계 학생부 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "인·적성 면접", "interviewWeight": 30, "fit": "지역 요건을 충족하는 의예과 지원자", "prep": "지역 요건 증빙과 의학계열 인성·윤리 질문 대비"}, {"name": "과학인재", "quota": "155명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "1단계 학생부 100%(7배수) → 2단계 학생부 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제시문 기반 수학/과학 교과형 면접", "interviewWeight": 30, "fit": "수학·과학 개념 설명력과 문제해결력이 강한 학생", "prep": "개념 정의→조건 해석→풀이 전략→검산의 답변 루틴 훈련"}, {"name": "기회균형(서류형)", "quota": "29명", "eligibility": "국가보훈, 농어촌, 특성화고, 이웃사랑, 장애인, 자립지원 등", "method": "일괄합산 학생부 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "자격요건을 갖추고 서류평가만으로 경쟁하려는 학생", "prep": "자격별 증빙서류와 학생부평가 우선순위 영역 관리"}]}, {"university": "서강대학교", "short": "서강대", "campus": "서울", "headline": "대부분 서류평가 100% 일괄합산, 일반Ⅰ과 일반Ⅱ 차이는 수능최저", "core": "면접이 거의 없고 서류평가 중심이라 가독성 높은 서류형 안내가 핵심입니다.", "warnings": ["일반Ⅱ는 3개 영역 등급합 7 및 한국사 4등급 이내", "특성화고교졸업자는 2단계 면접 20%", "농어촌은 특수목적고·영재학교 재학 사실 지원 불가"], "admissions": [{"name": "일반Ⅰ", "quota": "497명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "일괄합산 서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "면접·수능최저 없이 서류 경쟁력을 활용하려는 학생", "prep": "학업역량·진로역량·공동체역량의 균형을 학생부 흐름으로 정리"}, {"name": "일반Ⅱ", "quota": "74명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "일괄합산 서류평가 100%", "csat": "있음", "csatDetail": "국어·수학·영어·탐구(1과목) 중 3개 영역 등급합 7 이내, 한국사 4등급 이내", "interview": "없음", "interviewWeight": 0, "fit": "서류형을 선호하면서 수능최저로 경쟁 풀을 줄이고 싶은 학생", "prep": "수능 3개 영역 조합을 정하고 서류의 학업 성취 흐름 보완"}, {"name": "기회균형", "quota": "85명", "eligibility": "국가보훈, 농어촌, 기초생활, 장애인, 자립지원, 북한이탈주민 등", "method": "일괄합산 서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "기회균형 자격을 갖추고 면접 없이 서류로 평가받고 싶은 학생", "prep": "자격 증빙과 학생부 서류평가 포인트 분리 관리"}, {"name": "서강가치", "quota": "34명", "eligibility": "다문화가족, 군인·소방·경찰공무원 자녀, 가톨릭지도자추천자", "method": "일괄합산 서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "사회적 배경 또는 추천 자격을 활용하며 서류형을 선호하는 학생", "prep": "지원자격 증빙과 서류 서사 간 연결을 명확히 정리"}, {"name": "특성화고교졸업자", "quota": "6명", "eligibility": "특성화고 졸업(예정)자로 동일계열 교과군 또는 전문교과 24학점 이상 이수", "method": "1단계 서류 100%(6배수) → 2단계 1단계 성적 80% + 면접 20%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "면접", "interviewWeight": 20, "fit": "특성화고 동일계열 조건을 충족하고 면접 대비가 가능한 학생", "prep": "동일계열·전문교과 이수 증빙을 먼저 점검"}]}, {"university": "한양대학교", "short": "한양대", "campus": "서울", "headline": "학업형은 수능최저 있는 서류형, 면접형은 수능최저 없는 단계별 전형", "core": "면접형은 모집단위별로 제시문 기반과 학생부 기반 면접이 갈립니다.", "warnings": ["학업형은 면접이 없지만 수능최저 적용", "면접형 공과·한양인터칼리지 일부는 제시문 기반 면접", "특성화고졸재직자는 직무기술서 추가"], "admissions": [{"name": "학업형", "quota": "811명", "eligibility": "국내 정규 고교 졸업(예정)자 및 동등 학력 소지자", "method": "학생부종합평가 100%", "csat": "있음", "csatDetail": "자연·상경 등은 수학 포함 3개 영역 등급합 7, 인문 등은 3개 영역 등급합 7, 의예과는 3개 영역 등급합 4", "interview": "없음", "interviewWeight": 0, "fit": "면접은 피하고 수능최저와 학생부 평가를 결합하려는 학생", "prep": "모집단위별 수능영역 조건을 먼저 확정하고 학생부 학업형 강점 보완"}, {"name": "면접형", "quota": "266명", "eligibility": "국내 정규 고교 졸업(예정)자 및 동등 학력 소지자", "method": "1단계 학생부종합평가 100%(3~5배수) → 2단계 1단계 성적 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "모집단위별 제시문 기반 면접 또는 학생부 기반 면접", "interviewWeight": 30, "fit": "수능최저 없이 면접에서 전공 사고력 또는 학생부 설명력을 보여줄 학생", "prep": "지원 모집단위가 제시문형인지 학생부형인지 먼저 분류"}, {"name": "고른기회", "quota": "107명", "eligibility": "기초생활·차상위·한부모, 국가보훈, 농어촌, 특성화고, 특수교육, 자립지원 등", "method": "학생부종합평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "자격요건을 갖추고 면접 없는 학종을 원하는 학생", "prep": "자격구분별 증빙서류와 학생부종합평가 포인트를 분리 관리"}, {"name": "사회통합", "quota": "5명", "eligibility": "다자녀, 다문화, 장기복무 직업군인·경찰·소방공무원 자녀", "method": "학생부종합평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "사회통합 자격을 갖춘 한양인터칼리지학부(자연) 지원자", "prep": "자격 증빙과 융합형 학업계획 정리"}, {"name": "체육인재", "quota": "1명", "eligibility": "2025년 2월 이후 국내 정규 고교 졸업(예정)자 등, 스키·스노보드 관련 실적", "method": "학생부종합평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "지정 종목 실적과 학생부 기반 학업 역량을 갖춘 학생", "prep": "실적 인정 기간과 입상증명서·경기실적증명서 관리"}, {"name": "특성화고졸재직자", "quota": "157명", "eligibility": "국내 특성화고·마이스터고 졸업 후 3년 이상 산업체 근무경력 재직자", "method": "서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "직무 경험을 산업융합학부 학업계획으로 연결할 수 있는 재직자", "prep": "직무기술서와 경력 증빙의 일관성 확보"}]}, {"university": "이화여자대학교", "short": "이화여대", "campus": "서울", "headline": "미래인재는 서류형과 면접형으로 분리, 서류형만 수능최저 적용", "core": "미래인재 서류형은 모집단위별 수능최저가 복잡하고, 면접형은 최저 없이 단계별 선발입니다.", "warnings": ["미래인재 서류형은 의예·약학·스크랜튼·국제학부 기준이 다름", "고른기회·사회기여자는 수능최저 없음", "이미지형 시행계획 자료라 운영 데이터 입력 시 2차 검수 권장"], "admissions": [{"name": "미래인재전형-서류형", "quota": "모집단위별", "eligibility": "고교 졸업자 또는 2028년 2월 졸업예정자 및 동등 학력 인정자", "method": "일괄합산 서류 100%", "csat": "있음", "csatDetail": "일반 기준 4개 영역 중 3개 등급합 7. 의예 4개 합 5, 약학 4개 합 6, 스크랜튼 3개 합 5, 국제학부는 국어 포함 3개 합 7 및 영어 2등급 이내", "interview": "없음", "interviewWeight": 0, "fit": "면접 없이 서류와 수능최저를 결합하려는 학생", "prep": "모집단위별 최저 조합을 먼저 확정하고 탐구 상위 1과목 반영 조건 점검"}, {"name": "미래인재전형-면접형", "quota": "모집단위별", "eligibility": "고교 졸업자 또는 2028년 2월 졸업예정자 및 동등 학력 인정자", "method": "1단계 서류 100%(5배수) → 2단계 1단계 성적 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 면접", "interviewWeight": 30, "fit": "수능최저 없이 서류와 면접으로 전공 적합성을 보여주려는 학생", "prep": "서류 기반 일반면접 질문을 학업역량·진로역량·의사소통능력으로 분류"}, {"name": "고른기회전형", "quota": "모집단위별", "eligibility": "국가보훈, 기초생활, 차상위, 한부모, 농어촌, 북한이탈주민 등", "method": "일괄합산 서류 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "기회균형 자격을 갖추고 면접 없는 서류형을 원하는 학생", "prep": "자격 유지 조건과 서류평가 근거를 분리 관리"}, {"name": "사회기여자전형", "quota": "모집단위별", "eligibility": "국가보훈 관계, 직업군인 자녀, 다문화가정 자녀, 해외파견 선교사 자녀 등", "method": "일괄합산 서류 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "사회기여 자격을 갖추고 서류형을 선호하는 학생", "prep": "자격 증빙과 학교생활기록부 평가 포인트 연결"}]}, {"university": "중앙대학교", "short": "중앙대", "campus": "서울", "headline": "Core·All·Up으로 전형 성격이 명확히 구분되는 구조", "core": "Core는 깊은 탐구, All은 균형 성장, Up은 수능최저 결합형입니다.", "warnings": ["탐구하는 학종(Core)은 검정고시 출신자 지원 불가", "학교폭력 1~3호 감점, 4~9호 부적격 처리", "Up 전형 의학부는 단계별 면접 40%"], "admissions": [{"name": "탐구하는 학종(Core)", "quota": "모집단위별", "eligibility": "고교 졸업(예정)자, 상급학교 진학대상자 또는 동등 학력 인정자. 검정고시 출신자 지원 불가", "method": "1단계 서류 100%(모집단위별 3~6배수) → 2단계 1단계 성적 60% + 면접 40%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "서류 기반 개인별 심층면접", "interviewWeight": 40, "fit": "지원 분야에 깊은 탐구역량을 보인 학생", "prep": "탐구 주제의 문제의식·방법·결과·후속 탐구를 면접 답변으로 압축"}, {"name": "모두의 학종(All)", "quota": "모집단위별", "eligibility": "고교 졸업(예정)자, 상급학교 진학대상자 또는 동등 학력 인정자", "method": "1단계 서류 100%(모집단위별 3~6배수) → 2단계 1단계 성적 60% + 면접 40%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "서류 기반 개인별 심층면접", "interviewWeight": 40, "fit": "전 교과 성취와 교내 활동의 균형 성장이 강한 학생", "prep": "학업·활동·인성·의사소통 경험을 균형 있게 정리"}, {"name": "최저 있는 학종(Up)", "quota": "모집단위별", "eligibility": "고교 졸업(예정)자, 상급학교 진학대상자 또는 동등 학력 인정자", "method": "의학부 외 전체는 서류 100% 일괄합산. 의학부는 1단계 서류 100%(5배수) → 2단계 1단계 60% + 면접 40%", "csat": "있음", "csatDetail": "전체(의·약 제외) 3개 영역 등급합 6 이내 및 한국사 4등급 이내. 의·약학부는 별도 강한 기준", "interview": "의학부만 서류 기반 개인별 심층면접", "interviewWeight": 0, "fit": "수능최저를 활용해 서류형 경쟁을 설계하려는 학생", "prep": "의학부 지원자는 면접 40%, 그 외는 서류 100%와 수능최저 관리"}, {"name": "어울림", "quota": "모집단위별", "eligibility": "국가보훈, 장애인 부모 자녀, 자립지원, 직업군인·경찰·소방공무원 자녀, 다자녀, 다문화, 북한이탈주민 등", "method": "서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "사회통합 성격의 자격을 갖추고 서류형을 선호하는 학생", "prep": "지원자격과 학생부 성장 스토리를 구분해 정리"}, {"name": "기회균형", "quota": "모집단위별", "eligibility": "농어촌, 기초생활·차상위, 장애인 등 대상자", "method": "서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "기회균형 자격을 갖춘 서류형 선호 학생", "prep": "농어촌·저소득·장애인 등 자격별 지원 제한을 우선 확인"}]}, {"university": "경희대학교", "short": "경희대", "campus": "서울", "headline": "네오르네상스는 면접형과 서류형으로 나뉘며 최저 여부가 반대", "core": "면접형은 수능최저 없음, 서류형은 수능최저 있음으로 학생 부담 요소가 다릅니다.", "warnings": ["네오르네상스 면접형은 의·약학계열 5배수, 일반 4배수", "네오르네상스 서류형은 모집단위별 수능최저 다름", "조리&푸드디자인학과 입학 후 전과 불가 등 유의"], "admissions": [{"name": "네오르네상스전형(면접형)", "quota": "754명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "일반 모집단위 1단계 서류 100%(4배수), 의·약학계열 5배수 → 2단계 서류 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "면접평가", "interviewWeight": 30, "fit": "수능최저 없이 면접을 통해 잠재역량을 보이려는 학생", "prep": "학생부 기록의 진정성과 경희대 인재상 연결 답변 준비"}, {"name": "네오르네상스전형(서류형)", "quota": "345명", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "일괄합산 서류평가 100%", "csat": "있음", "csatDetail": "인문·자연 등 2개 영역 등급합 5 및 한국사 5등급 이내. 의·약학계열 등은 3개 영역 등급합 4 및 한국사 5등급 이내", "interview": "없음", "interviewWeight": 0, "fit": "면접을 피하고 수능최저와 서류 경쟁력을 결합하려는 학생", "prep": "모집단위별 최저 기준과 탐구 상위 1과목 반영 확인"}, {"name": "기회균형전형", "quota": "165명", "eligibility": "국가보훈, 농어촌, 기초생활·차상위·한부모, 자립지원, 장애인 등", "method": "일괄합산 서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "기회균형 자격을 갖추고 서류형을 선호하는 학생", "prep": "자격별 지원 제한과 고교 유형 제한을 먼저 체크"}, {"name": "기회균형전형(사회통합 자격군)", "quota": "90명", "eligibility": "의사상자 자녀, 장기근무 직업군인·소방공무원 자녀, 다자녀, 다문화, 조손가정, 장애인 부모 자녀 등", "method": "일괄합산 서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "사회통합 성격 자격을 갖추고 면접 없는 전형을 원하는 학생", "prep": "자격 기준일과 증빙서류 발급 요건 점검"}]}, {"university": "한국외국어대학교", "short": "한국외대", "campus": "서울", "headline": "면접형은 면접 50%, 서류형은 수능최저 적용", "core": "면접 부담을 감수할지, 수능최저를 감수할지가 전형 선택 기준입니다.", "warnings": ["면접형은 인·적성면접 50%로 영향력이 큼", "서류형은 모집단위별 2개 영역 등급합 6 또는 7", "학교폭력 조치사항은 전형총점 1%~100% 감점 가능"], "admissions": [{"name": "학생부종합전형(면접형)", "quota": "모집단위별", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "1단계 서류평가 100%(3배수) → 2단계 1단계 성적 50% + 인·적성면접 50%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 개별 블라인드 인·적성면접", "interviewWeight": 50, "fit": "면접에서 자기 역량을 강하게 보여줄 수 있는 학생", "prep": "면접 50%이므로 서류 진위·인성·전공 관심 질문을 집중 훈련"}, {"name": "SW인재", "quota": "모집단위별", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자로 소프트웨어 분야 재능과 열정 보유자", "method": "서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "SW 관련 활동·탐구·프로젝트가 분명한 학생", "prep": "프로젝트의 문제정의, 구현 과정, 협업·개선 경험을 서류에서 드러내기"}, {"name": "학생부종합전형(서류형)", "quota": "모집단위별", "eligibility": "고교 졸업(예정)자 또는 동등 학력 인정자", "method": "서류평가 100%", "csat": "있음", "csatDetail": "모집단위별 국어·수학·영어·탐구 중 2개 영역 등급합 6 또는 7 이내", "interview": "없음", "interviewWeight": 0, "fit": "면접 없이 수능최저와 서류평가로 지원하려는 학생", "prep": "모집단위가 등급합 6인지 7인지 먼저 확인"}, {"name": "기회균형전형", "quota": "모집단위별", "eligibility": "기초생활·차상위·한부모, 국가보훈, 농어촌, 서해5도 등", "method": "서류평가 100%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "기회균형 자격을 갖추고 면접 없는 서류형을 원하는 학생", "prep": "농어촌·서해5도 자격 유지와 고교 유형 제한 확인"}]}, {"university": "서울시립대학교", "short": "서울시립대", "campus": "서울", "headline": "주요 학생부종합전형 모두 수능최저 없이 면접 50%가 핵심", "core": "1단계 서류 3배수 후 2단계 면접 50% 구조로 면접 영향력이 큽니다.", "warnings": ["면접 결시 시 결격 또는 사정제외", "면접은 2인 면접위원이 약 12분 내외 평가", "학교폭력 조치사항에 대해 감점 등 불이익 가능"], "admissions": [{"name": "학생부종합전형", "quota": "424명", "eligibility": "고교 졸업자·졸업예정자 또는 동등 학력 인정자", "method": "1단계 서류평가 100%(3배수) → 2단계 서류 50% + 면접 50%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 면접. 학업·잠재·사회역량, 사고력, 문제해결, 의사소통 등 평가", "interviewWeight": 50, "fit": "면접에서 종합적 사고력과 제출서류 진실성을 잘 보여줄 학생", "prep": "학생부 질문 대비와 12분 면접 압축 답변 훈련"}, {"name": "기회균형전형Ⅰ", "quota": "132명", "eligibility": "국가보훈, 수급권자, 차상위, 한부모, 특성화고 동일계열 지원자 등", "method": "1단계 서류평가 100%(3배수) → 2단계 서류 50% + 면접 50%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 면접", "interviewWeight": 50, "fit": "기회균형 자격과 면접 역량을 함께 갖춘 학생", "prep": "자격 증빙과 면접 설명력을 동시에 점검"}, {"name": "사회공헌통합전형", "quota": "46명", "eligibility": "독립유공자 후손, 민주화운동 관련자, 의사상자 자녀, 다문화, 다자녀, 난민 등", "method": "1단계 서류평가 100%(3배수) → 2단계 서류 50% + 면접 50%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 면접", "interviewWeight": 50, "fit": "사회공헌 자격과 학생부 기반 면접 준비가 가능한 학생", "prep": "사회역량·공적윤리의식 관련 경험을 구체화"}]}, {"university": "건국대학교", "short": "건국대", "campus": "서울", "headline": "KU자기추천은 면접형, 기회균형은 교과정량 30%가 포함된 특이 구조", "core": "순수 서류정성만 보는 전형과 교과정량 포함 전형을 구분해야 합니다.", "warnings": ["기회균형은 서류 70% + 학생부 교과정량 30%", "KU자기추천 면접은 서류 진위여부 확인 중심", "면접평가 점수가 일정 수준 이하인 경우 선발대상 제외 가능"], "admissions": [{"name": "KU자기추천", "quota": "910명", "eligibility": "국내·외 고교 졸업(예정)자 또는 동등 학력 인정자", "method": "1단계 서류 100%(3배수) → 2단계 1단계 성적 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 개별면접, 2:1, 10분 내외", "interviewWeight": 30, "fit": "전공 관심과 자기주도 활동을 면접으로 설명할 수 있는 학생", "prep": "서류 진위 확인 질문과 활동 선택 이유 답변 준비"}, {"name": "기회균형", "quota": "80명", "eligibility": "국가보훈, 농어촌, 기초생활·차상위 등", "method": "일괄합산 서류 70% + 학생부(교과정량) 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "없음", "interviewWeight": 0, "fit": "기회균형 자격과 교과 정량 경쟁력이 함께 있는 학생", "prep": "정성 서류와 교과정량 반영을 동시에 점검"}, {"name": "특수교육대상자", "quota": "20명", "eligibility": "장애인 등록자 또는 상이등급자 등", "method": "1단계 서류 100%(3배수) → 2단계 1단계 성적 70% + 면접 30%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "제출서류 기반 개별면접", "interviewWeight": 30, "fit": "특수교육대상 자격과 면접 준비가 가능한 학생", "prep": "지원자격 증빙과 학생부 활동 설명력 확보"}]}, {"university": "동국대학교", "short": "동국대", "campus": "서울", "headline": "Do Dream 중심의 수능최저 없는 서류+면접 구조", "core": "대부분 1단계 서류종합평가 후 2단계 면접 40% 반영이며, 모집단위별 선발배수가 다릅니다.", "warnings": ["Do Dream 1단계 선발배수는 2.5배수·3배수·3.5배수로 다름", "불교추천인재는 추천 기관별 인원 제한 존재", "특성화고교졸업자는 마이스터고·종합고 보통과·대안학교 등 지원 불가"], "admissions": [{"name": "Do Dream", "quota": "894명", "eligibility": "국내·외 고교 졸업(예정)자 또는 동등 학력 인정자. 외국 검정고시 제외", "method": "1단계 서류종합평가 100%(2.5/3/3.5배수) → 2단계 1단계 성적 60% + 면접 40%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "면접평가", "interviewWeight": 40, "fit": "서류 강점과 면접 설명력을 함께 갖춘 학생", "prep": "지원 모집단위의 1단계 배수 확인 후 면접 40% 대비"}, {"name": "불교추천인재", "quota": "108명", "eligibility": "대한불교조계종 신도 및 추천자, 일부 승려 트랙 등", "method": "1단계 서류종합평가 100%(2/3배수) → 2단계 1단계 성적 60% + 면접 40%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "면접평가", "interviewWeight": 40, "fit": "추천 자격을 갖추고 면접 준비가 가능한 학생", "prep": "추천 자격 증빙과 지원동기·가치관 답변 정리"}, {"name": "특성화고교졸업자", "quota": "18명", "eligibility": "특성화고 졸업(예정)자 중 동일계열 또는 관련 전문교과 24학점 이상 이수자", "method": "1단계 서류종합평가 100%(4배수) → 2단계 1단계 성적 60% + 면접 40%", "csat": "없음", "csatDetail": "수능최저 미적용", "interview": "면접평가", "interviewWeight": 40, "fit": "동일계열 조건을 충족하고 전공 관련 경험을 설명할 수 있는 학생", "prep": "동일계열확인서·전문교과 이수 조건을 사전 점검"}]}];
+
+/* ============ 칩 헬퍼 ============ */
+function chips(adm){
+  const out = [];
+  // 수능최저
+  if(adm.csat === '없음') out.push(['chip-nocsat','수능최저 없음']);
+  else if(adm.csat === '있음') out.push(['chip-csat','수능최저 있음']);
+  else if(adm.csat) out.push(['chip-csat', '수능최저 ' + adm.csat]);
+  // 면접
+  const m = adm.method || '';
+  if(adm.interview === '없음' || adm.interviewWeight === 0){
+    out.push(['chip-noint','면접 없음']);
+  } else {
+    const w = adm.interviewWeight ? ` ${adm.interviewWeight}%` : '';
+    out.push(['chip-int','면접' + w]);
+  }
+  // 선발방식
+  if(/1단계/.test(m) || /단계별/.test(m)) out.push(['chip-int','단계별 선발']);
+  else if(/일괄/.test(m) || /서류\s*100/.test(m) || /학생부종합평가\s*100/.test(m)) out.push(['chip-doc','서류 100%']);
+  return out;
+}
+
+/* ============ 대학별 보기 렌더 ============ */
+function renderUniView(){
+  const root = document.getElementById('uniView');
+  const nav = document.getElementById('navlist');
+  let html = '';
+  let navhtml = '';
+  DATA.forEach((u, idx)=>{
+    const anchor = 'u' + idx;
+    navhtml += `<li><a href="#${anchor}" data-anchor="${anchor}">${u.short}<span class="count">${u.admissions.length}</span></a></li>`;
+
+    // 카드
+    let admHtml = '';
+    u.admissions.forEach(a=>{
+      const cs = chips(a);
+      const chipHtml = cs.map(c=>`<span class="chip ${c[0]}">${escape(c[1])}</span>`).join('');
+      admHtml += `
+        <div class="adm">
+          <div class="adm-title">
+            <h4 class="adm-name">${escape(a.name)}</h4>
+            <div class="adm-quota">모집인원 <b>${escape(a.quota || '미정')}</b></div>
+            <div class="adm-chips">${chipHtml}</div>
+          </div>
+          <div>
+            <div class="adm-body">
+              <div class="field field-full">
+                <span class="field-label">선발방법</span>
+                <div class="field-value">${escape(a.method)}</div>
+              </div>
+              <div class="field">
+                <span class="field-label">수능최저</span>
+                <div class="field-value">${escape(a.csatDetail || a.csat)}</div>
+              </div>
+              <div class="field">
+                <span class="field-label">면접</span>
+                <div class="field-value">${escape(a.interview || '없음')}${a.interviewWeight ? ` <b>(${a.interviewWeight}%)</b>` : ''}</div>
+              </div>
+              <div class="field field-full">
+                <span class="field-label">지원자격</span>
+                <div class="field-value">${escape(a.eligibility)}</div>
+              </div>
+            </div>
+            <div class="tips">
+              <div class="tip tip-fit">
+                <div class="tip-label">이런 학생에게 적합</div>
+                <div class="tip-value">${escape(a.fit)}</div>
+              </div>
+              <div class="tip tip-prep">
+                <div class="tip-label">준비 전략</div>
+                <div class="tip-value">${escape(a.prep)}</div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+    });
+
+    const warnHtml = (u.warnings && u.warnings.length) ? `
+      <div class="warnings">
+        <div class="warnings-label">주의사항</div>
+        <ul>${u.warnings.map(w=>`<li>${escape(w)}</li>`).join('')}</ul>
+      </div>` : '';
+
+    html += `
+      <section class="uni" id="${anchor}">
+        <div class="uni-head">
+          <div>
+            <h3 class="uni-name">${escape(u.university)}<span class="campus">${escape(u.campus)}</span></h3>
+            <p class="uni-headline">${escape(u.headline)}</p>
+            <p class="uni-core">${escape(u.core)}</p>
+          </div>
+          <div class="uni-counts">
+            <b>${u.admissions.length}</b>
+            전형 트랙
+          </div>
+        </div>
+        ${warnHtml}
+        <div class="admissions">${admHtml}</div>
+      </section>`;
+  });
+
+  root.innerHTML = html;
+  nav.innerHTML = navhtml;
+}
+
+/* ============ 비교표 렌더 ============ */
+function renderCompare(filter){
+  const tbody = document.getElementById('tbody');
+  let html = '';
+  let visibleCount = 0;
+  DATA.forEach(u=>{
+    const filtered = u.admissions.filter(a=>{
+      if(filter === 'nocsat') return a.csat === '없음';
+      if(filter === 'csat') return a.csat === '있음' || (a.csat && a.csat !== '없음');
+      if(filter === 'noint') return a.interview === '없음' || a.interviewWeight === 0;
+      if(filter === 'int') return a.interview !== '없음' && a.interviewWeight > 0;
+      return true;
+    });
+    if(filtered.length === 0) return;
+    visibleCount += filtered.length;
+    html += `<tr class="uni-row"><td colspan="7" class="col-name">${escape(u.university)} · ${u.campus}</td></tr>`;
+    filtered.forEach(a=>{
+      const csatTag = a.csat === '없음' ? `<span class="tag tag-no">없음</span>` :
+                      a.csat === '있음' ? `<span class="tag tag-yes">있음</span>` :
+                      `<span class="tag tag-w">${escape(a.csat)}</span>`;
+      const intTag = (a.interview === '없음' || a.interviewWeight === 0) ?
+                     `<span class="tag tag-no">없음</span>` :
+                     `<span class="tag tag-w">${a.interviewWeight}%</span>`;
+      // 수능최저: 없음이면 태그만, 있으면 디테일 같이
+      const csatBody = (a.csat === '없음') ? '' :
+                       `<div style="margin-top:4px">${escape(a.csatDetail || '')}</div>`;
+      // 면접: 없음이면 태그만, 있으면 유형 같이
+      const intBody = (a.interview === '없음' || a.interviewWeight === 0) ? '' :
+                      `<div style="margin-top:4px">${escape(a.interview || '')}</div>`;
+      html += `
+        <tr>
+          <td class="col-name">${escape(a.name)}</td>
+          <td>${escape(a.quota || '-')}</td>
+          <td class="cell-method">${escape(a.method)}</td>
+          <td class="cell-csat">${csatTag}${csatBody}</td>
+          <td class="cell-int">${intTag}${intBody}</td>
+          <td class="cell-eligibility">${escape(a.eligibility)}</td>
+          <td class="cell-fit">${escape(a.fit)}</td>
+        </tr>`;
+    });
+  });
+  if(visibleCount === 0){
+    html = `<tr class="empty-row"><td colspan="7">해당 조건의 전형이 없습니다.</td></tr>`;
+  }
+  tbody.innerHTML = html;
+  document.getElementById('viewMeta').textContent = `${visibleCount}개 전형 표시`;
+}
+
+function escape(s){
+  if(s === null || s === undefined) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ============ 뷰 전환 ============ */
+function setView(view){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.view === view));
+  const uniView = document.getElementById('uniView');
+  const cmp = document.getElementById('compareView');
+  const intro = document.getElementById('intro');
+  const sidebar = document.getElementById('sidebar');
+  if(view === 'compare'){
+    uniView.classList.add('hidden');
+    cmp.classList.add('active');
+    intro.style.display = 'none';
+    sidebar.style.visibility = 'hidden';
+    renderCompare(currentFilter);
+  } else {
+    uniView.classList.remove('hidden');
+    cmp.classList.remove('active');
+    intro.style.display = '';
+    sidebar.style.visibility = '';
+    document.getElementById('viewMeta').textContent = '13개 대학을 동일한 항목으로 정리했습니다.';
+  }
+}
+
+/* ============ 사이드바 활성화 (스크롤 감지) ============ */
+function setupScrollSpy(){
+  const links = document.querySelectorAll('.navlist a');
+  const sections = Array.from(document.querySelectorAll('.uni'));
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const id = en.target.id;
+        links.forEach(l=>l.classList.toggle('active', l.dataset.anchor === id));
+      }
+    });
+  }, {rootMargin:'-30% 0px -60% 0px', threshold:0});
+  sections.forEach(s=>obs.observe(s));
+}
+
+/* ============ 부팅 ============ */
+let currentFilter = 'all';
+renderUniView();
+setupScrollSpy();
+
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click', ()=>setView(t.dataset.view));
+});
+document.querySelectorAll('.fchip').forEach(c=>{
+  c.addEventListener('click', ()=>{
+    document.querySelectorAll('.fchip').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active');
+    currentFilter = c.dataset.filter;
+    renderCompare(currentFilter);
+  });
+});
+
+/* 플로팅 메인 버튼: 스크롤 시 나타남 */
+const fab = document.getElementById('fabHome');
+function toggleFab(){
+  if(window.scrollY > 280){
+    fab.classList.add('visible');
+  } else {
+    fab.classList.remove('visible');
+  }
+}
+window.addEventListener('scroll', toggleFab, {passive:true});
+toggleFab();
+</script>
+</body>
+</html>

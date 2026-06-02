@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 물리학 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 물리학 18개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Palette: 충남교육청 진로진학 자료, 학술적·전문적 분위기 */
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+  /* 영역 색상: 물리학 3영역 */
+  --energy:#b8451e;   /* 힘과 에너지 — 따뜻한 적갈색 */
+  --em:#1d5b7a;       /* 전기와 자기 — 깊은 청색 */
+  --light:#6d4a8a;    /* 빛과 물질 — 자주색 */
+  /* 기능 색상 */
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+  --maxw:1380px;
+  --shadow-card: 0 1px 0 var(--line-soft), 0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift: 0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+/* 부드러운 종이 질감 */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(184,69,30,.025), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(29,91,122,.025), transparent 40%);
+  z-index:0;
+}
+
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{margin:0;line-height:1.2;letter-spacing:-.025em;font-family:"Fraunces","IBM Plex Sans KR",serif;font-weight:700}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--energy)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.serif{font-family:"Fraunces","Gowun Batang",serif}
+.mono{font-family:"JetBrains Mono",monospace;font-feature-settings:"tnum"}
+
+/* ───────── 상단 바 ───────── */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease, left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--energy)}
+
+/* ───────── 메인(홈) 이동 — 상단 링크 + 우하단 플로팅 ───────── */
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease, color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease, background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--energy)}
+.fab-home svg{width:15px;height:15px;flex:none}
+@media print{.fab-home{display:none !important}}
+@media (max-width:640px){
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ───────── 커버(홈) ───────── */
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem}
+.kicker{
+  font-size:.7rem;
+  color:var(--energy);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--energy);
+}
+h1.cover-title{
+  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:-.045em;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--energy);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--energy);border-color:var(--energy)}
+.btn svg{width:14px;height:14px}
+
+/* ───────── 통계 카드 ───────── */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+/* ───────── 섹션 헤더 ───────── */
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--energy);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+/* ───────── 원칙 카드 ───────── */
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--energy);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{
+  margin:.6rem 0 .5rem;
+  font-size:1.15rem;
+  font-family:"Fraunces",serif;
+}
+.principle p{
+  color:var(--muted);
+  font-size:.92rem;
+  margin:0;
+}
+
+/* ───────── CBI 흐름 도식 ───────── */
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--energy);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-size:.96rem;
+  margin:.25rem 0;
+  letter-spacing:-.01em;
+}
+.cbi-step p{
+  font-size:.78rem;
+  color:var(--muted);
+  margin:0;
+  line-height:1.5;
+}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+/* ───────── 브라우저 (성취기준) ───────── */
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.side::-webkit-scrollbar{width:6px}
+.side::-webkit-scrollbar-thumb{background:var(--faint);border-radius:0}
+
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--energy);
+}
+.std-item.on .std-title{color:var(--ink)}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-energy{background:rgba(184,69,30,.08);color:var(--energy);border-color:rgba(184,69,30,.3)}
+.domain-em{background:rgba(29,91,122,.08);color:var(--em);border-color:rgba(29,91,122,.3)}
+.domain-light{background:rgba(109,74,138,.08);color:var(--light);border-color:rgba(109,74,138,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  letter-spacing:-.01em;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* ───────── 상세 패널 ───────── */
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg, var(--paper-soft), var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  letter-spacing:-.025em;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--energy);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{display:block;font-size:.65rem;color:var(--energy);letter-spacing:.15em;font-family:"JetBrains Mono",monospace;margin-bottom:.3rem;font-weight:700}
+
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--energy);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--energy)}
+
+.panel{padding:1.6rem 1.9rem 2.4rem}
+.blk{margin-bottom:1.7rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding-bottom:.4rem;
+  margin-bottom:.95rem;
+  font-family:"JetBrains Mono",monospace;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.blk-h .hint{
+  font-family:"IBM Plex Sans KR",sans-serif;
+  font-size:.72rem;
+  color:var(--faint);
+  text-transform:none;
+  font-weight:500;
+  letter-spacing:0;
+}
+
+/* ───────── 카드 그리드 ───────── */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
+.card{
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  padding:1.05rem 1.1rem;
+  border-radius:2px;
+  transition:all .15s ease;
+}
+.card:hover{border-color:var(--ink-2);box-shadow:var(--shadow-card)}
+.card h4{
+  font-size:.98rem;
+  margin-bottom:.5rem;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+}
+.card h4 .icon{
+  width:18px;
+  height:18px;
+  background:var(--ink);
+  color:var(--paper-soft);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  font-weight:700;
+  border-radius:2px;
+}
+.card p,.card li{
+  font-size:.88rem;
+  color:var(--muted);
+  line-height:1.6;
+  margin:.2rem 0;
+}
+.card p b, .card li b{color:var(--ink-2);font-weight:600}
+.card.accent-energy{border-left:3px solid var(--energy)}
+.card.accent-em{border-left:3px solid var(--em)}
+.card.accent-light{border-left:3px solid var(--light)}
+.card.accent-gold{border-left:3px solid var(--gold)}
+.card.accent-green{border-left:3px solid var(--green)}
+
+/* ───────── 알약 태그 ───────── */
+.pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{
+  font-size:.76rem;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:.28rem .68rem;
+  color:var(--ink-2);
+  background:var(--paper-soft);
+  font-weight:500;
+}
+.pill.solid{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-color:var(--ink);
+}
+
+/* ───────── 일반화 박스 ───────── */
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.3rem 1.4rem;
+  border-radius:2px;
+  position:relative;
+  overflow:hidden;
+}
+.general::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:4px;
+  height:100%;
+  background:var(--gold);
+}
+.general .gen-row{margin-bottom:.85rem}
+.general .gen-row:last-child{margin-bottom:0}
+.general b{
+  color:#e6c378;
+  font-size:.7rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+  display:block;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.general p{
+  margin:0;
+  font-size:.96rem;
+  line-height:1.6;
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:400;
+  letter-spacing:-.005em;
+}
+
+/* ───────── 질문 4종 ───────── */
+.q-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+.q{
+  border-left:3px solid var(--gold);
+  padding:.95rem 1.05rem;
+  background:var(--paper-soft);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  border-radius:0 2px 2px 0;
+}
+.q.fact{border-left-color:var(--em)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.66rem;
+  color:var(--faint);
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.12em;
+  font-weight:700;
+  margin-bottom:.4rem;
+  text-transform:uppercase;
+}
+.q.fact b{color:var(--em)}
+.q.concept b{color:var(--gold)}
+.q.debate b{color:var(--red)}
+.q.transfer b{color:var(--green)}
+.q p{
+  margin:0;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.55;
+  font-family:"Fraunces",serif;
+  font-weight:400;
+}
+
+/* ───────── 차시별 행 ───────── */
+.lesson-row{
+  display:grid;
+  grid-template-columns:130px 1.1fr 1.1fr .8fr;
+  border:1px solid var(--line);
+  border-bottom:0;
+  background:var(--card);
+}
+.lesson-row:last-child{border-bottom:1px solid var(--line)}
+.lesson-row:first-child{border-radius:2px 2px 0 0}
+.lesson-row:last-child{border-radius:0 0 2px 2px}
+.lesson-row>div{
+  padding:.95rem 1rem;
+  border-right:1px solid var(--line-soft);
+  font-size:.86rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+.lesson-row>div:last-child{border-right:0}
+.lesson-row>div:first-child{
+  background:var(--paper-deep);
+  font-weight:700;
+  color:var(--ink);
+  font-family:"Fraunces",serif;
+  font-size:.95rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:.2rem;
+}
+.lesson-row>div:first-child .stage-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--energy);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.lesson-hd{
+  display:grid;
+  grid-template-columns:130px 1.1fr 1.1fr .8fr;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+}
+.lesson-hd>div{
+  padding:.65rem 1rem;
+  font-weight:700;
+}
+
+/* ───────── 학생부 기록 ───────── */
+.record{
+  border:1.5px solid var(--green);
+  background:rgba(14,107,92,.06);
+  padding:1.15rem 1.25rem;
+  border-radius:2px;
+  position:relative;
+}
+.record::before{
+  content:"NEIS";
+  position:absolute;
+  top:.85rem;
+  right:1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  letter-spacing:.15em;
+  color:var(--green);
+  font-weight:700;
+  border:1px solid var(--green);
+  padding:.15rem .35rem;
+  border-radius:2px;
+}
+.record b{
+  color:var(--green);
+  font-size:.7rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+  display:block;
+  margin-bottom:.4rem;
+  font-weight:700;
+}
+.record p{
+  margin:.3rem 0 0;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.7;
+}
+
+.sample-record{
+  background:var(--paper-soft);
+  border:1px dashed var(--line);
+  padding:1rem 1.15rem;
+  font-family:"Gowun Batang",serif;
+  font-size:.93rem;
+  line-height:1.8;
+  color:var(--ink-2);
+  border-radius:2px;
+  position:relative;
+}
+.sample-record::before{
+  content:"세특 기록 예시";
+  position:absolute;
+  top:-.5rem;
+  left:1rem;
+  background:var(--paper);
+  padding:0 .5rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+/* ───────── 매트릭스(표) ───────── */
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:1100px}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.85rem .8rem;
+  text-align:left;
+  white-space:nowrap;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  font-weight:700;
+}
+td{
+  border-bottom:1px solid var(--line-soft);
+  padding:.8rem;
+  color:var(--muted);
+  vertical-align:top;
+  line-height:1.55;
+}
+tr:hover td{background:var(--paper-soft)}
+.mcode{
+  font-weight:800;
+  color:var(--ink);
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.78rem;
+  transition:color .15s;
+}
+.mcode:hover{color:var(--energy)}
+
+/* ───────── 운영 가이드 ───────── */
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+}
+.guide-block{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:1.5rem;
+  border-radius:2px;
+  border-top:3px solid var(--ink);
+}
+.guide-block .stage{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  font-weight:700;
+}
+.guide-block h3{
+  font-family:"Fraunces",serif;
+  font-size:1.25rem;
+  margin:.3rem 0 .8rem;
+}
+.guide-block ul{padding-left:1.1rem;margin:0}
+.guide-block li{font-size:.88rem;line-height:1.65}
+
+.theory-section{
+  background:var(--paper-soft);
+  border:1px solid var(--line);
+  padding:1.8rem;
+  margin-top:1.5rem;
+  border-radius:2px;
+}
+.theory-section h3{
+  font-family:"Fraunces",serif;
+  font-size:1.3rem;
+  margin-bottom:1rem;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.theory-section h3::before{
+  content:"";
+  width:6px;
+  height:24px;
+  background:var(--energy);
+}
+.theory-section p{
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.75;
+  margin:.5rem 0;
+}
+.theory-section .ref{
+  font-size:.78rem;
+  color:var(--faint);
+  font-style:italic;
+  margin-top:1rem;
+  font-family:"Fraunces",serif;
+}
+
+/* ───────── 모달(있다면) ───────── */
+details{margin:.5rem 0}
+details summary{
+  cursor:pointer;
+  padding:.55rem .8rem;
+  background:var(--paper-deep);
+  border-radius:2px;
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--ink);
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{
+  content:"+";
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  color:var(--energy);
+  transition:transform .2s;
+}
+details[open] summary::after{transform:rotate(45deg)}
+details > div{padding:.8rem 1rem;font-size:.88rem;color:var(--muted);line-height:1.7}
+
+/* ───────── 푸터 ───────── */
+.footer{
+  margin-top:5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--ink);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  font-size:.8rem;
+  color:var(--muted);
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer .credit{
+  font-family:"Fraunces",serif;
+  font-style:italic;
+}
+.footer .meta{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+}
+
+/* ───────── 반응형 ───────── */
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cbi-flow{grid-template-columns:repeat(3,1fr)}
+  .cbi-step:nth-child(3)::after{display:none}
+}
+@media(max-width:900px){
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat:nth-child(odd){border-right:1px solid var(--line)}
+  .stat:nth-child(even){border-right:0}
+  .principles,.cards,.cards3,.cards4,.q-grid,.guide-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .lesson-hd>div{border-bottom:1px solid #444}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .detail-hd, .panel{padding-left:1.2rem;padding-right:1.2rem}
+}
+
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ───────── 상단 바 ───────── -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">物</div>
+      <div class="b-text">
+        <strong>일반선택 물리학 수업설계 워크북</strong>
+        <span>개념기반탐구 · 18개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">PDF · 인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ═════════════════════ 홈 ═════════════════════ -->
+<section id="home" class="view active">
+
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective</div>
+        <h1 class="cover-title">성취기준에서 내일 <em>수업 장면</em>까지, 물리학 수업설계 워크북.</h1>
+        <p class="lead">
+          18개 성취기준 원문을 그대로 보존하고, 각 성취기준마다 개념기반탐구(CBI) 흐름, 차시별 수업방법, 교사 발문, 학생 활동지, 자료 처리, 오개념 피드백, 수행평가 루브릭, 학생부 관찰 증거를 통합 설계했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            성취기준별 수업 설계 시작
+          </button>
+          <button class="btn" onclick="openView('matrix')">18개 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v10M4 8l4 4 4-4M3 14h10"/></svg>
+            CSV 내려받기
+          </button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 물리학 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책9] 과학과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>수업 설계 · 수행평가 · 학생부 기록 근거</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">3<small>영역</small></span>
+      <span class="label">힘과 에너지 · 전기와 자기 · 빛과 물질</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">18<small>기준</small></span>
+      <span class="label">성취기준 원문 100% 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 수업·탐구·기록의 통합</h2>
+    <p>본 워크북은 ‘성취기준 문구’를 단순 나열하지 않고, 학생이 어떤 개념을 이해하고 어떤 수행을 보여야 하는지를 교실 장면 단위로 구체화합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>수업 실행 중심</h3>
+      <p>성취기준을 클릭하면 도입에서 탐구 설계, 자료 처리, 전이 적용까지 바로 내일 수업에 쓸 수 있는 구체적 장면이 펼쳐집니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>개념 형성의 흐름</h3>
+      <p>탐구 질문만 나열하지 않고 <b>현상 → 사전 개념 → 개념 갈등 → 증거 수집 → 일반화 → 전이</b>로 연결하여 개념기반탐구의 완결성을 확보합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>기록 가능한 탐구</h3>
+      <p>학생부종합전형 대비를 ‘세특 문장 만들기’가 아니라 <b>산출물·학생 발화·피드백 후 수정 장면</b> 중심으로 설계했습니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 모든 차시의 뼈대</h2>
+    <p>Erickson &amp; Lanning의 개념기반탐구 모형에 따라 학생이 <b>사실</b>에서 <b>개념</b>으로, 개념에서 <b>일반화</b>로 사고를 확장하도록 설계했습니다. 이 흐름은 18개 성취기준 모두에 일관되게 적용됩니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step">
+      <div class="step-n">01 · ENGAGE</div>
+      <strong>참여</strong>
+      <p>실제 현상에 마주서 호기심·궁금증·정의적 몰입을 일으킨다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">02 · FOCUS</div>
+      <strong>초점</strong>
+      <p>관찰을 개념 렌즈로 정렬하고 핵심 질문을 형성한다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">03 · INVESTIGATE</div>
+      <strong>조사·탐구</strong>
+      <p>변인을 설계하고 자료를 수집·정리하여 증거를 만든다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">04 · ORGANIZE</div>
+      <strong>조직화</strong>
+      <p>표·그래프·모형으로 자료를 표상하고 패턴을 찾는다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">05 · GENERALIZE</div>
+      <strong>일반화</strong>
+      <p>개념 간 관계를 자신의 말로 진술하고 증거로 뒷받침한다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">06 · TRANSFER</div>
+      <strong>전이</strong>
+      <p>새로운 맥락(기술·사회·진로)에 일반화를 적용하고 평가한다.</p>
+    </div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. CBI는 학생이 단순히 결과를 외우는 것이 아니라, 자료를 만들고 해석하며 결론을 자신의 언어로 진술하는 과정을 거치게 합니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+
+</section>
+
+<!-- ═════════════════════ 성취기준 보드 ═════════════════════ -->
+<section id="standards" class="view">
+
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>왼쪽 목록에서 성취기준을 고르면 오른쪽에 6개 탭(개요·CBI·수업방법·활동지·평가·기록)이 펼쳐집니다. 필터로 영역과 수업 유형을 좁힐 수 있습니다.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드·제목·개념·산출물 검색" />
+        <div class="filter-row" style="margin-top:.6rem">
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>힘과 에너지</option>
+            <option>전기와 자기</option>
+            <option>빛과 물질</option>
+          </select>
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>실험</option>
+            <option>자료분석</option>
+            <option>공학설계</option>
+            <option>논증</option>
+            <option>모형화</option>
+            <option>사례분석</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail"></article>
+  </div>
+
+</section>
+
+<!-- ═════════════════════ 매트릭스 ═════════════════════ -->
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>물리학 18개 성취기준 수업 매트릭스</h2>
+    <p>전체 성취기준의 수업 유형, 핵심 개념, 핵심 산출물, 학생부 관찰 증거를 한눈에 비교합니다. 코드를 누르면 상세 페이지로 이동합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>핵심 산출물</th>
+          <th>관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═════════════════════ 운영 가이드 ═════════════════════ -->
+<section id="guide" class="view">
+
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>본 워크북을 교실에서 효과적으로 활용하기 위한 단계별 안내입니다. 수업 전·중·후의 흐름은 모든 성취기준에 공통 적용됩니다.</p>
+  </div>
+
+  <div class="guide-grid">
+    <div class="guide-block">
+      <div class="stage">STAGE 01 · BEFORE</div>
+      <h3>수업 전 준비</h3>
+      <ul>
+        <li>성취기준 원문, 공식 탐구 활동, 성취수준 A–E 확인</li>
+        <li>예상 오개념과 사전 진단 질문 점검</li>
+        <li>실험·시뮬레이션 안전 조건 및 대체 자료 준비</li>
+        <li>학생 활동지와 자료 처리 양식 사전 준비</li>
+        <li>학생부 기록 근거가 될 산출물 형식 결정</li>
+      </ul>
+    </div>
+    <div class="guide-block">
+      <div class="stage">STAGE 02 · DURING</div>
+      <h3>수업 중 운영</h3>
+      <ul>
+        <li>현상 제시 → 사전 개념 드러내는 발문</li>
+        <li>탐구 설계 시 변인·도구·안전 조건 안내</li>
+        <li>자료를 표·그래프·모형으로 표상하게 하기</li>
+        <li>주장-증거-추론(CER) 구조로 결론 작성 지도</li>
+        <li>오개념 진단 후 즉시 피드백 후 수정 기회 제공</li>
+      </ul>
+    </div>
+    <div class="guide-block">
+      <div class="stage">STAGE 03 · AFTER</div>
+      <h3>수업 후 정리</h3>
+      <ul>
+        <li>학생 산출물, 피드백 후 수정본, 발화 메모 보존</li>
+        <li>관찰 증거를 학생부 기록 근거로 정리</li>
+        <li>심화탐구 주제 제시 및 후속 활동 안내</li>
+        <li>수행평가 루브릭(A–E)에 따른 채점</li>
+        <li>탐구 결과를 다음 성취기준 학습에 연결</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="theory-section">
+    <h3>학생부종합전형 대응 — 무엇을 어떻게 기록할 것인가</h3>
+    <p>대학이 세부능력 및 특기사항에서 평가하는 핵심은 학생의 <b>탐구 동기, 자기주도성, 개념 이해의 깊이, 사고의 확장성, 협력적 문제해결력</b>입니다. 본 워크북의 각 성취기준 페이지에는 이러한 평가 요소를 자연스럽게 드러낼 수 있는 활동이 설계되어 있습니다.</p>
+    <p><b>기록 시 유의사항</b>: 단순 활동 나열(“○○ 실험을 수행함”)이 아니라, <em>학생이 어떤 의문을 가지고 어떤 자료로 어떤 결론을 도출했는지, 그리고 그 결론이 어떤 새로운 질문이나 진로 탐색으로 이어졌는지</em>를 구체적인 산출물 근거와 함께 기록하는 것이 권장됩니다.</p>
+  </div>
+
+  <div class="theory-section" style="margin-top:1rem">
+    <h3>2022 개정 일반선택 물리학의 영역별 변경 사항 요약</h3>
+    <p><b>힘과 에너지 영역</b>: 거시 현상에서 출발해 힘·에너지의 관점을 통합. 정역학(평형·돌림힘)이 진로선택에서 일반선택으로 이동. 충격량은 통합과학에서 다룬 내용을 운동량 보존 관점에서 재구성.</p>
+    <p><b>전기와 자기 영역</b>: 전기 회로·축전기·전자기 유도가 진로선택에서 일반선택으로 이동. 전기에너지의 전환과 활용, 무선통신·무선충전 등 정보 기술 응용을 강조.</p>
+    <p><b>빛과 물질 영역</b>: 파동 자체보다 빛과 물질의 상호작용 중심. 굴절·렌즈 추가, 원자의 에너지 준위·고체의 에너지띠 등 현대물리가 빛과 연계되어 도입. 특수 상대성 이론의 사회적 영향을 정성적으로 조명.</p>
+    <div class="ref">— 임성민(2023), 「2022 개정 교육과정과 중등학교 물리교육」, 한국물리학회 〈물리학과 첨단기술〉 32권 10호 참조</div>
+  </div>
+
+  <div class="footer">
+    <div class="credit">충청남도교육청 · 진로진학 자료개발 워크북</div>
+    <div class="meta">v2.0 · 2022 REVISED CURRICULUM · GENERAL ELECTIVE PHYSICS</div>
+  </div>
+
+</section>
+
+</main>
+
+<script>
+/* ═══════════════════════════════════════════════
+   18개 성취기준 데이터 (2022 개정 교육과정 별책9)
+   각 항목은 성취기준 원문 · 공식 탐구 · CBI 흐름 ·
+   수업방법 · 활동지 · 평가 · 기록을 모두 포함
+   ═══════════════════════════════════════════════ */
+const DATA = [
+  /* ───────── 힘과 에너지 ───────── */
+  {
+    code:"[12물리01-01]",
+    domain:"힘과 에너지",
+    standard:"물체에 작용하는 알짜힘과 돌림힘이 0일 때 평형을 이룸을 알고, 다양한 구조물의 안정성을 분석할 수 있다.",
+    official:[],
+    title:"구조물은 왜 쓰러지는가 — 돌림힘으로 안정성 분석하기",
+    type:"사례분석형 · 공학설계형",
+    period:"2차시(블록 90분 또는 50분 × 2)",
+    lens:"균형과 안정성(Balance & Stability)",
+    concept:"평형과 안정성",
+    related:"알짜힘, 돌림힘(토크), 기준점, 힘의 작용선, 무게중심, 지지면, 모멘트 팔",
+    phenomenon:"휴대폰 거치대, 사다리, 의자, 타워크레인, 도미노 등 받침점·하중 위치에 따라 안정성이 달라지는 구조물 사진과 영상",
+    conflict:"‘무거우면 무조건 안정하다’는 직관을 기준점·하중 위치·지지면의 변화 실험으로 흔들어, 회전 효과(돌림힘)가 평형의 또 다른 조건임을 발견하게 한다.",
+    general:"구조물의 안정성은 힘의 합(병진 평형)뿐 아니라 기준점에 대한 회전 효과의 균형(회전 평형)에 의해서도 결정된다.",
+    studentGeneral:"구조물이 넘어지지 않으려면 힘의 합뿐 아니라 돌림힘도 균형을 이루어야 한다.",
+    questions:[
+      "알짜힘이 0이라는 조건과 돌림힘이 0이라는 조건은 각각 무엇을 의미하는가?",
+      "같은 무게의 구조물도 받침점과 하중 위치에 따라 왜 안정성이 달라지는가?",
+      "안정한 구조물은 항상 ‘무겁고 낮게’ 설계되어야 하는가, 아니면 더 중요한 설계 변수가 있는가?",
+      "교실 의자·간판·고층 건축물을 더 안전하게 설계하려면 무엇을 바꾸어야 하는가?"
+    ],
+    products:["구조물 안정성 분석 보고서","기준점-하중 거리 비교표","개선 설계 스케치 + 돌림힘 계산 근거"],
+    evidence:[
+      "기준점을 명확히 설정하고 그림에 표시함",
+      "하중의 작용선과 회전 방향을 구분하여 도식화함",
+      "개선안을 ‘돌림힘 변화’ 근거로 정량·정성적으로 설명함"
+    ],
+    data:"하중 크기 W, 기준점에서 하중까지의 수직 거리 d, 모멘트 M=W·d, 회전 방향(시계/반시계), 넘어짐 여부를 표로 정리하고, 구조물 그림에 기준점·힘의 작용선·돌림힘 벡터를 함께 표시한다.",
+    misconception:"‘무거우면 무조건 안정하다.’ 또는 ‘평형은 힘이 0일 때만 성립한다.’",
+    correction:"무게뿐 아니라 지지면 넓이, 무게중심 높이, 기준점에서 힘의 작용선까지의 수직 거리(모멘트 팔)가 안정성을 결정함을 변인 통제 실험과 모형으로 확인하게 한다.",
+    failure:"구조물이 너무 쉽게 넘어지면 하중을 줄이고 지지면을 넓힌다. 너무 안 넘어져 변화가 안 보이면 하중 위치를 기준점 바깥쪽으로 이동시키거나, 기준점 자체를 좁힌다.",
+    career:"건축공학, 구조공학, 기계공학, 산업안전, 제품 디자인, 토목공학",
+    deepDive:"학교 건물·운동장 시설물 중 안정성이 우려되는 구조물을 선정해 사진·치수·하중 가정으로 ‘안전 진단 리포트’를 작성하고, 개선안을 학생회에 제안하는 시민과학 프로젝트로 확장.",
+    sample:"휴대폰 거치대의 흔들림 원인을 ‘기준점에서 받침대 끝까지의 거리’ 변수로 가정하고, 받침대 폭을 4단계로 바꿔가며 임계 기울기 각도를 측정해 안정성과 모멘트 팔의 관계를 정량적으로 일반화함. 동일한 원리를 학교 운동장 농구 골대 베이스 무게에 적용해 풍하중 안전성 개선안을 제안하는 보고서를 작성함."
+  },
+  {
+    code:"[12물리01-02]",
+    domain:"힘과 에너지",
+    standard:"뉴턴 운동 법칙으로 등가속도 운동을 설명하고, 교통안전 사고 예방에 적용할 수 있다.",
+    official:["동영상을 활용하여 물체의 등가속도 운동 분석하기"],
+    title:"동영상 분석으로 제동거리와 교통안전 설명하기",
+    type:"디지털 자료분석형 · 사회문제 해결형",
+    period:"2차시",
+    lens:"운동의 변화와 안전 설계",
+    concept:"힘과 운동 변화",
+    related:"뉴턴 운동 제1·2·3법칙, 등가속도 운동, 변위, 속도, 가속도, 반응거리, 제동거리, 정지거리, 안전거리",
+    phenomenon:"빗길 자동차 제동 영상, 자전거 제동거리 비교 사진, 경사면을 굴러 내려오는 공의 운동 영상, 도로의 안전거리 표지판",
+    conflict:"‘속도가 2배가 되면 위험도도 2배쯤 늘어난다’는 직관을 시간-위치 자료와 속도-시간 그래프 해석으로 검토해, 제동거리가 속도의 제곱에 비례함을 발견하게 한다.",
+    general:"힘은 물체의 운동 상태를 변화시키며, 등가속도 운동의 정량적 예측은 안전한 도로·차량·도시 설계로 전이될 수 있다.",
+    studentGeneral:"속도와 시간 자료를 그래프로 바꾸면 물체가 어떻게 가속하거나 감속했는지 판단할 수 있고, 이는 교통안전 판단의 근거가 된다.",
+    questions:[
+      "등가속도 운동에서 속도, 위치, 시간은 어떤 관계를 갖는가?",
+      "속도가 증가하면 제동거리는 왜 단순 비례가 아니라 제곱으로 증가하는가?",
+      "교통사고 예방은 운전자의 ‘책임감’ 문제인가, 물리학 기반 안전 시스템의 문제인가?",
+      "자율주행차의 긴급 제동 알고리즘은 어떤 물리량을 어떤 우선순위로 고려해야 할까?"
+    ],
+    products:["운동 분석 데이터표(시간 vs 위치 vs 속도)","위치-시간·속도-시간 그래프","교통안전 정책 제안서"],
+    evidence:[
+      "동영상에서 기준 길이와 시간 간격을 정확히 설정함",
+      "속도-시간 그래프의 기울기를 가속도로, 그래프 아래 면적을 변위로 해석함",
+      "반응거리·제동거리·정지거리를 구분해 안전거리 방안을 제안함"
+    ],
+    data:"시간 t, 위치 x, 위치 변화량 Δx, 평균 속도 v를 표로 정리하고, 위치-시간 그래프(2차함수 형태)와 속도-시간 그래프(1차함수 형태)를 작성한다. 속도-시간 그래프의 기울기로 가속도 a를 구하고, 정지거리 d=v²/(2|a|)를 활용해 속도별 위험도를 비교한다.",
+    misconception:"‘힘이 계속 작용해야 물체가 계속 움직인다(아리스토텔레스적 직관).’ 또는 ‘제동거리는 속도에 비례한다.’",
+    correction:"뉴턴 1법칙으로 ‘힘 없이도 등속운동이 유지됨’을, 운동에너지-일 관계로 ‘제동거리가 속도의 제곱에 비례함’을 그래프·계산·실제 도로 사례로 확인한다.",
+    failure:"영상 분석이 어려우면 Tracker·Phyphox 등 무료 도구나 교사가 제공한 예시 시간-위치 데이터(엑셀)로 그래프 해석에 집중한다. 가속도가 일정하지 않은 영상이면 구간별 평균 가속도로 단순화한다.",
+    career:"자동차공학, 교통공학, 안전공학, 자율주행 시스템, 데이터 분석, 도시계획",
+    deepDive:"속도별 정지거리(빗길·눈길 마찰계수 변화 포함)를 계산해 학교 통학로의 ‘어린이보호구역 적정 제한속도’를 물리학적으로 분석하는 정책 제안 보고서 작성. 통계청·도로교통공단 데이터와 연계.",
+    sample:"스마트폰으로 자전거 제동 영상을 촬영한 후 Tracker로 분석해 평균 감속도가 -3.2 m/s²임을 도출하고, 속도 10·20·30 km/h에서 정지거리가 1.2·4.8·10.9 m로 제곱 비례함을 정량 그래프로 제시함. 이를 바탕으로 학교 주변 어린이보호구역의 안전한 제한속도를 물리 근거로 제안하는 정책 보고서를 작성함."
+  },
+  {
+    code:"[12물리01-03]",
+    domain:"힘과 에너지",
+    standard:"작용과 반작용 관계와 운동량 보존 법칙을 알고, 스포츠, 교통수단, 발사체 등에 적용할 수 있다.",
+    official:["일차원 충돌 상황에서 운동량 보존 확인하기"],
+    title:"충돌 전후 운동량은 어디로 가는가",
+    type:"실험형 · 디지털 자료분석형",
+    period:"2차시",
+    lens:"계와 보존(System & Conservation)",
+    concept:"상호작용과 운동량 보존",
+    related:"작용·반작용(뉴턴 3법칙), 운동량 p=mv, 충돌(탄성·비탄성), 계(system), 외력, 보존 법칙, 충격량",
+    phenomenon:"당구공·구슬 충돌, 범퍼카, 로켓 발사, 축구공 슈팅, 뉴턴의 요람",
+    conflict:"‘충돌하면 운동량이 사라진다’ 또는 ‘무거운 물체가 항상 이긴다’는 직관을, ‘계’ 설정과 충돌 전후 전체 운동량 비교 실험으로 검토한다.",
+    general:"상호작용하는 물체들의 운동은 ‘계’를 어떻게 설정하느냐에 따라 보존 법칙으로 일관되게 해석할 수 있으며, 이는 안전·스포츠·우주 추진의 설계 원리가 된다.",
+    studentGeneral:"충돌해도 외력이 작으면 계 전체의 운동량은 보존되며, 한 물체가 잃은 만큼 다른 물체가 얻는다.",
+    questions:[
+      "운동량은 어떤 물리량의 곱이며, 왜 보존되는가(뉴턴 3법칙과의 관계)?",
+      "운동량이 보존된다고 말하려면 어떤 ‘계’를 설정해야 하는가?",
+      "현실의 충돌 사고를 운동량 보존 법칙만으로 충분히 설명할 수 있는가, 아니면 에너지 관점도 필요한가?",
+      "로켓 발사·에어백·총기 반동·스포츠 충돌에서 운동량 보존은 어떻게 다르게 나타나는가?"
+    ],
+    products:["충돌 실험 보고서","운동량·에너지 비교표","스포츠·우주 추진 적용 발표 자료"],
+    evidence:[
+      "분석할 ‘계’를 명확히 정의하고 외력 영향을 평가함",
+      "충돌 전후 운동량을 정량 비교하고 보존율을 계산함",
+      "탄성·비탄성 충돌의 차이를 운동에너지 변화로 구분함"
+    ],
+    data:"질량 m₁·m₂, 충돌 전 속도 v₁·v₂, 충돌 후 속도 v₁'·v₂'를 측정해 각각의 운동량과 전체 운동량을 비교한다. 또한 충돌 전후 운동에너지를 계산해 ‘탄성 충돌인가, 비탄성 충돌인가’를 판단한다. 영상 분석(Tracker)이나 동역학 수레+포토게이트를 활용한다.",
+    misconception:"‘충돌하면 운동량이 사라진다.’ ‘무거운 물체가 항상 운동을 결정한다.’ ‘작용·반작용 힘은 한쪽이 더 크다.’",
+    correction:"계 안에서 운동량은 ‘전달’될 뿐 사라지지 않음을 측정값으로 확인하고, 작용·반작용 힘은 크기가 같고 방향이 반대지만 가속도는 질량에 따라 다름을 분리해 이해하게 한다.",
+    failure:"충돌이 일직선으로 유지되지 않으면 트랙 정렬을 다시 하거나, 마찰이 큰 경우는 공기부상 트랙·시뮬레이션(PhET)을 활용한다. 센서값이 불안정하면 영상 분석 자료와 평균값을 병행한다.",
+    career:"항공우주공학, 스포츠과학, 교통안전·차량설계, 로봇공학, 입자물리학",
+    deepDive:"‘에어백·범퍼·자전거 헬멧’ 중 하나를 골라 충격량 관점(F·Δt=Δp)에서 작동 원리를 분석하고, 시간 연장이 충격력을 얼마나 줄이는지 정량 모형을 제시하는 안전공학 보고서 작성.",
+    sample:"두 동역학 수레의 일차원 충돌 실험에서 충돌 전 운동량 합 0.42 kg·m/s, 충돌 후 0.39 kg·m/s로 약 93% 보존됨을 확인하고, 손실분을 마찰·소리·열에너지로의 전환으로 해석함. 이어 ‘충격량=F·Δt=Δp’ 관계를 활용해 에어백이 충돌 시간을 0.02s→0.10s로 늘려 작용력을 1/5로 줄인다는 안전공학 보고서를 작성함."
+  },
+  {
+    code:"[12물리01-04]",
+    domain:"힘과 에너지",
+    standard:"일과 운동 에너지의 관계를 이해하고, 위치 에너지와 역학적 에너지 보존 법칙을 설명할 수 있다.",
+    official:[],
+    title:"롤러코스터 운동을 에너지 전환으로 설명하기",
+    type:"실험형 · 모형화형",
+    period:"2차시",
+    lens:"전환과 보존",
+    concept:"역학적 에너지 전환과 보존",
+    related:"일(W=F·s), 운동 에너지(½mv²), 중력 위치 에너지(mgh), 탄성 위치 에너지(½kx²), 역학적 에너지, 일-에너지 정리",
+    phenomenon:"롤러코스터 영상, 경사면을 굴러 내려오는 카트, 용수철 발사 장치, 진자 운동",
+    conflict:"‘에너지가 물체 안에 들어 있는 물질’이라는 직관을, 에너지 전환 다이어그램과 측정 결과의 일치로 재구성한다.",
+    general:"일은 에너지 변화를 일으키며, 역학적 에너지는 조건(보존력만 작용)에서 형태를 바꾸면서 보존된다.",
+    studentGeneral:"높이, 속도, 용수철 변형은 서로 다른 모습이지만 ‘에너지 전환’으로 함께 설명할 수 있다.",
+    questions:[
+      "일과 운동 에너지는 어떤 관계를 갖는가(일-에너지 정리)?",
+      "높이·속도·탄성 변형은 어떻게 하나의 ‘에너지’ 관점으로 통합되는가?",
+      "실제 실험에서 에너지 보존이 완벽하지 않다면 ‘법칙이 틀린 것’인가, ‘조건이 틀린 것’인가?",
+      "놀이기구·스포츠 장비·재생 에너지 설비 설계에서 에너지 전환은 어떻게 활용되는가?"
+    ],
+    products:["에너지 전환 다이어그램(흐름도)","역학적 에너지 보존 분석 보고서","실험값-이론값 비교표"],
+    evidence:[
+      "일과 에너지 변화를 정량적으로 연결함",
+      "중력·탄성 위치 에너지를 상황에 맞게 구분함",
+      "이상 조건과 실제 조건의 차이를 ‘비보존력의 일’로 설명함"
+    ],
+    data:"높이 h, 속도 v, 질량 m, 용수철 변형 x를 기록하고, 운동 에너지와 위치 에너지 변화를 비교한다. 에너지 막대그래프(에너지 바 차트)와 흐름도로 표상한다.",
+    misconception:"‘에너지는 물체가 가진 물질 같은 것이다.’ ‘마찰이 있어도 역학적 에너지는 보존된다.’",
+    correction:"에너지는 상태와 상호작용을 설명하는 ‘물리량’이며, 비보존력(마찰)이 일을 하면 역학적 에너지는 보존되지 않고 열·소리 등으로 전환됨을 다이어그램과 측정으로 확인한다.",
+    failure:"속도 측정이 어려우면 스마트폰 영상 분석 또는 예시 데이터를 제공하고, 마찰 효과를 ‘오차’가 아닌 ‘비보존력의 일’ 항목으로 분리해 분석한다.",
+    career:"기계공학, 스포츠과학, 로봇 설계, 에너지 시스템, 놀이기구·테마파크 설계",
+    deepDive:"학교 운동장의 미끄럼틀·시소를 ‘안전 에너지’ 관점에서 분석해, 사용자 체중·높이·마찰 조건별 안전 속도와 충격 위험을 평가하는 안전 보고서 작성.",
+    sample:"경사면에서 굴러 내려오는 카트의 운동을 영상 분석해, 출발 위치 위치에너지 0.78 J에서 도착 시 운동에너지 0.71 J로 약 91%가 보존됨을 확인하고, 손실 0.07 J을 마찰력과 거리의 곱으로 역추적해 운동마찰계수 μ≈0.09를 도출함. 이를 학교 미끄럼틀 안전 평가에 적용해 적정 경사각을 제안함."
+  },
+  {
+    code:"[12물리01-05]",
+    domain:"힘과 에너지",
+    standard:"역학적 에너지가 열의 형태로 전환될 때 에너지 총량이 변하지 않음을 설명할 수 있다.",
+    official:[],
+    title:"사라진 역학적 에너지는 어디로 갔는가",
+    type:"현상분석형 · 에너지 흐름 모형화형",
+    period:"1~2차시",
+    lens:"비가시적 전환과 총량 보존",
+    concept:"열 전환과 에너지 총량 보존(열역학 제1법칙)",
+    related:"역학적 에너지, 열, 내부 에너지, 마찰, 열전달, 상태 변화, 에너지 총량 보존, 열역학 제1법칙",
+    phenomenon:"튀는 공의 높이 감소, 자전거 브레이크 발열, 손 비비기로 따뜻해짐, 운석의 대기 마찰 발화",
+    conflict:"‘마찰이 있으면 에너지가 없어졌다’는 직관을, 적외선 카메라·온도 측정으로 ‘열로 전환됨’을 확인해 바꾼다.",
+    general:"역학적 에너지가 감소해 보이는 현상도 에너지 총량 관점에서는 ‘열 등 다른 형태로 전환된’ 결과이며, 이는 열역학 제1법칙의 거시적 사례이다.",
+    studentGeneral:"공이 덜 튀어 오르는 것은 에너지가 사라진 것이 아니라 다른 형태(열·소리·변형)로 전환된 것이다.",
+    questions:[
+      "마찰이 있는 운동에서 역학적 에너지는 어떻게 변하는가?",
+      "사라진 것처럼 보이는 에너지는 어디로 이동·전환되는가?",
+      "‘에너지 손실’이라는 표현은 과학적으로 적절한가, 오해를 부르는가?",
+      "브레이크·단열재·기상 현상에서 열 전환은 어떻게 활용·통제되는가?"
+    ],
+    products:["에너지 흐름도(Sankey 다이어그램)","튀는 높이 관찰표","열 전환 사례 보고서"],
+    evidence:[
+      "‘에너지 손실’을 ‘에너지 전환’으로 정확히 재해석함",
+      "열전달·상태 변화·기상 현상과 일관되게 연결함",
+      "총량 보존을 정성적·정량적 근거로 제시함"
+    ],
+    data:"반복 횟수(1·2·3·4·5회)별 공의 최고 높이를 표로 정리하고, 높이 감소를 위치 에너지 감소로 환산한다. 에너지 흐름도(Sankey)에는 열·소리·변형 에너지의 비중을 정성적으로 표시한다. 가능하면 적외선 온도계로 충돌 지점 온도 변화도 측정한다.",
+    misconception:"‘마찰이 있으면 에너지가 없어진다.’ ‘열은 에너지의 한 종류가 아니라 별개의 무엇이다.’",
+    correction:"역학적 에너지 감소를 열·소리·변형 에너지로의 전환으로 설명하고, 총량 보존이 성립함을 흐름도와 측정값으로 확인한다.",
+    failure:"최고 높이 측정 편차가 크면 영상을 슬로우 모션으로 재생하거나 교사 제공 데이터를 사용한다. 적외선 측정 도구가 없으면 자전거 브레이크 패드 동영상 자료로 대체.",
+    career:"열관리(Thermal Management) 공학, 기계설계, 기상학, 에너지 효율 컨설팅, HVAC 시스템",
+    deepDive:"전기 자동차의 ‘회생제동(Regenerative Braking)’이 기존 마찰 브레이크와 비교해 에너지 손실을 어떻게 줄이는지 정성 분석하고, 도시 주행 사이클에서의 효율 개선 효과를 추정하는 보고서.",
+    sample:"고무공을 1m 높이에서 반복 낙하시키며 최고 높이가 1.00→0.62→0.39→0.24→0.15m로 감소함을 측정하고, 반발계수 e≈0.79를 도출함. 손실된 위치에너지를 충돌 지점의 미세한 온도 상승(적외선 측정 +0.4℃)으로 검증해 ‘에너지는 사라지지 않고 열로 전환된다’는 일반화를 자기 언어로 진술함."
+  },
+  {
+    code:"[12물리01-06]",
+    domain:"힘과 에너지",
+    standard:"열이 역학적 에너지로 전환되는 과정의 효율을 정성적으로 이해하고, 영구기관이 불가능함을 사례를 통해 논증할 수 있다.",
+    official:[],
+    title:"영구기관은 왜 불가능한가 — 효율의 한계 논증하기",
+    type:"논증형 · 사례분석형",
+    period:"2차시",
+    lens:"가능성과 한계",
+    concept:"열기관의 효율과 열역학 제2법칙의 정성적 함의",
+    related:"열기관, 효율 η=W/Q_in, 에너지 전환, 열 출입, 영구기관(제1종·제2종), 열역학 제2법칙(정성적), 엔트로피(언급 수준), 지속가능성",
+    phenomenon:"영구기관 주장 영상, 자동차 엔진, 화력·원자력 발전소, 냉장고, 히트 펌프",
+    conflict:"‘마찰만 없으면 영구기관이 가능하다’는 직관을 입력·출력·열 출입의 흐름 분석으로 검토하고, 에너지 총량 보존이 성립해도 ‘유용한 일로 100% 전환’은 불가능함을 발견하게 한다.",
+    general:"열을 역학적 에너지로 전환하는 과정에는 ‘방향성과 한계’가 있으며, 이 한계는 단순한 기술적 미흡함이 아닌 자연의 근본 원리이다. 이는 지속가능한 기술 판단의 근거가 된다.",
+    studentGeneral:"에너지 총량이 보존되어도 ‘모든’ 에너지를 유용한 일로 바꿀 수는 없다. 일부는 반드시 저온부로 빠져나간다.",
+    questions:[
+      "효율은 어떤 입력과 출력의 관계로 정의되는가(η=W/Q_in)?",
+      "왜 에너지 보존 법칙만으로는 ‘100% 효율 기관이 불가능하다’를 설명할 수 없는가?",
+      "영구기관 아이디어는 과학적으로 무의미한가, 아니면 창의적 사고의 출발점인가?",
+      "지속가능한 에너지 기술을 판단할 때 효율과 ‘한계’는 어떻게 고려해야 하는가?"
+    ],
+    products:["영구기관 반박 논증문(CER)","에너지 흐름도(입력·출력·방출열)","지속가능 기술 판단표"],
+    evidence:[
+      "주장·증거·반박 구조를 분명히 사용함",
+      "효율의 정성적 의미와 ‘저온부로의 열 방출’ 필연성을 설명함",
+      "지속가능 기술 관점에서 효율과 한계를 종합 판단함"
+    ],
+    data:"장치별 입력 에너지 Q_in, 유용한 출력 W, 방출되는 열 Q_out을 에너지 흐름도(Sankey)로 구분하고, 영구기관 가능성을 ‘주장-증거-반박-재반박’ 구조로 판단한다. 자동차 엔진(η≈25-35%), 화력발전(η≈40%), 풍력·태양광(에너지원이 다름) 등 실제 효율 자료를 활용.",
+    misconception:"‘에너지가 보존되면 손실도 없다.’ ‘영구기관은 단지 기술이 아직 못 만든 것이다.’",
+    correction:"‘총량 보존’과 ‘유용한 에너지 전환 효율’은 다른 개념임을 열기관 흐름도로 설명하고, 열역학 제2법칙의 정성적 의미(열의 자발적 흐름 방향)를 거시적 사례로 확인한다.",
+    failure:"영구기관 사례가 복잡하면 단순 열기관 도식으로 대체하고, ‘외부 에너지 공급 여부’를 먼저 확인하는 체크리스트로 운영한다.",
+    career:"에너지공학, 환경공학, 기계공학, 과학커뮤니케이션, 정책 평가, 기후 대응",
+    deepDive:"가정용 에어컨·냉장고·전기차의 ‘성능계수(COP)’와 ‘효율(η)’의 차이를 비교 분석하고, 에너지 라벨링 제도가 이 물리량들을 어떻게 표현하는지 조사하는 정책-과학 융합 탐구.",
+    sample:"유튜브의 ‘영구기관 시연’ 영상 3건을 분석해 각각 ‘외부에서 보이지 않는 에너지 공급’이 있음을 추적하고, 만약 그것이 없다면 어떤 물리 법칙을 위반하는지 CER 구조로 반박문 작성. 이어 가정용 에어컨의 COP와 화력발전 효율을 비교해 ‘에너지 효율 라벨’의 과학적 의미를 자기 언어로 정리함."
+  },
+
+  /* ───────── 전기와 자기 ───────── */
+  {
+    code:"[12물리02-01]",
+    domain:"전기와 자기",
+    standard:"전하를 띤 입자들이 전기장과 전위차를 형성하여 서로 전기적으로 상호작용함을 설명할 수 있다.",
+    official:[],
+    title:"보이지 않는 전기장을 어떻게 설명할까",
+    type:"모형화형 · 시뮬레이션형",
+    period:"1~2차시",
+    lens:"보이지 않는 상호작용",
+    concept:"장(field)과 상호작용",
+    related:"전하, 전기장(E), 전위(V)와 전위차, 전기력(쿨롱 힘), 장 모형, 전기장선, 등전위면",
+    phenomenon:"정전기 풍선, 머리카락이 서는 현상, 번개, PhET 전기장 시뮬레이션, 정전식 터치 센서",
+    conflict:"‘닿아야만 힘이 작용한다’는 직관을 ‘공간을 매개로 한 비접촉 상호작용’ 모형으로 재구성한다.",
+    general:"보이지 않는 전기적 상호작용은 ‘장(field)’과 ‘전위(potential)’라는 모형을 통해 공간적·에너지적으로 일관되게 설명될 수 있다.",
+    studentGeneral:"전기장은 떨어진 전하 사이의 상호작용을 설명하기 위한 ‘공간 모형’이며, 전위차는 그 공간의 에너지 지도와 같다.",
+    questions:[
+      "전기장은 전하 주변 공간에서 무엇을 나타내는가?",
+      "왜 전하 사이의 상호작용을 ‘장’이라는 개념으로 설명하는가, 단순히 힘으로만 설명하면 안 되는가?",
+      "보이지 않는 ‘장’은 실재(real)인가, 단지 설명을 위한 모형(model)인가?",
+      "정전기·번개·정전식 센서·전기집진기는 전기장 모형으로 어떻게 설명되는가?"
+    ],
+    products:["전기장 모형 설명서","전하 배치별 전기장선·등전위면 그림","모형의 한계 분석표"],
+    evidence:[
+      "전기장 모형으로 비접촉 상호작용을 설명함",
+      "전위차를 에너지 관점(전기적 위치 에너지)으로 연결함",
+      "모형의 설명력과 한계를 구분해 메타적 성찰함"
+    ],
+    data:"전하 배치(점전하·평행판), 전기장 방향, 전기장선 간격(전기장 세기), 등전위면, 전위차를 비교표로 정리하고 전기장선 그림과 등전위면 그림을 작성한다. PhET 시뮬레이션(Charges and Fields) 활용 권장.",
+    misconception:"‘전기력은 물체가 직접 닿아야 작용한다.’ ‘전기장과 전위차는 같은 것이다.’",
+    correction:"장 개념으로 공간을 매개로 한 비접촉 상호작용을 설명하고, 전기장(벡터)과 전위(스칼라)의 관계를 ‘기울기’로 직관화한다. 모형의 설명력과 한계도 함께 다룬다.",
+    failure:"전기장 개념이 추상적이면 중력장 비유 또는 ‘지형 등고선·기울기’ 비유를 단계적으로 사용한다.",
+    career:"전기전자공학, 센서 기술, 반도체, 이론물리, 과학철학",
+    deepDive:"정전식 터치스크린의 작동 원리를 ‘유도된 전하 분포’와 ‘전기장의 변화’로 설명하는 모형을 만들어, 손가락 두께·습도가 인식률에 미치는 영향을 정성적으로 예측·검증.",
+    sample:"PhET 시뮬레이션에서 두 점전하 배치를 4가지로 바꿔가며 전기장선과 등전위면의 모양을 그리고, ‘전기장이 전위의 기울기에 해당한다’는 관계를 학생 자신의 언어로 정리함. 이를 정전식 터치스크린의 손가락 감지 원리에 적용해, 손가락이 화면에 가까울 때 국소 전기장이 어떻게 변하는지 모형으로 설명함."
+  },
+  {
+    code:"[12물리02-02]",
+    domain:"전기와 자기",
+    standard:"전기 회로에서 저항의 연결에 따라 소비 전력이 달라짐을 알고, 다양한 전기 기구에서 적용되는 사례를 찾을 수 있다.",
+    official:["저항의 직렬연결과 병렬연결에서 전류와 전압 측정하여 비교하기"],
+    title:"멀티탭 과부하는 왜 위험한가",
+    type:"실험형 · 생활문제 해결형",
+    period:"2차시",
+    lens:"연결 구조와 에너지 분배",
+    concept:"회로 연결 방식과 전기 에너지 소비",
+    related:"전압 V, 전류 I, 저항 R, 직렬연결, 병렬연결, 옴의 법칙(V=IR), 소비 전력(P=VI=I²R=V²/R), 전기 안전, 정격 전력",
+    phenomenon:"멀티탭 과부하 화재 사진, 가전제품 정격 라벨, 전기요금 고지서, 누전차단기 작동",
+    conflict:"‘전류가 전구에서 소비된다’는 일상적 표현을 ‘전기 에너지가 다른 형태로 전환된다’로 정교화한다.",
+    general:"회로의 연결 방식은 전류와 전압의 분포를 바꾸며, 이는 전기 에너지 소비 패턴과 안전에 직접 영향을 준다.",
+    studentGeneral:"직렬과 병렬에서 전압과 전류가 다르게 분배되어 각 저항의 소비 전력이 달라진다.",
+    questions:[
+      "직렬연결과 병렬연결에서 전압과 전류는 어떻게 분배되는가?",
+      "저항 연결 방식이 소비 전력과 ‘안전성’을 어떻게 바꾸는가?",
+      "전기 안전은 사용 습관의 문제인가, 회로 설계의 문제인가, 사회 시스템(정격·인증)의 문제인가?",
+      "가정용 멀티탭·고용량 가전·전기차 충전기 사용에서 어떤 전기량을 확인해야 안전한가?"
+    ],
+    products:["직렬·병렬 회로 실험 보고서","전압·전류 측정표 + 전력 계산표","우리 집·교실 전기 안전 가이드"],
+    evidence:[
+      "측정값으로 소비 전력을 정량 계산함",
+      "직렬·병렬의 차이를 전압·전류 분포로 설명함",
+      "정격·과부하·누전 등 안전 개념과 연결한 방안을 제시함"
+    ],
+    data:"직렬·병렬 회로별 전체 전압, 각 저항의 전압, 전체 전류, 각 저항의 전류를 측정하고 P=VI=I²R=V²/R로 소비 전력을 계산한다. 가정용 멀티탭(15A·1500W 정격)에 전열기(1000W)+드라이어(1200W) 동시 사용 시 정격 초과를 정량적으로 보인다.",
+    misconception:"‘전류는 전구에서 소비된다.’ ‘직렬일수록 더 밝다.’ ‘멀티탭은 꽂는 만큼 다 쓸 수 있다.’",
+    correction:"소비되는 것은 전류가 아니라 ‘전기 에너지’이며, 소비 전력은 전압·전류·저항 관계로 결정됨을 측정과 계산으로 확인한다. 정격 전류를 초과하면 발열로 화재 위험이 커짐을 사례로 안내.",
+    failure:"저항 발열이 커지면 전원 전압을 낮추고, 실제 멀티탭 과부하는 영상·사례 자료로 대체한다. 회로 구성이 어려우면 PhET ‘Circuit Construction Kit’ 활용.",
+    career:"전기전자공학, 에너지 관리, 산업안전, 스마트홈 기술, 전기차 충전 인프라",
+    deepDive:"우리 집 전기 사용량을 일주일간 기록(IoT 콘센트 또는 스마트미터)하고, 가전제품별 소비 전력 비율과 누진제 구간에서의 비용 절감 전략을 데이터 기반으로 제안하는 시민과학 프로젝트.",
+    sample:"동일한 저항 3개를 직렬·병렬로 연결해 각 저항의 전압·전류를 측정하고 소비 전력을 계산한 결과, 병렬 연결 시 전체 소비 전력이 직렬의 9배가 됨을 확인함. 이를 가정용 멀티탭에 적용해 ‘1500W 정격 초과 시 화재 위험’을 정량 근거(I=W/V≥6.25A 초과)로 제시하는 학교 게시판용 전기안전 카드뉴스를 제작함."
+  },
+  {
+    code:"[12물리02-03]",
+    domain:"전기와 자기",
+    standard:"축전기에서 전기 에너지를 저장하는 원리가 각종 센서와 전기 신호 입력 장치 등 실생활 제품에서 활용됨을 설명할 수 있다.",
+    official:[],
+    title:"축전기는 저장 장치인가, 신호 장치인가",
+    type:"시뮬레이션형 · 제품분석형",
+    period:"1~2차시",
+    lens:"시간 변화와 정보 입력",
+    concept:"전기 에너지의 저장과 신호 변환",
+    related:"축전기(capacitor), 전기 용량(C=Q/V), 충전·방전 곡선, RC 시간상수, 전기 에너지(½CV²), 센서, 전기 신호",
+    phenomenon:"정전식 터치스크린, 카메라 플래시, 자동차 에어백 가속도 센서, 키보드 입력 감지",
+    conflict:"‘축전기는 배터리와 같다’는 직관을 충전·방전 곡선의 차이(시간상수·방전 속도)로 수정한다.",
+    general:"전기 에너지는 저장과 방출의 ‘시간적 변화’를 통해 신호 감지·정보 입력 기술의 원리로 활용된다.",
+    studentGeneral:"축전기는 전기 에너지를 빠르게 저장하고 방출하며, 그 변화 자체가 ‘입력 신호’로 활용될 수 있다.",
+    questions:[
+      "축전기는 무엇을 어떻게 저장하는가(전하인가, 에너지인가)?",
+      "충전과 방전 과정의 ‘시간적 변화’는 어떻게 신호 입력으로 해석되는가?",
+      "센서 기술에서 ‘에너지 저장’보다 ‘정보 변환’이 더 중요한가?",
+      "터치스크린·에어백 센서·플래시·키보드에서 축전기의 역할은 어떻게 다른가?"
+    ],
+    products:["충전·방전 곡선 분석지","축전기 활용 사례 매핑 보고서","제품별 원리 카드 4종"],
+    evidence:[
+      "충전·방전 그래프를 시간상수 관점에서 해석함",
+      "제품 사례별로 ‘에너지 저장’과 ‘신호 변환’ 역할을 구분함",
+      "물리 지식의 기술적 유용성을 자기 언어로 설명함"
+    ],
+    data:"시간에 따른 축전기 전압 V(t)를 표와 그래프로 정리하고, 충전 곡선과 방전 곡선의 차이(시간상수 τ=RC)를 센서 입력 장치 사례와 연결한다. PhET ‘Capacitor Lab’ 시뮬레이션으로 판 거리·면적·유전체 변화 실험.",
+    misconception:"‘축전기는 배터리와 같다.’ ‘축전기는 전류를 저장한다.’",
+    correction:"저장 방식(전하 분리 vs 화학 반응), 방전 특성(즉시 vs 점진), 신호 처리 역할을 사례별로 비교한다.",
+    failure:"실제 회로 구성이 어렵다면 PhET 시뮬레이션과 제품 분해 영상으로 대체한다.",
+    career:"전자공학, 센서공학, UX 입력 장치, 로봇 제어, 의료기기(제세동기), 메모리 기술",
+    deepDive:"정전식 터치스크린의 ‘멀티터치 인식’ 원리를 격자형 축전기 배열의 정전용량 변화로 모델링하고, 화면 보호필름이 인식률에 미치는 영향을 정성 예측·검증.",
+    sample:"PhET Capacitor Lab으로 판 거리를 1/2로 줄였을 때 정전용량이 2배가 됨을 확인하고, 이 원리가 정전식 터치스크린에서 손가락 접근(거리 감소) → 정전용량 증가 → 입력 신호 발생으로 이어짐을 모형으로 설명함. 이어 ‘플래시(즉시 방전)’와 ‘메모리 백업용 슈퍼커패시터(점진 방전)’의 시간상수 차이를 비교 분석함."
+  },
+  {
+    code:"[12물리02-04]",
+    domain:"전기와 자기",
+    standard:"자성체의 종류를 알고 일상생활과 산업 기술에서 자성체가 활용되는 예를 찾을 수 있다.",
+    official:[],
+    title:"자석에 붙지 않는 물질도 자기와 관련 있을까",
+    type:"분류형 · 사례조사형",
+    period:"1~2차시",
+    lens:"분류와 활용",
+    concept:"물질의 자기적 성질",
+    related:"강자성체, 상자성체, 반자성체, 외부 자기장, 자기 모멘트, 자화(magnetization), 산업 기술",
+    phenomenon:"자석에 붙는 철·코발트·니켈, 붙지 않는 알루미늄·구리·물, MRI, 자기부상열차(초전도체의 마이스너 효과)",
+    conflict:"‘자석에 붙지 않으면 자기와 무관하다’는 직관을, 외부 자기장에 대한 미세한 반응 차이로 재구성한다.",
+    general:"물질은 외부 자기장에 서로 다른 방식으로 반응하며, 이 차이는 저장·감지·분리·제어 기술의 다양한 활용 가능성을 만든다.",
+    studentGeneral:"모든 물질은 외부 자기장에 반응하지만, 반응의 방향과 크기가 달라 서로 다른 기술에 활용된다.",
+    questions:[
+      "강자성체·상자성체·반자성체는 어떻게 구분되며, 미시적으로 어떤 차이가 있는가?",
+      "물질이 자기장에 다르게 반응한다는 사실은 왜 기술적으로 중요한가?",
+      "자성체 활용 기술은 ‘편리성’보다 ‘안전성·윤리성’이 더 중요해지는 사례는 무엇인가(예: MRI)?",
+      "MRI·자기 저장 장치·금속 분리·자기부상열차는 어떤 자성체 특성을 활용하는가?"
+    ],
+    products:["자성체 분류표(반응 방향·세기·미시 구조)","산업 활용 사례 카드 4종","분류 기준 설명문"],
+    evidence:[
+      "분류 기준을 명확히 설정함(반응 방향·세기·외부장 의존성)",
+      "자성체 종류와 활용 사례를 일관되게 연결함",
+      "물질의 성질과 기술 기능을 미시-거시로 연결함"
+    ],
+    data:"여러 물질(철·알루미늄·구리·물·흑연·네오디뮴)에 강한 네오디뮴 자석을 가까이 대 반응을 관찰하고, 강자성·상자성·반자성 분류 기준과 활용 사례를 표로 정리한다. 반자성 관찰이 어려우면 흑연·물의 자기부상 영상 자료 활용.",
+    misconception:"‘자석에 붙지 않으면 자기와 무관하다.’ ‘반자성은 인공물에만 있다.’",
+    correction:"강자성(강한 인력)·상자성(약한 인력)·반자성(약한 척력)의 반응 차이를 관찰과 자료로 비교하고, 모든 물질이 어느 정도 자기적 성질을 가짐을 명시.",
+    failure:"상자성·반자성 반응은 교실 자석으로 관찰하기 어렵기 때문에 강자성 관찰과 자료 조사·영상 자료를 병행한다.",
+    career:"재료공학, 의료영상(MRI), 정보저장, 환경분리 기술, 초전도 응용",
+    deepDive:"MRI가 인체 내부 정보를 얻는 원리를 ‘수소 원자핵의 자기적 반응’으로 정성 분석하고, 강한 자기장 사용에 따른 의료 안전 가이드라인(금속 이식물·심박조율기 등)을 조사하는 의료-과학 융합 탐구.",
+    sample:"네오디뮴 자석으로 철·알루미늄·구리·흑연을 반응 비교한 후, 흑연이 자석을 약하게 밀어내는 것을 영상으로 촬영해 반자성을 직접 관찰함. 이를 MRI에서 수소 원자핵의 자기 공명 원리와 연결해, ‘체내의 미세한 자기적 반응이 의료 영상으로 전환되는 과정’을 모형 그림과 함께 자기 언어로 설명함."
+  },
+  {
+    code:"[12물리02-05]",
+    domain:"전기와 자기",
+    standard:"전류의 자기 작용을 이용하여 에너지를 전환하는 장치의 원리를 알고, 스피커와 전동기 등을 설계할 수 있다.",
+    official:["다양한 재료를 활용하여 스피커를 설계하고 제작하여 음성 정보의 전기적 재생 과정 탐색하기"],
+    title:"전기 신호를 소리로 바꾸는 스피커 설계하기",
+    type:"공학설계형 · 메이커형",
+    period:"2~3차시",
+    lens:"에너지 전환과 공학 설계",
+    concept:"전류의 자기 작용을 통한 에너지 전환",
+    related:"전류의 자기 작용(앙페르 법칙), 코일, 자기장, 자기력(F=BIL), 진동판, 소리(파동), 전동기, 변환",
+    phenomenon:"스피커·이어폰·헤드폰 분해 영상, 전동기, 보청기, 자석에 흐르는 전선의 움직임 시연",
+    conflict:"‘전기가 직접 소리로 바뀐다’는 단순화를 ‘전류 → 자기력 → 진동 → 소리’의 단계적 에너지 전환으로 재구성한다.",
+    general:"전류와 자기장의 상호작용은 전기 에너지를 운동·소리·열 등 다른 형태로 전환하는 ‘장치 설계의 일반 원리’이다.",
+    studentGeneral:"전류가 흐르는 코일은 자석과 힘을 주고받고, 그 힘이 진동판을 움직이면 소리가 만들어진다.",
+    questions:[
+      "전류가 흐르면 주변에 어떤 현상이 나타나는가(앙페르의 발견)?",
+      "전기 신호는 어떻게 진동과 소리로 단계적으로 변환되는가?",
+      "좋은 스피커 설계에서 ‘과학 원리’와 ‘재료·구조의 창의성’ 중 무엇이 더 결정적인가?",
+      "이어폰·보청기·소형 스피커 설계에서는 어떤 제약(공간·전력·음질)을 어떻게 절충해야 하는가?"
+    ],
+    products:["스피커 시제품(종이컵·자석·코일·플레이어 활용)","설계 변수 통제 실험표","개선 전후 성능 비교 + 음성 재생 과정 설명서"],
+    evidence:[
+      "설계 변수(코일 감은 수·자석 거리·진동판 재료)를 하나씩 변경해 통제 실험함",
+      "개선 전후 성능(소리 크기·명료도)을 정량·정성 비교함",
+      "전류의 자기 작용을 ‘단계적 에너지 전환 과정’으로 설명함"
+    ],
+    data:"코일 감은 수(50·100·200회), 자석 거리(접촉·1cm·3cm), 진동판 재료(종이컵·플라스틱·풍선) 중 하나만 조작해 소리 크기·명료도·작동 안정성을 정성 비교(데시벨 측정 가능 시 정량 비교).",
+    misconception:"‘스피커는 전기가 직접 소리로 바뀐다.’ ‘코일이 많으면 무조건 좋다.’",
+    correction:"전류의 자기 작용 → 자기력 → 진동판 진동 → 공기 압력파(소리)의 단계를 설계 결과와 연결한다.",
+    failure:"소리가 작거나 안 나면 ① 코일 감은 수, ② 자석-코일 거리, ③ 진동판 장력, ④ 접촉 불량, ⑤ 입력 신호 크기 순서로 체크리스트 점검.",
+    career:"음향공학, 전기전자공학, 메이커 교육, 제품 디자인, 보청기·의료기기, 자동차 음향 시스템",
+    deepDive:"학교 방송실 스피커 또는 가정용 블루투스 스피커를 분해 도면화하고, ‘저음용 우퍼 vs 고음용 트위터’의 설계 차이를 진동판 질량·코일 구조 관점에서 비교 분석.",
+    sample:"종이컵·에나멜선·네오디뮴 자석으로 스피커를 제작한 뒤, 코일 감은 수를 50·100·200회로 변화시키며 소리 크기를 데시벨 미터로 측정한 결과, 100회까지는 증가하다가 200회에서는 저항 증가로 오히려 감소함을 발견함. 이를 통해 ‘설계 변수 사이의 최적 균형’이라는 공학적 사고를 자기 언어로 정리하고 보청기 설계 사례에 적용함."
+  },
+  {
+    code:"[12물리02-06]",
+    domain:"전기와 자기",
+    standard:"전자기 유도 현상이 센서, 무선통신, 무선충전 등 에너지 전달 기술에 적용되어 현대 문명에 미친 영향을 인식할 수 있다.",
+    official:["전자기 유도 작용을 이용한 무선충전 원리를 이해하고 구현하기"],
+    title:"전선 없이 에너지를 전달할 수 있을까",
+    type:"공학설계형 · 기술영향 분석형",
+    period:"2~3차시",
+    lens:"비접촉 에너지 전달",
+    concept:"전자기 유도와 비접촉 정보·에너지 전달",
+    related:"전자기 유도(패러데이 법칙), 자속 변화 ΔΦ/Δt, 코일, 유도 전류·유도 기전력, 렌츠 법칙, 무선충전(Qi 표준), 센서, 무선통신",
+    phenomenon:"무선충전기, 교통카드(RFID), 인덕션 레인지, 무선통신 장치, 발전소의 발전기",
+    conflict:"‘무선충전은 전기가 공기 중을 그대로 흐르는 것’이라는 직관을, ‘변화하는 자기장이 유도 전류를 만든다’는 패러데이 법칙으로 수정한다.",
+    general:"변화하는 자기장은 전기적 효과를 유도하며, 이는 비접촉 에너지 전달과 정보 기술의 광범위한 기반이 된다.",
+    studentGeneral:"전선이 없어도 ‘변화하는 자기장’을 매개로 에너지·신호를 전달할 수 있다.",
+    questions:[
+      "전자기 유도는 어떤 조건(자속의 변화)에서 일어나는가?",
+      "왜 직접 연결하지 않고도 에너지를 전달할 수 있는가?",
+      "무선 에너지 전달 기술은 ‘효율’보다 ‘편의성’이 더 중요한가, 아니면 의료·산업에서는 다른 우선순위가 있는가?",
+      "전기차 무선충전과 의료용 무선 전력 전달(인공심장 등)에는 어떤 장단점이 있는가?"
+    ],
+    products:["무선충전 구현 보고서(송수신 코일 변수 실험)","유도 전압-거리·정렬 비교 그래프","전자기 유도 기술의 사회적 영향 분석 발표"],
+    evidence:[
+      "코일 거리·정렬·감은 수 등 변수를 통제하여 비교함",
+      "유도 조건(자속 변화)을 정확히 설명함",
+      "효율과 편의성·안전성·환경 등 다차원적 균형을 논의함"
+    ],
+    data:"송신 코일에 교류 또는 변화하는 직류를 흘리고, 수신 코일과의 거리·정렬·코일 감은 수에 따른 유도 전압 또는 LED 밝기를 표와 그래프로 정리한다.",
+    misconception:"‘무선충전은 전기가 공기 중을 그대로 흐른다.’ ‘유도 전류는 자석을 가만히 두어도 흐른다.’",
+    correction:"변화하는 자기장과 유도 전류의 관계(패러데이 법칙)를 강조하고, ‘자속이 변하지 않으면 유도 전류는 흐르지 않음’을 실험으로 확인한다.",
+    failure:"유도 효과가 약하면 ① 송·수신 코일 감은 수, ② 정렬 상태, ③ 거리, ④ 전원 전압·주파수를 점검한다. 실제 구현이 어려우면 시판 무선충전기 분해 또는 시뮬레이션 활용.",
+    career:"전력전자, 무선통신, IoT 센서, 전기차 충전 인프라, 의료기기, 5G·6G 통신",
+    deepDive:"전기차 무선충전 인프라가 도시에 보급될 때의 ‘공간 효율, 에너지 손실, 인체 안전(EMF 노출), 비용’을 종합 비교하는 정책-기술 융합 보고서 작성.",
+    sample:"에나멜선으로 송신·수신 코일(각 100회)을 만들어 거리 0·1·2·3·5cm에서 LED 밝기를 비교한 결과, 거리 제곱에 가깝게 감소함을 확인함. 정렬을 30°·60°·90° 기울이며 효율 변화도 측정해 ‘방향성’이 무선충전 효율에 결정적임을 발견하고, 이를 Qi 표준 무선충전기의 ‘정렬 인식 코일’ 설계와 연결해 분석함."
+  },
+
+  /* ───────── 빛과 물질 ───────── */
+  {
+    code:"[12물리03-01]",
+    domain:"빛과 물질",
+    standard:"빛의 중첩과 간섭을 통해 빛의 파동성을 알고, 이를 이용한 기술과 현상을 예를 들어 설명할 수 있다.",
+    official:["이중 슬릿에 의한 빛의 간섭 관찰하기"],
+    title:"간섭무늬는 왜 빛의 파동성을 보여주는가",
+    type:"실험형 · 증거기반 논증형",
+    period:"2차시",
+    lens:"증거와 파동성",
+    concept:"파동의 중첩과 간섭",
+    related:"파동의 중첩 원리, 보강 간섭, 상쇄 간섭, 파장 λ, 경로차, 위상차, 간섭무늬",
+    phenomenon:"비눗방울의 알록달록한 색, CD·DVD 표면 무늬, 기름막 무늬, 레이저 이중 슬릿 간섭 실험",
+    conflict:"‘빛은 항상 직진한다’는 직관을 이중 슬릿 간섭무늬 관찰로 흔들고, ‘파동’ 모형으로 설명한다.",
+    general:"빛은 파동처럼 중첩하고 간섭하며, 간섭무늬는 빛의 파동성을 뒷받침하는 결정적 관찰 증거이다.",
+    studentGeneral:"밝고 어두운 간섭무늬는 빛이 겹쳐져 세기가 커지거나 작아지는 ‘파동 현상’이다.",
+    questions:[
+      "보강 간섭과 상쇄 간섭은 각각 어떤 조건(경로차·위상차)에서 나타나는가?",
+      "간섭무늬는 왜 빛의 파동성을 보여주는 ‘증거’가 되는가?",
+      "과학적 ‘아름다움(elegance)’은 과학 탐구의 가치 있는 기준인가?",
+      "간섭 현상은 정밀 측정(간섭계)·광학 코팅·홀로그램 기술에 어떻게 활용되는가?"
+    ],
+    products:["간섭무늬 관찰 보고서(슬릿 간격·파장·스크린 거리 변화)","조건 변화 비교표","‘빛의 파동성’ CER 논증문"],
+    evidence:[
+      "간섭무늬를 ‘관찰 증거’로 해석함",
+      "보강·상쇄 간섭을 경로차·위상차로 정량 연결함",
+      "광학 기술(반사방지 코팅·홀로그램·LIGO 등)로 전이 적용함"
+    ],
+    data:"슬릿 간격 d, 스크린 거리 L, 빛의 색(파장 λ), 무늬 간격 Δy를 관찰표로 정리하고 Δy=λL/d 관계를 정성·정량으로 확인. 밝은 무늬와 어두운 무늬를 보강·상쇄 간섭으로 표시.",
+    misconception:"‘빛은 항상 직선으로만 간다.’ ‘간섭은 빛이 부딪쳐 사라지는 것이다.’",
+    correction:"직진은 ‘일부 조건에서의 거동’이며, 중첩과 간섭은 파동성의 증거임을 구분한다. 상쇄 간섭에서도 에너지는 보존되며 다른 위치로 재분배될 뿐.",
+    failure:"간섭무늬가 보이지 않으면 ① 레이저 정렬, ② 슬릿-스크린 거리, ③ 주변 조도(암실화), ④ 스크린 위치 순으로 점검.",
+    career:"광학·포토닉스, 반도체 검사, 정밀 측정(중력파 검출 LIGO), 예술·디자인 융합",
+    deepDive:"중력파 검출기 LIGO가 ‘레이저 간섭계’ 원리로 어떻게 10⁻¹⁸m 수준의 미세 변화를 측정하는지 정성 분석하고, 간섭이 정밀 측정에 가지는 의미를 에세이로 작성.",
+    sample:"이중 슬릿 실험에서 슬릿 간격 0.1mm·0.2mm·0.5mm로 변화시키며 무늬 간격을 측정해 Δy가 d에 반비례함을 정량 확인하고, 적색 레이저와 녹색 레이저의 무늬 간격 비교로 파장과 간섭의 관계를 도출함. 이를 LIGO의 중력파 검출 원리와 연결해 ‘간섭이 인류가 우주를 듣는 귀가 되었다’는 에세이로 정리함."
+  },
+  {
+    code:"[12물리03-02]",
+    domain:"빛과 물질",
+    standard:"빛의 굴절을 이용하여 볼록렌즈에서 상이 맺히는 과정을 설명하고, 반도체와 디스플레이 제작 공정에서 중요하게 활용됨을 인식할 수 있다.",
+    official:["볼록렌즈에 의한 실상을 관찰하여 상의 위치와 초점거리 찾기"],
+    title:"렌즈의 상 맺힘과 반도체 공정 연결하기",
+    type:"실험형 · 기술연계형",
+    period:"2차시",
+    lens:"빛의 경로 제어",
+    concept:"굴절과 정밀 빛 제어",
+    related:"굴절, 굴절률 n, 볼록렌즈, 초점 F, 초점거리 f, 실상·허상, 상 공식(1/f=1/a+1/b), 광선 추적, 포토리소그래피",
+    phenomenon:"카메라·돋보기·프로젝터·현미경, 반도체 포토리소그래피 공정, EUV 노광",
+    conflict:"‘렌즈는 단순히 확대하는 도구’라는 직관을 ‘빛의 경로 제어와 상 형성’으로 정교화한다.",
+    general:"빛의 경로는 렌즈와 매질에 의해 정밀하게 제어될 수 있으며, 이러한 정밀 빛 제어는 첨단 제조 공정(반도체·디스플레이)의 핵심 기반이다.",
+    studentGeneral:"렌즈는 빛의 경로를 굴절시켜 특정 위치에 상을 만들고, 이 원리는 반도체·디스플레이 제조에 응용된다.",
+    questions:[
+      "볼록렌즈에서 실상은 어떤 조건(물체 거리 > f)에서 만들어지는가?",
+      "렌즈의 굴절은 어떻게 상의 위치·크기·종류(실상/허상)를 결정하는가?",
+      "첨단 제조에서 광학 기술은 ‘보조 기술’인가, ‘핵심 기술’인가?",
+      "포토리소그래피에서 빛의 파장과 렌즈 설계가 반도체 미세 공정 한계를 어떻게 결정하는가?"
+    ],
+    products:["렌즈 결상 실험 보고서","광선 추적도(작도)","포토리소그래피 연결 설명자료"],
+    evidence:[
+      "실험값(물체 거리·상 거리)으로 초점거리 f를 도출함",
+      "광선 추적도와 실제 상 위치를 비교해 일치 확인",
+      "광학 원리를 반도체·디스플레이 제조 공정으로 전이함"
+    ],
+    data:"물체 거리 a, 상 거리 b, 상의 크기, 선명도, 초점거리 추정값(1/f=1/a+1/b 활용)을 표로 정리하고 광선 추적도(평행 광선·중심 광선·초점 광선)와 실제 상 위치를 비교한다.",
+    misconception:"‘렌즈는 물체를 단순히 확대한다.’ ‘초점에 두면 무조건 상이 생긴다.’",
+    correction:"렌즈는 빛의 경로를 제어해 상을 형성하는 장치임을 실험과 광선 추적으로 연결하고, 물체 위치에 따라 실상·허상·무한대 등 상의 종류가 달라짐을 확인.",
+    failure:"상이 흐리면 ① 렌즈-스크린 정렬, ② 광원 밝기, ③ 물체 거리, ④ 주변 조도(암실화)를 점검.",
+    career:"광공학·포토닉스, 반도체공학(노광 공정), 디스플레이 공학, 영상·카메라 기술, 의료 광학",
+    deepDive:"반도체 미세 공정이 ‘DUV→EUV→High-NA EUV’로 발전하는 과정을 ‘빛의 파장과 렌즈의 NA(개구수)’ 관점에서 분석하고, 한국 반도체 산업의 위치를 조사하는 산업-기술 융합 탐구.",
+    sample:"볼록렌즈(f=10cm)로 물체 거리를 15·20·30cm로 변화시키며 상 거리·크기를 측정해 1/f=1/a+1/b 관계를 정량 검증하고, 광선 추적도와의 일치를 확인함. 이를 반도체 노광 공정의 ‘레티클(원판) → 렌즈 → 웨이퍼’ 결상 원리와 연결하고, EUV 노광이 DUV보다 더 미세한 공정이 가능한 이유를 ‘파장이 짧을수록 해상도가 높아진다’는 회절 한계 관점에서 설명함."
+  },
+  {
+    code:"[12물리03-03]",
+    domain:"빛과 물질",
+    standard:"빛과 물질의 이중성이 전자 현미경과 영상 정보 저장 등 다양한 분야에 활용됨을 설명할 수 있다.",
+    official:[],
+    title:"전자현미경은 왜 더 작은 것을 볼 수 있을까",
+    type:"사례분석형 · 비교모형형",
+    period:"1~2차시",
+    lens:"모형의 한계와 확장",
+    concept:"빛과 물질의 이중성",
+    related:"파동성, 입자성, 광전효과(언급), 드브로이 물질파(λ=h/p), 전자현미경, 영상 정보 저장(블루레이·CD), 분해능, 파장",
+    phenomenon:"광학현미경과 전자현미경 이미지 비교(세포 vs 바이러스), CD·DVD·블루레이의 저장 밀도",
+    conflict:"‘입자와 파동은 서로 배타적’이라는 고전적 직관을, 전자의 파동성 활용 사례(전자회절·전자현미경)로 재구성한다.",
+    general:"빛과 물질은 단일한 고전 모형으로 설명되지 않으며, 이중성은 첨단 관측 기술과 정보 저장 기술의 원리로 활용된다.",
+    studentGeneral:"전자도 파동처럼 다룰 수 있고, 그 짧은 파장 덕분에 광학 한계를 넘는 관측이 가능하다.",
+    questions:[
+      "‘빛과 물질의 이중성’이란 무엇이며, 왜 둘 다 필요한가?",
+      "입자성과 파동성을 함께 고려하면 어떤 기술이 설명되는가?",
+      "‘하나의 모형으로 설명되지 않는다’는 것은 과학의 약점인가, 강점인가?",
+      "전자현미경·블루레이·나노기술은 이중성을 어떤 방식으로 활용하는가?"
+    ],
+    products:["광학현미경 vs 전자현미경 비교표","이중성 활용 사례 보고서","‘모형의 한계’ 메타 성찰문"],
+    evidence:[
+      "고전 모형의 한계를 사례로 설명함",
+      "전자현미경·저장매체 사례를 이중성과 연결함",
+      "첨단 기술의 가치와 잠재력을 다층적으로 논의함"
+    ],
+    data:"광학현미경(가시광선 λ~500nm, 분해능~200nm)과 전자현미경(전자 λ~0.005nm, 분해능~0.1nm)의 사용 파장·분해능·관측 대상 크기·활용 분야를 비교표로 정리. CD(λ=780nm)·DVD(650nm)·블루레이(405nm)의 저장 밀도도 함께 비교.",
+    misconception:"‘입자와 파동은 서로 배타적이다.’ ‘전자는 작은 공처럼 행동한다.’",
+    correction:"관찰 상황에 따라 다른 성질이 드러나는 ‘양자적 특성’으로 이해하게 하고, 드브로이 물질파(λ=h/p)를 정성 수준에서 도입.",
+    failure:"이중성이 추상적이면 ‘전자현미경 사진 vs 광학현미경 사진’ 비교에 집중하고, 수식보다 모형 비교·기술 사례로 운영.",
+    career:"나노과학·나노공학, 재료분석, 정보저장, 양자기술, 의료영상, 반도체 검사",
+    deepDive:"코로나19 바이러스 사진이 ‘투과전자현미경(TEM)’으로 어떻게 촬영되는지 조사하고, 광학현미경으로는 불가능한 이유를 ‘분해능과 파장의 관계’로 분석하는 의료-과학 융합 탐구.",
+    sample:"광학현미경과 전자현미경의 분해능 차이가 ‘파장이 짧을수록 해상도가 높다’는 원리에서 비롯됨을 분석하고, 이를 CD→DVD→블루레이의 저장 밀도 증가(파장 780→650→405nm)와 연결함. 이어 코로나19 바이러스(약 100nm) 영상이 광학현미경으로는 보이지 않고 전자현미경으로만 가능한 이유를 ‘드브로이 파장’ 개념으로 모형화해 설명함."
+  },
+  {
+    code:"[12물리03-04]",
+    domain:"빛과 물질",
+    standard:"원자 내의 전자는 양자화된 에너지 준위를 가지고 있음을 스펙트럼 관찰 증거를 바탕으로 논증할 수 있다.",
+    official:[],
+    title:"스펙트럼으로 원자 내부를 추론하기",
+    type:"자료분석형 · 증거기반 논증형",
+    period:"2차시",
+    lens:"관찰 증거와 모형",
+    concept:"에너지 준위의 양자화",
+    related:"선스펙트럼(방출·흡수), 연속 스펙트럼, 에너지 준위, 양자화(quantization), 전이(transition), 보어 모형, 모형의 한계",
+    phenomenon:"형광등·네온사인 색, 별빛 흡수 스펙트럼, 수소·헬륨·나트륨의 선스펙트럼 자료, 불꽃 반응",
+    conflict:"‘스펙트럼 색은 단순한 물질 색’이라는 직관을, ‘특정 에너지 전이의 증거’로 재해석한다.",
+    general:"원자 내 전자는 불연속적인 에너지 준위만 가질 수 있으며, 선스펙트럼은 이 양자화의 결정적 관찰 증거이다.",
+    studentGeneral:"특정 색의 선스펙트럼은 ‘전자가 특정 에너지 차이만큼 이동했다’는 증거가 된다.",
+    questions:[
+      "선스펙트럼은 연속 스펙트럼과 어떻게 다른가, 그리고 왜 다른가?",
+      "왜 ‘특정한’ 선스펙트럼이 에너지 준위의 양자화를 보여주는 증거인가?",
+      "보어 모형은 ‘옳은 모형’인가, 아니면 ‘더 나은 모형으로 가는 디딤돌’인가?",
+      "별빛 스펙트럼 분석은 우주 화학·우주의 팽창(적색편이)을 어떻게 알려주는가?"
+    ],
+    products:["스펙트럼 관찰표(빛의 색·상대 위치·세기)","에너지 준위 전이 모형도(화살표)","‘양자화’ CER 논증문","보어 모형의 설명력·한계 분석"],
+    evidence:[
+      "관찰 증거를 에너지 준위 모형으로 일관되게 연결함",
+      "CER 구조로 양자화 논증문을 명확히 작성함",
+      "보어 모형의 설명력과 한계(다전자 원자에서의 실패 등)를 메타적으로 구분함"
+    ],
+    data:"관찰된 스펙트럼 선의 색·상대 위치·세기를 기록하고, 에너지 준위 사이 전이를 화살표 모형으로 연결한다. CER(Claim-Evidence-Reasoning) 구조로 ‘에너지 준위가 양자화되어 있다’는 논증문을 작성한다. 디지털 분광기 앱(Spectrum Analyzer) 또는 분광계 활용.",
+    misconception:"‘스펙트럼 색은 단순히 물질의 색이다.’ ‘보어 모형은 완벽한 원자 모형이다.’",
+    correction:"특정 에너지 전이의 증거로 스펙트럼 선을 해석하고, 보어 모형의 설명력(수소 원자)과 한계(다전자 원자)를 함께 다룬다. 양자역학적 원자 모형으로의 발전을 정성적으로 언급.",
+    failure:"실제 분광 관찰이 어려우면 고해상도 스펙트럼 자료(NASA·NIST DB)와 디지털 분광기 앱을 제공하고, 관찰보다 ‘증거 기반 논증’에 집중.",
+    career:"양자물리, 천체분광학, 분석화학, 광원·디스플레이 기술(LED·QLED), 분광 의료 진단",
+    deepDive:"별빛 스펙트럼의 ‘적색편이(redshift)’가 우주 팽창을 보여주는 원리를 양자화된 에너지 준위 관점에서 정성 분석하고, 허블 상수 측정과 우주 나이 추정에 어떻게 활용되는지 조사.",
+    sample:"형광등·LED·수은등의 스펙트럼을 스마트폰 분광기 앱으로 촬영해 각각 다른 선스펙트럼을 확인하고, 수소 발머 계열의 4개 선(656·486·434·410nm)을 ‘n=3·4·5·6에서 n=2로의 전이 에너지 차이’로 정량 매핑함. 이를 별빛 스펙트럼의 적색편이 분석과 연결해 ‘선스펙트럼이 우주의 화학과 운동을 알려준다’는 일반화를 자기 언어로 작성함."
+  },
+  {
+    code:"[12물리03-05]",
+    domain:"빛과 물질",
+    standard:"고체의 에너지띠 구조로부터 도체와 부도체의 차이를 알고, 반도체 소자의 원리를 설명할 수 있다.",
+    official:[],
+    title:"반도체는 왜 현대 문명의 핵심인가",
+    type:"모형화형 · 소자분석형",
+    period:"2차시",
+    lens:"구조와 기능",
+    concept:"에너지띠와 반도체 소자",
+    related:"에너지띠, 원자가띠·전도띠, 띠 간격(band gap), 도체·부도체·반도체, p형·n형 반도체, p-n 접합, 다이오드, LED, 트랜지스터",
+    phenomenon:"LED 조명, 태양전지, 다이오드, 스마트폰 반도체 칩, USB 메모리",
+    conflict:"‘반도체는 도체와 부도체의 중간 물질’이라는 단순 설명을 ‘에너지띠 구조와 p-n 접합 제어’로 정교화한다.",
+    general:"고체의 전기적 성질은 에너지띠 구조로 설명되며, 반도체 소자는 이 구조를 ‘의도적으로 제어(도핑·접합)’하여 현대 기술의 기능을 구현한다.",
+    studentGeneral:"전기가 잘 흐르는지 여부는 고체 내부의 에너지띠 구조와 전자 이동 가능성으로 설명할 수 있다.",
+    questions:[
+      "도체·반도체·부도체는 전기 전도성에서 어떻게 다르며, 그 차이는 어디서 오는가?",
+      "에너지띠 구조는 왜 고체의 전기 전도성을 설명하는 핵심 모형인가?",
+      "반도체 기술은 현대 문명에서 가장 중요한 물리학 응용인가, 아니면 다른 후보가 있는가?",
+      "LED·태양전지·다이오드·트랜지스터는 에너지띠 구조와 어떻게 연결되어 작동하는가?"
+    ],
+    products:["에너지띠 비교도(도체·반도체·부도체)","p-n 접합 설명서·LED 작동 모형","반도체 소자 활용 사례 보고서"],
+    evidence:[
+      "에너지띠 구조로 도체·부도체·반도체를 일관되게 비교함",
+      "p형·n형의 차이와 p-n 접합의 작동을 모형으로 설명함",
+      "반도체 소자 사례를 원리와 일대일로 연결함"
+    ],
+    data:"도체·부도체·반도체의 에너지띠 특징(띠 간격·전도띠 채움), 전자 이동 가능성, 전도성, 소자 기능(다이오드·LED·태양전지·트랜지스터)을 비교표와 모형 그림으로 정리한다.",
+    misconception:"‘반도체는 도체와 부도체의 중간 물질이다.’ ‘도핑은 그냥 불순물을 넣는 것이다.’",
+    correction:"에너지띠 구조와 ‘의도적 도핑·접합’으로 반도체 소자의 원리를 설명한다. p형·n형의 캐리어(정공·전자) 차이를 시각화.",
+    failure:"실제 다이오드 회로 구성이 어려우면 LED 방향별 점등 실험 또는 PhET ‘Semiconductors’ 시뮬레이션으로 대체.",
+    career:"반도체공학, 재료과학, 전자공학, 나노소자, 광전자공학, 태양광 에너지",
+    deepDive:"한국 반도체 산업이 ‘메모리 → 시스템 반도체 → AI 반도체’로 진화하는 과정을 에너지띠·소자 구조 관점에서 분석하고, 미·중 기술 경쟁 속 한국의 전략을 조사하는 산업-기술 융합 탐구.",
+    sample:"LED를 정방향·역방향으로 연결한 비교 실험으로 ‘p-n 접합의 단방향 전류 흐름’을 직접 관찰하고, 적·녹·청 LED의 점등 전압(약 1.8·2.1·3.2V)이 띠 간격 에너지의 차이임을 정량 확인함. 이를 ‘반도체 띠 간격 제어가 디스플레이 색의 물리적 기반’임으로 연결해, 마이크로LED 디스플레이의 작동 원리를 모형 그림으로 설명함."
+  },
+  {
+    code:"[12물리03-06]",
+    domain:"빛과 물질",
+    standard:"모든 관성계에서 빛의 속력이 동일하다는 원리로부터 시간 팽창, 길이 수축 현상이 나타남을 알고, 이러한 지식이 사회에 미친 영향을 조사할 수 있다.",
+    official:[],
+    title:"빛의 속도는 시간과 공간을 어떻게 바꾸는가",
+    type:"사고실험형 · 사회영향 조사형",
+    period:"1~2차시",
+    lens:"관측과 세계관",
+    concept:"광속 불변과 시공간",
+    related:"관성계, 광속 불변 원리, 시간 팽창(time dilation), 길이 수축(length contraction), 특수 상대성 이론, 동시성의 상대성, 과학기술사회",
+    phenomenon:"GPS 위성 시계 보정, 입자 가속기에서의 뮤온 수명 연장, 빛시계 사고실험, 영화 〈인터스텔라〉의 시간 왜곡",
+    conflict:"‘상대성 이론은 모든 것이 주관적’이라는 오해를, ‘모든 관성계에서 빛의 속력이 같다’는 절대 원리와 ‘물리 법칙의 일관성’으로 수정한다.",
+    general:"관측자의 운동 상태에 따라 시간과 길이의 측정값이 달라질 수 있으며, 과학 지식은 인간의 시공간 인식과 기술·사회 시스템을 근본적으로 변화시킨다.",
+    studentGeneral:"빛의 속력이 모든 관성계에서 같다는 원리는 시간과 공간에 대한 ‘상식’을 바꾸는 출발점이다.",
+    questions:[
+      "관성계와 광속 불변 원리란 무엇인가?",
+      "왜 빛의 속력이 모든 관성계에서 같다는 원리가 시간·공간에 대한 상식을 바꾸는가?",
+      "‘추상적인 과학 이론’도 사회적 영향이 크다고 할 수 있는가?",
+      "GPS·입자 가속기·우주 탐사는 상대성 이론을 어떻게 ‘실용적으로’ 고려하는가?"
+    ],
+    products:["빛시계 사고실험 도식(관측자별)","상대성 이론의 사회적 영향 조사표","‘시공간 인식의 변화’ 개념 에세이"],
+    evidence:[
+      "빛시계 사고실험을 관측자별 도식으로 일관되게 표현함",
+      "광속 불변 원리와 시간·공간 개념 변화를 논리적으로 연결함",
+      "기술적·사회적·철학적 영향 사례를 다각도로 조사함"
+    ],
+    data:"관찰자별 빛의 경로, 시간 측정값, 길이 해석을 비교표로 작성하고, GPS(시간 팽창 보정), 입자 가속기(뮤온 수명 연장), 우주 탐사(쌍둥이 역설 시나리오) 사례와 연결한다.",
+    misconception:"‘상대성 이론은 모든 것이 주관적이라는 뜻이다.’ ‘시간이 멈추거나 거꾸로 갈 수 있다.’",
+    correction:"상대성 이론은 ‘관성계 사이의 측정 차이’를 다루는 이론이며, ‘물리 법칙 자체의 일관성’은 절대적임을 사고실험으로 설명.",
+    failure:"수식 이해가 어려우면 정량 계산보다 ‘빛시계 그림’과 관측자별 경로 비교로 운영. PhET ‘Special Relativity’ 시뮬레이션 활용.",
+    career:"이론물리, 우주공학, GPS·항법 기술, 과학철학·과학사, SF·과학 커뮤니케이션",
+    deepDive:"GPS가 작동하기 위해 ‘특수 상대성(시간 팽창)’과 ‘일반 상대성(중력 시간 지연)’ 보정을 모두 적용한다는 사실을 조사하고, 만약 보정이 없으면 위치 오차가 하루에 얼마나 누적되는지를 정량 계산하는 보고서 작성.",
+    sample:"움직이는 관찰자의 빛시계와 정지한 관찰자의 빛시계를 도식으로 비교해 ‘운동하는 시계가 느리게 간다’는 시간 팽창의 정성적 결과를 직접 도출하고, 이를 GPS 위성(고도 20,200km, 속도 14,000km/h)에 적용함. 만약 상대성 보정을 하지 않으면 GPS 위치가 하루에 약 11km 오차로 누적된다는 자료를 조사해 ‘추상적 이론이 일상 기술의 기반이 된다’는 일반화를 에세이로 작성함."
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+let current=0;
+let tab="overview";
+
+/* ───── 유틸 ───── */
+function esc(s){
+  return String(s ?? "").replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+}
+function cls(d){
+  return d==="힘과 에너지" ? "domain-energy" : d==="전기와 자기" ? "domain-em" : "domain-light";
+}
+function openView(id){
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".nav button[data-view]").forEach(b=>b.classList.toggle("on", b.dataset.view===id));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".nav button[data-view]").forEach(b=>b.onclick=()=>openView(b.dataset.view));
+
+function pills(arr, solid){
+  return `<div class="pills">${(arr||[]).map(x=>`<span class="pill${solid?' solid':''}">${esc(x)}</span>`).join("")}</div>`;
+}
+function block(title, body, hint){
+  return `<div class="blk">
+    <div class="blk-h"><span>${esc(title)}</span>${hint?`<span class="hint">${esc(hint)}</span>`:""}</div>
+    ${body}
+  </div>`;
+}
+function filtered(){
+  const q=(document.getElementById("search")?.value||"").toLowerCase();
+  const d=document.getElementById("domain")?.value||"전체 영역";
+  const ty=document.getElementById("type")?.value||"전체 수업 유형";
+  return DATA.filter(x =>
+    (d==="전체 영역" || x.domain===d) &&
+    (ty==="전체 수업 유형" || x.type.includes(ty)) &&
+    [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" ")].join(" ").toLowerCase().includes(q)
+  );
+}
+function renderList(){
+  const arr=filtered();
+  if(!arr.some(x=>DATA.indexOf(x)===current) && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = `${arr.length} / ${DATA.length} STANDARDS`;
+  document.getElementById("list").innerHTML = arr.map(x=>{
+    const i=DATA.indexOf(x);
+    return `
+      <button class="std-item ${i===current ? "on" : ""}" onclick="select(${i})">
+        <div>
+          <span class="code">${esc(x.code)}</span>
+          <span class="chip ${cls(x.domain)}">${esc(x.domain)}</span>
+          ${x.official.length ? '<span class="chip">공식탐구</span>' : ''}
+        </div>
+        <span class="std-title">${esc(x.title)}</span>
+        <span class="std-text">${esc(x.standard)}</span>
+      </button>
+    `;
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+/* ───── 차시별 표 ───── */
+function tableRows(x){
+  return `
+    <div class="lesson-hd">
+      <div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 01</span>도입<br>참여·초점</div>
+      <div>교사는 <b>${esc(x.phenomenon)}</b>을 제시하고 사전 개념을 드러내는 발문을 한다. ‘무엇이 왜 일어났는가?’</div>
+      <div>학생은 개인 예상을 적고, 필요한 물리량·모형·도구를 자유롭게 제안한다.</div>
+      <div>사전 예상지<br>탐구 질문지</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 02</span>탐구 설계</div>
+      <div>교사는 변인, 도구, 안전 조건, 자료 수집 방법을 구체적으로 안내한다. 모둠별 역할 분담을 점검한다.</div>
+      <div>학생은 비교 기준과 수집할 자료의 종류·범위·정밀도를 정하고 역할을 나눈다.</div>
+      <div>탐구 계획서</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 03</span>탐구 수행</div>
+      <div>교사는 측정·모형화·시뮬레이션을 순회 지도하며 도구 사용 오류를 점검하고 안전을 관리한다.</div>
+      <div>학생은 자료를 수집한다. ${esc(x.data)}</div>
+      <div>자료표<br>그래프·모형</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 04</span>해석·일반화</div>
+      <div>교사는 오개념 ‘<b>${esc(x.misconception)}</b>’을 진단하고 개념 연결 질문을 던진다. 일반화 진술을 안내한다.</div>
+      <div>학생은 자료에서 규칙성을 찾고 주장-증거-추론(CER) 구조로 결론·일반화 진술을 작성한다.</div>
+      <div>CER 결론문<br>일반화 진술</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 05</span>전이·확장</div>
+      <div>교사는 기술·사회·진로 맥락으로 일반화의 적용 범위를 확장하는 발문을 던진다.</div>
+      <div>학생은 전이 과제와 심화 질문을 작성하고, 새로운 맥락에 일반화를 적용한다.</div>
+      <div>최종 산출물<br>심화 질문지</div>
+    </div>
+  `;
+}
+
+/* ───── 패널 ───── */
+function panel(x){
+  const qs=x.questions;
+  const panels={
+    overview:
+      block("성취기준 원문", `<div class="std-full"><b>${esc(x.code)}</b>${esc(x.standard)}</div>`) +
+      `<div class="cards">
+        <div class="card accent-energy">
+          <h4><span class="icon">i</span>수업 개요</h4>
+          <p><b>제목 :</b> ${esc(x.title)}</p>
+          <p><b>유형 :</b> ${esc(x.type)}</p>
+          <p><b>권장 차시 :</b> ${esc(x.period)}</p>
+          <p><b>공식 탐구 :</b> ${x.official.length ? esc(x.official.join(", ")) : "재구성 탐구 중심"}</p>
+          <p><b>핵심 개념 :</b> ${esc(x.concept)}</p>
+          <p><b>개념 렌즈 :</b> ${esc(x.lens)}</p>
+        </div>
+        <div class="card accent-em">
+          <h4><span class="icon">▲</span>핵심 산출물</h4>
+          ${pills(x.products)}
+        </div>
+      </div>` +
+      block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다"),
+
+    cbi:
+      block("개념 형성의 흐름",
+        `<div class="cards">
+          <div class="card accent-gold">
+            <h4><span class="icon">F</span>현상(Phenomenon)</h4>
+            <p>${esc(x.phenomenon)}</p>
+          </div>
+          <div class="card accent-energy">
+            <h4><span class="icon">C</span>개념 갈등(Conflict)</h4>
+            <p>${esc(x.conflict)}</p>
+          </div>
+        </div>
+        <div class="general" style="margin-top:.9rem">
+          <div class="gen-row">
+            <b>교사용 일반화 진술 (Generalization)</b>
+            <p>${esc(x.general)}</p>
+          </div>
+          <div class="gen-row">
+            <b>학생용 일반화 진술 (Student-Friendly)</b>
+            <p>${esc(x.studentGeneral)}</p>
+          </div>
+        </div>`,
+        "Erickson & Lanning CBI 모형"
+      ) +
+      block("탐구 질문 4종 — 사실에서 전이까지",
+        `<div class="q-grid">
+          <div class="q fact"><b>Factual · 사실적 질문</b><p>${esc(qs[0])}</p></div>
+          <div class="q concept"><b>Conceptual · 개념적 질문</b><p>${esc(qs[1])}</p></div>
+          <div class="q debate"><b>Debatable · 논쟁적 질문</b><p>${esc(qs[2])}</p></div>
+          <div class="q transfer"><b>Transfer · 전이 질문</b><p>${esc(qs[3])}</p></div>
+        </div>`,
+        "수업 도입·전개·마무리 3구간에 배치"
+      ) +
+      block("핵심 개념과 관련 개념",
+        `<div class="card">
+          <p><b>핵심 개념(Macro Concept) :</b> ${esc(x.concept)}</p>
+          <p><b>개념 렌즈(Conceptual Lens) :</b> ${esc(x.lens)}</p>
+          <p><b>관련 개념(Related Concepts) :</b> ${esc(x.related)}</p>
+        </div>`
+      ),
+
+    lesson:
+      block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+      block("교사 발문 세트 — 즉시 사용 가능",
+        `<div class="cards">
+          <div class="card accent-em">
+            <h4>탐구 전 발문</h4>
+            <ul>
+              <li>이 현상에서 가장 먼저 설명해야 할 ‘물리량’ 또는 ‘모형’은 무엇인가?</li>
+              <li>어떤 변인을 어떻게 바꾸어야 원인과 결과를 구분할 수 있는가?</li>
+            </ul>
+          </div>
+          <div class="card accent-gold">
+            <h4>탐구 중 발문</h4>
+            <ul>
+              <li>${esc(x.questions[1])}</li>
+              <li>이 자료가 우리의 주장을 충분히 뒷받침하는가, 부족하다면 무엇이 더 필요한가?</li>
+            </ul>
+          </div>
+          <div class="card accent-energy">
+            <h4>탐구 후 발문</h4>
+            <ul>
+              <li>예상과 다른 결과가 나왔다면 ‘오차’인가 ‘새로운 발견’인가?</li>
+              <li>${esc(x.questions[3])}</li>
+            </ul>
+          </div>
+        </div>`
+      ) +
+      block("오개념·실패 상황 대처 매뉴얼",
+        `<div class="cards">
+          <div class="card accent-energy">
+            <h4>예상 오개념</h4>
+            <p>${esc(x.misconception)}</p>
+            <p style="margin-top:.5rem"><b>교정 전략 :</b> ${esc(x.correction)}</p>
+          </div>
+          <div class="card accent-gold">
+            <h4>실패 상황 대처</h4>
+            <p>${esc(x.failure)}</p>
+          </div>
+        </div>`
+      ),
+
+    worksheet:
+      block("학생 활동지 — 8문항 표준 구성",
+        `<div class="card">
+          <ol>
+            <li>오늘의 현상에서 가장 ‘설명이 필요한’ 부분을 한 문장으로 쓰시오.</li>
+            <li>${esc(qs[1])}</li>
+            <li>탐구에서 수집할 자료와 비교 기준, 통제 변인을 쓰시오.</li>
+            <li>다음 자료 처리 안내에 따라 표와 그래프를 작성하시오. <em>${esc(x.data)}</em></li>
+            <li>자료에서 찾은 ‘규칙성’을 한 문장으로 진술하시오(가설→일반화).</li>
+            <li>주장-증거-추론(CER) 구조로 결론을 작성하시오.</li>
+            <li>이 결론의 한계(측정 오차·통제되지 않은 변인·모형의 한계 등)를 2가지 이상 쓰시오.</li>
+            <li>${esc(qs[3])}</li>
+          </ol>
+        </div>`
+      ) +
+      block("자료 처리 안내 — 표·그래프·모형",
+        `<div class="card accent-em">
+          <h4><span class="icon">D</span>측정·표상 가이드</h4>
+          <p>${esc(x.data)}</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>해석·일반화 문장 예시</h4>
+          <p>“자료의 변화 경향은 <b>${esc(x.concept)}</b> 개념으로 설명할 수 있으며, 이 결과는 <b>${esc(x.lens)}</b>의 관점에서 새로운 상황에 적용할 수 있다.”</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>오차·한계 분석 문장 예시</h4>
+          <p>“측정 도구의 한계(±__ ), 통제되지 않은 변인(예: __), 모형의 단순화 가정이 결과에 영향을 주었을 수 있다.”</p>
+        </div>`
+      ),
+
+    assessment:
+      block("수행평가 과제 — 성취기준 도달 확인",
+        `<div class="card accent-green">
+          <h4><span class="icon">✓</span>${esc(x.title)}</h4>
+          <p><b>${esc(x.products[0])}</b>을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 자료 근거로 설명한다.</p>
+          <p style="margin-top:.5rem"><b>제출물 :</b> 활동지 + 산출물 + 자기평가 1쪽</p>
+        </div>`
+      ) +
+      block("성취수준 A–E 루브릭",
+        `<div class="cards3">
+          <div class="card accent-energy">
+            <h4>A · B 수준</h4>
+            <p>자료를 자기주도적으로 수집·분석하고, <b>복잡한 맥락</b>에 일반화를 전이한다. 결론의 한계와 개선안을 제시한다.</p>
+          </div>
+          <div class="card accent-gold">
+            <h4>C 수준</h4>
+            <p>안내된 절차에 따라 탐구를 수행하고, 핵심 개념을 <b>자신의 언어</b>로 설명한다.</p>
+          </div>
+          <div class="card">
+            <h4>D · E 수준</h4>
+            <p>관련 현상과 기초 용어를 말할 수 있고, 제시된 자료 또는 절차의 일부를 활용한다.</p>
+          </div>
+        </div>`,
+        "교육부 고시 별책9 성취수준 기반"
+      ) +
+      block("피드백 방향",
+        `<div class="cards">
+          <div class="card accent-em">
+            <h4>보충 피드백</h4>
+            <p>용어 설명에 머물지 않도록 <b>표·그래프·모형 중 하나로 근거를 표현</b>하게 한다. 사전 개념과 새 개념의 차이를 그림으로 표시.</p>
+          </div>
+          <div class="card accent-light">
+            <h4>심화 피드백</h4>
+            <p>변수 재설계, 한계 분석, 기술·진로 전이 과제를 추가하게 한다. 다른 성취기준과의 개념 연결도 권장.</p>
+          </div>
+        </div>`
+      ),
+
+    record:
+      `<div class="record">
+        <b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>
+        <p>${esc(x.evidence.join(" / "))}</p>
+      </div>` +
+      block("관찰 가능한 수행 증거 정리",
+        `<div class="cards">
+          <div class="card accent-green">
+            <h4>기록 가능한 산출물</h4>
+            ${pills(x.products)}
+          </div>
+          <div class="card accent-gold">
+            <h4>권장 기록 소재</h4>
+            <p>「${esc(x.title)}」 수업에서 <b>${esc(x.products[0])}</b>을(를) 작성하며 <b>${esc(x.concept)}</b> 개념을 자료 근거로 설명하고, 오차·한계 또는 기술·사회적 전이 가능성을 자기 언어로 제시함.</p>
+          </div>
+        </div>`
+      ) +
+      block("세부능력 및 특기사항 기록 예시",
+        `<div class="sample-record">${esc(x.sample)}</div>`,
+        "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+      ) +
+      block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+        `<div class="card accent-light">
+          <h4><span class="icon">★</span>심화탐구 제안</h4>
+          <p>${esc(x.deepDive)}</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>전이 질문</h4>
+          <p style="font-family:'Fraunces',serif">${esc(x.questions[3])}</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>연계 진로 분야</h4>
+          ${pills(x.career.split(", "))}
+        </div>`
+      )
+  };
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  const x=DATA[current];
+  const tabbar=TABS.map(([id,label,n])=>`
+    <button class="${tab===id?'on':''}" onclick="setTab('${id}')">
+      <span class="t-n">${n}</span>${label}
+    </button>
+  `).join("");
+  document.getElementById("detail").innerHTML=`
+    <div class="detail-hd">
+      <div class="chip-row">
+        <span class="chip ${cls(x.domain)}">${esc(x.domain)}</span>
+        <span class="chip">${esc(x.code)}</span>
+        ${x.official.length ? '<span class="chip">공식 탐구 포함</span>' : '<span class="chip">재구성 중심</span>'}
+        <span class="chip">${esc(x.period)}</span>
+      </div>
+      <h2>${esc(x.title)}</h2>
+      <div class="std-full"><b>성취기준 원문</b>${esc(x.standard)}</div>
+    </div>
+    <div class="tabbar">${tabbar}</div>
+    <div class="panel">${panel(x)}</div>
+  `;
+}
+
+/* ───── 매트릭스 ───── */
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML=DATA.map((x,i)=>`
+    <tr>
+      <td><span class="chip ${cls(x.domain)}">${esc(x.domain)}</span></td>
+      <td class="mcode" onclick="openStandard(${i})">${esc(x.code)}</td>
+      <td><b style="color:var(--ink);font-family:'Fraunces',serif">${esc(x.title)}</b></td>
+      <td>${esc(x.type)}</td>
+      <td>${esc(x.concept)}</td>
+      <td>${esc(x.products.join(", "))}</td>
+      <td>${esc(x.evidence.join(" / "))}</td>
+    </tr>
+  `).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+
+/* ───── CSV 다운로드 ───── */
+function downloadCSV(){
+  const rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","심화탐구","연계진로"],
+    ...DATA.map(x=>[
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.deepDive, x.career
+    ])
+  ];
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="물리학_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+
+/* ───── 초기화 ───── */
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+/* ───── 키보드 단축키 ───── */
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    const arr=filtered();
+    const idx=arr.findIndex(x=>DATA.indexOf(x)===current);
+    if(idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    const arr=filtered();
+    const idx=arr.findIndex(x=>DATA.indexOf(x)===current);
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+/* 우하단 메인 플로팅 버튼: 스크롤 시 표시 */
+(function(){
+  const fab=document.getElementById("fabHome");
+  if(!fab) return;
+  let ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+</body>
+</html>

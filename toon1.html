@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="2022 개정 교육과정 고1 학생을 위한 진로·학업 설계 상담 웹툰" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <title>진로·학업 설계 안내 | 상담 웹툰</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       CSS Variables - Design Tokens
+       ============================================ */
+    :root {
+      --ink: #15233f;
+      --ink-soft: #44516b;
+      --ink-muted: #7a8499;
+      --paper: #fbf7ef;
+      --paper-2: #f4ecdc;
+      --paper-3: #ede2cc;
+      --accent: #1e3a8a;
+      --accent-2: #3b5dd9;
+      --accent-soft: #dde4f7;
+      --highlight: #ffd66b;
+      --coral: #ef6f5b;
+      --line: #2a3550;
+      --line-soft: rgba(42, 53, 80, 0.18);
+      --shadow-sm: 0 2px 0 var(--ink);
+      --shadow-md: 4px 4px 0 var(--ink);
+      --shadow-lg: 8px 8px 0 var(--ink);
+      --radius: 14px;
+      --radius-lg: 20px;
+      --font-display: "Fraunces", "Gowun Dodum", serif;
+      --font-body: "IBM Plex Sans KR", "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      --font-hand: "Gowun Dodum", "IBM Plex Sans KR", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --ink: #f3ede0;
+      --ink-soft: #c8c0ad;
+      --ink-muted: #8a8273;
+      --paper: #181a26;
+      --paper-2: #20232f;
+      --paper-3: #282b3a;
+      --accent: #8aa9ff;
+      --accent-2: #b7c7ff;
+      --accent-soft: #2a3147;
+      --highlight: #ffd66b;
+      --coral: #ff8a78;
+      --line: #f3ede0;
+      --line-soft: rgba(243, 237, 224, 0.18);
+      --shadow-sm: 0 2px 0 var(--line);
+      --shadow-md: 4px 4px 0 var(--line);
+      --shadow-lg: 8px 8px 0 var(--line);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--paper);
+      background-image:
+        radial-gradient(circle at 15% 8%, rgba(30, 58, 138, 0.06) 0, transparent 28%),
+        radial-gradient(circle at 85% 92%, rgba(239, 111, 91, 0.05) 0, transparent 30%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08, 0 0 0 0 0.13, 0 0 0 0 0.25, 0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      line-height: 1.7;
+      font-feature-settings: "ss01", "cv11";
+      letter-spacing: -0.005em;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ============================================
+       Reading Progress Bar
+       ============================================ */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .progress-bar__fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--coral));
+      transition: width 0.15s ease-out;
+    }
+
+    /* ============================================
+       Skip Link (Accessibility)
+       ============================================ */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 12px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      z-index: 1000;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 12px; }
+
+    /* ============================================
+       Layout
+       ============================================ */
+    .wrap {
+      width: min(100%, 1080px);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================
+       Header / Hero
+       ============================================ */
+    header.hero {
+      position: relative;
+      padding: 72px 0 56px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      background: var(--highlight);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.35;
+      filter: blur(2px);
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      background: var(--coral);
+      border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+      opacity: 0.18;
+      z-index: 0;
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+    }
+
+    .badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--highlight);
+      border-radius: 50%;
+    }
+
+    .issue-no {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    h1.title {
+      margin: 0 0 18px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(40px, 7vw, 84px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-variation-settings: "SOFT" 60;
+    }
+
+    h1.title .accent {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 400;
+      position: relative;
+    }
+
+    h1.title .underline {
+      position: relative;
+      display: inline-block;
+    }
+
+    h1.title .underline::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.08em;
+      height: 0.32em;
+      background: var(--highlight);
+      z-index: -1;
+      opacity: 0.7;
+      transform: skewX(-3deg);
+    }
+
+    .intro {
+      max-width: 620px;
+      color: var(--ink-soft);
+      font-size: clamp(17px, 1.8vw, 20px);
+      word-break: keep-all;
+      margin: 0 0 32px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      padding: 18px 0;
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 120px;
+      padding: 0 20px;
+      border-right: 1px solid var(--line-soft);
+    }
+    .stat:first-child { padding-left: 0; }
+    .stat:last-child { border-right: none; padding-right: 0; }
+
+    .stat__label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-weight: 700;
+    }
+
+    .stat__value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    /* ============================================
+       Sticky Navigation
+       ============================================ */
+    nav.toc-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 247, 239, 0.92);
+      backdrop-filter: saturate(160%) blur(16px);
+      -webkit-backdrop-filter: saturate(160%) blur(16px);
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+    [data-theme="dark"] nav.toc-nav {
+      background: rgba(24, 26, 38, 0.92);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 12px 0;
+    }
+
+    .nav-label {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-soft);
+      flex-shrink: 0;
+    }
+
+    .toc {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      flex: 1;
+      scrollbar-width: none;
+    }
+    .toc::-webkit-scrollbar { display: none; }
+
+    .toc a {
+      flex: 0 0 auto;
+      padding: 8px 16px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .toc a .ep-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+    }
+    .toc a:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-1px);
+    }
+    .toc a.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .toc a.viewed::before {
+      content: "✓";
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    .theme-toggle {
+      flex-shrink: 0;
+      background: transparent;
+      border: 1.5px solid var(--ink);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+    .theme-toggle:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Content
+       ============================================ */
+    main { padding: 56px 0 80px; }
+
+    .episode-list {
+      display: grid;
+      gap: 56px;
+    }
+
+    .episode {
+      position: relative;
+    }
+
+    .episode-marker {
+      position: absolute;
+      top: -28px;
+      left: -8px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .episode-card {
+      position: relative;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .episode-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+
+    .episode-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 24px;
+      border-bottom: 2px solid var(--ink);
+      background: var(--paper-2);
+      position: relative;
+    }
+
+    .episode-header::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--ink) 0,
+        var(--ink) 4px,
+        transparent 4px,
+        transparent 8px
+      );
+    }
+
+    .episode-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .episode-number {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    .episode h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.6vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .episode h2 .ep-tag {
+      display: block;
+      font-size: 11px;
+      font-family: var(--font-body);
+      letter-spacing: 0.14em;
+      color: var(--ink-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .episode-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s;
+    }
+    .icon-btn:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .icon-btn svg { width: 16px; height: 16px; }
+
+    figure {
+      margin: 0;
+      background: var(--paper-3);
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .episode-img-wrap {
+      position: relative;
+      min-height: 200px;
+    }
+
+    .skeleton {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        var(--paper-2) 0%,
+        var(--paper-3) 50%,
+        var(--paper-2) 100%
+      );
+      background-size: 200% 100%;
+      animation: skeleton-pulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes skeleton-pulse {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .episode-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      transition: opacity 0.4s ease;
+    }
+    .episode-img.loading { opacity: 0; }
+
+    figcaption {
+      padding: 16px 24px 20px;
+      color: var(--ink-soft);
+      font-size: 14px;
+      text-align: center;
+      word-break: keep-all;
+      font-family: var(--font-hand);
+      background: var(--paper-2);
+      border-top: 1px dashed var(--line-soft);
+    }
+
+    /* ============================================
+       Lightbox
+       ============================================ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(21, 35, 63, 0.92);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .lightbox.open {
+      display: flex;
+      animation: fade-in 0.25s ease;
+    }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+      overflow: auto;
+      border-radius: 12px;
+      background: var(--paper);
+    }
+
+    .lightbox-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      position: fixed;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      transition: all 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .lightbox-close:hover,
+    .lightbox-nav:hover {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .lightbox-close { top: 20px; right: 20px; }
+    .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    footer {
+      margin-top: 40px;
+      padding: 48px 0 56px;
+      border-top: 2px solid var(--ink);
+      background: var(--paper-2);
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .footer-text {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-text strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid var(--ink);
+    }
+    .home-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 0 var(--ink);
+    }
+
+    /* ============================================
+       Floating Controls
+       ============================================ */
+    .floating-controls {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-btn {
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    .floating-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .floating-btn.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 720px) {
+      header.hero { padding: 48px 0 36px; }
+      .hero::before { width: 160px; height: 160px; top: -20px; right: -30px; }
+      .hero::after { width: 120px; height: 120px; }
+      .stats { padding: 14px 0; }
+      .stat { padding: 0 12px; min-width: 90px; }
+      .stat__value { font-size: 22px; }
+      .nav-label { display: none; }
+      .episode-header { padding: 14px 16px; }
+      .episode-number { width: 38px; height: 38px; font-size: 15px; }
+      .episode-actions .icon-btn { width: 34px; height: 34px; }
+      figcaption { font-size: 13px; padding: 12px 16px 16px; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .home-btn { justify-self: center; }
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+    }
+
+    /* ============================================
+       Print Styles
+       ============================================ */
+    @media print {
+      body { background: #fff; }
+      .progress-bar,
+      nav.toc-nav,
+      .floating-controls,
+      .episode-actions,
+      .home-btn { display: none !important; }
+      .episode-card {
+        box-shadow: none;
+        border: 1px solid #999;
+        page-break-inside: avoid;
+        margin-bottom: 24px;
+      }
+      .hero::before, .hero::after { display: none; }
+    }
+
+    /* ============================================
+       Reduced Motion
+       ============================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ============================================
+       Focus States (Accessibility)
+       ============================================ */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">본문으로 건너뛰기</a>
+
+  <div class="progress-bar" aria-hidden="true">
+    <div class="progress-bar__fill" id="progressFill"></div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="meta-row">
+        <span class="badge">고교학점제 상담 시리즈</span>
+        <span class="issue-no">Vol. 01 · 2026</span>
+      </div>
+
+      <h1 class="title">
+        진로·학업 <span class="accent">설계</span><br>
+        <span class="underline">상담 웹툰</span>
+      </h1>
+
+      <p class="intro">
+        2022 개정 교육과정 고1 학생을 위한 다섯 편의 짧은 이야기.
+        과목 선택부터 진로 설계까지, 한 컷씩 천천히 따라와 보세요.
+      </p>
+
+
+    </div>
+  </header>
+
+  <nav class="toc-nav" aria-label="에피소드 바로가기">
+    <div class="wrap">
+      <div class="nav-inner">
+        <span class="nav-label">Index —</span>
+        <div class="toc" id="tocList">
+          <a href="#episode-1" data-target="episode-1"><span class="ep-num">01</span> 1편</a>
+          <a href="#episode-2" data-target="episode-2"><span class="ep-num">02</span> 2편</a>
+          <a href="#episode-3" data-target="episode-3"><span class="ep-num">03</span> 3편</a>
+          <a href="#episode-4" data-target="episode-4"><span class="ep-num">04</span> 4편</a>
+          <a href="#episode-5" data-target="episode-5"><span class="ep-num">05</span> 5편</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="다크모드 전환" title="다크모드 전환">
+          <span id="themeIcon">◐</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="wrap">
+      <section class="episode-list" aria-label="진로·학업 설계 안내 자료">
+
+        <article class="episode" id="episode-1" data-ep="1">
+          <span class="episode-marker">— Episode One</span>
+          <div class="episode-card">
+            <div class="episode-header">
+              <div class="episode-title">
+                <span class="episode-number">01</span>
+                <h2><span class="ep-tag">First Step</span>1편</h2>
+              </div>
+              <div class="episode-actions">
+                <button class="icon-btn open-lightbox" data-ep="1" aria-label="크게 보기" title="크게 보기">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                </button>
+                <a class="icon-btn" href="episode_1.png" download aria-label="다운로드" title="다운로드">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <figure>
+              <div class="episode-img-wrap">
+                <div class="skeleton" aria-hidden="true"></div>
+                <img class="episode-img loading" src="episode_1.png" alt="진로·학업 설계 안내 1편" loading="lazy" />
+              </div>
+              <figcaption>진로·학업 설계 안내 1편</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="episode" id="episode-2" data-ep="2">
+          <span class="episode-marker">— Episode Two</span>
+          <div class="episode-card">
+            <div class="episode-header">
+              <div class="episode-title">
+                <span class="episode-number">02</span>
+                <h2><span class="ep-tag">Choosing</span>2편</h2>
+              </div>
+              <div class="episode-actions">
+                <button class="icon-btn open-lightbox" data-ep="2" aria-label="크게 보기" title="크게 보기">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                </button>
+                <a class="icon-btn" href="episode_2.png" download aria-label="다운로드" title="다운로드">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <figure>
+              <div class="episode-img-wrap">
+                <div class="skeleton" aria-hidden="true"></div>
+                <img class="episode-img loading" src="episode_2.png" alt="진로·학업 설계 안내 2편" loading="lazy" />
+              </div>
+              <figcaption>진로·학업 설계 안내 2편</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="episode" id="episode-3" data-ep="3">
+          <span class="episode-marker">— Episode Three</span>
+          <div class="episode-card">
+            <div class="episode-header">
+              <div class="episode-title">
+                <span class="episode-number">03</span>
+                <h2><span class="ep-tag">Designing</span>3편</h2>
+              </div>
+              <div class="episode-actions">
+                <button class="icon-btn open-lightbox" data-ep="3" aria-label="크게 보기" title="크게 보기">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                </button>
+                <a class="icon-btn" href="episode_3.png" download aria-label="다운로드" title="다운로드">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <figure>
+              <div class="episode-img-wrap">
+                <div class="skeleton" aria-hidden="true"></div>
+                <img class="episode-img loading" src="episode_3.png" alt="진로·학업 설계 안내 3편" loading="lazy" />
+              </div>
+              <figcaption>진로·학업 설계 안내 3편</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="episode" id="episode-4" data-ep="4">
+          <span class="episode-marker">— Episode Four</span>
+          <div class="episode-card">
+            <div class="episode-header">
+              <div class="episode-title">
+                <span class="episode-number">04</span>
+                <h2><span class="ep-tag">Reflecting</span>4편</h2>
+              </div>
+              <div class="episode-actions">
+                <button class="icon-btn open-lightbox" data-ep="4" aria-label="크게 보기" title="크게 보기">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                </button>
+                <a class="icon-btn" href="episode_4.png" download aria-label="다운로드" title="다운로드">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <figure>
+              <div class="episode-img-wrap">
+                <div class="skeleton" aria-hidden="true"></div>
+                <img class="episode-img loading" src="episode_4.png" alt="진로·학업 설계 안내 4편" loading="lazy" />
+              </div>
+              <figcaption>진로·학업 설계 안내 4편</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="episode" id="episode-5" data-ep="5">
+          <span class="episode-marker">— Episode Five · Final</span>
+          <div class="episode-card">
+            <div class="episode-header">
+              <div class="episode-title">
+                <span class="episode-number">05</span>
+                <h2><span class="ep-tag">Final Chapter</span>5편</h2>
+              </div>
+              <div class="episode-actions">
+                <button class="icon-btn open-lightbox" data-ep="5" aria-label="크게 보기" title="크게 보기">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                </button>
+                <a class="icon-btn" href="episode_5.png" download aria-label="다운로드" title="다운로드">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <figure>
+              <div class="episode-img-wrap">
+                <div class="skeleton" aria-hidden="true"></div>
+                <img class="episode-img loading" src="episode_5.png" alt="진로·학업 설계 안내 5편" loading="lazy" />
+              </div>
+              <figcaption>진로·학업 설계 안내 5편</figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-text">
+          <strong>충청남도교육청진로융합교육원</strong>
+          본 자료는 공교육 현장의 학생 상담을 위해 제작되었습니다.<br>
+          © 2026 교육연구사 정재연. All rights reserved.
+        </div>
+        <a href="index.html" class="home-btn" aria-label="자료실 메인으로 돌아가기">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 0 0 1 1h3v-6h6v6h3a1 1 0 0 0 1-1V10"/></svg>
+          자료실 메인으로
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-controls">
+    <button class="floating-btn hidden" id="topBtn" aria-label="맨 위로" title="맨 위로 (Home 키)">↑</button>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="확대된 이미지">
+    <button class="lightbox-close" id="lightboxClose" aria-label="닫기 (Esc)">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="이전 편 (←)">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="다음 편 (→)">›</button>
+    <div class="lightbox-inner">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 5</div>
+  </div>
+
+  <script>
+    // ============================================
+    // 1. Theme Toggle (Dark Mode)
+    // ============================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const savedTheme = localStorage.getItem('webtoon-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.textContent = '◐';
+      }
+    }
+
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('webtoon-theme', next);
+    });
+
+    // ============================================
+    // 2. Image Lazy Loading (skeleton remove)
+    // ============================================
+    document.querySelectorAll('.episode-img').forEach(img => {
+      const handleLoad = () => {
+        img.classList.remove('loading');
+        const skeleton = img.parentElement.querySelector('.skeleton');
+        if (skeleton) skeleton.style.display = 'none';
+      };
+      if (img.complete && img.naturalHeight > 0) {
+        handleLoad();
+      } else {
+        img.addEventListener('load', handleLoad);
+        img.addEventListener('error', () => {
+          img.classList.remove('loading');
+          const skeleton = img.parentElement.querySelector('.skeleton');
+          if (skeleton) {
+            skeleton.style.animation = 'none';
+            skeleton.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink-muted);font-size:14px;">이미지를 불러올 수 없습니다</div>';
+          }
+        });
+      }
+    });
+
+    // ============================================
+    // 3. Reading Progress Bar
+    // ============================================
+    const progressFill = document.getElementById('progressFill');
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // ============================================
+    // 4. Active Section Highlight + Viewed Tracking
+    // ============================================
+    const tocLinks = document.querySelectorAll('.toc a');
+    const episodes = document.querySelectorAll('.episode');
+    const viewedEps = new Set(JSON.parse(localStorage.getItem('webtoon-viewed') || '[]'));
+
+    function markViewed(ep) {
+      viewedEps.add(String(ep));
+      localStorage.setItem('webtoon-viewed', JSON.stringify([...viewedEps]));
+      const link = document.querySelector(`.toc a[data-target="episode-${ep}"]`);
+      if (link) link.classList.add('viewed');
+    }
+
+    // restore viewed state on load
+    viewedEps.forEach(ep => {
+      const link = document.querySelector(`.toc a[data-target="episode-${ep}"]`);
+      if (link) link.classList.add('viewed');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const ep = entry.target.dataset.ep;
+          tocLinks.forEach(l => l.classList.toggle('active', l.dataset.target === id));
+          if (ep) markViewed(ep);
+        }
+      });
+    }, { threshold: 0.35, rootMargin: '-80px 0px -40% 0px' });
+
+    episodes.forEach(ep => observer.observe(ep));
+
+    // ============================================
+    // 5. Top Button Show/Hide
+    // ============================================
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        topBtn.classList.remove('hidden');
+      } else {
+        topBtn.classList.add('hidden');
+      }
+    }, { passive: true });
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ============================================
+    // 6. Lightbox (Image Viewer)
+    // ============================================
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const TOTAL_EPS = 5;
+    let currentEp = 1;
+
+    function openLightbox(ep) {
+      currentEp = ep;
+      lightboxImg.src = `episode_${ep}.png`;
+      lightboxImg.alt = `진로·학업 설계 안내 ${ep}편`;
+      lightboxCounter.textContent = `${ep} / ${TOTAL_EPS}`;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      markViewed(ep);
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function navigateLightbox(dir) {
+      let next = currentEp + dir;
+      if (next < 1) next = TOTAL_EPS;
+      if (next > TOTAL_EPS) next = 1;
+      openLightbox(next);
+    }
+
+    document.querySelectorAll('.open-lightbox').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(parseInt(btn.dataset.ep, 10));
+      });
+    });
+
+    document.querySelectorAll('figure').forEach((fig, idx) => {
+      fig.addEventListener('click', () => openLightbox(idx + 1));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+    lightboxNext.addEventListener('click', () => navigateLightbox(1));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // ============================================
+    // 7. Keyboard Navigation
+    // ============================================
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+        return;
+      }
+      // Global shortcuts when lightbox is closed
+      if (e.key === 'Home') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      if (e.key === 'End') {
+        e.preventDefault();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }
+    });
+
+    // ============================================
+    // 8. Touch Swipe in Lightbox
+    // ============================================
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 50) {
+        navigateLightbox(diff > 0 ? -1 : 1);
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>

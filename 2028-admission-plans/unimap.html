@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2028 전국 4년제 대학 입학 안내 — 지도·목록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<style>
+:root{
+  --bg:#eef1f4; --panel:#ffffff; --ink:#1a1f29; --ink-2:#4a5160; --muted:#8b93a3;
+  --line:#e4e8ee; --line-2:#eef1f5;
+  --nat:#1f6fd6; --pub:#0ca678; --pri:#ef6c2e; --gold:#caa53d;
+  --nat-soft:#e8f1fd; --pub-soft:#e1f5ef; --pri-soft:#fdeee5;
+  --shadow-sm:0 1px 3px rgba(20,30,50,.08),0 1px 2px rgba(20,30,50,.05);
+  --shadow-md:0 6px 22px rgba(20,30,50,.13);
+  --shadow-lg:0 14px 44px rgba(20,30,50,.20);
+  --font:'Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+  --mono:'Pretendard',ui-monospace,monospace;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;overflow:hidden;overflow:clip;overscroll-behavior:none;}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;word-break:keep-all;overflow:hidden;}
+
+.app{display:flex;flex-direction:column;height:100vh;height:100dvh;}
+
+/* ===== Top bar + tabs ===== */
+.topbar{display:flex;align-items:center;gap:14px;padding:11px 22px;
+  background:linear-gradient(180deg,#fff,#fafbfc);border-bottom:1px solid var(--line);z-index:1200;flex-shrink:0;}
+.btn-home{display:inline-flex;align-items:center;gap:5px;background:var(--nat-soft);color:var(--nat);
+  border:none;font-family:var(--font);font-size:12.8px;font-weight:800;padding:7px 13px;border-radius:9px;
+  cursor:pointer;text-decoration:none;transition:background .12s,transform .08s;white-space:nowrap;line-height:1;}
+.btn-home:hover{background:#dce8fa;}
+.btn-home:active{transform:translateY(1px);}
+.brand{display:flex;align-items:baseline;gap:11px;min-width:0;}
+.brand .mark{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--nat);
+  background:var(--nat-soft);padding:5px 9px;border-radius:6px;white-space:nowrap;}
+.brand h1{font-size:18px;font-weight:800;letter-spacing:-.03em;margin:0;white-space:nowrap;}
+.tabs{display:flex;gap:4px;background:var(--line-2);padding:4px;border-radius:11px;}
+.tab{border:none;background:transparent;font-family:var(--font);font-size:13.5px;font-weight:700;
+  color:var(--ink-2);padding:7px 20px;border-radius:8px;cursor:pointer;transition:all .14s;}
+.tab.on{background:#fff;color:var(--nat);box-shadow:var(--shadow-sm);}
+.legend{display:flex;align-items:center;gap:14px;margin-left:auto;flex-wrap:wrap;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2);font-weight:600;}
+.lg .dot{width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 1px 2px rgba(0,0,0,.25);}
+.lg .ring{box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--gold);}
+
+/* ===== Notice ===== */
+.notice{display:flex;align-items:center;gap:9px;padding:9px 22px;background:#fbf3e0;
+  color:#7a5d18;border-bottom:1px solid #f0e4c5;font-size:12.8px;font-weight:600;flex-shrink:0;}
+.notice svg{flex-shrink:0;color:#caa53d;}
+.notice b{font-weight:800;color:#5e4710;}
+.notice .credit{margin-left:auto;font-size:11.5px;color:#8e7a3a;font-weight:600;white-space:nowrap;flex-shrink:0;}
+
+/* ===== Views ===== */
+.views{flex:1;min-height:0;position:relative;}
+.view{position:absolute;inset:0;display:flex;flex-direction:column;}
+.view[hidden]{display:none;}
+
+/* ===== MAP VIEW: panel + map ===== */
+.split{display:flex;flex:1;min-height:0;}
+.panel{width:368px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;z-index:1100;}
+.controls{padding:16px 18px 13px;border-bottom:1px solid var(--line-2);}
+.search{position:relative;margin-bottom:12px;}
+.search input{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px 11px 38px;
+  font-family:var(--font);font-size:14px;background:#fbfcfd;transition:border-color .15s,background .15s;}
+.search input:focus{outline:none;border-color:var(--nat);background:#fff;}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);}
+.filters{display:flex;gap:7px;margin-bottom:11px;}
+.chip{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:8px 4px;
+  font-family:var(--font);font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:all .14s;text-align:center;}
+.chip:hover{border-color:#cfd6e0;}
+.chip.on{color:#fff;border-color:transparent;}
+.chip[data-type="전체"].on{background:var(--ink);}
+.chip[data-type="국립"].on{background:var(--nat);}
+.chip[data-type="공립"].on{background:var(--pub);}
+.chip[data-type="사립"].on{background:var(--pri);}
+.regionsel{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;
+  font-family:var(--font);font-size:13.5px;font-weight:600;color:var(--ink-2);background:#fff;cursor:pointer;}
+.regionsel:focus{outline:none;border-color:var(--nat);}
+.count{display:flex;align-items:baseline;gap:6px;padding:11px 18px 6px;border-bottom:1px solid var(--line-2);}
+.count b{font-family:var(--mono);font-size:18px;font-weight:800;color:var(--nat);font-variant-numeric:tabular-nums;}
+.count span{font-size:12.5px;color:var(--muted);font-weight:600;}
+.list{flex:1;overflow-y:auto;padding:6px 8px 18px;}
+.list::-webkit-scrollbar{width:9px;}
+.list::-webkit-scrollbar-thumb{background:#d3dae3;border-radius:9px;border:2px solid #fff;}
+.item{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;cursor:pointer;transition:background .12s;}
+.item:hover{background:var(--line-2);}
+.item.active{background:var(--nat-soft);}
+.item.active .badge.국립{background:#fff;box-shadow:inset 0 0 0 1px rgba(31,111,214,.45);}
+.pin{width:13px;height:13px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px #fff,0 1px 2px rgba(0,0,0,.2);}
+.pin.국립{background:var(--nat);} .pin.공립{background:var(--pub);} .pin.사립{background:var(--pri);}
+.pin.added{box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--gold);}
+.item .nm{font-size:13.8px;font-weight:700;color:var(--ink);line-height:1.3;flex:1;min-width:0;}
+.item .nm small{display:block;font-size:11.5px;font-weight:600;color:var(--muted);margin-top:1px;}
+.item .badge{font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:6px;flex-shrink:0;letter-spacing:.02em;}
+.badge.국립{background:var(--nat-soft);color:var(--nat);}
+.badge.공립{background:var(--pub-soft);color:var(--pub);}
+.badge.사립{background:var(--pri-soft);color:var(--pri);}
+.empty{text-align:center;color:var(--muted);font-size:13px;padding:40px 20px;}
+.grp-hd{position:sticky;top:0;background:linear-gradient(180deg,#fff 72%,rgba(255,255,255,0));
+  padding:12px 11px 6px;font-size:11.5px;font-weight:800;letter-spacing:.05em;color:var(--ink-2);
+  display:flex;align-items:center;gap:8px;z-index:2;}
+.grp-hd .gc{font-family:var(--mono);color:var(--muted);background:var(--line-2);padding:1px 7px;border-radius:6px;font-size:11px;font-weight:700;}
+
+.mapwrap{flex:1;position:relative;min-width:0;}
+#map{position:absolute;inset:0;background:#dde3ea;}
+.leaflet-container{font-family:var(--font);}
+.uni-mk{position:relative;cursor:pointer;}
+.uni-mk .core{width:24px;height:24px;border-radius:50%;border:3.5px solid #fff;
+  box-shadow:0 2px 6px rgba(20,30,50,.45);transition:transform .14s,box-shadow .14s;}
+.uni-mk:hover .core{transform:scale(1.3);}
+.uni-mk.sel .core{transform:scale(1.45);box-shadow:0 4px 14px rgba(20,30,50,.5);}
+.uni-mk.국립 .core{background:var(--nat);}
+.uni-mk.공립 .core{background:var(--pub);}
+.uni-mk.사립 .core{background:var(--pri);}
+.uni-mk.added .core{box-shadow:0 0 0 3.5px var(--gold),0 2px 6px rgba(20,30,50,.45);}
+.uni-mk.added.sel .core{box-shadow:0 0 0 3.5px var(--gold),0 4px 14px rgba(20,30,50,.5);}
+.marker-cluster{background:rgba(31,111,214,.18);border-radius:50%;}
+.marker-cluster div{background:var(--nat);color:#fff;font-family:var(--mono);font-weight:800;font-size:12.5px;
+  width:34px;height:34px;margin:3px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(31,111,214,.45);border:2px solid #fff;}
+.leaflet-tooltip.uni-tip{background:#fff;border:none;border-radius:9px;box-shadow:var(--shadow-md);padding:0;opacity:1;font-family:var(--font);}
+.leaflet-tooltip.uni-tip::before{display:none;}
+.tip-slim{display:flex;align-items:center;gap:7px;padding:7px 12px;font-size:13px;font-weight:700;white-space:nowrap;letter-spacing:-.01em;}
+.tdot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.tdot.국립{background:var(--nat);} .tdot.공립{background:var(--pub);} .tdot.사립{background:var(--pri);}
+.tdot.added{box-shadow:0 0 0 2px var(--gold);}
+.leaflet-popup.uni-pop .leaflet-popup-content-wrapper{border-radius:14px;box-shadow:var(--shadow-lg);padding:0;overflow:hidden;}
+.leaflet-popup.uni-pop .leaflet-popup-content{margin:0;width:240px!important;}
+.pop-in{font-family:var(--font);}
+.pop-hd{padding:14px 15px 12px;}
+.pop-hd .p-nm{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:7px;}
+.pop-hd .p-meta{display:flex;gap:7px;align-items:center;}
+.p-badge{font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;}
+.p-reg{font-size:12.5px;color:var(--muted);font-weight:700;}
+.pop-bd{padding:0 15px 14px;}
+.p-go{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;background:var(--nat);color:#fff;
+  font-weight:800;font-size:13.5px;padding:11px;border-radius:10px;text-decoration:none;transition:filter .12s;}
+.p-go:hover{filter:brightness(1.08);}
+.uni-pop .p-go{color:#fff;}
+.uni-pop .p-pdf{color:var(--ink-2);}
+.p-lbl{margin:12px 0 6px;font-size:11px;font-weight:800;letter-spacing:.03em;color:var(--muted);}
+.p-pdfs{display:flex;flex-direction:column;gap:5px;}
+.p-pdf{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink-2);
+  text-decoration:none;padding:7px 9px;background:var(--line-2);border-radius:8px;transition:background .12s;}
+.p-pdf:hover{background:#e2e7ee;}
+.p-pdf svg{color:var(--pri);flex-shrink:0;}
+.p-note{margin-top:8px;font-size:11px;color:var(--muted);line-height:1.4;}
+
+/* ===== LIST VIEW ===== */
+.lcontrols{padding:14px 22px;border-bottom:1px solid var(--line-2);background:#fff;display:flex;flex-direction:column;gap:11px;flex-shrink:0;}
+.lrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.lsearch{position:relative;flex:1;min-width:220px;max-width:440px;}
+.lsearch input{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px 11px 38px;font-family:var(--font);font-size:14px;background:#fbfcfd;}
+.lsearch input:focus{outline:none;border-color:var(--nat);background:#fff;}
+.lsearch svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);}
+.lfilters{display:flex;gap:7px;}
+.lchip{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:8px 16px;font-family:var(--font);font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:all .14s;}
+.lchip:hover{border-color:#cfd6e0;}
+.lchip.on{color:#fff;border-color:transparent;}
+.lchip[data-type="전체"].on{background:var(--ink);}
+.lchip[data-type="국립"].on{background:var(--nat);}
+.lchip[data-type="공립"].on{background:var(--pub);}
+.lchip[data-type="사립"].on{background:var(--pri);}
+.lnav{display:flex;gap:6px;flex-wrap:wrap;}
+.lnav button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-family:var(--font);font-size:12px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:all .12s;}
+.lnav button:hover{border-color:var(--nat);color:var(--nat);background:var(--nat-soft);}
+.list-scroll{flex:1;overflow-y:auto;padding:4px 22px 44px;}
+.list-scroll::-webkit-scrollbar{width:11px;}
+.list-scroll::-webkit-scrollbar-thumb{background:#d3dae3;border-radius:9px;border:3px solid var(--bg);}
+.lcount{padding:12px 2px 2px;font-size:12.5px;color:var(--muted);font-weight:600;}
+.lcount b{font-family:var(--mono);color:var(--nat);font-weight:800;}
+.lsec{margin-top:8px;}
+.lsec-hd{position:sticky;top:0;background:linear-gradient(180deg,var(--bg) 72%,rgba(238,241,244,0));
+  padding:14px 2px 10px;font-size:15px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:9px;z-index:3;}
+.lsec-hd .lc{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:1px 8px;border-radius:7px;}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:11px;}
+.ucard{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;transition:box-shadow .14s,transform .14s,border-color .14s;}
+.ucard:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:#d6deea;}
+.ucard.added{border-color:#e7d49b;}
+.ucard-top{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.ucard-top .badge{font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;}
+.ucard-reg{font-size:11.5px;color:var(--muted);font-weight:600;}
+.ucard-nm{font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.3;margin-bottom:12px;}
+.ucard-acts{display:flex;flex-wrap:wrap;gap:7px;}
+.ua-home,.ua-pdf,.ua-report,.ua-guide,.ua-jonghap{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;padding:8px 12px;border-radius:9px;text-decoration:none;transition:filter .12s,background .12s;}
+.ua-home{color:#fff;}
+.ua-home:hover{filter:brightness(1.08);}
+.ua-pdf{background:var(--line-2);color:var(--ink-2);}
+.ua-pdf:hover{background:#e2e7ee;}
+.ua-pdf svg{color:var(--pri);}
+.ua-guide{background:#eef2fe;color:#2f49b8;}
+.ua-guide:hover{background:#e1e7fc;}
+.ua-guide svg{color:#3a57d6;}
+.ua-report{background:#e8f5ee;color:#1b7a46;}
+.ua-report:hover{background:#d6ecdf;}
+.ua-report svg{color:#1b9c57;}
+.ua-jonghap{background:#f5ecfb;color:#7b3aa6;}
+.ua-jonghap:hover{background:#eedcf6;}
+.ua-jonghap svg{color:#9647c9;}
+.ua-soon{display:inline-flex;align-items:center;font-size:12px;font-weight:700;color:var(--muted);background:var(--line-2);padding:8px 12px;border-radius:9px;}
+
+/* mobile */
+.panel-toggle{display:none;}
+@media(max-width:860px){
+  .legend{display:none;}
+  .search input,.lsearch input,.regionsel{font-size:16px;}  /* iOS 포커스 시 자동 확대 방지 */
+  .topbar{padding:10px 14px;gap:8px;}
+  .btn-home{font-size:11.5px;padding:6px 10px;flex-shrink:0;}
+  .brand{flex:1 1 auto;min-width:0;overflow:hidden;gap:8px;}
+  .brand h1{font-size:15px;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+  .tabs{flex-shrink:0;}
+  .tab{padding:7px 15px;}
+  .notice{padding:8px 14px;font-size:11.5px;}
+  .notice .credit{font-size:10.5px;}
+  .lcontrols{padding:12px 14px;}
+  .list-scroll{padding:4px 14px 44px;}
+  .split{position:relative;overflow:hidden;overflow:clip;}
+  .panel{position:absolute;inset:auto 0 0 0;width:100%;height:62%;border-right:none;
+    border-top:1px solid var(--line);border-radius:18px 18px 0 0;box-shadow:0 -8px 30px rgba(20,30,50,.16);
+    transform:translateY(calc(100% - 56px));transition:transform .28s cubic-bezier(.4,0,.2,1);}
+  .panel.open{transform:translateY(0);}
+  .panel-toggle{display:flex;align-items:center;justify-content:center;gap:8px;height:56px;cursor:pointer;
+    font-weight:800;font-size:14px;color:var(--ink);border-bottom:1px solid var(--line-2);position:relative;
+    touch-action:none;user-select:none;-webkit-user-select:none;}
+  .panel-toggle .grip{width:38px;height:4px;border-radius:4px;background:#cfd6e0;position:absolute;top:9px;left:50%;transform:translateX(-50%);}
+}
+@media(max-width:520px){
+  .notice .credit{display:none;}
+  .brand .mark{display:none;}
+  .brand h1{font-size:14px;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <a class="btn-home" href="../index.html" aria-label="메인으로">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg>
+      <span>메인</span>
+    </a>
+    <div class="brand">
+      <span class="mark">진로진학</span>
+      <h1>전국 4년제 대학 입학 안내</h1>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab on" data-view="map">🗺 지도</button>
+      <button class="tab" data-view="list">☰ 목록</button>
+    </nav>
+    <div class="legend">
+      <span class="lg"><span class="dot" style="background:var(--nat)"></span>국립</span>
+      <span class="lg"><span class="dot" style="background:var(--pub)"></span>공립</span>
+      <span class="lg"><span class="dot" style="background:var(--pri)"></span>사립</span>
+      <span class="lg"><span class="dot ring" style="background:var(--ink)"></span>추가 수록</span>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>
+    <span>현재는 <b>2028학년도 대학입학전형 시행계획</b> 기준입니다. 추후 <b>수시모집요강</b>이 공개되면 자료를 업데이트할 예정입니다.</span>
+    <span class="credit">제작: 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+  </div>
+
+  <div class="views">
+    <!-- ===== MAP VIEW ===== -->
+    <section class="view" id="view-map">
+      <div class="split">
+        <aside class="panel" id="panel">
+          <div class="panel-toggle" id="ptoggle"><span class="grip"></span>대학 목록 · 검색</div>
+          <div class="controls">
+            <div class="search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="q" type="text" placeholder="대학명 검색 (예: 충남, 공주, 한국교원)" autocomplete="off">
+            </div>
+            <div class="filters" id="typeFilter">
+              <button class="chip on" data-type="전체">전체</button>
+              <button class="chip" data-type="국립">국립</button>
+              <button class="chip" data-type="공립">공립</button>
+              <button class="chip" data-type="사립">사립</button>
+            </div>
+            <select class="regionsel" id="region"><option value="">전체 지역 (시·도)</option></select>
+          </div>
+          <div class="count"><b id="cnt">0</b><span>개 캠퍼스 표시 중</span></div>
+          <div class="list" id="list"></div>
+        </aside>
+        <div class="mapwrap"><div id="map"></div></div>
+      </div>
+    </section>
+
+    <!-- ===== LIST VIEW ===== -->
+    <section class="view" id="view-list" hidden>
+      <div class="lcontrols">
+        <div class="lrow">
+          <div class="lsearch">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="lq" type="text" placeholder="대학명·지역 검색 (예: 한밭, 공주교대, 충남)" autocomplete="off">
+          </div>
+          <div class="lfilters" id="ltypeFilter">
+            <button class="lchip on" data-type="전체">전체</button>
+            <button class="lchip" data-type="국립">국립</button>
+            <button class="lchip" data-type="공립">공립</button>
+            <button class="lchip" data-type="사립">사립</button>
+          </div>
+        </div>
+        <div class="lnav" id="lnav"></div>
+      </div>
+      <div class="list-scroll" id="listScroll">
+        <div class="lcount"><b id="listCount">0</b>개 대학 · 시·도순</div>
+        <div id="lsections"></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script>
+(async () => {
+let DATA;
+try { DATA = await fetch('data/universities.json',{cache:'no-cache'}).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }); }
+catch(err) { document.body.innerHTML = '<div style="padding:40px;font-family:sans-serif;color:#c00">데이터 로드 실패: '+err.message+'<br><small>data/universities.json 파일을 확인하세요.</small></div>'; throw err; }
+const REGION_VIEW = {"서울": [37.566, 126.978, 11], "부산": [35.18, 129.07, 11], "대구": [35.87, 128.6, 11], "인천": [37.45, 126.7, 10], "광주": [35.16, 126.85, 11], "대전": [36.35, 127.38, 11], "울산": [35.54, 129.2, 10], "세종": [36.58, 127.28, 11], "경기": [37.41, 127.2, 9], "강원": [37.8, 128.2, 8], "충북": [36.8, 127.7, 9], "충남": [36.55, 126.95, 9], "전북": [35.72, 127.1, 9], "전남": [34.86, 126.9, 8], "경북": [36.25, 128.8, 8], "경남": [35.26, 128.3, 9], "제주": [33.43, 126.56, 10]};
+const REGIONS = ["서울","인천","경기","강원","대전","세종","충북","충남","대구","경북","부산","울산","경남","광주","전남","전북","제주"];
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function colorVar(t){return t==='국립'?'nat':t==='공립'?'pub':'pri';}
+
+/* ========== MAP VIEW ========== */
+const KOREA_BOUNDS = L.latLngBounds([32.9,124.4],[38.8,131.3]);
+const map = L.map('map',{zoomControl:true,scrollWheelZoom:true,minZoom:7,maxBounds:KOREA_BOUNDS,maxBoundsViscosity:1.0}).setView([36.4,127.8],7);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19,bounds:KOREA_BOUNDS,noWrap:true
+}).addTo(map);
+
+const regSel=document.getElementById('region');
+REGIONS.forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=r;regSel.appendChild(o);});
+
+const cluster=L.markerClusterGroup({maxClusterRadius:46,spiderfyOnMaxZoom:true,showCoverageOnHover:false,disableClusteringAtZoom:12});
+map.addLayer(cluster);
+
+function popHTML(d){
+  const cv=colorVar(d.type);
+  const pdfs=d.campuses.filter(c=>c.u).map(c=>
+    `<a class="p-pdf" href="${esc(c.u)}" target="_blank" rel="noopener">
+       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+       ${esc(c.c)} 시행계획 PDF</a>`).join('');
+  const admission=d.admission?
+    `<a class="p-pdf" href="${esc(d.admission)}" target="_blank" rel="noopener">
+       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+       2027 수시모집요강</a>`:'';
+  const report=d.report?
+    `<a class="p-pdf" href="${esc(d.report)}" target="_blank" rel="noopener">
+       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+       선행학습 영향평가 보고서</a>`:'';
+  const jonghap=d.jonghap?
+    `<a class="p-pdf" href="${esc(d.jonghap)}" target="_blank" rel="noopener">
+       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+       학생부종합전형 가이드북</a>`:'';
+  return `<div class="pop-in">
+    <div class="pop-hd"><div class="p-nm">${esc(d.name)}</div>
+      <div class="p-meta"><span class="p-badge" style="background:var(--${cv}-soft);color:var(--${cv})">${d.type}</span><span class="p-reg">${esc(d.region)}</span></div></div>
+    <div class="pop-bd">
+      <a class="p-go" href="${esc(d.home)}" target="_blank" rel="noopener" style="background:var(--${cv})">입학처 홈페이지 바로가기
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      ${admission?`<div class="p-lbl">2027 수시모집요강</div><div class="p-pdfs">${admission}</div>`:''}
+      ${pdfs?`<div class="p-lbl">대학입학전형 시행계획</div><div class="p-pdfs">${pdfs}</div>`:''}
+      ${report?`<div class="p-lbl">2026 선행학습 영향평가</div><div class="p-pdfs">${report}</div>`:''}
+      ${jonghap?`<div class="p-lbl">2027 학생부종합전형 가이드북</div><div class="p-pdfs">${jonghap}</div>`:''}
+      ${d.added?`<div class="p-note">※ 원본 자료에 없어 추가 수록한 대학입니다. 입학처 주소를 한 번 더 확인해 주세요.</div>`:''}
+    </div></div>`;
+}
+
+const records=DATA.map((d,idx)=>{
+  const icon=L.divIcon({className:'',html:`<div class="uni-mk ${d.type} ${d.added?'added':''}"><div class="core"></div></div>`,iconSize:[24,24],iconAnchor:[12,12]});
+  const mk=L.marker([d.lat,d.lng],{icon});
+  mk.bindTooltip(`<div class="tip-slim"><span class="tdot ${d.type} ${d.added?'added':''}"></span>${esc(d.name)}</div>`,{className:'uni-tip',direction:'top',offset:[0,-15]});
+  mk.bindPopup(popHTML(d),{className:'uni-pop',offset:[0,-13],minWidth:240,maxWidth:240,autoPanPadding:[28,28]});
+  const rec={d,mk,idx,el:null};
+  mk.on('popupopen',()=>{setSel(mk,true);activateListItem(rec);});
+  mk.on('popupclose',()=>setSel(mk,false));
+  return rec;
+});
+function setSel(mk,on){const el=mk._icon&&mk._icon.querySelector('.uni-mk');if(el)el.classList.toggle('sel',on);}
+function activateListItem(rec){document.querySelectorAll('.item.active').forEach(x=>x.classList.remove('active'));if(rec.el){rec.el.classList.add('active');rec.el.scrollIntoView({block:'nearest'});}}
+
+const listEl=document.getElementById('list'),cntEl=document.getElementById('cnt');
+let fType='전체',fRegion='',fQ='';
+function visible(d){if(fType!=='전체'&&d.type!==fType)return false;if(fRegion&&d.region!==fRegion)return false;if(fQ&&!d.name.toLowerCase().includes(fQ))return false;return true;}
+function render(){
+  cluster.clearLayers();listEl.innerHTML='';records.forEach(r=>r.el=null);
+  const shown=records.filter(r=>visible(r.d));
+  shown.forEach(r=>cluster.addLayer(r.mk));cntEl.textContent=shown.length;
+  if(!shown.length){listEl.innerHTML='<div class="empty">조건에 맞는 대학이 없습니다.</div>';return;}
+  const groups={};shown.forEach(r=>{(groups[r.d.region]=groups[r.d.region]||[]).push(r);});
+  const frag=document.createDocumentFragment();
+  REGIONS.filter(rg=>groups[rg]).forEach(rg=>{
+    const arr=groups[rg].sort((a,b)=>a.d.name.localeCompare(b.d.name,'ko'));
+    const hd=document.createElement('div');hd.className='grp-hd';hd.innerHTML=`${esc(rg)} <span class="gc">${arr.length}</span>`;frag.appendChild(hd);
+    arr.forEach(r=>{const d=r.d,el=document.createElement('div');el.className='item';
+      el.innerHTML=`<span class="pin ${d.type} ${d.added?'added':''}"></span><span class="nm">${esc(d.name)}<small>${d.campuses.map(c=>esc(c.c)).join(', ')}</small></span><span class="badge ${d.type}">${d.type}</span>`;
+      el.addEventListener('click',()=>{map.flyTo([d.lat,d.lng],Math.max(map.getZoom(),13),{duration:.6});setTimeout(()=>r.mk.openPopup(),650);if(window.innerWidth<=860)document.getElementById('panel').classList.remove('open');});
+      r.el=el;frag.appendChild(el);});
+  });
+  listEl.appendChild(frag);
+}
+document.getElementById('typeFilter').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('#typeFilter .chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');fType=b.dataset.type;render();});
+regSel.addEventListener('change',e=>{fRegion=e.target.value;render();if(fRegion&&REGION_VIEW[fRegion]){const v=REGION_VIEW[fRegion];map.flyTo([v[0],v[1]],v[2],{duration:.7});}else map.flyTo([36.4,127.8],7,{duration:.7});});
+let qt;document.getElementById('q').addEventListener('input',e=>{clearTimeout(qt);const v=e.target.value.trim().toLowerCase();qt=setTimeout(()=>{fQ=v;render();},140);});
+/* ===== Draggable bottom sheet (mobile): 위로 끌면 열림 / 아래로 끌면 닫힘 ===== */
+(function(){
+  const sheet=document.getElementById('panel'), grip=document.getElementById('ptoggle');
+  if(!sheet||!grip) return;
+  const isMobile=()=>window.innerWidth<=860;
+  const peek=()=>Math.max(0, sheet.getBoundingClientRect().height-56);
+  let drag=false, moved=false, startY=0, base=0, ty=0, lastY=0, lastT=0, vel=0, fromList=false, touchedAt=0;
+  const setTy=v=>{ty=v;sheet.style.transform='translateY('+v+'px)';};
+  function begin(y){drag=true;moved=false;sheet.style.transition='none';startY=lastY=y;lastT=performance.now();vel=0;base=sheet.classList.contains('open')?0:peek();ty=base;}
+  function move(y){const dy=y-startY;if(Math.abs(dy)>4)moved=true;setTy(Math.max(0,Math.min(peek(),base+dy)));const n=performance.now();vel=(y-lastY)/((n-lastT)||1);lastY=y;lastT=n;}
+  function snap(){drag=false;sheet.style.transition='';sheet.style.transform='';const open=Math.abs(vel)>0.4?(vel<0):(ty<peek()*0.5);sheet.classList.toggle('open',open);}
+  // 핸들(그립) 드래그 + 탭
+  grip.addEventListener('touchstart',e=>{if(!isMobile())return;begin(e.touches[0].clientY);},{passive:true});
+  grip.addEventListener('touchmove',e=>{if(!drag)return;move(e.touches[0].clientY);if(e.cancelable)e.preventDefault();},{passive:false});
+  grip.addEventListener('touchend',()=>{touchedAt=performance.now();if(!drag)return;sheet.style.transition='';if(!moved){sheet.style.transform='';sheet.classList.toggle('open');drag=false;return;}snap();});
+  grip.addEventListener('click',()=>{if(performance.now()-touchedAt<600)return;sheet.classList.toggle('open');});
+  // 목록 최상단에서 아래로 당기면 닫힘 (pull-to-dismiss)
+  listEl.addEventListener('touchstart',e=>{fromList=false;if(!isMobile()||!sheet.classList.contains('open'))return;if(listEl.scrollTop<=0){fromList=true;startY=lastY=e.touches[0].clientY;lastT=performance.now();drag=false;}},{passive:true});
+  listEl.addEventListener('touchmove',e=>{if(!fromList||!isMobile())return;const y=e.touches[0].clientY,dy=y-startY;if(listEl.scrollTop<=0&&dy>0){if(!drag)begin(startY);move(y);if(e.cancelable)e.preventDefault();}},{passive:false});
+  listEl.addEventListener('touchend',()=>{touchedAt=performance.now();if(fromList&&drag)snap();fromList=false;});
+})();
+render();
+
+/* ========== LIST VIEW ========== */
+function cardHTML(d){
+  const cv=colorVar(d.type);
+  const multiC=d.campuses.filter(c=>c.u).length>1;
+  const pdfs=d.campuses.filter(c=>c.u).map(c=>
+    `<a class="ua-pdf" href="${esc(c.u)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>${multiC?esc(c.c)+' ':''}2028 시행계획</a>`).join('');
+  const soon=d.campuses.some(c=>!c.u)?`<span class="ua-soon">시행계획 준비중</span>`:'';
+  const admission=d.admission?
+    `<a class="ua-guide" href="${esc(d.admission)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>수시모집요강</a>`:'';
+  const report=d.report?
+    `<a class="ua-report" href="${esc(d.report)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>선행학습 보고서</a>`:'';
+  const jonghap=d.jonghap?
+    `<a class="ua-jonghap" href="${esc(d.jonghap)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>학종 가이드북</a>`:'';
+  return `<div class="ucard ${d.added?'added':''}">
+    <div class="ucard-top"><span class="badge ${d.type}">${d.type}</span><span class="ucard-reg">${esc(d.region)} · ${d.campuses.map(c=>esc(c.c)).join(', ')}</span></div>
+    <div class="ucard-nm">${esc(d.name)}</div>
+    <div class="ucard-acts">
+      <a class="ua-home" style="background:var(--${cv})" href="${esc(d.home)}" target="_blank" rel="noopener">입학처 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      ${admission}${pdfs}${pdfs?'':soon}${report}${jonghap}
+    </div></div>`;
+}
+let lType='전체',lQ='';
+function lVisible(d){if(lType!=='전체'&&d.type!==lType)return false;if(lQ&&!(d.name.toLowerCase().includes(lQ)||d.region.includes(lQ)))return false;return true;}
+function renderList(){
+  const sec=document.getElementById('lsections');sec.innerHTML='';
+  const shown=DATA.filter(lVisible);
+  document.getElementById('listCount').textContent=shown.length;
+  const nav=document.getElementById('lnav');nav.innerHTML='';
+  if(!shown.length){sec.innerHTML='<div class="empty">검색 결과가 없습니다.</div>';return;}
+  const groups={};shown.forEach(d=>{(groups[d.region]=groups[d.region]||[]).push(d);});
+  const present=REGIONS.filter(r=>groups[r]);
+  present.forEach(r=>{const b=document.createElement('button');b.textContent=r;b.addEventListener('click',()=>{const t=document.getElementById('lsec-'+r);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});nav.appendChild(b);});
+  const frag=document.createDocumentFragment();
+  present.forEach(r=>{
+    const arr=groups[r].sort((a,b)=>a.name.localeCompare(b.name,'ko'));
+    const s=document.createElement('section');s.className='lsec';s.id='lsec-'+r;
+    s.innerHTML=`<div class="lsec-hd">${esc(r)}<span class="lc">${arr.length}</span></div>`;
+    const grid=document.createElement('div');grid.className='lgrid';
+    arr.forEach(d=>grid.insertAdjacentHTML('beforeend',cardHTML(d)));
+    s.appendChild(grid);frag.appendChild(s);
+  });
+  sec.appendChild(frag);
+}
+document.getElementById('ltypeFilter').addEventListener('click',e=>{const b=e.target.closest('.lchip');if(!b)return;document.querySelectorAll('#ltypeFilter .lchip').forEach(c=>c.classList.remove('on'));b.classList.add('on');lType=b.dataset.type;renderList();});
+let lqt;document.getElementById('lq').addEventListener('input',e=>{clearTimeout(lqt);const v=e.target.value.trim().toLowerCase();lqt=setTimeout(()=>{lQ=v;renderList();},140);});
+
+/* ========== TABS ========== */
+let listBuilt=false;
+document.getElementById('tabs').addEventListener('click',e=>{
+  const t=e.target.closest('.tab');if(!t)return;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+  const v=t.dataset.view;
+  document.getElementById('view-map').hidden=(v!=='map');
+  document.getElementById('view-list').hidden=(v!=='list');
+  if(v==='map'){setTimeout(()=>map.invalidateSize(),60);}
+  if(v==='list'&&!listBuilt){renderList();listBuilt=true;}
+});
+})();
+</script>
+</body>
+</html>

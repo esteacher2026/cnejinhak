@@ -1,0 +1,2720 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>대학별 연간 평균등록금 안내 · 충남교육청 진로진학</title>
+  <meta name="description" content="공공데이터포털 한국장학재단 대학별 평균등록금(2025.05.19) 자료를 기반으로 제작한 교사용 진학상담 대시보드. 연간(1년) 기준 등록금을 학제·설립·지역·금액 구간으로 비교할 수 있습니다." />
+  <meta name="author" content="충청남도교육청진로융합교육원 교육연구사 정재연" />
+  <meta name="theme-color" content="#0b3b8c" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      /* 기본 컬러 시스템 - 신뢰감 있는 인디고/블루 + 충남 골드 액센트 */
+      --ink: #0b1220;
+      --ink-2: #1e293b;
+      --ink-3: #334155;
+      --muted: #64748b;
+      --muted-2: #475569;
+      --line: #e2e8f0;
+      --line-2: #cbd5e1;
+      --line-strong: #94a3b8;
+      --bg: #f5f7fb;
+      --bg-2: #eef2f8;
+      --panel: #ffffff;
+      --panel-tint: rgba(255, 255, 255, 0.86);
+      --white: #ffffff;
+
+      /* 브랜드 컬러 */
+      --brand: #1e40af;
+      --brand-2: #0b3b8c;
+      --brand-3: #1d4ed8;
+      --brand-soft: #eff5ff;
+      --brand-tint: #dbeafe;
+      --sky-soft: #f0f9ff;
+
+      /* 시맨틱 컬러 */
+      --green: #047857;
+      --green-2: #065f46;
+      --green-soft: #ecfdf5;
+      --amber: #b45309;
+      --amber-2: #92400e;
+      --amber-soft: #fffbeb;
+      --red: #b91c1c;
+      --red-2: #991b1b;
+      --red-soft: #fef2f2;
+      --purple: #6d28d9;
+      --purple-soft: #f5edff;
+      --teal: #0d9488;
+      --teal-soft: #f0fdfa;
+
+      /* 충남 골드 - 충남교육청 자료 강조용 */
+      --gold: #b8860b;
+      --gold-2: #92670a;
+      --gold-soft: #fffbeb;
+      --gold-tint: #fde68a;
+
+      /* 사이즈/그림자 */
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-xl: 0 24px 60px -12px rgba(15, 23, 42, 0.18), 0 8px 24px -8px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 32px -8px rgba(15, 23, 42, 0.12), 0 4px 12px -4px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 6px 16px -4px rgba(15, 23, 42, 0.08);
+      --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05);
+      --max: 1340px;
+
+      /* 트랜지션 */
+      --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    /* 다크 모드 */
+    [data-theme="dark"] {
+      --ink: #f1f5f9;
+      --ink-2: #e2e8f0;
+      --ink-3: #cbd5e1;
+      --muted: #94a3b8;
+      --muted-2: #cbd5e1;
+      --line: #334155;
+      --line-2: #475569;
+      --line-strong: #64748b;
+      --bg: #0b1220;
+      --bg-2: #0f172a;
+      --panel: #131c2e;
+      --panel-tint: rgba(19, 28, 46, 0.86);
+      --white: #1e293b;
+      --brand: #60a5fa;
+      --brand-2: #93c5fd;
+      --brand-3: #3b82f6;
+      --brand-soft: #1e3a8a;
+      --brand-tint: #1e40af;
+      --sky-soft: #0c4a6e;
+      --green-soft: #064e3b;
+      --amber-soft: #451a03;
+      --red-soft: #450a0a;
+      --purple-soft: #2e1065;
+      --gold-soft: #292014;
+      --gold-tint: #78350f;
+      --teal-soft: #134e4a;
+      --shadow-xl: 0 24px 60px -12px rgba(0, 0, 0, 0.5), 0 8px 24px -8px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 16px -4px rgba(0, 0, 0, 0.25);
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Pretendard Variable", "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse at 8% -6%, rgba(30, 64, 175, 0.14), transparent 38rem),
+        radial-gradient(ellipse at 92% 4%, rgba(13, 148, 136, 0.10), transparent 32rem),
+        radial-gradient(ellipse at 50% 100%, rgba(184, 134, 11, 0.06), transparent 36rem),
+        linear-gradient(180deg, #fbfdff 0%, var(--bg) 40%, var(--bg-2) 100%);
+      background-attachment: fixed;
+      line-height: 1.58;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "ss05" 1, "ss06" 1;
+    }
+
+    [data-theme="dark"] body {
+      background:
+        radial-gradient(ellipse at 8% -6%, rgba(59, 130, 246, 0.12), transparent 38rem),
+        radial-gradient(ellipse at 92% 4%, rgba(13, 148, 136, 0.08), transparent 32rem),
+        linear-gradient(180deg, #0a1020 0%, var(--bg) 50%, var(--bg-2) 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; color: inherit; }
+
+    .sr-only, .skip-link:not(:focus) {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .skip-link:focus {
+      position: fixed; left: 18px; top: 18px;
+      z-index: 200;
+      background: var(--ink); color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* === 상단바 === */
+    .topbar {
+      position: sticky; top: 0; z-index: 70;
+      background: var(--panel-tint);
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0.7rem 1.1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 0.7rem;
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: grid; place-items: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.05rem;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-3) 60%, #06b6d4 100%);
+      box-shadow: 0 10px 24px -6px rgba(30, 64, 175, 0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+      flex: 0 0 auto;
+      letter-spacing: -0.04em;
+    }
+    .brand-title {
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--ink);
+    }
+    .brand-subtitle {
+      margin-top: 0.1rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .top-actions {
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    /* === 버튼 === */
+    .btn, a.btn, button.btn {
+      appearance: none;
+      border: 1px solid var(--line-2);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 999px;
+      min-height: 2.5rem;
+      padding: 0.55rem 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.42rem;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: -0.012em;
+      transition: transform 0.16s var(--ease), box-shadow 0.16s var(--ease), border-color 0.16s var(--ease), background 0.16s var(--ease), color 0.16s var(--ease);
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn:hover, .btn:focus-visible {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-md);
+      outline: none;
+    }
+    .btn:active { transform: translateY(0); }
+    .btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--brand-2); border-color: var(--brand-2); }
+    .btn-soft { background: var(--brand-soft); border-color: var(--brand-tint); color: var(--brand-2); }
+    .btn-warn { background: var(--amber-soft); border-color: #fed7aa; color: var(--amber-2); }
+    .btn-danger { background: var(--red-soft); border-color: #fecaca; color: var(--red); }
+    .btn-ghost { background: transparent; border-color: var(--line); }
+    .btn-icon-only { width: 2.5rem; padding: 0; }
+    .btn-sm { min-height: 2.15rem; padding: 0.4rem 0.75rem; font-size: 0.84rem; }
+
+    /* 플로팅 메인 버튼 */
+    .floating-main {
+      position: fixed;
+      right: 22px; bottom: 22px;
+      z-index: 80;
+      width: 64px; height: 64px;
+      border-radius: 999px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand) 0%, #0b3b8c 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 18px 40px -8px rgba(15, 23, 42, 0.32), 0 6px 14px -4px rgba(30, 64, 175, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+    .floating-main:hover, .floating-main:focus-visible {
+      outline: none;
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 22px 48px -8px rgba(15, 23, 42, 0.42), 0 8px 18px -4px rgba(30, 64, 175, 0.5);
+    }
+
+    /* 위로 가기 버튼 */
+    .scroll-top {
+      position: fixed;
+      right: 22px; bottom: 96px;
+      z-index: 79;
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      display: grid; place-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line-2);
+      color: var(--ink-2);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .scroll-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .scroll-top:hover, .scroll-top:focus-visible {
+      outline: none;
+      border-color: var(--brand);
+      color: var(--brand);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.1rem 1.1rem 6rem;
+    }
+
+    /* === Hero === */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.78) 100%),
+        radial-gradient(ellipse at 90% 18%, rgba(30, 64, 175, 0.18), transparent 24rem);
+      box-shadow: var(--shadow-xl);
+      padding: clamp(1.4rem, 3vw, 2.4rem);
+    }
+    [data-theme="dark"] .hero {
+      background:
+        linear-gradient(135deg, rgba(19, 28, 46, 0.95) 0%, rgba(19, 28, 46, 0.78) 100%),
+        radial-gradient(ellipse at 90% 18%, rgba(59, 130, 246, 0.22), transparent 24rem);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: -10rem; top: -10rem;
+      width: 26rem; height: 26rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30, 64, 175, 0.10), transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -6rem; bottom: -7rem;
+      width: 20rem; height: 20rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(4, 120, 87, 0.10), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.6fr);
+      gap: clamp(1.1rem, 3vw, 2rem);
+      align-items: start;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      align-items: center;
+      margin-bottom: 0.95rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.36rem;
+      border-radius: 999px;
+      padding: 0.4rem 0.72rem;
+      font-weight: 700;
+      font-size: 0.82rem;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .pill-blue { background: var(--brand-soft); color: var(--brand-2); border-color: var(--brand-tint); }
+    .pill-green { background: var(--green-soft); color: var(--green-2); border-color: #bbf7d0; }
+    .pill-amber { background: var(--amber-soft); color: var(--amber-2); border-color: #fde68a; }
+    .pill-purple { background: var(--purple-soft); color: var(--purple); border-color: #ddd6fe; }
+    .pill-red { background: var(--red-soft); color: var(--red); border-color: #fecaca; }
+    .pill-gray { background: var(--bg-2); color: var(--muted-2); border-color: var(--line); }
+    .pill-gold { background: var(--gold-soft); color: var(--gold-2); border-color: var(--gold-tint); }
+    .pill-teal { background: var(--teal-soft); color: var(--teal); border-color: #99f6e4; }
+
+    .pill-dot::before {
+      content: "";
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      display: inline-block;
+      margin-right: 0.36rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.4vw, 3.6rem);
+      line-height: 1.06;
+      letter-spacing: -0.055em;
+      font-weight: 850;
+      color: var(--ink);
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, var(--brand) 0%, #0d9488 60%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .hero-copy {
+      margin: 1.05rem 0 0;
+      color: var(--muted-2);
+      font-size: clamp(0.98rem, 1.45vw, 1.1rem);
+      max-width: 58rem;
+      line-height: 1.72;
+      font-weight: 500;
+    }
+    .hero-copy strong { color: var(--ink-2); font-weight: 700; }
+
+    .hero-actions {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .info-stack {
+      display: grid;
+      gap: 0.6rem;
+    }
+    .info-card {
+      background: var(--panel-tint);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 0.85rem 0.95rem;
+      transition: transform 0.18s var(--ease), border-color 0.18s var(--ease);
+    }
+    .info-card:hover {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+    }
+    .info-label {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 0.28rem;
+    }
+    .info-value {
+      color: var(--ink-2);
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      line-height: 1.45;
+      font-size: 0.95rem;
+    }
+
+    /* === Notice === */
+    .notice {
+      margin-top: 1rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--gold-tint);
+      background:
+        linear-gradient(180deg, rgba(254, 252, 232, 0.95), rgba(254, 243, 199, 0.85));
+      color: #5c3306;
+      padding: 1rem 1.15rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: start;
+      box-shadow: 0 8px 24px -6px rgba(184, 134, 11, 0.18);
+    }
+    [data-theme="dark"] .notice {
+      background: linear-gradient(180deg, rgba(69, 26, 3, 0.5), rgba(120, 53, 15, 0.3));
+      color: var(--gold-tint);
+      border-color: rgba(184, 134, 11, 0.4);
+    }
+    .notice-icon {
+      width: 2.3rem; height: 2.3rem;
+      border-radius: 0.8rem;
+      background: var(--gold);
+      color: #fff;
+      display: grid; place-items: center;
+      font-size: 1.15rem;
+      font-weight: 900;
+      box-shadow: 0 6px 14px -3px rgba(184, 134, 11, 0.4);
+    }
+    .notice strong { font-weight: 800; }
+    .notice p { margin: 0.18rem 0 0; font-weight: 550; line-height: 1.72; }
+
+    /* === Section === */
+    .section {
+      margin-top: 1rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .section-head {
+      padding: 1.1rem 1.25rem 0.9rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      background: linear-gradient(180deg, var(--panel) 0%, var(--bg) 100%);
+    }
+    [data-theme="dark"] .section-head {
+      background: linear-gradient(180deg, var(--panel) 0%, var(--bg-2) 100%);
+    }
+    .section-title-wrap {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .section-icon {
+      width: 2.4rem; height: 2.4rem;
+      border-radius: 0.85rem;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand-soft), var(--brand-tint));
+      color: var(--brand-2);
+      font-weight: 900;
+      font-size: 1.02rem;
+      flex: 0 0 auto;
+      letter-spacing: -0.02em;
+    }
+    .section-title {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: -0.035em;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .section-subtitle {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* === KPI === */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.78rem;
+      padding: 1rem 1.25rem 1.25rem;
+    }
+    .kpi-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, var(--panel) 0%, var(--bg) 100%);
+      min-height: 9.6rem;
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.18s var(--ease), border-color 0.18s var(--ease), box-shadow 0.18s var(--ease);
+    }
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-md);
+    }
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand), #0d9488);
+      opacity: 0.7;
+    }
+    .kpi-card.k-warn::before { background: linear-gradient(90deg, var(--gold), var(--amber)); }
+    .kpi-card.k-success::before { background: linear-gradient(90deg, var(--green), var(--teal)); }
+    .kpi-card.k-info::before { background: linear-gradient(90deg, var(--brand), #38bdf8); }
+    .kpi-card.k-danger::before { background: linear-gradient(90deg, var(--red), #f87171); }
+    .kpi-card::after {
+      content: "";
+      position: absolute;
+      right: -2.5rem; top: -2.5rem;
+      width: 7rem; height: 7rem;
+      border-radius: 50%;
+      background: rgba(30, 64, 175, 0.05);
+    }
+    .kpi-label, .kpi-value, .kpi-detail { position: relative; z-index: 1; }
+    .kpi-label {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.005em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .kpi-label-icon {
+      width: 1.4rem; height: 1.4rem;
+      border-radius: 7px;
+      display: inline-grid; place-items: center;
+      background: var(--brand-soft);
+      color: var(--brand-2);
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+    .k-warn .kpi-label-icon { background: var(--gold-soft); color: var(--gold-2); }
+    .k-success .kpi-label-icon { background: var(--green-soft); color: var(--green-2); }
+    .k-info .kpi-label-icon { background: var(--sky-soft); color: #075985; }
+    .k-danger .kpi-label-icon { background: var(--red-soft); color: var(--red); }
+    .kpi-value {
+      margin-top: 0.65rem;
+      font-size: clamp(1.32rem, 1.9vw, 1.92rem);
+      font-weight: 850;
+      letter-spacing: -0.05em;
+      white-space: nowrap;
+      color: var(--ink);
+    }
+    .kpi-detail {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.45;
+      font-weight: 550;
+    }
+
+    /* === Controls === */
+    .controls {
+      padding: 1rem 1.25rem 1.25rem;
+      display: grid;
+      gap: 0.95rem;
+    }
+    .filter-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.4fr) repeat(5, minmax(140px, 1fr));
+      gap: 0.75rem;
+      align-items: end;
+    }
+    .control {
+      display: grid;
+      gap: 0.34rem;
+    }
+    .control label, .control .fake-label {
+      color: var(--muted-2);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+    }
+
+    .search-wrap { position: relative; }
+    .search-wrap::before {
+      content: "🔍";
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.92rem;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+    .search-wrap input { padding-left: 2.4rem; }
+    .search-clear {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.7rem; height: 1.7rem;
+      border-radius: 50%;
+      background: var(--bg-2);
+      border: 0;
+      cursor: pointer;
+      display: none;
+      color: var(--muted-2);
+      font-weight: 800;
+      font-size: 0.95rem;
+      line-height: 1;
+      padding: 0;
+    }
+    .search-clear:hover { background: var(--line); color: var(--ink); }
+    .search-wrap.has-value .search-clear { display: grid; place-items: center; }
+
+    input[type="search"], select {
+      width: 100%;
+      min-height: 2.78rem;
+      border: 1px solid var(--line-2);
+      border-radius: 0.85rem;
+      background: var(--panel);
+      color: var(--ink);
+      padding: 0 0.85rem;
+      outline: none;
+      transition: border-color 0.16s var(--ease), box-shadow 0.16s var(--ease);
+      font-weight: 550;
+      font-size: 0.94rem;
+    }
+    input[type="search"]:hover, select:hover { border-color: var(--line-strong); }
+    input[type="search"]:focus, select:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.14);
+    }
+    select { cursor: pointer; }
+
+    .quick-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      align-items: center;
+      padding-top: 0.4rem;
+      border-top: 1px dashed var(--line);
+    }
+    .preset-label {
+      font-weight: 700;
+      color: var(--muted-2);
+      font-size: 0.83rem;
+      margin-right: 0.25rem;
+    }
+
+    .tool-row {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) auto;
+      align-items: center;
+      gap: 0.85rem;
+      padding-top: 0.55rem;
+      border-top: 1px dashed var(--line);
+    }
+    .active-summary {
+      color: var(--ink-2);
+      font-weight: 650;
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+    .active-summary strong { color: var(--brand-2); font-weight: 800; }
+    [data-theme="dark"] .active-summary strong { color: var(--brand-2); }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+      margin-top: 0.45rem;
+    }
+
+    .chip, .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      border-radius: 999px;
+      padding: 0.3rem 0.58rem;
+      font-size: 0.76rem;
+      font-weight: 750;
+      line-height: 1;
+      white-space: nowrap;
+      border: 1px solid transparent;
+      letter-spacing: -0.005em;
+    }
+    .chip { background: var(--bg-2); border-color: var(--line); color: var(--muted-2); }
+    .badge-level { background: var(--brand-soft); color: var(--brand-2); border-color: var(--brand-tint); }
+    .badge-public { background: #ecfeff; color: #0e7490; border-color: #bae6fd; }
+    [data-theme="dark"] .badge-public { background: #0c4a6e; color: #67e8f9; border-color: #155e75; }
+    .badge-private { background: var(--purple-soft); color: var(--purple); border-color: #ddd6fe; }
+    .badge-zero, .badge-warn { background: var(--amber-soft); color: var(--amber-2); border-color: #fed7aa; }
+    .badge-high { background: var(--red-soft); color: var(--red); border-color: #fecaca; }
+    .badge-low { background: var(--green-soft); color: var(--green-2); border-color: #bbf7d0; }
+    .badge-source { background: var(--bg-2); color: var(--muted); border-color: var(--line); }
+    .badge-chungnam {
+      background: var(--gold-soft);
+      color: var(--gold-2);
+      border-color: var(--gold-tint);
+      font-weight: 800;
+    }
+    .badge-cyber { background: #f0fdfa; color: var(--teal); border-color: #99f6e4; }
+    [data-theme="dark"] .badge-cyber { background: #134e4a; color: #5eead4; border-color: #115e59; }
+    .badge-polytech { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+    [data-theme="dark"] .badge-polytech { background: #451a03; color: #fbbf24; border-color: #78350f; }
+
+    .checkbox-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      min-height: 2.55rem;
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      padding: 0.5rem 0.85rem;
+      background: var(--panel);
+      color: var(--ink-2);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+    }
+    .checkbox-pill:hover { border-color: var(--line-strong); }
+    .checkbox-pill input { accent-color: var(--brand); }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    /* === Charts === */
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 1rem;
+      padding: 1rem 1.25rem 1.25rem;
+    }
+    .chart-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      min-height: 18rem;
+    }
+    .chart-card h3 {
+      margin: 0;
+      letter-spacing: -0.035em;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .chart-card p {
+      margin: 0.28rem 0 0.9rem;
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 550;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 0.58rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 78px 1fr 92px;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .bar-row.region { grid-template-columns: 64px 1fr 94px; }
+    .bar-label {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--ink-2);
+      font-weight: 750;
+      font-size: 0.86rem;
+      letter-spacing: -0.01em;
+    }
+    .bar-label.chungnam {
+      color: var(--gold-2);
+      font-weight: 850;
+    }
+    .bar-label.chungnam::after {
+      content: "★";
+      margin-left: 0.32rem;
+      color: var(--gold);
+    }
+
+    .bar-track {
+      height: 0.95rem;
+      border-radius: 999px;
+      background: var(--bg-2);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--brand) 0%, #0d9488 100%);
+      min-width: 4%;
+      transition: width 0.5s var(--ease);
+    }
+    .bar-fill.chungnam {
+      background: linear-gradient(90deg, var(--gold) 0%, #d97706 100%);
+    }
+    .bar-fill.high { background: linear-gradient(90deg, var(--red), #f59e0b); }
+    .bar-fill.low { background: linear-gradient(90deg, var(--green), #14b8a6); }
+
+    .bar-value {
+      color: var(--ink-2);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-align: right;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+    .bar-count { color: var(--muted); font-weight: 600; font-size: 0.72rem; }
+    .chart-scroll { max-height: 28rem; overflow: auto; padding-right: 0.25rem; }
+    .chart-scroll::-webkit-scrollbar { width: 8px; }
+    .chart-scroll::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 999px; }
+    .chart-scroll::-webkit-scrollbar-track { background: transparent; }
+
+    /* 분포 히스토그램 */
+    .histogram {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0.4rem;
+      align-items: end;
+      height: 11rem;
+      padding: 0.5rem 0 0.3rem;
+    }
+    .hist-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .hist-bar {
+      width: 100%;
+      background: linear-gradient(180deg, var(--brand), #0d9488);
+      border-radius: 6px 6px 0 0;
+      min-height: 4px;
+      position: relative;
+      transition: height 0.6s var(--ease);
+    }
+    .hist-bar:hover { background: linear-gradient(180deg, var(--brand-2), var(--teal)); }
+    .hist-count {
+      position: absolute;
+      top: -1.3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--ink-2);
+      white-space: nowrap;
+    }
+    .hist-label {
+      font-size: 0.66rem;
+      color: var(--muted);
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* === Compare === */
+    .compare-box { padding: 1rem 1.25rem 1.25rem; }
+    .compare-empty, .empty-state {
+      border: 2px dashed var(--line-2);
+      border-radius: var(--radius-lg);
+      background: var(--bg);
+      color: var(--muted-2);
+      font-weight: 600;
+      padding: 1.4rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .empty-state .empty-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.4rem;
+      opacity: 0.6;
+    }
+    .compare-list {
+      display: grid;
+      gap: 0.68rem;
+    }
+    .compare-item {
+      display: grid;
+      grid-template-columns: minmax(200px, 1.2fr) minmax(150px, 1.3fr) auto auto;
+      gap: 0.78rem;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      padding: 0.85rem;
+      transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+    }
+    .compare-item:hover {
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-sm);
+    }
+    .compare-name {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+    .compare-meta {
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .compare-meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.35rem;
+    }
+    .mini-track {
+      height: 0.85rem;
+      background: var(--bg-2);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .mini-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--brand), #14b8a6);
+      border-radius: inherit;
+      min-width: 4%;
+      transition: width 0.5s var(--ease);
+    }
+    .mini-fill.chungnam {
+      background: linear-gradient(90deg, var(--gold) 0%, #d97706 100%);
+    }
+    .compare-diff {
+      font-size: 0.74rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .icon-btn {
+      appearance: none;
+      width: 2.05rem; height: 2.05rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted-2);
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: all 0.15s var(--ease);
+    }
+    .icon-btn:hover {
+      background: var(--red-soft);
+      border-color: #fecaca;
+      color: var(--red);
+    }
+
+    /* === Table === */
+    .table-area { padding: 1rem 1.25rem 1.25rem; }
+    .table-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.85rem;
+    }
+    .result-count {
+      color: var(--ink-2);
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      font-size: 0.95rem;
+    }
+    .result-count strong { color: var(--brand-2); }
+    .table-note { display: flex; gap: 0.38rem; flex-wrap: wrap; margin-top: 0.3rem; }
+    .pager {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .pager-status {
+      color: var(--muted-2);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0 0.45rem;
+    }
+
+    .table-wrap {
+      max-height: 740px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+    }
+    .table-wrap::-webkit-scrollbar { height: 10px; width: 10px; }
+    .table-wrap::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 999px; }
+
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.92rem;
+    }
+    thead th {
+      position: sticky; top: 0; z-index: 2;
+      background: var(--bg);
+      color: var(--ink-2);
+      text-align: left;
+      padding: 0.78rem 0.85rem;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      backdrop-filter: blur(6px);
+    }
+    [data-theme="dark"] thead th { background: var(--bg-2); }
+    th.sortable { cursor: pointer; user-select: none; transition: color 0.15s var(--ease); }
+    th.sortable:hover { color: var(--brand); }
+    tbody td {
+      padding: 0.72rem 0.85rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    tbody tr { transition: background 0.12s var(--ease); }
+    tbody tr:hover { background: var(--bg); }
+    tbody tr.selected-row { background: var(--brand-soft); }
+    tbody tr.selected-row:hover { background: var(--brand-tint); }
+    [data-theme="dark"] tbody tr.selected-row { background: rgba(59, 130, 246, 0.15); }
+    tbody tr.fee-zero { background: var(--amber-soft); }
+    [data-theme="dark"] tbody tr.fee-zero { background: rgba(180, 83, 9, 0.12); }
+    tbody tr.chungnam-row { box-shadow: inset 3px 0 0 var(--gold); }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .school-name {
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .school-name mark {
+      background: var(--gold-tint);
+      color: var(--ink);
+      padding: 0 0.18em;
+      border-radius: 3px;
+    }
+    [data-theme="dark"] .school-name mark {
+      background: rgba(184, 134, 11, 0.5);
+      color: #fff;
+    }
+    .fee-cell {
+      font-weight: 800;
+      color: var(--brand-2);
+      white-space: nowrap;
+      font-size: 0.96rem;
+      letter-spacing: -0.015em;
+    }
+    .fee-cell.zero { color: var(--amber-2); }
+    .fee-cell .won {
+      display: block;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 600;
+      margin-top: 0.14rem;
+      letter-spacing: 0;
+    }
+    .note-stack { display: flex; flex-wrap: wrap; gap: 0.32rem; }
+    .sort-mark {
+      margin-left: 0.2rem;
+      color: var(--brand);
+      font-weight: 900;
+    }
+    input.compare-check {
+      width: 1.1rem; height: 1.1rem;
+      accent-color: var(--brand);
+      cursor: pointer;
+    }
+
+    /* 모바일 카드 뷰 */
+    .mobile-cards {
+      display: none;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+    .mobile-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      padding: 0.85rem 0.9rem;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .mobile-card.chungnam-row {
+      box-shadow: inset 4px 0 0 var(--gold);
+      background: linear-gradient(90deg, var(--gold-soft) 0%, var(--panel) 12%);
+    }
+    .mobile-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.55rem;
+    }
+    .mobile-card-head .school-name { font-size: 1rem; line-height: 1.35; }
+    .mobile-card .compare-check-wrap {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--muted-2); font-weight: 600;
+    }
+    .mobile-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .mobile-card-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      padding-top: 0.4rem;
+      border-top: 1px dashed var(--line);
+    }
+    .mobile-card-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+    }
+    .mobile-card-stat .label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .mobile-card-stat .value {
+      color: var(--ink-2);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .mobile-card-stat .value.fee {
+      color: var(--brand-2);
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+    .mobile-card-stat .value.fee.zero { color: var(--amber-2); }
+    .mobile-card-stat .sub {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .mobile-card-notes {
+      display: flex; flex-wrap: wrap; gap: 0.28rem;
+    }
+
+    /* === Guide === */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.78rem;
+      padding: 1rem 1.25rem 1.25rem;
+    }
+    .guide-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      padding: 1rem 1.05rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s var(--ease), border-color 0.18s var(--ease);
+    }
+    .guide-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--brand-tint);
+    }
+    .guide-card::before {
+      content: attr(data-num);
+      position: absolute;
+      right: -0.5rem; top: -1.2rem;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--brand-soft);
+      letter-spacing: -0.08em;
+      line-height: 1;
+      pointer-events: none;
+    }
+    [data-theme="dark"] .guide-card::before { color: rgba(59, 130, 246, 0.1); }
+    .guide-card h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      letter-spacing: -0.028em;
+      font-weight: 800;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+    .guide-card p {
+      margin: 0.5rem 0 0;
+      color: var(--muted-2);
+      line-height: 1.65;
+      font-size: 0.89rem;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === Footer === */
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.6rem 1.1rem 2.4rem;
+      color: var(--muted-2);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+    footer strong { color: var(--ink-2); font-weight: 700; }
+    footer a {
+      color: var(--brand-2);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+    }
+    footer a:hover { color: var(--brand); }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding: 1rem 1.15rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* === Toast === */
+    .toast {
+      position: fixed;
+      left: 50%; bottom: 24px;
+      transform: translateX(-50%) translateY(30px);
+      z-index: 110;
+      background: var(--ink);
+      color: #fff;
+      padding: 0.78rem 1.1rem;
+      border-radius: 999px;
+      box-shadow: var(--shadow-xl);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: -0.01em;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* === 키보드 단축키 가이드 === */
+    kbd {
+      display: inline-block;
+      padding: 0.12rem 0.42rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink-2);
+      background: var(--bg-2);
+      border: 1px solid var(--line-2);
+      border-radius: 5px;
+      box-shadow: inset 0 -1px 0 var(--line-2);
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    }
+
+    /* === 진학 계산기 (4년 누적) === */
+    .calculator-section {
+      padding: 1rem 1.25rem 1.25rem;
+    }
+    .calc-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      background: linear-gradient(135deg, var(--brand-soft) 0%, var(--sky-soft) 100%);
+    }
+    [data-theme="dark"] .calc-card {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(12, 74, 110, 0.3) 100%);
+    }
+    .calc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+    }
+    .calc-stat {
+      background: var(--panel);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 0.95rem;
+      border: 1px solid var(--line);
+    }
+    .calc-stat .label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+    }
+    .calc-stat .value {
+      margin-top: 0.3rem;
+      color: var(--ink);
+      font-size: 1.4rem;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+    }
+    .calc-stat .detail {
+      margin-top: 0.18rem;
+      color: var(--muted-2);
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+    .calc-intro {
+      color: var(--ink-2);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      font-size: 0.95rem;
+    }
+    .calc-intro span { color: var(--brand-2); font-weight: 850; }
+
+    /* === 반응형 === */
+    @media (max-width: 1180px) {
+      .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .filter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .chart-grid { grid-template-columns: 1fr; }
+      .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .calc-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 780px) {
+      .topbar-inner { padding: 0.7rem 0.85rem; }
+      .brand-subtitle { display: none; }
+      .top-actions .hide-mobile { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; padding: 0.85rem 1rem 1.1rem; }
+      .kpi-card { min-height: 8.4rem; padding: 0.8rem; }
+      .filter-grid { grid-template-columns: 1fr; }
+      .tool-row { grid-template-columns: 1fr; }
+      .action-row { justify-content: flex-start; }
+      .compare-item { grid-template-columns: 1fr; }
+      .guide-grid { grid-template-columns: 1fr; }
+      .floating-main { width: 56px; height: 56px; right: 14px; bottom: 14px; font-size: 0.85rem; }
+      .scroll-top { right: 14px; bottom: 80px; }
+      .section-head { align-items: flex-start; }
+      .bar-row, .bar-row.region { grid-template-columns: 64px 1fr 84px; }
+      .table-wrap { display: none; }
+      .mobile-cards { display: grid; }
+      .calc-row { grid-template-columns: 1fr; }
+      .container { padding: 0.9rem 0.85rem 5.5rem; }
+      .topbar { position: relative; }
+    }
+    @media (max-width: 500px) {
+      .container { padding-inline: 0.7rem; }
+      .kpi-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.95rem; }
+      .notice { grid-template-columns: 1fr; }
+      .histogram { grid-template-columns: repeat(8, 1fr); gap: 0.22rem; height: 9rem; }
+      .hist-label { font-size: 0.58rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* === Print === */
+    @media print {
+      :root {
+        --panel: #fff;
+        --bg: #fff;
+        --bg-2: #f8fafc;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .topbar, .floating-main, .scroll-top, .skip-link, .hero-actions,
+      .controls, .action-row, .btn, .compare-check, .icon-btn, .toast,
+      .pager, .search-clear, .quick-row { display: none !important; }
+      .container { padding: 0 !important; max-width: 100% !important; }
+      .hero, .section, .notice, .info-card, .kpi-card,
+      .chart-card, .guide-card, .calc-card { box-shadow: none !important; }
+      .hero, .section, .notice {
+        border-radius: 10px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section { margin-top: 0.6rem; }
+      .table-wrap { max-height: none; overflow: visible; border: 1px solid #cbd5e1; }
+      table { min-width: 0; font-size: 9.5pt; }
+      thead th { position: static; background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      tbody tr.chungnam-row { background: #fffbeb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .mobile-cards { display: none !important; }
+      .table-wrap { display: block !important; }
+      footer { padding: 0.8rem 0; color: #475569; }
+      .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+      .kpi-card { min-height: 0; }
+      .kpi-card::before { display: none; }
+      h1 { font-size: 1.8rem; }
+      h1 .accent { background: none !important; -webkit-text-fill-color: currentColor !important; color: var(--brand-2) !important; }
+      a { color: #000; text-decoration: none; }
+      .badge, .chip, .pill { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <a class="floating-main" href="index.html" aria-label="메인 페이지로 이동">메인</a>
+  <button id="scrollTopBtn" class="scroll-top" type="button" aria-label="위로 이동">↑</button>
+
+  <header class="topbar" aria-label="상단 메뉴">
+    <div class="topbar-inner">
+      <a class="brand" href="#main" aria-label="페이지 상단으로 이동">
+        <span class="brand-mark">₩</span>
+        <span>
+          <span class="brand-title">대학별 연간 평균등록금 안내</span>
+          <span class="brand-subtitle">교사용 진학상담 자료 · 충청남도교육청진로융합교육원</span>
+        </span>
+      </a>
+      <div class="top-actions">
+        <a class="btn btn-soft btn-sm hide-mobile" href="#filters">검색·필터</a>
+        <a class="btn btn-soft btn-sm hide-mobile" href="#tableSection">표 보기</a>
+        <button class="btn btn-ghost btn-icon-only btn-sm" id="themeToggle" type="button" aria-label="다크모드 전환" title="다크모드 (Shift+D)">🌙</button>
+        <a class="btn btn-primary btn-sm" href="index.html">← 메인</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="pageTitle">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow-row">
+            <span class="pill pill-blue pill-dot">교사용 진학상담 자료</span>
+            <span class="pill pill-green">연간 기준 · 1년 금액</span>
+            <span class="pill pill-amber">학기 기준 아님</span>
+            <span class="pill pill-gold">충남 소재 강조</span>
+          </div>
+          <h1 id="pageTitle">대학별 <span class="accent">연간 평균등록금</span><br />한눈에 비교하기</h1>
+          <p class="hero-copy">
+            대학명·지역·학제·설립유형·연간 등록금 구간으로 빠르게 찾고, 상담 대상 대학을 최대 6개까지 선택해 비교합니다.
+            표시 금액은 <strong>1학기 기준이 아니라 1년(연간) 기준</strong>이며, 4년 누적 등록금도 함께 계산해 보여드립니다.
+            <strong>충남 소재 대학</strong>은 표와 차트에 별도로 강조 표시됩니다.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#filters">🔎 자료 검색하기</a>
+            <a class="btn btn-soft" href="#calculator">💰 4년 누적 계산</a>
+            <a class="btn btn-soft" href="#compareSection">⚖ 선택 대학 비교</a>
+            <button class="btn" type="button" id="copySummaryBtn">📋 현재 요약 복사</button>
+          </div>
+        </div>
+        <aside class="info-stack" aria-label="자료 정보">
+          <div class="info-card">
+            <div class="info-label">제작자</div>
+            <div class="info-value">충청남도교육청진로융합교육원<br />교육연구사 정재연</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">자료 출처</div>
+            <div class="info-value">공공데이터포털 · 한국장학재단</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">자료 기준일</div>
+            <div class="info-value">2025.05.19 (대학정보공시 기준)</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">표시 단위</div>
+            <div class="info-value">만원 단위 반올림 · 원 단위 병기</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- NOTICE -->
+    <section class="notice" aria-label="자료 활용 주의사항">
+      <div class="notice-icon">!</div>
+      <div>
+        <strong>중요 안내: 이 등록금은 1년(연간) 금액입니다.</strong>
+        <p>
+          공공데이터포털 원자료 설명에 따라 평균등록금은 <strong>학기가 아닌 연간(1년) 기준</strong>입니다.
+          즉, 화면의 금액은 <strong>한 학기가 아닌 1년치 등록금</strong>이며 입학금·교재비·기숙사비·생활비는 포함되지 않습니다.
+          본 자료는 공공데이터포털 자료를 가공해 만든 것으로 실제 등록금과 차이가 있을 수 있으며,
+          학과·계열·학년·장학금·감면 여부·납부 시점에 따라 학생별 실제 부담액은 달라집니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- KPI -->
+    <section class="section" aria-labelledby="summaryTitle">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">01</div>
+          <div>
+            <h2 id="summaryTitle" class="section-title">요약 현황</h2>
+            <p class="section-subtitle">기본 화면은 평균 왜곡을 줄이기 위해 ‘자료상 0원’ 기관을 제외합니다. 모든 금액은 연간 기준이며, 필터를 적용하면 함께 갱신됩니다.</p>
+          </div>
+        </div>
+        <span class="pill pill-gray pill-dot">실시간 갱신</span>
+      </div>
+      <div id="kpiGrid" class="kpi-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- FILTERS -->
+    <section id="filters" class="section" aria-labelledby="filterTitle">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">02</div>
+          <div>
+            <h2 id="filterTitle" class="section-title">검색·필터</h2>
+            <p class="section-subtitle">학교명 일부만 입력해도 검색됩니다. 예: 충남, 연세, 폴리텍, 간호 · 단축키 <kbd>/</kbd>로 검색창 포커스</p>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="filter-grid">
+          <div class="control">
+            <label for="searchInput">대학명 검색</label>
+            <div class="search-wrap" id="searchWrap">
+              <input id="searchInput" type="search" placeholder="대학명을 입력하세요 (Ctrl+F 또는 /)" autocomplete="off" />
+              <button type="button" class="search-clear" id="searchClear" aria-label="검색어 지우기">×</button>
+            </div>
+          </div>
+          <div class="control">
+            <label for="levelFilter">학제</label>
+            <select id="levelFilter"></select>
+          </div>
+          <div class="control">
+            <label for="estFilter">설립유형</label>
+            <select id="estFilter"></select>
+          </div>
+          <div class="control">
+            <label for="regionFilter">지역</label>
+            <select id="regionFilter"></select>
+          </div>
+          <div class="control">
+            <label for="feeFilter">연간 등록금 구간</label>
+            <select id="feeFilter">
+              <option value="all">전체</option>
+              <option value="zero">자료상 0원</option>
+              <option value="under300">300만원 미만</option>
+              <option value="300to500">300만원 이상 ~ 500만원 미만</option>
+              <option value="500to700">500만원 이상 ~ 700만원 미만</option>
+              <option value="700to900">700만원 이상 ~ 900만원 미만</option>
+              <option value="over700">700만원 이상</option>
+              <option value="over900">900만원 이상</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="sortSelect">정렬</label>
+            <select id="sortSelect">
+              <option value="name-asc">대학명 가나다순</option>
+              <option value="name-desc">대학명 역순</option>
+              <option value="tuition-desc">연간 평균등록금 높은 순</option>
+              <option value="tuition-asc">연간 평균등록금 낮은 순</option>
+              <option value="region-asc">지역 가나다순</option>
+              <option value="region-desc">지역 역순</option>
+              <option value="level-asc">학제 가나다순</option>
+              <option value="level-desc">학제 역순</option>
+              <option value="establishment-asc">설립유형 가나다순</option>
+              <option value="establishment-desc">설립유형 역순</option>
+              <option value="capacity-desc">입학정원 많은 순</option>
+              <option value="capacity-asc">입학정원 적은 순</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="quick-row" aria-label="빠른 보기">
+          <span class="preset-label">빠른 보기</span>
+          <button class="btn btn-soft btn-sm" type="button" data-preset="all">전체</button>
+          <button class="btn btn-sm" type="button" data-preset="chungnam" style="background:var(--gold-soft); border-color:var(--gold-tint); color:var(--gold-2); font-weight:800;">★ 충남 소재</button>
+          <button class="btn btn-soft btn-sm" type="button" data-preset="public">국공립</button>
+          <button class="btn btn-soft btn-sm" type="button" data-preset="privateHigh">사립 700만원 이상</button>
+          <button class="btn btn-soft btn-sm" type="button" data-preset="cheapPublic">국공립 저렴 TOP</button>
+          <button class="btn btn-soft btn-sm" type="button" data-preset="cyber">사이버대학</button>
+          <button class="btn btn-soft btn-sm" type="button" data-preset="polytech">폴리텍</button>
+          <button class="btn btn-warn btn-sm" type="button" data-preset="zero">자료상 0원 확인</button>
+        </div>
+
+        <div class="tool-row">
+          <div>
+            <div id="activeSummary" class="active-summary"></div>
+            <div id="activeChips" class="chips" aria-label="현재 적용된 조건"></div>
+          </div>
+          <div class="action-row">
+            <label class="checkbox-pill" for="excludeZero">
+              <input id="excludeZero" type="checkbox" checked /> 자료상 0원 제외
+            </label>
+            <label class="checkbox-pill" for="highlightChungnam">
+              <input id="highlightChungnam" type="checkbox" checked /> ★ 충남 강조
+            </label>
+            <div class="control" style="min-width: 130px;">
+              <label for="perPageSelect" class="sr-only">표시 개수</label>
+              <select id="perPageSelect" aria-label="한 페이지 표시 개수">
+                <option value="50">50개씩</option>
+                <option value="100" selected>100개씩</option>
+                <option value="200">200개씩</option>
+                <option value="all">전체 표시</option>
+              </select>
+            </div>
+            <button class="btn btn-sm" id="resetBtn" type="button">↻ 초기화</button>
+            <button class="btn btn-sm" id="downloadBtn" type="button">⬇ CSV 저장</button>
+            <button class="btn btn-primary btn-sm" id="printBtn" type="button">🖨 인쇄/PDF</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="section" aria-labelledby="chartTitle">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">03</div>
+          <div>
+            <h2 id="chartTitle" class="section-title">시각화 비교</h2>
+            <p class="section-subtitle">현재 필터 결과 기준으로 연간 평균등록금 0원 자료를 제외해 계산합니다. ★ 표시는 충남 소재 대학입니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="chart-grid">
+        <article class="chart-card">
+          <h3>설립유형별 연간 평균등록금</h3>
+          <p>국공립·사립 평균 차이를 빠르게 확인합니다.</p>
+          <div id="estChart" class="bar-list"></div>
+        </article>
+        <article class="chart-card">
+          <h3>지역별 연간 평균등록금</h3>
+          <p>지역별 포함 기관 수(n)가 다르므로 상담 시 해석에 유의하세요.</p>
+          <div class="chart-scroll"><div id="regionChart" class="bar-list"></div></div>
+        </article>
+      </div>
+      <div class="chart-grid" style="padding-top: 0;">
+        <article class="chart-card" style="grid-column: 1 / -1;">
+          <h3>연간 등록금 분포 (히스토그램)</h3>
+          <p>200만원 단위 구간별 기관 수입니다. 0원 자료는 제외됩니다.</p>
+          <div id="histogramChart" class="histogram"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section id="calculator" class="section" aria-labelledby="calcTitle">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">04</div>
+          <div>
+            <h2 id="calcTitle" class="section-title">4년 누적 등록금 계산</h2>
+            <p class="section-subtitle">현재 필터 결과 평균값을 기준으로 4년·6년(의약학 등) 누적 등록금 추정치를 보여드립니다. 학부모 상담에 활용하세요.</p>
+          </div>
+        </div>
+      </div>
+      <div class="calculator-section">
+        <div class="calc-card">
+          <div class="calc-intro" id="calcIntro">필터를 적용하면 결과가 갱신됩니다.</div>
+          <div class="calc-row" id="calcRow"></div>
+          <p style="margin: 0.85rem 0 0; color: var(--muted-2); font-size: 0.84rem; line-height: 1.65; font-weight: 550;">
+            ※ 추정치는 ‘연간 평균등록금 × 연수’ 단순 계산입니다. 입학금, 교재비, 실험실습비, 기숙사비, 식비, 교통비 등은 포함되지 않으며,
+            학과·계열별로 실제 등록금은 평균과 크게 다를 수 있습니다(예: 의·치·약학, 예체능 계열은 일반적으로 평균보다 높음).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="compareSection" class="section" aria-labelledby="compareTitle">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">05</div>
+          <div>
+            <h2 id="compareTitle" class="section-title">선택 대학 비교</h2>
+            <p class="section-subtitle">표에서 체크한 대학을 최대 6개까지 비교합니다. 평균과의 차이(±%)와 4년 누적치도 함께 표시됩니다.</p>
+          </div>
+        </div>
+        <div class="action-row">
+          <button class="btn btn-sm" id="downloadSelectedBtn" type="button">⬇ 선택 대학 CSV</button>
+          <button class="btn btn-danger btn-sm" id="clearCompareBtn" type="button">✕ 비교 해제</button>
+        </div>
+      </div>
+      <div id="compareBox" class="compare-box"></div>
+    </section>
+
+    <!-- TABLE -->
+    <section id="tableSection" class="section" aria-labelledby="tableTitle">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">06</div>
+          <div>
+            <h2 id="tableTitle" class="section-title">대학별 연간 평균등록금 표</h2>
+            <p class="section-subtitle">원자료의 원 단위 값을 유지하고, 보기 편하도록 만원 단위로 함께 표시합니다. 헤더를 클릭하면 정렬됩니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="table-area">
+        <div class="table-toolbar">
+          <div>
+            <div id="resultCount" class="result-count"></div>
+            <div class="table-note" aria-label="표 배지 설명">
+              <span class="badge badge-chungnam">★ 충남 소재</span>
+              <span class="badge badge-zero">자료상 0원</span>
+              <span class="badge badge-high">연간 900만원 이상</span>
+              <span class="badge badge-low">연간 300만원 미만</span>
+              <span class="badge badge-cyber">사이버대학</span>
+              <span class="badge badge-polytech">폴리텍</span>
+            </div>
+          </div>
+          <div class="pager" aria-label="페이지 이동">
+            <button class="btn btn-sm" id="prevPageBtn" type="button" aria-label="이전 페이지">← 이전</button>
+            <span id="pageStatus" class="pager-status"></span>
+            <button class="btn btn-sm" id="nextPageBtn" type="button" aria-label="다음 페이지">다음 →</button>
+          </div>
+        </div>
+        <!-- PC 테이블 -->
+        <div class="table-wrap">
+          <table aria-describedby="resultCount">
+            <thead>
+              <tr>
+                <th style="width:48px;" scope="col">비교</th>
+                <th class="sortable" data-sort-key="name" scope="col">대학명 <span class="sort-mark" data-mark="name"></span></th>
+                <th class="sortable" data-sort-key="level" scope="col">학제 <span class="sort-mark" data-mark="level"></span></th>
+                <th class="sortable" data-sort-key="establishment" scope="col">설립 <span class="sort-mark" data-mark="establishment"></span></th>
+                <th class="sortable" data-sort-key="region" scope="col">지역 <span class="sort-mark" data-mark="region"></span></th>
+                <th class="sortable num" data-sort-key="capacity" scope="col">입학정원 <span class="sort-mark" data-mark="capacity"></span></th>
+                <th class="sortable num" data-sort-key="tuition" scope="col">연간 평균등록금 <span class="sort-mark" data-mark="tuition"></span></th>
+                <th scope="col">비고</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <!-- 모바일 카드 -->
+        <div class="mobile-cards" id="mobileCards" aria-label="모바일 카드 보기"></div>
+      </div>
+    </section>
+
+    <!-- GUIDE -->
+    <section class="section" aria-labelledby="guideTitle">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">07</div>
+          <div>
+            <h2 id="guideTitle" class="section-title">교사용 상담 활용 메모</h2>
+            <p class="section-subtitle">학생·학부모에게 등록금 자료를 안내할 때 함께 확인하면 좋은 기준입니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card" data-num="①">
+          <h3>1년 기준임을 먼저 안내</h3>
+          <p>표시 금액은 학기별이 아닌 <strong>연간 평균등록금</strong>입니다. 상담 시작 시 “1년 기준”이라고 먼저 설명하면 학생·학부모의 오해를 줄일 수 있습니다.</p>
+        </article>
+        <article class="guide-card" data-num="②">
+          <h3>실제 납부액과 구분</h3>
+          <p>공공데이터 기반 <strong>평균값</strong>이므로 학과·전공·계열·학년·장학금·감면 여부에 따라 학생별 실제 납부액은 달라집니다. 의·치·약학·예체능 계열은 평균보다 높을 가능성이 큽니다.</p>
+        </article>
+        <article class="guide-card" data-num="③">
+          <h3>4년 누적·생활비 함께 검토</h3>
+          <p>등록금 외에 통학 가능성, 기숙사비, 교통비, 식비 등이 실제 교육비 부담에 큰 영향을 줍니다. 본 페이지의 <strong>4년 누적 계산</strong>도 참고하세요.</p>
+        </article>
+        <article class="guide-card" data-num="④">
+          <h3>특이값은 별도 확인</h3>
+          <p>‘자료상 0원’, ‘정원 0명’ 등은 원자료의 값을 그대로 반영한 항목입니다. 실제로 무료이거나 모집을 하지 않는다고 단정하지 말고, 해당 대학의 입학처를 통해 별도로 확인하세요.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <p><strong>제작:</strong> 충청남도교육청진로융합교육원 교육연구사 정재연 · <strong>출처:</strong> <a href="https://www.data.go.kr/data/3071171/fileData.do" target="_blank" rel="noopener noreferrer">공공데이터포털</a> · <strong>원자료:</strong> 한국장학재단_대학별 평균등록금_20250519.csv</p>
+      <p><strong>표시 기준:</strong> 연간 평균등록금(1년 기준) · <strong>활용 안내:</strong> 본 자료는 공공데이터포털 자료를 가공해 만든 교사용 진학상담 보조자료로, 실제 등록금과 차이가 있을 수 있습니다. 정확한 등록금은 각 대학 입학처 홈페이지에서 확인해 주세요.</p>
+      <p><strong>단축키:</strong> <kbd>/</kbd> 검색 포커스 · <kbd>Shift+D</kbd> 다크모드 · <kbd>Shift+P</kbd> 인쇄 · <kbd>Esc</kbd> 검색 초기화</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script id="tuitionData" type="application/json">[{"id":1,"level":"대학","establishment":"국공립","name":"강원대학교","region":"강원","capacity":18175,"entranceFee":0.0,"tuition":4198744.0},{"id":2,"level":"대학","establishment":"국공립","name":"경북대학교","region":"대구","capacity":20092,"entranceFee":0.0,"tuition":4514173.1},{"id":3,"level":"대학","establishment":"국공립","name":"경상국립대학교","region":"경남","capacity":17578,"entranceFee":0.0,"tuition":4084328.8},{"id":4,"level":"대학","establishment":"국공립","name":"경인교육대학교","region":"인천","capacity":2320,"entranceFee":0.0,"tuition":3492872.4},{"id":5,"level":"대학","establishment":"국공립","name":"공주교육대학교","region":"충남","capacity":1375,"entranceFee":0.0,"tuition":3600000.0},{"id":6,"level":"대학","establishment":"국공립","name":"광주과학기술원","region":"광주","capacity":801,"entranceFee":0.0,"tuition":2060000.0},{"id":7,"level":"대학","establishment":"국공립","name":"광주교육대학교","region":"광주","capacity":1265,"entranceFee":0.0,"tuition":3792359.7},{"id":8,"level":"대학","establishment":"국공립","name":"국립강릉원주대학교","region":"강원","capacity":7018,"entranceFee":0.0,"tuition":4261602.0},{"id":9,"level":"대학","establishment":"국공립","name":"국립경국대학교","region":"경북","capacity":5629,"entranceFee":0.0,"tuition":3787927.3},{"id":10,"level":"대학","establishment":"국공립","name":"국립공주대학교","region":"충남","capacity":11292,"entranceFee":0.0,"tuition":3858723.3},{"id":11,"level":"대학","establishment":"국공립","name":"국립군산대학교","region":"전북","capacity":6864,"entranceFee":0.0,"tuition":3897282.2},{"id":12,"level":"대학","establishment":"국공립","name":"국립금오공과대학교","region":"경북","capacity":4941,"entranceFee":0.0,"tuition":3770399.6},{"id":13,"level":"대학","establishment":"국공립","name":"국립목포대학교","region":"전남","capacity":6072,"entranceFee":0.0,"tuition":3873166.8},{"id":14,"level":"대학","establishment":"국공립","name":"국립목포해양대학교","region":"전남","capacity":2737,"entranceFee":0.0,"tuition":3409473.1},{"id":15,"level":"대학","establishment":"국공립","name":"국립부경대학교","region":"부산","capacity":13257,"entranceFee":0.0,"tuition":4046157.9},{"id":16,"level":"대학","establishment":"국공립","name":"국립순천대학교","region":"전남","capacity":6526,"entranceFee":0.0,"tuition":3971633.4},{"id":17,"level":"대학","establishment":"국공립","name":"국립창원대학교","region":"경남","capacity":7009,"entranceFee":0.0,"tuition":3906262.5},{"id":18,"level":"대학","establishment":"국공립","name":"국립한국교통대학교","region":"충북","capacity":7671,"entranceFee":0.0,"tuition":4111989.3},{"id":19,"level":"대학","establishment":"국공립","name":"국립한국해양대학교","region":"부산","capacity":5488,"entranceFee":0.0,"tuition":3721746.4},{"id":20,"level":"대학","establishment":"국공립","name":"국립한밭대학교","region":"대전","capacity":7613,"entranceFee":0.0,"tuition":4479446.5},{"id":21,"level":"대학","establishment":"국공립","name":"대구경북과학기술원","region":"대구","capacity":840,"entranceFee":0.0,"tuition":7690000.0},{"id":22,"level":"대학","establishment":"국공립","name":"대구교육대학교","region":"대구","capacity":1486,"entranceFee":0.0,"tuition":3896000.0},{"id":23,"level":"대학","establishment":"국공립","name":"부산교육대학교","region":"부산","capacity":1381,"entranceFee":0.0,"tuition":3316000.0},{"id":24,"level":"대학","establishment":"국공립","name":"부산대학교","region":"부산","capacity":17645,"entranceFee":0.0,"tuition":4472115.7},{"id":25,"level":"대학","establishment":"국공립","name":"서울과학기술대학교","region":"서울","capacity":8764,"entranceFee":0.0,"tuition":5494399.4},{"id":26,"level":"대학","establishment":"국공립","name":"서울교육대학교","region":"서울","capacity":1406,"entranceFee":0.0,"tuition":3256000.0},{"id":27,"level":"대학","establishment":"국공립","name":"서울대학교","region":"서울","capacity":13762,"entranceFee":0.0,"tuition":6058797.7},{"id":28,"level":"대학","establishment":"국공립","name":"서울시립대학교","region":"서울","capacity":6996,"entranceFee":0.0,"tuition":2532527.2},{"id":29,"level":"대학","establishment":"국공립","name":"울산과학기술원","region":"울산","capacity":1607,"entranceFee":0.0,"tuition":6548625.4},{"id":30,"level":"대학","establishment":"국공립","name":"인천대학교","region":"인천","capacity":10008,"entranceFee":0.0,"tuition":4651527.2},{"id":31,"level":"대학","establishment":"국공립","name":"전남대학교","region":"광주","capacity":17712,"entranceFee":0.0,"tuition":4175115.0},{"id":32,"level":"대학","establishment":"국공립","name":"전북대학교","region":"전북","capacity":16181,"entranceFee":0.0,"tuition":4447738.3},{"id":33,"level":"대학","establishment":"국공립","name":"전주교육대학교","region":"전북","capacity":1127,"entranceFee":0.0,"tuition":3646000.0},{"id":34,"level":"대학","establishment":"국공립","name":"제주대학교","region":"제주","capacity":8940,"entranceFee":0.0,"tuition":4028696.6},{"id":35,"level":"대학","establishment":"국공립","name":"진주교육대학교","region":"경남","capacity":1276,"entranceFee":0.0,"tuition":3778500.0},{"id":36,"level":"대학","establishment":"국공립","name":"청주교육대학교","region":"충북","capacity":1144,"entranceFee":0.0,"tuition":3600000.0},{"id":37,"level":"대학","establishment":"국공립","name":"춘천교육대학교","region":"강원","capacity":1284,"entranceFee":0.0,"tuition":3494000.0},{"id":38,"level":"대학","establishment":"국공립","name":"충남대학교","region":"대전","capacity":14940,"entranceFee":0.0,"tuition":4386642.0},{"id":39,"level":"대학","establishment":"국공립","name":"충북대학교","region":"충북","capacity":11957,"entranceFee":0.0,"tuition":4286467.0},{"id":40,"level":"대학","establishment":"국공립","name":"한경국립대학교","region":"경기","capacity":5101,"entranceFee":0.0,"tuition":4020513.3},{"id":41,"level":"대학","establishment":"국공립","name":"한국과학기술원","region":"대전","capacity":3880,"entranceFee":0.0,"tuition":6866000.0},{"id":42,"level":"대학","establishment":"국공립","name":"한국교원대학교","region":"충북","capacity":2184,"entranceFee":0.0,"tuition":3350393.8},{"id":43,"level":"대학","establishment":"국공립","name":"한국방송통신대학교","region":"서울","capacity":238560,"entranceFee":0.0,"tuition":761694.9},{"id":44,"level":"대학","establishment":"국공립","name":"한국에너지공과대학교","region":"전남","capacity":400,"entranceFee":0.0,"tuition":9000000.0},{"id":45,"level":"대학","establishment":"국공립","name":"한국예술종합학교","region":"서울","capacity":2252,"entranceFee":0.0,"tuition":4806454.7},{"id":46,"level":"대학","establishment":"국공립","name":"한국전통문화대학교","region":"충남","capacity":560,"entranceFee":0.0,"tuition":3382410.7},{"id":47,"level":"대학","establishment":"국공립","name":"한국체육대학교","region":"서울","capacity":2140,"entranceFee":0.0,"tuition":3860074.8},{"id":48,"level":"대학","establishment":"사립","name":"가야대학교(김해)","region":"경남","capacity":1765,"entranceFee":0.0,"tuition":7239309.3},{"id":49,"level":"대학","establishment":"사립","name":"가천대학교","region":"경기","capacity":16724,"entranceFee":0.0,"tuition":8812617.8},{"id":50,"level":"대학","establishment":"사립","name":"가톨릭관동대학교","region":"강원","capacity":7179,"entranceFee":0.0,"tuition":7505368.9},{"id":51,"level":"대학","establishment":"사립","name":"가톨릭꽃동네대학교","region":"충북","capacity":432,"entranceFee":0.0,"tuition":7506277.8},{"id":52,"level":"대학","establishment":"사립","name":"가톨릭대학교","region":"경기","capacity":7374,"entranceFee":0.0,"tuition":7731404.0},{"id":53,"level":"대학","establishment":"사립","name":"감리교신학대학교","region":"서울","capacity":776,"entranceFee":0.0,"tuition":6820923.7},{"id":54,"level":"대학","establishment":"사립","name":"강남대학교","region":"경기","capacity":5964,"entranceFee":0.0,"tuition":7968388.7},{"id":55,"level":"대학","establishment":"사립","name":"강서대학교","region":"서울","capacity":1108,"entranceFee":0.0,"tuition":7924720.2},{"id":56,"level":"대학","establishment":"사립","name":"건국대학교","region":"서울","capacity":18474,"entranceFee":0.0,"tuition":8687206.0},{"id":57,"level":"대학","establishment":"사립","name":"건양대학교","region":"충남","capacity":6657,"entranceFee":0.0,"tuition":7198559.0},{"id":58,"level":"대학","establishment":"사립","name":"건양사이버대학교","region":"대전","capacity":3396,"entranceFee":0.0,"tuition":2541328.6},{"id":59,"level":"대학","establishment":"사립","name":"경기대학교","region":"경기","capacity":11803,"entranceFee":0.0,"tuition":7768743.0},{"id":60,"level":"대학","establishment":"사립","name":"경남대학교","region":"경남","capacity":8287,"entranceFee":0.0,"tuition":6850262.3},{"id":61,"level":"대학","establishment":"사립","name":"경동대학교","region":"강원","capacity":6309,"entranceFee":0.0,"tuition":8603918.0},{"id":62,"level":"대학","establishment":"사립","name":"경성대학교","region":"부산","capacity":11095,"entranceFee":0.0,"tuition":7328471.4},{"id":63,"level":"대학","establishment":"사립","name":"경운대학교","region":"경북","capacity":4736,"entranceFee":0.0,"tuition":8093237.8},{"id":64,"level":"대학","establishment":"사립","name":"경일대학교","region":"경북","capacity":6182,"entranceFee":0.0,"tuition":7753759.3},{"id":65,"level":"대학","establishment":"사립","name":"경희대학교","region":"서울","capacity":20016,"entranceFee":0.0,"tuition":8441574.6},{"id":66,"level":"대학","establishment":"사립","name":"경희사이버대학교","region":"서울","capacity":9200,"entranceFee":0.0,"tuition":2914434.8},{"id":67,"level":"대학","establishment":"사립","name":"계명대학교","region":"대구","capacity":18704,"entranceFee":0.0,"tuition":8079008.3},{"id":68,"level":"대학","establishment":"사립","name":"고려대학교","region":"서울","capacity":22062,"entranceFee":0.0,"tuition":8847931.0},{"id":69,"level":"대학","establishment":"사립","name":"고려사이버대학교","region":"서울","capacity":7378,"entranceFee":0.0,"tuition":2571227.0},{"id":70,"level":"대학","establishment":"사립","name":"고신대학교","region":"부산","capacity":3436,"entranceFee":0.0,"tuition":7057229.3},{"id":71,"level":"대학","establishment":"사립","name":"광신대학교","region":"광주","capacity":454,"entranceFee":0.0,"tuition":6176458.1},{"id":72,"level":"대학","establishment":"사립","name":"광운대학교","region":"서울","capacity":7038,"entranceFee":0.0,"tuition":8330757.9},{"id":73,"level":"대학","establishment":"사립","name":"광주가톨릭대학교","region":"전남","capacity":160,"entranceFee":0.0,"tuition":0.0},{"id":74,"level":"대학","establishment":"사립","name":"광주대학교","region":"광주","capacity":5681,"entranceFee":0.0,"tuition":6919352.4},{"id":75,"level":"대학","establishment":"사립","name":"광주여자대학교","region":"광주","capacity":3656,"entranceFee":0.0,"tuition":6600791.0},{"id":76,"level":"대학","establishment":"사립","name":"국민대학교","region":"서울","capacity":11918,"entranceFee":0.0,"tuition":8376923.6},{"id":77,"level":"대학","establishment":"사립","name":"국제사이버대학교","region":"경기","capacity":2900,"entranceFee":0.0,"tuition":2557224.0},{"id":78,"level":"대학","establishment":"사립","name":"극동대학교","region":"충북","capacity":3547,"entranceFee":0.0,"tuition":7921017.8},{"id":79,"level":"대학","establishment":"사립","name":"글로벌사이버대학교","region":"충남","capacity":3580,"entranceFee":0.0,"tuition":2443653.6},{"id":80,"level":"대학","establishment":"사립","name":"금강대학교","region":"충남","capacity":440,"entranceFee":0.0,"tuition":6598000.0},{"id":81,"level":"대학","establishment":"사립","name":"김천대학교","region":"경북","capacity":2567,"entranceFee":0.0,"tuition":7159777.6},{"id":82,"level":"대학","establishment":"사립","name":"나사렛대학교","region":"충남","capacity":4784,"entranceFee":0.0,"tuition":7924397.6},{"id":83,"level":"대학","establishment":"사립","name":"남부대학교","region":"광주","capacity":2507,"entranceFee":0.0,"tuition":6565533.5},{"id":84,"level":"대학","establishment":"사립","name":"남서울대학교","region":"충남","capacity":8808,"entranceFee":0.0,"tuition":8356230.6},{"id":85,"level":"대학","establishment":"사립","name":"단국대학교","region":"경기","capacity":18782,"entranceFee":0.0,"tuition":8586929.0},{"id":86,"level":"대학","establishment":"사립","name":"대구가톨릭대학교","region":"경북","capacity":10185,"entranceFee":0.0,"tuition":7656739.6},{"id":87,"level":"대학","establishment":"사립","name":"대구대학교","region":"경북","capacity":15400,"entranceFee":0.0,"tuition":7323331.0},{"id":88,"level":"대학","establishment":"사립","name":"대구사이버대학교","region":"경북","capacity":3800,"entranceFee":0.0,"tuition":2622947.4},{"id":89,"level":"대학","establishment":"사립","name":"대구예술대학교","region":"경북","capacity":1260,"entranceFee":0.0,"tuition":8319377.8},{"id":90,"level":"대학","establishment":"사립","name":"대구한의대학교","region":"경북","capacity":6078,"entranceFee":0.0,"tuition":7597609.1},{"id":91,"level":"대학","establishment":"사립","name":"대신대학교","region":"경북","capacity":498,"entranceFee":0.0,"tuition":6588923.7},{"id":92,"level":"대학","establishment":"사립","name":"대전가톨릭대학교","region":"세종","capacity":160,"entranceFee":0.0,"tuition":5760000.0},{"id":93,"level":"대학","establishment":"사립","name":"대전대학교","region":"대전","capacity":7592,"entranceFee":0.0,"tuition":7453927.6},{"id":94,"level":"대학","establishment":"사립","name":"대전신학대학교","region":"대전","capacity":128,"entranceFee":0.0,"tuition":5956000.0},{"id":95,"level":"대학","establishment":"사립","name":"대진대학교","region":"경기","capacity":6936,"entranceFee":0.0,"tuition":8009719.7},{"id":96,"level":"대학","establishment":"사립","name":"덕성여자대학교","region":"서울","capacity":4630,"entranceFee":0.0,"tuition":7593288.1},{"id":97,"level":"대학","establishment":"사립","name":"동국대학교","region":"서울","capacity":18604,"entranceFee":0.0,"tuition":8427298.0},{"id":98,"level":"대학","establishment":"사립","name":"동덕여자대학교","region":"서울","capacity":6308,"entranceFee":0.0,"tuition":7882190.2},{"id":99,"level":"대학","establishment":"사립","name":"동명대학교","region":"부산","capacity":6188,"entranceFee":0.0,"tuition":7431063.8},{"id":100,"level":"대학","establishment":"사립","name":"동서대학교","region":"부산","capacity":8420,"entranceFee":0.0,"tuition":7311715.9},{"id":101,"level":"대학","establishment":"사립","name":"동신대학교","region":"전남","capacity":6054,"entranceFee":0.0,"tuition":7064104.4},{"id":102,"level":"대학","establishment":"사립","name":"동아대학교","region":"부산","capacity":16486,"entranceFee":0.0,"tuition":7655191.2},{"id":103,"level":"대학","establishment":"사립","name":"동양대학교","region":"경북","capacity":4000,"entranceFee":0.0,"tuition":7706351.5},{"id":104,"level":"대학","establishment":"사립","name":"동의대학교","region":"부산","capacity":14575,"entranceFee":0.0,"tuition":7346090.8},{"id":105,"level":"대학","establishment":"사립","name":"디지털서울문화예술대학교","region":"서울","capacity":3530,"entranceFee":0.0,"tuition":3042212.5},{"id":106,"level":"대학","establishment":"사립","name":"루터대학교","region":"경기","capacity":340,"entranceFee":0.0,"tuition":6334500.0},{"id":107,"level":"대학","establishment":"사립","name":"명지대학교","region":"경기","capacity":10335,"entranceFee":0.0,"tuition":8543161.0},{"id":108,"level":"대학","establishment":"사립","name":"목원대학교","region":"대전","capacity":7322,"entranceFee":0.0,"tuition":7722257.3},{"id":109,"level":"대학","establishment":"사립","name":"목포가톨릭대학교","region":"전남","capacity":480,"entranceFee":0.0,"tuition":6554800.0},{"id":110,"level":"대학","establishment":"사립","name":"배재대학교","region":"대전","capacity":7503,"entranceFee":0.0,"tuition":7731641.1},{"id":111,"level":"대학","establishment":"사립","name":"백석대학교","region":"충남","capacity":11460,"entranceFee":0.0,"tuition":8362803.7},{"id":112,"level":"대학","establishment":"사립","name":"부산가톨릭대학교","region":"부산","capacity":2880,"entranceFee":0.0,"tuition":7245362.2},{"id":113,"level":"대학","establishment":"사립","name":"부산디지털대학교","region":"부산","capacity":2780,"entranceFee":0.0,"tuition":2522964.0},{"id":114,"level":"대학","establishment":"사립","name":"부산외국어대학교","region":"부산","capacity":6070,"entranceFee":0.0,"tuition":6734485.2},{"id":115,"level":"대학","establishment":"사립","name":"부산장신대학교","region":"경남","capacity":128,"entranceFee":0.0,"tuition":6133687.5},{"id":116,"level":"대학","establishment":"사립","name":"사이버한국외국어대학교","region":"서울","capacity":4940,"entranceFee":0.0,"tuition":2887435.2},{"id":117,"level":"대학","establishment":"사립","name":"삼육대학교","region":"서울","capacity":4628,"entranceFee":0.0,"tuition":8278362.1},{"id":118,"level":"대학","establishment":"사립","name":"상명대학교","region":"서울","capacity":10746,"entranceFee":0.0,"tuition":8354929.0},{"id":119,"level":"대학","establishment":"사립","name":"상지대학교","region":"강원","capacity":7328,"entranceFee":0.0,"tuition":7859253.5},{"id":120,"level":"대학","establishment":"사립","name":"서강대학교","region":"서울","capacity":6380,"entranceFee":0.0,"tuition":8439438.6},{"id":121,"level":"대학","establishment":"사립","name":"서경대학교","region":"서울","capacity":5196,"entranceFee":0.0,"tuition":8422266.4},{"id":122,"level":"대학","establishment":"사립","name":"서울기독대학교","region":"서울","capacity":544,"entranceFee":0.0,"tuition":7913735.3},{"id":123,"level":"대학","establishment":"사립","name":"서울디지털대학교","region":"서울","capacity":9250,"entranceFee":0.0,"tuition":2274830.3},{"id":124,"level":"대학","establishment":"사립","name":"서울사이버대학교","region":"서울","capacity":10560,"entranceFee":0.0,"tuition":2849189.4},{"id":125,"level":"대학","establishment":"사립","name":"서울신학대학교","region":"경기","capacity":1852,"entranceFee":0.0,"tuition":7636306.2},{"id":126,"level":"대학","establishment":"사립","name":"서울여자대학교","region":"서울","capacity":6563,"entranceFee":0.0,"tuition":7974807.1},{"id":127,"level":"대학","establishment":"사립","name":"서울장신대학교","region":"경기","capacity":416,"entranceFee":0.0,"tuition":7728884.6},{"id":128,"level":"대학","establishment":"사립","name":"서울한영대학교","region":"서울","capacity":720,"entranceFee":0.0,"tuition":7082277.8},{"id":129,"level":"대학","establishment":"사립","name":"서원대학교","region":"충북","capacity":6488,"entranceFee":0.0,"tuition":7340153.8},{"id":130,"level":"대학","establishment":"사립","name":"선문대학교","region":"충남","capacity":8241,"entranceFee":0.0,"tuition":8004005.6},{"id":131,"level":"대학","establishment":"사립","name":"성결대학교","region":"경기","capacity":4912,"entranceFee":0.0,"tuition":7621682.4},{"id":132,"level":"대학","establishment":"사립","name":"성공회대학교","region":"서울","capacity":2008,"entranceFee":0.0,"tuition":7450011.2},{"id":133,"level":"대학","establishment":"사립","name":"성균관대학교","region":"서울","capacity":13923,"entranceFee":0.0,"tuition":8905163.3},{"id":134,"level":"대학","establishment":"사립","name":"성신여자대학교","region":"서울","capacity":8547,"entranceFee":0.0,"tuition":8404243.1},{"id":135,"level":"대학","establishment":"사립","name":"세명대학교","region":"충북","capacity":6526,"entranceFee":0.0,"tuition":7280563.3},{"id":136,"level":"대학","establishment":"사립","name":"세종대학교","region":"서울","capacity":9877,"entranceFee":0.0,"tuition":8392237.8},{"id":137,"level":"대학","establishment":"사립","name":"세종사이버대학교","region":"서울","capacity":6960,"entranceFee":0.0,"tuition":2928327.6},{"id":138,"level":"대학","establishment":"사립","name":"세한대학교","region":"전남","capacity":3268,"entranceFee":0.0,"tuition":7766246.0},{"id":139,"level":"대학","establishment":"사립","name":"송원대학교","region":"광주","capacity":2670,"entranceFee":0.0,"tuition":6895898.1},{"id":140,"level":"대학","establishment":"사립","name":"수원가톨릭대학교","region":"경기","capacity":360,"entranceFee":0.0,"tuition":5097000.0},{"id":141,"level":"대학","establishment":"사립","name":"수원대학교","region":"경기","capacity":8520,"entranceFee":0.0,"tuition":7663984.0},{"id":142,"level":"대학","establishment":"사립","name":"숙명여자대학교","region":"서울","capacity":8660,"entranceFee":0.0,"tuition":8593005.8},{"id":143,"level":"대학","establishment":"사립","name":"순복음총회신학교","region":"충북","capacity":238,"entranceFee":0.0,"tuition":6048025.2},{"id":144,"level":"대학","establishment":"사립","name":"순천향대학교","region":"충남","capacity":9806,"entranceFee":0.0,"tuition":8284598.3},{"id":145,"level":"대학","establishment":"사립","name":"숭실대학교","region":"서울","capacity":10810,"entranceFee":0.0,"tuition":8408228.0},{"id":146,"level":"대학","establishment":"사립","name":"숭실사이버대학교","region":"서울","capacity":4900,"entranceFee":0.0,"tuition":2772244.9},{"id":147,"level":"대학","establishment":"사립","name":"신경주대학교","region":"경북","capacity":3304,"entranceFee":0.0,"tuition":7492471.5},{"id":148,"level":"대학","establishment":"사립","name":"신라대학교","region":"부산","capacity":6865,"entranceFee":0.0,"tuition":7073302.5},{"id":149,"level":"대학","establishment":"사립","name":"신한대학교","region":"경기","capacity":5620,"entranceFee":0.0,"tuition":9152448.0},{"id":150,"level":"대학","establishment":"사립","name":"아신대학교","region":"경기","capacity":550,"entranceFee":0.0,"tuition":6900000.0},{"id":151,"level":"대학","establishment":"사립","name":"아주대학교","region":"경기","capacity":7951,"entranceFee":0.0,"tuition":8794887.9},{"id":152,"level":"대학","establishment":"사립","name":"안양대학교","region":"경기","capacity":4534,"entranceFee":0.0,"tuition":8129936.0},{"id":153,"level":"대학","establishment":"사립","name":"연세대학교","region":"서울","capacity":20005,"entranceFee":0.0,"tuition":9491574.0},{"id":154,"level":"대학","establishment":"사립","name":"영남대학교","region":"경북","capacity":18610,"entranceFee":0.0,"tuition":7845686.1},{"id":155,"level":"대학","establishment":"사립","name":"영남신학대학교","region":"경북","capacity":460,"entranceFee":0.0,"tuition":6614000.0},{"id":156,"level":"대학","establishment":"사립","name":"영산대학교","region":"부산","capacity":5362,"entranceFee":0.0,"tuition":7161052.0},{"id":157,"level":"대학","establishment":"사립","name":"영산선학대학교","region":"전남","capacity":200,"entranceFee":0.0,"tuition":2000000.0},{"id":158,"level":"대학","establishment":"사립","name":"예수대학교","region":"전북","capacity":460,"entranceFee":0.0,"tuition":7273000.0},{"id":159,"level":"대학","establishment":"사립","name":"예원예술대학교","region":"전북","capacity":968,"entranceFee":0.0,"tuition":8655909.0},{"id":160,"level":"대학","establishment":"사립","name":"용인대학교","region":"경기","capacity":5048,"entranceFee":0.0,"tuition":8160711.2},{"id":161,"level":"대학","establishment":"사립","name":"우석대학교","region":"전북","capacity":6296,"entranceFee":0.0,"tuition":7287330.8},{"id":162,"level":"대학","establishment":"사립","name":"우송대학교","region":"대전","capacity":8005,"entranceFee":0.0,"tuition":7593389.1},{"id":163,"level":"대학","establishment":"사립","name":"울산대학교","region":"울산","capacity":10989,"entranceFee":0.0,"tuition":7730241.2},{"id":164,"level":"대학","establishment":"사립","name":"원광대학교","region":"전북","capacity":12600,"entranceFee":0.0,"tuition":7864062.3},{"id":165,"level":"대학","establishment":"사립","name":"원광디지털대학교","region":"전북","capacity":5510,"entranceFee":0.0,"tuition":2737132.5},{"id":166,"level":"대학","establishment":"사립","name":"위덕대학교","region":"경북","capacity":2681,"entranceFee":0.0,"tuition":7299243.6},{"id":167,"level":"대학","establishment":"사립","name":"유원대학교","region":"충북","capacity":3500,"entranceFee":0.0,"tuition":7202405.7},{"id":168,"level":"대학","establishment":"사립","name":"을지대학교","region":"대전","capacity":4306,"entranceFee":0.0,"tuition":8961304.0},{"id":169,"level":"대학","establishment":"사립","name":"이화여자대학교","region":"서울","capacity":12930,"entranceFee":0.0,"tuition":9025874.9},{"id":170,"level":"대학","establishment":"사립","name":"인제대학교","region":"경남","capacity":7231,"entranceFee":0.0,"tuition":7701980.4},{"id":171,"level":"대학","establishment":"사립","name":"인천가톨릭대학교","region":"인천","capacity":661,"entranceFee":0.0,"tuition":8590385.0},{"id":172,"level":"대학","establishment":"사립","name":"인하대학교","region":"인천","capacity":14171,"entranceFee":0.0,"tuition":8208392.2},{"id":173,"level":"대학","establishment":"사립","name":"장로회신학대학교","region":"서울","capacity":600,"entranceFee":0.0,"tuition":7202000.0},{"id":174,"level":"대학","establishment":"사립","name":"전주대학교","region":"전북","capacity":10103,"entranceFee":0.0,"tuition":7323162.2},{"id":175,"level":"대학","establishment":"사립","name":"정석대학","region":"서울","capacity":200,"entranceFee":0.0,"tuition":0.0},{"id":176,"level":"대학","establishment":"사립","name":"제주국제대학교","region":"제주","capacity":1480,"entranceFee":0.0,"tuition":5824216.2},{"id":177,"level":"대학","establishment":"사립","name":"조선대학교","region":"광주","capacity":17877,"entranceFee":0.0,"tuition":7477306.4},{"id":178,"level":"대학","establishment":"사립","name":"중부대학교","region":"충남","capacity":7035,"entranceFee":0.0,"tuition":7607472.7},{"id":179,"level":"대학","establishment":"사립","name":"중앙대학교","region":"서울","capacity":17884,"entranceFee":0.0,"tuition":8576801.0},{"id":180,"level":"대학","establishment":"사립","name":"중앙승가대학교","region":"경기","capacity":480,"entranceFee":0.0,"tuition":1820000.0},{"id":181,"level":"대학","establishment":"사립","name":"중원대학교","region":"충북","capacity":3357,"entranceFee":0.0,"tuition":7423544.2},{"id":182,"level":"대학","establishment":"사립","name":"차의과학대학교","region":"경기","capacity":2016,"entranceFee":0.0,"tuition":7568914.7},{"id":183,"level":"대학","establishment":"사립","name":"창신대학교","region":"경남","capacity":1340,"entranceFee":0.0,"tuition":6752313.4},{"id":184,"level":"대학","establishment":"사립","name":"청운대학교","region":"충남","capacity":4335,"entranceFee":0.0,"tuition":7759020.6},{"id":185,"level":"대학","establishment":"사립","name":"청주대학교","region":"충북","capacity":10596,"entranceFee":0.0,"tuition":8062329.9},{"id":186,"level":"대학","establishment":"사립","name":"초당대학교","region":"전남","capacity":2903,"entranceFee":0.0,"tuition":7018931.6},{"id":187,"level":"대학","establishment":"사립","name":"총신대학교","region":"서울","capacity":1228,"entranceFee":0.0,"tuition":7336119.7},{"id":188,"level":"대학","establishment":"사립","name":"추계예술대학교","region":"서울","capacity":1000,"entranceFee":0.0,"tuition":9600692.0},{"id":189,"level":"대학","establishment":"사립","name":"칼빈대학교","region":"경기","capacity":360,"entranceFee":0.0,"tuition":8113055.6},{"id":190,"level":"대학","establishment":"사립","name":"평택대학교","region":"경기","capacity":3248,"entranceFee":0.0,"tuition":7952521.6},{"id":191,"level":"대학","establishment":"사립","name":"포항공과대학교","region":"경북","capacity":1280,"entranceFee":0.0,"tuition":5613500.0},{"id":192,"level":"대학","establishment":"사립","name":"한국공학대학교","region":"경기","capacity":5550,"entranceFee":0.0,"tuition":9450433.9},{"id":193,"level":"대학","establishment":"사립","name":"한국기술교육대학교","region":"충남","capacity":3344,"entranceFee":0.0,"tuition":4475315.8},{"id":194,"level":"대학","establishment":"사립","name":"한국성서대학교","region":"서울","capacity":897,"entranceFee":0.0,"tuition":7490682.3},{"id":195,"level":"대학","establishment":"사립","name":"한국열린사이버대학교","region":"서울","capacity":2900,"entranceFee":0.0,"tuition":2349103.4},{"id":196,"level":"대학","establishment":"사립","name":"한국외국어대학교","region":"서울","capacity":13704,"entranceFee":0.0,"tuition":7594228.1},{"id":197,"level":"대학","establishment":"사립","name":"한국침례신학대학교","region":"대전","capacity":877,"entranceFee":0.0,"tuition":6164013.7},{"id":198,"level":"대학","establishment":"사립","name":"한국항공대학교","region":"경기","capacity":3440,"entranceFee":0.0,"tuition":8935459.5},{"id":199,"level":"대학","establishment":"사립","name":"한남대학교","region":"대전","capacity":10933,"entranceFee":0.0,"tuition":7657067.8},{"id":200,"level":"대학","establishment":"사립","name":"한동대학교","region":"경북","capacity":2916,"entranceFee":0.0,"tuition":7471730.5},{"id":201,"level":"대학","establishment":"사립","name":"한라대학교","region":"강원","capacity":3554,"entranceFee":0.0,"tuition":7532127.5},{"id":202,"level":"대학","establishment":"사립","name":"한림대학교","region":"강원","capacity":7368,"entranceFee":0.0,"tuition":7971522.3},{"id":203,"level":"대학","establishment":"사립","name":"한서대학교","region":"충남","capacity":6231,"entranceFee":0.0,"tuition":8366237.5},{"id":204,"level":"대학","establishment":"사립","name":"한성대학교","region":"서울","capacity":5912,"entranceFee":0.0,"tuition":7793161.1},{"id":205,"level":"대학","establishment":"사립","name":"한세대학교","region":"경기","capacity":2264,"entranceFee":0.0,"tuition":8598513.3},{"id":206,"level":"대학","establishment":"사립","name":"한신대학교","region":"경기","capacity":4718,"entranceFee":0.0,"tuition":7641273.8},{"id":207,"level":"대학","establishment":"사립","name":"한양대학교","region":"서울","capacity":19671,"entranceFee":0.0,"tuition":9011748.0},{"id":208,"level":"대학","establishment":"사립","name":"한양사이버대학교","region":"서울","capacity":10880,"entranceFee":0.0,"tuition":2939051.5},{"id":209,"level":"대학","establishment":"사립","name":"한일장신대학교","region":"전북","capacity":876,"entranceFee":0.0,"tuition":6810205.5},{"id":210,"level":"대학","establishment":"사립","name":"협성대학교","region":"경기","capacity":4016,"entranceFee":0.0,"tuition":7913432.3},{"id":211,"level":"대학","establishment":"사립","name":"호남대학교","region":"광주","capacity":6173,"entranceFee":0.0,"tuition":6581105.5},{"id":212,"level":"대학","establishment":"사립","name":"호남신학대학교","region":"광주","capacity":476,"entranceFee":0.0,"tuition":6938628.6},{"id":213,"level":"대학","establishment":"사립","name":"호서대학교","region":"충남","capacity":11568,"entranceFee":0.0,"tuition":8164909.4},{"id":214,"level":"대학","establishment":"사립","name":"호원대학교","region":"전북","capacity":4277,"entranceFee":0.0,"tuition":7269319.6},{"id":215,"level":"대학","establishment":"사립","name":"홍익대학교","region":"서울","capacity":14966,"entranceFee":0.0,"tuition":8885820.0},{"id":216,"level":"대학","establishment":"사립","name":"화성의과학대학교","region":"경기","capacity":1056,"entranceFee":0.0,"tuition":7704138.4},{"id":217,"level":"대학","establishment":"사립","name":"화신사이버대학교","region":"부산","capacity":1586,"entranceFee":0.0,"tuition":2527107.2},{"id":218,"level":"전문대학","establishment":"국공립","name":"강원도립대학교","region":"강원","capacity":658,"entranceFee":0.0,"tuition":2348711.2},{"id":219,"level":"전문대학","establishment":"국공립","name":"경남도립거창대학","region":"경남","capacity":874,"entranceFee":0.0,"tuition":2852695.7},{"id":220,"level":"전문대학","establishment":"국공립","name":"경남도립남해대학","region":"경남","capacity":755,"entranceFee":0.0,"tuition":2759139.1},{"id":221,"level":"전문대학","establishment":"국공립","name":"경북도립대학교","region":"경북","capacity":529,"entranceFee":0.0,"tuition":2456725.1},{"id":222,"level":"전문대학","establishment":"국공립","name":"전남도립대학교","region":"전남","capacity":870,"entranceFee":0.0,"tuition":1960965.5},{"id":223,"level":"전문대학","establishment":"국공립","name":"충남도립대학교","region":"충남","capacity":1024,"entranceFee":0.0,"tuition":2461746.1},{"id":224,"level":"전문대학","establishment":"국공립","name":"충북도립대학교","region":"충북","capacity":860,"entranceFee":0.0,"tuition":1880604.7},{"id":225,"level":"전문대학","establishment":"국공립","name":"한국농수산대학","region":"전북","capacity":1710,"entranceFee":0.0,"tuition":0.0},{"id":226,"level":"전문대학","establishment":"국공립","name":"한국복지대학교","region":"경기","capacity":42,"entranceFee":0.0,"tuition":2714000.0},{"id":227,"level":"전문대학","establishment":"사립","name":"ICT폴리텍대학","region":"경기","capacity":320,"entranceFee":0.0,"tuition":2500000.0},{"id":228,"level":"전문대학","establishment":"사립","name":"가톨릭상지대학교","region":"경북","capacity":1538,"entranceFee":0.0,"tuition":5932201.6},{"id":229,"level":"전문대학","establishment":"사립","name":"강동대학교","region":"충북","capacity":2881,"entranceFee":0.0,"tuition":5901858.4},{"id":230,"level":"전문대학","establishment":"사립","name":"강릉영동대학교","region":"강원","capacity":2082,"entranceFee":0.0,"tuition":6123191.2},{"id":231,"level":"전문대학","establishment":"사립","name":"거제대학교","region":"경남","capacity":979,"entranceFee":0.0,"tuition":6519050.1},{"id":232,"level":"전문대학","establishment":"사립","name":"경기과학기술대학교","region":"경기","capacity":3180,"entranceFee":0.0,"tuition":6756280.5},{"id":233,"level":"전문대학","establishment":"사립","name":"경남정보대학교","region":"부산","capacity":4662,"entranceFee":0.0,"tuition":6530015.4},{"id":234,"level":"전문대학","establishment":"사립","name":"경민대학교","region":"경기","capacity":3601,"entranceFee":0.0,"tuition":6869892.6},{"id":235,"level":"전문대학","establishment":"사립","name":"경복대학교","region":"경기","capacity":5441,"entranceFee":0.0,"tuition":6969611.7},{"id":236,"level":"전문대학","establishment":"사립","name":"경북과학대학교","region":"경북","capacity":1703,"entranceFee":0.0,"tuition":5750275.0},{"id":237,"level":"전문대학","establishment":"사립","name":"경북보건대학교","region":"경북","capacity":1209,"entranceFee":0.0,"tuition":5602908.2},{"id":238,"level":"전문대학","establishment":"사립","name":"경북전문대학교","region":"경북","capacity":2077,"entranceFee":0.0,"tuition":6088522.9},{"id":239,"level":"전문대학","establishment":"사립","name":"경인여자대학교","region":"인천","capacity":3489,"entranceFee":0.0,"tuition":6763493.2},{"id":240,"level":"전문대학","establishment":"사립","name":"계명문화대학교","region":"대구","capacity":4569,"entranceFee":0.0,"tuition":6309383.2},{"id":241,"level":"전문대학","establishment":"사립","name":"계원예술대학교","region":"경기","capacity":2424,"entranceFee":0.0,"tuition":8044752.5},{"id":242,"level":"전문대학","establishment":"사립","name":"광양보건대학교","region":"전남","capacity":1006,"entranceFee":0.0,"tuition":5884842.9},{"id":243,"level":"전문대학","establishment":"사립","name":"광주보건대학교","region":"광주","capacity":3290,"entranceFee":0.0,"tuition":5450492.4},{"id":244,"level":"전문대학","establishment":"사립","name":"구미대학교","region":"경북","capacity":3550,"entranceFee":0.0,"tuition":6180253.5},{"id":245,"level":"전문대학","establishment":"사립","name":"국제대학교","region":"경기","capacity":3043,"entranceFee":0.0,"tuition":7251029.6},{"id":246,"level":"전문대학","establishment":"사립","name":"군산간호대학교","region":"전북","capacity":884,"entranceFee":0.0,"tuition":6353625.0},{"id":247,"level":"전문대학","establishment":"사립","name":"군장대학교","region":"전북","capacity":1500,"entranceFee":0.0,"tuition":5812697.3},{"id":248,"level":"전문대학","establishment":"사립","name":"기독간호대학교","region":"광주","capacity":479,"entranceFee":0.0,"tuition":5369153.4},{"id":249,"level":"전문대학","establishment":"사립","name":"김포대학교","region":"경기","capacity":2515,"entranceFee":0.0,"tuition":6819483.1},{"id":250,"level":"전문대학","establishment":"사립","name":"김해대학교","region":"경남","capacity":1406,"entranceFee":0.0,"tuition":6218116.6},{"id":251,"level":"전문대학","establishment":"사립","name":"나주대학교","region":"전남","capacity":1545,"entranceFee":0.0,"tuition":4603038.8},{"id":252,"level":"전문대학","establishment":"사립","name":"농협대학교","region":"경기","capacity":174,"entranceFee":0.0,"tuition":4982666.7},{"id":253,"level":"전문대학","establishment":"사립","name":"대경대학교","region":"경북","capacity":3363,"entranceFee":0.0,"tuition":6389481.6},{"id":254,"level":"전문대학","establishment":"사립","name":"대구공업대학교","region":"대구","capacity":1085,"entranceFee":0.0,"tuition":5858239.6},{"id":255,"level":"전문대학","establishment":"사립","name":"대구과학대학교","region":"대구","capacity":3866,"entranceFee":0.0,"tuition":6114833.4},{"id":256,"level":"전문대학","establishment":"사립","name":"대구보건대학교","region":"대구","capacity":5993,"entranceFee":0.0,"tuition":6600330.7},{"id":257,"level":"전문대학","establishment":"사립","name":"대덕대학교","region":"대전","capacity":2480,"entranceFee":0.0,"tuition":6091406.5},{"id":258,"level":"전문대학","establishment":"사립","name":"대동대학교","region":"부산","capacity":1258,"entranceFee":0.0,"tuition":6411209.9},{"id":259,"level":"전문대학","establishment":"사립","name":"대림대학교","region":"경기","capacity":5705,"entranceFee":0.0,"tuition":7144171.4},{"id":260,"level":"전문대학","establishment":"사립","name":"대원대학교","region":"충북","capacity":2012,"entranceFee":0.0,"tuition":6381798.5},{"id":261,"level":"전문대학","establishment":"사립","name":"대전과학기술대학교","region":"대전","capacity":3331,"entranceFee":0.0,"tuition":6241381.0},{"id":262,"level":"전문대학","establishment":"사립","name":"대전보건대학교","region":"대전","capacity":4322,"entranceFee":0.0,"tuition":6312877.6},{"id":263,"level":"전문대학","establishment":"사립","name":"동강대학교","region":"광주","capacity":2320,"entranceFee":0.0,"tuition":5672545.7},{"id":264,"level":"전문대학","establishment":"사립","name":"동남보건대학교","region":"경기","capacity":4097,"entranceFee":0.0,"tuition":6576153.8},{"id":265,"level":"전문대학","establishment":"사립","name":"동서울대학교","region":"경기","capacity":5541,"entranceFee":0.0,"tuition":7152356.0},{"id":266,"level":"전문대학","establishment":"사립","name":"동아방송예술대학교","region":"경기","capacity":2469,"entranceFee":0.0,"tuition":7798219.5},{"id":267,"level":"전문대학","establishment":"사립","name":"동아보건대학교","region":"전남","capacity":1011,"entranceFee":0.0,"tuition":4846884.3},{"id":268,"level":"전문대학","establishment":"사립","name":"동양미래대학교","region":"서울","capacity":5176,"entranceFee":0.0,"tuition":7029433.7},{"id":269,"level":"전문대학","establishment":"사립","name":"동원과학기술대학교","region":"경남","capacity":1809,"entranceFee":0.0,"tuition":6176371.5},{"id":270,"level":"전문대학","establishment":"사립","name":"동원대학교","region":"경기","capacity":2920,"entranceFee":0.0,"tuition":7138474.0},{"id":271,"level":"전문대학","establishment":"사립","name":"동의과학대학교","region":"부산","capacity":3096,"entranceFee":0.0,"tuition":6667980.6},{"id":272,"level":"전문대학","establishment":"사립","name":"두원공과대학교","region":"경기","capacity":3988,"entranceFee":0.0,"tuition":6815176.5},{"id":273,"level":"전문대학","establishment":"사립","name":"마산대학교","region":"경남","capacity":5086,"entranceFee":0.0,"tuition":6200110.1},{"id":274,"level":"전문대학","establishment":"사립","name":"명지전문대학","region":"서울","capacity":5599,"entranceFee":0.0,"tuition":6944016.3},{"id":275,"level":"전문대학","establishment":"사립","name":"목포과학대학교","region":"전남","capacity":2236,"entranceFee":0.0,"tuition":5950799.6},{"id":276,"level":"전문대학","establishment":"사립","name":"문경대학교","region":"경북","capacity":851,"entranceFee":0.0,"tuition":6166678.0},{"id":277,"level":"전문대학","establishment":"사립","name":"배화여자대학교","region":"서울","capacity":2466,"entranceFee":0.0,"tuition":6633959.4},{"id":278,"level":"전문대학","establishment":"사립","name":"백석문화대학교","region":"충남","capacity":3552,"entranceFee":0.0,"tuition":7274118.8},{"id":279,"level":"전문대학","establishment":"사립","name":"백제예술대학교","region":"전북","capacity":800,"entranceFee":0.0,"tuition":7831837.5},{"id":280,"level":"전문대학","establishment":"사립","name":"부산경상대학교","region":"부산","capacity":1790,"entranceFee":0.0,"tuition":5623698.3},{"id":281,"level":"전문대학","establishment":"사립","name":"부산과학기술대학교","region":"부산","capacity":2764,"entranceFee":0.0,"tuition":6397397.3},{"id":282,"level":"전문대학","establishment":"사립","name":"부산보건대학교","region":"부산","capacity":2310,"entranceFee":0.0,"tuition":6412658.0},{"id":283,"level":"전문대학","establishment":"사립","name":"부산여자대학교","region":"부산","capacity":1651,"entranceFee":0.0,"tuition":6309078.1},{"id":284,"level":"전문대학","establishment":"사립","name":"부산예술대학교","region":"부산","capacity":752,"entranceFee":0.0,"tuition":5933791.9},{"id":285,"level":"전문대학","establishment":"사립","name":"부천대학교","region":"경기","capacity":5226,"entranceFee":0.0,"tuition":6701798.2},{"id":286,"level":"전문대학","establishment":"사립","name":"삼육보건대학교","region":"서울","capacity":1072,"entranceFee":0.0,"tuition":6106391.2},{"id":287,"level":"전문대학","establishment":"사립","name":"서라벌대학교","region":"경북","capacity":180,"entranceFee":0.0,"tuition":6116666.7},{"id":288,"level":"전문대학","establishment":"사립","name":"서영대학교","region":"광주","capacity":4193,"entranceFee":0.0,"tuition":5852748.5},{"id":289,"level":"전문대학","establishment":"사립","name":"서울여자간호대학교","region":"서울","capacity":672,"entranceFee":0.0,"tuition":6761750.0},{"id":290,"level":"전문대학","establishment":"사립","name":"서울예술대학교","region":"경기","capacity":1743,"entranceFee":0.0,"tuition":8449281.7},{"id":291,"level":"전문대학","establishment":"사립","name":"서일대학교","region":"서울","capacity":5680,"entranceFee":0.0,"tuition":6697448.6},{"id":292,"level":"전문대학","establishment":"사립","name":"서정대학교","region":"경기","capacity":3106,"entranceFee":0.0,"tuition":6329681.4},{"id":293,"level":"전문대학","establishment":"사립","name":"선린대학교","region":"경북","capacity":1883,"entranceFee":0.0,"tuition":6145072.8},{"id":294,"level":"전문대학","establishment":"사립","name":"성운대학교","region":"경북","capacity":1126,"entranceFee":0.0,"tuition":5283708.7},{"id":295,"level":"전문대학","establishment":"사립","name":"세경대학교","region":"강원","capacity":907,"entranceFee":0.0,"tuition":5226022.1},{"id":296,"level":"전문대학","establishment":"사립","name":"송곡대학교","region":"강원","capacity":569,"entranceFee":0.0,"tuition":5499395.4},{"id":297,"level":"전문대학","establishment":"사립","name":"송호대학교","region":"강원","capacity":1018,"entranceFee":0.0,"tuition":5951309.6},{"id":298,"level":"전문대학","establishment":"사립","name":"수성대학교","region":"대구","capacity":2899,"entranceFee":0.0,"tuition":6204545.7},{"id":299,"level":"전문대학","establishment":"사립","name":"수원과학대학교","region":"경기","capacity":5193,"entranceFee":0.0,"tuition":5826005.0},{"id":300,"level":"전문대학","establishment":"사립","name":"수원여자대학교","region":"경기","capacity":3762,"entranceFee":0.0,"tuition":6998715.5},{"id":301,"level":"전문대학","establishment":"사립","name":"순천제일대학교","region":"전남","capacity":2291,"entranceFee":0.0,"tuition":5750043.6},{"id":302,"level":"전문대학","establishment":"사립","name":"숭의여자대학교","region":"서울","capacity":3080,"entranceFee":0.0,"tuition":6384902.6},{"id":303,"level":"전문대학","establishment":"사립","name":"신구대학교","region":"경기","capacity":6136,"entranceFee":0.0,"tuition":7008582.0},{"id":304,"level":"전문대학","establishment":"사립","name":"신성대학교","region":"충남","capacity":2825,"entranceFee":0.0,"tuition":6702885.0},{"id":305,"level":"전문대학","establishment":"사립","name":"신안산대학교","region":"경기","capacity":2135,"entranceFee":0.0,"tuition":7167540.0},{"id":306,"level":"전문대학","establishment":"사립","name":"아주자동차대학교","region":"충남","capacity":660,"entranceFee":0.0,"tuition":7022363.6},{"id":307,"level":"전문대학","establishment":"사립","name":"안동과학대학교","region":"경북","capacity":1936,"entranceFee":0.0,"tuition":5916667.4},{"id":308,"level":"전문대학","establishment":"사립","name":"안산대학교","region":"경기","capacity":4024,"entranceFee":0.0,"tuition":6413898.6},{"id":309,"level":"전문대학","establishment":"사립","name":"여주대학교","region":"경기","capacity":3549,"entranceFee":0.0,"tuition":7370160.6},{"id":310,"level":"전문대학","establishment":"사립","name":"연성대학교","region":"경기","capacity":5661,"entranceFee":0.0,"tuition":6872500.3},{"id":311,"level":"전문대학","establishment":"사립","name":"연암공과대학교","region":"경남","capacity":1168,"entranceFee":0.0,"tuition":5568095.9},{"id":312,"level":"전문대학","establishment":"사립","name":"연암대학교","region":"충남","capacity":966,"entranceFee":0.0,"tuition":6283856.5},{"id":313,"level":"전문대학","establishment":"사립","name":"영남외국어대학","region":"경북","capacity":716,"entranceFee":0.0,"tuition":5582960.9},{"id":314,"level":"전문대학","establishment":"사립","name":"영남이공대학교","region":"대구","capacity":4964,"entranceFee":0.0,"tuition":6493316.3},{"id":315,"level":"전문대학","establishment":"사립","name":"영진사이버대학","region":"대구","capacity":2600,"entranceFee":0.0,"tuition":2427000.0},{"id":316,"level":"전문대학","establishment":"사립","name":"영진전문대학교","region":"대구","capacity":5673,"entranceFee":0.0,"tuition":6548336.7},{"id":317,"level":"전문대학","establishment":"사립","name":"오산대학교","region":"경기","capacity":4120,"entranceFee":0.0,"tuition":6865513.1},{"id":318,"level":"전문대학","establishment":"사립","name":"용인예술과학대학교","region":"경기","capacity":2940,"entranceFee":0.0,"tuition":7224388.4},{"id":319,"level":"전문대학","establishment":"사립","name":"우송정보대학","region":"대전","capacity":3126,"entranceFee":0.0,"tuition":6446931.1},{"id":320,"level":"전문대학","establishment":"사립","name":"울산과학대학교","region":"울산","capacity":4698,"entranceFee":0.0,"tuition":6498601.1},{"id":321,"level":"전문대학","establishment":"사립","name":"웅지세무대학교","region":"경기","capacity":1617,"entranceFee":0.0,"tuition":6960000.0},{"id":322,"level":"전문대학","establishment":"사립","name":"원광보건대학교","region":"전북","capacity":3647,"entranceFee":0.0,"tuition":6546660.8},{"id":323,"level":"전문대학","establishment":"사립","name":"유한대학교","region":"경기","capacity":4433,"entranceFee":0.0,"tuition":6547910.5},{"id":324,"level":"전문대학","establishment":"사립","name":"인덕대학교","region":"서울","capacity":5552,"entranceFee":0.0,"tuition":6967334.8},{"id":325,"level":"전문대학","establishment":"사립","name":"인천재능대학교","region":"인천","capacity":2906,"entranceFee":0.0,"tuition":6982694.9},{"id":326,"level":"전문대학","establishment":"사립","name":"인하공업전문대학","region":"인천","capacity":5718,"entranceFee":0.0,"tuition":7119189.2},{"id":327,"level":"전문대학","establishment":"사립","name":"장안대학교","region":"경기","capacity":3715,"entranceFee":0.0,"tuition":6614107.7},{"id":328,"level":"전문대학","establishment":"사립","name":"전남과학대학교","region":"전남","capacity":2631,"entranceFee":0.0,"tuition":5498403.6},{"id":329,"level":"전문대학","establishment":"사립","name":"전북과학대학교","region":"전북","capacity":1200,"entranceFee":0.0,"tuition":5323013.7},{"id":330,"level":"전문대학","establishment":"사립","name":"전주기전대학","region":"전북","capacity":1956,"entranceFee":0.0,"tuition":6600000.0},{"id":331,"level":"전문대학","establishment":"사립","name":"전주비전대학교","region":"전북","capacity":2528,"entranceFee":0.0,"tuition":6525508.5},{"id":332,"level":"전문대학","establishment":"사립","name":"제주관광대학교","region":"제주","capacity":2184,"entranceFee":0.0,"tuition":5464341.6},{"id":333,"level":"전문대학","establishment":"사립","name":"제주한라대학교","region":"제주","capacity":4450,"entranceFee":0.0,"tuition":5454054.8},{"id":334,"level":"전문대학","establishment":"사립","name":"조선간호대학교","region":"광주","capacity":569,"entranceFee":0.0,"tuition":5312688.9},{"id":335,"level":"전문대학","establishment":"사립","name":"조선이공대학교","region":"광주","capacity":2984,"entranceFee":0.0,"tuition":5769316.4},{"id":336,"level":"전문대학","establishment":"사립","name":"진주보건대학교","region":"경남","capacity":2176,"entranceFee":0.0,"tuition":6505483.5},{"id":337,"level":"전문대학","establishment":"사립","name":"창원문성대학교","region":"경남","capacity":791,"entranceFee":0.0,"tuition":6355327.4},{"id":338,"level":"전문대학","establishment":"사립","name":"청강문화산업대학교","region":"경기","capacity":3366,"entranceFee":0.0,"tuition":7833718.4},{"id":339,"level":"전문대학","establishment":"사립","name":"청암대학교","region":"전남","capacity":2230,"entranceFee":0.0,"tuition":6025237.8},{"id":340,"level":"전문대학","establishment":"사립","name":"춘해보건대학교","region":"울산","capacity":2158,"entranceFee":0.0,"tuition":6451297.5},{"id":341,"level":"전문대학","establishment":"사립","name":"충북보건과학대학교","region":"충북","capacity":2435,"entranceFee":0.0,"tuition":6541242.9},{"id":342,"level":"전문대학","establishment":"사립","name":"충청대학교","region":"충북","capacity":3409,"entranceFee":0.0,"tuition":6253253.2},{"id":343,"level":"전문대학","establishment":"사립","name":"포항대학교","region":"경북","capacity":1734,"entranceFee":0.0,"tuition":6395046.7},{"id":344,"level":"전문대학","establishment":"사립","name":"한국골프과학기술대학교","region":"강원","capacity":460,"entranceFee":0.0,"tuition":7921956.5},{"id":345,"level":"전문대학","establishment":"사립","name":"한국관광대학교","region":"경기","capacity":1804,"entranceFee":0.0,"tuition":6621535.5},{"id":346,"level":"전문대학","establishment":"사립","name":"한국복지사이버대학","region":"경북","capacity":2000,"entranceFee":0.0,"tuition":1710000.0},{"id":347,"level":"전문대학","establishment":"사립","name":"한국승강기대학교","region":"경남","capacity":594,"entranceFee":0.0,"tuition":6293665.3},{"id":348,"level":"전문대학","establishment":"사립","name":"한국영상대학교","region":"세종","capacity":3183,"entranceFee":0.0,"tuition":6706404.6},{"id":349,"level":"전문대학","establishment":"사립","name":"한국폴리텍 I 대학 서울강서캠퍼스","region":"서울","capacity":510,"entranceFee":0.0,"tuition":2494000.0},{"id":350,"level":"전문대학","establishment":"사립","name":"한국폴리텍 I 대학 서울정수캠퍼스","region":"서울","capacity":1000,"entranceFee":0.0,"tuition":2494000.0},{"id":351,"level":"전문대학","establishment":"사립","name":"한국폴리텍 I 대학 성남캠퍼스","region":"경기","capacity":680,"entranceFee":0.0,"tuition":2432000.0},{"id":352,"level":"전문대학","establishment":"사립","name":"한국폴리텍 I 대학 제주캠퍼스","region":"제주","capacity":50,"entranceFee":0.0,"tuition":2164000.0},{"id":353,"level":"전문대학","establishment":"사립","name":"한국폴리텍 II 대학 남인천캠퍼스","region":"인천","capacity":50,"entranceFee":0.0,"tuition":2494000.0},{"id":354,"level":"전문대학","establishment":"사립","name":"한국폴리텍 II 대학 인천캠퍼스","region":"인천","capacity":1350,"entranceFee":0.0,"tuition":2494000.0},{"id":355,"level":"전문대학","establishment":"사립","name":"한국폴리텍 II 대학 화성캠퍼스","region":"경기","capacity":0,"entranceFee":0.0,"tuition":0.0},{"id":356,"level":"전문대학","establishment":"사립","name":"한국폴리텍 III 대학 강릉캠퍼스","region":"강원","capacity":115,"entranceFee":0.0,"tuition":2527173.9},{"id":357,"level":"전문대학","establishment":"사립","name":"한국폴리텍 III 대학 원주캠퍼스","region":"강원","capacity":100,"entranceFee":0.0,"tuition":2174000.0},{"id":358,"level":"전문대학","establishment":"사립","name":"한국폴리텍 III 대학 춘천캠퍼스","region":"강원","capacity":275,"entranceFee":0.0,"tuition":2432000.0},{"id":359,"level":"전문대학","establishment":"사립","name":"한국폴리텍 IV 대학 대전캠퍼스","region":"대전","capacity":665,"entranceFee":0.0,"tuition":2432000.0},{"id":360,"level":"전문대학","establishment":"사립","name":"한국폴리텍 IV 대학 아산캠퍼스","region":"충남","capacity":410,"entranceFee":0.0,"tuition":2432000.0},{"id":361,"level":"전문대학","establishment":"사립","name":"한국폴리텍 IV 대학 청주캠퍼스","region":"충북","capacity":575,"entranceFee":0.0,"tuition":2432000.0},{"id":362,"level":"전문대학","establishment":"사립","name":"한국폴리텍 IV 대학 충남캠퍼스","region":"충남","capacity":210,"entranceFee":0.0,"tuition":2164000.0},{"id":363,"level":"전문대학","establishment":"사립","name":"한국폴리텍 V 대학 광주캠퍼스","region":"광주","capacity":680,"entranceFee":0.0,"tuition":2432000.0},{"id":364,"level":"전문대학","establishment":"사립","name":"한국폴리텍 V 대학 익산캠퍼스","region":"전북","capacity":100,"entranceFee":0.0,"tuition":2432000.0},{"id":365,"level":"전문대학","establishment":"사립","name":"한국폴리텍 V 대학 전남캠퍼스","region":"전남","capacity":150,"entranceFee":0.0,"tuition":2164000.0},{"id":366,"level":"전문대학","establishment":"사립","name":"한국폴리텍 V 대학 전북캠퍼스","region":"전북","capacity":365,"entranceFee":0.0,"tuition":2321000.0},{"id":367,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VI 대학 구미캠퍼스","region":"경북","capacity":470,"entranceFee":0.0,"tuition":2432000.0},{"id":368,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VI 대학 대구캠퍼스","region":"대구","capacity":535,"entranceFee":0.0,"tuition":2432000.0},{"id":369,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VI 대학 영남융합기술캠퍼스","region":"대구","capacity":255,"entranceFee":0.0,"tuition":2432000.0},{"id":370,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VI 대학 영주캠퍼스","region":"경북","capacity":50,"entranceFee":0.0,"tuition":2164000.0},{"id":371,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VII 대학 동부산캠퍼스","region":"부산","capacity":0,"entranceFee":0.0,"tuition":0.0},{"id":372,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VII 대학 부산캠퍼스","region":"부산","capacity":650,"entranceFee":0.0,"tuition":2432000.0},{"id":373,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VII 대학 울산캠퍼스","region":"울산","capacity":535,"entranceFee":0.0,"tuition":2432000.0},{"id":374,"level":"전문대학","establishment":"사립","name":"한국폴리텍 VII 대학 창원캠퍼스","region":"경남","capacity":1125,"entranceFee":0.0,"tuition":2432000.0},{"id":375,"level":"전문대학","establishment":"사립","name":"한국폴리텍 특성화대학 로봇캠퍼스","region":"경북","capacity":200,"entranceFee":0.0,"tuition":2164000.0},{"id":376,"level":"전문대학","establishment":"사립","name":"한국폴리텍 특성화대학 바이오캠퍼스","region":"충남","capacity":320,"entranceFee":0.0,"tuition":2595000.0},{"id":377,"level":"전문대학","establishment":"사립","name":"한국폴리텍 특성화대학 반도체융합캠퍼스","region":"경기","capacity":535,"entranceFee":0.0,"tuition":2432000.0},{"id":378,"level":"전문대학","establishment":"사립","name":"한국폴리텍 특성화대학 항공캠퍼스","region":"경남","capacity":340,"entranceFee":0.0,"tuition":2308426.5},{"id":379,"level":"전문대학","establishment":"사립","name":"한림성심대학교","region":"강원","capacity":2216,"entranceFee":0.0,"tuition":6057833.9},{"id":380,"level":"전문대학","establishment":"사립","name":"한양여자대학교","region":"서울","capacity":6030,"entranceFee":0.0,"tuition":6549028.9},{"id":381,"level":"전문대학","establishment":"사립","name":"한영대학교","region":"전남","capacity":1170,"entranceFee":0.0,"tuition":6019282.1},{"id":382,"level":"전문대학","establishment":"사립","name":"혜전대학교","region":"충남","capacity":2488,"entranceFee":0.0,"tuition":6133020.1},{"id":383,"level":"전문대학","establishment":"사립","name":"호산대학교","region":"경북","capacity":1819,"entranceFee":0.0,"tuition":6005017.0}]</script>
+  <script id="tuitionMeta" type="application/json">{"sourceFile":"한국장학재단_대학별 평균등록금_20250519.csv","sourceName":"공공데이터포털 · 한국장학재단_대학별 평균등록금_20250519","sourceUrl":"https://www.data.go.kr/data/3071171/fileData.do","dataDate":"2025.05.19","publicDisclosureBasis":"매년 4월 대학정보공시 기준","displayBasis":"연간 평균등록금(1년 기준, 학기 기준 아님)","creator":"충청남도교육청진로융합교육원 교육연구사 정재연","createdDate":"2026.05.20","totalRows":383,"zeroRows":5,"zeroCapacityRows":2,"avgAll":5925496.3971279375,"avgNonzero":6003875.979100529,"medianNonzero":6543951.85,"maxName":"추계예술대학교","maxTuition":9600692.0}</script>
+  <script>
+    "use strict";
+
+    const DATA_RAW = JSON.parse(document.getElementById("tuitionData").textContent);
+    const META = JSON.parse(document.getElementById("tuitionMeta").textContent);
+    const MAN = 10000;
+
+    /* === 데이터 보강: 사이버/폴리텍/충남 플래그 === */
+    const CYBER_PATTERNS = [/사이버/, /방송통신/, /디지털서울문화예술/];
+    const POLYTECH_PATTERNS = [/폴리텍/];
+    const DATA = DATA_RAW.map(row => {
+      const name = String(row.name || "");
+      const isCyber = CYBER_PATTERNS.some(re => re.test(name));
+      const isPolytech = POLYTECH_PATTERNS.some(re => re.test(name));
+      const isChungnam = row.region === "충남";
+      return { ...row, isCyber, isPolytech, isChungnam };
+    });
+
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => Array.from(document.querySelectorAll(selector));
+
+    /* === 등록금 구간 필터 === */
+    const BANDS = {
+      all: () => true,
+      zero: row => Number(row.tuition) === 0,
+      under300: row => Number(row.tuition) > 0 && Number(row.tuition) < 300 * MAN,
+      "300to500": row => Number(row.tuition) >= 300 * MAN && Number(row.tuition) < 500 * MAN,
+      "500to700": row => Number(row.tuition) >= 500 * MAN && Number(row.tuition) < 700 * MAN,
+      "700to900": row => Number(row.tuition) >= 700 * MAN && Number(row.tuition) < 900 * MAN,
+      over700: row => Number(row.tuition) >= 700 * MAN,
+      over900: row => Number(row.tuition) >= 900 * MAN
+    };
+    const BAND_LABELS = {
+      all: "전체",
+      zero: "자료상 0원",
+      under300: "연간 300만원 미만",
+      "300to500": "연간 300~500만원",
+      "500to700": "연간 500~700만원",
+      "700to900": "연간 700~900만원",
+      over700: "연간 700만원 이상",
+      over900: "연간 900만원 이상"
+    };
+
+    /* === 히스토그램 구간 === */
+    const HIST_BINS = [
+      { label: "0~200", min: 0, max: 200 * MAN },
+      { label: "200~400", min: 200 * MAN, max: 400 * MAN },
+      { label: "400~600", min: 400 * MAN, max: 600 * MAN },
+      { label: "600~700", min: 600 * MAN, max: 700 * MAN },
+      { label: "700~800", min: 700 * MAN, max: 800 * MAN },
+      { label: "800~900", min: 800 * MAN, max: 900 * MAN },
+      { label: "900~1000", min: 900 * MAN, max: 1000 * MAN },
+      { label: "1000+", min: 1000 * MAN, max: Infinity }
+    ];
+
+    /* === 상태 === */
+    const state = {
+      query: "",
+      level: "전체",
+      establishment: "전체",
+      region: "전체",
+      feeBand: "all",
+      excludeZero: true,
+      highlightChungnam: true,
+      sort: "name-asc",
+      perPage: 100,
+      page: 1,
+      selected: new Set(),
+      theme: detectInitialTheme()
+    };
+
+    function detectInitialTheme() {
+      const stored = (() => { try { return window.sessionStorage?.getItem("uniTuitionTheme"); } catch (e) { return null; }})();
+      if (stored === "light" || stored === "dark") return stored;
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
+      return "light";
+    }
+
+    /* === DOM === */
+    const els = {
+      searchInput: $("#searchInput"),
+      searchWrap: $("#searchWrap"),
+      searchClear: $("#searchClear"),
+      levelFilter: $("#levelFilter"),
+      estFilter: $("#estFilter"),
+      regionFilter: $("#regionFilter"),
+      feeFilter: $("#feeFilter"),
+      sortSelect: $("#sortSelect"),
+      excludeZero: $("#excludeZero"),
+      highlightChungnam: $("#highlightChungnam"),
+      perPageSelect: $("#perPageSelect"),
+      resetBtn: $("#resetBtn"),
+      downloadBtn: $("#downloadBtn"),
+      downloadSelectedBtn: $("#downloadSelectedBtn"),
+      printBtn: $("#printBtn"),
+      copySummaryBtn: $("#copySummaryBtn"),
+      clearCompareBtn: $("#clearCompareBtn"),
+      prevPageBtn: $("#prevPageBtn"),
+      nextPageBtn: $("#nextPageBtn"),
+      activeSummary: $("#activeSummary"),
+      activeChips: $("#activeChips"),
+      kpiGrid: $("#kpiGrid"),
+      estChart: $("#estChart"),
+      regionChart: $("#regionChart"),
+      histogramChart: $("#histogramChart"),
+      compareBox: $("#compareBox"),
+      resultCount: $("#resultCount"),
+      pageStatus: $("#pageStatus"),
+      tableBody: $("#tableBody"),
+      mobileCards: $("#mobileCards"),
+      toast: $("#toast"),
+      themeToggle: $("#themeToggle"),
+      scrollTopBtn: $("#scrollTopBtn"),
+      calcIntro: $("#calcIntro"),
+      calcRow: $("#calcRow")
+    };
+
+    /* === 유틸 === */
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function escapeRegExp(text) {
+      return String(text).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function highlightQuery(text) {
+      const escaped = escapeHtml(text);
+      const q = state.query.trim();
+      if (!q) return escaped;
+      const re = new RegExp(`(${escapeRegExp(escapeHtml(q))})`, "ig");
+      return escaped.replace(re, "<mark>$1</mark>");
+    }
+
+    function uniqueValues(key) {
+      return [...new Set(DATA.map(row => row[key]).filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "ko-KR"));
+    }
+
+    function populateSelect(select, values, allLabel = "전체") {
+      select.innerHTML = [`<option value="전체">${allLabel}</option>`].concat(values.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`)).join("");
+    }
+
+    function formatNumber(value) {
+      return Math.round(Number(value) || 0).toLocaleString("ko-KR");
+    }
+    function formatWon(value) {
+      const n = Number(value) || 0;
+      return `${Math.round(n).toLocaleString("ko-KR")}원`;
+    }
+    function formatManwon(value) {
+      const n = Number(value) || 0;
+      if (!n) return "0만원";
+      return `${Math.round(n / MAN).toLocaleString("ko-KR")}만원`;
+    }
+    function average(values) {
+      const valid = values.map(Number).filter(value => Number.isFinite(value));
+      if (!valid.length) return 0;
+      return valid.reduce((sum, value) => sum + value, 0) / valid.length;
+    }
+    function median(values) {
+      const valid = values.map(Number).filter(value => Number.isFinite(value)).sort((a, b) => a - b);
+      if (!valid.length) return 0;
+      const mid = Math.floor(valid.length / 2);
+      return valid.length % 2 ? valid[mid] : (valid[mid - 1] + valid[mid]) / 2;
+    }
+
+    function matchesFilter(row) {
+      const query = state.query.trim().toLowerCase();
+      if (query && !String(row.name).toLowerCase().includes(query)) return false;
+      if (state.level !== "전체" && row.level !== state.level) return false;
+      if (state.establishment !== "전체" && row.establishment !== state.establishment) return false;
+      if (state.region !== "전체" && row.region !== state.region) return false;
+      if (state.excludeZero && Number(row.tuition) === 0) return false;
+      return (BANDS[state.feeBand] || BANDS.all)(row);
+    }
+    function filterData() { return DATA.filter(matchesFilter); }
+    function compareText(a, b) {
+      return String(a || "").localeCompare(String(b || ""), "ko-KR", { numeric: true, sensitivity: "base" });
+    }
+    function sortData(rows) {
+      const [key, direction] = state.sort.split(/-(?=[^-]+$)/);
+      const dir = direction === "desc" ? -1 : 1;
+      return [...rows].sort((a, b) => {
+        let result = 0;
+        if (["tuition", "capacity"].includes(key)) {
+          result = (Number(a[key]) || 0) - (Number(b[key]) || 0);
+        } else {
+          result = compareText(a[key], b[key]);
+        }
+        if (result === 0) result = compareText(a.name, b.name);
+        return result * dir;
+      });
+    }
+    function getNonzero(rows) { return rows.filter(row => Number(row.tuition) > 0); }
+    function groupAverages(rows, key) {
+      const groups = new Map();
+      getNonzero(rows).forEach(row => {
+        const name = row[key] || "기타";
+        if (!groups.has(name)) groups.set(name, []);
+        groups.get(name).push(Number(row.tuition) || 0);
+      });
+      return [...groups.entries()]
+        .map(([name, values]) => ({ name, count: values.length, avg: average(values) }))
+        .sort((a, b) => b.avg - a.avg);
+    }
+    function getPagedRows(rows) {
+      const perPage = state.perPage;
+      if (perPage === "all") return { rows, totalPages: 1, start: rows.length ? 1 : 0, end: rows.length };
+      const size = Number(perPage) || 100;
+      const totalPages = Math.max(1, Math.ceil(rows.length / size));
+      if (state.page > totalPages) state.page = totalPages;
+      if (state.page < 1) state.page = 1;
+      const startIndex = (state.page - 1) * size;
+      return { rows: rows.slice(startIndex, startIndex + size), totalPages, start: rows.length ? startIndex + 1 : 0, end: Math.min(startIndex + size, rows.length) };
+    }
+
+    function badgeForEstablishment(value) {
+      const cls = value === "국공립" ? "badge-public" : "badge-private";
+      return `<span class="badge ${cls}">${escapeHtml(value)}</span>`;
+    }
+
+    function noteBadges(row) {
+      const notes = [];
+      const showChungnam = state.highlightChungnam && row.isChungnam;
+      if (showChungnam) notes.push(`<span class="badge badge-chungnam">★ 충남</span>`);
+      if (Number(row.tuition) === 0) notes.push(`<span class="badge badge-zero">자료상 0원</span>`);
+      if (Number(row.capacity) === 0) notes.push(`<span class="badge badge-warn">정원 0명</span>`);
+      if (Number(row.tuition) >= 900 * MAN) notes.push(`<span class="badge badge-high">연간 900만원↑</span>`);
+      if (Number(row.tuition) > 0 && Number(row.tuition) < 300 * MAN) notes.push(`<span class="badge badge-low">연간 300만원↓</span>`);
+      if (row.isCyber) notes.push(`<span class="badge badge-cyber">사이버</span>`);
+      if (row.isPolytech) notes.push(`<span class="badge badge-polytech">폴리텍</span>`);
+      return notes.length ? `<span class="note-stack">${notes.join("")}</span>` : `<span class="badge badge-source">-</span>`;
+    }
+
+    /* === KPI === */
+    function renderKpis(filtered) {
+      const nonzero = getNonzero(filtered);
+      const publicRows = nonzero.filter(row => row.establishment === "국공립");
+      const privateRows = nonzero.filter(row => row.establishment === "사립");
+      const maxRow = nonzero.length ? nonzero.reduce((best, row) => Number(row.tuition) > Number(best.tuition) ? row : best, nonzero[0]) : null;
+      const zeroVisible = filtered.filter(row => Number(row.tuition) === 0).length;
+      const chungnamRows = nonzero.filter(row => row.isChungnam);
+
+      const avgVal = average(nonzero.map(row => row.tuition));
+      const medianVal = median(nonzero.map(row => row.tuition));
+
+      const cards = [
+        {
+          label: "전체 기관 (원자료)",
+          value: `${formatNumber(DATA.length)}개`,
+          detail: `0원 자료 ${formatNumber(META.zeroRows)}개 · 정원 0명 ${formatNumber(META.zeroCapacityRows)}개`,
+          icon: "🏛", cls: "k-info"
+        },
+        {
+          label: "현재 필터 결과",
+          value: `${formatNumber(filtered.length)}개`,
+          detail: `0원 표시 ${formatNumber(zeroVisible)}개 · 충남 ${formatNumber(nonzero.filter(r => r.isChungnam).length)}개`,
+          icon: "🔍", cls: ""
+        },
+        {
+          label: "연간 평균등록금",
+          value: formatManwon(avgVal),
+          detail: `0원 제외 ${formatNumber(nonzero.length)}개 기준 · ${formatWon(avgVal)}`,
+          icon: "₩", cls: ""
+        },
+        {
+          label: "연간 중앙값",
+          value: formatManwon(medianVal),
+          detail: `극단값 영향이 적은 중간값 · ${formatWon(medianVal)}`,
+          icon: "≈", cls: "k-success"
+        },
+        {
+          label: "국공립 · 사립 평균",
+          value: `${formatManwon(average(publicRows.map(r => r.tuition)))} · ${formatManwon(average(privateRows.map(r => r.tuition)))}`,
+          detail: `국공립 ${formatNumber(publicRows.length)}개 · 사립 ${formatNumber(privateRows.length)}개`,
+          icon: "⚖", cls: "k-info"
+        },
+        {
+          label: "최고 연간 등록금",
+          value: maxRow ? formatManwon(maxRow.tuition) : "-",
+          detail: maxRow ? `${maxRow.name} · ${formatWon(maxRow.tuition)}` : "표시 자료 없음",
+          icon: "↑", cls: "k-danger"
+        }
+      ];
+      els.kpiGrid.innerHTML = cards.map(card => `
+        <article class="kpi-card ${card.cls || ""}">
+          <div class="kpi-label">
+            <span class="kpi-label-icon" aria-hidden="true">${card.icon}</span>
+            ${escapeHtml(card.label)}
+          </div>
+          <div class="kpi-value">${escapeHtml(card.value)}</div>
+          <div class="kpi-detail">${escapeHtml(card.detail)}</div>
+        </article>
+      `).join("");
+    }
+
+    /* === 활성 요약 === */
+    function renderActiveSummary(filtered) {
+      const nonzero = getNonzero(filtered);
+      const avg = average(nonzero.map(row => row.tuition));
+      els.activeSummary.innerHTML = `현재 조건: <strong>${formatNumber(filtered.length)}개</strong> 기관 표시 · 연간 평균등록금 <strong>${formatManwon(avg)}</strong> (0원 제외 ${formatNumber(nonzero.length)}개 기준)`;
+      const chips = [];
+      if (state.query.trim()) chips.push(`검색: ${state.query.trim()}`);
+      if (state.level !== "전체") chips.push(`학제: ${state.level}`);
+      if (state.establishment !== "전체") chips.push(`설립: ${state.establishment}`);
+      if (state.region !== "전체") chips.push(`지역: ${state.region}`);
+      if (state.feeBand !== "all") chips.push(`구간: ${BAND_LABELS[state.feeBand]}`);
+      if (state.excludeZero) chips.push("자료상 0원 제외");
+      chips.push("연간 기준 (1년)");
+      els.activeChips.innerHTML = chips.map(chip => `<span class="chip">${escapeHtml(chip)}</span>`).join("");
+    }
+
+    /* === 차트 (충남 강조 적용) === */
+    function renderBarChart(target, data, options = {}) {
+      const { region = false, chungnamFlag = false } = options;
+      if (!data.length) {
+        target.innerHTML = `<div class="empty-state"><span class="empty-icon">📊</span>차트로 표시할 연간 평균등록금 자료가 없습니다.</div>`;
+        return;
+      }
+      const max = Math.max(...data.map(item => item.avg), 1);
+      target.innerHTML = data.map(item => {
+        const width = Math.max(4, Math.round(item.avg / max * 100));
+        const isCN = chungnamFlag && state.highlightChungnam && item.name === "충남";
+        const labelCls = isCN ? "bar-label chungnam" : "bar-label";
+        const fillCls = isCN ? "bar-fill chungnam" : "bar-fill";
+        return `
+          <div class="bar-row ${region ? "region" : ""}">
+            <div class="${labelCls}" title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</div>
+            <div class="bar-track" aria-label="${escapeHtml(item.name)} 연간 평균 ${formatManwon(item.avg)}">
+              <div class="${fillCls}" style="width:${width}%"></div>
+            </div>
+            <div class="bar-value">${formatManwon(item.avg)}<br><span class="bar-count">n=${formatNumber(item.count)}</span></div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderHistogram(filtered) {
+      const nonzero = getNonzero(filtered);
+      const counts = HIST_BINS.map(bin => nonzero.filter(row => row.tuition >= bin.min && row.tuition < bin.max).length);
+      const max = Math.max(...counts, 1);
+      els.histogramChart.innerHTML = HIST_BINS.map((bin, i) => {
+        const h = Math.max(4, Math.round(counts[i] / max * 100));
+        const showCount = counts[i] > 0;
+        return `
+          <div class="hist-col">
+            <div class="hist-bar" style="height: ${h}%;" title="${escapeHtml(bin.label)}만원 · ${counts[i]}개">
+              ${showCount ? `<span class="hist-count">${counts[i]}</span>` : ""}
+            </div>
+            <div class="hist-label">${escapeHtml(bin.label)}<br>만원</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderCharts(filtered) {
+      renderBarChart(els.estChart, groupAverages(filtered, "establishment"));
+      renderBarChart(els.regionChart, groupAverages(filtered, "region"), { region: true, chungnamFlag: true });
+      renderHistogram(filtered);
+    }
+
+    /* === 계산기 === */
+    function renderCalculator(filtered) {
+      const nonzero = getNonzero(filtered);
+      const avg = average(nonzero.map(row => row.tuition));
+      if (!nonzero.length || !avg) {
+        els.calcIntro.innerHTML = `<span>0원 제외 자료가 없어 계산할 수 없습니다.</span> 필터를 조정해 주세요.`;
+        els.calcRow.innerHTML = "";
+        return;
+      }
+      const conditionParts = [];
+      if (state.region !== "전체") conditionParts.push(state.region);
+      if (state.level !== "전체") conditionParts.push(state.level);
+      if (state.establishment !== "전체") conditionParts.push(state.establishment);
+      if (state.feeBand !== "all") conditionParts.push(BAND_LABELS[state.feeBand]);
+      const condition = conditionParts.length ? conditionParts.join(" · ") : "전체 (필터 미적용)";
+
+      els.calcIntro.innerHTML = `<span>${escapeHtml(condition)}</span> 조건의 연간 평균 <strong>${formatManwon(avg)}</strong> 기준 추정치 (0원 제외 ${formatNumber(nonzero.length)}개 평균)`;
+
+      const stats = [
+        { label: "연간 등록금 (1년)", value: formatManwon(avg), detail: formatWon(avg), color: "var(--brand-2)" },
+        { label: "4년 누적 (학사 4년제)", value: formatManwon(avg * 4), detail: formatWon(avg * 4), color: "var(--green-2)" },
+        { label: "6년 누적 (의·약·치 등)", value: formatManwon(avg * 6), detail: formatWon(avg * 6), color: "var(--purple)" }
+      ];
+      els.calcRow.innerHTML = stats.map(stat => `
+        <div class="calc-stat">
+          <div class="label">${escapeHtml(stat.label)}</div>
+          <div class="value" style="color:${stat.color};">${escapeHtml(stat.value)}</div>
+          <div class="detail">≈ ${escapeHtml(stat.detail)}</div>
+        </div>
+      `).join("");
+    }
+
+    /* === 비교 === */
+    function renderCompare(filtered) {
+      const selectedRows = [...state.selected]
+        .map(id => DATA.find(row => String(row.id) === String(id)))
+        .filter(Boolean);
+      if (!selectedRows.length) {
+        els.compareBox.innerHTML = `<div class="compare-empty"><span class="empty-icon" style="font-size:1.6rem;display:block;margin-bottom:0.3rem;opacity:0.6;">⚖</span>비교할 대학을 표에서 체크해 주세요. <strong>최대 6개</strong>까지 비교할 수 있습니다.</div>`;
+        return;
+      }
+      const max = Math.max(...selectedRows.map(row => Number(row.tuition) || 0), 1);
+      // 필터된 결과의 평균 - 비교 기준값
+      const nonzero = getNonzero(filtered);
+      const filterAvg = nonzero.length ? average(nonzero.map(r => r.tuition)) : 0;
+
+      els.compareBox.innerHTML = `
+        <div class="compare-list">
+          ${selectedRows.map(row => {
+            const width = Math.max(4, Math.round(((Number(row.tuition) || 0) / max) * 100));
+            const tuition = Number(row.tuition) || 0;
+            let diffHtml = "";
+            if (filterAvg > 0 && tuition > 0) {
+              const diff = ((tuition - filterAvg) / filterAvg) * 100;
+              const sign = diff >= 0 ? "+" : "";
+              const color = diff > 5 ? "var(--red)" : (diff < -5 ? "var(--green-2)" : "var(--muted-2)");
+              diffHtml = `<div class="compare-diff">필터 평균 대비 <strong style="color:${color}">${sign}${diff.toFixed(1)}%</strong></div>`;
+            }
+            const cnHighlight = state.highlightChungnam && row.isChungnam;
+            const fillCls = cnHighlight ? "mini-fill chungnam" : "mini-fill";
+            return `
+              <div class="compare-item">
+                <div>
+                  <div class="compare-name">${escapeHtml(row.name)}${cnHighlight ? ' <span class="badge badge-chungnam" style="margin-left:0.3rem;">★ 충남</span>' : ""}</div>
+                  <div class="compare-meta">${escapeHtml(row.region)} · ${escapeHtml(row.level)} · ${escapeHtml(row.establishment)} · 정원 ${formatNumber(row.capacity)}명</div>
+                  <div class="compare-meta-tags">
+                    ${row.isCyber ? '<span class="badge badge-cyber">사이버</span>' : ""}
+                    ${row.isPolytech ? '<span class="badge badge-polytech">폴리텍</span>' : ""}
+                  </div>
+                </div>
+                <div>
+                  <div class="mini-track" aria-label="${escapeHtml(row.name)} 연간 평균등록금 비율">
+                    <div class="${fillCls}" style="width:${width}%"></div>
+                  </div>
+                  ${diffHtml}
+                  <div class="compare-meta" style="margin-top:0.3rem;">4년 누적: <strong>${formatManwon(tuition * 4)}</strong></div>
+                </div>
+                <div class="num fee-cell ${tuition === 0 ? "zero" : ""}">${formatManwon(tuition)}<span class="won">연간 · ${formatWon(tuition)}</span></div>
+                <button class="icon-btn" type="button" data-remove-id="${row.id}" aria-label="${escapeHtml(row.name)} 비교에서 제거" title="비교에서 제거">×</button>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    /* === 테이블/모바일 카드 === */
+    function renderTable(sorted) {
+      const pageData = getPagedRows(sorted);
+      els.resultCount.innerHTML = `총 <strong>${formatNumber(sorted.length)}개</strong> 기관 중 ${formatNumber(pageData.start)}~${formatNumber(pageData.end)}개 표시 · 연간 평균등록금 기준`;
+      els.pageStatus.textContent = state.perPage === "all" ? "전체 표시" : `${formatNumber(state.page)} / ${formatNumber(pageData.totalPages)}쪽`;
+      els.prevPageBtn.disabled = state.perPage === "all" || state.page <= 1;
+      els.nextPageBtn.disabled = state.perPage === "all" || state.page >= pageData.totalPages;
+
+      if (!sorted.length) {
+        els.tableBody.innerHTML = `<tr><td colspan="8"><div class="empty-state"><span class="empty-icon">🔍</span>조건에 맞는 대학이 없습니다. 필터를 조정해 주세요.</div></td></tr>`;
+        els.mobileCards.innerHTML = `<div class="empty-state"><span class="empty-icon">🔍</span>조건에 맞는 대학이 없습니다. 필터를 조정해 주세요.</div>`;
+        return;
+      }
+
+      // PC 표
+      els.tableBody.innerHTML = pageData.rows.map(row => {
+        const selected = state.selected.has(String(row.id));
+        const cnClass = state.highlightChungnam && row.isChungnam ? "chungnam-row" : "";
+        const rowClass = `${selected ? "selected-row" : ""} ${Number(row.tuition) === 0 ? "fee-zero" : ""} ${cnClass}`.trim();
+        return `
+          <tr class="${rowClass}">
+            <td><input class="compare-check" type="checkbox" data-id="${row.id}" ${selected ? "checked" : ""} aria-label="${escapeHtml(row.name)} 비교 선택" /></td>
+            <td><span class="school-name">${highlightQuery(row.name)}</span></td>
+            <td><span class="badge badge-level">${escapeHtml(row.level)}</span></td>
+            <td>${badgeForEstablishment(row.establishment)}</td>
+            <td>${escapeHtml(row.region)}</td>
+            <td class="num">${formatNumber(row.capacity)}명</td>
+            <td class="num fee-cell ${Number(row.tuition) === 0 ? "zero" : ""}">${formatManwon(row.tuition)}<span class="won">연간 · ${formatWon(row.tuition)}</span></td>
+            <td>${noteBadges(row)}</td>
+          </tr>
+        `;
+      }).join("");
+
+      // 모바일 카드
+      els.mobileCards.innerHTML = pageData.rows.map(row => {
+        const selected = state.selected.has(String(row.id));
+        const cnClass = state.highlightChungnam && row.isChungnam ? "chungnam-row" : "";
+        return `
+          <article class="mobile-card ${cnClass}" data-id="${row.id}">
+            <div class="mobile-card-head">
+              <div>
+                <div class="school-name">${highlightQuery(row.name)}</div>
+                <div class="mobile-card-meta" style="margin-top:0.35rem;">
+                  <span class="badge badge-level">${escapeHtml(row.level)}</span>
+                  ${badgeForEstablishment(row.establishment)}
+                  <span class="chip">${escapeHtml(row.region)}</span>
+                </div>
+              </div>
+              <label class="compare-check-wrap" aria-label="${escapeHtml(row.name)} 비교 선택">
+                <input class="compare-check" type="checkbox" data-id="${row.id}" ${selected ? "checked" : ""} />
+                비교
+              </label>
+            </div>
+            <div class="mobile-card-numbers">
+              <div class="mobile-card-stat">
+                <span class="label">연간 평균등록금</span>
+                <span class="value fee ${Number(row.tuition) === 0 ? "zero" : ""}">${formatManwon(row.tuition)}</span>
+                <span class="sub">${formatWon(row.tuition)}</span>
+              </div>
+              <div class="mobile-card-stat">
+                <span class="label">입학정원</span>
+                <span class="value">${formatNumber(row.capacity)}명</span>
+                <span class="sub">4년 누적 ≈ ${formatManwon((Number(row.tuition) || 0) * 4)}</span>
+              </div>
+            </div>
+            <div class="mobile-card-notes">${noteBadges(row)}</div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderSortMarks() {
+      $$(".sort-mark").forEach(mark => mark.textContent = "");
+      const [key, direction] = state.sort.split(/-(?=[^-]+$)/);
+      const mark = document.querySelector(`[data-mark="${key}"]`);
+      if (mark) mark.textContent = direction === "desc" ? "↓" : "↑";
+    }
+
+    function applyAndRender(resetPage = true) {
+      if (resetPage) state.page = 1;
+      const filtered = filterData();
+      const sorted = sortData(filtered);
+      renderActiveSummary(filtered);
+      renderKpis(filtered);
+      renderCharts(filtered);
+      renderCalculator(filtered);
+      renderCompare(filtered);
+      renderTable(sorted);
+      renderSortMarks();
+      updateSearchClear();
+    }
+
+    function syncControls() {
+      els.searchInput.value = state.query;
+      els.levelFilter.value = state.level;
+      els.estFilter.value = state.establishment;
+      els.regionFilter.value = state.region;
+      els.feeFilter.value = state.feeBand;
+      els.sortSelect.value = state.sort;
+      els.excludeZero.checked = state.excludeZero;
+      els.highlightChungnam.checked = state.highlightChungnam;
+      els.perPageSelect.value = String(state.perPage);
+      updateSearchClear();
+    }
+
+    function updateSearchClear() {
+      if (state.query.trim()) els.searchWrap.classList.add("has-value");
+      else els.searchWrap.classList.remove("has-value");
+    }
+
+    /* === 프리셋 === */
+    function setPreset(name) {
+      state.query = "";
+      state.level = "전체";
+      state.establishment = "전체";
+      state.region = "전체";
+      state.feeBand = "all";
+      state.excludeZero = true;
+      state.sort = "name-asc";
+      let toastMsg = "빠른 보기를 적용했습니다.";
+      if (name === "chungnam") { state.region = "충남"; toastMsg = "★ 충남 소재 대학을 표시합니다."; }
+      if (name === "public") { state.establishment = "국공립"; toastMsg = "국공립 대학을 표시합니다."; }
+      if (name === "privateHigh") { state.establishment = "사립"; state.feeBand = "over700"; state.sort = "tuition-desc"; toastMsg = "사립 700만원 이상을 표시합니다."; }
+      if (name === "cheapPublic") { state.establishment = "국공립"; state.sort = "tuition-asc"; toastMsg = "국공립 저렴 순으로 표시합니다."; }
+      if (name === "zero") { state.feeBand = "zero"; state.excludeZero = false; state.sort = "name-asc"; toastMsg = "자료상 0원 기관을 표시합니다."; }
+      if (name === "cyber") {
+        // 사이버대학은 별도 필드이므로 검색어로 처리
+        state.query = "사이버";
+        toastMsg = "사이버대학을 검색합니다.";
+      }
+      if (name === "polytech") {
+        state.query = "폴리텍";
+        toastMsg = "폴리텍대학을 검색합니다.";
+      }
+      syncControls();
+      applyAndRender();
+      showToast(toastMsg);
+    }
+
+    function resetFilters() {
+      state.query = "";
+      state.level = "전체";
+      state.establishment = "전체";
+      state.region = "전체";
+      state.feeBand = "all";
+      state.excludeZero = true;
+      state.sort = "name-asc";
+      state.page = 1;
+      syncControls();
+      applyAndRender(false);
+      showToast("필터를 초기화했습니다.");
+    }
+
+    /* === CSV === */
+    function rowsToCsv(rows) {
+      const headers = ["학제별", "설립별", "대학명", "지역별", "입학정원", "평균입학금", "연간 평균등록금(원)", "연간 평균등록금(만원)", "4년 누적(원)", "비고"];
+      const body = rows.map(row => {
+        const notes = [];
+        if (row.isChungnam) notes.push("충남 소재");
+        if (Number(row.tuition) === 0) notes.push("자료상 0원");
+        if (Number(row.capacity) === 0) notes.push("정원 0명");
+        if (Number(row.tuition) >= 900 * MAN) notes.push("연간 900만원 이상");
+        if (Number(row.tuition) > 0 && Number(row.tuition) < 300 * MAN) notes.push("연간 300만원 미만");
+        if (row.isCyber) notes.push("사이버대학");
+        if (row.isPolytech) notes.push("폴리텍");
+        const tuition = Math.round(Number(row.tuition) || 0);
+        return [row.level, row.establishment, row.name, row.region, row.capacity, row.entranceFee, tuition, formatManwon(row.tuition).replace("만원",""), tuition * 4, notes.join("; ")];
+      });
+      return [headers, ...body].map(cols => cols.map(value => `"${String(value ?? "").replace(/"/g, '""')}"`).join(",")).join("\r\n");
+    }
+    function downloadCsv(rows, filename) {
+      const csv = rowsToCsv(rows);
+      const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url; a.download = filename;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    }
+    function downloadFilteredCsv() {
+      const today = new Date().toISOString().slice(0, 10);
+      downloadCsv(sortData(filterData()), `대학별_연간평균등록금_필터결과_${today}.csv`);
+      showToast("필터 결과 CSV를 저장했습니다.");
+    }
+    function downloadSelectedCsv() {
+      const rows = [...state.selected].map(id => DATA.find(row => String(row.id) === String(id))).filter(Boolean);
+      if (!rows.length) { showToast("선택한 대학이 없습니다."); return; }
+      const today = new Date().toISOString().slice(0, 10);
+      downloadCsv(rows, `대학별_연간평균등록금_선택대학_${today}.csv`);
+      showToast("선택 대학 CSV를 저장했습니다.");
+    }
+
+    /* === 요약 복사 === */
+    function currentSummaryText() {
+      const filtered = filterData();
+      const nonzero = getNonzero(filtered);
+      const avg = average(nonzero.map(row => row.tuition));
+      const med = median(nonzero.map(row => row.tuition));
+      const conds = [];
+      if (state.query.trim()) conds.push(`검색=${state.query.trim()}`);
+      if (state.level !== "전체") conds.push(`학제=${state.level}`);
+      if (state.establishment !== "전체") conds.push(`설립=${state.establishment}`);
+      if (state.region !== "전체") conds.push(`지역=${state.region}`);
+      if (state.feeBand !== "all") conds.push(`구간=${BAND_LABELS[state.feeBand]}`);
+      if (state.excludeZero) conds.push("0원 제외");
+      return [
+        "■ 대학별 연간 평균등록금 요약",
+        `자료 기준: ${META.sourceFile} (${META.dataDate})`,
+        "표시 기준: 연간 평균등록금(1년 기준, 학기 기준 아님)",
+        `조건: ${conds.length ? conds.join(", ") : "전체"}`,
+        `표시 기관: ${formatNumber(filtered.length)}개`,
+        `연간 평균: ${formatManwon(avg)} (0원 제외 ${formatNumber(nonzero.length)}개 기준)`,
+        `연간 중앙값: ${formatManwon(med)}`,
+        `4년 누적 추정: ${formatManwon(avg * 4)}`,
+        `6년 누적 추정: ${formatManwon(avg * 6)}`,
+        "유의: 공공데이터포털 자료를 가공한 평균값으로 실제 등록금과 차이가 있을 수 있음",
+        `출처: 공공데이터포털 · 한국장학재단 / 제작: 충남교육청진로융합교육원 정재연`
+      ].join("\n");
+    }
+    async function copySummary() {
+      const text = currentSummaryText();
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("현재 요약을 클립보드에 복사했습니다.");
+      } catch (error) {
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.style.position = "fixed"; ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          showToast("현재 요약을 복사했습니다.");
+        } catch (e) {
+          showToast("복사 기능을 사용할 수 없습니다. CSV 저장을 이용해 주세요.");
+        }
+      }
+    }
+
+    /* === 토스트 === */
+    function showToast(message) {
+      els.toast.textContent = message;
+      els.toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => els.toast.classList.remove("show"), 2000);
+    }
+
+    /* === 테마 === */
+    function applyTheme(theme) {
+      state.theme = theme;
+      document.documentElement.setAttribute("data-theme", theme);
+      if (els.themeToggle) {
+        els.themeToggle.textContent = theme === "dark" ? "☀" : "🌙";
+        els.themeToggle.setAttribute("aria-label", theme === "dark" ? "라이트모드 전환" : "다크모드 전환");
+        els.themeToggle.title = theme === "dark" ? "라이트모드 (Shift+D)" : "다크모드 (Shift+D)";
+      }
+      try { window.sessionStorage?.setItem("uniTuitionTheme", theme); } catch (e) {}
+    }
+
+    /* === 이벤트 === */
+    function bindEvents() {
+      els.searchInput.addEventListener("input", event => { state.query = event.target.value; applyAndRender(); });
+      els.searchClear.addEventListener("click", () => {
+        state.query = "";
+        els.searchInput.value = "";
+        applyAndRender();
+        els.searchInput.focus();
+      });
+      els.levelFilter.addEventListener("change", event => { state.level = event.target.value; applyAndRender(); });
+      els.estFilter.addEventListener("change", event => { state.establishment = event.target.value; applyAndRender(); });
+      els.regionFilter.addEventListener("change", event => { state.region = event.target.value; applyAndRender(); });
+      els.feeFilter.addEventListener("change", event => {
+        state.feeBand = event.target.value;
+        if (state.feeBand === "zero") {
+          state.excludeZero = false;
+          els.excludeZero.checked = false;
+        }
+        applyAndRender();
+      });
+      els.sortSelect.addEventListener("change", event => { state.sort = event.target.value; applyAndRender(false); });
+      els.excludeZero.addEventListener("change", event => { state.excludeZero = event.target.checked; applyAndRender(); });
+      els.highlightChungnam.addEventListener("change", event => { state.highlightChungnam = event.target.checked; applyAndRender(false); });
+      els.perPageSelect.addEventListener("change", event => { state.perPage = event.target.value === "all" ? "all" : Number(event.target.value); applyAndRender(); });
+      els.resetBtn.addEventListener("click", resetFilters);
+      els.downloadBtn.addEventListener("click", downloadFilteredCsv);
+      els.downloadSelectedBtn.addEventListener("click", downloadSelectedCsv);
+      els.printBtn.addEventListener("click", () => window.print());
+      els.copySummaryBtn.addEventListener("click", copySummary);
+      els.clearCompareBtn.addEventListener("click", () => {
+        if (!state.selected.size) { showToast("선택된 대학이 없습니다."); return; }
+        state.selected.clear();
+        applyAndRender(false);
+        showToast("비교 선택을 해제했습니다.");
+      });
+      els.prevPageBtn.addEventListener("click", () => { state.page -= 1; applyAndRender(false); window.scrollTo({ top: document.getElementById("tableSection").offsetTop - 80, behavior: "smooth" }); });
+      els.nextPageBtn.addEventListener("click", () => { state.page += 1; applyAndRender(false); window.scrollTo({ top: document.getElementById("tableSection").offsetTop - 80, behavior: "smooth" }); });
+
+      els.themeToggle.addEventListener("click", () => applyTheme(state.theme === "dark" ? "light" : "dark"));
+
+      $$("[data-preset]").forEach(button => button.addEventListener("click", () => setPreset(button.dataset.preset)));
+
+      $$("thead th.sortable").forEach(th => {
+        th.addEventListener("click", () => {
+          const key = th.dataset.sortKey;
+          const [currentKey, currentDirection] = state.sort.split(/-(?=[^-]+$)/);
+          const nextDirection = currentKey === key && currentDirection === "asc" ? "desc" : "asc";
+          state.sort = `${key}-${nextDirection}`;
+          els.sortSelect.value = state.sort;
+          applyAndRender(false);
+        });
+      });
+
+      // 체크박스 (PC + 모바일)
+      function handleCheck(event) {
+        const checkbox = event.target.closest(".compare-check");
+        if (!checkbox) return;
+        const id = String(checkbox.dataset.id);
+        if (checkbox.checked) {
+          if (state.selected.size >= 6) {
+            checkbox.checked = false;
+            showToast("비교는 최대 6개까지 선택할 수 있습니다.");
+            return;
+          }
+          state.selected.add(id);
+        } else {
+          state.selected.delete(id);
+        }
+        applyAndRender(false);
+      }
+      els.tableBody.addEventListener("change", handleCheck);
+      els.mobileCards.addEventListener("change", handleCheck);
+
+      els.compareBox.addEventListener("click", event => {
+        const button = event.target.closest("[data-remove-id]");
+        if (!button) return;
+        state.selected.delete(String(button.dataset.removeId));
+        applyAndRender(false);
+      });
+
+      // 스크롤 탑
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 600) els.scrollTopBtn.classList.add("show");
+        else els.scrollTopBtn.classList.remove("show");
+      }, { passive: true });
+      els.scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+      // 키보드 단축키
+      document.addEventListener("keydown", event => {
+        const target = event.target;
+        const isFormElement = target.matches("input, select, textarea");
+
+        // /  로 검색창 포커스
+        if (event.key === "/" && !isFormElement && !event.ctrlKey && !event.metaKey) {
+          event.preventDefault();
+          els.searchInput.focus();
+          els.searchInput.select();
+        }
+        // Ctrl/Cmd+F 도 가로채기
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "f") {
+          event.preventDefault();
+          els.searchInput.focus();
+          els.searchInput.select();
+        }
+        // Esc로 검색 클리어
+        if (event.key === "Escape" && target === els.searchInput) {
+          state.query = "";
+          els.searchInput.value = "";
+          applyAndRender();
+        }
+        // Shift+D 다크모드
+        if (event.shiftKey && event.key === "D" && !isFormElement) {
+          event.preventDefault();
+          applyTheme(state.theme === "dark" ? "light" : "dark");
+        }
+        // Shift+P 인쇄
+        if (event.shiftKey && event.key === "P" && !isFormElement) {
+          event.preventDefault();
+          window.print();
+        }
+      });
+    }
+
+    /* === init === */
+    function init() {
+      applyTheme(state.theme);
+      populateSelect(els.levelFilter, uniqueValues("level"));
+      populateSelect(els.estFilter, uniqueValues("establishment"));
+      populateSelect(els.regionFilter, uniqueValues("region"));
+      syncControls();
+      bindEvents();
+      applyAndRender(false);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

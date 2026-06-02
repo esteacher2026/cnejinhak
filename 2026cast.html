@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026학년도 대학수학능력시험 등급구분 표준점수 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --navy-900: #0a2540;
+  --navy-800: #1a365d;
+  --navy-700: #2c5282;
+  --navy-600: #3b6cb1;
+  --navy-500: #4a7fc5;
+  --blue-50: #ebf4ff;
+  --blue-100: #d6e6fa;
+  --gold: #c69749;
+  --gold-light: #e8c984;
+  --paper: #fafaf7;
+  --paper-2: #f3f2ec;
+  --ink: #1a1a1a;
+  --ink-2: #4a4a4a;
+  --ink-3: #7a7a7a;
+  --line: #d4d4ce;
+  --line-soft: #e8e8e0;
+  --danger: #b91c1c;
+  --grade-1: #1e3a8a;
+  --grade-2: #1e40af;
+  --grade-3: #2563eb;
+  --grade-4: #3b82f6;
+  --grade-5: #60a5fa;
+  --grade-6: #93c5fd;
+  --grade-7: #bfdbfe;
+  --grade-8: #dbeafe;
+  --grade-9: #eff6ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(74, 127, 197, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(198, 151, 73, 0.03) 0%, transparent 50%);
+}
+
+.serif { font-family: 'Gowun Batang', 'Noto Serif KR', serif; }
+
+/* ── Header ───────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+  color: white;
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--gold);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 400px; height: 100%;
+  background: radial-gradient(circle, rgba(198, 151, 73, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Home Button (헤더 상단) ───────── */
+.home-btn-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.home-btn-top:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(198, 151, 73, 0.35);
+}
+
+.home-btn-top .home-btn-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* ── Floating Home Button (우측 하단) ─ */
+.home-btn-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.35rem;
+  background: var(--navy-900);
+  color: white;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.28), 0 2px 6px rgba(10, 37, 64, 0.15);
+  border: 2px solid var(--gold);
+  z-index: 100;
+  transition: all 0.25s ease;
+}
+
+.home-btn-float:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(198, 151, 73, 0.4), 0 4px 8px rgba(10, 37, 64, 0.2);
+}
+
+.home-btn-float .home-btn-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.home-btn-float .home-btn-label {
+  letter-spacing: 0.02em;
+}
+
+.header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.header-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-light);
+}
+
+.header h1 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.header h1 .accent { color: var(--gold-light); }
+
+.header-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.header-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.header-meta strong { color: white; font-weight: 600; }
+
+/* ── Main ─────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px; height: 1.4rem;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.section-title-sub {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ink-3);
+  margin-left: auto;
+}
+
+/* ── Quick Cards ──────────────────── */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.quick-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.quick-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
+  border-color: var(--navy-600);
+}
+
+.quick-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--navy-700);
+}
+
+.quick-card.absolute::before { background: var(--gold); }
+
+.quick-card-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.quick-card-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 1rem;
+  font-family: 'Gowun Batang', serif;
+}
+
+.quick-card-value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  line-height: 1;
+  font-feature-settings: 'tnum';
+}
+
+.quick-card-unit {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-left: 0.25rem;
+}
+
+.quick-card-desc {
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.absolute-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--gold);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Notice ───────────────────────── */
+.notice {
+  background: linear-gradient(to right, #fff7ed 0%, #fffbf3 100%);
+  border-left: 4px solid var(--gold);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.notice-icon {
+  font-size: 1.1rem;
+  margin-top: 0.05rem;
+}
+
+.notice strong { color: var(--navy-900); font-weight: 600; }
+
+/* ── Tabs ─────────────────────────── */
+.tabs-wrap {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(10, 37, 64, 0.04);
+}
+
+.tabs {
+  display: flex;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.tab {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  position: relative;
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover { color: var(--navy-700); background: rgba(255,255,255,0.5); }
+
+.tab.active {
+  color: var(--navy-900);
+  background: white;
+  border-bottom-color: var(--navy-700);
+}
+
+.tab-count {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  background: var(--line-soft);
+  color: var(--ink-2);
+  font-size: 0.72rem;
+  border-radius: 999px;
+  margin-left: 0.4rem;
+  font-weight: 500;
+}
+
+.tab.active .tab-count { background: var(--navy-700); color: white; }
+
+/* ── Subject Selector ─────────────── */
+.subject-controls {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.subject-chip {
+  padding: 0.5rem 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.subject-chip:hover {
+  border-color: var(--navy-600);
+  color: var(--navy-700);
+}
+
+.subject-chip.active {
+  background: var(--navy-700);
+  color: white;
+  border-color: var(--navy-700);
+}
+
+.subject-chip.absolute::after {
+  content: '절';
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.35rem;
+  background: var(--gold);
+  color: white;
+  font-size: 0.65rem;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.subject-chip.active.absolute::after { background: var(--gold-light); color: var(--navy-900); }
+
+/* ── Content Panel ────────────────── */
+.content-panel { padding: 2rem; }
+
+.subject-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--navy-900);
+}
+
+.subject-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.subject-stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+
+.subject-stats strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--navy-900);
+  font-weight: 700;
+  font-feature-settings: 'tnum';
+}
+
+/* ── Two Column Layout ────────────── */
+.dual-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+  .dual-layout { grid-template-columns: 1fr; }
+}
+
+.panel-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.panel-label::before {
+  content: '';
+  width: 16px; height: 1px;
+  background: var(--ink-3);
+}
+
+/* ── Grade Table ──────────────────── */
+.grade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.grade-table th {
+  background: var(--navy-900);
+  color: white;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.grade-table td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: center;
+  font-feature-settings: 'tnum';
+}
+
+.grade-table tr:last-child td { border-bottom: none; }
+.grade-table tr:hover td { background: var(--blue-50); }
+
+.grade-cell {
+  font-weight: 700;
+  color: white;
+  width: 50px;
+}
+
+.grade-1 { background: var(--grade-1); }
+.grade-2 { background: var(--grade-2); }
+.grade-3 { background: var(--grade-3); }
+.grade-4 { background: var(--grade-4); }
+.grade-5 { background: var(--grade-5); }
+.grade-6 { background: var(--grade-6); color: var(--navy-900); }
+.grade-7 { background: var(--grade-7); color: var(--navy-900); }
+.grade-8 { background: var(--grade-8); color: var(--navy-900); }
+.grade-9 { background: var(--grade-9); color: var(--navy-900); }
+
+.cutoff-cell {
+  font-weight: 700;
+  color: var(--navy-900);
+  font-size: 1rem;
+}
+
+.cumul-cell {
+  color: var(--ink-3);
+  font-size: 0.82rem;
+}
+
+/* ── Chart Container ──────────────── */
+.chart-box {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+  min-height: 380px;
+}
+
+/* ── Comparison Section ───────────── */
+.compare-section {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(10, 37, 64, 0.04);
+}
+
+.compare-section.hidden { display: none; }
+
+.compare-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.compare-btn {
+  padding: 0.5rem 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.compare-btn.active {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
+  font-weight: 600;
+}
+
+.compare-chart-box {
+  background: var(--paper);
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 400px;
+}
+
+/* ── Footer ───────────────────────── */
+.footer {
+  background: var(--navy-900);
+  color: rgba(255,255,255,0.7);
+  padding: 2rem;
+  margin-top: 3rem;
+  font-size: 0.82rem;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer strong { color: white; font-weight: 600; }
+
+.footer-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  color: white;
+  font-size: 0.82rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btn:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); }
+
+/* ── Print ────────────────────────── */
+@media print {
+  body { background: white; }
+  .header { background: white !important; color: var(--navy-900) !important; padding: 1rem; border-bottom: 2px solid var(--navy-900); }
+  .header h1, .header-tag, .header-sub, .header-meta { color: var(--navy-900) !important; }
+  .header-tag { background: var(--paper-2) !important; border-color: var(--line) !important; }
+  .tabs, .subject-controls, .compare-section, .footer-actions, .notice { display: none !important; }
+  .home-btn-top, .home-btn-float { display: none !important; }
+  .quick-grid { page-break-after: avoid; }
+  .content-panel { padding: 1rem; }
+  .chart-box { page-break-inside: avoid; }
+  .footer { background: white; color: var(--navy-900); border-top: 1px solid var(--line); }
+}
+
+/* ── Responsive ───────────────────── */
+@media (max-width: 768px) {
+  .header { padding: 1.5rem 1rem; }
+  .header h1 { font-size: 1.6rem; }
+  .container { padding: 1rem; }
+  .content-panel { padding: 1.25rem; }
+  .subject-title { font-size: 1.4rem; }
+  .quick-card-value { font-size: 1.8rem; }
+  .grade-table { font-size: 0.8rem; }
+  .grade-table th, .grade-table td { padding: 0.5rem 0.3rem; }
+  
+  .home-btn-top {
+    position: static;
+    margin-bottom: 1rem;
+    font-size: 0.82rem;
+    padding: 0.45rem 0.9rem;
+  }
+  
+  .home-btn-float {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.85rem;
+  }
+  
+  .home-btn-float .home-btn-label {
+    display: none;
+  }
+  
+  .home-btn-float {
+    padding: 0.75rem 0.95rem;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+  }
+  
+  .home-btn-float .home-btn-icon {
+    font-size: 1.4rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="home-btn home-btn-top">
+      <span class="home-btn-icon">⌂</span>
+      <span>메인으로</span>
+    </a>
+    <div class="header-tag">한국교육과정평가원 공식자료</div>
+    <h1>2026<span class="accent">학년도</span> 대학수학능력시험<br>등급구분 표준점수 안내</h1>
+    <p class="header-sub">진학지도용 등급컷 · 인원 · 비율 종합 대시보드 (전체 36개 과목)</p>
+    <div class="header-meta">
+      <span>📅 시험 시행일: <strong>2025년 11월 13일</strong></span>
+      <span>📊 자료 출처: <strong>공공데이터포털(한국교육과정평가원)</strong></span>
+      <span>🏛 제작: <strong>충청남도교육청진로융합교육원 교육연구사 정재연</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- 핵심 1등급컷 빠른보기 -->
+  <h2 class="section-title">핵심 과목 1등급컷 <span class="section-title-sub">한눈에 확인하는 주요 과목 상위 1등급 구분점수</span></h2>
+  <div class="quick-grid" id="quickGrid"></div>
+
+  <!-- 안내 박스 -->
+  <div class="notice">
+    <span class="notice-icon">ⓘ</span>
+    <div>
+      <strong>등급 구분 안내</strong> · 국어·수학·탐구 영역은 <strong>표준점수</strong> 기준으로 등급이 산출되며, 영어·한국사·제2외국어/한문은 <strong>원점수 기준 절대평가</strong>입니다. 절대평가 과목은 카드 상단의 <span class="absolute-badge">절대평가</span> 표시로 구분됩니다.
+    </div>
+  </div>
+
+  <!-- 영역 탭 + 과목 상세 -->
+  <h2 class="section-title">영역별 과목 상세 <span class="section-title-sub">탭을 선택한 후 과목 칩을 클릭하세요</span></h2>
+  <div class="tabs-wrap">
+    <div class="tabs" id="tabs"></div>
+    <div class="subject-controls" id="subjectControls"></div>
+    <div class="content-panel" id="contentPanel"></div>
+  </div>
+
+  <!-- 영역 내 비교 -->
+  <div class="compare-section" id="compareSection">
+    <h2 class="section-title">선택과목 1등급컷 비교 <span class="section-title-sub">같은 영역 과목 간 표준점수 비교로 유불리 파악</span></h2>
+    <div class="compare-controls" id="compareControls"></div>
+    <div class="compare-chart-box">
+      <canvas id="compareChart"></canvas>
+    </div>
+    <p style="font-size: 0.8rem; color: var(--ink-3); margin-top: 0.75rem; line-height: 1.5;">
+      ※ 표준점수 기반 등급컷은 응시집단의 분포에 따라 달라지므로, 동일 표준점수라도 과목별 난이도와 응시인원에 따라 의미가 달라집니다. 비교 시 응시인원도 함께 참고하세요.
+    </p>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <strong>충청남도교육청진로융합교육원</strong> · 교육연구사 정재연 제작<br>
+      2026학년도 수능 등급구분 표준점수 안내 | 원자료 출처: 공공데이터포털(한국교육과정평가원, 2025.11.30. 공개)
+    </div>
+    <div class="footer-actions">
+      <button class="btn" onclick="window.print()">🖨️ 인쇄</button>
+      <button class="btn" onclick="downloadCSV()">📥 CSV 다운로드</button>
+    </div>
+  </div>
+</footer>
+
+<a href="index.html" class="home-btn home-btn-float" title="메인 페이지로 이동">
+  <span class="home-btn-icon">⌂</span>
+  <span class="home-btn-label">메인</span>
+</a>
+
+<script>
+const DATASET = {"categories":{"공통":["국어","수학","영어","한국사"],"사회탐구":["생활과 윤리","윤리와 사상","한국지리","세계지리","동아시아사","세계사","경제","정치와 법","사회·문화"],"과학탐구":["물리학 Ⅰ","화학 Ⅰ","생명과학 Ⅰ","지구과학 Ⅰ","물리학 Ⅱ","화학 Ⅱ","생명과학 Ⅱ","지구과학 Ⅱ"],"직업탐구":["성공적인 직업생활","농업 기초 기술","공업 일반","상업 경제","수산·해운 산업 기초","인간발달"],"제2외국어/한문":["독일어 Ⅰ","프랑스어 Ⅰ","스페인어 Ⅰ","중국어 Ⅰ","일본어 Ⅰ","러시아어 Ⅰ","아랍어 Ⅰ","베트남어 Ⅰ","한문 Ⅰ"]},"data":{"국어":{"category":"공통","is_absolute":false,"grades":[{"grade":1,"cutoff":"133","count":22935,"ratio":4.67},{"grade":2,"cutoff":"126","count":32472,"ratio":6.61},{"grade":3,"cutoff":"117","count":61651,"ratio":12.56},{"grade":4,"cutoff":"107","count":79879,"ratio":16.27},{"grade":5,"cutoff":"94","count":103808,"ratio":21.14},{"grade":6,"cutoff":"83","count":78361,"ratio":15.96},{"grade":7,"cutoff":"73","count":60399,"ratio":12.3},{"grade":8,"cutoff":"66","count":35758,"ratio":7.28},{"grade":9,"cutoff":"66미만","count":15726,"ratio":3.2}],"total":490989},"수학":{"category":"공통","is_absolute":false,"grades":[{"grade":1,"cutoff":"128","count":21797,"ratio":4.62},{"grade":2,"cutoff":"124","count":40814,"ratio":8.66},{"grade":3,"cutoff":"119","count":56615,"ratio":12.01},{"grade":4,"cutoff":"111","count":73946,"ratio":15.69},{"grade":5,"cutoff":"92","count":90963,"ratio":19.3},{"grade":6,"cutoff":"79","count":80296,"ratio":17.03},{"grade":7,"cutoff":"74","count":65871,"ratio":13.97},{"grade":8,"cutoff":"71","count":23614,"ratio":5.01},{"grade":9,"cutoff":"71미만","count":17458,"ratio":3.7}],"total":471374},"영어":{"category":"공통","is_absolute":true,"grades":[{"grade":1,"cutoff":"90","count":15154,"ratio":3.11},{"grade":2,"cutoff":"80","count":70017,"ratio":14.35},{"grade":3,"cutoff":"70","count":128336,"ratio":26.3},{"grade":4,"cutoff":"60","count":119692,"ratio":24.53},{"grade":5,"cutoff":"50","count":64807,"ratio":13.28},{"grade":6,"cutoff":"40","count":39134,"ratio":8.02},{"grade":7,"cutoff":"30","count":27510,"ratio":5.64},{"grade":8,"cutoff":"20","count":17794,"ratio":3.65},{"grade":9,"cutoff":"20미만","count":5497,"ratio":1.13}],"total":487941},"한국사":{"category":"공통","is_absolute":true,"grades":[{"grade":1,"cutoff":"40","count":75199,"ratio":15.23},{"grade":2,"cutoff":"35","count":64193,"ratio":13.0},{"grade":3,"cutoff":"30","count":74746,"ratio":15.13},{"grade":4,"cutoff":"25","count":77410,"ratio":15.67},{"grade":5,"cutoff":"20","count":72884,"ratio":14.76},{"grade":6,"cutoff":"15","count":60169,"ratio":12.18},{"grade":7,"cutoff":"10","count":52045,"ratio":10.54},{"grade":8,"cutoff":"5","count":15478,"ratio":3.13},{"grade":9,"cutoff":"5미만","count":1772,"ratio":0.36}],"total":493896},"생활과 윤리":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"66","count":14450,"ratio":7.36},{"grade":2,"cutoff":"64","count":8613,"ratio":4.39},{"grade":3,"cutoff":"59","count":23478,"ratio":11.96},{"grade":4,"cutoff":"53","count":34864,"ratio":17.75},{"grade":5,"cutoff":"46","count":41765,"ratio":21.27},{"grade":6,"cutoff":"42","count":29767,"ratio":15.16},{"grade":7,"cutoff":"36","count":28193,"ratio":14.36},{"grade":8,"cutoff":"33","count":11633,"ratio":5.92},{"grade":9,"cutoff":"33미만","count":3619,"ratio":1.84}],"total":196382},"윤리와 사상":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"66","count":2875,"ratio":6.23},{"grade":2,"cutoff":"64","count":3114,"ratio":6.75},{"grade":3,"cutoff":"59","count":6439,"ratio":13.95},{"grade":4,"cutoff":"53","count":6697,"ratio":14.51},{"grade":5,"cutoff":"45","count":9691,"ratio":21.0},{"grade":6,"cutoff":"41","count":8380,"ratio":18.16},{"grade":7,"cutoff":"38","count":4619,"ratio":10.01},{"grade":8,"cutoff":"34","count":3248,"ratio":7.04},{"grade":9,"cutoff":"34미만","count":1082,"ratio":2.34}],"total":46145},"한국지리":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":2116,"ratio":4.98},{"grade":2,"cutoff":"65","count":2605,"ratio":6.13},{"grade":3,"cutoff":"59","count":5940,"ratio":13.97},{"grade":4,"cutoff":"52","count":7376,"ratio":17.35},{"grade":5,"cutoff":"45","count":7909,"ratio":18.6},{"grade":6,"cutoff":"41","count":7294,"ratio":17.16},{"grade":7,"cutoff":"39","count":5272,"ratio":12.4},{"grade":8,"cutoff":"36","count":2639,"ratio":6.21},{"grade":9,"cutoff":"36미만","count":1367,"ratio":3.22}],"total":42518},"세계지리":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":1738,"ratio":4.17},{"grade":2,"cutoff":"63","count":3639,"ratio":8.74},{"grade":3,"cutoff":"59","count":4938,"ratio":11.85},{"grade":4,"cutoff":"53","count":6879,"ratio":16.51},{"grade":5,"cutoff":"45","count":9356,"ratio":22.46},{"grade":6,"cutoff":"40","count":7347,"ratio":17.64},{"grade":7,"cutoff":"38","count":4163,"ratio":9.99},{"grade":8,"cutoff":"35","count":2403,"ratio":5.77},{"grade":9,"cutoff":"35미만","count":1192,"ratio":2.86}],"total":41655},"동아시아사":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"65","count":1025,"ratio":5.0},{"grade":2,"cutoff":"62","count":1564,"ratio":7.63},{"grade":3,"cutoff":"59","count":2869,"ratio":13.99},{"grade":4,"cutoff":"55","count":3028,"ratio":14.77},{"grade":5,"cutoff":"46","count":3853,"ratio":18.79},{"grade":6,"cutoff":"40","count":3905,"ratio":19.04},{"grade":7,"cutoff":"37","count":2068,"ratio":10.08},{"grade":8,"cutoff":"35","count":1525,"ratio":7.44},{"grade":9,"cutoff":"35미만","count":670,"ratio":3.27}],"total":20507},"세계사":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":996,"ratio":5.01},{"grade":2,"cutoff":"64","count":1506,"ratio":7.57},{"grade":3,"cutoff":"59","count":2357,"ratio":11.85},{"grade":4,"cutoff":"52","count":3402,"ratio":17.11},{"grade":5,"cutoff":"45","count":4159,"ratio":20.92},{"grade":6,"cutoff":"41","count":3638,"ratio":18.3},{"grade":7,"cutoff":"38","count":2090,"ratio":10.51},{"grade":8,"cutoff":"36","count":1183,"ratio":5.95},{"grade":9,"cutoff":"36미만","count":553,"ratio":2.78}],"total":19884},"경제":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":367,"ratio":5.18},{"grade":2,"cutoff":"65","count":416,"ratio":5.87},{"grade":3,"cutoff":"59","count":951,"ratio":13.42},{"grade":4,"cutoff":"52","count":1122,"ratio":15.84},{"grade":5,"cutoff":"45","count":1398,"ratio":19.73},{"grade":6,"cutoff":"41","count":1298,"ratio":18.32},{"grade":7,"cutoff":"39","count":917,"ratio":12.94},{"grade":8,"cutoff":"36","count":436,"ratio":6.15},{"grade":9,"cutoff":"36미만","count":180,"ratio":2.54}],"total":7085},"정치와 법":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"65","count":1552,"ratio":4.69},{"grade":2,"cutoff":"62","count":3740,"ratio":11.29},{"grade":3,"cutoff":"59","count":3349,"ratio":10.11},{"grade":4,"cutoff":"55","count":5447,"ratio":16.44},{"grade":5,"cutoff":"46","count":6212,"ratio":18.75},{"grade":6,"cutoff":"40","count":5732,"ratio":17.31},{"grade":7,"cutoff":"37","count":3532,"ratio":10.66},{"grade":8,"cutoff":"34","count":2891,"ratio":8.73},{"grade":9,"cutoff":"34미만","count":668,"ratio":2.02}],"total":33123},"사회·문화":{"category":"사회탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"65","count":13720,"ratio":5.73},{"grade":2,"cutoff":"62","count":15575,"ratio":6.51},{"grade":3,"cutoff":"59","count":29609,"ratio":12.37},{"grade":4,"cutoff":"54","count":38368,"ratio":16.03},{"grade":5,"cutoff":"47","count":51607,"ratio":21.56},{"grade":6,"cutoff":"41","count":39194,"ratio":16.37},{"grade":7,"cutoff":"36","count":27218,"ratio":11.37},{"grade":8,"cutoff":"33","count":14692,"ratio":6.14},{"grade":9,"cutoff":"33미만","count":9420,"ratio":3.93}],"total":239403},"물리학 Ⅰ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"66","count":2196,"ratio":5.2},{"grade":2,"cutoff":"64","count":2488,"ratio":5.89},{"grade":3,"cutoff":"60","count":5190,"ratio":12.29},{"grade":4,"cutoff":"53","count":7892,"ratio":18.69},{"grade":5,"cutoff":"46","count":8429,"ratio":19.96},{"grade":6,"cutoff":"41","count":6561,"ratio":15.54},{"grade":7,"cutoff":"38","count":5245,"ratio":12.42},{"grade":8,"cutoff":"35","count":2764,"ratio":6.54},{"grade":9,"cutoff":"35미만","count":1467,"ratio":3.47}],"total":42232},"화학 Ⅰ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"67","count":1587,"ratio":6.81},{"grade":2,"cutoff":"64","count":1407,"ratio":6.03},{"grade":3,"cutoff":"59","count":2693,"ratio":11.55},{"grade":4,"cutoff":"52","count":3937,"ratio":16.88},{"grade":5,"cutoff":"46","count":4445,"ratio":19.06},{"grade":6,"cutoff":"41","count":4034,"ratio":17.3},{"grade":7,"cutoff":"38","count":3442,"ratio":14.76},{"grade":8,"cutoff":"36","count":1009,"ratio":4.33},{"grade":9,"cutoff":"36미만","count":767,"ratio":3.29}],"total":23321},"생명과학 Ⅰ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"67","count":4361,"ratio":4.24},{"grade":2,"cutoff":"63","count":8290,"ratio":8.06},{"grade":3,"cutoff":"59","count":13391,"ratio":13.02},{"grade":4,"cutoff":"54","count":16830,"ratio":16.37},{"grade":5,"cutoff":"47","count":21408,"ratio":20.82},{"grade":6,"cutoff":"42","count":15609,"ratio":15.18},{"grade":7,"cutoff":"37","count":12862,"ratio":12.51},{"grade":8,"cutoff":"33","count":6280,"ratio":6.11},{"grade":9,"cutoff":"33미만","count":3805,"ratio":3.7}],"total":102836},"지구과학 Ⅰ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"65","count":7736,"ratio":7.25},{"grade":2,"cutoff":"63","count":6203,"ratio":5.81},{"grade":3,"cutoff":"59","count":15240,"ratio":14.28},{"grade":4,"cutoff":"54","count":14217,"ratio":13.32},{"grade":5,"cutoff":"46","count":22536,"ratio":21.12},{"grade":6,"cutoff":"40","count":20288,"ratio":19.01},{"grade":7,"cutoff":"37","count":11028,"ratio":10.33},{"grade":8,"cutoff":"35","count":6188,"ratio":5.8},{"grade":9,"cutoff":"35미만","count":3293,"ratio":3.09}],"total":106729},"물리학 Ⅱ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"66","count":358,"ratio":6.84},{"grade":2,"cutoff":"63","count":388,"ratio":7.41},{"grade":3,"cutoff":"60","count":467,"ratio":8.92},{"grade":4,"cutoff":"54","count":900,"ratio":17.19},{"grade":5,"cutoff":"45","count":1206,"ratio":23.03},{"grade":6,"cutoff":"40","count":841,"ratio":16.06},{"grade":7,"cutoff":"38","count":505,"ratio":9.64},{"grade":8,"cutoff":"36","count":394,"ratio":7.52},{"grade":9,"cutoff":"36미만","count":177,"ratio":3.38}],"total":5236},"화학 Ⅱ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":235,"ratio":4.48},{"grade":2,"cutoff":"64","count":421,"ratio":8.03},{"grade":3,"cutoff":"59","count":608,"ratio":11.6},{"grade":4,"cutoff":"53","count":841,"ratio":16.04},{"grade":5,"cutoff":"45","count":1132,"ratio":21.59},{"grade":6,"cutoff":"41","count":838,"ratio":15.99},{"grade":7,"cutoff":"39","count":610,"ratio":11.64},{"grade":8,"cutoff":"36","count":370,"ratio":7.06},{"grade":9,"cutoff":"36미만","count":187,"ratio":3.57}],"total":5242},"생명과학 Ⅱ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"65","count":457,"ratio":6.28},{"grade":2,"cutoff":"63","count":583,"ratio":8.01},{"grade":3,"cutoff":"60","count":731,"ratio":10.04},{"grade":4,"cutoff":"54","count":1234,"ratio":16.95},{"grade":5,"cutoff":"45","count":1424,"ratio":19.56},{"grade":6,"cutoff":"41","count":1291,"ratio":17.74},{"grade":7,"cutoff":"37","count":1051,"ratio":14.44},{"grade":8,"cutoff":"35","count":310,"ratio":4.26},{"grade":9,"cutoff":"35미만","count":198,"ratio":2.72}],"total":7279},"지구과학 Ⅱ":{"category":"과학탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":251,"ratio":5.89},{"grade":2,"cutoff":"65","count":347,"ratio":8.14},{"grade":3,"cutoff":"60","count":452,"ratio":10.6},{"grade":4,"cutoff":"51","count":659,"ratio":15.45},{"grade":5,"cutoff":"44","count":951,"ratio":22.3},{"grade":6,"cutoff":"41","count":957,"ratio":22.44},{"grade":7,"cutoff":"39","count":308,"ratio":7.22},{"grade":8,"cutoff":"38","count":181,"ratio":4.24},{"grade":9,"cutoff":"38미만","count":158,"ratio":3.71}],"total":4264},"성공적인 직업생활":{"category":"직업탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":270,"ratio":7.65},{"grade":2,"cutoff":"65","count":199,"ratio":5.64},{"grade":3,"cutoff":"58","count":413,"ratio":11.7},{"grade":4,"cutoff":"51","count":548,"ratio":15.52},{"grade":5,"cutoff":"46","count":718,"ratio":20.34},{"grade":6,"cutoff":"42","count":644,"ratio":18.24},{"grade":7,"cutoff":"38","count":408,"ratio":11.56},{"grade":8,"cutoff":"36","count":215,"ratio":6.09},{"grade":9,"cutoff":"36미만","count":115,"ratio":3.26}],"total":3530},"농업 기초 기술":{"category":"직업탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":12,"ratio":4.74},{"grade":2,"cutoff":"65","count":18,"ratio":7.11},{"grade":3,"cutoff":"58","count":35,"ratio":13.83},{"grade":4,"cutoff":"51","count":48,"ratio":18.97},{"grade":5,"cutoff":"46","count":44,"ratio":17.39},{"grade":6,"cutoff":"41","count":47,"ratio":18.58},{"grade":7,"cutoff":"38","count":27,"ratio":10.67},{"grade":8,"cutoff":"35","count":16,"ratio":6.32},{"grade":9,"cutoff":"35미만","count":6,"ratio":2.37}],"total":253},"공업 일반":{"category":"직업탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"66","count":63,"ratio":5.23},{"grade":2,"cutoff":"64","count":77,"ratio":6.39},{"grade":3,"cutoff":"60","count":149,"ratio":12.37},{"grade":4,"cutoff":"54","count":202,"ratio":16.76},{"grade":5,"cutoff":"46","count":240,"ratio":19.92},{"grade":6,"cutoff":"41","count":201,"ratio":16.68},{"grade":7,"cutoff":"37","count":173,"ratio":14.36},{"grade":8,"cutoff":"35","count":71,"ratio":5.89},{"grade":9,"cutoff":"35미만","count":29,"ratio":2.41}],"total":1205},"상업 경제":{"category":"직업탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"67","count":71,"ratio":6.95},{"grade":2,"cutoff":"64","count":80,"ratio":7.83},{"grade":3,"cutoff":"61","count":91,"ratio":8.9},{"grade":4,"cutoff":"52","count":173,"ratio":16.93},{"grade":5,"cutoff":"45","count":218,"ratio":21.33},{"grade":6,"cutoff":"41","count":185,"ratio":18.1},{"grade":7,"cutoff":"39","count":95,"ratio":9.3},{"grade":8,"cutoff":"36","count":79,"ratio":7.73},{"grade":9,"cutoff":"36미만","count":30,"ratio":2.94}],"total":1022},"수산·해운 산업 기초":{"category":"직업탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"63","count":1,"ratio":11.11},{"grade":2,"cutoff":"-","count":0,"ratio":0},{"grade":3,"cutoff":"61","count":2,"ratio":22.22},{"grade":4,"cutoff":"51","count":1,"ratio":11.11},{"grade":5,"cutoff":"48","count":2,"ratio":22.22},{"grade":6,"cutoff":"46","count":1,"ratio":11.11},{"grade":7,"cutoff":"34","count":2,"ratio":22.22},{"grade":8,"cutoff":"-","count":0,"ratio":0},{"grade":9,"cutoff":"-","count":0,"ratio":0}],"total":9},"인간발달":{"category":"직업탐구","is_absolute":false,"grades":[{"grade":1,"cutoff":"68","count":71,"ratio":6.14},{"grade":2,"cutoff":"66","count":76,"ratio":6.57},{"grade":3,"cutoff":"60","count":139,"ratio":12.01},{"grade":4,"cutoff":"50","count":212,"ratio":18.32},{"grade":5,"cutoff":"45","count":205,"ratio":17.72},{"grade":6,"cutoff":"41","count":228,"ratio":19.71},{"grade":7,"cutoff":"39","count":108,"ratio":9.33},{"grade":8,"cutoff":"37","count":78,"ratio":6.74},{"grade":9,"cutoff":"37미만","count":40,"ratio":3.46}],"total":1157},"독일어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":222,"ratio":9.61},{"grade":2,"cutoff":"40","count":173,"ratio":7.49},{"grade":3,"cutoff":"35","count":136,"ratio":5.89},{"grade":4,"cutoff":"30","count":126,"ratio":5.46},{"grade":5,"cutoff":"25","count":149,"ratio":6.45},{"grade":6,"cutoff":"20","count":242,"ratio":10.48},{"grade":7,"cutoff":"15","count":479,"ratio":20.74},{"grade":8,"cutoff":"10","count":570,"ratio":24.69},{"grade":9,"cutoff":"10미만","count":212,"ratio":9.18}],"total":2309},"프랑스어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":216,"ratio":8.06},{"grade":2,"cutoff":"40","count":237,"ratio":8.85},{"grade":3,"cutoff":"35","count":175,"ratio":6.53},{"grade":4,"cutoff":"30","count":149,"ratio":5.56},{"grade":5,"cutoff":"25","count":155,"ratio":5.79},{"grade":6,"cutoff":"20","count":243,"ratio":9.07},{"grade":7,"cutoff":"15","count":562,"ratio":20.98},{"grade":8,"cutoff":"10","count":683,"ratio":25.49},{"grade":9,"cutoff":"10미만","count":259,"ratio":9.67}],"total":2679},"스페인어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":250,"ratio":6.14},{"grade":2,"cutoff":"40","count":224,"ratio":5.5},{"grade":3,"cutoff":"35","count":208,"ratio":5.11},{"grade":4,"cutoff":"30","count":212,"ratio":5.21},{"grade":5,"cutoff":"25","count":323,"ratio":7.93},{"grade":6,"cutoff":"20","count":553,"ratio":13.58},{"grade":7,"cutoff":"15","count":889,"ratio":21.83},{"grade":8,"cutoff":"10","count":1098,"ratio":26.96},{"grade":9,"cutoff":"10미만","count":316,"ratio":7.76}],"total":4073},"중국어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":606,"ratio":8.61},{"grade":2,"cutoff":"40","count":1262,"ratio":17.94},{"grade":3,"cutoff":"35","count":810,"ratio":11.51},{"grade":4,"cutoff":"30","count":538,"ratio":7.65},{"grade":5,"cutoff":"25","count":729,"ratio":10.36},{"grade":6,"cutoff":"20","count":1043,"ratio":14.82},{"grade":7,"cutoff":"15","count":1140,"ratio":16.2},{"grade":8,"cutoff":"10","count":731,"ratio":10.39},{"grade":9,"cutoff":"10미만","count":177,"ratio":2.52}],"total":7036},"일본어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":1085,"ratio":6.9},{"grade":2,"cutoff":"40","count":1110,"ratio":7.06},{"grade":3,"cutoff":"35","count":1006,"ratio":6.4},{"grade":4,"cutoff":"30","count":872,"ratio":5.55},{"grade":5,"cutoff":"25","count":1040,"ratio":6.62},{"grade":6,"cutoff":"20","count":1566,"ratio":9.97},{"grade":7,"cutoff":"15","count":3004,"ratio":19.12},{"grade":8,"cutoff":"10","count":3930,"ratio":25.01},{"grade":9,"cutoff":"10미만","count":2101,"ratio":13.37}],"total":15714},"러시아어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":38,"ratio":6.31},{"grade":2,"cutoff":"40","count":36,"ratio":5.98},{"grade":3,"cutoff":"35","count":32,"ratio":5.32},{"grade":4,"cutoff":"30","count":29,"ratio":4.82},{"grade":5,"cutoff":"25","count":23,"ratio":3.82},{"grade":6,"cutoff":"20","count":35,"ratio":5.81},{"grade":7,"cutoff":"15","count":71,"ratio":11.79},{"grade":8,"cutoff":"10","count":205,"ratio":34.05},{"grade":9,"cutoff":"10미만","count":133,"ratio":22.09}],"total":602},"아랍어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":55,"ratio":1.38},{"grade":2,"cutoff":"40","count":26,"ratio":0.65},{"grade":3,"cutoff":"35","count":41,"ratio":1.03},{"grade":4,"cutoff":"30","count":117,"ratio":2.94},{"grade":5,"cutoff":"25","count":515,"ratio":12.92},{"grade":6,"cutoff":"20","count":1021,"ratio":25.62},{"grade":7,"cutoff":"15","count":1099,"ratio":27.58},{"grade":8,"cutoff":"10","count":912,"ratio":22.89},{"grade":9,"cutoff":"10미만","count":199,"ratio":4.99}],"total":3985},"베트남어 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":48,"ratio":9.78},{"grade":2,"cutoff":"40","count":21,"ratio":4.28},{"grade":3,"cutoff":"35","count":14,"ratio":2.85},{"grade":4,"cutoff":"30","count":10,"ratio":2.04},{"grade":5,"cutoff":"25","count":24,"ratio":4.89},{"grade":6,"cutoff":"20","count":50,"ratio":10.18},{"grade":7,"cutoff":"15","count":102,"ratio":20.77},{"grade":8,"cutoff":"10","count":154,"ratio":31.36},{"grade":9,"cutoff":"10미만","count":68,"ratio":13.85}],"total":491},"한문 Ⅰ":{"category":"제2외국어/한문","is_absolute":true,"grades":[{"grade":1,"cutoff":"45","count":448,"ratio":3.38},{"grade":2,"cutoff":"40","count":1209,"ratio":9.12},{"grade":3,"cutoff":"35","count":2117,"ratio":15.97},{"grade":4,"cutoff":"30","count":2618,"ratio":19.75},{"grade":5,"cutoff":"25","count":2594,"ratio":19.57},{"grade":6,"cutoff":"20","count":2150,"ratio":16.22},{"grade":7,"cutoff":"15","count":1318,"ratio":9.94},{"grade":8,"cutoff":"10","count":620,"ratio":4.68},{"grade":9,"cutoff":"10미만","count":181,"ratio":1.37}],"total":13255}}};
+const { categories, data } = DATASET;
+const CATEGORY_LIST = Object.keys(categories);
+
+// State
+let currentCategory = '공통';
+let currentSubject = '국어';
+let detailChart = null;
+let compareChart = null;
+let compareMetric = 'cutoff'; // cutoff | count | ratio
+
+// ── Quick Cards ───────────────────────────────────
+function renderQuickCards() {
+  const featured = ['국어', '수학', '영어', '한국사'];
+  const html = featured.map(name => {
+    const d = data[name];
+    const g1 = d.grades.find(g => g.grade === 1);
+    const isAbs = d.is_absolute;
+    return `
+      <div class="quick-card ${isAbs ? 'absolute' : ''}" onclick="selectSubject('${d.category}', '${name}')">
+        <div class="quick-card-label">${isAbs ? '1등급 (원점수 기준)' : '1등급 표준점수'}</div>
+        <div class="quick-card-name">${name}</div>
+        <div>
+          <span class="quick-card-value">${g1.cutoff}</span>
+          <span class="quick-card-unit">점 이상</span>
+        </div>
+        <div class="quick-card-desc">
+          <span>${g1.count.toLocaleString()}명 · ${g1.ratio}%</span>
+          ${isAbs ? '<span class="absolute-badge">절대평가</span>' : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('quickGrid').innerHTML = html;
+}
+
+// ── Tabs ──────────────────────────────────────────
+function renderTabs() {
+  const html = CATEGORY_LIST.map(cat => `
+    <button class="tab ${cat === currentCategory ? 'active' : ''}" onclick="selectCategory('${cat}')">
+      ${cat}<span class="tab-count">${categories[cat].length}</span>
+    </button>
+  `).join('');
+  document.getElementById('tabs').innerHTML = html;
+}
+
+function selectCategory(cat) {
+  currentCategory = cat;
+  currentSubject = categories[cat][0];
+  renderTabs();
+  renderSubjectChips();
+  renderContent();
+  renderCompareSection();
+}
+
+// ── Subject Chips ─────────────────────────────────
+function renderSubjectChips() {
+  const subs = categories[currentCategory];
+  const html = subs.map(name => {
+    const isAbs = data[name].is_absolute;
+    return `
+      <button class="subject-chip ${name === currentSubject ? 'active' : ''} ${isAbs ? 'absolute' : ''}" 
+              onclick="selectSubject('${currentCategory}', '${name}')">
+        ${name}
+      </button>
+    `;
+  }).join('');
+  document.getElementById('subjectControls').innerHTML = html;
+}
+
+function selectSubject(cat, name) {
+  if (cat !== currentCategory) {
+    currentCategory = cat;
+    renderTabs();
+  }
+  currentSubject = name;
+  renderSubjectChips();
+  renderContent();
+  // 비교영역 컨테이너 자동 스크롤 X (의도된 정적 동작)
+  document.querySelector('.tabs-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Content Panel ─────────────────────────────────
+function renderContent() {
+  const d = data[currentSubject];
+  const isAbs = d.is_absolute;
+  
+  // 누적 비율 계산
+  let cumul = 0;
+  const cumulRatios = d.grades.map(g => { cumul += g.ratio; return cumul.toFixed(2); });
+
+  const tableRows = d.grades.map((g, idx) => `
+    <tr>
+      <td class="grade-cell grade-${g.grade}">${g.grade}</td>
+      <td class="cutoff-cell">${g.cutoff}${isAbs && idx === 0 ? '점~' : (isAbs ? '점~' : '')}</td>
+      <td>${g.count.toLocaleString()}</td>
+      <td>${g.ratio}%</td>
+      <td class="cumul-cell">${cumulRatios[idx]}%</td>
+    </tr>
+  `).join('');
+
+  const totalCount = d.total.toLocaleString();
+  const top3 = (d.grades.slice(0,3).reduce((a,b)=>a+b.ratio,0)).toFixed(2);
+
+  document.getElementById('contentPanel').innerHTML = `
+    <div class="subject-header">
+      <div class="subject-title">
+        ${currentSubject}
+        ${isAbs ? '<span class="absolute-badge">절대평가</span>' : ''}
+      </div>
+      <div class="subject-stats">
+        <div>응시인원<strong>${totalCount}명</strong></div>
+        <div>1~3등급 누적<strong>${top3}%</strong></div>
+        <div>1등급 컷<strong>${d.grades[0].cutoff}${isAbs ? '점' : ''}</strong></div>
+      </div>
+    </div>
+
+    <div class="dual-layout">
+      <div>
+        <div class="panel-label">등급 구분점수 · 인원 · 비율</div>
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th>등급</th>
+              <th>${isAbs ? '원점수' : '표준점수'}</th>
+              <th>인원(명)</th>
+              <th>비율</th>
+              <th>누적</th>
+            </tr>
+          </thead>
+          <tbody>${tableRows}</tbody>
+        </table>
+      </div>
+      <div>
+        <div class="panel-label">등급별 인원 분포</div>
+        <div class="chart-box">
+          <canvas id="detailChart"></canvas>
+        </div>
+      </div>
+    </div>
+  `;
+
+  renderDetailChart();
+}
+
+// ── Detail Chart ──────────────────────────────────
+function renderDetailChart() {
+  if (detailChart) detailChart.destroy();
+  
+  const d = data[currentSubject];
+  const gradeColors = ['#1e3a8a','#1e40af','#2563eb','#3b82f6','#60a5fa','#93c5fd','#bfdbfe','#dbeafe','#eff6ff'];
+  
+  const ctx = document.getElementById('detailChart').getContext('2d');
+  detailChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: d.grades.map(g => g.grade + '등급'),
+      datasets: [{
+        label: '인원(명)',
+        data: d.grades.map(g => g.count),
+        backgroundColor: gradeColors,
+        borderColor: gradeColors.map(c => c),
+        borderWidth: 1,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0a2540',
+          padding: 12,
+          titleFont: { size: 13, weight: 700 },
+          bodyFont: { size: 12 },
+          callbacks: {
+            label: function(ctx) {
+              const g = d.grades[ctx.dataIndex];
+              return [
+                `인원: ${g.count.toLocaleString()}명`,
+                `비율: ${g.ratio}%`,
+                `구분점수: ${g.cutoff}`
+              ];
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: v => v.toLocaleString(),
+            font: { family: 'Pretendard', size: 11 }
+          },
+          grid: { color: '#e8e8e0' }
+        },
+        x: {
+          ticks: { font: { family: 'Pretendard', size: 11, weight: 600 } },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+}
+
+// ── Compare Section ───────────────────────────────
+function renderCompareSection() {
+  // 공통(국·수·영·한)은 성격이 다 다르므로 비교 의미 약함. 공통만 숨김.
+  const compareSection = document.getElementById('compareSection');
+  if (currentCategory === '공통' || categories[currentCategory].length < 2) {
+    compareSection.classList.add('hidden');
+    return;
+  }
+  compareSection.classList.remove('hidden');
+  
+  const metrics = [
+    { key: 'cutoff', label: '1등급 구분점수' },
+    { key: 'ratio', label: '1등급 비율' },
+    { key: 'count', label: '응시인원' }
+  ];
+  
+  document.getElementById('compareControls').innerHTML = metrics.map(m => `
+    <button class="compare-btn ${m.key === compareMetric ? 'active' : ''}" onclick="setCompareMetric('${m.key}')">
+      ${m.label}
+    </button>
+  `).join('');
+  
+  renderCompareChart();
+}
+
+function setCompareMetric(m) {
+  compareMetric = m;
+  renderCompareSection();
+}
+
+function renderCompareChart() {
+  if (compareChart) compareChart.destroy();
+  
+  const subs = categories[currentCategory];
+  const labels = subs;
+  let values, label, format;
+  
+  if (compareMetric === 'cutoff') {
+    values = subs.map(s => {
+      const c = data[s].grades[0].cutoff;
+      return parseFloat(c) || 0;
+    });
+    label = '1등급 구분점수';
+    format = v => v + '점';
+  } else if (compareMetric === 'ratio') {
+    values = subs.map(s => data[s].grades[0].ratio);
+    label = '1등급 비율(%)';
+    format = v => v + '%';
+  } else {
+    values = subs.map(s => data[s].total);
+    label = '응시인원(명)';
+    format = v => v.toLocaleString() + '명';
+  }
+  
+  const ctx = document.getElementById('compareChart').getContext('2d');
+  
+  // X축 시작점 동적 계산: 막대가 잘 보이도록 최솟값보다 더 낮은 지점에서 시작
+  // (Chart.js 기본 동작은 최솟값=축 시작점 → 가장 작은 막대가 안 보이는 문제 발생)
+  let xMin, xMax;
+  if (compareMetric === 'cutoff' || compareMetric === 'ratio') {
+    const minV = Math.min(...values);
+    const maxV = Math.max(...values);
+    const range = maxV - minV;
+    // 최솟값 아래로 (전체 범위의 30%) 또는 (최솟값의 10%) 중 큰 값만큼 패딩
+    const padding = Math.max(range * 0.3, minV * 0.1, 1);
+    xMin = Math.max(0, Math.floor(minV - padding));
+    xMax = Math.ceil(maxV + range * 0.05);
+  } else {
+    xMin = 0;
+    xMax = undefined;
+  }
+  
+  compareChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label,
+        data: values,
+        backgroundColor: subs.map(s => s === currentSubject ? '#c69749' : '#3b6cb1'),
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0a2540',
+          padding: 12,
+          callbacks: { label: ctx => `${label}: ${format(ctx.raw)}` }
+        },
+        // 막대 끝에 값 표시
+        datalabels: false
+      },
+      scales: {
+        x: {
+          min: xMin,
+          max: xMax,
+          ticks: { 
+            callback: v => compareMetric === 'count' ? v.toLocaleString() : v,
+            font: { family: 'Pretendard', size: 11 }
+          },
+          grid: { color: '#e8e8e0' }
+        },
+        y: {
+          ticks: { font: { family: 'Pretendard', size: 12, weight: 500 } },
+          grid: { display: false }
+        }
+      },
+      animation: {
+        onComplete: function() {
+          // 막대 끝에 값 표시
+          const chart = this;
+          const ctx = chart.ctx;
+          ctx.font = '600 11px Pretendard';
+          ctx.fillStyle = '#1a1a1a';
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'middle';
+          chart.data.datasets[0].data.forEach((value, idx) => {
+            const meta = chart.getDatasetMeta(0);
+            const bar = meta.data[idx];
+            const text = format(value);
+            ctx.fillText(text, bar.x + 6, bar.y);
+          });
+        }
+      }
+    }
+  });
+}
+
+// ── CSV Download ──────────────────────────────────
+function downloadCSV() {
+  const rows = [['등급','과목','구분점수','인원(명)','비율(%)']];
+  Object.keys(data).forEach(sub => {
+    data[sub].grades.forEach(g => {
+      rows.push([g.grade, sub, g.cutoff, g.count, g.ratio]);
+    });
+  });
+  const csv = '\uFEFF' + rows.map(r => r.join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '2026수능_등급구분_표준점수.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ── Init ──────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  renderQuickCards();
+  renderTabs();
+  renderSubjectChips();
+  renderContent();
+  renderCompareSection();
+});
+</script>
+</body>
+</html>

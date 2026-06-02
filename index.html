@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EST 진학정보실</title>
+
+  <!-- Favicon (브라우저 탭 아이콘) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <meta name="description" content="교사를 위한 대입 전형, 학생부, 과목 선택, 전공 탐색, 면접, 대입 일정 정보 자료실" />
+  <meta name="author" content="EST" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EST 진학정보실" />
+  <meta property="og:description" content="대입 전형, 학생부, 과목 선택, 전공 탐색, 면접, 대입 일정을 한눈에 보는 진학 정보 자료실" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="EST 진학정보실" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="EST 진학정보실" />
+  <meta name="twitter:description" content="교사를 위한 진학 정보 자료실" />
+
+  <meta name="theme-color" content="#102a4c" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a1628" media="(prefers-color-scheme: dark)" />
+
+  <!-- 다크모드 깜빡임(FOUC) 방지: 헤더에서 즉시 적용 -->
+  <script>
+    (function() {
+      document.documentElement.classList.add('js');
+      try {
+        var stored = localStorage.getItem('est-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+
+  <!-- Pretendard: 한글 본문에 적합한 모던 sans-serif -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <style>
+    /* ============================================================
+       Design tokens
+       ============================================================ */
+    :root {
+      --navy: #102a4c;
+      --navy-2: #183b68;
+      --blue: #2457a6;
+      --blue-soft: #eaf2ff;
+      --gold: #b48932;
+      --gold-soft: #f7efd9;
+      --ink: #1e293b;
+      --text: #334155;
+      --muted: #64748b;
+      --line: #d8e1ee;
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --paper-2: #fbfcfe;
+      --chip-bg: #ffffff;
+      --chip-text: #334155;
+      --chip-border: #d8e1ee;
+      --chip-active-bg: #102a4c;
+      --chip-active-text: #ffffff;
+      --shadow: 0 18px 42px rgba(16, 42, 76, 0.13);
+      --shadow-soft: 0 10px 26px rgba(16, 42, 76, 0.08);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1120px;
+      --focus-ring: 0 0 0 3px rgba(36, 87, 166, 0.35);
+    }
+
+    [data-theme="dark"] {
+      --navy: #cbd5e1;
+      --navy-2: #94a3b8;
+      --blue: #7eb4ff;
+      --blue-soft: #1a2942;
+      --gold: #d4a955;
+      --gold-soft: #2a2317;
+      --ink: #e2e8f0;
+      --text: #cbd5e1;
+      --muted: #94a3b8;
+      --line: #1f2d44;
+      --bg: #0a1628;
+      --paper: #122036;
+      --paper-2: #16263f;
+      --chip-bg: #16263f;
+      --chip-text: #cbd5e1;
+      --chip-border: #243652;
+      --chip-active-bg: #7eb4ff;
+      --chip-active-text: #0a1628;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
+      --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
+      --focus-ring: 0 0 0 3px rgba(126, 180, 255, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(16, 42, 76, 0.035) 0%, rgba(255, 255, 255, 0) 360px),
+        var(--bg);
+      line-height: 1.65;
+      word-break: keep-all;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    [data-theme="dark"] body {
+      background:
+        linear-gradient(180deg, rgba(126, 180, 255, 0.04) 0%, rgba(0, 0, 0, 0) 360px),
+        var(--bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(16, 42, 76, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 42, 76, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+
+    [data-theme="dark"] body::before {
+      background-image:
+        linear-gradient(rgba(126, 180, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(126, 180, 255, 0.04) 1px, transparent 1px);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       Skip link & global focus
+       ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -52px;
+      left: 16px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 800;
+      transition: top 0.18s ease;
+    }
+    [data-theme="dark"] .skip-link { background: var(--blue); color: var(--bg); }
+    .skip-link:focus { top: 14px; outline: none; }
+
+    :focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring);
+      border-radius: 6px;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topline {
+      height: 5px;
+      background: linear-gradient(90deg, var(--navy), var(--blue), var(--gold));
+    }
+
+    /* ============================================================
+       Topbar
+       ============================================================ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(216, 225, 238, 0.9);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    [data-theme="dark"] .topbar {
+      background: rgba(10, 22, 40, 0.88);
+      border-bottom-color: rgba(31, 45, 68, 0.9);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 1.04rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 42%),
+        linear-gradient(135deg, var(--navy), var(--blue));
+      box-shadow: 0 12px 28px rgba(16, 42, 76, 0.24);
+    }
+    [data-theme="dark"] .brand-mark {
+      color: var(--bg);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.15), transparent 42%),
+        linear-gradient(135deg, var(--blue), #a3c8ff);
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 1.06rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+    [data-theme="dark"] .brand-title { color: var(--ink); }
+
+    .brand-sub {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text);
+      transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: var(--blue-soft);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .theme-toggle:hover { transform: translateY(-1px); border-color: var(--blue); color: var(--blue); }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+    /* ============================================================
+       Hero
+       ============================================================ */
+    .hero { padding: 36px 0 30px; }
+
+    .hero-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+      gap: 22px;
+      align-items: stretch;
+      padding: clamp(22px, 3vw, 34px);
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(180, 137, 50, 0.28), transparent 30%),
+        linear-gradient(135deg, #102a4c 0%, #183b68 56%, #2457a6 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    [data-theme="dark"] .hero-box {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(212, 169, 85, 0.22), transparent 30%),
+        linear-gradient(135deg, #0a1628 0%, #122036 56%, #1a3559 100%);
+    }
+
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -100px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 36px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-content,
+    .hero-panel { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 5px 11px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #f7efd9;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(180, 137, 50, 0.18);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin: 14px 0 12px;
+      max-width: 720px;
+      font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .button.primary {
+      color: var(--navy);
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+    [data-theme="dark"] .button.primary { color: var(--bg); background: #e2e8f0; }
+
+    .button.secondary {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .hero-panel {
+      display: grid;
+      align-content: center;
+      gap: 10px;
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .focus-label {
+      color: #f7efd9;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .focus-main { display: grid; gap: 6px; margin-top: 8px; }
+
+    .focus-number {
+      font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+      line-height: 1.3;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .focus-text {
+      color: rgba(255, 255, 255, 0.88);
+      margin-top: 4px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    section { padding: 44px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    /* 섹션별 라벨 색상 변형 */
+    .section-label.label-support { color: #b48932; }
+    .section-label.label-support::before { background: var(--blue); }
+    .section-label.label-statistics { color: #0e7c66; }
+    .section-label.label-statistics::before { background: #0e7c66; }
+    .section-label.label-instructional { color: #6d28d9; }
+    .section-label.label-instructional::before { background: #6d28d9; }
+    [data-theme="dark"] .section-label.label-support { color: #d4a955; }
+    [data-theme="dark"] .section-label.label-statistics { color: #5eead4; }
+    [data-theme="dark"] .section-label.label-statistics::before { background: #5eead4; }
+    [data-theme="dark"] .section-label.label-instructional { color: #c4b5fd; }
+    [data-theme="dark"] .section-label.label-instructional::before { background: #c4b5fd; }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--navy);
+      font-size: clamp(1.55rem, 3vw, 2.28rem);
+      line-height: 1.22;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+    [data-theme="dark"] h2 { color: var(--ink); }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 0.96rem;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       Search + Filter toolbar
+       ============================================================ */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      box-shadow: 0 4px 12px rgba(16, 42, 76, 0.04);
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .search-wrap svg.search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 44px 0 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper-2);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .search-input::placeholder { color: var(--muted); }
+    .search-input:focus { outline: none; border-color: var(--blue); background: var(--paper); box-shadow: var(--focus-ring); }
+
+    .search-clear {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .search-clear:hover { background: var(--blue-soft); color: var(--blue); }
+    .search-clear.visible { display: inline-flex; }
+    .search-clear svg { width: 14px; height: 14px; }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border: 1px solid var(--chip-border);
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .chip:hover { transform: translateY(-1px); border-color: var(--blue); color: var(--blue); }
+    .chip[aria-pressed="true"] {
+      background: var(--chip-active-bg);
+      color: var(--chip-active-text);
+      border-color: var(--chip-active-bg);
+    }
+    .chip .count {
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.05);
+      font-size: 0.74rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .chip[aria-pressed="true"] .count { background: rgba(255, 255, 255, 0.22); }
+
+    /* Live result counter */
+    .result-count {
+      padding: 14px 4px 6px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .result-count strong { color: var(--ink); font-weight: 800; }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 48px 20px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--paper-2);
+      color: var(--muted);
+      text-align: center;
+    }
+    .empty-state.visible { display: flex; }
+    .empty-state strong { color: var(--ink); font-size: 1.05rem; }
+    .empty-state .reset-btn {
+      margin-top: 6px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+    .empty-state .reset-btn:hover { background: var(--blue-soft); }
+
+    /* ============================================================
+       Resource cards (admission)
+       ============================================================ */
+    .admission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .resource-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 168px;
+      padding: 22px 20px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      box-shadow: 0 8px 18px rgba(16, 42, 76, 0.06);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, opacity 0.4s ease;
+    }
+    /* Hide-before-reveal only when JS is running; without JS, cards stay visible. */
+    html.js .resource-card:not(.is-visible) {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    [data-theme="dark"] .resource-card { background: var(--paper); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); }
+    .resource-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .resource-card.is-hidden { display: none; }
+
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      opacity: 0.85;
+    }
+
+    .resource-card:hover,
+    .resource-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(36, 87, 166, 0.45);
+      box-shadow: 0 16px 32px rgba(36, 87, 166, 0.12);
+    }
+    [data-theme="dark"] .resource-card:hover,
+    [data-theme="dark"] .resource-card:focus-visible {
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    .audience {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    /* 카테고리별 audience 색 변형 */
+    .audience.cat-2027 { background: #eef2ff; color: #4338ca; }
+    .audience.cat-2028 { background: var(--blue-soft); color: var(--blue); }
+    .audience.cat-result { background: #fef3c7; color: #92400e; }
+    .audience.cat-info { background: #ecfdf5; color: #065f46; }
+    [data-theme="dark"] .audience.cat-2027 { background: #2a2347; color: #a5b4fc; }
+    [data-theme="dark"] .audience.cat-2028 { background: var(--blue-soft); color: var(--blue); }
+    [data-theme="dark"] .audience.cat-result { background: #2a2317; color: #fbbf24; }
+    [data-theme="dark"] .audience.cat-info { background: #0f2a20; color: #6ee7b7; }
+
+    .resource-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.12rem;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+    [data-theme="dark"] .resource-card h3 { color: var(--ink); }
+
+    .resource-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    /* Search highlight */
+    mark {
+      padding: 0 2px;
+      border-radius: 3px;
+      background: rgba(180, 137, 50, 0.28);
+      color: inherit;
+    }
+
+    /* ============================================================
+       Support cards
+       ============================================================ */
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .support-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      padding: 22px 20px 20px;
+      min-height: 168px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      box-shadow: 0 8px 18px rgba(16, 42, 76, 0.06);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+    [data-theme="dark"] .support-card { background: var(--paper); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); }
+
+    .support-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), #d4a955);
+      opacity: 0.85;
+    }
+
+    .support-card:hover,
+    .support-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(180, 137, 50, 0.52);
+      box-shadow: 0 16px 32px rgba(180, 137, 50, 0.12);
+    }
+
+    .support-card .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      color: #7a5a16;
+      background: var(--gold-soft);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    [data-theme="dark"] .support-card .tag { color: var(--gold); }
+
+    .support-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.12rem;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+    [data-theme="dark"] .support-card h3 { color: var(--ink); }
+
+    .support-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       Instructional Materials cards
+       ============================================================ */
+    .instructional-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .instructional-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      padding: 22px 20px 20px;
+      min-height: 168px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      box-shadow: 0 8px 18px rgba(16, 42, 76, 0.06);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+    [data-theme="dark"] .instructional-card { background: var(--paper); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); }
+
+    .instructional-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6d28d9, #a78bfa);
+      opacity: 0.9;
+    }
+
+    .instructional-card:hover,
+    .instructional-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(109, 40, 217, 0.5);
+      box-shadow: 0 16px 32px rgba(109, 40, 217, 0.12);
+    }
+
+    .instructional-card .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      color: #6d28d9;
+      background: #ede9fe;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    [data-theme="dark"] .instructional-card .tag { color: #c4b5fd; background: #2a2347; }
+
+    .instructional-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.12rem;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+    [data-theme="dark"] .instructional-card h3 { color: var(--ink); }
+
+    .instructional-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       Statistics cards
+       ============================================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stats-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      padding: 22px 20px 20px;
+      min-height: 168px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      box-shadow: 0 8px 18px rgba(16, 42, 76, 0.06);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+    [data-theme="dark"] .stats-card { background: var(--paper); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); }
+
+    .stats-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0e7c66, #14b8a6);
+      opacity: 0.9;
+    }
+
+    .stats-card:hover,
+    .stats-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(14, 124, 102, 0.5);
+      box-shadow: 0 16px 32px rgba(14, 124, 102, 0.12);
+    }
+
+    .stats-card .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      color: #0e7c66;
+      background: #d4f5ec;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    [data-theme="dark"] .stats-card .tag { color: #5eead4; background: #0f2a25; }
+
+    .stats-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.12rem;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+    [data-theme="dark"] .stats-card h3 { color: var(--ink); }
+
+    .stats-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    .footer {
+      margin-top: 38px;
+      padding: 30px 0 44px;
+      color: #cbd5e1;
+      background: #0c223d;
+    }
+    [data-theme="dark"] .footer { background: #050d1a; }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer strong { color: #fff; letter-spacing: -0.03em; }
+    .footer p { margin: 4px 0 0; color: #b6c3d6; font-size: 0.92rem; font-weight: 500; }
+
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #f7efd9;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    /* ============================================================
+       Scroll-to-top button
+       ============================================================ */
+    .scroll-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 40;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--navy);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease, background 0.18s ease;
+    }
+    [data-theme="dark"] .scroll-top { color: var(--blue); }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .scroll-top:hover { background: var(--blue-soft); color: var(--blue); }
+    .scroll-top svg { width: 18px; height: 18px; }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 920px) {
+      .hero-box { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .admission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .instructional-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 26px, var(--max)); }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+        gap: 10px;
+      }
+      .nav-actions { width: 100%; justify-content: space-between; }
+      .nav-links a { padding: 7px 10px; font-size: 0.9rem; }
+
+      .hero { padding-top: 28px; }
+      .hero-box { padding: 26px 20px; border-radius: 22px; }
+      .hero-actions { display: grid; }
+      .button { width: 100%; }
+
+      /* 모바일에서도 2열 유지 — 스크롤 길이 단축 */
+      .admission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .resource-card {
+        min-height: auto;
+        padding: 16px;
+      }
+      .resource-card h3 { font-size: 1.02rem; }
+      .resource-card p { font-size: 0.88rem; }
+      .audience { font-size: 0.7rem; padding: 4px 7px; margin-bottom: 10px; }
+
+      .support-grid { grid-template-columns: 1fr; }
+      .instructional-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+
+      .toolbar { padding: 10px; gap: 8px; }
+      .filter-chips { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
+      .filter-chips::-webkit-scrollbar { display: none; }
+      .chip { flex-shrink: 0; }
+
+      .scroll-top { right: 14px; bottom: 14px; width: 42px; height: 42px; }
+    }
+
+    @media (max-width: 380px) {
+      .admission-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       Global toolbar (site-wide search + scope filter + view toggle)
+       ============================================================ */
+    .global-tools-section { padding: 0 0 8px; }
+
+    .global-tools {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      box-shadow: 0 4px 14px rgba(16, 42, 76, 0.06);
+    }
+    [data-theme="dark"] .global-tools { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3); }
+
+    .global-tools-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .global-tools .search-wrap { flex: 1 1 320px; min-width: 0; }
+
+    .view-toggle {
+      display: inline-flex;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-2);
+    }
+    .view-toggle button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-width: 70px;
+      height: 36px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .view-toggle button:hover { color: var(--blue); }
+    .view-toggle button[aria-pressed="true"] {
+      background: var(--navy);
+      color: #fff;
+    }
+    [data-theme="dark"] .view-toggle button[aria-pressed="true"] {
+      background: var(--blue);
+      color: var(--bg);
+    }
+    .view-toggle svg { width: 14px; height: 14px; }
+
+    .scope-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .global-result {
+      padding: 8px 4px 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+    .global-result strong { color: var(--ink); font-weight: 800; }
+
+    /* ============================================================
+       Compact list view
+       ============================================================ */
+    body[data-view="compact"] .admission-grid,
+    body[data-view="compact"] .support-grid,
+    body[data-view="compact"] .instructional-grid,
+    body[data-view="compact"] .stats-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    body[data-view="compact"] .resource-card,
+    body[data-view="compact"] .support-card,
+    body[data-view="compact"] .instructional-card,
+    body[data-view="compact"] .stats-card {
+      min-height: auto;
+      padding: 12px 14px 12px 18px;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      column-gap: 14px;
+      row-gap: 2px;
+      align-items: center;
+    }
+    body[data-view="compact"] .resource-card::before,
+    body[data-view="compact"] .support-card::before,
+    body[data-view="compact"] .instructional-card::before,
+    body[data-view="compact"] .stats-card::before {
+      top: 0; bottom: 0; right: auto; width: 3px; height: auto;
+    }
+    body[data-view="compact"] .audience,
+    body[data-view="compact"] .support-card .tag,
+    body[data-view="compact"] .instructional-card .tag,
+    body[data-view="compact"] .stats-card .tag {
+      grid-column: 1; grid-row: 1 / span 2;
+      margin: 0;
+      align-self: center;
+      justify-self: stretch;
+      justify-content: center;
+      font-size: 0.7rem;
+      padding: 5px 8px;
+    }
+    body[data-view="compact"] .resource-card h3,
+    body[data-view="compact"] .support-card h3,
+    body[data-view="compact"] .instructional-card h3,
+    body[data-view="compact"] .stats-card h3 {
+      grid-column: 2; grid-row: 1;
+      margin: 0;
+      font-size: 0.98rem;
+    }
+    body[data-view="compact"] .resource-card p,
+    body[data-view="compact"] .support-card p,
+    body[data-view="compact"] .instructional-card p,
+    body[data-view="compact"] .stats-card p {
+      grid-column: 2; grid-row: 2;
+      font-size: 0.82rem;
+    }
+    body[data-view="compact"] .resource-card {
+      transform: none !important;
+      opacity: 1 !important;
+    }
+    body[data-view="compact"] .resource-card:hover,
+    body[data-view="compact"] .support-card:hover,
+    body[data-view="compact"] .instructional-card:hover,
+    body[data-view="compact"] .stats-card:hover {
+      transform: translateX(3px);
+    }
+
+    /* ============================================================
+       Nav scrollspy + count badges
+       ============================================================ */
+    .nav-links a[aria-current="true"] {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+    .nav-links a .nav-count {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 0 6px;
+      min-width: 18px;
+      border-radius: 6px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+    }
+    [data-theme="dark"] .nav-links a .nav-count {
+      background: rgba(126, 180, 255, 0.18);
+    }
+    .nav-links a[aria-current="true"] .nav-count {
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    /* ============================================================
+       Hero stats panel (replaces static focus message)
+       ============================================================ */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .hero-stat {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      transition: background 0.18s ease, transform 0.18s ease;
+      text-align: left;
+      color: inherit;
+      cursor: pointer;
+    }
+    .hero-stat:hover, .hero-stat:focus-visible {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-2px);
+    }
+    .hero-stat-num {
+      display: block;
+      font-size: 1.55rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+    .hero-stat-label {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* ============================================================
+       Section empty / hidden when search filters everything out
+       ============================================================ */
+    .section-empty {
+      display: none;
+      margin-top: 4px;
+      padding: 18px 16px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper-2);
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .section-empty.visible { display: block; }
+    section.is-hidden { display: none; }
+
+    @media (max-width: 700px) {
+      .scope-chips {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .scope-chips::-webkit-scrollbar { display: none; }
+      .view-toggle { width: 100%; }
+      .view-toggle button { flex: 1; min-width: 0; }
+      .hero-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+      .hero-stat { padding: 8px 6px; text-align: center; }
+      .hero-stat-num { font-size: 1.05rem; }
+      .hero-stat-label { font-size: 0.66rem; letter-spacing: 0; }
+      .nav-links a .nav-count { display: none; }
+
+      body[data-view="compact"] .resource-card,
+      body[data-view="compact"] .support-card,
+      body[data-view="compact"] .instructional-card,
+      body[data-view="compact"] .stats-card {
+        grid-template-columns: 78px 1fr;
+        padding: 10px 12px 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W57H5V7P"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <div class="topline" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="wrap nav" aria-label="주요 메뉴">
+      <a class="brand" href="index.html" aria-label="EST 진학정보실 홈">
+        <span class="brand-mark" aria-hidden="true">ES</span>
+        <span>
+          <span class="brand-title">진학정보실</span>
+          <span class="brand-sub">Admission Information Archive</span>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <nav class="nav-links" aria-label="사이트 바로가기" id="navLinks">
+          <a href="#admission" data-nav="admission">진학 핵심자료 <span class="nav-count" data-nav-count="admission"></span></a>
+          <a href="#support" data-nav="support">진로·과학·교육 <span class="nav-count" data-nav-count="support"></span></a>
+          <a href="#instructional" data-nav="instructional">수업자료 <span class="nav-count" data-nav-count="instructional"></span></a>
+          <a href="#statistics" data-nav="statistics">통계 자료 <span class="nav-count" data-nav-count="statistics"></span></a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="다크/라이트 모드 전환" title="다크/라이트 모드 전환">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-label="사이트 소개">
+      <div class="wrap">
+        <div class="hero-box">
+          <div class="hero-content">
+            <span class="eyebrow">교사를 위한 진학 자료실</span>
+            <h1>대입 정보를 정리한 진학정보실</h1>
+            <p class="lead">
+              학생들 지도에만 활용해주시기 바랍니다.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#admission">진학자료 바로 보기</a>
+              <a class="button secondary" href="#support">보조자료 보기</a>
+              <a class="button secondary" href="#instructional">수업 자료 보기</a>
+              <a class="button secondary" href="#statistics">통계 자료 보기</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="자료실 현황 한눈에 보기">
+            <span class="focus-label">자료실 현황</span>
+            <div class="hero-stats">
+              <a class="hero-stat" href="#admission" data-stat="admission">
+                <span class="hero-stat-num" id="statAdmission">—</span>
+                <span class="hero-stat-label">진학 자료</span>
+              </a>
+              <a class="hero-stat" href="#support" data-stat="support">
+                <span class="hero-stat-num" id="statSupport">—</span>
+                <span class="hero-stat-label">보조 자료</span>
+              </a>
+              <a class="hero-stat" href="#instructional" data-stat="instructional">
+                <span class="hero-stat-num" id="statInstructional">—</span>
+                <span class="hero-stat-label">수업 자료</span>
+              </a>
+              <a class="hero-stat" href="#statistics" data-stat="statistics">
+                <span class="hero-stat-num" id="statStatistics">—</span>
+                <span class="hero-stat-label">통계 자료</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 전역 도구: 사이트 전체 검색 + 섹션 스코프 + 뷰 토글 -->
+    <section class="global-tools-section" aria-label="자료 검색 및 필터">
+      <div class="wrap">
+        <div class="global-tools">
+          <div class="global-tools-row">
+            <div class="search-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+              <input
+                type="search"
+                class="search-input"
+                id="searchInput"
+                placeholder="전체 자료 검색 — 제목, 설명, 키워드 (예: 물리, 탐구, 수능)"
+                aria-label="전체 자료 검색"
+                autocomplete="off"
+              />
+              <button class="search-clear" type="button" id="searchClear" aria-label="검색어 지우기">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 6 6 18M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="view-toggle" role="group" aria-label="보기 방식 전환">
+              <button type="button" data-view="grid" aria-pressed="true" aria-label="그리드 보기" title="그리드 보기">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                </svg>
+                그리드
+              </button>
+              <button type="button" data-view="compact" aria-pressed="false" aria-label="리스트 보기" title="리스트 보기">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <circle cx="4" cy="6" r="1"></circle>
+                  <circle cx="4" cy="12" r="1"></circle>
+                  <circle cx="4" cy="18" r="1"></circle>
+                </svg>
+                리스트
+              </button>
+            </div>
+          </div>
+
+          <div class="scope-chips" role="group" aria-label="섹션 범위 필터">
+            <button class="chip" type="button" data-scope="all" aria-pressed="true">전체 <span class="count" data-scope-count="all">—</span></button>
+            <button class="chip" type="button" data-scope="admission" aria-pressed="false">진학 자료 <span class="count" data-scope-count="admission">—</span></button>
+            <button class="chip" type="button" data-scope="support" aria-pressed="false">보조 자료 <span class="count" data-scope-count="support">—</span></button>
+            <button class="chip" type="button" data-scope="instructional" aria-pressed="false">수업 자료 <span class="count" data-scope-count="instructional">—</span></button>
+            <button class="chip" type="button" data-scope="statistics" aria-pressed="false">통계 자료 <span class="count" data-scope-count="statistics">—</span></button>
+          </div>
+        </div>
+
+        <div class="global-result" id="globalResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="admission" aria-label="진학 핵심자료">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-label">ADMISSION</span>
+            <h2>진학 자료</h2>
+          </div>
+          <p class="section-desc">세부 카테고리로 더 정밀하게 필터링할 수 있습니다.</p>
+        </div>
+
+        <!-- 진학 섹션 세부 카테고리 칩 -->
+        <div class="toolbar" role="search" aria-label="진학 자료 세부 필터">
+          <div class="filter-chips" role="group" aria-label="카테고리 필터">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">전체 <span class="count" data-count="all">—</span></button>
+            <button class="chip" type="button" data-filter="2027" aria-pressed="false">2027대입 <span class="count" data-count="2027">—</span></button>
+            <button class="chip" type="button" data-filter="2028" aria-pressed="false">2028대입 <span class="count" data-count="2028">—</span></button>
+            <button class="chip" type="button" data-filter="result" aria-pressed="false">입시결과 <span class="count" data-count="result">—</span></button>
+            <button class="chip" type="button" data-filter="info" aria-pressed="false">대입정보 <span class="count" data-count="info">—</span></button>
+          </div>
+        </div>
+
+        <div class="result-count" id="resultCount" aria-live="polite"></div>
+
+        <div class="admission-grid" id="admissionGrid">
+
+          <!-- ===== 2026 입시결과 ===== -->
+          <a class="resource-card" href="results.html" data-category="result" data-keywords="2026 입시결과 대학발표자료">
+            <span class="audience cat-result">2026 입시결과</span>
+            <h3>2026 입시결과 파일</h3>
+            <p>전국 주요 대학 입시결과 자료실 (2026학년도)</p>
+          </a>
+
+          <!-- ===== 2027 대입 ===== -->
+          <a class="resource-card" href="2027gyogwa.html" data-category="2027" data-keywords="학생부교과전형 교과 반영방법 수능최저">
+            <span class="audience cat-2027">2027대입</span>
+            <h3>2027 학생부교과전형</h3>
+            <p>2027학생부교과전형, 한 화면에서 검색하고 비교</p>
+          </a>
+
+          <a class="resource-card" href="2027admissions2.html" data-category="2027" data-keywords="2027 대입전형 이해 초급자 웹 안내서 대입정보119 대교협">
+            <span class="audience cat-2027">2027대입</span>
+            <h3>2027학년도 대입전형의 이해(초급자용)</h3>
+            <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
+          </a>
+
+          <a class="resource-card" href="2027special.html" data-category="2027" data-keywords="2027 농어촌학생 특별전형 웹 안내서">
+            <span class="audience cat-2027">2027대입</span>
+            <h3>2027 농어촌학생 특별전형</h3>
+            <p>농어촌학생 특별전형,자격부터 대학별 전형까지</p>
+          </a>
+
+          <a class="resource-card" href="localmedi.html" data-category="2027" data-keywords="2027 지역인재 특별전형">
+            <span class="audience cat-2027">2027대입</span>
+            <h3>2027 지역인재 특별전형</h3>
+            <p>의예, 치의예, 한의예, 약학, 수의예, 간호</p>
+          </a>
+
+          <a class="resource-card" href="2027medi.html" data-category="2027" data-keywords="2027 지역의사선발전형 안내서">
+            <span class="audience cat-2027">2027대입</span>
+            <h3>2027 지역의사선발전형</h3>
+            <p>지역의사 선발전형 안내</p>
+          </a>
+
+          <!-- ===== 2028 대입 ===== -->
+          <a class="resource-card" href="2028pp.html" data-category="2028" data-keywords="학생부교과전형 수능최저 반영교과 내신산출 유홍규">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>2028 학생부교과전형</h3>
+            <p>주요 대학의 전형방법, 수능최저, 반영교과, 내신산출방식 정리</p>
+          </a>
+
+          <a class="resource-card" href="hakjong2028.html" data-category="2028" data-keywords="2028 학생부종합전형">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>2028 학생부종합전형</h3>
+            <p>주요 13개 대학의 학생부종합전형 정리</p>
+          </a>
+
+          <a class="resource-card" href="2028castrow.html" data-category="2028" data-keywords="2028 수능최저 빠른보기">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>2028 수능최저 빠른보기</h3>
+            <p>수능최저가 있는 교과·종합·논술 전형만 빠르게 비교</p>
+          </a>
+
+          <a class="resource-card" href="jinhak2028.html" data-category="2028" data-keywords="2028 대입 변화 전년도 비교 정태영">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>2028 대입 변화 비교</h3>
+            <p>2028학년도 대입 전형의 핵심 변경사항과 이전 연도와의 차이점을 상세히 비교 분석합니다.</p>
+          </a>
+
+          <a class="resource-card" href="202815uni.html" data-category="2028" data-keywords="15개 대학 입학전형 시행계획 변경사항">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>15개 대학 입학전형</h3>
+            <p>2026년 4월 발표 기준 15개 대학 시행계획을 분석한 자료입니다.</p>
+          </a>
+
+          <a class="resource-card" href="2028ist.html" data-category="2028" data-keywords="KAIST GIST DGIST UNIST KENTECH POSTECH 과학기술원 이공계">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>과학기술원 시행계획</h3>
+            <p>KAIST, GIST, DGIST, UNIST, KENTECH, POSTECH</p>
+          </a>
+
+          <a class="resource-card" href="2028edu.html" data-category="2028" data-keywords="교육대학교 교대 시행계획">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>교육대학교 시행계획</h3>
+            <p>교육대학교 시행계획 안내</p>
+          </a>
+
+          <a class="resource-card" href="gyogwa70cut.html" data-category="2028" data-keywords="성적 변환 대학 발표자료">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>2028대입 5등급-9등급 성적 변환(교과전형)</h3>
+            <p>2025 교과전형 발표자료의 70%컷 살펴보기</p>
+          </a>
+
+          <a class="resource-card" href="jonghap70cut.html" data-category="2028" data-keywords="성적 변환 대학 발표자료">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>2028대입 5등급-9등급 성적 변환(종합전형)</h3>
+            <p>2025 종합전형 발표자료의 70%컷 살펴보기</p>
+          </a>
+
+          <a class="resource-card" href="2028guide.html" data-category="2028" data-keywords="2028 대입전형 이해 초급자 웹 안내서">
+            <span class="audience cat-2028">2028대입</span>
+            <h3>2028학년도 대입전형의 이해(초급자용)</h3>
+            <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
+          </a>
+
+          <!-- ===== 대입 정보 ===== -->
+          <a class="resource-card" href="./2028-admission-plans/unimap.html" data-category="info" data-keywords="대학교 입학안내 지도 목록 입학처 수시모집요강 시행계획 선행학습 영향평가 보고서 학생부종합 가이드북">
+            <span class="audience cat-info">대입 정보</span>
+            <h3>대학교 입학안내 지도</h3>
+            <p>지도·목록으로 — 입학처·모집요강·시행계획·선행학습 보고서·가이드북을 한눈에</p>
+          </a>
+
+          <a class="resource-card" href="2unimap.html" data-category="info" data-keywords="전국 전문대학 입학 안내 지도 목록 입학처 전문대">
+            <span class="audience cat-info">대입 정보</span>
+            <h3>전국 전문대학 입학 안내 지도</h3>
+            <p>전국 전문대학을 지도·목록으로 한눈에, 입학처·홈페이지 링크까지</p>
+          </a>
+
+          <a class="resource-card" href="dong.html" data-category="info" data-keywords="입시 동영상 유튜브 김태진 대학어디가 쎈진학">
+            <span class="audience cat-info">대입 정보</span>
+            <h3>입시동영상 모음</h3>
+            <p>대입전형 이해를 위한 유튜브 영상 자료 모음집</p>
+          </a>
+
+          <a class="resource-card" href="2026_2028py.html" data-category="info" data-keywords="체육 대학 요강 노동기">
+            <span class="audience cat-info">대입 정보</span>
+            <h3>체육 대학</h3>
+            <p>2026~2028 체육대학 요강 정리</p>
+          </a>
+
+          <a class="resource-card" href="jinhakdong2.html" data-category="info" data-keywords="대입 영상 충청남도교육청 진로융합교육원 진학해유">
+            <span class="audience cat-info">대입 정보</span>
+            <h3>대입 관련 영상</h3>
+            <p>충청남도교육청진로융합교육원 진학해유</p>
+          </a>
+
+          <a class="resource-card" href="hakjongguide.html" data-category="info" data-keywords="학생부종합전형에 대한 이해">
+            <span class="audience cat-info">대입 정보</span>
+            <h3>학생부종합전형에 대한 이해(초급자용)</h3>
+            <p>대학의 평가기준을 바탕으로한 학생부종합전형</p>
+          </a>
+          
+          <!-- Empty state -->
+          <div class="empty-state" id="emptyState" role="status">
+            <strong>검색 결과가 없습니다</strong>
+            <span>다른 키워드로 검색하거나 필터를 초기화해보세요.</span>
+            <button type="button" class="reset-btn" id="resetBtn">전체 보기</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" aria-label="진로 과학 교육 보조자료">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-label label-support">SUPPORT</span>
+            <h2>함께 보면 좋은 자료</h2>
+          </div>
+          <p class="section-desc" style="margin-top: 10px;">진학자료를 보완하는 진로, 과학, 교육 정보 등</p>
+        </div>
+
+        <div class="support-grid" id="supportGrid">
+          <a class="support-card" href="aisc.html" data-keywords="탐구 데이터분석 지구과학 고등학생 주제 344">
+            <span class="tag">탐구</span>
+            <h3>데이터 분석 탐구 주제</h3>
+            <p>고등학생 지구과학 데이터 분석형 탐구 주제 344</p>
+          </a>
+
+          <a class="support-card" href="sub2.html" data-keywords="진로 선택과목 설계 2022개정 교육과정 전공">
+            <span class="tag">진로</span>
+            <h3>선택과목설계</h3>
+            <p>2022개정교육과정에서 전공별 선택과목을 설계하는 방법에 대한 정보를 제공합니다.</p>
+          </a>
+
+          <a class="support-card" href="toon1.html" data-keywords="진로 웹툰 학업설계 고1 2022개정 교육과정">
+            <span class="tag">진로</span>
+            <h3>진로학업설계 웹툰</h3>
+            <p>2022 개정 교육과정 고1 학생을 위한 웹툰</p>
+          </a>
+
+          <a class="support-card" href="csat2028.html" data-keywords="학습 2028수능 국어 수학 영어 통합사회 통합과학 대비전략">
+            <span class="tag">학습</span>
+            <h3>2028수능 대비 방법</h3>
+            <p>국어·수학·영어·통합사회·통합과학의 2028 수능 대비 전략</p>
+          </a>
+
+          <a class="support-card" href="preview.html" data-keywords="학습 내신 공부방법 고등학생 2022개정 교육과정">
+            <span class="tag">학습</span>
+            <h3>고등학생을 위한 내신 공부 방법</h3>
+            <p>2022 개정 교육과정 기반 고등학생 내신 학습 방법</p>
+          </a>
+
+          <a class="support-card" href="sciencetam.html" data-keywords="탐구 학생부종합전형 과학교과 심화탐구 가이드">
+            <span class="tag">탐구</span>
+            <h3>학생부종합전형 대비 과학교과 탐구 방법</h3>
+            <p>과학 교과에서 출발해 탐구력으로 확장하는 심화 탐구활동 가이드</p>
+          </a>
+
+          <a class="support-card" href="socialtam.html" data-keywords="탐구 학생부종합전형 사회교과 사회현상 대안 탐구">
+            <span class="tag">탐구</span>
+            <h3>학생부종합전형 대비 사회교과 탐구 방법</h3>
+            <p>사회현상을 근거로 읽고, 대안으로 확장하는 탐구</p>
+          </a>
+
+          <a class="support-card" href="ai_prompt.html" data-keywords="탐구 데이터분석 AI 실험데이터 공공데이터 센서로그 이미지 텍스트">
+            <span class="tag">탐구</span>
+            <h3>데이터 분석 방법 가이드</h3>
+            <p>실험데이터·공공데이터·센서로그·이미지·텍스트 등의 AI활용 분석 방법</p>
+          </a>
+
+         <a class="support-card" href="2025uni.html" data-keywords="진로 전국대학 학과 검색 수업주제 관심사">
+            <span class="tag">진로</span>
+            <h3>전국 대학 학과·진로 연계 검색</h3>
+            <p>수업 주제와 학생 관심사로 대학 학과를 찾습니다.</p>
+          </a>
+
+        <a class="support-card" href="studentguide.html" data-keywords="학교생활기록부 학생부 기재요령 2026">
+            <span class="tag">학교생활기록부</span>
+            <h3>2026학교생활기록부 기재요령</h3>
+            <p>학교생활기록부 기재요령 도우미</p>
+          </a>
+
+        <a class="support-card" href="chungnam_admission.html" data-keywords="고입 고등학교 입학전형 2027 충남 충청남도">
+            <span class="tag">고입</span>
+            <h3>2027학년도 고등학교 입학전형 기본계획</h3>
+            <p>충청남도 고등학교 입학전형 종합 안내서</p>
+          </a>
+
+          <div class="section-empty" id="supportEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="instructional" aria-label="수업자료">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-label label-instructional">INSTRUCTIONAL MATERIALS</span>
+            <h2>수업자료</h2>
+          </div>
+          <p class="section-desc" style="margin-top: 10px;">현장 수업에서 바로 활용할 수 있는 수업자료</p>
+        </div>
+
+        <div class="instructional-grid" id="instructionalGrid">
+          <a class="instructional-card" href="soouppy.html" data-keywords="물리 물리학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+            <span class="tag">물리</span>
+            <h3>2022개정교육과정에서 물리학 수업</h3>
+            <p>개념기반탐구학습과 학생부종합전형 대비</p>
+          </a>
+
+       <a class="instructional-card" href="sooupch.html" data-keywords="화학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+            <span class="tag">화학</span>
+            <h3>2022개정교육과정에서 화학 수업</h3>
+            <p>개념기반탐구학습과 학생부종합전형 대비</p>
+          </a>
+
+          <a class="instructional-card" href="sooupbio.html" data-keywords="생명과학 생물 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+            <span class="tag">생명과학</span>
+            <h3>2022개정교육과정에서 생명과학 수업</h3>
+            <p>개념기반탐구학습과 학생부종합전형 대비</p>
+          </a>
+
+          <a class="instructional-card" href="sooupes.html" data-keywords="지구과학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+            <span class="tag">지구과학</span>
+            <h3>2022개정교육과정에서 지구과학 수업</h3>
+            <p>개념기반탐구학습과 학생부종합전형 대비</p>
+          </a>
+
+          <div class="section-empty" id="instructionalEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="statistics" aria-label="통계 자료">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-label label-statistics">STATISTICS</span>
+            <h2>통계 자료</h2>
+          </div>
+          <p class="section-desc" style="margin-top: 10px;">진학 지도에 활용할 수 있는 각종 통계 자료를 제공합니다.</p>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+          <a class="stats-card" href="2026cast.html" data-keywords="수능 2026 수학능력시험 등급컷 인원 비율 대시보드">
+            <span class="tag">수능</span>
+            <h3>2026수학능력시험</h3>
+            <p>등급컷 · 인원 · 비율 종합 대시보드</p>
+          </a>
+
+          <a class="stats-card" href="unimo.html" data-keywords="대학 등록금 연간 평균 진학상담 공공데이터포털">
+            <span class="tag">대학</span>
+            <h3>대학별 연간 평균등록금</h3>
+            <p>교사용 진학상담 자료 · 공공데이터포털 기반</p>
+          </a>
+
+        <a class="stats-card" href="20265cast.html" data-keywords="수능 2026 5월 고3 전국연합학력평가 모의고사 과목별 분석">
+            <span class="tag">수능</span>
+            <h3>2026학년도 5월 고3 전국연합학력평가</h3>
+            <p>과목별 분석자료</p>
+          </a>
+
+          <a class="stats-card" href="highschoolmap.html" data-keywords="고등학교 지도 전국 학교 위치 학생수 학급 교원 학교알리미 지역 진학 map">
+            <span class="tag">학교</span>
+            <h3>전국 고등학교 지도</h3>
+            <p>전국 2,440개 고교 위치 · 학생수 · 학급 · 교원 인터랙티브 지도</p>
+          </a>
+
+          <div class="section-empty" id="statsEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="scroll-top" type="button" id="scrollTop" aria-label="페이지 상단으로 이동">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </button>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>EST 진학정보실</strong>
+        <p>공교육 교사를 위한 진학 자료실</p>
+      </div>
+      <span class="footer-badge">Created by 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ============================================================
+      // 1) Theme toggle
+      // ============================================================
+      var themeToggle = document.querySelector('.theme-toggle');
+      themeToggle.addEventListener('click', function () {
+        var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('est-theme', next); } catch (e) {}
+      });
+      try {
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        mq.addEventListener('change', function (e) {
+          if (!localStorage.getItem('est-theme')) {
+            document.documentElement.dataset.theme = e.matches ? 'dark' : 'light';
+          }
+        });
+      } catch (e) {}
+
+      // ============================================================
+      // 2) Card index — all four grids
+      // ============================================================
+      var SECTIONS = [
+        { key: 'admission',     gridId: 'admissionGrid',     cardSel: '.resource-card',     emptyId: null },
+        { key: 'support',       gridId: 'supportGrid',       cardSel: '.support-card',      emptyId: 'supportEmpty' },
+        { key: 'instructional', gridId: 'instructionalGrid', cardSel: '.instructional-card', emptyId: 'instructionalEmpty' },
+        { key: 'statistics',    gridId: 'statsGrid',         cardSel: '.stats-card',        emptyId: 'statsEmpty' }
+      ];
+
+      var entries = [];      // flat list of all cards
+      var bySection = {};    // section key -> { cards, empty, sectionEl, headEl }
+
+      SECTIONS.forEach(function (sec) {
+        var grid = document.getElementById(sec.gridId);
+        if (!grid) return;
+        var cards = grid.querySelectorAll(sec.cardSel);
+        var sectionEl = grid.closest('section');
+        var headEl = sectionEl ? sectionEl.querySelector('.section-head') : null;
+        var arr = [];
+        cards.forEach(function (card) {
+          var h3 = card.querySelector('h3');
+          var p = card.querySelector('p');
+          var entry = {
+            card: card,
+            section: sec.key,
+            category: card.dataset.category || '',
+            h3: h3, p: p,
+            h3Text: h3 ? h3.textContent : '',
+            pText: p ? p.textContent : '',
+            keywords: (card.dataset.keywords || '').toLowerCase()
+          };
+          arr.push(entry);
+          entries.push(entry);
+        });
+        bySection[sec.key] = {
+          cards: arr,
+          empty: sec.emptyId ? document.getElementById(sec.emptyId) : null,
+          sectionEl: sectionEl,
+          headEl: headEl
+        };
+      });
+
+      // Reveal admission cards on page load (not on scroll).
+      // Previously cards stayed invisible (opacity:0) until scrolled into view,
+      // so the first screen showed only the row peeking at the bottom — making
+      // the site look nearly empty. Now every card appears on load with a gentle,
+      // capped stagger, and a safety timer guarantees none stay hidden.
+      var admissionCards = bySection.admission ? bySection.admission.cards.map(function (e) { return e.card; }) : [];
+      if (prefersReducedMotion) {
+        admissionCards.forEach(function (c) { c.classList.add('is-visible'); });
+      } else {
+        admissionCards.forEach(function (c, idx) {
+          setTimeout(function () { c.classList.add('is-visible'); }, Math.min(idx, 12) * 35);
+        });
+        // Safety net: reveal everything shortly after, regardless of timing.
+        setTimeout(function () {
+          admissionCards.forEach(function (c) { c.classList.add('is-visible'); });
+        }, 700);
+      }
+
+      // ============================================================
+      // 3) Static counts (nav badges, hero stats, scope chips, category chips)
+      // ============================================================
+      function computeStaticCounts() {
+        var totals = { all: entries.length };
+        SECTIONS.forEach(function (s) { totals[s.key] = bySection[s.key] ? bySection[s.key].cards.length : 0; });
+
+        // Hero stat numbers
+        ['admission','support','instructional','statistics'].forEach(function (k) {
+          var el = document.getElementById('stat' + k.charAt(0).toUpperCase() + k.slice(1));
+          if (el) el.textContent = totals[k];
+        });
+
+        // Nav count badges
+        document.querySelectorAll('[data-nav-count]').forEach(function (el) {
+          var k = el.dataset.navCount;
+          el.textContent = totals[k] != null ? totals[k] : '';
+        });
+
+        // Scope chip counts
+        document.querySelectorAll('[data-scope-count]').forEach(function (el) {
+          var k = el.dataset.scopeCount;
+          el.textContent = totals[k] != null ? totals[k] : totals.all;
+        });
+
+        // Admission category chip counts (auto-synced from data-category)
+        var catCounts = { all: bySection.admission ? bySection.admission.cards.length : 0 };
+        if (bySection.admission) {
+          bySection.admission.cards.forEach(function (e) {
+            catCounts[e.category] = (catCounts[e.category] || 0) + 1;
+          });
+        }
+        document.querySelectorAll('.toolbar [data-count]').forEach(function (el) {
+          var k = el.dataset.count;
+          el.textContent = catCounts[k] != null ? catCounts[k] : 0;
+        });
+      }
+      computeStaticCounts();
+
+      // ============================================================
+      // 4) Global search + scope filter + admission category filter
+      // ============================================================
+      var searchInput = document.getElementById('searchInput');
+      var searchClear = document.getElementById('searchClear');
+      var globalResult = document.getElementById('globalResult');
+      var resultCount = document.getElementById('resultCount');
+      var scopeChips = document.querySelectorAll('.scope-chips .chip');
+      var categoryChips = document.querySelectorAll('#admission .toolbar .chip');
+
+      var activeQuery = '';
+      var activeScope = 'all';
+      var activeCategory = 'all';
+
+      function escapeRegExp(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+      function escapeHTML(s) {
+        return s.replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      function highlight(text, query) {
+        if (!query) return escapeHTML(text);
+        var re = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+        return escapeHTML(text).replace(re, '<mark>$1</mark>');
+      }
+
+      function applyFilters() {
+        var q = activeQuery.trim().toLowerCase();
+        var totalVisible = 0;
+        var perSection = { admission: 0, support: 0, instructional: 0, statistics: 0 };
+
+        entries.forEach(function (e) {
+          var inScope = activeScope === 'all' || e.section === activeScope;
+          var inCategory = e.section !== 'admission' || activeCategory === 'all' || e.category === activeCategory;
+          var haystack = (e.h3Text + ' ' + e.pText + ' ' + e.keywords).toLowerCase();
+          var matchQuery = !q || haystack.indexOf(q) !== -1;
+          var visible = inScope && inCategory && matchQuery;
+
+          if (visible) {
+            e.card.classList.remove('is-hidden');
+            totalVisible += 1;
+            perSection[e.section] += 1;
+            if (e.h3) e.h3.innerHTML = highlight(e.h3Text, q);
+            if (e.p) e.p.innerHTML = highlight(e.pText, q);
+          } else {
+            e.card.classList.add('is-hidden');
+            if (e.h3) e.h3.textContent = e.h3Text;
+            if (e.p) e.p.textContent = e.pText;
+          }
+        });
+
+        // Section-level empty / hidden
+        SECTIONS.forEach(function (s) {
+          var ctx = bySection[s.key];
+          if (!ctx || !ctx.sectionEl) return;
+          var sectionTotal = ctx.cards.length;
+          var visibleHere = perSection[s.key];
+          var scopeMatches = activeScope === 'all' || activeScope === s.key;
+
+          // Hide entire section if scope excludes it
+          if (!scopeMatches) {
+            ctx.sectionEl.classList.add('is-hidden');
+          } else {
+            ctx.sectionEl.classList.remove('is-hidden');
+          }
+          // Toggle empty state inside section
+          if (ctx.empty) {
+            if (scopeMatches && sectionTotal > 0 && visibleHere === 0) {
+              ctx.empty.classList.add('visible');
+            } else {
+              ctx.empty.classList.remove('visible');
+            }
+          }
+        });
+
+        // Admission has its own "result count" + reuses old emptyState
+        var oldEmpty = document.getElementById('emptyState');
+        if (oldEmpty) {
+          if ((activeScope === 'all' || activeScope === 'admission') &&
+              perSection.admission === 0 && bySection.admission && bySection.admission.cards.length > 0) {
+            oldEmpty.classList.add('visible');
+          } else {
+            oldEmpty.classList.remove('visible');
+          }
+        }
+        if (resultCount) {
+          if (activeCategory !== 'all' || q || activeScope !== 'all') {
+            resultCount.innerHTML = '<strong>' + perSection.admission + '</strong>개 진학 자료 표시';
+          } else {
+            resultCount.innerHTML = '<strong>' + (bySection.admission ? bySection.admission.cards.length : 0) + '</strong>개 자료 표시';
+          }
+        }
+
+        // Global result line
+        if (globalResult) {
+          if (q || activeScope !== 'all') {
+            var parts = [];
+            ['admission','support','instructional','statistics'].forEach(function (k) {
+              if (activeScope === 'all' || activeScope === k) {
+                var label = { admission: '진학', support: '보조', instructional: '수업', statistics: '통계' }[k];
+                parts.push(label + ' ' + perSection[k]);
+              }
+            });
+            globalResult.innerHTML = '<strong>' + totalVisible + '</strong>건 일치 — ' + parts.join(' · ');
+          } else {
+            globalResult.innerHTML = '<strong>' + entries.length + '</strong>개 전체 자료';
+          }
+        }
+      }
+
+      // Search input (debounced)
+      var debounceTimer;
+      searchInput.addEventListener('input', function (e) {
+        clearTimeout(debounceTimer);
+        var value = e.target.value;
+        if (value) searchClear.classList.add('visible');
+        else searchClear.classList.remove('visible');
+        debounceTimer = setTimeout(function () {
+          activeQuery = value;
+          applyFilters();
+        }, 120);
+      });
+      searchClear.addEventListener('click', function () {
+        searchInput.value = '';
+        activeQuery = '';
+        searchClear.classList.remove('visible');
+        applyFilters();
+        searchInput.focus();
+      });
+
+      // Scope chips
+      scopeChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          scopeChips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          activeScope = chip.dataset.scope;
+          applyFilters();
+          // Scroll to that section (unless 'all')
+          if (activeScope !== 'all') {
+            var target = document.getElementById(activeScope);
+            if (target) target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Admission category chips
+      categoryChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          categoryChips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          activeCategory = chip.dataset.filter;
+          applyFilters();
+        });
+      });
+
+      // Old admission emptyState reset
+      var resetBtn = document.getElementById('resetBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+          searchInput.value = '';
+          activeQuery = '';
+          activeCategory = 'all';
+          activeScope = 'all';
+          searchClear.classList.remove('visible');
+          categoryChips.forEach(function (c) {
+            c.setAttribute('aria-pressed', c.dataset.filter === 'all' ? 'true' : 'false');
+          });
+          scopeChips.forEach(function (c) {
+            c.setAttribute('aria-pressed', c.dataset.scope === 'all' ? 'true' : 'false');
+          });
+          applyFilters();
+        });
+      }
+
+      // Keyboard: '/' focuses search, Esc clears
+      document.addEventListener('keydown', function (e) {
+        if (e.key === '/' && document.activeElement !== searchInput && !e.ctrlKey && !e.metaKey) {
+          var tag = (document.activeElement && document.activeElement.tagName) || '';
+          if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+            e.preventDefault();
+            searchInput.focus();
+          }
+        }
+        if (e.key === 'Escape' && document.activeElement === searchInput) {
+          searchInput.value = '';
+          activeQuery = '';
+          searchClear.classList.remove('visible');
+          applyFilters();
+        }
+      });
+
+      // ============================================================
+      // 5) View toggle (grid / compact list) — persisted
+      // ============================================================
+      var viewButtons = document.querySelectorAll('.view-toggle button');
+      function applyView(view) {
+        document.body.dataset.view = view;
+        viewButtons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.dataset.view === view ? 'true' : 'false');
+        });
+        try { localStorage.setItem('est-view', view); } catch (e) {}
+      }
+      viewButtons.forEach(function (b) {
+        b.addEventListener('click', function () { applyView(b.dataset.view); });
+      });
+      try {
+        var savedView = localStorage.getItem('est-view');
+        applyView(savedView === 'compact' ? 'compact' : 'grid');
+      } catch (e) { applyView('grid'); }
+
+      // ============================================================
+      // 6) Scrollspy — highlight active nav link
+      // ============================================================
+      var navLinkMap = {};
+      document.querySelectorAll('#navLinks a[data-nav]').forEach(function (a) {
+        navLinkMap[a.dataset.nav] = a;
+      });
+      function setActiveNav(key) {
+        Object.keys(navLinkMap).forEach(function (k) {
+          if (k === key) navLinkMap[k].setAttribute('aria-current', 'true');
+          else navLinkMap[k].removeAttribute('aria-current');
+        });
+      }
+      if ('IntersectionObserver' in window) {
+        var spy = new IntersectionObserver(function (obs) {
+          // Pick the section closest to top among intersecting ones
+          var best = null;
+          obs.forEach(function (o) {
+            if (o.isIntersecting) {
+              if (!best || o.boundingClientRect.top < best.boundingClientRect.top) best = o;
+            }
+          });
+          if (best) {
+            var id = best.target.id;
+            if (navLinkMap[id]) setActiveNav(id);
+          }
+        }, { rootMargin: '-72px 0px -55% 0px', threshold: 0 });
+        ['admission','support','instructional','statistics'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) spy.observe(el);
+        });
+      }
+
+      // ============================================================
+      // 7) Scroll-to-top
+      // ============================================================
+      var scrollTopBtn = document.getElementById('scrollTop');
+      var ticking = false;
+      function onScroll() {
+        if (window.scrollY > 480) scrollTopBtn.classList.add('visible');
+        else scrollTopBtn.classList.remove('visible');
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+      }, { passive: true });
+      scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      });
+
+      // ============================================================
+      // 8) Initial render
+      // ============================================================
+      applyFilters();
+    })();
+  </script>
+</body>
+</html>

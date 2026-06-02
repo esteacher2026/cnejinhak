@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2027학년도 농어촌학생 특별전형 안내 | 충청남도교육청진로융합교육원</title>
+<meta name="description" content="2027학년도 농어촌학생 특별전형 지원자격(유형Ⅰ·유형Ⅱ), 수시·정시 대학별 전형, 의치약한수계열 별도 표, 자가진단을 한 페이지에서 확인합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f8f5;
+    --paper:#ffffff;
+    --ink:#1f2623;
+    --ink-soft:#53615a;
+    --line:#d8e2dc;
+    --line-strong:#b8c7be;
+    --field:#2f6b4f;        /* 들녘 초록 */
+    --field-deep:#1f4d39;
+    --soil:#8a5a2a;         /* 흙 갈색 */
+    --harvest:#d49a3a;      /* 곡식 황금 */
+    --crimson:#a23a32;
+    --wash:#f2f7f3;
+    --wash-strong:#e8f1ea;
+    --amber-soft:#fff4df;
+    --danger-soft:#fff0ef;
+    --shadow:0 14px 36px rgba(31,38,35,.11);
+    --shadow-sm:0 6px 18px rgba(31,38,35,.08);
+    --radius:14px;
+    --radius-sm:10px;
+    --max:1200px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"IBM Plex Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      linear-gradient(180deg, rgba(47,107,79,.08), transparent 340px),
+      linear-gradient(90deg, rgba(212,154,58,.06), transparent 48%);
+  }
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:"Gowun Batang",serif;letter-spacing:-.01em;font-weight:700}
+  .serif{font-family:"Gowun Batang",serif}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px 14px;z-index:1000;border-radius:8px}
+  .skip:focus{left:14px;top:14px}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px;min-width:0}
+  .wrap > *{min-width:0}
+
+  /* ===== Topbar ===== */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{max-width:var(--max);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:"Gowun Batang",serif;font-weight:700;font-size:17px;white-space:nowrap}
+  .seal{
+    width:38px;height:38px;border-radius:50%;flex:none;
+    background:var(--field);color:#f8fbf7;display:grid;place-items:center;
+    font-family:"Gowun Batang",serif;font-size:19px;font-weight:700;
+    box-shadow:inset 0 0 0 2px rgba(244,241,234,.35);
+  }
+  .nav-links{display:flex;gap:2px;align-items:center;overflow:auto;white-space:nowrap}
+  .nav-links a{font-size:14px;color:var(--ink-soft);padding:8px 12px;border-radius:999px;transition:.18s}
+  .nav-links a:hover{background:var(--wash-strong);color:var(--field-deep)}
+  .nav-home{
+    display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;
+    background:var(--field);color:#fff;padding:9px 15px;border-radius:999px;flex:none;transition:.18s;
+  }
+  .nav-home:hover{background:var(--field-deep)}
+  .nav-mobile-home{display:none}
+  .mobile-jump{display:none}
+
+  .mobile-jump{
+    position:sticky;top:63px;z-index:55;
+    background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);padding:8px 0;
+  }
+  .mobile-jump .jump-scroll{
+    max-width:var(--max);margin:0 auto;padding:0 16px;display:flex;gap:8px;
+    overflow-x:auto;scrollbar-width:none;
+  }
+  .mobile-jump .jump-scroll::-webkit-scrollbar{display:none}
+  .mobile-jump a{
+    flex:none;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);
+    border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700;
+  }
+  .mobile-jump a:hover{border-color:var(--line-strong);color:var(--field-deep)}
+
+  /* ===== Hero ===== */
+  .hero{padding:78px 0 48px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:34px;align-items:center}
+  .kicker{
+    display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;
+    color:var(--field-deep);border:1px solid var(--line-strong);background:rgba(255,255,255,.86);
+    padding:7px 14px;border-radius:999px;
+  }
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--harvest)}
+  .hero h1{font-size:clamp(31px,5.4vw,64px);line-height:1.16;margin:20px 0 18px;word-break:keep-all}
+  .hero h1 em{font-style:normal;color:var(--field);position:relative}
+  .hero h1 em::after{
+    content:"";position:absolute;left:0;right:0;bottom:.08em;height:.26em;
+    background:rgba(200,134,47,.32);z-index:-1;border-radius:3px;
+  }
+  .hero-lead{font-size:17.5px;color:var(--ink-soft);max-width:580px;margin:0 0 26px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border:0;border-radius:999px;padding:13px 22px;font-size:15px;font-weight:600;
+    font-family:"IBM Plex Sans KR",sans-serif;cursor:pointer;transition:.18s;
+  }
+  .btn-primary{background:var(--field);color:#fff;box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{background:var(--field-deep);transform:translateY(-1px)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line-strong)}
+  .btn-ghost:hover{background:#fff;transform:translateY(-1px)}
+  .hero-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:8px;position:relative;overflow:hidden;
+  }
+  .hero-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:6px;
+    background:repeating-linear-gradient(90deg,var(--field) 0 22px,var(--harvest) 22px 44px);
+    opacity:.85;
+  }
+  .hero-card-inner{padding:22px 20px 20px}
+  .hero-card h2{font-size:18px;margin:8px 0 14px}
+  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .stat{background:var(--wash);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px}
+  .stat .num{font-family:"Gowun Batang",serif;font-size:30px;font-weight:700;color:var(--field-deep);line-height:1}
+  .stat .lbl{font-size:12.5px;color:var(--ink-soft);margin-top:6px}
+  .stat.wide{grid-column:1/-1}
+
+  /* ===== Section ===== */
+  section{padding:58px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  .sec-head{margin-bottom:30px;max-width:780px}
+  .eyebrow{
+    font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--soil);display:flex;align-items:center;gap:9px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--soil);display:inline-block}
+  .sec-head h2{font-size:clamp(27px,3.4vw,40px);line-height:1.22;margin:12px 0 10px}
+  .sec-head p{margin:0;color:var(--ink-soft);font-size:15.5px;overflow-wrap:anywhere}
+
+  /* ===== Cards / grids ===== */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;box-shadow:var(--shadow-sm);
+  }
+  .type-card{position:relative;overflow:hidden}
+  .type-card .ribbon{
+    display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;
+    padding:6px 13px;border-radius:999px;margin-bottom:12px;
+  }
+  .ribbon.t1{background:#e7efe9;color:var(--field-deep);border:1px solid #b9d0c0}
+  .ribbon.t2{background:#f6ead4;color:#8a5a1d;border:1px solid #e3c794}
+  .type-card h3{font-size:21px;margin:0 0 4px}
+  .type-card .sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px}
+  .timeline{display:grid;gap:10px}
+  .tl-row{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
+  .tl-key{
+    font-size:13px;font-weight:600;text-align:center;padding:9px 6px;border-radius:10px;
+    background:var(--wash-strong);color:var(--field-deep);
+  }
+  .tl-body{font-size:14px;color:var(--ink-soft);padding-top:6px}
+
+  /* ===== Compare table ===== */
+  .compare{width:100%;border-collapse:collapse;background:var(--paper);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+  .compare th,.compare td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:top}
+  .compare thead th{background:var(--field);color:#f4f1ea;font-family:"Gowun Batang",serif;font-size:15px}
+  .compare tbody tr:last-child td{border-bottom:0}
+  .compare td:first-child{font-weight:600;background:var(--wash);width:150px}
+  .compare tbody tr:nth-child(even) td:not(:first-child){background:#fbfdfb}
+
+  /* ===== Alerts ===== */
+  .alerts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .alert{border-radius:var(--radius-sm);padding:16px 18px;font-size:14px;border:1px solid}
+  .alert b{display:block;font-size:14.5px;margin-bottom:5px;font-family:"Gowun Batang",serif}
+  .alert.danger{background:var(--danger-soft);border-color:#e4bdb8;color:#7c2c25}
+  .alert.warn{background:var(--amber-soft);border-color:#e3cd9b;color:#7a5418}
+  .alert.info{background:var(--wash-strong);border-color:#bcd2c2;color:#26513c}
+
+  /* ===== Self-check ===== */
+  .checker{
+    background:var(--field-deep);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);
+  }
+  .checker-grid{display:grid;grid-template-columns:.82fr 1.18fr}
+  .checker-aside{
+    padding:32px 28px;color:#e9f0ea;
+    background:
+      linear-gradient(165deg,rgba(31,77,57,.2),rgba(31,77,57,.55)),
+      repeating-linear-gradient(135deg,#235b43 0 18px,#1f4d39 18px 36px);
+  }
+  .checker-aside h3{font-size:24px;color:#fff;margin:0 0 14px;line-height:1.32}
+  .checker-aside p{font-size:14px;color:#cfe0d4;margin:0 0 16px}
+  .checker-aside .mini{font-size:13px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px}
+  .checker-main{background:var(--paper);padding:28px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .lbl{display:block;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:7px}
+  select,input[type=text]{
+    width:100%;border:1px solid var(--line-strong);border-radius:10px;padding:11px 13px;
+    background:#fff;color:var(--ink);font-size:14px;font-family:inherit;
+  }
+  select:focus,input:focus{outline:2px solid rgba(47,107,79,.4);outline-offset:1px}
+  .check-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  .check-box{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--wash)}
+  .check-box h4{margin:0 0 11px;font-size:15.5px;font-family:"Gowun Batang",serif}
+  .check-box h4 span{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;margin-left:6px}
+  .check-list{display:grid;gap:9px}
+  .check-row{
+    display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:10px 11px;font-size:13.3px;cursor:pointer;transition:.15s;
+  }
+  .check-row:hover{border-color:var(--line-strong)}
+  .check-row input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--field)}
+  .confirm-row{
+    display:flex;gap:9px;align-items:flex-start;margin-top:14px;font-size:13.5px;
+    background:var(--wash);border:1px solid var(--line);border-radius:10px;padding:12px;cursor:pointer;
+  }
+  .confirm-row input{margin-top:3px;accent-color:var(--field)}
+  .result{
+    margin-top:18px;border-radius:14px;border:1px solid var(--line-strong);
+    background:var(--wash);padding:18px;
+  }
+  .result .verdict{font-family:"Gowun Batang",serif;font-size:17px;font-weight:700;margin:0 0 4px}
+  .result .verdict.ok{color:var(--field-deep)}
+  .result .verdict.no{color:var(--crimson)}
+  .result .verdict.idle{color:var(--ink-soft)}
+  .result .verdict-sub{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+  .result-list{display:grid;gap:8px}
+  .result-item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px}
+  .result-item b{color:var(--field-deep)}
+  .result-meter{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+  .meter-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .meter-card strong{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:8px}
+  .meter-track{height:7px;border-radius:999px;background:#e6eee8;overflow:hidden}
+  .meter-fill{height:100%;border-radius:999px;background:var(--field);transition:width .2s}
+  .result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .checker-actions{display:flex;justify-content:flex-end;margin-top:12px}
+
+  /* ===== Filter + data table ===== */
+  .filter-bar{
+    display:grid;grid-template-columns:1.5fr repeat(4,minmax(120px,1fr));gap:10px;
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;box-shadow:var(--shadow-sm);margin-bottom:14px;
+  }
+  .table-wrap{
+    overflow:auto;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--paper);box-shadow:var(--shadow-sm);max-height:620px;
+  }
+  table.data{width:100%;border-collapse:separate;border-spacing:0;min-width:880px}
+  table.data th,table.data td{padding:12px 13px;border-bottom:1px solid var(--line);font-size:13.3px;text-align:left;vertical-align:top}
+  table.data thead th{
+    position:sticky;top:0;z-index:2;background:var(--field-deep);color:#f4f1ea;
+    font-family:"IBM Plex Sans KR",sans-serif;font-weight:600;font-size:12.5px;white-space:nowrap;
+  }
+  table.data tbody tr:hover td{background:var(--wash)}
+  table.data tbody tr:last-child td{border-bottom:0}
+  table.data td strong{font-weight:600;color:var(--ink)}
+  .qcol{font-family:"Gowun Batang",serif;font-weight:700;color:var(--field-deep)}
+  .tag{display:inline-flex;align-items:center;border-radius:999px;padding:3px 9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+  .tag.su{background:#e7efe9;color:var(--field-deep);border:1px solid #bcd2c2}
+  .tag.jeong{background:#f1e7d4;color:#7a5418;border:1px solid #ddc796}
+  .tag.t1{background:#e7efe9;color:var(--field-deep);border:1px solid #bcd2c2}
+  .tag.t2{background:#f6ead4;color:#8a5a1d;border:1px solid #e3c794}
+  .tag.other{background:#ece9e0;color:var(--ink-soft);border:1px solid var(--line)}
+  .tag.minreq{background:#f4e6e4;color:#8a342c;border:1px solid #ddb6b0}
+  .table-actions{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    margin-top:12px;font-size:13.5px;color:var(--ink-soft);
+  }
+  .mini-btn{
+    border:1px solid var(--line-strong);background:var(--paper);border-radius:999px;
+    padding:8px 14px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;font-family:inherit;transition:.15s;
+  }
+  .mini-btn:hover{background:#fff}
+  .seg{display:inline-flex;background:var(--wash-strong);border-radius:999px;padding:3px;gap:3px}
+  .seg button{
+    border:0;background:transparent;padding:7px 15px;border-radius:999px;font-size:13px;font-weight:600;
+    cursor:pointer;color:var(--ink-soft);font-family:inherit;transition:.15s;
+  }
+  .seg button.active{background:var(--field);color:#f4f1ea}
+  .empty-row td{text-align:center;color:var(--ink-soft);padding:34px;font-size:14px}
+  .medical-tools{
+    display:grid;grid-template-columns:1.4fr minmax(120px,.6fr) minmax(120px,.7fr);gap:10px;
+    margin-bottom:12px;
+  }
+  .med-seg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .med-seg::-webkit-scrollbar{display:none}
+  .mobile-card-list{display:none}
+  .mobile-empty{
+    border:1px solid var(--line);background:var(--paper);border-radius:var(--radius);
+    padding:22px;color:var(--ink-soft);text-align:center;box-shadow:var(--shadow-sm);
+  }
+  .mobile-data-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px;box-shadow:var(--shadow-sm);
+  }
+  .mobile-card-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}
+  .mobile-card-title{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35}
+  .mobile-card-sub{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+  .mobile-card-grid{display:grid;gap:8px}
+  .mobile-card-row{
+    display:grid;grid-template-columns:72px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);
+    font-size:13px;
+  }
+  .mobile-card-row b{color:var(--ink-soft);font-size:12.5px}
+  .mobile-card-row span{min-width:0;overflow-wrap:anywhere}
+  .mobile-minreq{
+    display:block;border:1px solid #ddb6b0;background:var(--danger-soft);color:#7c2c25;
+    border-radius:10px;padding:8px 10px;line-height:1.55;
+  }
+
+  /* ===== Strategy ===== */
+  .strat-card{position:relative;overflow:hidden}
+  .strat-card .pin{
+    font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;display:inline-block;margin-bottom:10px;
+  }
+  .pin.a{background:#f1e7d4;color:#7a5418}
+  .pin.b{background:#e7efe9;color:var(--field-deep)}
+  .pin.c{background:#f4e6e4;color:#8a342c}
+  .strat-card h3{font-size:18px;margin:0 0 7px}
+  .strat-card p{margin:0;font-size:14px;color:var(--ink-soft)}
+
+  /* ===== FAQ ===== */
+  .faq{display:grid;gap:10px}
+  details{
+    background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:4px 18px;box-shadow:var(--shadow-sm);transition:.15s;
+  }
+  details[open]{border-color:var(--line-strong)}
+  summary{
+    font-family:"Gowun Batang",serif;font-weight:700;font-size:15.5px;cursor:pointer;
+    padding:14px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:22px;color:var(--soil);font-family:"IBM Plex Sans KR",sans-serif;transition:.2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{margin:0 0 16px;color:var(--ink-soft);font-size:14px;line-height:1.75}
+
+  /* ===== Footer ===== */
+  .footer{background:var(--field-deep);color:#d6e2d9;padding:46px 0 40px;margin-top:10px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:start}
+  .footer h3{color:#fff;font-size:17px;margin:0 0 10px}
+  .footer p{font-size:13.5px;color:#bcd0c1;margin:0 0 8px;line-height:1.7}
+  .footer .credit{
+    font-size:13px;color:#cfe0d4;background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 16px;margin-top:6px;
+  }
+  .footer .credit b{color:#fff;font-weight:600}
+  .footer-side{display:flex;flex-direction:column;gap:10px}
+  .footer-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:11px 18px;
+    font-size:14px;font-weight:600;color:#fff;transition:.15s;
+  }
+  .footer-btn:hover{background:rgba(255,255,255,.1)}
+  .footer-btn.solid{background:#f4f1ea;color:var(--field-deep);border-color:transparent}
+  .footer-btn.solid:hover{background:#fff}
+  .footer-base{
+    margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);
+    font-size:12.5px;color:#9fb7a6;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width:960px){
+    .hero-grid,.grid-2,.grid-3,.checker-grid,.check-cols,.field-grid,.footer-grid{grid-template-columns:1fr}
+    .alerts{grid-template-columns:1fr}
+    .filter-bar{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .nav-home-desktop{display:none}
+    .nav-mobile-home{display:inline-flex}
+    .mobile-jump{display:block}
+    .hero{padding-top:52px}
+    .hero-grid{gap:26px}
+    .hero-lead{max-width:100%}
+  }
+  @media (max-width:720px){
+    .table-wrap{display:none}
+    .mobile-card-list{display:grid;gap:12px}
+    .medical-tools{grid-template-columns:1fr}
+    .seg{border-radius:14px}
+    .seg button{flex:none}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .hero-grid{display:block;max-width:100%}
+    .hero-grid > * + *{margin-top:28px}
+    .hero-card{width:100%;max-width:100%}
+    .hero h1{font-size:27px}
+    .hero-lead,.sec-head p{
+      font-size:15.5px;max-width:100%;white-space:normal;
+      word-break:break-all;overflow-wrap:anywhere;
+    }
+    .brand{font-size:15px}
+    .nav{padding:10px 16px}
+    .stat-row{grid-template-columns:1fr}
+    .filter-bar{grid-template-columns:1fr}
+    .tl-row{grid-template-columns:1fr}
+    .compare{display:block;border:0;background:transparent;overflow:visible}
+    .compare thead{display:none}
+    .compare tbody{display:grid;gap:12px}
+    .compare tr{
+      display:block;background:var(--paper);border:1px solid var(--line);
+      border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);
+    }
+    .compare td{
+      display:block;width:100%;border-bottom:1px solid var(--line);
+      padding:12px 14px;overflow-wrap:anywhere;
+    }
+    .compare td:first-child{width:auto;background:var(--field);color:#fff;font-weight:800}
+    .compare td:nth-child(2)::before,
+    .compare td:nth-child(3)::before{
+      display:block;margin-bottom:4px;font-size:12px;font-weight:800;color:var(--field-deep);
+    }
+    .compare td:nth-child(2)::before{content:"유형Ⅰ"}
+    .compare td:nth-child(3)::before{content:"유형Ⅱ"}
+    table.data th,table.data td{padding:10px}
+    .table-actions{flex-direction:column;align-items:stretch}
+    .result-meter{grid-template-columns:1fr}
+    .checker-main,.checker-aside{padding:22px 18px}
+    .checker-actions{justify-content:stretch}
+    .checker-actions .mini-btn{width:100%}
+    .footer-base{flex-direction:column}
+  }
+  @media print{
+    .topbar,.hero-actions,.filter-bar,.table-actions,.checker,.footer-side,.nav-home{display:none!important}
+    body{background:#fff}
+    .card,.table-wrap,.hero-card{box-shadow:none}
+    section{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+
+<header class="topbar">
+  <nav class="nav" aria-label="주요 메뉴">
+    <a class="brand" href="#top"><span class="seal">農</span><span>2027 농어촌학생 특별전형</span></a>
+    <div class="nav-links">
+      <a href="#summary">핵심요약</a>
+      <a href="#eligibility">지원자격</a>
+      <a href="#selfcheck">자가진단</a>
+      <a href="#tables">전형 검색</a>
+      <a href="#medical">의치약한수</a>
+      <a href="#strategy">지원전략</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </div>
+    <a class="nav-home nav-home-desktop" href="index.html">⌂ 메인으로</a>
+    <a class="nav-home nav-mobile-home" href="index.html">⌂ 메인</a>
+  </nav>
+</header>
+
+<nav class="mobile-jump" aria-label="모바일 빠른 이동">
+  <div class="jump-scroll">
+    <a href="#summary">핵심요약</a>
+    <a href="#selfcheck">자가진단</a>
+    <a href="#tables">전형검색</a>
+    <a href="#medical">의치약한수</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top" style="border-top:0">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker"><span class="dot"></span>2027학년도 농어촌학생 특별전형</span>
+        <h1>농어촌학생 특별전형,<br><em>자격부터 대학별 전형까지</em></h1>
+        <p class="hero-lead">유형Ⅰ·유형Ⅱ 자격 판정, 제외·주의 학교, 수시·정시 대학별 전형, 의치약한수계열 별도 표를 한 페이지에서 확인하도록 구성했습니다.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#selfcheck">자가진단 시작하기</a>
+          <a class="btn btn-ghost" href="#tables">대학별 전형 검색</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="전형 규모 요약">
+        <div class="hero-card-inner">
+          <span class="eyebrow">한눈에 보기</span>
+          <h2>탑재된 전형 데이터</h2>
+          <div class="stat-row">
+            <div class="stat"><div class="num" id="statSusi">–</div><div class="lbl">수시 전형 (일반)</div></div>
+            <div class="stat"><div class="num" id="statJeong">–</div><div class="lbl">정시 전형 (일반)</div></div>
+            <div class="stat"><div class="num" id="statMed">–</div><div class="lbl">의치약한수 전형</div></div>
+            <div class="stat"><div class="num" id="statUniv">–</div><div class="lbl">수록 대학 수</div></div>
+            <div class="stat wide"><div class="num" id="statRows">–</div><div class="lbl">전체 수록 전형 행 수 (일반 + 의치약한수)</div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== SUMMARY ===== -->
+  <section id="summary">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Core Summary</div>
+        <h2>유형Ⅰ·유형Ⅱ 핵심 비교</h2>
+        <p>농어촌학생 특별전형은 두 가지 자격 유형으로 나뉩니다. 유형Ⅰ은 <strong>부모 거주 요건</strong>이, 유형Ⅱ는 <strong>초등학교부터의 연속성</strong>이 핵심입니다.</p>
+      </div>
+      <table class="compare">
+        <thead><tr><th>구분</th><th>유형Ⅰ</th><th>유형Ⅱ</th></tr></thead>
+        <tbody>
+          <tr><td>학교 이수 기간</td><td>중학교·고등학교 6년 (입학~졸업)</td><td>초·중·고등학교 12년 (입학~졸업)</td></tr>
+          <tr><td>학교 소재</td><td>농어촌지역(행정구역상 읍·면) 소재</td><td>농어촌지역(행정구역상 읍·면) 소재</td></tr>
+          <tr><td>거주 요건</td><td>지원자 본인 <strong>＋ 부모 모두</strong> 농어촌 거주</td><td>지원자 <strong>본인</strong> 농어촌 거주</td></tr>
+          <tr><td>기간 기준</td><td>중·고 입학부터 졸업까지 전 교육과정</td><td>초·중·고 전 교육과정, 입학부터 졸업까지</td></tr>
+          <tr><td>핵심 주의점</td><td>본인·부모 주소 이력의 연속성(단절 없음)</td><td>초등학교부터 고교까지 학교·주소 이력의 연속성</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== ELIGIBILITY ===== -->
+  <section id="eligibility">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Eligibility</div>
+        <h2>지원자격 상세 안내</h2>
+        <p>기본 자격과 대학별 최종 인정 여부는 분리해서 판단해야 합니다. 특히 특수목적고·영재학교·외국교육기관·특성화고·자율형사립고는 대학별 제외 규정을 반드시 확인하세요.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card type-card">
+          <span class="ribbon t1">유형Ⅰ · 중·고 6년 이수형</span>
+          <h3>중·고 6년 + 본인·부모 거주</h3>
+          <p class="sub">중학교 입학부터 고등학교 졸업까지의 연속성과 부모 거주가 핵심입니다.</p>
+          <div class="timeline">
+            <div class="tl-row"><div class="tl-key">중1 입학</div><div class="tl-body">농어촌지역 읍·면 소재 중학교 입학</div></div>
+            <div class="tl-row"><div class="tl-key">중·고 6년</div><div class="tl-body">중·고 전 교육과정을 읍·면 소재 학교에서 이수</div></div>
+            <div class="tl-row"><div class="tl-key">거주</div><div class="tl-body">재학기간 내내 본인과 부모 모두 농어촌지역 거주</div></div>
+          </div>
+        </article>
+        <article class="card type-card">
+          <span class="ribbon t2">유형Ⅱ · 초·중·고 12년 이수형</span>
+          <h3>초·중·고 12년 + 본인 거주</h3>
+          <p class="sub">초등학교 입학부터 이어지는 12년의 연속성이 핵심입니다. 부모 거주 요건은 없습니다.</p>
+          <div class="timeline">
+            <div class="tl-row"><div class="tl-key">초1 입학</div><div class="tl-body">농어촌지역 읍·면 소재 초등학교 입학</div></div>
+            <div class="tl-row"><div class="tl-key">12년</div><div class="tl-body">초·중·고 전 교육과정을 읍·면 소재 학교에서 이수</div></div>
+            <div class="tl-row"><div class="tl-key">거주</div><div class="tl-body">재학기간 내내 지원자 본인이 농어촌지역 거주</div></div>
+          </div>
+        </article>
+      </div>
+      <div class="alerts">
+        <div class="alert danger"><b>대부분 제외</b>읍·면 소재라도 특수목적고(과학고·외국어고·국제고·예술고·체육고·산업수요맞춤형고)는 대부분 제외됩니다.</div>
+        <div class="alert warn"><b>대학별 제외 가능</b>영재학교, 국내학력인정 외국교육기관, 특성화고 등은 대학별로 인정 여부가 달라 확인이 필요합니다.</div>
+        <div class="alert info"><b>추가 확인</b>자율형사립고 등도 일부 대학에서 제외할 수 있으므로 모집요강의 비고를 반드시 확인하세요.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SELF CHECK ===== -->
+  <section id="selfcheck">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Self Check</div>
+        <h2>농어촌학생 특별전형 자가진단</h2>
+        <p>아래 진단은 기본 가능성 확인용입니다. 최종 지원 가능 여부는 대학별 인정 유형·제외 학교·제출서류 검증 결과에 따라 달라집니다.</p>
+      </div>
+      <div class="checker">
+        <div class="checker-grid">
+          <aside class="checker-aside">
+            <h3>유형Ⅰ·유형Ⅱ를 따로 판정합니다</h3>
+            <p>유형Ⅰ은 중·고 6년과 부모 거주 요건을, 유형Ⅱ는 초·중·고 12년과 본인 거주 요건을 중심으로 판단합니다.</p>
+            <div class="mini">대학을 선택하면 해당 대학 비고의 ‘유형Ⅰ만 인정 / 유형Ⅱ만 인정’ 규정을 함께 반영해 진단 결과를 보여줍니다.</div>
+          </aside>
+          <div class="checker-main">
+            <div class="field-grid">
+              <div>
+                <label class="lbl" for="targetUniversity">지원 희망 대학</label>
+                <select id="targetUniversity"><option value="">대학 선택 (미선택 가능)</option></select>
+              </div>
+              <div>
+                <label class="lbl" for="schoolType">본인 고교 유형</label>
+                <select id="schoolType">
+                  <option>일반고</option><option>특수목적고</option><option>영재학교</option>
+                  <option>국내학력인정 외국교육기관</option><option>특성화고</option>
+                  <option>자율형사립고</option><option>기타</option>
+                </select>
+              </div>
+            </div>
+            <div class="check-cols">
+              <div class="check-box">
+                <h4>유형Ⅰ 체크<span class="tag t1">중·고 6년</span></h4>
+                <div class="check-list">
+                  <label class="check-row"><input type="checkbox" data-type="t1"><span>중학교 입학~고등학교 졸업 6년을 읍·면 소재 학교에서 이수</span></label>
+                  <label class="check-row"><input type="checkbox" data-type="t1"><span>중·고 재학기간 전체에 본인이 농어촌지역 거주</span></label>
+                  <label class="check-row"><input type="checkbox" data-type="t1"><span>중·고 재학기간 전체에 부모 모두가 농어촌지역 거주</span></label>
+                  <label class="check-row"><input type="checkbox" data-type="t1"><span>재학기간·거주기간에 단절(이력 끊김)이 없음</span></label>
+                </div>
+              </div>
+              <div class="check-box">
+                <h4>유형Ⅱ 체크<span class="tag t2">초·중·고 12년</span></h4>
+                <div class="check-list">
+                  <label class="check-row"><input type="checkbox" data-type="t2"><span>초등학교 입학~고등학교 졸업 12년을 읍·면 소재 학교에서 이수</span></label>
+                  <label class="check-row"><input type="checkbox" data-type="t2"><span>초·중·고 재학기간 전체에 본인이 농어촌지역 거주</span></label>
+                  <label class="check-row"><input type="checkbox" data-type="t2"><span>재학기간·거주기간에 단절(이력 끊김)이 없음</span></label>
+                </div>
+              </div>
+            </div>
+            <label class="confirm-row"><input id="universityConfirm" type="checkbox"><span>지원 대학의 모집요강에서 학교 유형 제외 규정과 유형Ⅰ/Ⅱ 인정 범위를 직접 확인했습니다.</span></label>
+            <div id="checkResult" class="result" aria-live="polite"></div>
+            <div class="checker-actions">
+              <button class="mini-btn" id="resetCheck" type="button">자가진단 초기화</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TABLES ===== -->
+  <section id="tables">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Admission Search</div>
+        <h2>수시·정시 대학별 전형 검색</h2>
+        <p>검색·필터로 원하는 대학과 전형을 찾고 CSV로 내려받을 수 있습니다.</p>
+      </div>
+      <div class="filter-bar">
+        <input id="tableSearch" type="text" placeholder="대학명·지역·전형명 검색" aria-label="전형표 검색">
+        <select id="periodFilter" aria-label="모집시기"><option value="">모집시기 전체</option><option>수시</option><option>정시</option></select>
+        <select id="regionFilter" aria-label="지역"><option value="">지역 전체</option></select>
+        <select id="typeFilter" aria-label="전형유형"><option value="">전형유형 전체</option></select>
+        <select id="noteFilter" aria-label="인정 유형">
+          <option value="">인정 유형 전체</option>
+          <option value="유형Ⅰ만 인정">유형Ⅰ만 인정</option>
+          <option value="유형Ⅱ만 인정">유형Ⅱ만 인정</option>
+          <option value="제한 없음">인정 유형 제한 표기 없음</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table class="data" id="admissionTable" aria-describedby="tableCount">
+          <thead><tr>
+            <th>모집</th><th>지역</th><th>대학</th><th>모집군</th><th>전형유형</th>
+            <th>전형명</th><th>인원</th><th>전형방법</th><th>비고</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="mobile-card-list" id="admissionCards" aria-live="polite"></div>
+      <div class="table-actions">
+        <span id="tableCount"></span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="mini-btn" id="resetFilters" type="button">필터 초기화</button>
+          <button class="mini-btn" id="exportCsv" type="button">⤓ 보이는 행 CSV 저장</button>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--ink-soft);margin-top:10px">※ 모집인원이 <strong>괄호 ( )</strong>로 표기된 경우 원문 자료 기준 <strong>정원 외 모집인원</strong> 등 별도 표기 인원입니다.</p>
+    </div>
+  </section>
+
+  <!-- ===== MEDICAL ===== -->
+  <section id="medical">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Medical / Pharmacy / Vet</div>
+        <h2>의치약한수계열 별도 표</h2>
+        <p>의예·치의예·약학·한의예·수의예과는 <strong>수능최저학력기준</strong>이 적용되는 경우가 많아 일반 전형표와 분리해 제공합니다. 계열 버튼으로 필터링하세요.</p>
+      </div>
+      <div class="medical-tools">
+        <input id="medicalSearch" type="text" placeholder="대학명·지역·최저기준 검색" aria-label="의치약한수 표 검색">
+        <select id="medicalPeriodFilter" aria-label="의치약한수 모집시기"><option value="">모집시기 전체</option><option>수시</option><option>정시</option></select>
+        <select id="medicalRegionFilter" aria-label="의치약한수 지역"><option value="">지역 전체</option></select>
+      </div>
+      <div style="margin-bottom:14px">
+        <div class="seg med-seg" id="medSeg" role="tablist">
+          <button class="active" type="button" data-cat="전체">전체</button>
+          <button type="button" data-cat="의예과">의예과</button>
+          <button type="button" data-cat="치의예과">치의예과</button>
+          <button type="button" data-cat="약학과">약학과</button>
+          <button type="button" data-cat="한의예과">한의예과</button>
+          <button type="button" data-cat="수의예과">수의예과</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data" id="medicalTable">
+          <thead><tr>
+            <th>계열</th><th>모집</th><th>지역</th><th>대학</th><th>모집군</th>
+            <th>전형유형</th><th>전형명</th><th>인원</th><th>전형방법</th><th>수능최저학력기준</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="mobile-card-list" id="medicalCards" aria-live="polite"></div>
+      <div class="table-actions"><span id="medicalCount"></span></div>
+    </div>
+  </section>
+
+  <!-- ===== STRATEGY ===== -->
+  <section id="strategy">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Strategy</div>
+        <h2>2027학년도 지원전략</h2>
+        <p>단순 자격 충족만으로는 충분하지 않습니다. 모집시기·전형방법·수능최저·서류 준비 정도를 함께 판단하세요.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card strat-card"><span class="pin a">모집시기</span><h3>수시·정시 동시 점검</h3><p>같은 대학도 모집군별로 인원이 나뉘는 경우가 많습니다. 수시에서는 학생부 중심, 정시에서는 수능 중심으로 분리해 준비 전략을 세우세요.</p></article>
+        <article class="card strat-card"><span class="pin b">전형방법</span><h3>서류·면접 비중 확인</h3><p>학생부종합전형은 서류100 또는 단계별 면접이 포함됩니다. 전형방법 열을 보고 면접 유무와 단계별 배수를 미리 확인하세요.</p></article>
+        <article class="card strat-card"><span class="pin c">수능최저</span><h3>의치약한수는 최저도 확인</h3><p>의치약한수계열은 수능최저학력기준도 함께 확인해야합니다. 영역 조합과 ‘수(미/기)·과 포함’ 조건을 정확히 확인하세요.</p></article>
+      </div>
+      <div class="alert info" style="margin-top:16px">
+        <b>입시결과 해석 시 주의</b>
+        농어촌학생 특별전형은 모집인원이 적은 모집단위가 많아 단년도 입시결과 편차가 큽니다. 최근 여러 해의 결과, 전형요소, 수능최저 충족 가능성, 모집단위 변화를 함께 고려해 판단하세요.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>자주 묻는 질문</h2>
+        <p>지원 전 가장 많이 확인하는 항목을 정리했습니다.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>읍·면에 있는 특목고를 다니면 지원할 수 있나요?</summary><p>대부분의 대학은 읍·면 소재 특수목적고(과학고·외국어고·국제고·예술고·체육고·산업수요맞춤형고)를 제외합니다. 영재학교, 국내학력인정 외국교육기관, 특성화고, 자율형사립고 등은 대학별로 제외 여부가 달라 모집요강을 별도로 확인해야 합니다.</p></details>
+        <details><summary>유형Ⅰ과 유형Ⅱ 중 하나만 충족하면 되나요?</summary><p>대학이 두 유형을 모두 인정한다면 하나의 유형만 충족해도 지원을 검토할 수 있습니다. 다만 일부 대학은 ‘유형Ⅰ만 인정’ 또는 ‘유형Ⅱ만 인정’으로 운영하므로, 지원 대학의 비고와 모집요강을 반드시 함께 확인해야 합니다.</p></details>
+        <details><summary>부모가 재학 중간에 주소를 옮기면 유형Ⅰ이 가능한가요?</summary><p>유형Ⅰ은 중·고 재학기간 동안 본인과 부모 모두의 농어촌 거주가 요구됩니다. 재학기간과 거주기간은 연속된 기간만 인정되므로 주소 단절은 핵심 위험 요소입니다. 전입·전출 이력을 사전에 점검하세요.</p></details>
+        <details><summary>초등학교 일부 기간만 농어촌이면 유형Ⅱ가 되나요?</summary><p>유형Ⅱ는 초·중·고 12년 전 교육과정을 농어촌지역 읍·면 소재 학교에서 이수하고, 해당 기간 본인이 농어촌지역에 거주해야 합니다. 일부 기간만 충족하면 기본 요건을 충족하기 어렵습니다.</p></details>
+        <details><summary>의치약한수계열은 일반 표와 같이 보면 되나요?</summary><p>아닙니다. 의치약한수계열은 수능최저학력기준이 적용되는 경우가 많아 일반 수시·정시 표와 분리해 보는 것이 안전합니다. 이 페이지에서도 ‘의치약한수계열’ 표를 별도로 제공합니다.</p></details>
+        <details><summary>모집인원이 괄호로 표시된 것은 무슨 뜻인가요?</summary><p>원문 자료에서 모집인원이 괄호 ( )로 표기된 경우는 정원 외 모집인원 등 별도 표기 인원을 의미합니다. 정확한 정원 구분은 해당 대학의 모집요강에서 확인하세요.</p></details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>2027학년도 농어촌학생 특별전형 안내</h3>
+      <p>본 페이지는 농어촌학생 특별전형의 지원자격과 대학별 전형 정보를 학생·학부모가 쉽게 확인할 수 있도록 구성한 안내 자료입니다.</p>
+      <p>수록 내용은 변경될 수 있으므로 원서접수 전 반드시 해당 대학의 최종 모집요강을 확인하시기 바랍니다.</p>
+      <div class="credit">
+        <b>출처</b> 대입정보 119 (한국대학교육협의회)<br>
+        <b>제작</b> 충청남도교육청진로융합교육원 정재연
+      </div>
+    </div>
+    <div class="footer-side">
+      <a class="footer-btn solid" href="index.html">⌂ 메인 페이지로 이동</a>
+      <a class="footer-btn" href="#top">▲ 페이지 맨 위로</a>
+      <button class="footer-btn" type="button" onclick="window.print()" style="cursor:pointer;font-family:inherit;background:transparent">🖶 이 페이지 인쇄</button>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <span>ⓒ 충청남도교육청진로융합교육원. 본 자료는 학생 진로·진학 안내 목적으로 제작되었습니다.</span>
+    <span>자료 기준: 2027학년도 대입정보 119 발췌</span>
+  </div>
+</footer>
+
+<script>
+"use strict";
+const admissionRows = [{"period": "수시", "region": "서울", "university": "가톨릭대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "note": ""}, {"period": "수시", "region": "서울", "university": "감리교신학대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부80+면접20", "note": ""}, {"period": "수시", "region": "서울", "university": "강서대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "5", "method": "학생부100", "note": ""}, {"period": "수시", "region": "서울", "university": "경기대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "9", "method": "학생부100", "note": ""}, {"period": "수시", "region": "서울", "university": "광운대", "campus": "", "group": "", "type": "종합", "name": "농어촌학생", "quota": "39", "method": "서류100", "note": ""}, {"period": "수시", "region": "서울", "university": "국민대", "campus": "", "group": "", "type": "종합", "name": "농어촌학생", "quota": "100", "method": "서류100", "note": "유형Ⅱ만 인정"}, {"period": "수시", "region": "서울", "university": "덕성여대", "campus": "", "group": "", "type": "종합", "name": "기회균형Ⅰ 농어촌학생", "quota": "37", "method": "서류100", "note": ""}, {"period": "수시", "region": "서울", "university": "명지대", "campus": "", "group": "", "type": "종합", "name": "농어촌학생", "quota": "57", "method": "서류100", "note": ""}, {"period": "수시", "region": "서울", "university": "삼육대", "campus": "", "group": "", "type": "교과", "name": "농어촌", "quota": "39", "method": "학생부100", "note": ""}, {"period": "수시", "region": "서울", "university": "서경대", "campus": "", "group": "", "type": "교과", "name": "기회균형② 농어촌학생", "quota": "50", "method": "학생부100", "note": ""}, {"period": "수시", "region": "서울", "university": "서울과학기술대", "campus": "", "group": "", "type": "종합", "name": "기회균형(농어촌학생)", "quota": "64", "method": "1단계(3배수): 서류100 / 2단계: 1단계70+면접30", "note": ""}, {"period": "수시", "region": "서울", "university": "서울교대", "campus": "", "group": "", "type": "종합", "name": "기회균형특별Ⅰ 농어촌학생", "quota": "10", "method": "1단계(2배수): 서류100 / 2단계: 1단계50+면접50", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "서울", "university": "서울기독대", "campus": "", "group": "", "type": "교과", "name": "농어촌출신자", "quota": "1", "method": "학생부100", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "서울", "university": "서울여대", "campus": "", "group": "", "type": "종합", "name": "기회균형 농어촌학생", "quota": "63", "method": "서류100", "note": "유형Ⅱ만 인정"}, {"period": "수시", "region": "서울", "university": "서울한영대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부100", "note": ""}, {"period": "수시", "region": "서울", "university": "성공회대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "6", "method": "학생부100", "note": ""}, {"period": "수시", "region": "서울", "university": "숙명여대", "campus": "", "group": "", "type": "종합", "name": "농어촌학생", "quota": "63", "method": "서류100", "note": ""}, {"period": "수시", "region": "서울", "university": "장로회신학대", "campus": "", "group": "", "type": "종합", "name": "농어촌 및 도서벽지지역학생", "quota": "4", "method": "서류60.61+면접39.39", "note": ""}, {"period": "수시", "region": "서울", "university": "중앙대", "campus": "", "group": "", "type": "종합", "name": "기회균형 농어촌학생", "quota": "111", "method": "서류100", "note": ""}, {"period": "수시", "region": "서울", "university": "한국성서대", "campus": "", "group": "", "type": "교과", "name": "농어촌고교출신자", "quota": "5", "method": "학생부70+면접30", "note": ""}, {"period": "수시", "region": "서울", "university": "한성대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "54", "method": "학생부100", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "서울", "university": "홍익대", "campus": "", "group": "", "type": "교과", "name": "농어촌학생", "quota": "37", "method": "학생부100", "note": ""}, {"period": "수시", "region": "인천", "university": "가천대", "campus": "메디컬", "group": "", "type": "교과", "name": "농어촌(교과)", "quota": "12", "method": "학생부100", "note": ""}, {"period": "수시", "region": "인천", "university": "가천대", "campus": "메디컬", "group": "", "type": "종합", "name": "농어촌(종합)", "quota": "10", "method": "1단계(4배수): 서류100 / 2단계: 1단계50+면접50", "note": ""}, {"period": "수시", "region": "인천", "university": "경인교대", "campus": "인천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "21", "method": "서류70+면접30", "note": "비대면면접"}, {"period": "수시", "region": "인천", "university": "인천가톨릭대", "campus": "송도", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부60+면접40", "note": ""}, {"period": "수시", "region": "인천", "university": "인하대", "campus": "인천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "141", "method": "서류100", "note": ""}, {"period": "수시", "region": "인천", "university": "청운대", "campus": "인천", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "17", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "가천대", "campus": "성남", "group": "", "type": "교과", "name": "농어촌(교과)", "quota": "74", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "가천대", "campus": "성남", "group": "", "type": "종합", "name": "농어촌(종합)", "quota": "64", "method": "1단계(4배수): 서류100 / 2단계: 1단계50+면접50", "note": ""}, {"period": "수시", "region": "경기", "university": "가톨릭대", "campus": "성신", "group": "", "type": "교과", "name": "농어촌학생", "quota": "64", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "강남대", "campus": "용인", "group": "", "type": "교과", "name": "농어촌학생", "quota": "40", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "경기대", "campus": "수원", "group": "", "type": "교과", "name": "농어촌학생", "quota": "79", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "국립한국교통대", "campus": "의왕", "group": "", "type": "교과", "name": "농어촌", "quota": "6", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "단국대", "campus": "죽전", "group": "", "type": "종합", "name": "농어촌학생", "quota": "50", "method": "서류100", "note": ""}, {"period": "수시", "region": "경기", "university": "대진대", "campus": "포천", "group": "", "type": "교과", "name": "농어촌학생", "quota": "57", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "동양대", "campus": "동두천", "group": "", "type": "교과", "name": "농어촌학생", "quota": "14", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "루터대", "campus": "용인", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부60+면접40", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "경기", "university": "명지대", "campus": "용인", "group": "", "type": "종합", "name": "농어촌학생", "quota": "36", "method": "서류100", "note": ""}, {"period": "수시", "region": "경기", "university": "서울신학대", "campus": "부천", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "서울장신대", "campus": "광주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "성결대", "campus": "안양", "group": "", "type": "교과", "name": "농어촌학생", "quota": "15", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "수원대", "campus": "화성", "group": "", "type": "교과", "name": "농어촌학생", "quota": "83", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "신한대", "campus": "동두천", "group": "", "type": "교과", "name": "농어촌", "quota": "9", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "신한대", "campus": "의정부", "group": "", "type": "교과", "name": "농어촌", "quota": "28", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "안양대", "campus": "안양", "group": "", "type": "교과", "name": "농어촌학생", "quota": "30", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "예원예술대", "campus": "양주", "group": "", "type": "교과", "name": "농어촌", "quota": "3", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "용인대", "campus": "용인", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "27", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "을지대", "campus": "성남", "group": "", "type": "교과", "name": "농어촌학생", "quota": "21", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "을지대", "campus": "의정부", "group": "", "type": "교과", "name": "농어촌학생", "quota": "6", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "중앙대", "campus": "다빈치", "group": "", "type": "종합", "name": "기회균형-농어촌학생", "quota": "30", "method": "서류100", "note": ""}, {"period": "수시", "region": "경기", "university": "차의과학대", "campus": "포천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "20", "method": "서류100", "note": ""}, {"period": "수시", "region": "경기", "university": "칼빈대", "campus": "용인", "group": "", "type": "교과", "name": "농어산촌인재특별", "quota": "1", "method": "학생부55+면접45", "note": ""}, {"period": "수시", "region": "경기", "university": "평택대", "campus": "평택", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "12", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "한경국립대", "campus": "안성", "group": "", "type": "교과", "name": "농어촌학생", "quota": "42", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "한경국립대", "campus": "평택", "group": "", "type": "교과", "name": "농어촌학생", "quota": "8", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "한세대", "campus": "군포", "group": "", "type": "교과", "name": "농어촌학생", "quota": "15", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "한신대", "campus": "오산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "20", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "협성대", "campus": "화성", "group": "", "type": "교과", "name": "농어촌학생", "quota": "20", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경기", "university": "화성의과학대", "campus": "화성", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부100", "note": ""}, {"period": "수시", "region": "세종", "university": "대전가톨릭대", "campus": "세종", "group": "", "type": "교과", "name": "농어촌", "quota": "4", "method": "학생부40+기타30+면접30", "note": ""}, {"period": "수시", "region": "세종", "university": "홍익대", "campus": "세종", "group": "", "type": "교과", "name": "농어촌학생", "quota": "21", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "건양대", "campus": "논산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "14", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "공주교대", "campus": "공주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "14", "method": "서류100", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "충남", "university": "국립공주대", "campus": "공주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "70", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "국립공주대", "campus": "예산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "9", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "국립공주대", "campus": "천안", "group": "", "type": "교과", "name": "농어촌학생", "quota": "18", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "나사렛대", "campus": "천안", "group": "", "type": "교과", "name": "농어촌학생", "quota": "19", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "남서울대", "campus": "천안", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "48", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "단국대", "campus": "천안", "group": "", "type": "종합", "name": "농어촌학생", "quota": "60", "method": "서류100", "note": ""}, {"period": "수시", "region": "충남", "university": "백석대", "campus": "천안", "group": "", "type": "교과", "name": "농어촌학생", "quota": "56", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "상명대", "campus": "천안", "group": "", "type": "교과", "name": "농어촌학생", "quota": "52", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "선문대", "campus": "아산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "41", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "순천향대", "campus": "아산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "49", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "순천향대", "campus": "아산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "4", "method": "서류100", "note": ""}, {"period": "수시", "region": "충남", "university": "유원대", "campus": "아산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부60+면접40", "note": ""}, {"period": "수시", "region": "충남", "university": "중부대", "campus": "금산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "(36)", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "청운대", "campus": "홍성", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "(25)", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "한국기술교육대", "campus": "천안", "group": "", "type": "종합", "name": "농어촌학생", "quota": "33", "method": "서류100", "note": ""}, {"period": "수시", "region": "충남", "university": "한서대", "campus": "서산", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "(40)", "method": "학생부100", "note": "항공관광 6명 별도 선발"}, {"period": "수시", "region": "충남", "university": "한서대", "campus": "태안", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "(40)", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "호서대", "campus": "아산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "(70)", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충남", "university": "호서대", "campus": "천안", "group": "", "type": "교과", "name": "농어촌학생", "quota": "(70)", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "가톨릭꽃동네대", "campus": "청주", "group": "", "type": "교과", "name": "농어촌", "quota": "1", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "건국대", "campus": "글로컬", "group": "", "type": "교과", "name": "농어촌학생", "quota": "34", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "국립한국교통대", "campus": "증평", "group": "", "type": "교과", "name": "농어촌", "quota": "6", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "국립한국교통대", "campus": "충주", "group": "", "type": "교과", "name": "농어촌", "quota": "32", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "극동대", "campus": "음성", "group": "", "type": "교과", "name": "농어촌학생", "quota": "15", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "서원대", "campus": "청주", "group": "", "type": "교과", "name": "농어촌", "quota": "55", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "세명대", "campus": "제천", "group": "", "type": "교과", "name": "농어촌학생", "quota": "35", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "유원대", "campus": "영동", "group": "", "type": "교과", "name": "농어촌학생", "quota": "11", "method": "학생부60+면접40", "note": ""}, {"period": "수시", "region": "충북", "university": "우석대", "campus": "진천", "group": "", "type": "교과", "name": "농어촌학생", "quota": "1", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "중원대", "campus": "괴산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "30", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "청주교대", "campus": "청주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "7", "method": "1단계(3배수): 서류100 / 2단계: 1단계60+면접40", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "충북", "university": "청주대", "campus": "청주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "76", "method": "학생부100", "note": ""}, {"period": "수시", "region": "충북", "university": "충북대", "campus": "청주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "123", "method": "서류100", "note": ""}, {"period": "수시", "region": "충북", "university": "한국교원대", "campus": "청주", "group": "", "type": "종합", "name": "기회균형 농어촌학생", "quota": "11", "method": "1단계(3배수): 서류100 / 2단계: 1단계80+면접20", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "대구", "university": "경북대", "campus": "대구", "group": "", "type": "종합", "name": "농어촌학생", "quota": "174", "method": "서류100", "note": ""}, {"period": "수시", "region": "대구", "university": "계명대", "campus": "대구", "group": "", "type": "종합", "name": "농어촌", "quota": "178", "method": "서류100", "note": ""}, {"period": "수시", "region": "대구", "university": "대구교대", "campus": "대구", "group": "", "type": "종합", "name": "농어촌학생특별", "quota": "15", "method": "1단계(3배수): 서류100 / 2단계: 1단계70+면접30", "note": ""}, {"period": "수시", "region": "경북", "university": "경북대", "campus": "상주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "21", "method": "서류100", "note": ""}, {"period": "수시", "region": "경북", "university": "경운대", "campus": "구미", "group": "", "type": "교과", "name": "농어촌학생", "quota": "42", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "경일대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "38", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "국립경국대", "campus": "안동", "group": "", "type": "교과", "name": "농어촌학생", "quota": "38", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "국립금오공과대", "campus": "구미", "group": "", "type": "교과", "name": "농어촌학생", "quota": "49", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "김천대", "campus": "김천", "group": "", "type": "교과", "name": "농어촌학생", "quota": "15", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "대구가톨릭대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "100", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "대구대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "154", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "대구한의대", "campus": "경산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "31", "method": "서류100", "note": ""}, {"period": "수시", "region": "경북", "university": "동국대", "campus": "WISE", "group": "", "type": "교과", "name": "농어촌", "quota": "37", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "동양대", "campus": "영주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "신경주대", "campus": "경주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "20", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "영남대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "184", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "영남신학대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부60+면접40", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "경북", "university": "위덕대", "campus": "경주", "group": "", "type": "교과", "name": "농어촌", "quota": "8", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경북", "university": "위덕대", "campus": "경주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "8", "method": "서류60+면접40", "note": ""}, {"period": "수시", "region": "경북", "university": "한동대", "campus": "포항", "group": "", "type": "교과", "name": "농어촌학생Ⅰ", "quota": "16", "method": "학생부70+서류30", "note": ""}, {"period": "수시", "region": "경북", "university": "한동대", "campus": "포항", "group": "", "type": "종합", "name": "농어촌학생Ⅱ 울릉도", "quota": "5", "method": "1단계(2.5배수): 서류100 / 2단계: 1단계70+면접30", "note": ""}, {"period": "수시", "region": "부산", "university": "경성대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌", "quota": "49", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "고신대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌", "quota": "15", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "국립부경대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌인재", "quota": "93", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "국립한국해양대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "40", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "동명대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "35", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "동서대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌출신자", "quota": "45", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "동아대", "campus": "부산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "164", "method": "서류100", "note": ""}, {"period": "수시", "region": "부산", "university": "동의대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "141", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "부산가톨릭대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "21", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "부산교대", "campus": "부산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "12", "method": "1단계(3배수): 서류100 / 2단계: 1단계71.4+면접28.6", "note": ""}, {"period": "수시", "region": "부산", "university": "부산대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "105", "method": "학생부80+서류20", "note": ""}, {"period": "수시", "region": "부산", "university": "부산외국어대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "29", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "신라대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "60", "method": "학생부100", "note": ""}, {"period": "수시", "region": "부산", "university": "영산대", "campus": "해운대", "group": "", "type": "교과", "name": "농어촌", "quota": "18", "method": "학생부100", "note": ""}, {"period": "수시", "region": "울산", "university": "울산대", "campus": "울산", "group": "", "type": "교과", "name": "농어촌학생특별", "quota": "75", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경남", "university": "가야대", "campus": "김해", "group": "", "type": "교과", "name": "농어촌학생", "quota": "7", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경남", "university": "경남대", "campus": "창원", "group": "", "type": "교과", "name": "농어촌학생", "quota": "58", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경남", "university": "경상국립대", "campus": "진주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "153", "method": "서류100", "note": ""}, {"period": "수시", "region": "경남", "university": "경상국립대", "campus": "통영", "group": "", "type": "종합", "name": "농어촌학생", "quota": "9", "method": "서류100", "note": ""}, {"period": "수시", "region": "경남", "university": "경상국립대", "campus": "칠암", "group": "", "type": "종합", "name": "농어촌학생", "quota": "10", "method": "서류100", "note": ""}, {"period": "수시", "region": "경남", "university": "국립창원대", "campus": "창원", "group": "", "type": "교과", "name": "농어촌학생", "quota": "59", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경남", "university": "부산대", "campus": "밀양", "group": "", "type": "교과", "name": "농어촌학생", "quota": "14", "method": "학생부80+서류20", "note": ""}, {"period": "수시", "region": "경남", "university": "부산대", "campus": "양산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부80+서류20", "note": ""}, {"period": "수시", "region": "경남", "university": "영산대", "campus": "양산", "group": "", "type": "교과", "name": "농어촌", "quota": "19", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경남", "university": "인제대", "campus": "김해", "group": "", "type": "교과", "name": "농어촌학생", "quota": "47", "method": "학생부100", "note": ""}, {"period": "수시", "region": "경남", "university": "진주교대", "campus": "진주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "12", "method": "1단계(2.5배수): 서류100 / 2단계: 1단계63.6+면접36.4", "note": ""}, {"period": "수시", "region": "경남", "university": "창신대", "campus": "창원", "group": "", "type": "교과", "name": "농어촌학생", "quota": "13", "method": "학생부100", "note": ""}, {"period": "수시", "region": "광주", "university": "광주교대", "campus": "광주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "7", "method": "서류70+면접30", "note": ""}, {"period": "수시", "region": "광주", "university": "광주여대", "campus": "광주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "14", "method": "학생부100", "note": "유형Ⅱ만 인정"}, {"period": "수시", "region": "광주", "university": "남부대", "campus": "광주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "12", "method": "학생부100", "note": ""}, {"period": "수시", "region": "광주", "university": "전남대", "campus": "광주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "168", "method": "학생부100", "note": ""}, {"period": "수시", "region": "광주", "university": "조선대", "campus": "광주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "103", "method": "서류100", "note": ""}, {"period": "수시", "region": "전남", "university": "국립목포대", "campus": "목포", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전남", "university": "국립목포해양대", "campus": "목포", "group": "", "type": "교과", "name": "농어촌학생", "quota": "32", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전남", "university": "국립순천대", "campus": "순천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "53", "method": "서류100", "note": ""}, {"period": "수시", "region": "전남", "university": "목포가톨릭대", "campus": "목포", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전남", "university": "세한대", "campus": "영암", "group": "", "type": "교과", "name": "농어촌학생", "quota": "(17)", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전남", "university": "영산선학대", "campus": "영광", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부60+면접40", "note": "유형Ⅰ만 인정"}, {"period": "수시", "region": "전남", "university": "전남대", "campus": "여수", "group": "", "type": "교과", "name": "농어촌학생", "quota": "10", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전남", "university": "초당대", "campus": "무안", "group": "", "type": "교과", "name": "농어촌학생", "quota": "18", "method": "학생부100", "note": "유형Ⅱ만 인정"}, {"period": "수시", "region": "전북", "university": "국립군산대", "campus": "군산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "66", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전북", "university": "예원예술대", "campus": "임실", "group": "", "type": "교과", "name": "농어촌", "quota": "1", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전북", "university": "우석대", "campus": "완주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "37", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전북", "university": "원광대", "campus": "익산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "65", "method": "서류100", "note": ""}, {"period": "수시", "region": "전북", "university": "전북대", "campus": "전주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "60", "method": "학생부80+서류20", "note": ""}, {"period": "수시", "region": "전북", "university": "전북대", "campus": "전주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "116", "method": "서류100", "note": ""}, {"period": "수시", "region": "전북", "university": "전북대", "campus": "특성화", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전북", "university": "전북대", "campus": "특성화", "group": "", "type": "종합", "name": "농어촌학생", "quota": "5", "method": "서류100", "note": ""}, {"period": "수시", "region": "전북", "university": "전주교대", "campus": "전주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "11", "method": "1단계(2배수): 서류100 / 2단계: 1단계70+면접30", "note": ""}, {"period": "수시", "region": "전북", "university": "전주대", "campus": "전주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "45", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전북", "university": "한일장신대", "campus": "완주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부100", "note": ""}, {"period": "수시", "region": "전북", "university": "호원대", "campus": "군산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "10", "method": "학생부100", "note": "유형Ⅱ만 인정"}, {"period": "수시", "region": "제주", "university": "제주국제대", "campus": "제주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "7", "method": "학생부100", "note": ""}, {"period": "수시", "region": "제주", "university": "제주대", "campus": "제주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "85", "method": "서류100", "note": ""}, {"period": "정시", "region": "서울", "university": "건국대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "34", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "건국대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "40", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "건국대", "campus": "", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "5", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "경희대", "campus": "", "group": "가", "type": "수능", "name": "기회균형 농어촌학생", "quota": "52", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "경희대", "campus": "", "group": "나", "type": "수능", "name": "기회균형 농어촌학생", "quota": "7", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "고려대", "campus": "", "group": "가", "type": "수능", "name": "농어촌", "quota": "120", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "동국대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "37", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "동국대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "38", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "동국대", "campus": "", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "9", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "동덕여대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "41", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "상명대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "52", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "서강대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "48", "method": "수능100", "note": "국,수,영,탐(1) 3개 합 9"}, {"period": "정시", "region": "서울", "university": "서울대", "campus": "", "group": "나", "type": "수능", "name": "기회균형특별 농어촌학생", "quota": "87", "method": "수능100", "note": "국,수,영,탐 3개 합 7"}, {"period": "정시", "region": "서울", "university": "서울시립대", "campus": "", "group": "가", "type": "수능", "name": "기회균형Ⅱ 농어촌학생특별", "quota": "2", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "서울시립대", "campus": "", "group": "나", "type": "수능", "name": "기회균형Ⅱ 농어촌학생특별", "quota": "32", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "성균관대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "35", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "성균관대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "69", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "성균관대", "campus": "", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "8", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "성신여대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "23", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "성신여대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "45", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "세종대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생특별", "quota": "45", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "세종대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생특별", "quota": "52", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "세종대", "campus": "", "group": "다", "type": "수능", "name": "농어촌학생특별", "quota": "4", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "숭실대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "45", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "숭실대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "7", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "숭실대", "campus": "", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "42", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "연세대", "campus": "", "group": "가", "type": "수능", "name": "고른기회(농어촌학생)", "quota": "85", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "이화여대", "campus": "", "group": "가", "type": "수능", "name": "기회균형 농어촌학생", "quota": "3", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "이화여대", "campus": "", "group": "나", "type": "수능", "name": "기회균형 농어촌학생", "quota": "97", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "이화여대", "campus": "", "group": "다", "type": "수능", "name": "기회균형 농어촌학생", "quota": "7", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "중앙대", "campus": "", "group": "가", "type": "수능", "name": "기회균형 농어촌학생", "quota": "32", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "중앙대", "campus": "", "group": "나", "type": "수능", "name": "기회균형 농어촌학생", "quota": "22", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "중앙대", "campus": "", "group": "다", "type": "수능", "name": "기회균형 농어촌학생", "quota": "26", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "추계예술대", "campus": "", "group": "나", "type": "수능", "name": "기회균형 농어촌학생", "quota": "3", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "한국외국어대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "50", "method": "수능100", "note": ""}, {"period": "정시", "region": "서울", "university": "한양대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "49", "method": "수능90+서류10", "note": ""}, {"period": "정시", "region": "서울", "university": "한양대", "campus": "", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "27", "method": "수능90+서류10", "note": ""}, {"period": "정시", "region": "서울", "university": "홍익대", "campus": "", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "31", "method": "수능100", "note": ""}, {"period": "정시", "region": "인천", "university": "인천대", "campus": "인천", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "31", "method": "수능100", "note": ""}, {"period": "정시", "region": "인천", "university": "인천대", "campus": "인천", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "22", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "경희대", "campus": "국제", "group": "가", "type": "수능", "name": "기회균형 농어촌학생", "quota": "24", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "경희대", "campus": "국제", "group": "나", "type": "수능", "name": "기회균형 농어촌학생", "quota": "31", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "동국대", "campus": "고양", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "4", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "동국대", "campus": "고양", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "7", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "아주대", "campus": "수원", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "8", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "아주대", "campus": "수원", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "50", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한국공학대", "campus": "시흥", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "34", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한국공학대", "campus": "시흥", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "21", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한국외국어대", "campus": "글로벌", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "51", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한국항공대", "campus": "고양", "group": "가", "type": "수능", "name": "농어촌학생특별", "quota": "17", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한국항공대", "campus": "고양", "group": "나", "type": "수능", "name": "농어촌학생특별", "quota": "14", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한국항공대", "campus": "고양", "group": "다", "type": "수능", "name": "농어촌학생특별", "quota": "2", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한양대", "campus": "ERICA", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "27", "method": "수능100", "note": ""}, {"period": "정시", "region": "경기", "university": "한양대", "campus": "ERICA", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "15", "method": "수능100", "note": ""}, {"period": "정시", "region": "세종", "university": "고려대", "campus": "세종", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "15", "method": "수능100", "note": ""}, {"period": "정시", "region": "세종", "university": "고려대", "campus": "세종", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "11", "method": "수능100", "note": ""}, {"period": "정시", "region": "세종", "university": "고려대", "campus": "세종", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "19", "method": "수능100", "note": ""}, {"period": "정시", "region": "세종", "university": "홍익대", "campus": "세종", "group": "다", "type": "수능", "name": "농어촌학생", "quota": "14", "method": "수능100", "note": ""}, {"period": "정시", "region": "대구", "university": "계명대", "campus": "대구", "group": "다", "type": "수능", "name": "농어촌", "quota": "6", "method": "수능100", "note": ""}, {"period": "정시", "region": "광주", "university": "광신대", "campus": "광주", "group": "가", "type": "교과", "name": "농어촌학생특별", "quota": "3", "method": "학생부60+면접40", "note": "유형Ⅱ만 인정"}, {"period": "정시", "region": "전남", "university": "영산선학대", "campus": "영광", "group": "다", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부60+면접40", "note": "유형Ⅰ만 인정"}];
+const medicalRows = [{"category": "의예과", "period": "수시", "region": "인천", "university": "가천대", "campus": "메디컬", "group": "", "type": "교과", "name": "농어촌(교과)", "quota": "2", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 4"}, {"category": "의예과", "period": "수시", "region": "인천", "university": "인하대", "campus": "인천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "서류100", "minreq": "-"}, {"category": "의예과", "period": "수시", "region": "강원", "university": "가톨릭관동대", "campus": "강릉", "group": "", "type": "교과", "name": "농어촌학생", "quota": "5", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 4"}, {"category": "의예과", "period": "수시", "region": "강원", "university": "연세대", "campus": "미래", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "서류80+면접20", "minreq": "국,수(미/기),영,과1,과2 중 4개 합 6"}, {"category": "의예과", "period": "수시", "region": "강원", "university": "한림대", "campus": "춘천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "1단계(5배수): 서류100 / 2단계: 1단계70+면접30", "minreq": "-"}, {"category": "의예과", "period": "수시", "region": "대전", "university": "건양대", "campus": "대전", "group": "", "type": "교과", "name": "농어촌", "quota": "2", "method": "1단계(5배수): 학생부100 / 2단계: 1단계61.5+면접38.5", "minreq": "국,수,영,과(2) 중 3개 합 6"}, {"category": "의예과", "period": "수시", "region": "대전", "university": "을지대", "campus": "대전", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부95+면접5", "minreq": "국,수,영,과(2) 중 3개 합 5"}, {"category": "의예과", "period": "수시", "region": "대전", "university": "충남대", "campus": "대전", "group": "", "type": "종합", "name": "종합Ⅲ 농어촌학생", "quota": "2", "method": "1단계(3배수): 서류100 / 2단계: 1단계67+면접33", "minreq": "-"}, {"category": "의예과", "period": "수시", "region": "충남", "university": "단국대", "campus": "천안", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "1단계(5배수): 서류100 / 2단계: 1단계70+면접30", "minreq": "국,수,영,과(2) 중 3개 합 5 수 포함"}, {"category": "의예과", "period": "수시", "region": "충남", "university": "순천향대", "campus": "아산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "서류100", "minreq": "-"}, {"category": "의예과", "period": "수시", "region": "충북", "university": "건국대", "campus": "글로컬", "group": "", "type": "교과", "name": "농어촌학생", "quota": "5", "method": "1단계(3배수): 학생부100 / 2단계: 1단계70+면접30", "minreq": "국,수,영,과(1) 중 3개 합 6"}, {"category": "의예과", "period": "수시", "region": "충북", "university": "충북대", "campus": "청주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "서류100", "minreq": "-"}, {"category": "의예과", "period": "수시", "region": "경북", "university": "대구가톨릭대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 4"}, {"category": "의예과", "period": "수시", "region": "경북", "university": "동국대", "campus": "WISE", "group": "", "type": "교과", "name": "농어촌", "quota": "3", "method": "학생부100", "minreq": "국,수,영,과(1) 중 3개 합 4"}, {"category": "의예과", "period": "수시", "region": "경북", "university": "영남대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부100", "minreq": "국,수,영,과(1) 중 3개 합 4"}, {"category": "의예과", "period": "수시", "region": "부산", "university": "고신대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌", "quota": "3", "method": "1단계(10배수): 학생부100 / 2단계: 1단계90+면접10", "minreq": "국,수,영,과(1) 중 3개 합 5 수 포함, 수(확)시 3개 합 4"}, {"category": "의예과", "period": "수시", "region": "부산", "university": "동아대", "campus": "부산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "서류100", "minreq": "국,수,영,탐(1) 중 3개 합 6"}, {"category": "의예과", "period": "수시", "region": "경남", "university": "경상국립대", "campus": "칠암", "group": "", "type": "종합", "name": "농어촌학생", "quota": "6", "method": "1단계(5배수): 서류100 / 2단계: 1단계80+면접20", "minreq": "국,수(미/기),영,과(2) 중 3개 합 6"}, {"category": "의예과", "period": "수시", "region": "광주", "university": "전남대", "campus": "광주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "minreq": "국,수,영,과(2) 중 3개 합 6 수 포함"}, {"category": "의예과", "period": "수시", "region": "광주", "university": "조선대", "campus": "광주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "서류100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 6 수 포함"}, {"category": "의예과", "period": "수시", "region": "전북", "university": "원광대", "campus": "익산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "4", "method": "1단계(5배수): 서류100 / 2단계: 1단계77+면접23", "minreq": "-"}, {"category": "치의예과", "period": "수시", "region": "강원", "university": "국립강릉원주대", "campus": "강릉", "group": "", "type": "종합", "name": "농어촌", "quota": "3", "method": "1단계(5배수): 학생부100 / 2단계: 1단계80+면접20", "minreq": "국,수,영,과(1) 중 3개 합 6 수포함"}, {"category": "치의예과", "period": "수시", "region": "충남", "university": "단국대", "campus": "천안", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "1단계(5배수): 서류100 / 2단계: 1단계70+면접30", "minreq": "국,수(미/기),영,과(2) 중 3개 합 5 수 포함"}, {"category": "치의예과", "period": "수시", "region": "대구", "university": "경북대", "campus": "대구", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "서류100", "minreq": "국,수,영,탐(2) 중 3개 합 5 수포함"}, {"category": "치의예과", "period": "수시", "region": "광주", "university": "조선대", "campus": "광주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "서류100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 6 수포함"}, {"category": "치의예과", "period": "수시", "region": "전북", "university": "원광대", "campus": "익산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "1단계(5배수): 서류100 / 2단계: 1단계77+면접23", "minreq": "-"}, {"category": "약학과", "period": "수시", "region": "서울", "university": "삼육대", "campus": "", "group": "", "type": "교과", "name": "농어촌", "quota": "3", "method": "학생부100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 5"}, {"category": "약학과", "period": "수시", "region": "인천", "university": "가천대", "campus": "메디컬", "group": "", "type": "교과", "name": "농어촌(교과)", "quota": "1", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 6"}, {"category": "약학과", "period": "수시", "region": "경기", "university": "가톨릭대", "campus": "성신", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "minreq": "국,수,영,과(1) 중 3개 합 7 수,과(1)포함"}, {"category": "약학과", "period": "수시", "region": "경기", "university": "차의과학대", "campus": "포천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "서류100", "minreq": "국,수,영,탐(2) 중 3개 합 7 수포함"}, {"category": "약학과", "period": "수시", "region": "대전", "university": "충남대", "campus": "대전", "group": "", "type": "종합", "name": "종합Ⅲ 농어촌학생", "quota": "1", "method": "1단계(3배수): 서류100 / 2단계: 1단계66.7+면접33.3", "minreq": "-"}, {"category": "약학과", "period": "수시", "region": "충남", "university": "단국대", "campus": "천안", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "1단계(5배수): 서류100 / 2단계: 1단계70+면접30", "minreq": "국,수(미/기),영,과(2) 중 3개 합 6 수 포함"}, {"category": "약학과", "period": "수시", "region": "충북", "university": "충북대", "campus": "청주(약)", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "서류100", "minreq": "-"}, {"category": "약학과", "period": "수시", "region": "충북", "university": "충북대", "campus": "청주(제약)", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "서류100", "minreq": "-"}, {"category": "약학과", "period": "수시", "region": "대구", "university": "경북대", "campus": "대구", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "서류100", "minreq": "국,수,영,탐(2) 중 3개 합 6 수포함"}, {"category": "약학과", "period": "수시", "region": "대구", "university": "계명대", "campus": "대구", "group": "", "type": "종합", "name": "농어촌", "quota": "3", "method": "서류100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 7"}, {"category": "약학과", "period": "수시", "region": "경북", "university": "대구가톨릭대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "5", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 7"}, {"category": "약학과", "period": "수시", "region": "경북", "university": "영남대", "campus": "경산", "group": "", "type": "교과", "name": "농어촌학생", "quota": "5", "method": "학생부100", "minreq": "국,수,영,과(1) 중 3개 합 6"}, {"category": "약학과", "period": "수시", "region": "부산", "university": "경성대", "campus": "부산", "group": "", "type": "교과", "name": "농어촌", "quota": "4", "method": "학생부100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 7"}, {"category": "약학과", "period": "수시", "region": "경남", "university": "경상국립대", "campus": "진주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "1단계(5배수): 서류100 / 2단계: 1단계80+면접20", "minreq": "국,수(미/기),영,과(2) 중 3개 합 6"}, {"category": "약학과", "period": "수시", "region": "경남", "university": "인제대", "campus": "김해", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "1단계(5배수): 학생부100 / 2단계: 1단계67.5+면접32.5", "minreq": "-"}, {"category": "약학과", "period": "수시", "region": "광주", "university": "조선대", "campus": "광주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "4", "method": "서류100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 7 수포함"}, {"category": "약학과", "period": "수시", "region": "전남", "university": "국립목포대", "campus": "목포", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 8 수(미/기),과(2) 포함"}, {"category": "약학과", "period": "수시", "region": "전남", "university": "국립순천대", "campus": "순천", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "서류100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 8 수(미/기),과(2) 포함"}, {"category": "약학과", "period": "수시", "region": "전북", "university": "우석대", "campus": "완주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "4", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 7 수포함"}, {"category": "약학과", "period": "수시", "region": "전북", "university": "원광대", "campus": "익산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "2", "method": "1단계(5배수): 서류100 / 2단계: 1단계77+면접23", "minreq": "-"}, {"category": "약학과", "period": "수시", "region": "제주", "university": "제주대", "campus": "제주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "서류100", "minreq": "-"}, {"category": "한의예과", "period": "수시", "region": "경기", "university": "가천대", "campus": "성남", "group": "", "type": "교과", "name": "농어촌(교과)", "quota": "2", "method": "학생부100", "minreq": "국,수(미/기),영,과(2) 중 2개 각 1"}, {"category": "한의예과", "period": "수시", "region": "강원", "university": "상지대", "campus": "원주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "학생부20+서류80", "minreq": "국,수,영,탐(2) 중 3개 합 4 / 수(미/기) 포함시 3개 합 5"}, {"category": "한의예과", "period": "수시", "region": "대전", "university": "대전대", "campus": "대전", "group": "", "type": "교과", "name": "농어촌학생", "quota": "3", "method": "학생부100", "minreq": "국,수,영,탐(2) 중 3개 합 5"}, {"category": "한의예과", "period": "수시", "region": "충북", "university": "세명대", "campus": "제천", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "minreq": "국,수(미/기),영 중 3개 합 5"}, {"category": "한의예과", "period": "수시", "region": "경북", "university": "대구한의대", "campus": "경산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "5", "method": "서류100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 6"}, {"category": "한의예과", "period": "수시", "region": "경북", "university": "동국대", "campus": "WISE", "group": "", "type": "교과", "name": "농어촌", "quota": "3", "method": "학생부100", "minreq": "국,수,영,과(1) 중 3개 합 5"}, {"category": "한의예과", "period": "수시", "region": "전남", "university": "동신대", "campus": "나주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "2", "method": "학생부100", "minreq": "국,수,영,탐(1) 중 3개 합 6"}, {"category": "한의예과", "period": "수시", "region": "전북", "university": "우석대", "campus": "완주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "1", "method": "학생부100", "minreq": "국,수,영,탐(2) 중 3개 합 7 수포함"}, {"category": "한의예과", "period": "수시", "region": "전북", "university": "원광대", "campus": "익산", "group": "", "type": "종합", "name": "농어촌학생", "quota": "3", "method": "1단계(5배수): 서류100 / 2단계: 1단계77+면접23", "minreq": "-"}, {"category": "수의예과", "period": "수시", "region": "대전", "university": "충남대", "campus": "대전", "group": "", "type": "종합", "name": "종합Ⅲ 농어촌학생", "quota": "2", "method": "1단계(3배수): 서류100 / 2단계: 1단계67+면접33", "minreq": "-"}, {"category": "수의예과", "period": "수시", "region": "충북", "university": "충북대", "campus": "청주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "서류100", "minreq": "-"}, {"category": "수의예과", "period": "수시", "region": "경남", "university": "경상국립대", "campus": "진주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "6", "method": "1단계(3배수): 서류100 / 2단계: 1단계80+면접20", "minreq": "-"}, {"category": "수의예과", "period": "수시", "region": "광주", "university": "전남대", "campus": "광주", "group": "", "type": "교과", "name": "농어촌학생", "quota": "1", "method": "학생부100", "minreq": "국,수(미/기),영,과(1) 중 3개 합 8"}, {"category": "수의예과", "period": "수시", "region": "전북", "university": "전북대", "campus": "전주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "서류100", "minreq": "-"}, {"category": "수의예과", "period": "수시", "region": "제주", "university": "제주대", "campus": "제주", "group": "", "type": "종합", "name": "농어촌학생", "quota": "1", "method": "서류100", "minreq": "-"}, {"category": "의예과", "period": "정시", "region": "서울", "university": "고려대", "campus": "", "group": "가", "type": "수능", "name": "농어촌", "quota": "3", "method": "수능100+적성인성면접(P/F)", "minreq": "-"}, {"category": "의예과", "period": "정시", "region": "서울", "university": "서울대", "campus": "", "group": "나", "type": "수능", "name": "기회균형특별 농어촌학생", "quota": "1", "method": "수능100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 7"}, {"category": "의예과", "period": "정시", "region": "서울", "university": "연세대", "campus": "", "group": "가", "type": "수능", "name": "고른기회(농어촌학생)", "quota": "1", "method": "수능95+면접5", "minreq": "-"}, {"category": "의예과", "period": "정시", "region": "경기", "university": "아주대", "campus": "수원", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "1", "method": "수능95+인성면접5", "minreq": "-"}, {"category": "의예과", "period": "정시", "region": "대구", "university": "계명대", "campus": "대구", "group": "다", "type": "수능", "name": "농어촌", "quota": "3", "method": "수능100", "minreq": "-"}, {"category": "치의예과", "period": "정시", "region": "서울", "university": "연세대", "campus": "", "group": "가", "type": "수능", "name": "고른기회(농어촌학생)", "quota": "1", "method": "수능100", "minreq": "-"}, {"category": "약학과", "period": "정시", "region": "서울", "university": "경희대", "campus": "", "group": "가", "type": "수능", "name": "기회균형 농어촌학생", "quota": "2", "method": "수능100", "minreq": "-"}, {"category": "약학과", "period": "정시", "region": "서울", "university": "서울대", "campus": "", "group": "나", "type": "수능", "name": "기회균형특별(농어촌학생)", "quota": "3", "method": "수능100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 7"}, {"category": "약학과", "period": "정시", "region": "서울", "university": "연세대", "campus": "", "group": "가", "type": "수능", "name": "고른기회(농어촌학생)", "quota": "3", "method": "수능100", "minreq": "-"}, {"category": "약학과", "period": "정시", "region": "경기", "university": "동국대", "campus": "고양", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "3", "method": "수능100", "minreq": "-"}, {"category": "약학과", "period": "정시", "region": "경기", "university": "성균관대", "campus": "수원", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "3", "method": "수능100", "minreq": "-"}, {"category": "약학과", "period": "정시", "region": "경기", "university": "아주대", "campus": "수원", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "2", "method": "수능100", "minreq": "-"}, {"category": "약학과", "period": "정시", "region": "경기", "university": "한양대", "campus": "ERICA", "group": "나", "type": "수능", "name": "농어촌학생", "quota": "3", "method": "수능100", "minreq": "-"}, {"category": "약학과", "period": "정시", "region": "세종", "university": "고려대", "campus": "세종", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "2", "method": "수능100", "minreq": "-"}, {"category": "수의예과", "period": "정시", "region": "서울", "university": "건국대", "campus": "", "group": "가", "type": "수능", "name": "농어촌학생", "quota": "6", "method": "수능100", "minreq": "-"}, {"category": "수의예과", "period": "정시", "region": "서울", "university": "서울대", "campus": "", "group": "나", "type": "수능", "name": "기회균형특별 농어촌학생", "quota": "4", "method": "수능100", "minreq": "국,수(미/기),영,과(2) 중 3개 합 7"}];
+
+const qs  = (s, r=document) => r.querySelector(s);
+const qsa = (s, r=document) => Array.from(r.querySelectorAll(s));
+const norm = s => (s||'').toString().trim().toLowerCase();
+const esc = s => (s??'').toString().replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fullName = r => r.campus ? r.university+'('+r.campus+')' : r.university;
+const noteTagClass = n => n.includes('유형Ⅰ') ? 't1' : n.includes('유형Ⅱ') ? 't2' : 'other';
+const regionOrder = ['서울','인천','경기','강원','세종','대전','충남','충북','대구','경북','부산','울산','경남','광주','전남','전북','제주'];
+const regionSort = (a,b) => {
+  const ai = regionOrder.indexOf(a);
+  const bi = regionOrder.indexOf(b);
+  return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi) || a.localeCompare(b,'ko');
+};
+
+/* ---- 대학별 인정 유형 규칙 (일반 + 의치약한수 전체에서 탐색) ---- */
+function universityRule(univ){
+  if(!univ) return '대학 미선택';
+  const all = admissionRows.concat(medicalRows);
+  const related = all.filter(r => r.university === univ);
+  if(!related.length) return '데이터 미수록 대학';
+  const notes = related.map(r => r.note || '').join(' ');
+  if(notes.includes('유형Ⅰ만 인정')) return '유형Ⅰ만 인정';
+  if(notes.includes('유형Ⅱ만 인정')) return '유형Ⅱ만 인정';
+  return '비고상 유형 제한 표기 없음 (대학 모집요강 확인 필요)';
+}
+
+/* ---- 통계 ---- */
+function fillStats(){
+  const su = admissionRows.filter(r => r.period === '수시').length;
+  const je = admissionRows.filter(r => r.period === '정시').length;
+  const univ = new Set(admissionRows.concat(medicalRows).map(r => r.university)).size;
+  qs('#statSusi').textContent  = su.toLocaleString('ko-KR');
+  qs('#statJeong').textContent = je.toLocaleString('ko-KR');
+  qs('#statMed').textContent   = medicalRows.length.toLocaleString('ko-KR');
+  qs('#statUniv').textContent  = univ.toLocaleString('ko-KR');
+  qs('#statRows').textContent  = (admissionRows.length + medicalRows.length).toLocaleString('ko-KR');
+}
+
+/* ---- 필터 옵션 채우기 ---- */
+function populateFilters(){
+  const regions = [...new Set(admissionRows.map(r => r.region))]
+                    .sort(regionSort);
+  const medRegions = [...new Set(medicalRows.map(r => r.region))]
+                    .sort(regionSort);
+  const types = [...new Set(admissionRows.map(r => r.type))].sort();
+  const univs = [...new Set(admissionRows.concat(medicalRows).map(r => r.university))].sort((a,b)=>a.localeCompare(b,'ko'));
+  regions.forEach(v => qs('#regionFilter').insertAdjacentHTML('beforeend', '<option>'+esc(v)+'</option>'));
+  medRegions.forEach(v => qs('#medicalRegionFilter').insertAdjacentHTML('beforeend', '<option>'+esc(v)+'</option>'));
+  types.forEach(v => qs('#typeFilter').insertAdjacentHTML('beforeend', '<option>'+esc(v)+'</option>'));
+  univs.forEach(v => qs('#targetUniversity').insertAdjacentHTML('beforeend', '<option>'+esc(v)+'</option>'));
+}
+
+/* ---- 전형표 렌더 ---- */
+function renderAdmissionCards(rows){
+  const list = qs('#admissionCards');
+  if(!list) return;
+  if(!rows.length){
+    list.innerHTML = '<div class="mobile-empty">조건에 맞는 전형이 없습니다. 검색어나 필터를 조정해 보세요.</div>';
+    return;
+  }
+  list.innerHTML = rows.map(r => {
+    const pTag = r.period === '수시' ? 'su' : 'jeong';
+    const noteCell = r.note
+      ? '<span class="tag '+noteTagClass(r.note)+'">'+esc(r.note)+'</span>'
+      : '<span style="color:#8a958f">제한 표기 없음</span>';
+    return '<article class="mobile-data-card">'+
+      '<div class="mobile-card-head">'+
+        '<div><div class="mobile-card-title">'+esc(fullName(r))+'</div>'+
+        '<div class="mobile-card-sub">'+esc(r.region)+' · '+esc(r.type)+' · '+esc(r.name)+'</div></div>'+
+        '<span class="tag '+pTag+'">'+esc(r.period)+'</span>'+
+      '</div>'+
+      '<div class="mobile-card-grid">'+
+        '<div class="mobile-card-row"><b>모집군</b><span>'+esc(r.group||'–')+'</span></div>'+
+        '<div class="mobile-card-row"><b>인원</b><span class="qcol">'+esc(r.quota)+'</span></div>'+
+        '<div class="mobile-card-row"><b>방법</b><span>'+esc(r.method)+'</span></div>'+
+        '<div class="mobile-card-row"><b>비고</b><span>'+noteCell+'</span></div>'+
+      '</div>'+
+    '</article>';
+  }).join('');
+}
+
+function renderTable(){
+  const search = norm(qs('#tableSearch').value);
+  const period = qs('#periodFilter').value;
+  const region = qs('#regionFilter').value;
+  const type   = qs('#typeFilter').value;
+  const note   = qs('#noteFilter').value;
+  const visible = admissionRows.filter(r => {
+    const hay = norm([r.period,r.region,fullName(r),r.group,r.type,r.name,r.method,r.note].join(' '));
+    let noteOk = true;
+    if(note === '제한 없음') noteOk = !r.note;
+    else if(note) noteOk = (r.note||'').includes(note);
+    return (!search || hay.includes(search)) &&
+           (!period || r.period === period) &&
+           (!region || r.region === region) &&
+           (!type   || r.type === type) && noteOk;
+  });
+  const tbody = qs('#admissionTable tbody');
+  if(!visible.length){
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="9">조건에 맞는 전형이 없습니다. 검색어나 필터를 조정해 보세요.</td></tr>';
+  } else {
+    tbody.innerHTML = visible.map(r => {
+      const pTag = r.period === '수시' ? 'su' : 'jeong';
+      const noteCell = r.note
+        ? '<span class="tag '+noteTagClass(r.note)+'">'+esc(r.note)+'</span>'
+        : '<span style="color:#9c9686">–</span>';
+      return '<tr>'+
+        '<td><span class="tag '+pTag+'">'+esc(r.period)+'</span></td>'+
+        '<td>'+esc(r.region)+'</td>'+
+        '<td><strong>'+esc(fullName(r))+'</strong></td>'+
+        '<td>'+esc(r.group||'–')+'</td>'+
+        '<td>'+esc(r.type)+'</td>'+
+        '<td>'+esc(r.name)+'</td>'+
+        '<td class="qcol">'+esc(r.quota)+'</td>'+
+        '<td>'+esc(r.method)+'</td>'+
+        '<td>'+noteCell+'</td>'+
+      '</tr>';
+    }).join('');
+  }
+  qs('#tableCount').textContent =
+    '표시 '+visible.length.toLocaleString('ko-KR')+'개 / 전체 '+admissionRows.length.toLocaleString('ko-KR')+'개 전형';
+  window.__visibleRows = visible;
+  renderAdmissionCards(visible);
+}
+
+/* ---- 의치약한수 렌더 ---- */
+let medCat = '전체';
+function renderMedicalCards(rows){
+  const list = qs('#medicalCards');
+  if(!list) return;
+  if(!rows.length){
+    list.innerHTML = '<div class="mobile-empty">조건에 맞는 의치약한수 전형이 없습니다. 검색어나 필터를 조정해 보세요.</div>';
+    return;
+  }
+  list.innerHTML = rows.map(r => {
+    const pTag = r.period === '수시' ? 'su' : 'jeong';
+    const minCell = (r.minreq && r.minreq !== '-')
+      ? '<span class="mobile-minreq">'+esc(r.minreq)+'</span>'
+      : '<span style="color:#8a958f">최저 없음</span>';
+    return '<article class="mobile-data-card">'+
+      '<div class="mobile-card-head">'+
+        '<div><div class="mobile-card-title">'+esc(fullName(r))+'</div>'+
+        '<div class="mobile-card-sub">'+esc(r.category)+' · '+esc(r.region)+' · '+esc(r.type)+'</div></div>'+
+        '<span class="tag '+pTag+'">'+esc(r.period)+'</span>'+
+      '</div>'+
+      '<div class="mobile-card-grid">'+
+        '<div class="mobile-card-row"><b>모집군</b><span>'+esc(r.group||'–')+'</span></div>'+
+        '<div class="mobile-card-row"><b>전형명</b><span>'+esc(r.name)+'</span></div>'+
+        '<div class="mobile-card-row"><b>인원</b><span class="qcol">'+esc(r.quota)+'</span></div>'+
+        '<div class="mobile-card-row"><b>방법</b><span>'+esc(r.method)+'</span></div>'+
+        '<div class="mobile-card-row"><b>최저</b><span>'+minCell+'</span></div>'+
+      '</div>'+
+    '</article>';
+  }).join('');
+}
+
+function renderMedical(){
+  const search = norm(qs('#medicalSearch').value);
+  const period = qs('#medicalPeriodFilter').value;
+  const region = qs('#medicalRegionFilter').value;
+  const rows = medicalRows.filter(r => {
+    const catOk = medCat === '전체' || r.category === medCat;
+    const hay = norm([r.category,r.period,r.region,fullName(r),r.group,r.type,r.name,r.method,r.minreq].join(' '));
+    return catOk &&
+           (!search || hay.includes(search)) &&
+           (!period || r.period === period) &&
+           (!region || r.region === region);
+  });
+  const tbody = qs('#medicalTable tbody');
+  if(!rows.length){
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="10">조건에 맞는 전형이 없습니다. 검색어나 필터를 조정해 보세요.</td></tr>';
+  } else {
+    tbody.innerHTML = rows.map(r => {
+      const pTag = r.period === '수시' ? 'su' : 'jeong';
+      const minCell = (r.minreq && r.minreq !== '-')
+        ? '<span class="tag minreq">'+esc(r.minreq)+'</span>'
+        : '<span style="color:#9c9686">최저 없음</span>';
+      return '<tr>'+
+        '<td><strong>'+esc(r.category)+'</strong></td>'+
+        '<td><span class="tag '+pTag+'">'+esc(r.period)+'</span></td>'+
+        '<td>'+esc(r.region)+'</td>'+
+        '<td><strong>'+esc(fullName(r))+'</strong></td>'+
+        '<td>'+esc(r.group||'–')+'</td>'+
+        '<td>'+esc(r.type)+'</td>'+
+        '<td>'+esc(r.name)+'</td>'+
+        '<td class="qcol">'+esc(r.quota)+'</td>'+
+        '<td>'+esc(r.method)+'</td>'+
+        '<td>'+minCell+'</td>'+
+      '</tr>';
+    }).join('');
+  }
+  qs('#medicalCount').textContent =
+    medCat+' 전형 '+rows.length.toLocaleString('ko-KR')+'개 표시 / 의치약한수 전체 '+medicalRows.length.toLocaleString('ko-KR')+'개';
+  renderMedicalCards(rows);
+}
+
+/* ---- CSV ---- */
+function csvEscape(v){
+  const s = (v??'').toString().replace(/"/g,'""');
+  return /[",\n]/.test(s) ? '"'+s+'"' : s;
+}
+function exportVisibleCsv(){
+  const headers = ['모집','지역','대학','캠퍼스','모집군','전형유형','전형명','모집인원','전형방법','비고'];
+  const rows = (window.__visibleRows || admissionRows).map(r =>
+    [r.period,r.region,r.university,r.campus,r.group,r.type,r.name,r.quota,r.method,r.note]);
+  const csv = [headers, ...rows].map(row => row.map(csvEscape).join(',')).join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '2027_농어촌학생_특별전형.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function applyUniversityFilter(univ){
+  if(!univ) return;
+  qs('#tableSearch').value = univ;
+  ['#periodFilter','#regionFilter','#typeFilter','#noteFilter'].forEach(id => qs(id).value = '');
+  renderTable();
+  qs('#tables').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+/* ---- 자가진단 ---- */
+function evaluateChecks(){
+  const t1 = qsa('[data-type="t1"]');
+  const t2 = qsa('[data-type="t2"]');
+  const t1checked = t1.filter(c => c.checked).length;
+  const t2checked = t2.filter(c => c.checked).length;
+  const t1ok = t1checked === t1.length;
+  const t2ok = t2checked === t2.length;
+  const univ = qs('#targetUniversity').value;
+  const rule = universityRule(univ);
+  const schoolType = qs('#schoolType').value;
+  const confirmed = qs('#universityConfirm').checked;
+
+  const t1Blocked = rule === '유형Ⅱ만 인정';
+  const t2Blocked = rule === '유형Ⅰ만 인정';
+
+  const schoolWarn = [];
+  if(schoolType === '특수목적고')
+    schoolWarn.push('읍·면 소재 특수목적고는 대부분의 대학에서 제외됩니다.');
+  if(['영재학교','국내학력인정 외국교육기관','특성화고','자율형사립고'].includes(schoolType))
+    schoolWarn.push(schoolType+'는 대학별 제외 여부 확인이 필요합니다.');
+
+  const t1Status = t1Blocked
+    ? '선택한 대학 비고상 유형Ⅰ 지원이 불가할 가능성이 큽니다.'
+    : (t1ok ? '유형Ⅰ 기본 요건을 모두 충족했습니다.'
+            : '유형Ⅰ 핵심 요건이 아직 충족되지 않았습니다. ('+t1checked+'/'+t1.length+')');
+  const t2Status = t2Blocked
+    ? '선택한 대학 비고상 유형Ⅱ 지원이 불가할 가능성이 큽니다.'
+    : (t2ok ? '유형Ⅱ 기본 요건을 모두 충족했습니다.'
+            : '유형Ⅱ 핵심 요건이 아직 충족되지 않았습니다. ('+t2checked+'/'+t2.length+')');
+
+  let verdict = '체크 항목을 선택하면 진단 결과가 표시됩니다.';
+  let vClass = 'idle';
+  const anyTyped = (t1checked + t2checked) > 0;
+  if(anyTyped){
+    if((t1ok && !t1Blocked) || (t2ok && !t2Blocked)){
+      verdict = '기본 자격 가능성이 있습니다.';
+      vClass = 'ok';
+    } else {
+      verdict = '현재 체크 기준으로는 기본 요건이 부족합니다.';
+      vClass = 'no';
+    }
+  }
+  let verdictSub = anyTyped
+    ? '다음 단계로 대학별 모집요강과 증빙서류(주민등록초본·학교생활기록부 등)를 확인하세요.'
+    : '유형Ⅰ 또는 유형Ⅱ 체크리스트를 작성해 주세요.';
+  if(anyTyped && schoolWarn.length && !confirmed){
+    verdictSub = '학교 유형 관련 대학별 제외 규정 확인이 먼저 필요합니다.';
+  }
+  const t1Pct = Math.round((t1checked / t1.length) * 100);
+  const t2Pct = Math.round((t2checked / t2.length) * 100);
+  const actionHtml = univ
+    ? '<div class="result-actions"><button class="mini-btn" type="button" data-action="filter-univ">선택 대학 전형표 보기</button></div>'
+    : '';
+
+  qs('#checkResult').innerHTML =
+    '<p class="verdict '+vClass+'">'+esc(verdict)+'</p>'+
+    '<p class="verdict-sub">'+esc(verdictSub)+'</p>'+
+    '<div class="result-meter">'+
+      '<div class="meter-card"><strong>유형Ⅰ 체크 '+t1checked+'/'+t1.length+'</strong><div class="meter-track"><div class="meter-fill" style="width:'+t1Pct+'%"></div></div></div>'+
+      '<div class="meter-card"><strong>유형Ⅱ 체크 '+t2checked+'/'+t2.length+'</strong><div class="meter-track"><div class="meter-fill" style="width:'+t2Pct+'%"></div></div></div>'+
+    '</div>'+
+    '<div class="result-list">'+
+      '<div class="result-item"><b>대학별 인정 유형:</b> '+esc(rule)+(univ?' ('+esc(univ)+')':'')+'</div>'+
+      '<div class="result-item"><b>유형Ⅰ:</b> '+esc(t1Status)+'</div>'+
+      '<div class="result-item"><b>유형Ⅱ:</b> '+esc(t2Status)+'</div>'+
+      '<div class="result-item"><b>학교 유형:</b> '+
+        (schoolWarn.length ? esc(schoolWarn.join(' ')) : '일반고 기준 특이사항 없음')+
+        (confirmed ? ' / 대학별 규정 확인 완료' : '')+'</div>'+
+    '</div>'+
+    actionHtml;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  fillStats();
+  populateFilters();
+  renderTable();
+  renderMedical();
+  evaluateChecks();
+
+  ['#tableSearch','#periodFilter','#regionFilter','#typeFilter','#noteFilter']
+    .forEach(id => qs(id).addEventListener('input', renderTable));
+  qs('#resetFilters').addEventListener('click', () => {
+    ['#tableSearch','#periodFilter','#regionFilter','#typeFilter','#noteFilter']
+      .forEach(id => qs(id).value = '');
+    renderTable();
+  });
+  qs('#exportCsv').addEventListener('click', exportVisibleCsv);
+
+  ['#medicalSearch','#medicalPeriodFilter','#medicalRegionFilter']
+    .forEach(id => qs(id).addEventListener('input', renderMedical));
+
+  qsa('#medSeg button').forEach(btn => btn.addEventListener('click', () => {
+    qsa('#medSeg button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    medCat = btn.dataset.cat;
+    renderMedical();
+  }));
+
+  qsa('#targetUniversity,#schoolType,#universityConfirm,[data-type="t1"],[data-type="t2"]')
+    .forEach(el => el.addEventListener('change', evaluateChecks));
+  qs('#checkResult').addEventListener('click', e => {
+    if(e.target.closest('[data-action="filter-univ"]')){
+      applyUniversityFilter(qs('#targetUniversity').value);
+    }
+  });
+  qs('#resetCheck').addEventListener('click', () => {
+    qs('#targetUniversity').value = '';
+    qs('#schoolType').value = '일반고';
+    qs('#universityConfirm').checked = false;
+    qsa('[data-type="t1"],[data-type="t2"]').forEach(c => c.checked = false);
+    evaluateChecks();
+  });
+});
+</script>
+</body>
+</html>

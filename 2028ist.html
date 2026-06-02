@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2028학년도 입학전형 시행계획 — 과학기술원 5개 대학</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #080e1e;
+    --bg-card: #0e1626;
+    --bg-card2: #121e30;
+    --text-main: #e8eef8;
+    --text-sub: #8898b8;
+    --border: rgba(80,120,200,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── UNIVERSITY SWITCHER ── */
+  .univ-switcher {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .univ-switcher label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+  .univ-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 36px 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    outline: none;
+    transition: border-color .2s, background .2s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+  .univ-select:hover { border-color: rgba(255,255,255,0.45); background-color: rgba(255,255,255,0.12); }
+  .univ-select option { background: #1a1a2e; color: #fff; }
+
+  /* ── COMMON ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .two-col { grid-template-columns: 1fr !important; }
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* ── TAGS ── */
+  .tag-new {
+    display: inline-block;
+    background: rgba(111,207,138,0.12);
+    color: #6fcf8a;
+    border: 1px solid rgba(111,207,138,0.3);
+    font-size: 10px; padding: 1px 7px; border-radius: 20px; margin-left: 6px; vertical-align: middle;
+  }
+  .tag-del {
+    display: inline-block;
+    background: rgba(248,113,113,0.1);
+    color: #f87171;
+    border: 1px solid rgba(248,113,113,0.3);
+    font-size: 10px; padding: 1px 7px; border-radius: 20px; margin-left: 6px; vertical-align: middle;
+  }
+  .tag-change {
+    display: inline-block;
+    background: rgba(200,168,75,0.1);
+    color: #c8a84b;
+    border: 1px solid rgba(200,168,75,0.3);
+    font-size: 10px; padding: 1px 7px; border-radius: 20px; margin-left: 6px; vertical-align: middle;
+  }
+
+  /* ============================================================
+     KAIST  ─ 딥 네이비 + 시안 블루
+  ============================================================ */
+  :root {
+    --ka-blue: #0062cc;
+    --ka-blue-mid: #0080ff;
+    --ka-blue-light: #4db0ff;
+    --ka-cyan: #00c8e0;
+    --ka-bg-dark: #060c18;
+    --ka-bg-card: #0a1428;
+    --ka-bg-card2: #0e1c34;
+    --ka-text-main: #ddeeff;
+    --ka-text-sub: #7090b8;
+    --ka-text-accent: #4db0ff;
+    --ka-border: rgba(0,130,255,0.18);
+    --ka-border-acc: rgba(77,176,255,0.35);
+  }
+  #page-kaist { display: block; }
+
+  .ka-hero {
+    position: relative;
+    min-height: 280px;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 60px 60px 50px;
+    border-bottom: 1px solid var(--ka-border-acc);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--ka-bg-dark) 0%, #081024 100%);
+  }
+  .ka-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 110% at 90% 50%, rgba(0,130,255,0.15) 0%, transparent 70%);
+  }
+  .ka-hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(0,130,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,130,255,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .ka-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--ka-cyan); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .ka-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .ka-hero h1 span { color:var(--ka-blue-light); }
+  .ka-hero-sub { font-size:15px; color:var(--ka-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .ka-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--ka-blue),var(--ka-blue-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+
+  .ka-nav { position:sticky; top:0; z-index:100; background:rgba(6,12,24,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--ka-border); padding:0 40px; }
+  .ka-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .ka-nav-inner::-webkit-scrollbar { display:none; }
+  .ka-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--ka-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .ka-nav-link:hover { color:var(--ka-text-main); border-bottom-color:var(--ka-blue-light); }
+
+  .ka-section { padding:52px 0 36px; border-bottom:1px solid var(--ka-border); }
+  .ka-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--ka-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .ka-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--ka-blue-light),var(--ka-blue)); border-radius:2px; flex-shrink:0; }
+
+  .ka-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:28px; }
+  .ka-stat-card { background:var(--ka-bg-card); border:1px solid var(--ka-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .ka-stat-card:hover { border-color:var(--ka-blue-light); transform:translateY(-2px); }
+  .ka-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--ka-blue),var(--ka-blue-light)); opacity:0; transition:opacity .3s; }
+  .ka-stat-card:hover::after { opacity:1; }
+  .ka-stat-label { font-size:11px; color:var(--ka-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .ka-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .ka-stat-value span { font-size:13px; color:var(--ka-text-sub); margin-left:3px; }
+  .ka-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+
+  .ka-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .ka-table th { background:rgba(0,98,204,0.18); color:var(--ka-blue-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--ka-border); }
+  .ka-table td { padding:10px 12px; border-bottom:1px solid rgba(0,130,255,0.07); color:var(--ka-text-main); vertical-align:top; line-height:1.5; }
+  .ka-table tr:last-child td { border-bottom:none; }
+  .ka-table tr:hover td { background:rgba(0,130,255,0.04); }
+
+  .ka-panel { background:var(--ka-bg-card); border:1px solid var(--ka-border); border-radius:8px; padding:22px; }
+  .ka-panel-title { font-size:13px; font-weight:500; color:var(--ka-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+
+  .ka-key-box { background:linear-gradient(135deg,rgba(0,98,204,0.14),rgba(0,98,204,0.05)); border:1px solid rgba(0,130,255,0.2); border-left:3px solid var(--ka-blue-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .ka-key-box-title { font-size:12px; color:var(--ka-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .ka-key-box p { font-size:13px; color:var(--ka-text-sub); line-height:1.6; }
+  .ka-key-box p strong { color:var(--ka-text-main); }
+
+  .ka-change-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .ka-change-table th { background:var(--ka-bg-card2); color:var(--ka-text-sub); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; padding:11px 14px; text-align:left; border-bottom:1px solid var(--ka-border); }
+  .ka-change-table td { padding:12px 14px; border-bottom:1px solid rgba(0,130,255,0.07); vertical-align:top; line-height:1.5; }
+  .ka-change-table tr:hover td { background:rgba(0,130,255,0.04); }
+
+  .ka-tl { position:relative; padding-left:26px; }
+  .ka-tl::before { content:''; position:absolute; left:5px; top:0; bottom:0; width:1px; background:linear-gradient(180deg,var(--ka-blue-light),transparent); }
+  .ka-tl-item { position:relative; margin-bottom:18px; }
+  .ka-tl-item::before { content:''; position:absolute; left:-23px; top:7px; width:8px; height:8px; border-radius:50%; background:var(--ka-blue-light); box-shadow:0 0 8px rgba(77,176,255,0.4); }
+  .ka-tl-date { font-size:11px; color:var(--ka-cyan); letter-spacing:1.5px; font-weight:500; margin-bottom:2px; }
+  .ka-tl-label { font-size:14px; color:var(--ka-text-main); }
+  .ka-tl-sub { font-size:12px; color:var(--ka-text-sub); margin-top:2px; }
+
+  .ka-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--ka-text-sub); border-top:1px solid var(--ka-border); }
+  .ka-badge { display:inline-block; background:rgba(0,130,255,0.12); color:var(--ka-blue-light); border:1px solid rgba(0,130,255,0.3); font-size:10px; padding:1px 8px; border-radius:20px; margin:1px; }
+  .ka-badge.red { background:rgba(248,113,113,0.08); border-color:rgba(248,113,113,0.25); color:#f87171; }
+  .ka-badge.gold { background:rgba(200,168,75,0.1); border-color:rgba(200,168,75,0.25); color:#c8a84b; }
+
+  /* ============================================================
+     DGIST  ─ 딥 다크 + 코발트 블루/스카이
+  ============================================================ */
+  :root {
+    --dg-blue: #1a4fa0;
+    --dg-blue-mid: #2060c8;
+    --dg-blue-light: #5090e8;
+    --dg-sky: #60c0e8;
+    --dg-bg-dark: #070b18;
+    --dg-bg-card: #0c1220;
+    --dg-bg-card2: #101828;
+    --dg-text-main: #d8e8f8;
+    --dg-text-sub: #6888a8;
+    --dg-text-accent: #5090e8;
+    --dg-border: rgba(80,144,232,0.16);
+    --dg-border-acc: rgba(96,192,232,0.3);
+  }
+  #page-dgist { display: none; }
+
+  .dg-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--dg-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--dg-bg-dark) 0%,#0a1020 100%); }
+  .dg-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(26,79,160,0.18) 0%,transparent 70%); }
+  .dg-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(80,144,232,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(80,144,232,0.04) 1px,transparent 1px); background-size:50px 50px; }
+  .dg-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--dg-sky); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .dg-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .dg-hero h1 span { color:var(--dg-blue-light); }
+  .dg-hero-sub { font-size:15px; color:var(--dg-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .dg-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--dg-blue),var(--dg-blue-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+
+  .dg-nav { position:sticky; top:0; z-index:100; background:rgba(7,11,24,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--dg-border); padding:0 40px; }
+  .dg-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .dg-nav-inner::-webkit-scrollbar { display:none; }
+  .dg-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--dg-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .dg-nav-link:hover { color:var(--dg-text-main); border-bottom-color:var(--dg-blue-light); }
+
+  .dg-section { padding:52px 0 36px; border-bottom:1px solid var(--dg-border); }
+  .dg-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--dg-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .dg-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--dg-blue-light),var(--dg-blue)); border-radius:2px; flex-shrink:0; }
+
+  .dg-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:28px; }
+  .dg-stat-card { background:var(--dg-bg-card); border:1px solid var(--dg-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .dg-stat-card:hover { border-color:var(--dg-blue-light); transform:translateY(-2px); }
+  .dg-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--dg-blue),var(--dg-blue-light)); opacity:0; transition:opacity .3s; }
+  .dg-stat-card:hover::after { opacity:1; }
+  .dg-stat-label { font-size:11px; color:var(--dg-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .dg-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .dg-stat-value span { font-size:13px; color:var(--dg-text-sub); margin-left:3px; }
+  .dg-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+
+  .dg-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .dg-table th { background:rgba(26,79,160,0.18); color:var(--dg-blue-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--dg-border); }
+  .dg-table td { padding:10px 12px; border-bottom:1px solid rgba(80,144,232,0.07); color:var(--dg-text-main); vertical-align:top; line-height:1.5; }
+  .dg-table tr:last-child td { border-bottom:none; }
+  .dg-table tr:hover td { background:rgba(80,144,232,0.04); }
+
+  .dg-panel { background:var(--dg-bg-card); border:1px solid var(--dg-border); border-radius:8px; padding:22px; }
+  .dg-panel-title { font-size:13px; font-weight:500; color:var(--dg-text-accent); margin-bottom:14px; }
+  .dg-key-box { background:linear-gradient(135deg,rgba(26,79,160,0.14),rgba(26,79,160,0.05)); border:1px solid rgba(80,144,232,0.2); border-left:3px solid var(--dg-blue-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .dg-key-box-title { font-size:12px; color:var(--dg-text-accent); font-weight:500; margin-bottom:5px; }
+  .dg-key-box p { font-size:13px; color:var(--dg-text-sub); line-height:1.6; }
+  .dg-key-box p strong { color:var(--dg-text-main); }
+  .dg-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--dg-text-sub); border-top:1px solid var(--dg-border); }
+
+  /* ============================================================
+     GIST  ─ 딥 다크 + 레드 오렌지
+  ============================================================ */
+  :root {
+    --gi-red: #c82014;
+    --gi-red-mid: #e83028;
+    --gi-red-light: #ff6055;
+    --gi-orange: #ff8c50;
+    --gi-bg-dark: #180808;
+    --gi-bg-card: #261010;
+    --gi-bg-card2: #2e1414;
+    --gi-text-main: #f8e8e8;
+    --gi-text-sub: #b88080;
+    --gi-text-accent: #ff6055;
+    --gi-border: rgba(200,32,20,0.18);
+    --gi-border-acc: rgba(255,96,85,0.3);
+  }
+  #page-gist { display: none; }
+
+  .gi-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--gi-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--gi-bg-dark) 0%,#1e0c08 100%); }
+  .gi-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(200,32,20,0.18) 0%,transparent 70%); }
+  .gi-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(200,32,20,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,32,20,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .gi-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--gi-orange); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .gi-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .gi-hero h1 span { color:var(--gi-red-light); }
+  .gi-hero-sub { font-size:15px; color:var(--gi-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .gi-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--gi-red),var(--gi-red-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+
+  .gi-nav { position:sticky; top:0; z-index:100; background:rgba(24,8,8,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--gi-border); padding:0 40px; }
+  .gi-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .gi-nav-inner::-webkit-scrollbar { display:none; }
+  .gi-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--gi-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .gi-nav-link:hover { color:var(--gi-text-main); border-bottom-color:var(--gi-red-light); }
+
+  .gi-section { padding:52px 0 36px; border-bottom:1px solid var(--gi-border); }
+  .gi-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--gi-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .gi-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--gi-red-light),var(--gi-red)); border-radius:2px; flex-shrink:0; }
+
+  .gi-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:28px; }
+  .gi-stat-card { background:var(--gi-bg-card); border:1px solid var(--gi-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .gi-stat-card:hover { border-color:var(--gi-red-light); transform:translateY(-2px); }
+  .gi-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gi-red),var(--gi-red-light)); opacity:0; transition:opacity .3s; }
+  .gi-stat-card:hover::after { opacity:1; }
+  .gi-stat-label { font-size:11px; color:var(--gi-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .gi-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .gi-stat-value span { font-size:13px; color:var(--gi-text-sub); margin-left:3px; }
+
+  .gi-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .gi-table th { background:rgba(200,32,20,0.16); color:var(--gi-red-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--gi-border); }
+  .gi-table td { padding:10px 12px; border-bottom:1px solid rgba(200,32,20,0.07); color:var(--gi-text-main); vertical-align:top; line-height:1.5; }
+  .gi-table tr:last-child td { border-bottom:none; }
+  .gi-table tr:hover td { background:rgba(200,32,20,0.04); }
+
+  .gi-panel { background:var(--gi-bg-card); border:1px solid var(--gi-border); border-radius:8px; padding:22px; }
+  .gi-panel-title { font-size:13px; font-weight:500; color:var(--gi-text-accent); margin-bottom:14px; }
+  .gi-key-box { background:linear-gradient(135deg,rgba(200,32,20,0.14),rgba(200,32,20,0.05)); border:1px solid rgba(200,32,20,0.2); border-left:3px solid var(--gi-red-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .gi-key-box-title { font-size:12px; color:var(--gi-text-accent); font-weight:500; margin-bottom:5px; }
+  .gi-key-box p { font-size:13px; color:var(--gi-text-sub); line-height:1.6; }
+  .gi-key-box p strong { color:var(--gi-text-main); }
+  .gi-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--gi-text-sub); border-top:1px solid var(--gi-border); }
+
+  /* ============================================================
+     UNIST  ─ 딥 다크 + 틸/청록
+  ============================================================ */
+  :root {
+    --un-teal: #007a8c;
+    --un-teal-mid: #00a0b8;
+    --un-teal-light: #00c8e0;
+    --un-cyan: #40d8f0;
+    --un-bg-dark: #050e10;
+    --un-bg-card: #0a181c;
+    --un-bg-card2: #0e2026;
+    --un-text-main: #d0f0f8;
+    --un-text-sub: #5090a0;
+    --un-text-accent: #00c8e0;
+    --un-border: rgba(0,160,184,0.18);
+    --un-border-acc: rgba(0,200,224,0.3);
+  }
+  #page-unist { display: none; }
+
+  .un-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--un-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--un-bg-dark) 0%,#071418 100%); }
+  .un-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(0,122,140,0.18) 0%,transparent 70%); }
+  .un-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(0,160,184,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,160,184,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .un-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--un-cyan); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .un-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .un-hero h1 span { color:var(--un-teal-light); }
+  .un-hero-sub { font-size:15px; color:var(--un-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .un-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--un-teal),var(--un-teal-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+
+  .un-nav { position:sticky; top:0; z-index:100; background:rgba(5,14,16,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--un-border); padding:0 40px; }
+  .un-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .un-nav-inner::-webkit-scrollbar { display:none; }
+  .un-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--un-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .un-nav-link:hover { color:var(--un-text-main); border-bottom-color:var(--un-teal-light); }
+
+  .un-section { padding:52px 0 36px; border-bottom:1px solid var(--un-border); }
+  .un-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--un-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .un-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--un-teal-light),var(--un-teal)); border-radius:2px; flex-shrink:0; }
+
+  .un-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:28px; }
+  .un-stat-card { background:var(--un-bg-card); border:1px solid var(--un-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .un-stat-card:hover { border-color:var(--un-teal-light); transform:translateY(-2px); }
+  .un-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--un-teal),var(--un-teal-light)); opacity:0; transition:opacity .3s; }
+  .un-stat-card:hover::after { opacity:1; }
+  .un-stat-label { font-size:11px; color:var(--un-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .un-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .un-stat-value span { font-size:13px; color:var(--un-text-sub); margin-left:3px; }
+
+  .un-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .un-table th { background:rgba(0,122,140,0.18); color:var(--un-teal-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--un-border); }
+  .un-table td { padding:10px 12px; border-bottom:1px solid rgba(0,160,184,0.07); color:var(--un-text-main); vertical-align:top; line-height:1.5; }
+  .un-table tr:last-child td { border-bottom:none; }
+  .un-table tr:hover td { background:rgba(0,160,184,0.04); }
+
+  .un-panel { background:var(--un-bg-card); border:1px solid var(--un-border); border-radius:8px; padding:22px; }
+  .un-panel-title { font-size:13px; font-weight:500; color:var(--un-text-accent); margin-bottom:14px; }
+  .un-key-box { background:linear-gradient(135deg,rgba(0,122,140,0.14),rgba(0,122,140,0.05)); border:1px solid rgba(0,160,184,0.2); border-left:3px solid var(--un-teal-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .un-key-box-title { font-size:12px; color:var(--un-text-accent); font-weight:500; margin-bottom:5px; }
+  .un-key-box p { font-size:13px; color:var(--un-text-sub); line-height:1.6; }
+  .un-key-box p strong { color:var(--un-text-main); }
+  .un-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--un-text-sub); border-top:1px solid var(--un-border); }
+
+  /* ============================================================
+     KENTECH  ─ 딥 다크 + 에메랄드 그린
+  ============================================================ */
+  :root {
+    --ke-green: #007850;
+    --ke-green-mid: #009c68;
+    --ke-green-light: #00c880;
+    --ke-lime: #60f0a0;
+    --ke-bg-dark: #060e0a;
+    --ke-bg-card: #0a1810;
+    --ke-bg-card2: #0e2018;
+    --ke-text-main: #d0f8e8;
+    --ke-text-sub: #508070;
+    --ke-text-accent: #00c880;
+    --ke-border: rgba(0,156,104,0.18);
+    --ke-border-acc: rgba(0,200,128,0.3);
+  }
+  #page-kentech { display: none; }
+
+  .ke-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--ke-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--ke-bg-dark) 0%,#081410 100%); }
+  .ke-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(0,120,80,0.18) 0%,transparent 70%); }
+  .ke-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(0,156,104,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,156,104,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .ke-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--ke-lime); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .ke-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .ke-hero h1 span { color:var(--ke-green-light); }
+  .ke-hero-sub { font-size:15px; color:var(--ke-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .ke-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--ke-green),var(--ke-green-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+
+  .ke-nav { position:sticky; top:0; z-index:100; background:rgba(6,14,10,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--ke-border); padding:0 40px; }
+  .ke-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .ke-nav-inner::-webkit-scrollbar { display:none; }
+  .ke-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--ke-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .ke-nav-link:hover { color:var(--ke-text-main); border-bottom-color:var(--ke-green-light); }
+
+  .ke-section { padding:52px 0 36px; border-bottom:1px solid var(--ke-border); }
+  .ke-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--ke-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .ke-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--ke-green-light),var(--ke-green)); border-radius:2px; flex-shrink:0; }
+
+  .ke-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:28px; }
+  .ke-stat-card { background:var(--ke-bg-card); border:1px solid var(--ke-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .ke-stat-card:hover { border-color:var(--ke-green-light); transform:translateY(-2px); }
+  .ke-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--ke-green),var(--ke-green-light)); opacity:0; transition:opacity .3s; }
+  .ke-stat-card:hover::after { opacity:1; }
+  .ke-stat-label { font-size:11px; color:var(--ke-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .ke-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .ke-stat-value span { font-size:13px; color:var(--ke-text-sub); margin-left:3px; }
+
+  .ke-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .ke-table th { background:rgba(0,120,80,0.18); color:var(--ke-green-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--ke-border); }
+  .ke-table td { padding:10px 12px; border-bottom:1px solid rgba(0,156,104,0.07); color:var(--ke-text-main); vertical-align:top; line-height:1.5; }
+  .ke-table tr:last-child td { border-bottom:none; }
+  .ke-table tr:hover td { background:rgba(0,156,104,0.04); }
+
+  .ke-panel { background:var(--ke-bg-card); border:1px solid var(--ke-border); border-radius:8px; padding:22px; }
+  .ke-panel-title { font-size:13px; font-weight:500; color:var(--ke-text-accent); margin-bottom:14px; }
+  .ke-key-box { background:linear-gradient(135deg,rgba(0,120,80,0.14),rgba(0,120,80,0.05)); border:1px solid rgba(0,156,104,0.2); border-left:3px solid var(--ke-green-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .ke-key-box-title { font-size:12px; color:var(--ke-text-accent); font-weight:500; margin-bottom:5px; }
+  .ke-key-box p { font-size:13px; color:var(--ke-text-sub); line-height:1.6; }
+  .ke-key-box p strong { color:var(--ke-text-main); }
+  .ke-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--ke-text-sub); border-top:1px solid var(--ke-border); }
+
+  /* 공통 유틸 */
+  .delta-pos { color:#6fcf8a; }
+  .delta-neg { color:#f87171; }
+  .delta-neu { color:#888; }
+  small { font-size:11px; opacity:.8; }
+  .notice { font-size:12px; color:#7090a0; line-height:1.7; margin-top:12px; padding:10px 14px; border-left:2px solid rgba(120,160,200,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ── UNIVERSITY SWITCHER ── -->
+ <div style="margin-bottom: 20px;">
+<a href="index.html" class="btn" style="background-color: #1b2430; color: #ffffff; border: none; text-decoration: none; padding: 10px 18px;">🏠 메인 화면으로 돌아가기</a>
+</div>
+<section class="hero" aria-labelledby="pageTitle">
+<div class="univ-switcher">
+  <label>대학 선택</label>
+  <select class="univ-select" onchange="switchUniv(this.value)">
+    <option value="kaist">KAIST</option>
+    <option value="dgist">DGIST</option>
+    <option value="gist">GIST</option>
+    <option value="unist">UNIST</option>
+    <option value="kentech">KENTECH</option>
+    <option value="postech">POSTECH</option>
+  </select>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     KAIST
+═══════════════════════════════════════════════════════════ -->
+<div id="page-kaist">
+
+  <div class="ka-hero">
+    <div class="ka-hero-grid"></div>
+    <div class="hero-content">
+      <div class="ka-hero-label">Korea Advanced Institute of Science and Technology</div>
+      <h1 class="ka-hero" style="font-family:'Noto Serif KR',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;position:relative;z-index:1;background:none;border:none;min-height:0;padding:0;margin:0;">
+        2028학년도 <span style="color:var(--ka-blue-light)">KAIST</span> 입학전형 시행계획
+      </h1>
+      <div class="ka-hero-sub">한국과학기술원 | 2026년 4월 기준 | 학사과정 입학전형팀</div>
+      <div class="ka-hero-badge">SCIENCE & TECHNOLOGY · 과학기술원</div>
+      <div style="position:relative;z-index:1;margin-top:14px;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;">제작 · 운정고등학교 이재규 선생님</div>
+    </div>
+  </div>
+
+  <nav class="ka-nav">
+    <div class="ka-nav-inner">
+      <a class="ka-nav-link" href="#ka-overview">전형 개요</a>
+      <a class="ka-nav-link" href="#ka-changes">주요 변경</a>
+      <a class="ka-nav-link" href="#ka-early">Early Admission</a>
+      <a class="ka-nav-link" href="#ka-regular">Regular Admission</a>
+      <a class="ka-nav-link" href="#ka-semi">반도체·외국고</a>
+      <a class="ka-nav-link" href="#ka-schedule">전형 일정</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- 전형 개요 -->
+    <div class="ka-section" id="ka-overview">
+      <div class="ka-section-title">📊 2028학년도 전형 개요</div>
+      <div class="ka-stat-row">
+        <div class="ka-stat-card">
+          <div class="ka-stat-label">총 모집인원</div>
+          <div class="ka-stat-value">1,055<span>명 내외</span></div>
+          <div class="ka-stat-delta delta-neu">전년과 동일</div>
+        </div>
+        <div class="ka-stat-card">
+          <div class="ka-stat-label">정원 내</div>
+          <div class="ka-stat-value">880<span>명</span></div>
+          <div class="ka-stat-delta delta-neu">무학과 모집</div>
+        </div>
+        <div class="ka-stat-card">
+          <div class="ka-stat-label">정원 외</div>
+          <div class="ka-stat-value">175<span>명</span></div>
+          <div class="ka-stat-delta delta-neu">외국인·반도체</div>
+        </div>
+        <div class="ka-stat-card">
+          <div class="ka-stat-label">수능 최저</div>
+          <div class="ka-stat-value" style="font-size:20px;">없음</div>
+          <div class="ka-stat-delta delta-pos">수시·정시 미적용</div>
+        </div>
+        <div class="ka-stat-card">
+          <div class="ka-stat-label">수시 지원 제한</div>
+          <div class="ka-stat-value" style="font-size:16px;">예외</div>
+          <div class="ka-stat-delta delta-pos">과기원 특별법 적용</div>
+        </div>
+      </div>
+
+      <table class="ka-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>전형명</th>
+            <th>모집인원</th>
+            <th>전형방법</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2" style="color:var(--ka-cyan);font-weight:500;">Early<br>Admission</td>
+            <td><strong style="color:var(--ka-text-accent)">창의도전전형</strong> <span class="tag-change">+30명</span></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">300명</strong></td>
+            <td>서류 100%</td>
+            <td>2027년 10월 발표 / 조기졸업예정자 제외</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ka-text-accent)">학교장추천전형</strong> <span class="tag-change">+15명</span></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">100명</strong></td>
+            <td>서류 100%</td>
+            <td>고교별 최대 2명 / 일반·특성화·자율고</td>
+          </tr>
+          <tr>
+            <td rowspan="3" style="color:var(--ka-cyan);font-weight:500;">Regular<br>Admission</td>
+            <td><strong style="color:var(--ka-text-accent)">일반전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">380명</strong></td>
+            <td>1단계 서류(40%) → 2단계 면접(60%)</td>
+            <td>조기졸업예정자 포함 / 창의도전전형과 중복지원 가능</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ka-text-accent)">고른기회전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">60명</strong></td>
+            <td>1단계 서류(40%) → 2단계 면접(60%)</td>
+            <td>농어촌·기초수급·차상위·보훈·새터민·다문화·다자녀</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ka-text-accent)">반도체시스템인재전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">40명</strong> <small>(정원외)</small></td>
+            <td>1단계 서류(40%) → 2단계 면접(60%)</td>
+            <td>삼성전자 계약학과 / 반도체시스템공학과 직행</td>
+          </tr>
+          <tr>
+            <td style="color:var(--ka-cyan);font-weight:500;">Late<br>Admission</td>
+            <td><strong style="color:var(--ka-text-accent)">외국고전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">40명</strong></td>
+            <td>서류(+필요시 면접)</td>
+            <td>외국 고교 마지막 3년 이수 / 대한민국 국적</td>
+          </tr>
+          <tr>
+            <td style="color:var(--ka-cyan);font-weight:500;">기타</td>
+            <td><strong style="color:var(--ka-text-accent)">외국인전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">135명</strong> <small>(정원외)</small></td>
+            <td>서류(+필요시 면접)</td>
+            <td>외국 국적자 / Early(봄·가을) · Regular(가을)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 주요 변경 -->
+    <div class="ka-section" id="ka-changes">
+      <div class="ka-section-title">🔄 2027 → 2028 주요 변경사항</div>
+      <table class="ka-change-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>2027학년도</th>
+            <th>2028학년도</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">전형 통폐합</td>
+            <td>특기자전형 (30명) 운영<br>수능우수자전형 (15명) 운영</td>
+            <td><span class="tag-del">폐지</span> 특기자전형 삭제<br><span class="tag-del">폐지</span> 수능우수자전형 삭제</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">창의도전전형</td>
+            <td>정원내 270명</td>
+            <td><span class="tag-change">+30명</span> → 300명 내외</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">학교장추천전형</td>
+            <td>정원내 85명</td>
+            <td><span class="tag-change">+15명</span> → 100명 내외</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">교사추천서</td>
+            <td>최대 2부 제출 가능</td>
+            <td><span class="tag-change">변경</span> 최대 <strong style="color:#fff;">3부</strong>로 확대 (담임교사 1부 필수 포함)</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">독서이력</td>
+            <td>Early: 독서이력(3권)<br>Regular: 독서목록(5권)</td>
+            <td><span class="tag-change">통일</span> 전 전형 독서이력(최대 3권) / 300자/권 소감 포함</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">자기소개서 증빙→<br>학업탐구역량 입증자료</td>
+            <td>총 3건/건당 3페이지 이내<br>수상실적·봉사활동 확인서만 제출 가능</td>
+            <td><span class="tag-change">개편</span> 총 <strong style="color:#fff;">5건</strong>/건당 3페이지 이내<br>학교장 승인 모든 교내외 활동 제출 가능</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">면접 출제범위</td>
+            <td>2015 개정 교육과정 기준</td>
+            <td><span class="tag-change">변경</span> <strong style="color:#fff;">2022 개정 교육과정</strong> 기준<br>수학: 공통수학1·2, 대수, 미적분Ⅰ·Ⅱ, 확통, 기하</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Early Admission -->
+    <div class="ka-section" id="ka-early">
+      <div class="ka-section-title">⚡ Early Admission — 서류평가 100%</div>
+      <div class="two-col">
+        <div class="ka-panel">
+          <div class="ka-panel-title">창의도전전형 (300명)</div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">지원자격</div>
+            <p>2028년 2월 고등학교 졸업(예정)자 <strong>(조기졸업예정자 제외)</strong><br>또는 KAIST 과학영재선발위원회에서 입학 자격을 인정받은 자</p>
+          </div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">전형방법</div>
+            <p><strong>서류 100%</strong> — 학업성취도, 학교생활충실도 및 인성, 도전·창의·배려, 발전가능성을 종합평가</p>
+          </div>
+          <p style="font-size:12px;color:var(--ka-text-sub);margin-top:8px;">최종발표: 2027년 10월 중</p>
+        </div>
+        <div class="ka-panel">
+          <div class="ka-panel-title">학교장추천전형 (100명)</div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">지원자격</div>
+            <p>2028년 2월 졸업예정 <strong>(조기졸업예정 제외)</strong> 일반고·특성화고·자율고 재학생 중 학교장이 추천한 자 (고교별 최대 2명)</p>
+          </div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">추천 기준</div>
+            <p>수학·과학 탁월한 성과, 자기주도 학습능력, 역경극복·도전정신, 리더십·협동심, KAIST 진학 의지</p>
+          </div>
+          <p style="font-size:12px;color:var(--ka-text-sub);margin-top:8px;">최종발표: 2027년 10월 중</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regular Admission -->
+    <div class="ka-section" id="ka-regular">
+      <div class="ka-section-title">📋 Regular Admission — 서류 40% + 면접 60%</div>
+      <div class="ka-key-box">
+        <div class="ka-key-box-title">면접 구성 (일반·고른기회·반도체시스템인재전형 공통)</div>
+        <p><strong>학업역량 면접</strong> — 수학·과학·영어 개인별 구술 (과학: 물리/화학/생명과학 중 지원자 선택 1과목)<br>
+        <strong>적합성 면접</strong> — 지원서 기반 질문 및 공통질문 / 사전 준비시간 있음</p>
+      </div>
+
+      <table class="ka-table" style="margin-top:16px;">
+        <thead>
+          <tr><th>전형</th><th>인원</th><th>주요 지원자격</th><th>고른기회 대상</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--ka-text-accent)">일반전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">380명</strong></td>
+            <td>조기졸업예정자 포함 / 창의도전전형과 중복지원 가능</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ka-text-accent)">고른기회전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">60명</strong></td>
+            <td>조기졸업예정자 제외</td>
+            <td>농어촌 / 기초수급자·차상위·한부모 / 국가보훈 / 새터민 / 다문화(소득8분위↓) / 다자녀(소득8분위↓)</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ka-text-accent)">반도체시스템인재전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">40명</strong> <small>(정원외)</small></td>
+            <td>조기졸업예정자 제외 / 삼성전자 계약학과 직행</td>
+            <td>적합성 면접에 반도체공학 전공적합성 추가</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 최종 발표: 2027년 12월 중 (일반·고른기회·반도체시스템인재전형 공통)</p>
+    </div>
+
+    <!-- 반도체·외국고 -->
+    <div class="ka-section" id="ka-semi">
+      <div class="ka-section-title">🌐 외국고전형 / 외국인전형</div>
+      <div class="two-col">
+        <div class="ka-panel">
+          <div class="ka-panel-title">외국고전형 (40명) — Late Admission</div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">지원자격</div>
+            <p>대한민국 국적 소지자로 <strong>외국에서 마지막 3년 이상</strong> 고교 교육과정 이수 후 2028년 8월 기준 졸업(예정)자</p>
+          </div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">전형방법 / 입학시기</div>
+            <p>서류평가 (필요 시 면접) | <strong>2028 가을학기</strong> 입학 | 최종발표: 2028년 3월</p>
+          </div>
+        </div>
+        <div class="ka-panel">
+          <div class="ka-panel-title">외국인전형 (135명) — 정원 외</div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">지원자격</div>
+            <p>외국 국적자로 고등학교 졸업(예정)자<br>Early: 봄·가을 학기 / Regular: 가을학기</p>
+          </div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">전형방법</div>
+            <p>서류평가 (필요 시 면접)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 일정 -->
+    <div class="ka-section" id="ka-schedule">
+      <div class="ka-section-title">🗓️ 2028학년도 전형 일정</div>
+      <div class="two-col">
+        <div>
+          <div class="ka-tl">
+            <div class="ka-tl-item">
+              <div class="ka-tl-date">2027년 9월</div>
+              <div class="ka-tl-label">수시 원서접수 시작 (Early · Regular 공통)</div>
+            </div>
+            <div class="ka-tl-item">
+              <div class="ka-tl-date">2027년 10월 말</div>
+              <div class="ka-tl-label">창의도전전형 · 학교장추천전형 최종 발표</div>
+              <div class="ka-tl-sub">봄학기 입학 대상</div>
+            </div>
+            <div class="ka-tl-item">
+              <div class="ka-tl-date">2027년 12월 중순</div>
+              <div class="ka-tl-label">일반 · 고른기회 · 반도체시스템인재전형 발표</div>
+              <div class="ka-tl-sub">봄학기 입학 대상</div>
+            </div>
+            <div class="ka-tl-item">
+              <div class="ka-tl-date">2028년 3월</div>
+              <div class="ka-tl-label">외국고전형 최종 발표</div>
+              <div class="ka-tl-sub">2028 가을학기 입학</div>
+            </div>
+          </div>
+        </div>
+        <div class="ka-panel">
+          <div class="ka-panel-title">중복지원 안내</div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">✅ 중복지원 가능</div>
+            <p><strong>창의도전전형 + 일반전형</strong> 조합만 중복지원 허용</p>
+          </div>
+          <div class="ka-key-box">
+            <div class="ka-key-box-title">⛔ 중복지원 불가</div>
+            <p>그 외 수시 전형 간 중복 불가<br>(외국고전형은 모든 수시 전형과 관계없이 지원 가능)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+  <div class="ka-footer">
+    ※ 본 자료는 2028학년도 KAIST 학사과정 입학전형 시행계획(2026.04 기준)이며, 추후 변경될 수 있습니다.<br>
+    입학처 홈페이지: <strong>admission.kaist.ac.kr</strong> | 문의: 042-350-4810 (국내전형)
+  </div>
+</div><!-- /page-kaist -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     DGIST
+═══════════════════════════════════════════════════════════ -->
+<div id="page-dgist">
+
+  <div class="dg-hero">
+    <div class="dg-hero-grid"></div>
+    <div class="hero-content">
+      <div class="dg-hero-label">Daegu Gyeongbuk Institute of Science and Technology</div>
+      <h1 style="font-family:'Noto Serif KR',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;position:relative;z-index:1;">
+        2028학년도 <span style="color:var(--dg-blue-light)">DGIST</span> 입학전형 시행계획
+      </h1>
+      <div class="dg-hero-sub">대구경북과학기술원 | 2026년 4월 기준 | 입학학생처 입학팀</div>
+      <div class="dg-hero-badge">SCIENCE & TECHNOLOGY · 과학기술원</div>
+      <div style="position:relative;z-index:1;margin-top:14px;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;">제작 · 운정고등학교 이재규 선생님</div>
+    </div>
+  </div>
+
+  <nav class="dg-nav">
+    <div class="dg-nav-inner">
+      <a class="dg-nav-link" href="#dg-overview">전형 개요</a>
+      <a class="dg-nav-link" href="#dg-general">일반전형</a>
+      <a class="dg-nav-link" href="#dg-recommend">학교장추천</a>
+      <a class="dg-nav-link" href="#dg-opportunity">고른기회</a>
+      <a class="dg-nav-link" href="#dg-science">과학인재</a>
+      <a class="dg-nav-link" href="#dg-foreign">외국인</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="dg-section" id="dg-overview">
+      <div class="dg-section-title">📊 2028학년도 전형 개요</div>
+      <div class="dg-stat-row">
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">정원 내 합계</div>
+          <div class="dg-stat-value">300<span>명 내외</span></div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">정원 외 합계</div>
+          <div class="dg-stat-value">80<span>명 내외</span></div>
+          <div class="dg-stat-delta delta-neu">외국인·반도체</div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">수능 최저</div>
+          <div class="dg-stat-value" style="font-size:20px;">없음</div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">수시 제한</div>
+          <div class="dg-stat-value" style="font-size:16px;">예외</div>
+          <div class="dg-stat-delta delta-pos">특별법 적용</div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">기초학부 (무학과)</div>
+          <div class="dg-stat-value" style="font-size:20px;">3과</div>
+          <div class="dg-stat-delta delta-neu">기초학부·AI대학·반도체</div>
+        </div>
+      </div>
+
+      <table class="dg-table">
+        <thead>
+          <tr><th>전형명</th><th>모집단위</th><th>정원내</th><th>정원외</th><th>전형방법</th><th>수능최저</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">일반전형</strong></td>
+            <td>기초학부 / AI대학</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;">105 + 100명</strong></td>
+            <td>—</td>
+            <td>서류 100%</td>
+            <td>없음</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">학교장추천전형</strong></td>
+            <td>기초학부</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;">55명</strong></td>
+            <td>—</td>
+            <td>서류 100%</td>
+            <td>없음</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">고른기회전형</strong></td>
+            <td>기초학부</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;">20명</strong></td>
+            <td>—</td>
+            <td>서류 100%</td>
+            <td>없음</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">과학인재전형</strong></td>
+            <td>기초학부</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;">20명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(5배수) → 2단계 서류50%+면접50%</td>
+            <td>없음</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">일반전형 (반도체공학과)</strong></td>
+            <td>반도체공학과 (학석사통합)</td>
+            <td>—</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;">30명</strong></td>
+            <td>서류 100%</td>
+            <td>없음</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">외국인전형</strong></td>
+            <td>기초학부</td>
+            <td>—</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;">50명</strong></td>
+            <td>1단계 서류(3배수) → 2단계 서류50%+면접50%</td>
+            <td>없음</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="notice">※ DGIST는 특별법(대구경북과학기술원법)에 의해 수시 6회 제한 예외 / 전형 간 중복지원 불가 / 동일 전형에서 1개 모집단위만 지원</p>
+    </div>
+
+    <div class="dg-section" id="dg-general">
+      <div class="dg-section-title">📁 일반전형 (기초학부 105명 + AI대학 100명)</div>
+      <div class="two-col">
+        <div class="dg-panel">
+          <div class="dg-panel-title">지원자격</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">다음 중 하나에 해당하는 자</div>
+            <p>① 2028년 2월 고교 졸업(예정)자 또는 동등 학력 인정자<br>
+            ② 조기졸업 또는 상급학교 조기입학 자격 부여받은 자<br>
+            ③ DGIST 과학영재선발위원회에서 입학자격 인정받은 자</p>
+          </div>
+        </div>
+        <div class="dg-panel">
+          <div class="dg-panel-title">전형방법</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">서류평가 100%</div>
+            <p>학업 및 탐구역량, 사회적 역량을 종합적으로 평가<br>다수 평가자에 의한 다단계 종합평가</p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">⚠️ 학교폭력 조치(4~9호) 기재자 지원 불가</div>
+            <p style="color:#f87171;">해당 조치사항이 학교생활기록부에 기재된 경우 지원 불가</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dg-section" id="dg-recommend">
+      <div class="dg-section-title">🏫 학교장추천전형 (기초학부 55명)</div>
+      <div class="dg-key-box">
+        <div class="dg-key-box-title">지원자격 — 국내 일반고·특성화고·자율고 재학생 중 학교장 추천</div>
+        <p>고교별 최대 2명 추천 / 2028년 2월 졸업예정자 (조기졸업예정·상급학교 진학예정 제외)</p>
+      </div>
+      <table class="dg-table" style="margin-top:14px;">
+        <thead><tr><th>추천 기준</th></tr></thead>
+        <tbody>
+          <tr><td>① 과학·수학 학업 역량이 탁월한 학생</td></tr>
+          <tr><td>② 자기주도적 학습능력과 탐구역량이 뛰어난 학생</td></tr>
+          <tr><td>③ 리더로서의 잠재력과 따뜻한 인성을 지닌 학생</td></tr>
+          <tr><td>④ DGIST에서 학습하고자 하는 의지가 강한 학생</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dg-section" id="dg-opportunity">
+      <div class="dg-section-title">🤝 고른기회전형 (기초학부 20명)</div>
+      <table class="dg-table">
+        <thead><tr><th>유형</th><th>세부 내용</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#c8a84b;font-weight:500;">농어촌 학생</td><td>유형Ⅰ: 중3년+고3년+거주6년(지원자·부모) | 유형Ⅱ: 초중고 12년+거주12년(지원자)</td></tr>
+          <tr><td style="color:#c8a84b;font-weight:500;">기초생활수급자·차상위·한부모</td><td>국민기초생활보장법 수급권자·수급자, 차상위계층, 한부모가족지원대상자</td></tr>
+          <tr><td style="color:#c8a84b;font-weight:500;">국가보훈대상자</td><td>국가보훈 기본법 제3조 제2호의 국가보훈대상자 중 교육지원 대상자</td></tr>
+          <tr><td style="color:#c8a84b;font-weight:500;">자립지원대상자</td><td>가정위탁·아동복지시설 보호 중, 또는 보호조치 종료 후 5년 미경과자</td></tr>
+          <tr><td style="color:#c8a84b;font-weight:500;">직업군인 자녀</td><td>20년 이상(의무복무 포함) 재직·근무한 직업군인의 자녀</td></tr>
+          <tr><td style="color:#c8a84b;font-weight:500;">소방공무원 자녀</td><td>20년 이상 재직·근무한 소방공무원의 자녀</td></tr>
+          <tr><td style="color:#c8a84b;font-weight:500;">다자녀 가정 자녀</td><td>가족관계증명서 기준 형제자매 포함 3명 이상 가구의 자녀</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dg-section" id="dg-science">
+      <div class="dg-section-title">🔬 과학인재전형 (기초학부 20명)</div>
+      <div class="dg-key-box">
+        <div class="dg-key-box-title">지원자격</div>
+        <p>과학 분야의 영재성을 가진 자 또는 과학기술 분야의 성장 잠재력이 높은 자</p>
+      </div>
+      <table class="dg-table" style="margin-top:12px;">
+        <thead><tr><th>단계</th><th>내용</th><th>선발인원</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">1단계 서류평가</strong></td>
+            <td>과학활동 우수성, 사회적 역량 — 다수 평가자 다단계 종합평가</td>
+            <td>모집인원의 5배수 내외</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">2단계 면접평가</strong></td>
+            <td>과학활동 우수성, 탐구활동 충실성, 진로계획 — 다수 평가자 대면면접</td>
+            <td>최종합격자</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--dg-text-accent)">최종합격</strong></td>
+            <td colspan="2"><strong style="color:#fff;">서류평가 50% + 면접평가 50%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dg-section" id="dg-foreign">
+      <div class="dg-section-title">🌏 외국인전형 / 반도체공학과</div>
+      <div class="two-col">
+        <div class="dg-panel">
+          <div class="dg-panel-title">외국인전형 (기초학부 50명 — 정원외)</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">지원자격</div>
+            <p>① 부모가 모두 외국인인 외국인 (이중국적자 불인정)<br>
+            ② 외국에서 초중등 교육과정을 전부 이수한 한국 태생 외국인</p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">전형방법</div>
+            <p>1단계 서류(3배수) → 2단계 서류50%+면접50%</p>
+          </div>
+        </div>
+        <div class="dg-panel">
+          <div class="dg-panel-title">반도체공학과 (학석사통합, 정원외 30명)</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">개요</div>
+            <p>삼성전자와의 협약에 의해 설치·운영되는 <strong>채용조건형 계약학과</strong></p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">전형방법</div>
+            <p>서류 100% — 학업 및 탐구역량, 사회적 역량 종합평가</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dg-footer">
+    ※ 본 자료는 2028학년도 DGIST 입학전형 시행계획 기준이며, 변경될 수 있습니다.<br>
+    입학처: <strong>dgist.ac.kr/adm</strong> | 053-785-5141 | college@dgist.ac.kr
+  </div>
+</div><!-- /page-dgist -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     GIST
+═══════════════════════════════════════════════════════════ -->
+<div id="page-gist">
+
+  <div class="gi-hero">
+    <div class="gi-hero-grid"></div>
+    <div class="hero-content">
+      <div class="gi-hero-label">Gwangju Institute of Science and Technology</div>
+      <h1 style="font-family:'Noto Serif KR',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;position:relative;z-index:1;">
+        2028학년도 <span style="color:var(--gi-red-light)">GIST</span> 입학전형 안내
+      </h1>
+      <div class="gi-hero-sub">광주과학기술원 | 2026년 4월 기준 | GIST 입학학생처</div>
+      <div class="gi-hero-badge">SCIENCE & TECHNOLOGY · 과학기술원</div>
+      <div style="position:relative;z-index:1;margin-top:14px;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;">제작 · 운정고등학교 이재규 선생님</div>
+    </div>
+  </div>
+
+  <nav class="gi-nav">
+    <div class="gi-nav-inner">
+      <a class="gi-nav-link" href="#gi-overview">전형 개요</a>
+      <a class="gi-nav-link" href="#gi-general">일반전형</a>
+      <a class="gi-nav-link" href="#gi-recommend">학교장추천</a>
+      <a class="gi-nav-link" href="#gi-opportunity">고른기회</a>
+      <a class="gi-nav-link" href="#gi-special">특기자·반도체</a>
+      <a class="gi-nav-link" href="#gi-method">전형방법</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="gi-section" id="gi-overview">
+      <div class="gi-section-title">📊 2028학년도 전형 개요</div>
+      <div class="gi-stat-row">
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">총 모집인원</div>
+          <div class="gi-stat-value">330<span>명 내외</span></div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">정원 내</div>
+          <div class="gi-stat-value">300<span>명</span></div>
+          <div class="gi-stat-delta delta-neu">도전탐색과정</div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">정원 외 (반도체)</div>
+          <div class="gi-stat-value">30<span>명</span></div>
+          <div class="gi-stat-delta" style="color:#ff8c50;">신설 <span class="tag-new">NEW</span></div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">정시 운영</div>
+          <div class="gi-stat-value" style="font-size:16px;">미운영</div>
+          <div class="gi-stat-delta delta-neg">수시 전형만</div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">수능 최저</div>
+          <div class="gi-stat-value" style="font-size:16px;">없음</div>
+          <div class="gi-stat-delta delta-pos">미적용</div>
+        </div>
+      </div>
+
+      <table class="gi-table">
+        <thead>
+          <tr><th>전형명</th><th>모집단위</th><th>정원내</th><th>정원외</th><th>전형방법</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--gi-text-accent)">일반전형</strong></td>
+            <td>도전탐색과정</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">200명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(4~6배수) → 2단계 서류50%+면접50%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--gi-text-accent)">학교장추천전형</strong></td>
+            <td>도전탐색과정</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">65명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(4~6배수) → 2단계 서류50%+면접50%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--gi-text-accent)">고른기회전형</strong></td>
+            <td>도전탐색과정</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">25명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(4~6배수) → 2단계 서류50%+면접50%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--gi-text-accent)">특기자전형</strong></td>
+            <td>도전탐색과정</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">10명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(4~6배수) → 2단계 특기종합평가100%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--gi-text-accent)">반도체공학인재전형</strong> <span class="tag-new">신설</span></td>
+            <td>반도체공학과</td>
+            <td>—</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">30명</strong></td>
+            <td>1단계 서류(4~6배수) → 2단계 서류50%+면접50%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 정시모집 미운영 / 수시모집 6회 제한 적용 여부는 GIST 입학처 확인 필요</p>
+    </div>
+
+    <div class="gi-section" id="gi-general">
+      <div class="gi-section-title">📁 일반전형 (200명)</div>
+      <div class="two-col">
+        <div class="gi-panel">
+          <div class="gi-panel-title">지원자격</div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">다음 중 하나에 해당하는 자</div>
+            <p>① 2028년 2월 기준 국내 고등학교 졸업(예정)자<br>
+            ② 고등학교 졸업자와 동등 학력 인정자<br>
+            ③ 조기졸업·상급학교 조기입학 자격 부여받은 자<br>
+            ④ 2027년 GIST 과학영재선발위원회에서 지원자격 인정받은 자</p>
+          </div>
+        </div>
+        <div class="gi-panel">
+          <div class="gi-panel-title">면접 내용 (2단계 공통)</div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">전공수학(修學)능력 및 이공계인재적합성 종합평가</div>
+            <p>일반전형·학교장추천·고른기회·반도체공학인재전형에 공통 적용<br><br>
+            <strong>특기자전형</strong>은 특기 내용 검증 및 우수성 확인 + 이공계인재적합성 평가</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gi-section" id="gi-recommend">
+      <div class="gi-section-title">🏫 학교장추천전형 (65명)</div>
+      <div class="gi-key-box">
+        <div class="gi-key-box-title">지원자격</div>
+        <p>소속 고등학교장의 추천을 받은 <strong>국내 일반·자율·특성화 고등학교 3학년 재학생</strong><br>고등학교별 추천 인원: 최대 2명</p>
+      </div>
+    </div>
+
+    <div class="gi-section" id="gi-opportunity">
+      <div class="gi-section-title">🤝 고른기회전형 (25명)</div>
+      <table class="gi-table">
+        <thead><tr><th>유형</th><th>대상</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:#ff8c50;font-weight:500;">저소득가구 학생<br>(유형Ⅰ·Ⅱ·Ⅲ)</td>
+            <td>Ⅰ: 국민기초생활보장법 수급권자·수급자<br>Ⅱ: 차상위계층<br>Ⅲ: 한부모가족지원대상자</td>
+          </tr>
+          <tr>
+            <td style="color:#ff8c50;font-weight:500;">국가보훈대상자</td>
+            <td>국가보훈 기본법 교육지원 대상자</td>
+          </tr>
+          <tr>
+            <td style="color:#ff8c50;font-weight:500;">농어촌 학생<br>(유형Ⅰ·Ⅱ)</td>
+            <td>Ⅰ: 중3년+고3년+거주6년(지원자·부모 모두)<br>Ⅱ: 초중고 전 교육과정(지원자 농어촌 거주)</td>
+          </tr>
+          <tr>
+            <td style="color:#ff8c50;font-weight:500;">군인 자녀</td>
+            <td>의무복무기간 포함 20년 이상 복무 중이거나 근무한 군인의 자녀</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gi-section" id="gi-special">
+      <div class="gi-section-title">⭐ 특기자전형 (10명) / 반도체공학인재전형 (30명, 신설)</div>
+      <div class="two-col">
+        <div class="gi-panel">
+          <div class="gi-panel-title">특기자전형 (10명)</div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">우수성 예시</div>
+            <p>[활동] 소프트웨어, 벤처(창업), 발명·특허, 연구(R&E) 등 특정 분야에서 우수한 연구능력·결과물<br>
+            [수상] 올림피아드 또는 전국 단위 대회 우수 성적<br>
+            [기타] 특이한 이력을 소유한 자로 잠재능력이 우수한 경우</p>
+          </div>
+          <p style="font-size:12px;color:var(--gi-text-sub);">2단계: 특기종합평가 100% (특기 내용 검증 + 이공계인재적합성)</p>
+        </div>
+        <div class="gi-panel">
+          <div class="gi-panel-title">반도체공학인재전형 (30명) <span class="tag-new">2028 신설</span></div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">개요</div>
+            <p>2028학년도 <strong>신설 전형</strong> — 정원 외 반도체공학과 선발<br>삼성전자 계약학과 채용조건형</p>
+          </div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">전형방법</div>
+            <p>1단계 서류(4~6배수) → 2단계 서류50% + 면접50%<br>면접: 전공수학능력 및 이공계인재적합성 종합평가</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gi-section" id="gi-method">
+      <div class="gi-section-title">🔍 공통 전형요소 및 방법</div>
+      <table class="gi-table">
+        <thead><tr><th>단계</th><th>구분</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr>
+            <td rowspan="2"><strong style="color:var(--gi-text-accent)">1단계<br>서류전형</strong></td>
+            <td>선발인원</td>
+            <td>각 전형별 모집인원의 <strong style="color:#fff;">4~6배수 내외</strong></td>
+          </tr>
+          <tr>
+            <td>전형방법</td>
+            <td>서류 종합평가 100%</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong style="color:var(--gi-text-accent)">2단계<br>면접전형</strong></td>
+            <td>대상</td>
+            <td>1단계 서류전형 합격자</td>
+          </tr>
+          <tr>
+            <td>일반·학교장·<br>고른기회·반도체</td>
+            <td>전공수학능력 및 이공계인재적합성 종합평가 → <strong style="color:#fff;">서류50% + 면접50%</strong></td>
+          </tr>
+          <tr>
+            <td>특기자전형</td>
+            <td>특기 내용 검증 및 우수성 확인, 이공계인재적합성 → <strong style="color:#fff;">특기종합평가 100%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="gi-footer">
+    ※ 본 자료는 2028학년도 GIST 입학전형 안내(2026.04 기준)이며, 변경될 수 있습니다.<br>
+    입학학생처: <strong>gist.ac.kr</strong>
+  </div>
+</div><!-- /page-gist -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     UNIST
+═══════════════════════════════════════════════════════════ -->
+<div id="page-unist">
+
+  <div class="un-hero">
+    <div class="un-hero-grid"></div>
+    <div class="hero-content">
+      <div class="un-hero-label">Ulsan National Institute of Science and Technology · We're Pioneers!</div>
+      <h1 style="font-family:'Noto Serif KR',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;position:relative;z-index:1;">
+        2028학년도 <span style="color:var(--un-teal-light)">UNIST</span> 대학입학전형 시행계획
+      </h1>
+      <div class="un-hero-sub">울산과학기술원 | 2026년 4월 기준 | 입학처 학부입학팀</div>
+      <div class="un-hero-badge">SCIENCE & TECHNOLOGY · 과학기술원</div>
+      <div style="position:relative;z-index:1;margin-top:14px;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;">제작 · 운정고등학교 이재규 선생님</div>
+    </div>
+  </div>
+
+  <nav class="un-nav">
+    <div class="un-nav-inner">
+      <a class="un-nav-link" href="#un-overview">전형 개요</a>
+      <a class="un-nav-link" href="#un-changes">주요 변경</a>
+      <a class="un-nav-link" href="#un-general">일반·지역인재</a>
+      <a class="un-nav-link" href="#un-explore">탐구우수·그릿</a>
+      <a class="un-nav-link" href="#un-opportunity">고른기회</a>
+      <a class="un-nav-link" href="#un-csat">수능우수자</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="un-section" id="un-overview">
+      <div class="un-section-title">📊 2028학년도 전형 개요</div>
+      <div class="un-stat-row">
+        <div class="un-stat-card">
+          <div class="un-stat-label">총 모집인원</div>
+          <div class="un-stat-value">580<span>명 내외</span></div>
+        </div>
+        <div class="un-stat-card">
+          <div class="un-stat-label">정원 내</div>
+          <div class="un-stat-value">500<span>명</span></div>
+        </div>
+        <div class="un-stat-card">
+          <div class="un-stat-label">정원 외</div>
+          <div class="un-stat-value">80<span>명</span></div>
+          <div class="un-stat-delta delta-neu">반도체·고른기회</div>
+        </div>
+        <div class="un-stat-card">
+          <div class="un-stat-label">수능 최저</div>
+          <div class="un-stat-value" style="font-size:16px;">없음</div>
+          <div class="un-stat-delta delta-pos">수시 미적용</div>
+        </div>
+        <div class="un-stat-card">
+          <div class="un-stat-label">수시 제한</div>
+          <div class="un-stat-value" style="font-size:16px;">예외</div>
+          <div class="un-stat-delta delta-pos">과기원 특별법</div>
+        </div>
+      </div>
+
+      <table class="un-table">
+        <thead>
+          <tr><th>전형</th><th>계열</th><th>정원내</th><th>정원외</th><th>전형방법</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--un-text-accent)">일반전형</strong></td>
+            <td>이공(무학과) / 이공(반도체) / 경영</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">300+25명</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">40명</strong></td>
+            <td>서류 100%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--un-text-accent)">지역인재전형</strong></td>
+            <td>이공(무학과) / 경영</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">60+5명</strong></td>
+            <td>—</td>
+            <td>서류 100%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--un-text-accent)">탐구우수전형</strong> <span class="tag-change">+20명</span></td>
+            <td>이공(무학과)</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">90명</strong></td>
+            <td>—</td>
+            <td>1단계 서류 → 2단계 서류50%+면접50%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--un-text-accent)">그릿인재전형</strong></td>
+            <td>계열무관 (GRIT인재융합학부)</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">10명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(30%) → 2단계 면접(70%)</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--un-text-accent)">고른기회전형</strong></td>
+            <td>이공(무학과)</td>
+            <td>—</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">40명</strong></td>
+            <td>서류 100%</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--un-text-accent)">수능우수자전형</strong></td>
+            <td>이공(무학과)</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">10명</strong></td>
+            <td>—</td>
+            <td>수능 성적</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 수시모집 전형·계열 간 중복지원 불가 (일반전형 이공무학과·이공반도체 간 중복지원 가능) / 정시 군외대학</p>
+    </div>
+
+    <div class="un-section" id="un-changes">
+      <div class="un-section-title">🔄 2027 → 2028 주요 변경사항</div>
+      <table class="un-table">
+        <thead><tr><th>구분</th><th>2027학년도</th><th>2028학년도</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">일반전형 이공(무학과)</td>
+            <td>320명 (정원내)</td>
+            <td><span class="tag-change">-20명</span> → 300명<br><small>탐구우수전형 증원에 따른 조정</small></td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">탐구우수전형</td>
+            <td>이공(무학과) 70명</td>
+            <td><span class="tag-change">+20명</span> → 90명</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">일반전형 이공(반도체)</td>
+            <td>정원외 35명</td>
+            <td><span class="tag-change">+5명</span> → 40명<br><small>정시 반도체 폐지에 따른 이관</small></td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">정시 수능우수자전형<br>반도체</td>
+            <td>정원외 5명 선발</td>
+            <td><span class="tag-del">폐지</span> → 수시 일반전형으로 이관</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="un-section" id="un-general">
+      <div class="un-section-title">📁 일반전형 / 지역인재전형</div>
+      <div class="two-col">
+        <div class="un-panel">
+          <div class="un-panel-title">일반전형 (이공무학과 300 + 이공반도체 40 + 경영 25명)</div>
+          <div class="un-key-box">
+            <div class="un-key-box-title">전형방법</div>
+            <p><strong>서류 100%</strong> — 학업역량, 지원계열 관심도, 학교생활충실도 및 인성, 발전가능성 종합평가</p>
+          </div>
+          <p style="font-size:12px;color:var(--un-text-sub);margin-top:6px;">반도체공학과(삼성전자 계약학과)는 1학년부터 해당학과 소속</p>
+        </div>
+        <div class="un-panel">
+          <div class="un-panel-title">지역인재전형 (이공무학과 60 + 경영 5명)</div>
+          <div class="un-key-box">
+            <div class="un-key-box-title">추가 지원자격</div>
+            <p><strong>울산광역시 소재 고등학교</strong>에서 입학일부터 졸업일까지 전 교육과정 이수<br>고등학교 재학 전체기간 동안 울산광역시 주민등록 거주</p>
+          </div>
+          <div class="un-key-box">
+            <div class="un-key-box-title">전형방법</div>
+            <p>서류 100%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="un-section" id="un-explore">
+      <div class="un-section-title">🔬 탐구우수전형 (90명) / 그릿인재전형 (10명)</div>
+      <div class="two-col">
+        <div class="un-panel">
+          <div class="un-panel-title">탐구우수전형 (90명) <span class="tag-change">+20명</span></div>
+          <div class="un-key-box">
+            <div class="un-key-box-title">지원자격 특이사항</div>
+            <p>수학·과학 관련 높은 관심도를 바탕으로 다양한 탐구활동에 참여하여 글로벌 과학기술 리더로서의 성장 비전을 가진 자</p>
+          </div>
+          <div class="un-key-box">
+            <div class="un-key-box-title">전형방법</div>
+            <p>1단계 서류 → 2단계 <strong>서류50% + 면접50%</strong><br>면접: 창의적 탐구능력, 수학능력, 진로계획, 품행 및 인성</p>
+          </div>
+        </div>
+        <div class="un-panel">
+          <div class="un-panel-title">그릿인재전형 (10명) — GRIT인재융합학부</div>
+          <div class="un-key-box">
+            <div class="un-key-box-title">인재상</div>
+            <p>분야 경계 없이 특정 분야에 <strong>끈기 있는 몰입</strong>을 바탕으로 창의적 통찰력과 융합적 연결력 발휘<br>(AI/프로그래밍, 콘텐츠 기획, 예술·미디어 분야 등 과학기술 융합 가능자)</p>
+          </div>
+          <div class="un-key-box">
+            <div class="un-key-box-title">전형방법 (독특)</div>
+            <p>1단계 서류(30%) → 2단계 면접(70%)<br>개인 심층 포트폴리오 면접(PT) 50% + 융합 프로젝트 면접(소그룹팀) 50%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="un-section" id="un-opportunity">
+      <div class="un-section-title">🤝 고른기회전형 (이공무학과 40명 — 정원외)</div>
+      <table class="un-table">
+        <thead><tr><th>유형</th><th>대상</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#40d8f0;font-weight:500;">기초수급자</td><td>국민기초생활보장법 수급(권)자 (지원자 본인이 수급(권)자인 경우만)</td></tr>
+          <tr><td style="color:#40d8f0;font-weight:500;">차상위계층</td><td>차상위 복지급여 수급 가구 세대구성원 또는 차상위계층 확인서 발급 대상</td></tr>
+          <tr><td style="color:#40d8f0;font-weight:500;">한부모가족</td><td>한부모가족지원법 제5조 또는 제5조의2에 따른 지원 대상 가구</td></tr>
+          <tr><td style="color:#40d8f0;font-weight:500;">국가보훈대상자</td><td>보훈(지)청장이 발급하는 대학입학특별전형 대상자 증명서 제출 가능자</td></tr>
+          <tr><td style="color:#40d8f0;font-weight:500;">농어촌 학생</td><td>유형Ⅰ: 중3+고3+거주6년(지원자·부모) / 유형Ⅱ: 초중고 12년+거주12년</td></tr>
+          <tr><td style="color:#40d8f0;font-weight:500;">직업군인 자녀</td><td>20년 이상 근무(퇴직자 포함) 직업군인의 자녀</td></tr>
+          <tr><td style="color:#40d8f0;font-weight:500;">소방공무원 자녀</td><td>20년 이상 근무(퇴직자 포함) 소방공무원의 자녀</td></tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 전형방법: 서류 100%</p>
+    </div>
+
+    <div class="un-section" id="un-csat">
+      <div class="un-section-title">📝 수능우수자전형 (이공무학과 10명) — 정시 군외</div>
+      <table class="un-table">
+        <thead><tr><th>영역</th><th>활용지표</th><th>반영비율</th></tr></thead>
+        <tbody>
+          <tr><td>국어</td><td>표준점수</td><td>100%</td></tr>
+          <tr><td>수학</td><td>표준점수</td><td><strong style="color:#40d8f0;">120%</strong> (가중)</td></tr>
+          <tr><td>과학탐구</td><td>표준점수</td><td><strong style="color:#40d8f0;">120%</strong> (가중)</td></tr>
+          <tr><td>사회탐구</td><td>표준점수</td><td>50%</td></tr>
+          <tr><td>영어</td><td>등급별 점수</td><td>최대 100점 (1등급: 100, 9등급: 60)</td></tr>
+          <tr><td>한국사</td><td>등급별 점수</td><td>최대 5점 (1~2등급: 5, 5등급이하: 1)</td></tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 정시 군외대학 — 가·나·다군 관계없이 지원 가능 / 수능 최저 없음</p>
+    </div>
+
+  </div>
+  <div class="un-footer">
+    ※ 본 자료는 2028학년도 UNIST 대학입학전형 시행계획 기준이며, 변경될 수 있습니다.<br>
+    입학처: <strong>unist.ac.kr</strong> | 학부입학팀
+  </div>
+</div><!-- /page-unist -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     KENTECH
+═══════════════════════════════════════════════════════════ -->
+<div id="page-kentech">
+
+  <div class="ke-hero">
+    <div class="ke-hero-grid"></div>
+    <div class="hero-content">
+      <div class="ke-hero-label">Korea Institute of Energy Technology — KENTECH</div>
+      <h1 style="font-family:'Noto Serif KR',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;position:relative;z-index:1;">
+        2028학년도 <span style="color:var(--ke-green-light)">KENTECH</span> 학부 입학전형 시행계획
+      </h1>
+      <div class="ke-hero-sub">한국에너지공과대학교 | 2026년 4월 기준 | 입학학생처</div>
+      <div class="ke-hero-badge">ENERGY TECHNOLOGY · 에너지공학부</div>
+      <div style="position:relative;z-index:1;margin-top:14px;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;">제작 · 운정고등학교 이재규 선생님</div>
+    </div>
+  </div>
+
+  <nav class="ke-nav">
+    <div class="ke-nav-inner">
+      <a class="ke-nav-link" href="#ke-overview">전형 개요</a>
+      <a class="ke-nav-link" href="#ke-changes">주요 변경</a>
+      <a class="ke-nav-link" href="#ke-susi">수시 전형</a>
+      <a class="ke-nav-link" href="#ke-jeongsi">정시 전형</a>
+      <a class="ke-nav-link" href="#ke-talent">인재상</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="ke-section" id="ke-overview">
+      <div class="ke-section-title">📊 2028학년도 전형 개요</div>
+      <div class="ke-stat-row">
+        <div class="ke-stat-card">
+          <div class="ke-stat-label">총 모집인원</div>
+          <div class="ke-stat-value">110<span>명</span></div>
+        </div>
+        <div class="ke-stat-card">
+          <div class="ke-stat-label">수시 (학생부종합)</div>
+          <div class="ke-stat-value">100<span>명</span></div>
+          <div class="ke-stat-delta delta-neu">일반 90 + 고른기회 10</div>
+        </div>
+        <div class="ke-stat-card">
+          <div class="ke-stat-label">정시 (수능위주)</div>
+          <div class="ke-stat-value">10<span>명</span></div>
+          <div class="ke-stat-delta delta-neu">수능우수자전형</div>
+        </div>
+        <div class="ke-stat-card">
+          <div class="ke-stat-label">모집단위</div>
+          <div class="ke-stat-value" style="font-size:16px;">단일</div>
+          <div class="ke-stat-delta delta-neu">에너지공학부</div>
+        </div>
+        <div class="ke-stat-card">
+          <div class="ke-stat-label">수능 최저</div>
+          <div class="ke-stat-value" style="font-size:16px;">없음</div>
+          <div class="ke-stat-delta delta-pos">수시·정시 미적용</div>
+        </div>
+      </div>
+
+      <table class="ke-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>전형방법</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr>
+            <td rowspan="3" style="color:var(--ke-lime);font-weight:500;">수시</td>
+            <td><strong style="color:var(--ke-text-accent)">학생부종합 일반전형</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">90명</strong> (정원내)</td>
+            <td>1단계 서류(5배수) → 2단계 1단계50%+면접50%</td>
+            <td>수능 최저 없음</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ke-text-accent)">학생부종합 농어촌 (고른기회)</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">7명</strong> (정원외)</td>
+            <td>동일</td>
+            <td>읍·면 또는 도서·벽지 소재</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ke-text-accent)">학생부종합 저소득 (고른기회)</strong></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">3명</strong> (정원외)</td>
+            <td>동일</td>
+            <td>기초수급자·차상위·한부모</td>
+          </tr>
+          <tr>
+            <td style="color:var(--ke-lime);font-weight:500;">정시</td>
+            <td><strong style="color:var(--ke-text-accent)">수능우수자전형</strong> <span class="tag-change">변경</span></td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">10명</strong> (정원내)</td>
+            <td>수능(90%) + 공학역량정성평가(10%)</td>
+            <td>군외 모집 / 타대학 합격 무관 지원 가능</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 「한국에너지공과대학교법」에 의해 수시 6회·정시 3회 지원제한 예외 / 타 대학 및 과기원과 중복지원 가능<br>
+      ※ 단, 수시 일반전형↔고른기회전형 간 중복지원 불가</p>
+    </div>
+
+    <div class="ke-section" id="ke-changes">
+      <div class="ke-section-title">🔄 2027 → 2028 주요 변경사항</div>
+      <div class="ke-key-box">
+        <div class="ke-key-box-title">정시모집 반영방법 변경 <span class="tag-change">2028 변경</span></div>
+        <p><strong>2027:</strong> 대학수학능력시험 100%<br>
+        <strong>2028:</strong> 대학수학능력시험 <strong style="color:#fff;">90%</strong> + 공학역량정성평가 <strong style="color:#fff;">10%</strong><br><br>
+        공학역량정성평가 — 학교생활기록부 교과학습발달상황(교과이수현황, 학업성적, 세특 중심)을 반영하여 교과이수 및 학업수행 충실도 평가</p>
+      </div>
+      <table class="ke-table" style="margin-top:14px;">
+        <thead><tr><th>등급</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr></thead>
+        <tbody>
+          <tr><td>공학역량정성평가 배점</td><td style="text-align:center;color:var(--ke-green-light);font-weight:500;">200</td><td style="text-align:center;">150</td><td style="text-align:center;">100</td><td style="text-align:center;">50</td><td style="text-align:center;">0</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--ke-text-sub);margin-top:8px;">산출 예시: 수능 400점 × 0.9 + 공학역량정성평가 200점(A) × 0.1 = 380점</p>
+    </div>
+
+    <div class="ke-section" id="ke-susi">
+      <div class="ke-section-title">📋 수시 전형 안내</div>
+      <div class="two-col">
+        <div class="ke-panel">
+          <div class="ke-panel-title">전형방법 — 수시 공통</div>
+          <div class="ke-key-box">
+            <div class="ke-key-box-title">1단계 (5배수 내외) — 서류평가 100%</div>
+            <p>창의성 면접을 위한 서류 기반 종합평가</p>
+          </div>
+          <div class="ke-key-box">
+            <div class="ke-key-box-title">2단계 — 1단계 50% + 면접평가 50%</div>
+            <p><strong>창의성 면접</strong> — 수학·과학 교과 지식이 아닌, 다양한 답변이 가능한 열린 문항으로 발산적 사고력, 문제해결력, 인문적 통찰 역량 평가</p>
+          </div>
+        </div>
+        <div class="ke-panel">
+          <div class="ke-panel-title">고른기회전형 세부자격</div>
+          <div class="ke-key-box">
+            <div class="ke-key-box-title">농어촌 (7명)</div>
+            <p>① 중3+고3+거주6년(지원자·부모) — 읍·면/도서·벽지<br>
+            ② 초6+중3+고3+거주12년 (지원자)</p>
+          </div>
+          <div class="ke-key-box">
+            <div class="ke-key-box-title">저소득 (3명)</div>
+            <p>① 국민기초생활보장법 수급권자·수급자<br>
+            ② 차상위계층 복지급여 수급 가구<br>
+            ③ 한부모가족지원법 지원대상 가구</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ke-section" id="ke-jeongsi">
+      <div class="ke-section-title">📝 수능우수자전형 — 정시 (10명)</div>
+      <table class="ke-table">
+        <thead><tr><th>영역</th><th>응시기준</th><th>활용지표</th><th>반영방법</th></tr></thead>
+        <tbody>
+          <tr><td>국어</td><td>공통</td><td>표준점수</td><td>표준점수</td></tr>
+          <tr><td>수학</td><td>공통</td><td>표준점수</td><td>표준점수</td></tr>
+          <tr><td>탐구 (사회·과학)</td><td>공통</td><td>표준점수</td><td>표준점수</td></tr>
+          <tr><td>영어</td><td>필수응시</td><td>등급</td><td>등급별 감점 (1등급: 0, 9등급: -35)</td></tr>
+          <tr><td>한국사</td><td>필수응시</td><td>등급</td><td>등급별 감점 (1~3등급: 0, 9등급: -6)</td></tr>
+        </tbody>
+      </table>
+      <div class="ke-key-box" style="margin-top:14px;">
+        <div class="ke-key-box-title">정시 최종 성적 산출</div>
+        <p>수능 성적 합산(국어+수학+탐구+영어감점+한국사감점) × 0.9 + 공학역량정성평가(최대200점) × 0.1</p>
+      </div>
+      <p class="notice">※ 군외 모집 — 가·나·다군 무관 지원 가능 / 타 대학 합격·등록 여부와 관계없이 지원 가능 / 수능 최저 없음</p>
+    </div>
+
+    <div class="ke-section" id="ke-talent">
+      <div class="ke-section-title">💡 KENTECH 인재상 및 특징</div>
+      <div class="ke-key-box">
+        <div class="ke-key-box-title">인재상</div>
+        <p>인류 공영을 위한 미래 에너지 개발에 도전하는 <strong style="color:#fff;">탁월한 연구역량</strong>과 <strong style="color:#fff;">기업가 정신</strong>, <strong style="color:#fff;">글로벌 시민의식</strong>을 갖춘 인재</p>
+      </div>
+      <div class="ke-key-box">
+        <div class="ke-key-box-title">단일학부 체제 — 에너지공학부</div>
+        <p>KENTECH는 <strong style="color:#fff;">에너지공학부 단일모집단위</strong>로 운영<br>수시·정시 간 중복지원 가능하며, 타 대학 및 다른 과학기술원과도 중복지원 가능</p>
+      </div>
+      <div class="ke-key-box">
+        <div class="ke-key-box-title">학교폭력 반영 방법</div>
+        <p>수시: 서류평가 시 위원회 심의를 통해 정성평가로 반영<br>정시: 조치사항(1~9호)별 감점 처리 (1호: 5점 감점 ~ 8·9호: 100점 감점)</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="ke-footer">
+    ※ 본 자료는 2028학년도 KENTECH 학부 입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.<br>
+    입학학생처: <strong>kentech.ac.kr</strong>
+  </div>
+</div><!-- /page-kentech -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     POSTECH
+═══════════════════════════════════════════════════════════ -->
+<style>
+  :root {
+    --po-blue: #003876;
+    --po-blue-mid: #0050aa;
+    --po-blue-light: #4488dd;
+    --po-gold: #c8a84b;
+    --po-gold-light: #e8c86a;
+    --po-bg-dark: #060810;
+    --po-bg-card: #0a0e1c;
+    --po-bg-card2: #0e1428;
+    --po-text-main: #d8e4f8;
+    --po-text-sub: #6878a8;
+    --po-text-accent: #4488dd;
+    --po-border: rgba(0,56,118,0.25);
+    --po-border-acc: rgba(68,136,221,0.35);
+  }
+  #page-postech { display: none; }
+
+  .po-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--po-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--po-bg-dark) 0%,#080c1a 100%); }
+  .po-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(0,56,118,0.2) 0%,transparent 70%); }
+  .po-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(0,80,170,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,80,170,0.04) 1px,transparent 1px); background-size:50px 50px; }
+  .po-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--po-gold); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .po-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .po-hero h1 span { color:var(--po-blue-light); }
+  .po-hero-sub { font-size:15px; color:var(--po-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .po-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--po-blue),var(--po-blue-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+
+  .po-nav { position:sticky; top:0; z-index:100; background:rgba(6,8,16,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--po-border); padding:0 40px; }
+  .po-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .po-nav-inner::-webkit-scrollbar { display:none; }
+  .po-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--po-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .po-nav-link:hover { color:var(--po-text-main); border-bottom-color:var(--po-blue-light); }
+
+  .po-section { padding:52px 0 36px; border-bottom:1px solid var(--po-border); }
+  .po-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--po-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .po-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--po-blue-light),var(--po-blue)); border-radius:2px; flex-shrink:0; }
+
+  .po-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:28px; }
+  .po-stat-card { background:var(--po-bg-card); border:1px solid var(--po-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .po-stat-card:hover { border-color:var(--po-blue-light); transform:translateY(-2px); }
+  .po-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--po-blue),var(--po-blue-light)); opacity:0; transition:opacity .3s; }
+  .po-stat-card:hover::after { opacity:1; }
+  .po-stat-label { font-size:11px; color:var(--po-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .po-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .po-stat-value span { font-size:13px; color:var(--po-text-sub); margin-left:3px; }
+  .po-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+
+  .po-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .po-table th { background:rgba(0,56,118,0.22); color:var(--po-blue-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--po-border); }
+  .po-table td { padding:10px 12px; border-bottom:1px solid rgba(0,80,170,0.08); color:var(--po-text-main); vertical-align:top; line-height:1.5; }
+  .po-table tr:last-child td { border-bottom:none; }
+  .po-table tr:hover td { background:rgba(0,80,170,0.05); }
+
+  .po-panel { background:var(--po-bg-card); border:1px solid var(--po-border); border-radius:8px; padding:22px; }
+  .po-panel-title { font-size:13px; font-weight:500; color:var(--po-text-accent); margin-bottom:14px; }
+  .po-key-box { background:linear-gradient(135deg,rgba(0,56,118,0.16),rgba(0,56,118,0.06)); border:1px solid rgba(0,80,170,0.22); border-left:3px solid var(--po-blue-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .po-key-box-gold { background:linear-gradient(135deg,rgba(200,168,75,0.12),rgba(200,168,75,0.04)); border:1px solid rgba(200,168,75,0.25); border-left:3px solid var(--po-gold); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .po-key-box-title { font-size:12px; color:var(--po-text-accent); font-weight:500; margin-bottom:5px; }
+  .po-key-box-title-gold { font-size:12px; color:var(--po-gold); font-weight:500; margin-bottom:5px; }
+  .po-key-box p { font-size:13px; color:var(--po-text-sub); line-height:1.6; }
+  .po-key-box p strong, .po-key-box-gold p strong { color:var(--po-text-main); }
+  .po-key-box-gold p { font-size:13px; color:var(--po-text-sub); line-height:1.6; }
+
+  .po-change-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .po-change-table th { background:var(--po-bg-card2); color:var(--po-text-sub); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; padding:11px 14px; text-align:left; border-bottom:1px solid var(--po-border); }
+  .po-change-table td { padding:12px 14px; border-bottom:1px solid rgba(0,80,170,0.08); vertical-align:top; line-height:1.5; }
+  .po-change-table tr:hover td { background:rgba(0,80,170,0.04); }
+
+  .po-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--po-text-sub); border-top:1px solid var(--po-border); }
+</style>
+
+<div id="page-postech">
+
+  <div class="po-hero">
+    <div class="po-hero-grid"></div>
+    <div class="hero-content">
+      <div class="po-hero-label">Pohang University of Science and Technology</div>
+      <h1 style="font-family:'Noto Serif KR',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;position:relative;z-index:1;">
+        2028학년도 <span style="color:var(--po-blue-light)">POSTECH</span> 입학전형 시행계획
+      </h1>
+      <div class="po-hero-sub">포항공과대학교 | 2026년 3월 기준 | 입학학생처 입학팀</div>
+      <div class="po-hero-badge">RESEARCH UNIVERSITY · 수시모집 학생부종합</div>
+      <div style="position:relative;z-index:1;margin-top:14px;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;">제작 · 운정고등학교 이재규 선생님</div>
+    </div>
+  </div>
+
+  <nav class="po-nav">
+    <div class="po-nav-inner">
+      <a class="po-nav-link" href="#po-overview">전형 개요</a>
+      <a class="po-nav-link" href="#po-changes">주요 변경</a>
+      <a class="po-nav-link" href="#po-general1">일반전형Ⅰ</a>
+      <a class="po-nav-link" href="#po-general2">일반전형Ⅱ</a>
+      <a class="po-nav-link" href="#po-opportunity">기회균형</a>
+      <a class="po-nav-link" href="#po-semi">반도체·외국인</a>
+      <a class="po-nav-link" href="#po-csat">수능 최저</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- 전형 개요 -->
+    <div class="po-section" id="po-overview">
+      <div class="po-section-title">📊 2028학년도 전형 개요</div>
+      <div class="po-stat-row">
+        <div class="po-stat-card">
+          <div class="po-stat-label">정원 내</div>
+          <div class="po-stat-value">320<span>명</span></div>
+          <div class="po-stat-delta delta-neu">단일계열</div>
+        </div>
+        <div class="po-stat-card">
+          <div class="po-stat-label">정원 외</div>
+          <div class="po-stat-value">50<span>명</span></div>
+          <div class="po-stat-delta delta-neu">반도체·저소득층</div>
+        </div>
+        <div class="po-stat-card">
+          <div class="po-stat-label">모집단위</div>
+          <div class="po-stat-value" style="font-size:18px;">단일</div>
+          <div class="po-stat-delta delta-neu">입학 후 학과 선택</div>
+        </div>
+        <div class="po-stat-card">
+          <div class="po-stat-label">전형 구분</div>
+          <div class="po-stat-value" style="font-size:16px;">수시</div>
+          <div class="po-stat-delta delta-neu">전 전형 학생부종합</div>
+        </div>
+        <div class="po-stat-card">
+          <div class="po-stat-label">정시 운영</div>
+          <div class="po-stat-value" style="font-size:16px;">없음</div>
+          <div class="po-stat-delta delta-neg">수시 전형만</div>
+        </div>
+      </div>
+
+      <table class="po-table">
+        <thead>
+          <tr><th>전형명</th><th>모집단위</th><th>정원내</th><th>정원외</th><th>전형방법</th><th>수능최저</th><th>면접</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--po-text-accent)">일반전형Ⅰ</strong></td>
+            <td>단일계열</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">220명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(3.5배수) → 2단계 서류<strong style="color:#e8c86a;">40%</strong>+면접<strong style="color:#e8c86a;">60%</strong></td>
+            <td style="color:#6fcf8a;">없음</td>
+            <td style="color:#6fcf8a;">O</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--po-text-accent)">일반전형Ⅱ</strong></td>
+            <td>단일계열</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">70명</strong></td>
+            <td>—</td>
+            <td>1단계 서류(3배수) → 2단계 서류<strong style="color:#e8c86a;">70%</strong>+면접<strong style="color:#e8c86a;">30%</strong></td>
+            <td style="color:#f87171;">있음</td>
+            <td style="color:#6fcf8a;">O</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--po-text-accent)">기회균형 지역인재전형</strong></td>
+            <td>단일계열</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">20명</strong></td>
+            <td>—</td>
+            <td>일괄합산 — 서류 100%</td>
+            <td style="color:#6fcf8a;">없음</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--po-text-accent)">기회균형 통합전형</strong></td>
+            <td>단일계열</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">10명</strong></td>
+            <td>—</td>
+            <td>일괄합산 — 서류 100%</td>
+            <td style="color:#6fcf8a;">없음</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--po-text-accent)">기회균형 저소득층전형</strong></td>
+            <td>단일계열</td>
+            <td>—</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">10명</strong></td>
+            <td>일괄합산 — 서류 100%</td>
+            <td style="color:#6fcf8a;">없음</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--po-text-accent)">반도체공학인재전형</strong></td>
+            <td>반도체공학과 <small>(계약학과)</small></td>
+            <td>—</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">40명</strong></td>
+            <td>1단계 서류(3배수) → 2단계 서류50%+면접50%</td>
+            <td style="color:#6fcf8a;">없음</td>
+            <td style="color:#6fcf8a;">O</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--po-text-accent)">외국인전형</strong></td>
+            <td>단일계열</td>
+            <td>—</td>
+            <td><strong style="color:#fff;font-family:'Noto Serif KR',serif;font-size:15px;">제한없음</strong></td>
+            <td>일괄합산 — 서류 100%</td>
+            <td style="color:#6fcf8a;">없음</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 모집단위가 다른 전형 간 중복지원 가능 (예: 일반전형Ⅰ + 반도체공학인재전형)<br>
+      ※ 동일 모집단위 내 중복지원 불가 (예: 일반전형Ⅱ + 기회균형 지역인재전형)<br>
+      ※ 정시모집 미운영 / 외국인전형은 수시 6회 제한 예외</p>
+    </div>
+
+    <!-- 주요 변경사항 -->
+    <div class="po-section" id="po-changes">
+      <div class="po-section-title">🔄 2027 → 2028 주요 변경사항</div>
+      <table class="po-change-table">
+        <thead>
+          <tr><th>구분</th><th>2027학년도</th><th>2028학년도</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">일반전형Ⅰ<br>면접 비율</td>
+            <td>서류 : 면접 = <strong style="color:#fff;">50 : 50</strong></td>
+            <td><span class="tag-change">변경</span> 서류 : 면접 = <strong style="color:#e8c86a;">40 : 60</strong><br><small style="color:#6878a8;">면접 비중 확대</small></td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">일반전형Ⅰ<br>면접 배수</td>
+            <td>모집인원의 <strong style="color:#fff;">3배수</strong> 선발</td>
+            <td><span class="tag-change">변경</span> 모집인원의 <strong style="color:#e8c86a;">3.5배수</strong>로 확대</td>
+          </tr>
+          <tr>
+            <td style="color:#c8a84b;font-size:12px;font-weight:500;">일반전형Ⅱ<br>면접 비율</td>
+            <td>서류 : 면접 = <strong style="color:#fff;">67 : 33</strong></td>
+            <td><span class="tag-change">변경</span> 서류 : 면접 = <strong style="color:#e8c86a;">70 : 30</strong><br><small style="color:#6878a8;">서류 비중 소폭 확대</small></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 일반전형Ⅰ -->
+    <div class="po-section" id="po-general1">
+      <div class="po-section-title">📋 일반전형Ⅰ (220명) — 수능 최저 없음</div>
+      <div class="two-col">
+        <div class="po-panel">
+          <div class="po-panel-title">1단계 — 서류평가 100% (3.5배수 선발)</div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">학업능력 평가</div>
+            <p>학교생활기록부 국어·영어·수학·과학 교과 중심으로 수학 가능한 학업능력 종합평가</p>
+          </div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">잠재력 평가</div>
+            <p>이공계 소양·재능 / 학업 열정·태도 / 대인관계·품성 / 인재상 적합도 종합평가</p>
+          </div>
+        </div>
+        <div class="po-panel">
+          <div class="po-panel-title">2단계 — 서류 40% + 면접 60% <span class="tag-change">비율 변경</span></div>
+          <div class="po-key-box-gold">
+            <div class="po-key-box-title-gold">면접 평가 내용</div>
+            <p>과학공학계 글로벌 리더로서의 잠재력, 사고력, 이공계 분야 수학을 위한 기본 역량과 태도를 종합적으로 평가<br><br>
+            ⚠️ 면접 결시자는 합산 결과와 관계없이 <strong>불합격</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 일반전형Ⅱ -->
+    <div class="po-section" id="po-general2">
+      <div class="po-section-title">📋 일반전형Ⅱ (70명) — 수능 최저 적용</div>
+      <div class="two-col">
+        <div class="po-panel">
+          <div class="po-panel-title">1단계 — 서류평가 100% (3배수 선발)</div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">평가 내용</div>
+            <p>학업능력 평가 + 잠재력 평가 (일반전형Ⅰ과 동일 기준)</p>
+          </div>
+        </div>
+        <div class="po-panel">
+          <div class="po-panel-title">2단계 — 서류 70% + 면접 30% <span class="tag-change">비율 변경</span></div>
+          <div class="po-key-box-gold">
+            <div class="po-key-box-title-gold">수능 최저학력기준 적용</div>
+            <p><strong>[수학] 등급(A)</strong> + <strong>[국어/영어/탐구(과학)] 중 1개 등급(B)</strong><br>
+            → A + B 합산 <strong>4등급 이내</strong><br><br>
+            ⚠️ 면접 결시자는 합산 결과와 관계없이 <strong>불합격</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 기회균형 -->
+    <div class="po-section" id="po-opportunity">
+      <div class="po-section-title">🤝 기회균형전형 — 서류 100% (단계별 전형 없음)</div>
+
+      <div class="two-col" style="margin-bottom:20px;">
+        <div class="po-panel">
+          <div class="po-panel-title">기회균형 지역인재전형 (20명)</div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">지원자격</div>
+            <p><strong>경상북도 또는 대구광역시</strong> 소재 고등학교에서 전 교육과정 이수<br>
+            (고등학교 1학년 1학기 입학일 ~ 고등학교 졸업일)</p>
+          </div>
+          <p style="font-size:12px;color:var(--po-text-sub);">초·중등교육법 제2조 고등학교 외 졸업동등 학력자 제외</p>
+        </div>
+        <div class="po-panel">
+          <div class="po-panel-title">기회균형 저소득층전형 (10명 — 정원외)</div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">지원자격</div>
+            <p>① 기초생활수급자 (수급권자·수급자)<br>
+            ② 차상위계층<br>
+            ③ 한부모가족 지원대상자</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="po-panel">
+        <div class="po-panel-title">기회균형 통합전형 (10명) — 아래 자격 중 1개 이상 해당</div>
+        <table class="po-table" style="margin-top:10px;">
+          <thead><tr><th>유형</th><th>세부 내용</th></tr></thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--po-gold);font-weight:500;">국가보훈대상자</td>
+              <td>독립유공자 자녀·손자녀 / 국가유공자 및 자녀 / 지원순직·공상 군경(공무원) 및 자녀 / 보훈보상대상자 및 자녀 / 5.18민주유공자 및 자녀 / 특수임무유공자 및 자녀 등</td>
+            </tr>
+            <tr>
+              <td style="color:var(--po-gold);font-weight:500;">기초수급·차상위·한부모</td>
+              <td>국민기초생활보장법 수급권자·수급자 / 차상위계층 / 한부모가족지원법 지원대상자</td>
+            </tr>
+            <tr>
+              <td style="color:var(--po-gold);font-weight:500;">농어촌 학생 유형1</td>
+              <td>중·고 전 교육과정 농어촌 이수 + 해당 기간 본인·부모 모두 농어촌 거주 (읍·면 또는 도서·벽지)</td>
+            </tr>
+            <tr>
+              <td style="color:var(--po-gold);font-weight:500;">농어촌 학생 유형2</td>
+              <td>초·중·고 전 교육과정 농어촌 이수 + 해당 기간 본인 농어촌 거주 (초등학교 입학일~고교 졸업일)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="notice">※ 특수목적고(과학고·영재학교·외국어고·국제고·예술고·체육고·마이스터고) 출신자는 농어촌 유형 미해당</p>
+      </div>
+    </div>
+
+    <!-- 반도체·외국인 -->
+    <div class="po-section" id="po-semi">
+      <div class="po-section-title">💡 반도체공학인재전형 (40명) / 외국인전형</div>
+      <div class="two-col">
+        <div class="po-panel">
+          <div class="po-panel-title">반도체공학인재전형 (정원외 40명)</div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">계약학과 개요</div>
+            <p>POSTECH 반도체공학과 — 삼성전자와의 계약학과 (채용조건형)</p>
+          </div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">전형방법</div>
+            <p>1단계: 서류 100% → 모집인원의 <strong>3배수</strong><br>
+            2단계: 서류 <strong>50%</strong> + 면접 <strong>50%</strong><br><br>
+            수능 최저 없음 / 면접 결시자 불합격</p>
+          </div>
+          <div class="po-key-box-gold">
+            <div class="po-key-box-title-gold">일반전형Ⅰ과 중복지원 가능</div>
+            <p>모집단위가 다른 전형 간 중복지원 허용</p>
+          </div>
+        </div>
+        <div class="po-panel">
+          <div class="po-panel-title">외국인전형 (정원외 · 인원 제한 없음)</div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">지원자격</div>
+            <p>부모가 모두 외국인인 외국인<br>
+            (고교과정 시작 전 부모와 학생 모두 외국 국적 취득자)</p>
+          </div>
+          <div class="po-key-box">
+            <div class="po-key-box-title">전형방법</div>
+            <p>일괄합산 — 서류 100%<br>수시 6회 제한 예외 적용</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수능 최저 -->
+    <div class="po-section" id="po-csat">
+      <div class="po-section-title">📝 대학수학능력시험 최저학력기준</div>
+      <div class="po-key-box-gold">
+        <div class="po-key-box-title-gold">⚠️ 적용 대상 : 일반전형Ⅱ 한정</div>
+        <p style="font-size:14px;line-height:2;">
+          <strong style="color:#fff;">[수학]</strong> 영역 등급 (A)<br>
+          + <strong style="color:#fff;">[국어 / 영어 / 탐구(과학)]</strong> 중 1개 영역 등급 (B)<br>
+          → <strong style="color:#e8c86a;font-size:16px;">A + B ≤ 4등급</strong>
+        </p>
+      </div>
+      <table class="po-table" style="margin-top:14px;">
+        <thead><tr><th>전형</th><th>수능 최저 적용 여부</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td>일반전형Ⅰ</td><td style="color:#6fcf8a;">미적용</td><td>—</td></tr>
+          <tr><td><strong style="color:var(--po-text-accent)">일반전형Ⅱ</strong></td><td style="color:#f87171;font-weight:500;">적용</td><td>수학등급 + 국어·영어·탐구(과학) 중 1개 = 합계 4등급 이내</td></tr>
+          <tr><td>기회균형 지역인재전형</td><td style="color:#6fcf8a;">미적용</td><td>—</td></tr>
+          <tr><td>기회균형 통합전형</td><td style="color:#6fcf8a;">미적용</td><td>—</td></tr>
+          <tr><td>기회균형 저소득층전형</td><td style="color:#6fcf8a;">미적용</td><td>—</td></tr>
+          <tr><td>반도체공학인재전형</td><td style="color:#6fcf8a;">미적용</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 학교폭력 조치사항이 있는 경우 서류평가 단계에서 정성적으로 평가하여 반영 (전 전형 해당)</p>
+    </div>
+
+  </div>
+  <div class="po-footer">
+    ※ 본 자료는 2028학년도 POSTECH 입학전형 시행계획(2026.03 기준)이며, 변경될 수 있습니다.<br>
+    입학처: <strong>admission.postech.ac.kr</strong> | 입학학생처 입학팀
+  </div>
+</div><!-- /page-postech -->
+
+
+<script>
+function switchUniv(val) {
+  ['kaist','dgist','gist','unist','kentech','postech'].forEach(function(id) {
+    var el = document.getElementById('page-' + id);
+    if(el) el.style.display = (val === id) ? 'block' : 'none';
+  });
+  var bgMap = {
+    'kaist':   '#060c18',
+    'dgist':   '#070b18',
+    'gist':    '#180808',
+    'unist':   '#050e10',
+    'kentech': '#060e0a',
+    'postech': '#060810'
+  };
+  document.body.style.background = bgMap[val] || '#080e1e';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+// 초기 상태
+['dgist','gist','unist','kentech','postech'].forEach(function(id) {
+  var el = document.getElementById('page-' + id);
+  if(el) el.style.display = 'none';
+});
+document.getElementById('page-kaist').style.display = 'block';
+document.body.style.background = '#060c18';
+</script>
+</body>
+</html>

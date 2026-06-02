@@ -1,0 +1,2176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 생명과학 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 생명과학 19개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --system:#2f7d32;
+  --system-bg:#e4f1df;
+  --homeostasis:#0e6b5c;
+  --homeostasis-bg:#e1f2ee;
+  --diversity:#6d4a8a;
+  --diversity-bg:#ece3f1;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(47,125,50,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(14,107,92,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:-.025em;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--system)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--system)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--system)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem}
+.kicker{
+  font-size:.7rem;
+  color:var(--system);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--system);
+}
+h1.cover-title{
+  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:-.045em;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--system);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--system);border-color:var(--system)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--system);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--system);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--system);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--system);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-system{background:rgba(47,125,50,.08);color:var(--system);border-color:rgba(47,125,50,.3)}
+.domain-homeostasis{background:rgba(14,107,92,.08);color:var(--homeostasis);border-color:rgba(14,107,92,.3)}
+.domain-diversity{background:rgba(109,74,138,.08);color:var(--diversity);border-color:rgba(109,74,138,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--system);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--system);
+  letter-spacing:.15em;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--system);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--system)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--system);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-system{border-top:4px solid var(--system)}
+.accent-homeostasis{border-top:4px solid var(--homeostasis)}
+.accent-diversity{border-top:4px solid var(--diversity)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--homeostasis)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--system)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--system);
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--homeostasis-bg);
+  border:1.4px solid var(--homeostasis);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--homeostasis);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--homeostasis);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--homeostasis);
+  color:var(--homeostasis);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--homeostasis);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">生</div>
+      <div class="b-text">
+        <strong>일반선택 생명과학 수업설계 워크북</strong>
+        <span>개념기반탐구 · 19개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective Life Science</div>
+        <h1 class="cover-title">생명과학 성취기준별 <em>개념기반탐구</em> 수업 플랫폼</h1>
+        <p class="lead">
+          일반선택 생명과학 19개 성취기준을 원문, 공식 탐구 활동, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 단계별 탐구수업, 학생부종합전형형 산출물,
+          평가·피드백까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">
+            성취기준별 수업 설계 시작
+          </button>
+          <button class="btn" onclick="openView('matrix')">19개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 생명과학 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책9] 과학과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>수업 설계 · 실험 운영 · 수행평가 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">3<small>영역</small></span>
+      <span class="label">생명 시스템 · 항상성 · 연속성과 다양성</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">19<small>기준</small></span>
+      <span class="label">성취기준 원문 100% 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 생명 현상·시스템·조절·다양성·기록의 통합</h2>
+    <p>
+      생명과학은 용어 암기가 아니라 생명 현상을 관찰하고, 구성 단계와 조절 체계, 정보와 다양성의 관계를
+      자료·모형·사례로 설명할 때 수업의 질이 높아집니다. 본 워크북은 그 흐름을 교실 장면 단위로 구체화합니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>원문 보존</h3>
+      <p>성취기준 원문과 공식 탐구 활동은 그대로 유지하고, 교사가 바로 실행할 수 있는 수업 언어로 재구성합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>개념 형성</h3>
+      <p>현상, 개념 갈등, 자료·모형 탐구, 일반화, 전이로 이어지는 CBI 사고 흐름을 모든 성취기준에 적용합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>기록 가능성</h3>
+      <p>학생부종합전형 대비를 위해 관찰 가능한 수행 증거, 산출물, 발화, 수정 장면을 먼저 설계합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 모든 차시의 뼈대</h2>
+    <p>학생이 생명 현상에 대한 사실적 관찰에서 출발해 개념 간 관계를 일반화하고, 건강·생태·의생명 맥락으로 전이하도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>실제 생명 현상, 건강·생태 사례로 호기심을 유발한다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>관찰을 생명 시스템·조절·정보·다양성 렌즈로 정렬한다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>조사·탐구</strong><p>실험·관찰·분류·자료해석·모형 제작으로 증거를 만든다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>비교표·흐름도·그래프·모형·계통수로 자료를 표상한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>개념 간 관계를 자기 언어로 진술하고 증거로 뒷받침한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>건강·생태·의생명·진로 맥락에 일반화를 적용한다.</p></div>
+  </div>
+    <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. CBI는 학생이 단순히 결과를 외우는 것이 아니라, 자료를 만들고 해석하며 결론을 자신의 언어로 진술하는 과정을 거치게 합니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>생명 시스템의 구성</option>
+            <option>항상성과 몸의 조절</option>
+            <option>생명의 연속성과 다양성</option>
+          </select>
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>실험</option>
+            <option>자료</option>
+            <option>모형</option>
+            <option>조사</option>
+            <option>현장</option>
+            <option>토의</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>생명과학 19개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 수업 제목, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>생명과학 수업은 용어 암기가 아니라 관찰·분류·모형·자료 해석·건강/생태 전이를 통해 개념을 형성하도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>생물 자료, 실험 재료, 모형, 사진, 건강·생태 자료, 개인정보·생명윤리·안전 조건을 먼저 확인합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 관찰표, 비교표, 흐름도, 그래프, 핵형 분석표, 계통수, CER 문장을 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>피드백 후 수정본, 모형 변화, 자료 해석 근거, 윤리 성찰, 진로 확장 질문을 학생부 기록 근거로 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 생명과학 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+{
+code:"[12생과01-01]",
+domain:"생명 시스템의 구성",
+standard:"생물 및 생명과학의 특성을 이해하고 생명과학의 성과를 협력적으로 소통할 수 있다.",
+official:[],
+title:"생물과 비생물은 무엇으로 구분할 수 있는가?",
+type:"사례분석·조사발표형",
+period:"1~2차시",
+lens:"생명성의 기준과 과학의 성과",
+concept:"생물의 특성과 생명과학의 성과",
+related:"세포로 구성, 물질대사, 자극과 반응, 항상성, 생식과 유전, 발생과 생장, 적응과 진화, 생명과학의 성과",
+phenomenon:"바이러스, 씨앗, 로봇, 인공지능, 효모, 세포, 죽은 나뭇잎을 사례 카드로 제시하고 ‘생물인가, 비생물인가’를 판단하게 한다.",
+conflict:"학생은 ‘움직이면 생물’, ‘세포가 있으면 생물’처럼 하나의 기준만으로 생명성을 판단할 수 있다. 여러 생명 현상 기준을 적용하며 단일 기준의 한계를 드러낸다.",
+general:"생물은 여러 생명 현상의 특성을 복합적으로 나타내며, 생명과학의 성과는 인간과 사회의 문제 해결에 기여한다.",
+studentGeneral:"생물과 비생물은 하나의 특징만으로 구분하기 어렵고, 여러 생명 현상 기준을 함께 적용해야 한다.",
+questions:["생물과 비생물을 구분할 수 있는 생물의 특성에는 무엇이 있는가?","생명 현상은 왜 하나의 기준만으로 정의하기 어려운가?","바이러스는 생물인가, 비생물인가?","유전자 치료, 백신, 합성생물학 같은 성과는 사회에 어떤 영향을 주는가?"],
+products:["생물 특성 비교표","생명과학 성과 조사 발표","생물·비생물 판정 근거 카드","생명윤리 토의 메모"],
+evidence:["분류 기준을 여러 개 제시함","사례별 판단 근거를 비교함","생명과학 성과와 타 학문 연결을 설명함","윤리적 쟁점을 질문으로 확장함"],
+data:"사례, 세포로 구성, 물질대사, 자극과 반응, 항상성, 생식·유전, 발생·생장, 적응·진화, 최종 판단, 판단 근거를 비교표로 정리한다.",
+modeling:"바이러스와 로봇의 구조와 기능을 간단한 모식도로 표현하고, 각 기준을 만족하는지 표시한다.",
+misconception:"움직이면 생물이고, 움직이지 않으면 비생물이다.",
+correction:"움직임은 생물의 일부 특징일 수 있으나 생물 판단에는 세포 구성, 물질대사, 유전, 항상성 등 여러 기준이 함께 필요함을 비교표로 확인하게 한다.",
+failure:"분류 토론이 의견 대립으로 흐르면 먼저 판단 기준을 합의한 뒤 사례에 적용하게 한다.",
+safe:"조사·토론형 수업이므로 실험 안전보다 생명윤리, 자료 출처, 생명 현상에 대한 존중을 강조한다.",
+deepDive:"바이러스, 프리온, 인공지능 생명체 논쟁을 비교하여 ‘생명성’의 기준을 철학·생명과학·사회적 관점에서 재정의한다.",
+career:"생명과학, 의생명공학, 생명윤리, 바이오산업, 과학커뮤니케이션",
+sample:"바이러스, 씨앗, 로봇, 효모 사례를 세포 구성·물질대사·자극과 반응·항상성·생식과 유전 기준으로 비교하여 단일 기준으로 생명성을 판단하는 한계를 설명함. 생명과학 성과 발표에서 백신 개발 사례를 선택해 과학 원리, 사회적 편익, 윤리적 쟁점을 연결하고 후속 질문을 제시함.",
+tool:"생명과학-1 / 서·논술형 / 생물과 비생물 구분, 생물의 특징 설명, 생명과학 성과 설명"
+},
+{
+code:"[12생과01-02]",
+domain:"생명 시스템의 구성",
+standard:"세포에서부터 생태계까지 생명 시스템의 구성 단계의 특징을 바탕으로 체계적인 설명 자료를 만들 수 있다.",
+official:[],
+title:"세포에서 생태계까지 생명 시스템은 어떻게 연결되는가?",
+type:"시스템 모형화형",
+period:"1~2차시",
+lens:"구성 단계와 체계성",
+concept:"생명 시스템의 구성 단계",
+related:"세포, 조직, 기관, 기관계, 개체, 개체군, 군집, 생태계, 창발성",
+phenomenon:"심장 세포 하나만으로 심장의 기능을 수행할 수 있는지, 감염병 확산을 세포 수준만으로 설명할 수 있는지 질문한다.",
+conflict:"학생은 생명 시스템의 구성 단계를 단순 암기 목록으로 볼 수 있다. 각 단계가 상호작용을 통해 새로운 기능을 만든다는 점을 탐구한다.",
+general:"생명 시스템은 세포에서 생태계까지 위계적으로 조직되며, 각 단계는 하위 요소의 상호작용을 바탕으로 고유한 기능을 나타낸다.",
+studentGeneral:"세포, 기관, 개체, 생태계는 따로 외우는 단계가 아니라 서로 연결된 생명 시스템이다.",
+questions:["생명 시스템의 구성 단계에는 무엇이 있는가?","생명 시스템은 왜 작은 구성 요소의 단순한 합 이상인가?","생명 현상은 세포 수준만 알면 충분히 설명할 수 있는가?","질병, 생태계 교란, 장기 이식 문제는 어느 생명 시스템 단계에서 설명해야 하는가?"],
+products:["생명 시스템 단계 설명 자료","구성 단계 개념도","생명 현상 다수준 설명 카드","시스템 관계 도식"],
+evidence:["구성 단계를 정확히 배열함","각 단계의 고유 기능을 설명함","하위 단계 변화가 상위 단계에 미치는 영향을 설명함","하나의 현상을 여러 수준에서 해석함"],
+data:"구성 단계, 구성 요소, 주요 기능, 상위 단계와의 관계, 사례를 계층표로 정리한다.",
+modeling:"운동 중 호흡 증가나 감염병 확산 같은 생명 현상을 세포-기관계-개체-집단 수준으로 나누어 시스템 개념도로 표현한다.",
+misconception:"생명 시스템의 구성 단계는 단순히 외워야 하는 순서이다.",
+correction:"각 단계가 기능적으로 연결되어 새로운 특성(창발성)을 만든다는 점을 사례 중심으로 설명하게 한다.",
+failure:"학생 자료가 피라미드 그림에 그치면 각 단계의 기능과 다음 단계와의 연결 칸을 추가하게 한다.",
+safe:"질병 사례를 다룰 때 특정 개인이나 집단을 낙인찍지 않도록 지도한다.",
+deepDive:"감염병 확산을 세포 수준, 기관계 수준, 개체 수준, 개체군 수준, 사회 시스템 수준으로 나누어 설명하는 다층 시스템 탐구로 확장한다.",
+career:"생리학, 생태학, 시스템생물학, 의학, 보건학",
+sample:"생명 시스템 구성 단계를 단순 배열하는 데 그치지 않고 운동 중 호흡 증가를 세포 호흡, 호흡계·순환계 통합, 개체 생리 변화, 집단 건강 관리 수준으로 설명하는 다수준 개념도를 제작함.",
+tool:"재구성 수행평가 / 체계적 설명 자료 제작"
+},
+{
+code:"[12생과01-03]",
+domain:"생명 시스템의 구성",
+standard:"물질대사 과정에서의 에너지 전환 과정을 바탕으로 다양한 생명 활동에서의 에너지 사용을 추론할 수 있다.",
+official:[],
+title:"생명 활동에는 에너지가 어떻게 쓰이는가?",
+type:"자료해석·모형화형",
+period:"2차시",
+lens:"에너지 전환과 생명 활동",
+concept:"물질대사와 에너지 사용",
+related:"물질대사, ATP, 에너지 전환, 동화작용, 이화작용, 광합성, 세포 호흡, 생명 활동",
+phenomenon:"근육 운동, 체온 유지, 능동수송, 단백질 합성, 신경 전달처럼 에너지가 필요한 생명 활동 사례를 제시한다.",
+conflict:"학생은 음식의 에너지가 곧바로 운동 에너지로 바뀐다고 생각할 수 있다. 물질대사 과정에서 에너지가 사용 가능한 형태로 전환됨을 흐름도로 확인한다.",
+general:"생명체는 물질대사(동화작용과 이화작용)를 통해 에너지를 전환하고 저장하며, 이 에너지를 ATP 형태로 다양한 생명 활동에 사용한다.",
+studentGeneral:"음식물 속 에너지는 세포의 이화작용을 거쳐 ATP로 전환된 뒤 생명 활동에 쓸 수 있는 형태로 사용된다.",
+questions:["물질대사(동화·이화작용)란 무엇이며 생명 활동에서 에너지는 어디에 사용되는가?","생명체는 왜 에너지를 바로 쓰지 않고 ATP로 전환하는 과정을 거치는가?","생명 활동을 에너지 관점만으로 충분히 설명할 수 있는가?","운동, 다이어트, 저체온증, 대사질환은 물질대사와 에너지 사용으로 어떻게 설명되는가?"],
+products:["생명 활동별 에너지 사용 비교표","에너지 전환 흐름도","대사질환 전이 질문","CER 설명문"],
+evidence:["생명 활동별 에너지 사용을 구분함","물질대사와 ATP 사용을 연결함","동화작용과 이화작용을 구분하여 설명함","에너지 전환의 입력과 출력을 표시함","건강·질병 사례로 전이함"],
+data:"생명 활동, 필요한 에너지, 관련 물질대사(동화/이화), ATP 사용 여부, 결과를 비교표로 정리한다.",
+modeling:"음식물 속 화학 에너지 → 이화작용(세포 호흡) → ATP → 근육 수축·능동수송·체온 유지·동화작용 등으로 이어지는 에너지 흐름도를 작성한다.",
+misconception:"음식물의 에너지가 바로 운동 에너지로 바뀐다.",
+correction:"음식물 속 화학 에너지가 이화작용(세포 호흡)을 거쳐 ATP로 전환되고 다양한 생명 활동에 사용됨을 단계 흐름도로 설명한다. 동화작용은 ATP를 소비하며 큰 분자를 합성하는 과정임을 함께 다룬다.",
+failure:"ATP 개념이 추상적이면 ‘세포가 쓸 수 있는 에너지 저장 분자’로 안내하되, 비유의 한계도 함께 기록하게 한다.",
+safe:"식이·체중·대사질환 논의에서 개인 신체 정보 공개나 낙인을 피한다.",
+deepDive:"운동 강도별 에너지 사용 자료와 대사 경로를 연결하여 유산소·무산소 운동에서 ATP 생성 방식의 차이를 비교한다.",
+career:"생화학, 운동생리학, 영양학, 의학, 약학",
+sample:"근육 운동, 체온 유지, 능동수송, 단백질 합성 사례를 동화작용과 이화작용으로 구분하고 ATP 사용 관점으로 비교함. 음식물 속 화학 에너지가 이화작용을 거쳐 ATP로 전환되고 다양한 생명 활동에 사용되는 흐름도를 제작함. 대사질환 사례를 연결하여 에너지 전환 이상이 건강 문제로 이어지는 과정을 질문으로 확장함.",
+tool:"재구성 수행평가 / 에너지 전환 자료해석"
+},
+{
+code:"[12생과01-04]",
+domain:"생명 시스템의 구성",
+standard:"소화, 순환, 호흡, 배설 과정이 기관계의 통합적 작용으로 나타남을 신체의 생리적 변화와 연관지어 추론할 수 있다.",
+official:["소화제와 소화 효소를 이용한 영양소 분해 실험하기"],
+title:"우리 몸의 기관계는 어떻게 하나의 생명 활동을 완성하는가?",
+type:"실험·통합 시스템 탐구형",
+period:"2~3차시",
+lens:"기관계 통합과 생리적 변화",
+concept:"기관계의 통합적 작용",
+related:"소화계, 순환계, 호흡계, 배설계, 효소, 영양소, 생리적 변화, 항상성",
+phenomenon:"식사 후 졸림, 운동 후 호흡 증가, 땀과 소변 변화, 혈당 변화처럼 여러 기관계가 동시에 관여하는 생리적 변화를 제시한다.",
+conflict:"학생은 소화, 순환, 호흡, 배설을 각각 독립적으로 작동하는 장치처럼 이해할 수 있다. 영양소 분해 실험과 생리 변화 해석을 통해 통합적 작용을 구성한다.",
+general:"생명 활동은 여러 기관계가 독립적으로 작동한 결과가 아니라 물질과 에너지의 이동을 중심으로 통합적으로 작용한 결과이다.",
+studentGeneral:"소화된 영양소는 순환으로 운반되고, 호흡으로 들어온 산소와 함께 세포 호흡에 쓰이며, 노폐물은 호흡과 배설로 제거된다.",
+questions:["소화계, 순환계, 호흡계, 배설계는 각각 어떤 역할을 하는가?","하나의 생명 활동이 여러 기관계의 통합적 작용으로 나타나는 이유는 무엇인가?","건강 문제를 한 기관계의 문제로만 진단하는 것은 충분한가?","운동 후 호흡·맥박·땀 변화는 기관계 통합 작용으로 어떻게 설명할 수 있는가?"],
+products:["영양소 분해 실험 보고서","기관계 통합 모형","생리 변화 자료 해석표","오차 분석 문장"],
+evidence:["효소 작용 조건을 비교함","소화 결과를 순환·호흡·배설과 연결함","생리적 변화를 기관계 통합으로 추론함","실험 결과의 한계를 분석함"],
+data:"조건(온도·pH·기질 농도), 영양소 종류, 시약 반응, 분해 여부, 해석을 실험표로 정리하고 소화-순환-호흡-배설 연결도를 작성한다.",
+modeling:"영양소가 분해된 뒤 흡수·운반·세포 호흡·노폐물 배출로 이어지는 물질 이동 경로를 기관계 흐름도로 표현한다.",
+misconception:"소화, 순환, 호흡, 배설은 서로 독립적으로 일어난다.",
+correction:"영양소 분해, 산소 공급, 에너지 생성, 노폐물 배출이 순차적·상호의존적으로 연결됨을 기관계 흐름도로 표현하게 한다.",
+failure:"효소 반응이 뚜렷하지 않으면 온도, 시간, 기질 농도, 시약 반응 시간을 점검하고 교사 제공 데이터로 해석을 보완한다.",
+safe:"소화제와 시약을 섭취하지 않으며, 가열이나 베네딕트·뷰렛 반응 등 시약 사용 시 보안경과 장갑을 착용한다.",
+deepDive:"운동 전후 심박수·호흡수·체온 자료를 수집하여 기관계 통합 작용과 에너지 요구량 증가를 연결하는 건강 데이터 탐구로 확장한다.",
+career:"의학, 간호학, 보건학, 영양학, 운동생리학",
+sample:"소화 효소 조건별 영양소 분해 실험 결과를 기록하고, 분해된 영양소가 흡수·순환·세포 호흡·노폐물 배출로 이어지는 기관계 통합 모형을 제작함. 운동 후 호흡수와 맥박 변화 사례에 적용하여 생리적 변화가 단일 기관이 아니라 통합 시스템 작용임을 설명함.",
+tool:"생명과학-2 / 서·논술형 / 소화·순환·호흡·배설의 통합적 작용 이해"
+},
+{
+code:"[12생과01-05]",
+domain:"생명 시스템의 구성",
+standard:"물질대사 관련 질병 조사를 위한 방법을 고안하여 수행하고 대사성 질환을 예방하기 위한 올바른 생활 습관에 대해 토의하며 협력적으로 소통할 수 있다.",
+official:[],
+title:"대사성 질환은 생활 습관과 어떻게 연결되는가?",
+type:"건강자료 분석·토의형",
+period:"2차시",
+lens:"대사 조절과 건강 행동",
+concept:"물질대사와 대사성 질환",
+related:"물질대사, 대사성 질환, 혈당, 비만, 당뇨, 고지혈증, 생활 습관, 예방, 공중보건",
+phenomenon:"당뇨병, 비만, 고지혈증, 대사증후군의 자료와 식습관·운동·수면·스트레스 사례를 제시한다.",
+conflict:"학생은 대사성 질환을 개인 의지 문제로만 볼 수 있다. 유전, 식습관, 운동, 수면, 사회 환경이 복합적으로 작용한다는 관점으로 재구성한다.",
+general:"대사성 질환은 물질대사 조절의 이상과 생활 환경이 복합적으로 작용한 결과이며, 예방은 개인 행동과 사회적 조건을 함께 고려해야 한다.",
+studentGeneral:"대사성 질환 예방은 단순한 의지 문제가 아니라 과학적 근거에 기반한 생활 습관과 환경 관리가 함께 필요하다.",
+questions:["대사성 질환에는 어떤 종류가 있으며 어떤 생리적 변화와 관련되는가?","물질대사 조절 이상은 왜 질병으로 이어질 수 있는가?","대사성 질환의 책임은 개인에게 있는가, 사회 환경에도 있는가?","학교 차원의 건강 캠페인을 설계한다면 어떤 자료와 근거가 필요할까?"],
+products:["질병 조사 설계서","위험 요인 분석표","근거 기반 예방 캠페인 자료","협력 토의 기록"],
+evidence:["질병과 관련된 대사 과정을 설명함","자료 수집 방법을 고안함","위험 요인과 예방 행동을 근거로 연결함","질병 낙인 없이 협력적으로 소통함"],
+data:"질환, 관련 대사 과정, 위험 요인, 예방 행동, 근거 자료, 한계, 실천 가능성을 조사표로 정리한다.",
+modeling:"혈당 조절, 지방 대사, 에너지 섭취와 소비의 관계를 단순 인과도가 아니라 피드백과 생활 환경을 포함한 건강 요인 네트워크로 표현한다.",
+misconception:"대사성 질환은 단순히 의지가 약해서 생긴다.",
+correction:"생활 습관뿐 아니라 유전, 환경, 사회적 조건이 복합적으로 작용하며, 예방 방안은 과학적 근거와 현실성을 함께 고려해야 함을 토의한다.",
+failure:"조사 자료가 광고성 정보에 치우치면 출처 신뢰도 평가표를 사용해 공공기관·학술자료·상업자료를 구분하게 한다.",
+safe:"개인 건강 정보나 가족력은 공개하지 않으며, 체중·질병·생활 습관에 대한 낙인 표현을 피한다.",
+deepDive:"청소년 수면 시간, 식습관, 신체 활동 자료를 익명 설문으로 수집해 대사성 질환 예방 캠페인 설계로 확장한다.",
+career:"의학, 보건학, 영양학, 공중보건, 스포츠과학",
+sample:"대사성 질환을 개인 의지 문제가 아니라 물질대사 조절, 생활 습관, 유전, 사회 환경이 복합적으로 작용하는 현상으로 분석함. 자료 출처 신뢰도를 평가하며 당뇨병 예방 캠페인을 설계하고, 실천 가능성과 한계를 함께 제시함.",
+tool:"재구성 수행평가 / 대사성 질환 조사·토의"
+},
+{
+code:"[12생과01-06]",
+domain:"생명 시스템의 구성",
+standard:"생태계의 구조를 이해하고 물질의 순환과 에너지의 흐름을 추론하여 생태계 구성 요소들의 중요성을 설명할 수 있다.",
+official:[],
+title:"생태계에서 물질은 순환하고 에너지는 흐르는가?",
+type:"생태 자료 해석형",
+period:"2차시",
+lens:"순환과 흐름",
+concept:"생태계 구조와 물질·에너지",
+related:"생태계, 생물적 요인, 비생물적 요인, 생산자, 소비자, 분해자, 물질 순환, 에너지 흐름, 먹이사슬, 먹이그물",
+phenomenon:"숲, 연못, 도시 화단 생태계 자료를 제시하고 분해자가 사라진 생태계, 외부 교란이 발생한 생태계를 상상하게 한다.",
+conflict:"학생은 생태계를 먹고 먹히는 관계로만 이해하거나 에너지도 물질처럼 순환한다고 오해할 수 있다.",
+general:"생태계에서 물질은 생물적 요인과 비생물적 요인 사이를 순환하고, 에너지는 먹이 관계를 따라 흐르며 각 영양 단계에서 열로 방출되어 한 방향으로 흐른다.",
+studentGeneral:"생태계에서 물질은 돌고 돌지만 에너지는 한 방향으로 흐르며 점차 이용 가능한 양이 줄어든다.",
+questions:["생태계의 생물적 요인과 비생물적 요인에는 무엇이 있는가?","물질은 순환하지만 에너지는 흐른다고 말하는 이유는 무엇인가?","생태계에서 가장 중요한 구성 요소를 하나만 고를 수 있는가?","분해자가 사라진 생태계는 어떻게 변할까?"],
+products:["생태계 구성 요소 분석표","물질순환·에너지흐름 모형","구성 요소 중요성 설명문","생태계 교란 예측 카드"],
+evidence:["생태계 구성 요소를 구분함","물질 순환과 에너지 흐름을 다른 화살표로 표시함","구성 요소가 사라질 때의 영향을 추론함","생태계 보전의 필요성을 설명함"],
+data:"구성 요소, 역할, 물질 순환에서의 기능, 에너지 흐름에서의 위치, 사라질 때 영향을 표로 정리한다.",
+modeling:"탄소 순환이나 질소 순환 화살표와 에너지 흐름 화살표를 구분한 생태계 모형을 작성한다.",
+misconception:"생태계 에너지도 물질처럼 순환한다.",
+correction:"물질은 순환하지만 에너지는 태양에서 유입되어 먹이 관계를 따라 이동하고 열로 방출된다는 점을 흐름도로 구분한다.",
+failure:"학생이 먹이사슬만 그리면 물질 순환 화살표와 에너지 흐름 화살표를 서로 다른 색으로 표시하게 한다.",
+safe:"생태 사례를 다룰 때 인간 활동의 영향을 가치 판단이 아닌 근거 중심으로 토의한다.",
+deepDive:"학교 숲 또는 지역 하천 생태계를 대상으로 생산자·소비자·분해자 자료를 조사하고 탄소 흐름과 에너지 흐름 모형으로 확장한다.",
+career:"생태학, 환경과학, 산림과학, 농생명, 기후생태 연구",
+sample:"생태계 구성 요소를 생산자·소비자·분해자와 비생물적 요인으로 구분하고, 물질 순환과 에너지 흐름을 서로 다른 화살표로 표현함. 분해자가 사라질 때 물질 순환과 생태계 안정성이 어떻게 달라질지 근거 있게 추론함.",
+tool:"생명과학-3 / 선다형 / 생태계 구성 요소와 물질 순환·에너지 흐름 추론"
+},
+{
+code:"[12생과01-07]",
+domain:"생명 시스템의 구성",
+standard:"개체군과 군집의 특성을 이해하고 이들의 상호작용의 예를 조사하여 발표할 수 있다.",
+official:["방형구법으로 식물 군집 분석하기"],
+title:"개체군과 군집의 상호작용은 어떻게 생태계를 만드는가?",
+type:"현장조사·군집분석형",
+period:"2~3차시",
+lens:"생물 집단과 상호작용",
+concept:"개체군·군집의 특성과 상호작용",
+related:"개체군, 군집, 밀도, 빈도, 피도, 우점종, 경쟁, 공생, 포식, 분서, 텃세, 순위제",
+phenomenon:"학교 화단, 운동장 주변 식물, 공원 식생에서 어떤 종이 많고 넓게 퍼져 있으며 군집의 특성을 어떻게 만드는지 탐구한다.",
+conflict:"학생은 개체수가 많은 종이 항상 가장 중요하다고 판단할 수 있다. 밀도, 빈도, 피도, 상호작용을 함께 고려하게 한다.",
+general:"군집의 특성은 여러 개체군의 분포, 풍부도, 상호작용이 결합되어 형성된다.",
+studentGeneral:"개체군과 군집을 이해하려면 개체수뿐 아니라 분포, 덮는 정도, 서로의 상호작용도 함께 보아야 한다.",
+questions:["개체군과 군집은 어떻게 구분되는가?","군집의 특성은 개체군들의 상호작용으로 어떻게 형성되는가?","인간이 학교 주변 식생을 관리하는 것은 생태계에 도움이 되는가?","도시 생태계의 생물 다양성을 높이려면 어떤 자료를 수집해야 하는가?"],
+products:["방형구 식물 군집 분석 보고서","밀도·빈도·피도 계산표","우점종 해석 발표","학교 생물다양성 개선안"],
+evidence:["조사 구역과 방형구를 설정함","식물 군집 자료를 수집함","밀도·빈도·피도 자료로 우점종을 판단함","상호작용 사례를 근거로 발표함"],
+data:"종명, 개체수, 밀도, 출현 방형구 수, 빈도, 피도, 중요치(우점도), 해석을 표로 정리한다.",
+modeling:"방형구 위치도와 식물 분포도를 함께 작성하고 군집 내 상호작용(경쟁·공생·포식 등)을 화살표로 나타낸다.",
+misconception:"개체수가 많은 종이 항상 생태적으로 가장 중요하다.",
+correction:"밀도, 빈도, 피도, 상호작용, 환경 조건을 종합해야 군집 내 역할을 판단할 수 있음을 자료로 확인한다.",
+failure:"식물 동정이 어려우면 임시 종명 A, B, C로 구분하고 형태 사진을 남긴 뒤 온라인 도감으로 보완한다.",
+safe:"야외 조사 시 알레르기, 해충, 도로 접근, 사유지 출입을 주의하고 식물을 무단 채집하지 않는다.",
+deepDive:"방형구 조사 결과를 계절별로 비교하거나 학교 생물다양성 지도와 연결해 생태 복원 제안서로 확장한다.",
+career:"생태학, 환경생물학, 산림자원학, 도시생태, 생물다양성 보전",
+sample:"방형구법을 활용해 학교 화단 식물 군집을 조사하고 종별 개체수, 밀도, 빈도, 피도 자료를 정리함. 단순히 개체수가 많은 종을 우점종으로 판단하지 않고, 여러 지표를 종합해 군집 특성과 상호작용을 해석함.",
+tool:"생명과학-4 / 서·논술형 / 개체군·군집 특성과 상호작용 설명"
+},
+{
+code:"[12생과02-01]",
+domain:"항상성과 몸의 조절",
+standard:"신경 세포의 구조와 기능을 이해하고, 신경 세포에서의 전도 과정을 모식도로 표현할 수 있다.",
+official:[],
+title:"신경 세포는 어떻게 정보를 전달하는가?",
+type:"모형화·서논술형",
+period:"2차시",
+lens:"구조와 정보 전달",
+concept:"뉴런 구조와 흥분 전도",
+related:"뉴런, 가지돌기, 신경 세포체, 축삭, 말이집, 축삭 말단, 흥분 전도, 감각 뉴런, 연합 뉴런, 운동 뉴런",
+phenomenon:"뜨거운 물체를 만졌을 때 손을 떼는 반응, 무릎 반사, 빠른 통증 반응을 제시한다.",
+conflict:"학생은 신경 신호가 전선 속 전류처럼 그대로 흐른다고 생각할 수 있다. 뉴런 구조와 이온 이동 기반 전도 과정을 구분한다.",
+general:"신경 세포의 구조는 정보를 받아들이고 전달하는 기능에 적합하며, 신경 신호는 세포막의 전기적 변화(막전위 변화)가 축삭을 따라 이동하는 과정이다.",
+studentGeneral:"뉴런은 신호를 받는 부분과 보내는 부분이 구분되어 있고, 신호는 일정한 방향으로 전달된다.",
+questions:["뉴런의 주요 구조와 기능은 무엇인가?","뉴런의 구조는 신호 전달 기능에 어떻게 적합한가?","뇌와 신경계를 전기 회로에 비유하는 것은 얼마나 적절한가?","말이집 손상 질환(예: 다발성 경화증)은 신경 신호 전달에 어떤 영향을 줄까?"],
+products:["뉴런 구조 기능 연결표","전도 과정 모식도","신경세포 종류 비교표","비유의 한계 설명문"],
+evidence:["뉴런 구조와 기능을 연결함","전도 방향을 모식도로 표현함","감각·연합·운동 뉴런의 역할을 구분함","전선 비유의 한계를 설명함"],
+data:"뉴런 구조, 기능, 신호 방향, 손상 시 영향, 관련 사례를 표로 정리한다.",
+modeling:"자극 수용 → 흥분 발생 → 축삭 전도(도약 전도 포함) → 축삭 말단 도달 과정을 화살표 모식도로 표현한다.",
+misconception:"신경 신호는 전선의 전류와 완전히 같다.",
+correction:"신경 전도는 이온(Na⁺, K⁺) 이동과 막전위 변화에 기반한 생명 현상이며 전선 비유는 일부만 적절함을 비교한다.",
+failure:"막전위가 어렵다면 세부 이온 농도보다 신호 발생-전도 방향-다음 세포 전달의 구조적 흐름에 집중한다.",
+safe:"질병 사례를 다룰 때 개인 경험 노출을 강요하지 않고, 신경계 손상 사례를 희화화하지 않는다.",
+deepDive:"말이집 손상 질환 사례를 조사해 구조 손상이 정보 전달 속도(도약 전도 장애)와 기능 변화로 이어지는 과정을 모형화한다.",
+career:"신경과학, 의학, 재활공학, 뇌공학, 인지과학",
+sample:"뉴런의 가지돌기, 신경 세포체, 축삭, 말이집, 축삭 말단 구조를 기능과 연결하여 표로 정리하고, 자극 수용부터 축삭 말단 도달까지 전도 과정을 모식도로 표현함. 전선 비유의 설명력과 한계를 함께 제시함.",
+tool:"생명과학-5 / 서·논술형 / 뉴런 구조와 기능, 뉴런 종류와 역할 구분"
+},
+{
+code:"[12생과02-02]",
+domain:"항상성과 몸의 조절",
+standard:"시냅스를 통한 신경 신호의 전달 과정을 이해하고, 약물이 시냅스 전달에 영향을 미치는 사례를 조사하여 발표할 수 있다.",
+official:[],
+title:"시냅스에서 신호는 어떻게 다음 세포로 전달되는가?",
+type:"사례조사·모형화형",
+period:"2차시",
+lens:"세포 간 신호 전달과 조절",
+concept:"시냅스 전달과 약물 작용",
+related:"시냅스, 시냅스 소포, 신경전달물질, 수용체, 시냅스 틈, 재흡수, 분해 효소, 약물 작용",
+phenomenon:"진통제, 항우울제, 카페인, 마약성 약물, 파킨슨병 약물처럼 시냅스 전달에 영향을 주는 사례를 제시한다.",
+conflict:"학생은 약물이 몸 전체에 막연히 작용한다고 생각할 수 있다. 약물이 시냅스 전달의 특정 단계(방출·결합·분해·재흡수)에 영향을 주는 구조를 모형으로 표현한다.",
+general:"시냅스에서는 화학적 신호(신경전달물질)가 수용체와 결합하여 다음 세포에 정보를 전달하며, 약물은 이 과정의 특정 단계를 변화시킬 수 있다.",
+studentGeneral:"약물은 시냅스 전달의 방출, 결합, 분해, 재흡수 같은 특정 단계에 영향을 줄 수 있다.",
+questions:["시냅스에서 신호 전달은 어떤 단계로 일어나는가?","약물은 왜 시냅스 전달 과정을 변화시킬 수 있는가?","시냅스에 영향을 주는 약물 사용은 개인 선택인가, 사회적 관리가 필요한 문제인가?","신경계 질환 치료제는 시냅스의 어느 단계에 작용할 수 있는가?"],
+products:["시냅스 전달 단계 모형","약물 작용 사례 분석표","작용 위치 표시도","윤리 토의 기록"],
+evidence:["시냅스 전달 단계를 배열함","약물의 작용 위치를 모형에 표시함","효과와 부작용을 구분함","출처 신뢰도와 윤리 쟁점을 검토함"],
+data:"약물 또는 물질, 작용 위치, 영향받는 전달 단계, 생리적 효과, 위험 또는 윤리 쟁점을 표로 정리한다.",
+modeling:"신경전달물질 방출, 수용체 결합, 분해·재흡수 과정을 단계 모형으로 만들고 약물 작용 지점을 표시한다.",
+misconception:"약물은 몸 전체에 막연히 작용한다.",
+correction:"약물은 특정 수용체, 분해 효소, 재흡수 단백질 등 신호 전달의 특정 단계에 작용할 수 있음을 시냅스 모형에 표시한다.",
+failure:"조사가 광고나 과장 정보로 흐르면 공공기관·학술자료 중심의 출처 기준표를 제공한다.",
+safe:"약물 오남용을 미화하지 않고 치료 목적, 처방, 부작용, 사회적 관리 관점을 함께 다룬다.",
+deepDive:"카페인, 니코틴, 항우울제(SSRI), 파킨슨병 치료제(L-도파) 중 하나를 선택해 수용체·재흡수·분해 과정 중 어느 단계에 작용하는지 비교한다.",
+career:"약학, 신경과학, 정신건강의학, 독성학, 보건정책",
+sample:"시냅스 전달 단계를 방출-확산-수용체 결합-분해·재흡수 과정으로 배열하고, 카페인이 신경 전달에 미치는 영향을 작용 위치와 생리적 효과로 구분해 발표함. 약물 정보를 공신력 있는 자료로 검토하고 윤리 쟁점도 함께 제시함.",
+tool:"생명과학-6 / 서·논술형 / 신경 자극의 전도와 시냅스 전달 설명"
+},
+{
+code:"[12생과02-03]",
+domain:"항상성과 몸의 조절",
+standard:"사람 신경계의 구조와 기능을 이해하고 중추 신경계와 말초 신경계의 특징을 설명할 수 있다.",
+official:["실감형 콘텐츠를 활용한 뇌 구조 탐구하기"],
+title:"뇌와 신경계는 몸의 정보를 어떻게 조절하는가?",
+type:"실감형 콘텐츠·구조탐구형",
+period:"1~2차시",
+lens:"정보 처리와 조절 체계",
+concept:"사람 신경계의 구조와 기능",
+related:"중추 신경계(뇌·척수), 말초 신경계, 대뇌, 소뇌, 간뇌, 중간뇌, 연수, 체성 신경계, 자율 신경계(교감·부교감)",
+phenomenon:"뇌 부위 손상에 따라 달라지는 증상 사례, 반사 반응, 자율 신경 반응을 제시한다.",
+conflict:"학생은 모든 반응을 뇌가 의식적으로 직접 명령한다고 생각할 수 있다. 반사, 자율 신경, 의식적 운동을 구분한다.",
+general:"사람의 신경계는 중추 신경계와 말초 신경계가 역할을 나누어 정보를 받아들이고 처리하며 반응을 조절한다.",
+studentGeneral:"신경계는 정보를 받는 길, 처리하는 곳, 반응을 내보내는 길로 나누어 이해할 수 있다.",
+questions:["중추 신경계와 말초 신경계는 어떻게 구분되는가?","신경계의 구조적 구분은 정보 처리 기능과 어떻게 연결되는가?","뇌 기능을 특정 부위 하나로만 설명하는 것은 적절한가?","뇌 손상, 척수 손상, 자율 신경 이상은 어떤 증상으로 나타날 수 있는가?"],
+products:["뇌 구조 탐구 지도","신경계 구조-기능 비교표","정보 흐름도","사례 해석 카드"],
+evidence:["뇌(대뇌·소뇌·간뇌·중간뇌·연수)와 척수의 역할을 구분함","중추·말초 신경계의 특징을 설명함","교감·부교감 신경의 길항 작용을 설명함","정보 흐름을 구조화함","실감형 콘텐츠 탐색 결과를 설명 자료로 전환함"],
+data:"신경계 구분, 구조, 기능, 정보 방향, 사례를 비교표로 정리한다.",
+modeling:"감각 입력 → 중추 처리 → 운동 출력(체성) 또는 자율 반응(교감/부교감)을 정보 흐름도로 나타낸다.",
+misconception:"모든 반응은 뇌가 직접 의식적으로 조절한다.",
+correction:"반사(척수), 자율 신경(교감·부교감), 의식적 운동(대뇌)을 구분하고 중추·말초 신경계의 역할을 사례별로 설명한다.",
+failure:"콘텐츠 탐색이 흥미 위주로 흐르면 구조명, 기능, 사례 연결표를 반드시 작성하게 한다.",
+safe:"뇌 질환 사례를 다룰 때 특정 개인을 희화화하지 않고, 건강 정보와 개인정보 보호를 강조한다.",
+deepDive:"반사 반응과 의식적 운동, 자율 신경 반응(교감·부교감의 길항)을 같은 자극 상황에서 비교해 정보 처리 경로 차이를 도식화한다.",
+career:"신경과학, 의학, 재활치료, 뇌공학, 심리학",
+sample:"실감형 콘텐츠로 뇌 구조를 탐색한 뒤 중추 신경계와 말초 신경계를 구조·기능·정보 방향으로 비교함. 반사 반응과 의식적 운동, 교감·부교감 신경의 길항 작용을 구분하여 모든 반응이 뇌의 의식적 명령으로 이루어진다는 오개념을 수정함.",
+tool:"재구성 수행평가 / 뇌 구조 탐구 및 신경계 비교"
+},
+{
+code:"[12생과02-04]",
+domain:"항상성과 몸의 조절",
+standard:"내분비계와 신경계 작용 원리와 상호작용의 이해를 바탕으로 우리 몸의 항상성이 유지되는 과정을 추론할 수 있다.",
+official:["스마트 헬스케어를 활용한 항상성 유지 작용 탐구하기"],
+title:"우리 몸의 항상성은 어떻게 유지되는가?",
+type:"스마트 헬스케어·자료해석형",
+period:"2~3차시",
+lens:"조절과 피드백",
+concept:"항상성 조절",
+related:"항상성, 신경계, 내분비계, 호르몬(인슐린·글루카곤·티록신·ADH 등), 음성 피드백, 길항 작용, 혈당, 체온, 삼투압",
+phenomenon:"운동 후 심박수·체온 변화, 식후 혈당 변화, 스트레스 반응, 스마트워치 건강 데이터를 제시한다.",
+conflict:"학생은 항상성을 몸 상태가 전혀 변하지 않는 것이라고 생각할 수 있다. 실제 생리 지표는 변하지만 일정 범위로 되돌아오는 동적 평형 패턴을 보인다.",
+general:"생명체는 신경계와 내분비계의 상호작용을 통해 내부 환경의 변화를 감지하고 호르몬의 길항 작용과 음성 피드백으로 일정 범위를 유지한다.",
+studentGeneral:"몸의 상태는 고정되어 있는 것이 아니라 변화가 생기면 감지하고 조절해 다시 일정 범위로 돌아간다.",
+questions:["항상성이란 무엇이며 어떤 체내 상태(혈당·체온·삼투압 등)가 조절되는가?","신경계와 내분비계는 항상성 유지에서 어떻게 상호작용하는가?","건강관리를 개인의 의지만으로 설명하는 것은 충분한가?","스마트 헬스케어 기기는 항상성 이해와 건강관리에서 어떤 역할을 할 수 있는가?"],
+products:["생리 지표 변화 그래프","항상성 피드백 모형","스마트 헬스케어 자료 해석 보고서","건강관리 제안서"],
+evidence:["생리 지표를 시간에 따라 표현함","변화-감지-반응-회복 과정을 설명함","인슐린·글루카곤의 길항 작용 등 신경계와 내분비계의 상호작용을 모형화함","개인차와 측정 오차를 구분함"],
+data:"시간, 생리 지표, 변화 경향, 조절 기관, 호르몬, 반응, 피드백 해석을 표로 정리하고 선 그래프로 표현한다.",
+modeling:"기준 범위에서 벗어나는 지점과 회복되는 지점을 그래프에 표시하고, 자극-감지(수용기)-조절 중추(시상하부 등)-효과기-반응-회복의 음성 피드백 모형을 작성한다.",
+misconception:"항상성은 몸 상태가 전혀 변하지 않는 것이다.",
+correction:"항상성은 변화가 없다는 뜻이 아니라 변화를 감지하고 조절해 일정 범위로 유지하는 동적 조절(dynamic equilibrium)임을 그래프로 설명한다.",
+failure:"생리 데이터 편차가 크면 개인차, 측정 위치, 운동 강도, 측정 시간 간격을 오차 요인으로 분리한다.",
+safe:"개인 건강 데이터는 익명화하고, 실제 운동 활동은 무리하지 않으며 건강 상태가 불편한 학생은 제공 데이터로 대체한다.",
+deepDive:"혈당(인슐린·글루카곤), 체온(티록신·교감신경), 삼투압(ADH) 조절 사례를 비교하여 피드백 조절의 공통 구조와 스마트 헬스케어 데이터의 한계를 분석한다.",
+career:"의학, 간호학, 헬스케어공학, 생리학, 스포츠과학",
+sample:"운동 후 심박수 변화 데이터를 시간에 따라 그래프로 표현하고, 변화-감지-반응-회복의 음성 피드백 구조로 항상성을 설명함. 신경계의 빠른 조절과 내분비계의 호르몬 조절(인슐린·글루카곤의 길항 작용)을 비교하고 개인차와 측정 오차를 구분함.",
+tool:"재구성 수행평가 / 스마트 헬스케어 자료 기반 항상성 탐구"
+},
+{
+code:"[12생과02-05]",
+domain:"항상성과 몸의 조절",
+standard:"병원체의 종류와 특징을 이해하고 우리 몸의 방어 작용을 선천적 면역과 후천적 면역으로 구분하여 설명할 수 있다.",
+official:[],
+title:"우리 몸은 병원체에 어떻게 방어하는가?",
+type:"면역 과정 비교·논증형",
+period:"2차시",
+lens:"인식과 방어",
+concept:"병원체와 면역 작용",
+related:"병원체(세균·바이러스·곰팡이·원생생물·기생충), 선천적(비특이적) 면역, 후천적(특이적) 면역, 항원, 항체, 형질세포, 기억세포, 림프구(B·T)",
+phenomenon:"상처 감염, 독감, 세균성 질환, 바이러스성 질환, 알레르기와 자가면역질환 사례를 제시한다.",
+conflict:"학생은 면역을 백혈구가 병원체를 먹는 과정으로만 이해할 수 있다. 선천적 면역과 후천적 면역의 시점, 특이성, 기억 형성을 비교한다.",
+general:"우리 몸의 방어 작용은 즉각적이고 비특이적인 선천적 면역과 항원 특이성 및 기억을 갖는 후천적 면역이 함께 작동한 결과이다.",
+studentGeneral:"면역에는 빠르게 작동하는 일반 방어와 특정 병원체를 기억하고 대응하는 특이적 방어가 있다.",
+questions:["병원체의 종류와 특징에는 무엇이 있는가?","선천적 면역과 후천적 면역은 어떤 점에서 다르게 작동하는가?","면역 반응은 강할수록 항상 좋은가?","알레르기, 자가면역질환, 백신은 면역 작용과 어떻게 연결되는가?"],
+products:["병원체 비교표","선천적·후천적 면역 흐름도","항원·항체 반응 설명문","감염 사례 CER 논증문"],
+evidence:["병원체 종류와 특징을 구분함","선천적·후천적 면역을 비교함","항원·항체 반응과 림프구(B·T) 역할을 설명함","면역 반응의 장점과 한계(과민·자가면역)를 논의함"],
+data:"병원체, 특징, 감염 경로, 선천적 면역 반응, 후천적 면역 반응(체액성·세포성), 기억 형성 여부를 비교표로 정리한다.",
+modeling:"감염 초기부터 면역 기억 형성까지 시간 순서 흐름도를 만들고 선천적·후천적 면역이 작동하는 구간을 표시한다.",
+misconception:"면역은 백혈구가 병원체를 먹는 과정만 의미한다.",
+correction:"물리적 방어, 염증, 식세포 작용(선천적), 항원 인식(B세포·T세포), 항체 생성(형질세포), 면역 기억(기억세포)을 단계별로 분리해 설명한다.",
+failure:"면역 과정이 복잡하면 비특이적 방어와 특이적 방어를 두 흐름도로 나누어 제시한다.",
+safe:"감염병 사례를 다룰 때 개인 경험을 공개하게 하지 않고, 질병에 대한 낙인 표현을 피한다.",
+deepDive:"알레르기, 자가면역질환, 면역결핍 중 하나를 선택해 정상 면역 과정과 달라진 지점을 흐름도에 표시한다.",
+career:"의학, 면역학, 백신 연구, 감염병 역학, 보건정책",
+sample:"병원체 종류를 세균·바이러스·곰팡이 등으로 구분하고 선천적 면역과 후천적 면역의 작동 시점, 특이성, 면역 기억 여부를 비교함. 항원·항체 반응과 B세포·T세포의 역할을 면역 과정 흐름도에 연결하여 면역이 단순한 식세포 작용만이 아님을 설명함.",
+tool:"생명과학-7 / 서·논술형 / 병원체 특징, 선천적·후천적 면역, 항원·항체 반응 설명"
+},
+{
+code:"[12생과02-06]",
+domain:"항상성과 몸의 조절",
+standard:"항원 항체 반응의 특이성을 이해하고, 혈액의 응집 반응 원리를 이용하여 혈액형을 판정할 수 있다.",
+official:["혈액형 검사를 통해 혈액형 판별하기"],
+title:"혈액형은 왜 응집 반응으로 판별할 수 있는가?",
+type:"실험·항원항체 반응형",
+period:"2차시",
+lens:"특이성과 판정",
+concept:"항원 항체 반응과 혈액형 판정",
+related:"항원(응집원 A·B), 항체(응집소 α·β), 응집 반응, ABO식 혈액형, Rh식 혈액형(D 항원), 수혈, 특이성",
+phenomenon:"수혈 전 혈액형 검사의 필요성과 잘못된 수혈의 위험성을 사례로 제시한다.",
+conflict:"학생은 혈액형을 단순 이름표로 생각할 수 있다. 적혈구 표면 항원(응집원)과 혈장 속 항체(응집소)의 특이적 결합이 응집 반응을 만든다는 원리로 판정한다.",
+general:"항원 항체 반응은 특이적으로 일어나며, 혈액형 판정은 응집 반응이라는 관찰 증거를 이용한 생명과학적 판정 과정이다.",
+studentGeneral:"혈액형은 혈액의 색이 아니라 적혈구 표면의 응집원과 혈장 속 응집소가 특이적으로 만나 응집하는지를 보고 판정한다.",
+questions:["혈액형 판정에서 응집원(항원)과 응집소(항체)는 무엇을 의미하는가?","항원·항체 반응의 특이성은 왜 응집 반응으로 나타나는가?","혈액형 정보는 개인 건강 정보로서 어떻게 관리되어야 하는가?","수혈 사고를 예방하기 위해 어떤 생명과학 지식이 필요한가?"],
+products:["혈액형 판별 실험 보고서","응집 반응 관찰표","판정 근거 설명문","안전·윤리 체크리스트"],
+evidence:["실험 기구와 재료를 정확히 사용함","응집 반응을 관찰하고 기록함","응집원·응집소의 특이성으로 판정 근거를 설명함","혈액 정보의 윤리적 취급을 인식함"],
+data:"검체, 항A 혈청(응집소 α) 반응, 항B 혈청(응집소 β) 반응, 항-D 혈청 반응, 판정 혈액형, 판정 근거를 표로 정리한다.",
+modeling:"적혈구 표면 응집원(A·B·D 항원)과 혈청 속 응집소가 특이적으로 결합하는 상황을 자물쇠-열쇠 모형이나 입자 모형으로 표현한다.",
+misconception:"혈액형은 혈액의 색이나 일반적 성질 차이로 구분된다.",
+correction:"혈액형은 적혈구 표면 응집원과 혈장 응집소의 특이적 반응으로 판정된다는 점을 항원·항체 모형으로 설명한다. Rh식 혈액형 판정에는 항-D 혈청을 사용해 D 항원의 유무를 확인함을 명확히 한다.",
+failure:"응집 반응이 모호하면 양성·음성 대조군을 확인하고, 혼합량, 혼합 시간, 관찰 배경을 점검한다.",
+safe:"실제 혈액 사용은 학교 안전 지침과 생물안전 기준을 따르며, 가능하면 모의 혈액을 사용한다. 혈액형 정보는 개인정보로 취급한다.",
+deepDive:"수혈 가능성 표를 항원·항체 반응 원리로 재구성하고, Rh 부적합 임신(태아적아구증) 또는 수혈 사고 사례를 윤리·안전 관점으로 분석한다.",
+career:"임상병리학, 의학, 간호학, 혈액학, 응급의료",
+sample:"모의 혈액형 검사에서 항A, 항B, 항-D 혈청 반응을 관찰해 응집 여부를 표로 정리하고, 적혈구 표면 응집원과 혈장 응집소의 특이적 결합을 근거로 ABO식·Rh식 혈액형을 판정함. 혈액형 정보가 개인정보라는 점을 인식하고 안전·윤리 체크리스트를 작성함.",
+tool:"생명과학-8 / 실험·실습 / 혈액형 검사로 혈액형 판별"
+},
+{
+code:"[12생과02-07]",
+domain:"항상성과 몸의 조절",
+standard:"백신의 종류와 작용 원리를 조사하고 질병의 예방 측면에서 백신의 필요성을 인식하여 협력적으로 소통할 수 있다.",
+official:[],
+title:"백신은 질병 예방에 왜 필요한가?",
+type:"조사발표·과학기술사회형",
+period:"2차시",
+lens:"면역 기억과 사회적 예방",
+concept:"백신과 질병 예방",
+related:"백신(생백신·사백신·mRNA·재조합), 항원, 면역 기억, 기억세포, 집단면역, 감염병, 예방, 공중보건",
+phenomenon:"독감 백신, 코로나19 백신, 자궁경부암(HPV) 백신, 홍역 백신 사례와 백신 정보의 신뢰성 문제를 제시한다.",
+conflict:"학생은 백신이 감염 뒤 병을 치료하는 약이라고 생각할 수 있다. 백신은 감염 전 면역 기억을 형성하는 예방 기술임을 조사한다.",
+general:"백신은 병원체의 항원 정보를 이용하여 기억세포를 형성하게 함으로써 개인과 공동체의 질병 예방에 기여한다.",
+studentGeneral:"백신은 병에 걸린 뒤 치료하는 약이 아니라, 감염 전에 우리 몸이 병원체를 기억하도록 돕는 예방 기술이다.",
+questions:["백신의 종류(생백신·사백신·mRNA·재조합 등)와 작용 원리에는 무엇이 있는가?","백신은 왜 감염 후 치료보다 감염 전 예방에 초점을 두는가?","백신 접종은 개인 선택인가, 공동체 책임(집단면역)인가?","새로운 감염병이 등장했을 때 백신 정보를 어떻게 평가해야 하는가?"],
+products:["백신 종류 비교표","백신 작용 원리 카드뉴스","질병 예방 발표자료","정보 신뢰도 평가표"],
+evidence:["백신 종류와 항원 형태를 비교함","기억세포에 의한 면역 기억 형성을 설명함","백신 필요성을 질병 예방 관점에서 설명함","정보 출처와 사회적 쟁점을 검토함"],
+data:"백신 종류, 항원 형태, 면역 반응, 예방 대상 질병, 장점, 한계, 정보 출처를 비교표로 정리한다.",
+modeling:"백신 접종 전후 항원 노출, 기억세포 형성, 재노출 시 빠른 2차 면역 반응을 시간 순서 모형으로 표현한다.",
+misconception:"백신은 감염된 뒤 병을 치료하는 약이다.",
+correction:"백신은 항원을 미리 경험하게 하여 기억세포를 형성하고, 이후 감염 시 빠르고 강한 2차 면역 반응을 돕는 예방 기술임을 설명한다.",
+failure:"토론이 찬반 구호로 흐르면 작용 원리, 예방 효과, 위험 관리, 사회적 의사결정 네 기준으로 발언하게 한다.",
+safe:"허위 의학 정보를 다루지 않도록 공신력 있는 자료 출처(질병관리청·WHO 등)를 확인하고, 개인 접종 경험을 평가하지 않는다.",
+deepDive:"백신 플랫폼별(생백신·사백신·mRNA·재조합) 원리와 장단점을 비교하고, 감염병 대응에서 개인 선택과 공동체 책임(집단면역)의 균형을 토론한다.",
+career:"면역학, 백신학, 약학, 공중보건, 감염병 역학",
+sample:"백신을 감염 후 치료제가 아니라 기억세포를 형성하는 예방 기술로 설명하고, 백신 종류별(생백신·사백신·mRNA) 항원 형태와 면역 반응을 비교표로 정리함. 1차·2차 면역 반응 그래프로 백신 효과를 시각화하고, 백신 정보의 출처 신뢰도를 평가하며 질병 예방의 개인·공동체 의미를 토의함.",
+tool:"재구성 수행평가 / 백신 종류와 작용 원리 조사·발표"
+},
+{
+code:"[12생과03-01]",
+domain:"생명의 연속성과 다양성",
+standard:"염색체의 구조를 이해하고, DNA, 유전자의 관계를 설명할 수 있다.",
+official:["염색체 모형을 이용한 핵형 분석하기"],
+title:"염색체, DNA, 유전자는 어떤 관계인가?",
+type:"핵형 분석·모형화형",
+period:"2차시",
+lens:"유전 정보의 구조와 조직화",
+concept:"염색체와 유전 정보",
+related:"염색체, DNA, 유전자, 뉴클레오솜, 히스톤 단백질, 핵형, 상염색체, 성염색체, 상동염색체",
+phenomenon:"DNA 검사, 유전 질환, 핵형 분석 사례를 통해 유전 정보가 세포 안에서 어떻게 조직되어 있는지 질문한다.",
+conflict:"학생은 염색체, DNA, 유전자를 같은 말처럼 사용할 수 있다. 포함 관계와 기능 단위를 모형으로 정리한다.",
+general:"염색체는 DNA가 히스톤 단백질과 함께 응축된 구조이며, 유전자는 DNA의 특정 기능 단위로 생명 정보의 발현과 전달에 관여한다.",
+studentGeneral:"염색체 안에 DNA가 있고, DNA의 특정 구간이 유전자이다.",
+questions:["염색체, DNA, 유전자는 각각 무엇인가?","유전 정보는 왜 여러 수준으로 조직화되어 있는가?","유전 정보 분석은 어디까지 활용되어야 하는가?","핵형 분석은 어떤 의학적·생명과학적 문제 해결에 활용될 수 있는가?"],
+products:["핵형 분석 보고서","유전 정보 관계 모형","염색체 배열표","생명윤리 성찰문"],
+evidence:["염색체·DNA·유전자의 관계를 정확히 설명함","염색체 모형을 기준에 따라 배열함","상염색체와 성염색체를 구분함","유전 정보 활용의 윤리 쟁점을 인식함"],
+data:"염색체 번호, 크기, 동원체 위치, 띠무늬(banding) 패턴, 상동염색체 짝, 상염색체/성염색체 구분, 해석을 표로 정리한다.",
+modeling:"염색체-DNA(이중나선)-뉴클레오솜-유전자의 포함 관계를 확대도 형태로 나타내고, 핵형 분석 결과를 배열판으로 표현한다.",
+misconception:"염색체, DNA, 유전자는 모두 같은 말이다.",
+correction:"염색체는 DNA와 단백질(히스톤)로 구성된 구조, DNA는 유전 정보를 담은 물질, 유전자는 DNA의 기능적 단위임을 포함 관계 그림으로 정리한다.",
+failure:"핵형 배열이 어렵다면 크기, 동원체 위치, 띠무늬 세 기준을 순서대로 적용하게 한다.",
+safe:"실제 유전 정보는 민감 정보이므로 가상 핵형 자료를 사용하고 유전 질환 사례를 낙인화하지 않는다.",
+deepDive:"염색체 이상(다운증후군, 터너증후군 등) 사례를 핵형 분석 자료로 해석하되, 유전 정보 활용의 윤리와 개인정보 보호 문제까지 연결한다.",
+career:"유전학, 임상유전학, 의생명과학, 법유전학, 생명윤리",
+sample:"염색체-DNA-유전자의 포함 관계를 확대도 형태로 나타내고, 염색체 모형을 크기와 동원체 위치 기준으로 배열해 핵형 분석을 수행함. 유전 정보 활용이 의학적 의미를 가지는 동시에 민감 정보라는 점을 성찰함.",
+tool:"생명과학-9 / 서·논술형 / 염색체·DNA·유전자 관계, 핵형 분석"
+},
+{
+code:"[12생과03-02]",
+domain:"생명의 연속성과 다양성",
+standard:"생식세포 형성과정을 체세포분열 과정과 비교하고, 생식세포 형성의 중요성을 생명의 연속성 및 다양성과 관련지어 추론할 수 있다.",
+official:["생식세포 형성과정을 창의적인 모델로 제작하기"],
+title:"생식세포 형성은 왜 유전적 다양성을 만드는가?",
+type:"창의적 모델 제작형",
+period:"2~3차시",
+lens:"연속성과 다양성",
+concept:"생식세포 형성과 유전적 다양성",
+related:"체세포분열, 감수분열(제1·제2분열), 생식세포, 염색체 수, 상동염색체, 교차, 독립적 분리, 유전적 다양성, 생명의 연속성",
+phenomenon:"형제자매가 서로 다른 이유, 부모와 자녀의 닮음과 차이, 유전적 다양성이 개체군에 주는 의미를 제시한다.",
+conflict:"학생은 세포분열이 모두 같은 방식이라고 생각할 수 있다. 체세포분열과 감수분열의 목적, 결과, 염색체 수 변화를 비교한다.",
+general:"감수분열을 통한 생식세포 형성은 염색체 수를 반으로 줄이고 상동염색체의 독립적 분리와 교차로 유전적 조합을 다양하게 하여 생명의 연속성과 다양성을 동시에 가능하게 한다.",
+studentGeneral:"생식세포 형성은 자손에게 생명을 이어 주면서도 서로 다른 유전적 조합을 만들어 다양성을 만든다.",
+questions:["감수분열(생식세포 형성)과 체세포분열은 어떻게 다른가?","생식세포 형성은 왜 생명의 연속성과 다양성 모두에 중요할까?","유전적 다양성은 항상 생존에 유리한가?","유전적 다양성 감소는 개체군과 종 보전에 어떤 영향을 줄까?"],
+products:["생식세포 형성 모델","체세포분열 비교표","유전적 다양성 추론 설명문","모델 수정 기록"],
+evidence:["체세포분열과 감수분열의 목적을 구분함","염색체 수 변화를 모델로 표현함","교차와 독립적 분리에 의한 유전적 다양성 발생 단계를 설명함","모델을 피드백 후 수정함"],
+data:"구분, 분열 목적, 분열 횟수, DNA 복제 횟수, 염색체 수 변화(2n→2n / 2n→n), 생성 세포 수, 유전적 동일성/다양성을 비교표로 정리한다.",
+modeling:"염색체 모형으로 상동염색체의 접합·교차, 독립적 분리, 염색체 수 감소, 다양한 생식세포 조합 형성을 표현한다.",
+misconception:"세포분열은 모두 같은 방식으로 일어난다.",
+correction:"체세포분열은 동일한 세포 생성, 감수분열은 염색체 수 감소(2n→n)와 교차·독립적 분리에 의한 유전적 다양성 형성을 위한 과정임을 비교표로 확인한다.",
+failure:"모델 제작이 장식 위주가 되면 염색체 수 변화, 상동염색체 분리, 교차, 유전적 다양성 발생 단계를 반드시 표시하게 한다.",
+safe:"생식과 유전 주제를 다룰 때 가족 구성이나 개인 유전 정보 공개를 요구하지 않는다.",
+deepDive:"유전적 다양성 감소가 멸종위기종 보전(병목효과·근친교배)에 미치는 영향을 개체군 유전학 관점의 후속 질문으로 확장한다.",
+career:"유전학, 생식의학, 발생생물학, 보전생물학, 농생명육종",
+sample:"감수분열 과정을 체세포분열과 비교하는 모델을 제작하며 염색체 수 변화와 상동염색체의 접합·교차·독립적 분리 과정을 시각화함. 생식세포 형성이 생명의 연속성을 유지하면서도 유전적 다양성을 만든다는 점을 설명하고, 유전적 다양성 감소가 종 보전에 미치는 영향을 후속 질문으로 제시함.",
+tool:"생명과학-10 / 서·논술형 / 생식세포 형성과정과 체세포분열 비교, 다양성·연속성 설명"
+},
+{
+code:"[12생과03-03]",
+domain:"생명의 연속성과 다양성",
+standard:"생물 진화의 원리를 이해하고, 생물 진화 연구의 다양한 사례를 조사하여 협력적으로 소통할 수 있다.",
+official:[],
+title:"생물 진화는 어떤 증거로 설명할 수 있는가?",
+type:"사례조사·증거기반 논증형",
+period:"2차시",
+lens:"변화와 증거",
+concept:"생물 진화와 증거",
+related:"진화, 변이, 자연선택, 적응, 선택 압력, 공통 조상, 화석 증거, 비교해부학적 증거(상동·상사 기관), 분자생물학적 증거(DNA 서열)",
+phenomenon:"항생제 내성균, 다윈의 핀치 부리, 산업암화 나방, 화석, 상동 기관, DNA 서열 비교 자료를 제시한다.",
+conflict:"학생은 진화를 개체가 필요에 따라 변하는 것(라마르크식 용불용설)으로 오해할 수 있다. 변이가 먼저 존재하고 선택 압력이 작용해 세대 변화가 누적되는 개체군 수준의 변화로 설명한다.",
+general:"생물 진화는 개체군 내 변이가 환경에서의 생존·번식 차이(자연선택)와 세대 변화를 거쳐 누적되는 과정이며, 화석·비교해부학적·분자생물학적 증거로 설명된다.",
+studentGeneral:"진화는 개체가 마음대로 변하는 것이 아니라, 개체군의 특성이 세대를 거치며 달라지는 과정이다.",
+questions:["생물 진화의 원리(변이·선택·유전)와 대표 증거에는 무엇이 있는가?","진화는 왜 개체가 아니라 개체군 수준에서 설명되어야 하는가?","과학에서 진화 이론은 ‘추측’인가, 증거 기반 설명 체계인가?","항생제 내성 문제를 줄이려면 진화 원리를 어떻게 활용해야 하는가?"],
+products:["진화 사례 분석표","증거 기반 논증문","항생제 내성 전이 발표","협력 조사 기록"],
+evidence:["진화 사례에서 변이와 선택 압력을 구분함","증거를 유형별(화석·비교해부·분자생물학)로 정리함","자연선택 과정을 개체군 수준으로 설명함","협력적으로 발표 자료를 구성함"],
+data:"진화 사례, 변이, 선택 압력, 생존·번식 차이, 개체군 변화, 증거를 표로 정리한다.",
+modeling:"항생제 사용 전후 세균 집단의 유전적 구성이 어떻게 변하는지 세대별 모형으로 나타낸다.",
+misconception:"생물은 필요해서 스스로 원하는 방향으로 진화한다(라마르크식 오개념).",
+correction:"변이는 먼저 존재하고, 환경에서 생존·번식 차이가 누적되어 개체군 특성이 변화함을 사례 자료로 설명한다. ‘획득 형질의 유전’이 아니라 ‘기존 변이의 차등 선택’임을 명확히 한다.",
+failure:"발표가 단순 사례 소개에 머물면 변이, 선택 압력, 세대 변화, 증거 네 항목을 반드시 포함하게 한다.",
+safe:"항생제 내성 등 보건 주제에서 개인의 병력이나 치료 경험을 공개하지 않도록 한다.",
+deepDive:"항생제 내성균의 증가를 자연선택과 공중보건 정책(항생제 처방 관리)의 관점에서 동시에 분석하는 탐구로 확장한다.",
+career:"진화생물학, 미생물학, 의학, 공중보건, 생물정보학",
+sample:"항생제 내성균 사례에서 변이, 선택 압력, 생존·번식 차이, 개체군 변화를 구분해 표로 정리함. 진화가 개체의 의도적 변화가 아니라 개체군 수준에서 세대를 거치며 누적되는 변화임을 화석·비교해부학·분자생물학적 증거를 활용한 논증문으로 설명함.",
+tool:"재구성 수행평가 / 진화 사례 조사·증거기반 논증"
+},
+{
+code:"[12생과03-04]",
+domain:"생명의 연속성과 다양성",
+standard:"생물의 분류 체계를 바탕으로 각 분류군의 차이를 이해하고 생물군을 분류 체계에 따라 설명할 수 있다.",
+official:[],
+title:"생물 분류 체계는 생물의 차이를 어떻게 정리하는가?",
+type:"분류자료 분석형",
+period:"2차시",
+lens:"분류 기준과 유연관계",
+concept:"생물 분류 체계",
+related:"3역(세균역·고세균역·진핵생물역) 6계(원핵생물계·고세균계·원생생물계·균계·식물계·동물계), 원핵세포, 진핵세포, 분류군, 유연관계, 영양 방식",
+phenomenon:"세균, 고세균(극한 환경 미생물), 버섯, 해조류, 식물, 동물, 원생생물 사진과 특징 자료를 제시한다.",
+conflict:"학생은 생물을 동물과 식물로만 나누는 이분법을 가질 수 있다. 세포 구조(원핵·진핵), 핵 유무, 영양 방식, 분자생물학적(rRNA) 유연관계 기준으로 분류 체계를 재구성한다.",
+general:"생물 분류 체계는 생물의 구조적·분자적 특징과 유연관계를 반영하여 3역 6계로 체계적으로 정리한다.",
+studentGeneral:"생물은 동물과 식물만이 아니라 세포 구조와 유연관계에 따라 3역(세균역·고세균역·진핵생물역) 6계로 더 정교하게 분류된다.",
+questions:["생물의 주요 분류군(3역 6계)은 무엇이며 어떤 특징을 가지는가?","분류 체계는 생물의 차이와 유연관계를 어떻게 반영하는가?","분류 체계는 고정된 것인가, 과학 지식에 따라 바뀌는가?","새로운 미생물이 발견되면 어떤 기준으로 분류해야 하는가?"],
+products:["3역 6계 비교표","분류 기준 설명서","기준 수정 기록","유연관계 분석 카드"],
+evidence:["자신의 초기 분류 기준을 제시함","3역 6계 기준과 비교함","분류 기준(세포 구조·rRNA·영양 방식)을 수정함","유연관계 근거를 설명함"],
+data:"생물군, 세포 구조(원핵/진핵), 핵 유무, 세포벽 성분, 영양 방식, 대표 생물, 분류군(역·계), 근거를 비교표로 정리한다.",
+modeling:"초기 분류 카드 배열을 3역 6계 체계와 비교하고, 분류 기준의 변화 과정(2계→5계→3역 6계)을 화살표로 나타낸다.",
+misconception:"모든 생물은 동물과 식물로만 분류된다.",
+correction:"세포 구조와 유전적 유연관계에 따라 생물 분류 체계가 3역 6계로 더 정교하게 구성됨을 비교 자료로 확인한다. 특히 원핵생물은 세균역과 고세균역으로 구분된다는 점을 명확히 한다.",
+failure:"학생 분류 기준이 외형에만 치우치면 핵 유무, 세포벽 성분, 영양 방식, rRNA 자료 기준을 추가로 제공한다.",
+safe:"생물 사진과 표본 자료의 출처를 명시하고 채집을 요구하지 않는다.",
+deepDive:"외형 기준과 분자(rRNA) 자료 기준이 다르게 나타나는 사례를 비교하여 현대 분류 체계의 변화 가능성(예: 우즈의 3역 체계 제안)을 탐구한다.",
+career:"분류학, 미생물학, 생태학, 생물정보학, 진화생물학",
+sample:"세균, 고세균, 버섯, 해조류, 식물, 동물 사진을 처음에는 외형 기준으로 분류한 뒤 3역 6계의 핵 유무, 세포벽 성분, 영양 방식 기준과 비교하여 분류 기준을 수정함. 분류 체계가 고정된 목록이 아니라 과학적 증거(특히 rRNA 분자 자료)에 따라 정교해지는 체계임을 설명함.",
+tool:"생명과학-11 / 선다형 / 3역 6계 특징 비교와 유연관계 분석"
+},
+{
+code:"[12생과03-05]",
+domain:"생명의 연속성과 다양성",
+standard:"동물과 식물 분류군의 특징을 문 수준에서 이해하고, 생물의 유연관계를 계통수로 나타낼 수 있다.",
+official:["온라인 식물도감 만들기","생물 분류 프로그래밍을 이용하여 계통수 작성하기"],
+title:"계통수는 생물의 유연관계를 어떻게 보여 주는가?",
+type:"계통수 작성·프로그래밍형",
+period:"2~3차시",
+lens:"공통 조상과 유연관계",
+concept:"분류군 특징과 계통수",
+related:"동물 분류군(척삭동물·절지동물·연체동물 등), 식물 분류군(선태식물·양치식물·겉씨식물·속씨식물), 문 수준 특징, 계통수, 공통 조상, 공유 파생 형질, 유연관계",
+phenomenon:"척추동물, 절지동물, 연체동물, 선태식물, 양치식물, 겉씨식물, 속씨식물 사례를 비교한다.",
+conflict:"학생은 계통수를 비슷한 생물을 가까이 놓은 그림으로만 볼 수 있다. 공유 파생 형질과 공통 조상 개념으로 유연관계를 표현한다.",
+general:"계통수는 생물의 형질과 공통 조상 관계를 바탕으로 유연관계를 시각화한 과학적 모형이다.",
+studentGeneral:"계통수의 가까운 위치는 단순히 겉모습이 비슷하다는 뜻이 아니라 더 가까운 공통 조상을 공유한다는 뜻이다.",
+questions:["동물과 식물의 주요 분류군(문 수준)은 어떤 특징을 가지는가?","계통수는 생물의 유연관계를 어떤 기준으로 표현하는가?","외형이 비슷하면 반드시 가까운 유연관계라고 볼 수 있는가?","DNA 자료와 형태 자료가 다른 계통수를 제시한다면 어떻게 판단해야 하는가?"],
+products:["온라인 식물도감","형질 행렬표","계통수 작성 보고서","유연관계 해석 발표"],
+evidence:["문 수준 분류군의 특징을 비교함","형질 유무 자료를 행렬표로 정리함","공유 파생 형질 기준으로 계통수를 작성함","공통 조상과 분기점을 해석함"],
+data:"생물명, 형질1, 형질2, 형질3, 분류군(문), 공유 형질, 계통수 위치를 표로 정리한다.",
+modeling:"형질 유무 0/1 행렬을 만들고 공유 파생 형질을 기준으로 계통수를 작성한다. 가능하면 간단한 디지털 도구(MEGA, Phylo.io 등)나 프로그래밍 도구를 활용한다.",
+misconception:"외형이 비슷하면 항상 가까운 친척이다.",
+correction:"유연관계는 단순 외형보다 공유 파생 형질과 공통 조상 관계로 판단해야 하며, 수렴 진화(예: 박쥐와 새의 날개)로 외형이 비슷해질 수 있음도 고려해야 함을 사례로 설명한다.",
+failure:"계통수 작성이 어려우면 형질 유무 표를 먼저 만들고, 가장 많은 공유 형질을 기준으로 분기 구조를 단순화한다.",
+safe:"온라인 도감 제작 시 사진 출처와 위치 정보 공개 범위를 확인하고, 야외 관찰 시 채집을 최소화한다.",
+deepDive:"형태 형질과 DNA 서열 자료가 서로 다른 계통수를 제시하는 사례(예: 고래의 분류)를 비교하고 어떤 증거가 더 설득력 있는지 논증한다.",
+career:"분류학, 생물정보학, 진화생물학, 식물학, 동물학, 생태보전",
+sample:"여러 식물과 동물 분류군의 형질 유무를 0/1 행렬로 정리하고 공유 파생 형질을 기준으로 계통수를 작성함. 외형 유사성이 반드시 가까운 유연관계를 의미하지 않음을 수렴 진화 사례(박쥐와 새의 날개)와 연결해 설명함.",
+tool:"생명과학-12 / 서·논술형 / 동물계 특징 설명과 동물 유연관계 계통수 작성"
+}
+];
+
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "생명 시스템의 구성":"system",
+  "항상성과 몸의 조절":"homeostasis",
+  "생명의 연속성과 다양성":"diversity"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "system");}
+function openView(id){
+  document.querySelectorAll(".view").forEach(function(v){v.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".nav button[data-view]").forEach(function(b){
+    b.classList.toggle("on", b.dataset.view===id);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".nav button[data-view]").forEach(function(b){
+  b.onclick=function(){openView(b.dataset.view);};
+});
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill'+(solid?' solid':'')+'">'+esc(x)+'</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">'+
+    '<div class="blk-h"><span>'+esc(title)+'</span>'+(hint?'<span class="hint">'+esc(hint)+'</span>':"")+'</div>'+
+    body+
+  '</div>';
+}
+function filtered(){
+  var q=(document.getElementById("search") && document.getElementById("search").value||"").toLowerCase();
+  var d=(document.getElementById("domain") && document.getElementById("domain").value)||"전체 영역";
+  var ty=(document.getElementById("type") && document.getElementById("type").value)||"전체 수업 유형";
+  return DATA.filter(function(x){
+    return (d==="전체 영역" || x.domain===d) &&
+      (ty==="전체 수업 유형" || x.type.indexOf(ty)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  if(!arr.some(function(x){return DATA.indexOf(x)===current;}) && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '<button class="std-item '+(i===current?"on":"")+'" onclick="select('+i+')">'+
+      '<div>'+
+        '<span class="code">'+esc(x.code)+'</span>'+
+        '<span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span>'+
+        (x.official.length ? '<span class="chip">공식탐구</span>' : '')+
+      '</div>'+
+      '<span class="std-title">'+esc(x.title)+'</span>'+
+      '<span class="std-text">'+esc(x.standard)+'</span>'+
+    '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+function tableRows(x){
+  return ''+
+    '<div class="lesson-hd">'+
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>'+
+    '</div>'+
+    '<div class="lesson-row">'+
+      '<div><span class="stage-n">STEP 01</span>도입<br>참여·초점</div>'+
+      '<div>교사는 <b>'+esc(x.phenomenon)+'</b>을(를) 제시하고 생명 현상에 대한 사전 개념을 드러내는 발문을 한다.</div>'+
+      '<div>학생은 개인 예상을 적고, 관련 생명과학 개념을 자유롭게 제안한다.</div>'+
+      '<div>사전 예상지<br>탐구 질문지</div>'+
+    '</div>'+
+    '<div class="lesson-row">'+
+      '<div><span class="stage-n">STEP 02</span>탐구 설계</div>'+
+      '<div>교사는 관찰 대상, 분류 기준, 자료 출처, 모형 제작 조건, 안전·윤리 조건을 안내한다.</div>'+
+      '<div>학생은 관찰·비교·분류·모형화할 대상과 자료 처리 방법을 정한다.</div>'+
+      '<div>탐구 설계표<br>역할 분담표</div>'+
+    '</div>'+
+    '<div class="lesson-row">'+
+      '<div><span class="stage-n">STEP 03</span>탐구 수행</div>'+
+      '<div>교사는 학생의 자료 기록, 기준 적용, 모형 해석, 토의 장면을 순회 관찰한다.</div>'+
+      '<div>학생은 '+esc(x.data)+'</div>'+
+      '<div>'+esc(x.products[0])+'</div>'+
+    '</div>'+
+    '<div class="lesson-row">'+
+      '<div><span class="stage-n">STEP 04</span>자료 조직화</div>'+
+      '<div>교사는 표·흐름도·그래프·모형의 축과 기준을 점검하고 오개념을 진단한다.</div>'+
+      '<div>학생은 '+esc(x.modeling)+'</div>'+
+      '<div>모형·그래프·해석표</div>'+
+    '</div>'+
+    '<div class="lesson-row">'+
+      '<div><span class="stage-n">STEP 05</span>일반화·전이</div>'+
+      '<div>교사는 일반화 문장과 전이 질문을 통해 건강·생태·의생명 맥락으로 확장한다.</div>'+
+      '<div>학생은 CER 결론문을 작성하고 후속 탐구 질문을 제안한다.</div>'+
+      '<div>CER 결론문<br>심화 질문</div>'+
+    '</div>';
+}
+
+function rubric(x){
+  return '<div class="rubric">'+
+    '<div class="lv-row"><div class="lv A">A</div><div class="lv-text">'+esc(x.concept)+'을/를 복잡한 생명 현상과 건강·생태·의생명 맥락에 전이하고, 관찰·분류·모형·자료 해석·윤리 성찰을 통합하여 설명한다.</div></div>'+
+    '<div class="lv-row"><div class="lv B">B</div><div class="lv-text">'+esc(x.concept)+'의 핵심 원리를 정확히 설명하고 탐구 자료와 모형 근거를 사용하여 관련 사례에 적용한다.</div></div>'+
+    '<div class="lv-row"><div class="lv C">C</div><div class="lv-text">'+esc(x.concept)+'과 관련된 기본 개념을 알고, 안내된 절차에 따라 탐구를 수행하며 결과를 설명한다.</div></div>'+
+    '<div class="lv-row"><div class="lv D">D</div><div class="lv-text">'+esc(x.concept)+'과 관련된 주요 용어와 현상을 말하고, 제시된 자료 또는 절차의 일부를 활용한다.</div></div>'+
+    '<div class="lv-row"><div class="lv E">E</div><div class="lv-text">'+esc(x.concept)+'과 관련된 현상 또는 사례를 인식하고, 학습 활동에 참여하여 기초적인 관련성을 말한다.</div></div>'+
+  '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">'+arr.map(function(x){
+    return '<div class="step"><span>'+esc(x)+'</span></div>';
+  }).join("")+'</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={
+    overview:
+      block("성취기준 원문", '<div class="std-full"><b>'+esc(x.code)+'</b>'+esc(x.standard)+'</div>') +
+      '<div class="cards">'+
+        '<div class="card accent-system">'+
+          '<h4><span class="icon">i</span>수업 개요</h4>'+
+          '<p><b>제목 :</b> '+esc(x.title)+'</p>'+
+          '<p><b>유형 :</b> '+esc(x.type)+'</p>'+
+          '<p><b>권장 차시 :</b> '+esc(x.period)+'</p>'+
+          '<p><b>공식 탐구 :</b> '+(x.official.length ? esc(x.official.join(", ")) : "재구성 탐구 중심")+'</p>'+
+          '<p><b>핵심 개념 :</b> '+esc(x.concept)+'</p>'+
+          '<p><b>개념 렌즈 :</b> '+esc(x.lens)+'</p>'+
+        '</div>'+
+        '<div class="card accent-homeostasis">'+
+          '<h4><span class="icon">▲</span>핵심 산출물</h4>'+
+          pills(x.products)+
+        '</div>'+
+      '</div>' +
+      block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+      block("예시 평가도구 연결", '<div class="card"><p>'+esc(x.tool)+'</p></div>', "충남교육청·교육부 보급 평가도구"),
+
+    cbi:
+      block("개념 형성의 흐름",
+        '<div class="cards">'+
+          '<div class="card accent-gold">'+
+            '<h4><span class="icon">F</span>현상(Phenomenon)</h4>'+
+            '<p>'+esc(x.phenomenon)+'</p>'+
+          '</div>'+
+          '<div class="card accent-system">'+
+            '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>'+
+            '<p>'+esc(x.conflict)+'</p>'+
+          '</div>'+
+        '</div>'+
+        '<div class="general" style="margin-top:.9rem">'+
+          '<div class="gen-row">'+
+            '<b>교사용 일반화 진술 (Generalization)</b>'+
+            '<p>'+esc(x.general)+'</p>'+
+          '</div>'+
+          '<div class="gen-row">'+
+            '<b>학생용 일반화 진술 (Student-Friendly)</b>'+
+            '<p>'+esc(x.studentGeneral)+'</p>'+
+          '</div>'+
+        '</div>',
+        "Erickson & Lanning CBI 모형"
+      ) +
+      block("탐구 질문 4종 — 사실에서 전이까지",
+        '<div class="q-grid">'+
+          '<div class="q fact"><b>Factual · 사실적 질문</b><p>'+esc(qs[0])+'</p></div>'+
+          '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>'+esc(qs[1])+'</p></div>'+
+          '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>'+esc(qs[2])+'</p></div>'+
+          '<div class="q transfer"><b>Transfer · 전이 질문</b><p>'+esc(qs[3])+'</p></div>'+
+        '</div>',
+        "수업 도입·전개·마무리 3구간에 배치"
+      ) +
+      block("핵심 개념과 관련 개념",
+        '<div class="card">'+
+          '<p><b>핵심 개념(Macro Concept) :</b> '+esc(x.concept)+'</p>'+
+          '<p><b>개념 렌즈(Conceptual Lens) :</b> '+esc(x.lens)+'</p>'+
+          '<p><b>관련 개념(Related Concepts) :</b> '+esc(x.related)+'</p>'+
+        '</div>'
+      ),
+
+    lesson:
+      block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+      block("교사 발문 세트 — 즉시 사용 가능",
+        '<div class="cards">'+
+          '<div class="card accent-homeostasis">'+
+            '<h4>탐구 전 발문</h4>'+
+            '<ul>'+
+              '<li>이 현상에서 가장 먼저 설명해야 할 생명 시스템·조절·정보·다양성은 무엇인가?</li>'+
+              '<li>우리는 어떤 기준으로 관찰하거나 분류해야 하는가?</li>'+
+              '<li>이 자료는 어떤 수준의 생명 현상을 보여 주는가?</li>'+
+            '</ul>'+
+          '</div>'+
+          '<div class="card accent-gold">'+
+            '<h4>탐구 중 발문</h4>'+
+            '<ul>'+
+              '<li>관찰 결과를 어떤 표나 모형으로 바꾸면 관계가 더 잘 보이는가?</li>'+
+              '<li>자료의 예외나 차이는 오차인가, 개인차인가, 생명 현상의 변이인가?</li>'+
+              '<li>우리 모형이 설명하지 못하는 부분은 무엇인가?</li>'+
+            '</ul>'+
+          '</div>'+
+          '<div class="card accent-diversity">'+
+            '<h4>탐구 후 발문</h4>'+
+            '<ul>'+
+              '<li>오늘 만든 일반화 문장을 새로운 건강·생태·의생명 사례에 적용해 보자.</li>'+
+              '<li>학생부 기록 근거로 남길 수 있는 산출물과 수행 장면은 무엇인가?</li>'+
+              '<li>다음 탐구에서 기준, 표본, 자료 출처를 어떻게 개선할 수 있는가?</li>'+
+            '</ul>'+
+          '</div>'+
+        '</div>'
+      ) +
+      block("오개념·실패 상황 대처·안전",
+        '<div class="cards3">'+
+          '<div class="card accent-red">'+
+            '<h4>예상 오개념</h4>'+
+            '<p>'+esc(x.misconception)+'</p>'+
+            '<p><b>피드백 :</b> '+esc(x.correction)+'</p>'+
+          '</div>'+
+          '<div class="card accent-gold">'+
+            '<h4>실패 상황 대처</h4>'+
+            '<p>'+esc(x.failure)+'</p>'+
+          '</div>'+
+          '<div class="card accent-green">'+
+            '<h4>안전·윤리</h4>'+
+            '<p>'+esc(x.safe)+'</p>'+
+          '</div>'+
+        '</div>'
+      ),
+
+    worksheet:
+      block("학생 활동지 문항 — 실제 기록용",
+        steps([
+          "오늘의 현상에서 가장 설명이 필요한 생명과학 개념을 쓰시오.",
+          qs[1],
+          "탐구에서 관찰·비교·분류·모형화할 대상을 구분하시오.",
+          x.data,
+          x.modeling,
+          "자료에서 찾은 규칙성 또는 관계를 한 문장으로 쓰시오.",
+          "주장-증거-추론(CER) 구조로 결론을 작성하시오.",
+          "오차, 한계, 개인차, 윤리적 고려 사항을 2가지 이상 쓰시오.",
+          qs[3]
+        ])
+      ) +
+      block("자료 처리 안내 — 표·모형·해석 문장",
+        '<div class="card accent-homeostasis">'+
+          '<h4>자료 처리</h4>'+
+          '<p>'+esc(x.data)+'</p>'+
+        '</div>'+
+        '<div class="card accent-diversity" style="margin-top:.8rem">'+
+          '<h4>모형화</h4>'+
+          '<p>'+esc(x.modeling)+'</p>'+
+        '</div>'+
+        '<div class="card accent-gold" style="margin-top:.8rem">'+
+          '<h4>해석 문장 틀</h4>'+
+          '<p>“자료의 변화 경향은 <b>'+esc(x.concept)+'</b> 개념으로 설명할 수 있으며, 이 결과는 <b>'+esc(x.lens)+'</b> 관점에서 새로운 생명 현상에 적용할 수 있다.”</p>'+
+          '<p>“관찰 조건, 표본 수, 개인차, 측정 도구, 분류 기준, 자료 출처가 결과 해석에 영향을 주었을 수 있다.”</p>'+
+        '</div>'
+      ),
+
+    assessment:
+      block("수행평가 과제",
+        '<div class="card accent-system">'+
+          '<h4>'+esc(x.title)+'</h4>'+
+          '<p>'+esc(x.products[0])+'을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 관찰·분류·모형·자료 해석 근거로 설명한다.</p>'+
+        '</div>'
+      ) +
+      block("평가 요소",
+        '<div class="cards3">'+
+          '<div class="card accent-system">'+
+            '<h4>지식·이해</h4>'+
+            '<p>'+esc(x.concept)+'와 관련 개념의 정확한 설명</p>'+
+          '</div>'+
+          '<div class="card accent-homeostasis">'+
+            '<h4>과정·기능</h4>'+
+            '<p>관찰, 분류, 자료 수집, 모형 제작, 그래프·계통수 해석, CER 논증</p>'+
+          '</div>'+
+          '<div class="card accent-diversity">'+
+            '<h4>가치·태도</h4>'+
+            '<p>생명윤리, 안전, 생태 감수성, 과학 유용성, 진로·사회적 의미 인식</p>'+
+          '</div>'+
+        '</div>'
+      ) +
+      block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+      block("피드백 방향",
+        '<div class="card">'+
+          '<p><b>보충 :</b> 용어 나열에 머물지 말고 관찰표·비교표·모형 중 하나로 근거를 표현하게 한다.</p>'+
+          '<p><b>심화 :</b> 표본 수 확대, 기준 재설계, 모델 수정, 윤리 성찰, 건강·생태·의생명 전이 과제를 추가하게 한다.</p>'+
+        '</div>'
+      ),
+
+    record:
+      '<div class="record">'+
+        '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>'+
+        '<p>'+esc(x.evidence.join(" / "))+'</p>'+
+      '</div>' +
+      block("관찰 가능한 수행 증거 정리",
+        '<div class="cards">'+
+          '<div class="card accent-green">'+
+            '<h4>기록 가능한 산출물</h4>'+
+            pills(x.products)+
+          '</div>'+
+          '<div class="card accent-gold">'+
+            '<h4>권장 기록 소재</h4>'+
+            '<p>「'+esc(x.title)+'」 수업에서 <b>'+esc(x.products[0])+'</b>을(를) 작성하며 <b>'+esc(x.concept)+'</b> 개념을 관찰·자료·모형 근거로 설명하고, 한계 또는 건강·생태·의생명 전이 가능성을 자기 언어로 제시함.</p>'+
+          '</div>'+
+        '</div>'
+      ) +
+      block("세부능력 및 특기사항 기록 예시",
+        '<div class="sample-record">'+esc(x.sample)+'</div>',
+        "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+      ) +
+      block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+        '<div class="card accent-diversity">'+
+          '<h4><span class="icon">★</span>심화탐구 제안</h4>'+
+          '<p>'+esc(x.deepDive)+'</p>'+
+        '</div>'+
+        '<div class="card" style="margin-top:.7rem">'+
+          '<h4>전이 질문</h4>'+
+          '<p style="font-family:\'Fraunces\',serif">'+esc(x.questions[3])+'</p>'+
+        '</div>'+
+        '<div class="card" style="margin-top:.7rem">'+
+          '<h4>연계 진로 분야</h4>'+
+          pills(x.career.split(", "))+
+        '</div>'
+      )
+  };
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="'+(tab===id?'on':'')+'" onclick="setTab(\''+id+'\')">'+
+      '<span class="t-n">'+n+'</span>'+label+
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML=
+    '<div class="detail-hd">'+
+      '<div class="chip-row">'+
+        '<span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span>'+
+        '<span class="chip">'+esc(x.code)+'</span>'+
+        (x.official.length ? '<span class="chip">공식 탐구 포함</span>' : '<span class="chip">재구성 중심</span>')+
+        '<span class="chip">'+esc(x.period)+'</span>'+
+      '</div>'+
+      '<h2>'+esc(x.title)+'</h2>'+
+      '<div class="std-full"><b>성취기준 원문</b>'+esc(x.standard)+'</div>'+
+    '</div>'+
+    '<div class="tabbar">'+tabbar+'</div>'+
+    '<div class="panel">'+panel(x)+'</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML=DATA.map(function(x,i){
+    return '<tr>'+
+      '<td><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span></td>'+
+      '<td class="mcode" onclick="openStandard('+i+')">'+esc(x.code)+'</td>'+
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">'+esc(x.title)+'</b></td>'+
+      '<td>'+esc(x.type)+'</td>'+
+      '<td>'+esc(x.concept)+'</td>'+
+      '<td>'+esc(x.products.join(", "))+'</td>'+
+      '<td>'+esc(x.evidence.join(" / "))+'</td>'+
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","심화탐구","연계진로"]
+  ];
+  DATA.forEach(function(x){
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.deepDive, x.career
+    ]);
+  });
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="생명과학_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=arr.findIndex(function(x){return DATA.indexOf(x)===current;});
+    if(idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=arr.findIndex(function(x){return DATA.indexOf(x)===current;});
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>

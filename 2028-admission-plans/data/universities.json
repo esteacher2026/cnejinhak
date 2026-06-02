@@ -1,0 +1,3691 @@
+[
+  {
+    "name": "가야대학교",
+    "type": "사립",
+    "home": "https://ipsi.kaya.ac.kr",
+    "region": "경남",
+    "lat": 35.27,
+    "lng": 128.84,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-001.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-001.pdf"
+  },
+  {
+    "name": "가천대학교",
+    "type": "사립",
+    "home": "https://admission.gachon.ac.kr",
+    "region": "경기",
+    "lat": 37.451,
+    "lng": 127.128,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-002.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-001.pdf",
+    "admission": "files/2027-admission-guide-002.pdf"
+  },
+  {
+    "name": "가톨릭관동대학교",
+    "type": "사립",
+    "home": "https://www.cku.ac.kr/iphak/index.do",
+    "region": "강원",
+    "lat": 37.728,
+    "lng": 128.842,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-003.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-002.pdf",
+    "admission": "files/2027-admission-guide-003.pdf"
+  },
+  {
+    "name": "가톨릭꽃동네대학교",
+    "type": "사립",
+    "home": "https://www.kkot.ac.kr/ipsi/main/view/",
+    "region": "충북",
+    "lat": 36.553,
+    "lng": 127.448,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-004.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-003.pdf",
+    "admission": "files/2027-admission-guide-004.pdf"
+  },
+  {
+    "name": "가톨릭대학교",
+    "type": "사립",
+    "home": "https://ipsi.catholic.ac.kr",
+    "region": "경기",
+    "lat": 37.487,
+    "lng": 126.806,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-005.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-004.pdf",
+    "admission": "files/2027-admission-guide-005.pdf"
+  },
+  {
+    "name": "가톨릭대학교",
+    "type": "사립",
+    "home": "https://ipsi.catholic.ac.kr",
+    "region": "서울",
+    "lat": 37.585,
+    "lng": 127,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-006.pdf"
+      },
+      {
+        "c": "제3캠퍼스",
+        "u": "files/2028-admission-plan-007.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-005.pdf"
+  },
+  {
+    "name": "감리교신학대학교",
+    "type": "사립",
+    "home": "https://www.mtu.ac.kr/mtu/contents/view.do?mId=175",
+    "region": "서울",
+    "lat": 37.566,
+    "lng": 126.957,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-008.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-006.pdf"
+  },
+  {
+    "name": "강남대학교",
+    "type": "사립",
+    "home": "https://admission.kangnam.ac.kr/main.htm",
+    "region": "경기",
+    "lat": 37.276,
+    "lng": 127.131,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-009.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-005.pdf",
+    "admission": "files/2027-admission-guide-007.pdf"
+  },
+  {
+    "name": "강서대학교",
+    "type": "사립",
+    "home": "https://entrance.gangseo.ac.kr/kcui/mainService",
+    "region": "서울",
+    "lat": 37.546,
+    "lng": 126.842,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-010.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-006.pdf",
+    "admission": "files/2027-admission-guide-008.pdf"
+  },
+  {
+    "name": "강원대학교",
+    "type": "국립",
+    "home": "https://admission.kangwon.ac.kr",
+    "region": "강원",
+    "lat": 37.869,
+    "lng": 127.745,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-011.pdf"
+      },
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-012.pdf"
+      },
+      {
+        "c": "제3캠퍼스",
+        "u": "files/2028-admission-plan-013.pdf"
+      },
+      {
+        "c": "제4캠퍼스",
+        "u": "files/2028-admission-plan-014.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-007.pdf",
+    "admission": "files/2027-admission-guide-009.pdf",
+    "jonghap": "files/2027-jonghap-guide-001.pdf"
+  },
+  {
+    "name": "건국대학교",
+    "type": "사립",
+    "home": "https://enter.konkuk.ac.kr/main.do",
+    "region": "서울",
+    "lat": 37.54,
+    "lng": 127.079,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-016.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-008.pdf",
+    "admission": "files/2027-admission-guide-010.pdf"
+  },
+  {
+    "name": "건국대학교(글로컬)",
+    "type": "사립",
+    "home": "https://enter.kku.ac.kr/",
+    "region": "충북",
+    "lat": 36.969,
+    "lng": 127.928,
+    "added": false,
+    "campuses": [
+      {
+        "c": "분교",
+        "u": "files/2028-admission-plan-015.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-011.pdf"
+  },
+  {
+    "name": "건양대학교",
+    "type": "사립",
+    "home": "https://ipsi.konyang.ac.kr",
+    "region": "대전",
+    "lat": 36.296,
+    "lng": 127.33,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-017.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-009.pdf",
+    "admission": "files/2027-admission-guide-012.pdf"
+  },
+  {
+    "name": "건양대학교",
+    "type": "사립",
+    "home": "https://ipsi.konyang.ac.kr",
+    "region": "충남",
+    "lat": 36.176,
+    "lng": 127.097,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-018.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-009.pdf",
+    "admission": "files/2027-admission-guide-012.pdf"
+  },
+  {
+    "name": "경기대학교",
+    "type": "사립",
+    "home": "https://enter.kyonggi.ac.kr/index.do",
+    "region": "경기",
+    "lat": 37.3,
+    "lng": 127.035,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-019.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-010.pdf",
+    "admission": "files/2027-admission-guide-013.pdf"
+  },
+  {
+    "name": "경기대학교",
+    "type": "사립",
+    "home": "https://enter.kyonggi.ac.kr/index.do",
+    "region": "서울",
+    "lat": 37.563,
+    "lng": 126.964,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-020.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-013.pdf"
+  },
+  {
+    "name": "경남대학교",
+    "type": "사립",
+    "home": "https://ipsi.kyungnam.ac.kr",
+    "region": "경남",
+    "lat": 35.183,
+    "lng": 128.553,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-021.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-011.pdf",
+    "admission": "files/2027-admission-guide-014.pdf"
+  },
+  {
+    "name": "경동대학교",
+    "type": "사립",
+    "home": "https://www.kduniv.ac.kr/iphak",
+    "region": "강원",
+    "lat": 38.273,
+    "lng": 128.554,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-022.pdf"
+      },
+      {
+        "c": "제3캠퍼스",
+        "u": "files/2028-admission-plan-023.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-012.pdf",
+    "admission": "files/2027-admission-guide-015.pdf"
+  },
+  {
+    "name": "경동대학교",
+    "type": "사립",
+    "home": "https://www.kduniv.ac.kr/iphak",
+    "region": "경기",
+    "lat": 37.797,
+    "lng": 127.061,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제4캠퍼스",
+        "u": "files/2028-admission-plan-024.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-015.pdf"
+  },
+  {
+    "name": "경북대학교",
+    "type": "국립",
+    "home": "https://ipsi1.knu.ac.kr",
+    "region": "대구",
+    "lat": 35.89,
+    "lng": 128.612,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-025.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-013.pdf",
+    "admission": "files/2027-admission-guide-016.pdf"
+  },
+  {
+    "name": "경상국립대학교",
+    "type": "국립",
+    "home": "https://www.gnu.ac.kr/new/main.do",
+    "region": "경남",
+    "lat": 35.153,
+    "lng": 128.099,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-026.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-014.pdf",
+    "admission": "files/2027-admission-guide-017.pdf"
+  },
+  {
+    "name": "경성대학교",
+    "type": "사립",
+    "home": "https://ipsi.ks.ac.kr",
+    "region": "부산",
+    "lat": 35.139,
+    "lng": 129.099,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-027.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-015.pdf",
+    "admission": "files/2027-admission-guide-018.pdf"
+  },
+  {
+    "name": "경운대학교",
+    "type": "사립",
+    "home": "https://www.ikw.ac.kr/ipsi/main.tc",
+    "region": "경북",
+    "lat": 36.198,
+    "lng": 128.51,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-028.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-016.pdf",
+    "admission": "files/2027-admission-guide-019.pdf"
+  },
+  {
+    "name": "경인교육대학교",
+    "type": "국립",
+    "home": "https://ipsi.ginue.ac.kr/ipsi/Main.do",
+    "region": "인천",
+    "lat": 37.546,
+    "lng": 126.737,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-029.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-017.pdf",
+    "admission": "files/2027-admission-guide-020.pdf"
+  },
+  {
+    "name": "경일대학교",
+    "type": "사립",
+    "home": "https://ibsi.kiu.ac.kr/",
+    "region": "경북",
+    "lat": 35.917,
+    "lng": 128.804,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-030.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-018.pdf",
+    "admission": "files/2027-admission-guide-021.pdf"
+  },
+  {
+    "name": "경희대학교",
+    "type": "사립",
+    "home": "https://iphak.khu.ac.kr",
+    "region": "서울",
+    "lat": 37.596,
+    "lng": 127.052,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-031.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-022.pdf",
+    "jonghap": "files/2027-jonghap-guide-002.pdf"
+  },
+  {
+    "name": "계명대학교",
+    "type": "사립",
+    "home": "https://www.gokmu.ac.kr",
+    "region": "대구",
+    "lat": 35.855,
+    "lng": 128.488,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-032.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-023.pdf"
+  },
+  {
+    "name": "고려대학교",
+    "type": "사립",
+    "home": "https://oku.korea.ac.kr",
+    "region": "서울",
+    "lat": 37.589,
+    "lng": 127.032,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-034.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-019.pdf",
+    "admission": "files/2027-admission-guide-024.pdf"
+  },
+  {
+    "name": "고려대학교(세종)",
+    "type": "사립",
+    "home": "https://oku.korea.ac.kr/sejong/index.do",
+    "region": "세종",
+    "lat": 36.642,
+    "lng": 127.301,
+    "added": false,
+    "campuses": [
+      {
+        "c": "분교",
+        "u": "files/2028-admission-plan-033.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-025.pdf"
+  },
+  {
+    "name": "고신대학교",
+    "type": "사립",
+    "home": "https://dream.kosin.ac.kr",
+    "region": "부산",
+    "lat": 35.078,
+    "lng": 129.077,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-035.pdf"
+      }
+    ]
+  },
+  {
+    "name": "공주교육대학교",
+    "type": "국립",
+    "home": "https://www.gjue.ac.kr/html/ipsi/index.html",
+    "region": "충남",
+    "lat": 36.451,
+    "lng": 127.121,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-036.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-020.pdf",
+    "admission": "files/2027-admission-guide-026.pdf"
+  },
+  {
+    "name": "광신대학교",
+    "type": "사립",
+    "home": "https://www.kwangshin.ac.kr/ipsi/index.do",
+    "region": "광주",
+    "lat": 35.16,
+    "lng": 126.793,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-037.pdf"
+      }
+    ]
+  },
+  {
+    "name": "광운대학교",
+    "type": "사립",
+    "home": "https://iphak.kw.ac.kr/main.php",
+    "region": "서울",
+    "lat": 37.619,
+    "lng": 127.059,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-038.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-021.pdf",
+    "admission": "files/2027-admission-guide-027.pdf"
+  },
+  {
+    "name": "광주가톨릭대학교",
+    "type": "사립",
+    "home": "https://admission.gjc.ac.kr/",
+    "region": "전남",
+    "lat": 35.03,
+    "lng": 126.851,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-039.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-028.pdf"
+  },
+  {
+    "name": "광주교육대학교",
+    "type": "국립",
+    "home": "https://entrance.gnue.ac.kr/",
+    "region": "광주",
+    "lat": 35.181,
+    "lng": 126.92,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-040.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-022.pdf"
+  },
+  {
+    "name": "광주대학교",
+    "type": "사립",
+    "home": "https://iphak.gwangju.ac.kr",
+    "region": "광주",
+    "lat": 35.124,
+    "lng": 126.882,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-041.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-023.pdf"
+  },
+  {
+    "name": "광주여자대학교",
+    "type": "사립",
+    "home": "https://ipsi.kwu.ac.kr",
+    "region": "광주",
+    "lat": 35.18,
+    "lng": 126.783,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-042.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-024.pdf",
+    "admission": "files/2027-admission-guide-029.pdf"
+  },
+  {
+    "name": "국립경국대학교",
+    "type": "국립",
+    "home": "https://ipsi.gknu.ac.kr/",
+    "region": "경북",
+    "lat": 36.543,
+    "lng": 128.793,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-043.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-025.pdf",
+    "admission": "files/2027-admission-guide-030.pdf"
+  },
+  {
+    "name": "국립공주대학교",
+    "type": "국립",
+    "home": "https://ipsi.kongju.ac.kr",
+    "region": "충남",
+    "lat": 36.473,
+    "lng": 127.135,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-044.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-026.pdf",
+    "admission": "files/2027-admission-guide-031.pdf"
+  },
+  {
+    "name": "국립군산대학교",
+    "type": "국립",
+    "home": "https://www.kunsan.ac.kr/iphak/index.kunsan",
+    "region": "전북",
+    "lat": 35.946,
+    "lng": 126.682,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-045.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-032.pdf"
+  },
+  {
+    "name": "국립금오공과대학교",
+    "type": "국립",
+    "home": "https://www.kumoh.ac.kr/ipsi/index.do",
+    "region": "경북",
+    "lat": 36.143,
+    "lng": 128.394,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-046.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-033.pdf"
+  },
+  {
+    "name": "국립목포대학교",
+    "type": "국립",
+    "home": "https://ipsi.mokpo.ac.kr",
+    "region": "전남",
+    "lat": 34.914,
+    "lng": 126.439,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-047.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-027.pdf",
+    "admission": "files/2027-admission-guide-034.pdf"
+  },
+  {
+    "name": "국립목포해양대학교",
+    "type": "국립",
+    "home": "https://www.mmu.ac.kr/admission",
+    "region": "전남",
+    "lat": 34.79,
+    "lng": 126.38,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-048.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-028.pdf",
+    "admission": "files/2027-admission-guide-035.pdf"
+  },
+  {
+    "name": "국립부경대학교",
+    "type": "국립",
+    "home": "https://iphak.pknu.ac.kr",
+    "region": "부산",
+    "lat": 35.134,
+    "lng": 129.106,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-049.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-036.pdf"
+  },
+  {
+    "name": "국립순천대학교",
+    "type": "국립",
+    "home": "https://www.scnu.ac.kr/iphak/main.do",
+    "region": "전남",
+    "lat": 34.972,
+    "lng": 127.48,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-050.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-029.pdf",
+    "admission": "files/2027-admission-guide-037.pdf"
+  },
+  {
+    "name": "국립창원대학교",
+    "type": "국립",
+    "home": "https://www.changwon.ac.kr/ipsi/main.do",
+    "region": "경남",
+    "lat": 35.245,
+    "lng": 128.69,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-051.pdf"
+      },
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-052.pdf"
+      },
+      {
+        "c": "제3캠퍼스",
+        "u": "files/2028-admission-plan-053.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-030.pdf",
+    "admission": "files/2027-admission-guide-038.pdf"
+  },
+  {
+    "name": "국립한국교통대학교",
+    "type": "국립",
+    "home": "https://www.ut.ac.kr/ipsi.do",
+    "region": "충북",
+    "lat": 36.969,
+    "lng": 127.862,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-054.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-031.pdf",
+    "admission": "files/2027-admission-guide-039.pdf"
+  },
+  {
+    "name": "국립한국해양대학교",
+    "type": "국립",
+    "home": "https://www.kmou.ac.kr/ipsi/",
+    "region": "부산",
+    "lat": 35.075,
+    "lng": 129.085,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-055.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-032.pdf",
+    "admission": "files/2027-admission-guide-040.pdf"
+  },
+  {
+    "name": "국립한밭대학교",
+    "type": "국립",
+    "home": "https://www.hanbat.ac.kr/admission/",
+    "region": "대전",
+    "lat": 36.351,
+    "lng": 127.302,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-056.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-033.pdf",
+    "admission": "files/2027-admission-guide-041.pdf"
+  },
+  {
+    "name": "국민대학교",
+    "type": "사립",
+    "home": "https://admission.kookmin.ac.kr",
+    "region": "서울",
+    "lat": 37.611,
+    "lng": 126.997,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-057.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-034.pdf",
+    "admission": "files/2027-admission-guide-042.pdf",
+    "jonghap": "files/2027-jonghap-guide-003.pdf"
+  },
+  {
+    "name": "극동대학교",
+    "type": "사립",
+    "home": "https://ipsi.kdu.ac.kr/",
+    "region": "충북",
+    "lat": 37.031,
+    "lng": 127.622,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-058.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-035.pdf",
+    "admission": "files/2027-admission-guide-043.pdf"
+  },
+  {
+    "name": "금강대학교",
+    "type": "사립",
+    "home": "https://www.ggu.ac.kr/sub0201",
+    "region": "충남",
+    "lat": 36.272,
+    "lng": 127.13,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-059.pdf"
+      }
+    ]
+  },
+  {
+    "name": "김천대학교",
+    "type": "사립",
+    "home": "https://ibhak.gimcheon.ac.kr/",
+    "region": "경북",
+    "lat": 36.131,
+    "lng": 128.101,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-060.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-036.pdf",
+    "admission": "files/2027-admission-guide-044.pdf"
+  },
+  {
+    "name": "나사렛대학교",
+    "type": "사립",
+    "home": "https://ipsi.kornu.ac.kr/sites/ipsi/index.do",
+    "region": "충남",
+    "lat": 36.794,
+    "lng": 127.103,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-061.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-037.pdf",
+    "admission": "files/2027-admission-guide-045.pdf"
+  },
+  {
+    "name": "남부대학교",
+    "type": "사립",
+    "home": "https://ipsi.nambu.ac.kr/",
+    "region": "광주",
+    "lat": 35.221,
+    "lng": 126.844,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-062.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-046.pdf"
+  },
+  {
+    "name": "남서울대학교",
+    "type": "사립",
+    "home": "https://www.namseoul.net/",
+    "region": "충남",
+    "lat": 36.933,
+    "lng": 127.131,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-063.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-038.pdf",
+    "admission": "files/2027-admission-guide-047.pdf"
+  },
+  {
+    "name": "단국대학교",
+    "type": "사립",
+    "home": "https://ipsi.dankook.ac.kr/intro.html",
+    "region": "경기",
+    "lat": 37.321,
+    "lng": 127.126,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-064.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-048.pdf"
+  },
+  {
+    "name": "단국대학교",
+    "type": "사립",
+    "home": "https://ipsi.dankook.ac.kr/intro.html",
+    "region": "충남",
+    "lat": 36.838,
+    "lng": 127.171,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-065.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-048.pdf"
+  },
+  {
+    "name": "대구가톨릭대학교",
+    "type": "사립",
+    "home": "https://ibsi.cu.ac.kr",
+    "region": "경북",
+    "lat": 35.911,
+    "lng": 128.811,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-066.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-039.pdf",
+    "admission": "files/2027-admission-guide-049.pdf"
+  },
+  {
+    "name": "대구교육대학교",
+    "type": "국립",
+    "home": "https://ipsi.dnue.ac.kr",
+    "region": "대구",
+    "lat": 35.844,
+    "lng": 128.591,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-067.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-040.pdf",
+    "admission": "files/2027-admission-guide-050.pdf"
+  },
+  {
+    "name": "대구대학교",
+    "type": "사립",
+    "home": "https://ipsi.daegu.ac.kr",
+    "region": "경북",
+    "lat": 35.853,
+    "lng": 128.851,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-068.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-041.pdf",
+    "admission": "files/2027-admission-guide-051.pdf"
+  },
+  {
+    "name": "대구예술대학교",
+    "type": "사립",
+    "home": "https://ipsi.dgau.ac.kr/",
+    "region": "경북",
+    "lat": 36.063,
+    "lng": 128.42,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-069.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-052.pdf"
+  },
+  {
+    "name": "대구한의대학교",
+    "type": "사립",
+    "home": "https://www.dhu.ac.kr/admission/",
+    "region": "경북",
+    "lat": 35.831,
+    "lng": 128.741,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-070.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-053.pdf"
+  },
+  {
+    "name": "대신대학교",
+    "type": "사립",
+    "home": "https://www.daeshin.ac.kr/html/02_admission/03_2.php",
+    "region": "경북",
+    "lat": 35.828,
+    "lng": 128.832,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-071.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-042.pdf"
+  },
+  {
+    "name": "대전가톨릭대학교",
+    "type": "사립",
+    "home": "https://www.dcatholic.ac.kr/univ/s2/college.php",
+    "region": "세종",
+    "lat": 36.616,
+    "lng": 127.234,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-072.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-043.pdf",
+    "admission": "files/2027-admission-guide-054.pdf"
+  },
+  {
+    "name": "대전대학교",
+    "type": "사립",
+    "home": "https://ipsi.dju.ac.kr",
+    "region": "대전",
+    "lat": 36.33,
+    "lng": 127.456,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-073.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-044.pdf",
+    "admission": "files/2027-admission-guide-055.pdf"
+  },
+  {
+    "name": "대전신학대학교",
+    "type": "사립",
+    "home": "https://ipsi.daejeon.ac.kr/",
+    "region": "대전",
+    "lat": 36.32,
+    "lng": 127.42,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-074.pdf"
+      }
+    ]
+  },
+  {
+    "name": "대진대학교",
+    "type": "사립",
+    "home": "https://admission.daejin.ac.kr/main.do",
+    "region": "경기",
+    "lat": 37.892,
+    "lng": 127.205,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-075.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-056.pdf"
+  },
+  {
+    "name": "덕성여자대학교",
+    "type": "사립",
+    "home": "https://www.duksung.ac.kr/iphak/main.do",
+    "region": "서울",
+    "lat": 37.652,
+    "lng": 127.016,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-076.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-045.pdf",
+    "admission": "files/2027-admission-guide-057.pdf"
+  },
+  {
+    "name": "동국대학교",
+    "type": "사립",
+    "home": "https://ipsi.dongguk.edu",
+    "region": "서울",
+    "lat": 37.558,
+    "lng": 126.998,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-078.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-046.pdf",
+    "admission": "files/2027-admission-guide-058.pdf",
+    "jonghap": "files/2027-jonghap-guide-004.pdf"
+  },
+  {
+    "name": "동국대학교(WISE)",
+    "type": "사립",
+    "home": "https://ipsi.dongguk.ac.kr/",
+    "region": "경북",
+    "lat": 35.862,
+    "lng": 129.196,
+    "added": false,
+    "campuses": [
+      {
+        "c": "분교",
+        "u": "files/2028-admission-plan-077.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-047.pdf",
+    "admission": "files/2027-admission-guide-059.pdf"
+  },
+  {
+    "name": "동명대학교",
+    "type": "사립",
+    "home": "https://www.tu.ac.kr/iphak/index.do",
+    "region": "부산",
+    "lat": 35.123,
+    "lng": 129.092,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-079.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-048.pdf",
+    "admission": "files/2027-admission-guide-060.pdf"
+  },
+  {
+    "name": "동서대학교",
+    "type": "사립",
+    "home": "https://ipsi.dongseo.ac.kr",
+    "region": "부산",
+    "lat": 35.155,
+    "lng": 128.998,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-080.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-049.pdf",
+    "admission": "files/2027-admission-guide-061.pdf"
+  },
+  {
+    "name": "동신대학교",
+    "type": "사립",
+    "home": "https://ipsi.dsu.ac.kr/",
+    "region": "전남",
+    "lat": 35.001,
+    "lng": 126.711,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-081.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-050.pdf",
+    "admission": "files/2027-admission-guide-062.pdf"
+  },
+  {
+    "name": "동아대학교",
+    "type": "사립",
+    "home": "https://ent.donga.ac.kr",
+    "region": "부산",
+    "lat": 35.118,
+    "lng": 128.969,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-082.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-051.pdf",
+    "admission": "files/2027-admission-guide-063.pdf"
+  },
+  {
+    "name": "동양대학교",
+    "type": "사립",
+    "home": "https://ipsi.dyu.ac.kr/",
+    "region": "경북",
+    "lat": 36.857,
+    "lng": 128.523,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-083.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-052.pdf",
+    "admission": "files/2027-admission-guide-064.pdf"
+  },
+  {
+    "name": "동의대학교",
+    "type": "사립",
+    "home": "https://www.deu.ac.kr/Admissions/index.htm",
+    "region": "부산",
+    "lat": 35.139,
+    "lng": 129.03,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-084.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-053.pdf",
+    "admission": "files/2027-admission-guide-065.pdf"
+  },
+  {
+    "name": "루터대학교",
+    "type": "사립",
+    "home": "https://ltu-admission.ac.kr/",
+    "region": "경기",
+    "lat": 37.282,
+    "lng": 127.114,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-085.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-054.pdf",
+    "admission": "files/2027-admission-guide-066.pdf"
+  },
+  {
+    "name": "명지대학교",
+    "type": "사립",
+    "home": "https://iphak.mju.ac.kr",
+    "region": "경기",
+    "lat": 37.224,
+    "lng": 127.189,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-086.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-055.pdf",
+    "admission": "files/2027-admission-guide-067.pdf"
+  },
+  {
+    "name": "명지대학교",
+    "type": "사립",
+    "home": "https://iphak.mju.ac.kr",
+    "region": "서울",
+    "lat": 37.58,
+    "lng": 126.923,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-087.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-067.pdf"
+  },
+  {
+    "name": "목원대학교",
+    "type": "사립",
+    "home": "https://enter.mokwon.ac.kr",
+    "region": "대전",
+    "lat": 36.311,
+    "lng": 127.341,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-088.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-056.pdf",
+    "admission": "files/2027-admission-guide-068.pdf"
+  },
+  {
+    "name": "목포가톨릭대학교",
+    "type": "사립",
+    "home": "https://www.mcu.ac.kr/ipsi/",
+    "region": "전남",
+    "lat": 34.81,
+    "lng": 126.402,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-089.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-069.pdf"
+  },
+  {
+    "name": "배재대학교",
+    "type": "사립",
+    "home": "https://enter.pcu.ac.kr",
+    "region": "대전",
+    "lat": 36.311,
+    "lng": 127.36,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-090.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-057.pdf"
+  },
+  {
+    "name": "백석대학교",
+    "type": "사립",
+    "home": "https://ipsi.bu.ac.kr",
+    "region": "충남",
+    "lat": 36.842,
+    "lng": 127.182,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-091.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-058.pdf",
+    "admission": "files/2027-admission-guide-070.pdf"
+  },
+  {
+    "name": "부산가톨릭대학교",
+    "type": "사립",
+    "home": "https://ipsi.cup.ac.kr/",
+    "region": "부산",
+    "lat": 35.227,
+    "lng": 129.09,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-092.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-071.pdf"
+  },
+  {
+    "name": "부산교육대학교",
+    "type": "국립",
+    "home": "https://www.bnue.ac.kr/ipsi",
+    "region": "부산",
+    "lat": 35.19,
+    "lng": 129.082,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-093.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-059.pdf",
+    "admission": "files/2027-admission-guide-072.pdf"
+  },
+  {
+    "name": "부산대학교",
+    "type": "국립",
+    "home": "https://go.pusan.ac.kr",
+    "region": "부산",
+    "lat": 35.234,
+    "lng": 129.083,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-094.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-060.pdf",
+    "admission": "files/2027-admission-guide-073.pdf"
+  },
+  {
+    "name": "부산외국어대학교",
+    "type": "사립",
+    "home": "https://enter.bufs.ac.kr",
+    "region": "부산",
+    "lat": 35.27,
+    "lng": 129.092,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-095.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-074.pdf"
+  },
+  {
+    "name": "부산장신대학교",
+    "type": "사립",
+    "home": "https://ipsi.bpu.ac.kr/",
+    "region": "경남",
+    "lat": 35.249,
+    "lng": 128.861,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-096.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-061.pdf",
+    "admission": "files/2027-admission-guide-075.pdf"
+  },
+  {
+    "name": "삼육대학교",
+    "type": "사립",
+    "home": "https://ipsi.syu.ac.kr",
+    "region": "서울",
+    "lat": 37.643,
+    "lng": 127.106,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-097.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-062.pdf",
+    "admission": "files/2027-admission-guide-076.pdf"
+  },
+  {
+    "name": "상명대학교",
+    "type": "사립",
+    "home": "https://admission.smu.ac.kr",
+    "region": "서울",
+    "lat": 37.602,
+    "lng": 126.955,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-098.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-063.pdf",
+    "admission": "files/2027-admission-guide-077.pdf"
+  },
+  {
+    "name": "상명대학교",
+    "type": "사립",
+    "home": "https://admission.smu.ac.kr",
+    "region": "충남",
+    "lat": 36.851,
+    "lng": 127.18,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-099.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-078.pdf"
+  },
+  {
+    "name": "상지대학교",
+    "type": "사립",
+    "home": "https://www.sangji.ac.kr/go/index.do",
+    "region": "강원",
+    "lat": 37.378,
+    "lng": 127.918,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-100.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-064.pdf",
+    "admission": "files/2027-admission-guide-079.pdf"
+  },
+  {
+    "name": "서강대학교",
+    "type": "사립",
+    "home": "https://admission.sogang.ac.kr/enter/html/main/index.asp",
+    "region": "서울",
+    "lat": 37.551,
+    "lng": 126.941,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-101.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-080.pdf"
+  },
+  {
+    "name": "서경대학교",
+    "type": "사립",
+    "home": "https://go.skuniv.ac.kr",
+    "region": "서울",
+    "lat": 37.615,
+    "lng": 127.013,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-102.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-065.pdf",
+    "admission": "files/2027-admission-guide-081.pdf"
+  },
+  {
+    "name": "서울과학기술대학교",
+    "type": "국립",
+    "home": "https://admission.seoultech.ac.kr",
+    "region": "서울",
+    "lat": 37.631,
+    "lng": 127.077,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-103.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-066.pdf",
+    "admission": "files/2027-admission-guide-082.pdf"
+  },
+  {
+    "name": "서울교육대학교",
+    "type": "국립",
+    "home": "https://admission.snue.ac.kr/",
+    "region": "서울",
+    "lat": 37.49,
+    "lng": 127.016,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-104.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-067.pdf",
+    "admission": "files/2027-admission-guide-083.pdf"
+  },
+  {
+    "name": "서울기독대학교",
+    "type": "사립",
+    "home": "https://admission.scu.ac.kr/",
+    "region": "서울",
+    "lat": 37.617,
+    "lng": 126.918,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-105.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-084.pdf"
+  },
+  {
+    "name": "서울대학교",
+    "type": "국립",
+    "home": "https://admission.snu.ac.kr",
+    "region": "서울",
+    "lat": 37.459,
+    "lng": 126.952,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-106.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-068.pdf",
+    "admission": "files/2027-admission-guide-085.pdf",
+    "jonghap": "files/2027-jonghap-guide-005.pdf"
+  },
+  {
+    "name": "서울시립대학교",
+    "type": "공립",
+    "home": "https://admission.uos.ac.kr",
+    "region": "서울",
+    "lat": 37.584,
+    "lng": 127.058,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-107.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-069.pdf",
+    "admission": "files/2027-admission-guide-086.pdf",
+    "jonghap": "files/2027-jonghap-guide-006.pdf"
+  },
+  {
+    "name": "서울신학대학교",
+    "type": "사립",
+    "home": "https://ipsi.stu.ac.kr/",
+    "region": "경기",
+    "lat": 37.479,
+    "lng": 126.797,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-108.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-070.pdf",
+    "admission": "files/2027-admission-guide-087.pdf"
+  },
+  {
+    "name": "서울여자대학교",
+    "type": "사립",
+    "home": "https://admission.swu.ac.kr",
+    "region": "서울",
+    "lat": 37.626,
+    "lng": 127.09,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-109.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-088.pdf"
+  },
+  {
+    "name": "서울장신대학교",
+    "type": "사립",
+    "home": "https://www.sjs.ac.kr/intro/main/",
+    "region": "경기",
+    "lat": 37.41,
+    "lng": 127.251,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-110.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-071.pdf",
+    "admission": "files/2027-admission-guide-089.pdf"
+  },
+  {
+    "name": "서울한영대학교",
+    "type": "사립",
+    "home": "https://ipsi.shyu.ac.kr/",
+    "region": "서울",
+    "lat": 37.494,
+    "lng": 126.858,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-111.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-072.pdf",
+    "admission": "files/2027-admission-guide-090.pdf"
+  },
+  {
+    "name": "서원대학교",
+    "type": "사립",
+    "home": "https://www.seowon.ac.kr/iphak/index.do",
+    "region": "충북",
+    "lat": 36.622,
+    "lng": 127.462,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-112.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-073.pdf",
+    "admission": "files/2027-admission-guide-091.pdf"
+  },
+  {
+    "name": "선문대학교",
+    "type": "사립",
+    "home": "https://ilove.sunmoon.ac.kr/main.do",
+    "region": "충남",
+    "lat": 36.795,
+    "lng": 127.075,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-113.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-092.pdf"
+  },
+  {
+    "name": "성결대학교",
+    "type": "사립",
+    "home": "https://ipsi.sungkyul.ac.kr",
+    "region": "경기",
+    "lat": 37.38,
+    "lng": 126.924,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-114.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-074.pdf",
+    "admission": "files/2027-admission-guide-093.pdf"
+  },
+  {
+    "name": "성공회대학교",
+    "type": "사립",
+    "home": "https://enter.skhu.ac.kr/enter/index.do",
+    "region": "서울",
+    "lat": 37.487,
+    "lng": 126.825,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-115.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-075.pdf",
+    "admission": "files/2027-admission-guide-094.pdf"
+  },
+  {
+    "name": "성균관대학교",
+    "type": "사립",
+    "home": "https://admission.skku.edu",
+    "region": "서울",
+    "lat": 37.588,
+    "lng": 126.993,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-116.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-076.pdf",
+    "admission": "files/2027-admission-guide-095.pdf"
+  },
+  {
+    "name": "성신여자대학교",
+    "type": "사립",
+    "home": "https://ipsi.sungshin.ac.kr/",
+    "region": "서울",
+    "lat": 37.592,
+    "lng": 127.022,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-117.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-096.pdf"
+  },
+  {
+    "name": "세명대학교",
+    "type": "사립",
+    "home": "https://ipsi.semyung.ac.kr/",
+    "region": "충북",
+    "lat": 37.12,
+    "lng": 128.18,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-118.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-077.pdf",
+    "admission": "files/2027-admission-guide-097.pdf"
+  },
+  {
+    "name": "세종대학교",
+    "type": "사립",
+    "home": "https://ipsi.sejong.ac.kr",
+    "region": "서울",
+    "lat": 37.55,
+    "lng": 127.073,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-119.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-078.pdf",
+    "admission": "files/2027-admission-guide-098.pdf"
+  },
+  {
+    "name": "세한대학교",
+    "type": "사립",
+    "home": "https://apply.sehan.ac.kr/apply/",
+    "region": "전남",
+    "lat": 34.79,
+    "lng": 126.48,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-120.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-099.pdf"
+  },
+  {
+    "name": "송원대학교",
+    "type": "사립",
+    "home": "https://iphak.songwon.ac.kr/",
+    "region": "광주",
+    "lat": 35.11,
+    "lng": 126.89,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-121.pdf"
+      }
+    ]
+  },
+  {
+    "name": "수원가톨릭대학교",
+    "type": "사립",
+    "home": "https://suwoncatholic.ac.kr/bbs/board.php?bo_table=enter_data",
+    "region": "경기",
+    "lat": 37.21,
+    "lng": 126.95,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-122.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-100.pdf"
+  },
+  {
+    "name": "수원대학교",
+    "type": "사립",
+    "home": "https://ipsi.suwon.ac.kr/",
+    "region": "경기",
+    "lat": 37.214,
+    "lng": 126.977,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-123.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-079.pdf",
+    "admission": "files/2027-admission-guide-101.pdf"
+  },
+  {
+    "name": "숙명여자대학교",
+    "type": "사립",
+    "home": "https://admission.sookmyung.ac.kr/admission/html/main/main.asp",
+    "region": "서울",
+    "lat": 37.546,
+    "lng": 126.964,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-124.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-080.pdf",
+    "admission": "files/2027-admission-guide-102.pdf"
+  },
+  {
+    "name": "순천향대학교",
+    "type": "사립",
+    "home": "https://ipsi.sch.ac.kr",
+    "region": "충남",
+    "lat": 36.77,
+    "lng": 126.93,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-125.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-081.pdf",
+    "admission": "files/2027-admission-guide-103.pdf"
+  },
+  {
+    "name": "숭실대학교",
+    "type": "사립",
+    "home": "https://iphak.ssu.ac.kr",
+    "region": "서울",
+    "lat": 37.496,
+    "lng": 126.957,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-126.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-104.pdf",
+    "jonghap": "files/2027-jonghap-guide-007.pdf"
+  },
+  {
+    "name": "신경주대학교",
+    "type": "사립",
+    "home": "https://sgu.ac.kr/ko/admission/admission_hub.php",
+    "region": "경북",
+    "lat": 35.84,
+    "lng": 129.18,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-127.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-082.pdf",
+    "admission": "files/2027-admission-guide-105.pdf"
+  },
+  {
+    "name": "신라대학교",
+    "type": "사립",
+    "home": "https://ipsi.silla.ac.kr",
+    "region": "부산",
+    "lat": 35.155,
+    "lng": 128.983,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-128.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-083.pdf",
+    "admission": "files/2027-admission-guide-106.pdf"
+  },
+  {
+    "name": "신한대학교",
+    "type": "사립",
+    "home": "https://ipsi.shinhan.ac.kr/",
+    "region": "경기",
+    "lat": 37.74,
+    "lng": 127.04,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-129.pdf"
+      },
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-130.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-084.pdf",
+    "admission": "files/2027-admission-guide-107.pdf"
+  },
+  {
+    "name": "아신대학교",
+    "type": "사립",
+    "home": "https://www.acts.ac.kr/admission/design/index.asp",
+    "region": "경기",
+    "lat": 37.52,
+    "lng": 127.55,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-131.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-108.pdf"
+  },
+  {
+    "name": "아주대학교",
+    "type": "사립",
+    "home": "https://www.iajou.ac.kr/main/",
+    "region": "경기",
+    "lat": 37.282,
+    "lng": 127.045,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-132.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-085.pdf",
+    "admission": "files/2027-admission-guide-109.pdf"
+  },
+  {
+    "name": "안양대학교",
+    "type": "사립",
+    "home": "https://enter.anyang.ac.kr/main",
+    "region": "경기",
+    "lat": 37.392,
+    "lng": 126.92,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-133.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-086.pdf"
+  },
+  {
+    "name": "안양대학교",
+    "type": "사립",
+    "home": "https://enter.anyang.ac.kr/main",
+    "region": "인천",
+    "lat": 37.747,
+    "lng": 126.488,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-134.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-086.pdf"
+  },
+  {
+    "name": "연세대학교",
+    "type": "사립",
+    "home": "https://admission.yonsei.ac.kr",
+    "region": "서울",
+    "lat": 37.565,
+    "lng": 126.938,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-136.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-087.pdf",
+    "admission": "files/2027-admission-guide-110.pdf",
+    "jonghap": "files/2027-jonghap-guide-008.pdf"
+  },
+  {
+    "name": "연세대학교(미래)",
+    "type": "사립",
+    "home": "https://mirae.yonsei.ac.kr/wj/2349/subview.do",
+    "region": "강원",
+    "lat": 37.27,
+    "lng": 127.91,
+    "added": false,
+    "campuses": [
+      {
+        "c": "분교",
+        "u": "files/2028-admission-plan-135.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-111.pdf"
+  },
+  {
+    "name": "영남대학교",
+    "type": "사립",
+    "home": "https://enter.yu.ac.kr",
+    "region": "경북",
+    "lat": 35.832,
+    "lng": 128.755,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-137.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-088.pdf",
+    "admission": "files/2027-admission-guide-112.pdf"
+  },
+  {
+    "name": "영남신학대학교",
+    "type": "사립",
+    "home": "https://entra.ytus.ac.kr/",
+    "region": "경북",
+    "lat": 35.86,
+    "lng": 128.86,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-138.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-113.pdf"
+  },
+  {
+    "name": "영산대학교",
+    "type": "사립",
+    "home": "https://ipsi.ysu.ac.kr/",
+    "region": "경남",
+    "lat": 35.341,
+    "lng": 129.022,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-139.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-114.pdf"
+  },
+  {
+    "name": "영산대학교",
+    "type": "사립",
+    "home": "https://ipsi.ysu.ac.kr/",
+    "region": "부산",
+    "lat": 35.245,
+    "lng": 129.131,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-140.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-114.pdf"
+  },
+  {
+    "name": "영산선학대학교",
+    "type": "사립",
+    "home": "https://youngsan.ac.kr/bbs/content.php?co_id=2_1_1",
+    "region": "전남",
+    "lat": 35.27,
+    "lng": 126.42,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-141.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-115.pdf"
+  },
+  {
+    "name": "예수대학교",
+    "type": "사립",
+    "home": "https://www.jesus.ac.kr/enter/",
+    "region": "전북",
+    "lat": 35.82,
+    "lng": 127.12,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-142.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-116.pdf"
+  },
+  {
+    "name": "예원예술대학교",
+    "type": "사립",
+    "home": "https://admission.yewon.ac.kr/main/",
+    "region": "경기",
+    "lat": 37.793,
+    "lng": 126.962,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-143.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-117.pdf"
+  },
+  {
+    "name": "예원예술대학교",
+    "type": "사립",
+    "home": "https://admission.yewon.ac.kr/main/",
+    "region": "전북",
+    "lat": 35.66,
+    "lng": 127.219,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-144.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-117.pdf"
+  },
+  {
+    "name": "용인대학교",
+    "type": "사립",
+    "home": "https://ipsi.yongin.ac.kr/index.do",
+    "region": "경기",
+    "lat": 37.227,
+    "lng": 127.19,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-145.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-089.pdf",
+    "admission": "files/2027-admission-guide-118.pdf"
+  },
+  {
+    "name": "우석대학교",
+    "type": "사립",
+    "home": "https://enter.woosuk.ac.kr",
+    "region": "전북",
+    "lat": 35.91,
+    "lng": 127.07,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-146.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-090.pdf",
+    "admission": "files/2027-admission-guide-119.pdf"
+  },
+  {
+    "name": "우송대학교",
+    "type": "사립",
+    "home": "https://ent.wsu.ac.kr",
+    "region": "대전",
+    "lat": 36.335,
+    "lng": 127.435,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-147.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-091.pdf",
+    "admission": "files/2027-admission-guide-120.pdf"
+  },
+  {
+    "name": "울산대학교",
+    "type": "사립",
+    "home": "https://iphak.ulsan.ac.kr",
+    "region": "울산",
+    "lat": 35.543,
+    "lng": 129.256,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-148.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-092.pdf",
+    "admission": "files/2027-admission-guide-121.pdf"
+  },
+  {
+    "name": "원광대학교",
+    "type": "사립",
+    "home": "https://ipsi.wku.ac.kr",
+    "region": "전북",
+    "lat": 35.97,
+    "lng": 126.96,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-149.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-093.pdf",
+    "admission": "files/2027-admission-guide-122.pdf"
+  },
+  {
+    "name": "위덕대학교",
+    "type": "사립",
+    "home": "https://ipsi.uu.ac.kr/",
+    "region": "경북",
+    "lat": 35.95,
+    "lng": 129.27,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-150.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-094.pdf",
+    "admission": "files/2027-admission-guide-123.pdf"
+  },
+  {
+    "name": "유원대학교",
+    "type": "사립",
+    "home": "https://www.u1.ac.kr/ipsi/",
+    "region": "충북",
+    "lat": 36.18,
+    "lng": 127.78,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-151.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-095.pdf",
+    "admission": "files/2027-admission-guide-124.pdf"
+  },
+  {
+    "name": "을지대학교",
+    "type": "사립",
+    "home": "https://admission.eulji.ac.kr/",
+    "region": "경기",
+    "lat": 37.44,
+    "lng": 127.13,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-152.pdf"
+      },
+      {
+        "c": "제3캠퍼스",
+        "u": "files/2028-admission-plan-153.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-096.pdf",
+    "admission": "files/2027-admission-guide-125.pdf"
+  },
+  {
+    "name": "을지대학교",
+    "type": "사립",
+    "home": "https://admission.eulji.ac.kr/",
+    "region": "대전",
+    "lat": 36.353,
+    "lng": 127.378,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-154.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-125.pdf"
+  },
+  {
+    "name": "이화여자대학교",
+    "type": "사립",
+    "home": "https://admission.ewha.ac.kr",
+    "region": "서울",
+    "lat": 37.562,
+    "lng": 126.946,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-155.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-097.pdf",
+    "admission": "files/2027-admission-guide-126.pdf",
+    "jonghap": "files/2027-jonghap-guide-009.pdf"
+  },
+  {
+    "name": "인제대학교",
+    "type": "사립",
+    "home": "https://iphak.inje.ac.kr",
+    "region": "경남",
+    "lat": 35.25,
+    "lng": 128.91,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-156.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-098.pdf",
+    "admission": "files/2027-admission-guide-127.pdf"
+  },
+  {
+    "name": "인천가톨릭대학교",
+    "type": "사립",
+    "home": "https://admission.iccu.ac.kr/default.php",
+    "region": "인천",
+    "lat": 37.38,
+    "lng": 126.66,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-157.pdf"
+      },
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-158.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-128.pdf"
+  },
+  {
+    "name": "인천대학교",
+    "type": "공립",
+    "home": "https://admission.inu.ac.kr/main.do",
+    "region": "인천",
+    "lat": 37.375,
+    "lng": 126.633,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-159.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-129.pdf"
+  },
+  {
+    "name": "인하대학교",
+    "type": "사립",
+    "home": "https://admission.inha.ac.kr",
+    "region": "인천",
+    "lat": 37.45,
+    "lng": 126.653,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-160.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-099.pdf",
+    "admission": "files/2027-admission-guide-130.pdf"
+  },
+  {
+    "name": "장로회신학대학교",
+    "type": "사립",
+    "home": "https://www.puts.ac.kr/ipsi/db/db_admission_v1/",
+    "region": "서울",
+    "lat": 37.552,
+    "lng": 127.107,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-161.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-100.pdf",
+    "admission": "files/2027-admission-guide-131.pdf"
+  },
+  {
+    "name": "전남대학교",
+    "type": "국립",
+    "home": "https://admission.jnu.ac.kr",
+    "region": "광주",
+    "lat": 35.176,
+    "lng": 126.906,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-162.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-101.pdf",
+    "admission": "files/2027-admission-guide-132.pdf"
+  },
+  {
+    "name": "전남대학교",
+    "type": "국립",
+    "home": "https://admission.jnu.ac.kr",
+    "region": "전남",
+    "lat": 34.76,
+    "lng": 127.69,
+    "added": false,
+    "campuses": [
+      {
+        "c": "제2캠퍼스",
+        "u": "files/2028-admission-plan-163.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-101.pdf",
+    "admission": "files/2027-admission-guide-132.pdf"
+  },
+  {
+    "name": "전북대학교",
+    "type": "국립",
+    "home": "https://enter.jbnu.ac.kr",
+    "region": "전북",
+    "lat": 35.846,
+    "lng": 127.131,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-164.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-102.pdf",
+    "admission": "files/2027-admission-guide-133.pdf"
+  },
+  {
+    "name": "전주교육대학교",
+    "type": "국립",
+    "home": "https://www.jnue.kr/portal/enter/main/main.do",
+    "region": "전북",
+    "lat": 35.79,
+    "lng": 127.15,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-165.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-103.pdf",
+    "admission": "files/2027-admission-guide-134.pdf"
+  },
+  {
+    "name": "전주대학교",
+    "type": "사립",
+    "home": "https://iphak.jj.ac.kr",
+    "region": "전북",
+    "lat": 35.81,
+    "lng": 127.1,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-166.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-135.pdf"
+  },
+  {
+    "name": "제주국제대학교",
+    "type": "사립",
+    "home": "https://apply.jeju.ac.kr",
+    "region": "제주",
+    "lat": 33.46,
+    "lng": 126.58,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-167.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-136.pdf"
+  },
+  {
+    "name": "제주대학교",
+    "type": "국립",
+    "home": "https://ibsi.jejunu.ac.kr",
+    "region": "제주",
+    "lat": 33.456,
+    "lng": 126.561,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-168.pdf"
+      }
+    ]
+  },
+  {
+    "name": "조선대학교",
+    "type": "사립",
+    "home": "https://i.chosun.ac.kr/intro",
+    "region": "광주",
+    "lat": 35.135,
+    "lng": 126.926,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-169.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-104.pdf"
+  },
+  {
+    "name": "중부대학교",
+    "type": "사립",
+    "home": "https://www.joongbu.ac.kr/index.es?sid=a6",
+    "region": "충남",
+    "lat": 36.18,
+    "lng": 127.45,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-170.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-105.pdf",
+    "admission": "files/2027-admission-guide-137.pdf"
+  },
+  {
+    "name": "중앙대학교",
+    "type": "사립",
+    "home": "https://admission.cau.ac.kr/main.do",
+    "region": "서울",
+    "lat": 37.505,
+    "lng": 126.957,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-171.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-106.pdf",
+    "admission": "files/2027-admission-guide-138.pdf"
+  },
+  {
+    "name": "중앙승가대학교",
+    "type": "사립",
+    "home": "https://admission.sangha.ac.kr/SANGHA/?ACT=ADMISSION_FRESH&FOR=",
+    "region": "경기",
+    "lat": 37.61,
+    "lng": 126.72,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-172.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-139.pdf"
+  },
+  {
+    "name": "중원대학교",
+    "type": "사립",
+    "home": "https://ipsi.jwu.ac.kr/site/siteView.jwu",
+    "region": "충북",
+    "lat": 36.81,
+    "lng": 127.79,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-173.pdf"
+      }
+    ]
+  },
+  {
+    "name": "진주교육대학교",
+    "type": "국립",
+    "home": "https://www.cue.ac.kr/enter/Main.do",
+    "region": "경남",
+    "lat": 35.18,
+    "lng": 128.07,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-174.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-107.pdf"
+  },
+  {
+    "name": "차의과학대학교",
+    "type": "사립",
+    "home": "https://admission.cha.ac.kr",
+    "region": "경기",
+    "lat": 37.88,
+    "lng": 127.18,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-175.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-140.pdf"
+  },
+  {
+    "name": "창신대학교",
+    "type": "사립",
+    "home": "https://admission.cs.ac.kr/",
+    "region": "경남",
+    "lat": 35.23,
+    "lng": 128.58,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-176.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-108.pdf",
+    "admission": "files/2027-admission-guide-141.pdf"
+  },
+  {
+    "name": "청운대학교",
+    "type": "사립",
+    "home": "https://enter.chungwoon.ac.kr/enter/index.do",
+    "region": "충남",
+    "lat": 36.6,
+    "lng": 126.66,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-177.pdf"
+      }
+    ]
+  },
+  {
+    "name": "청주교육대학교",
+    "type": "국립",
+    "home": "https://www.cje.ac.kr/ipsi/",
+    "region": "충북",
+    "lat": 36.62,
+    "lng": 127.47,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-178.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-109.pdf",
+    "admission": "files/2027-admission-guide-142.pdf"
+  },
+  {
+    "name": "청주대학교",
+    "type": "사립",
+    "home": "https://www.cju.ac.kr/ipsi/index.do",
+    "region": "충북",
+    "lat": 36.64,
+    "lng": 127.49,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-179.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-110.pdf",
+    "admission": "files/2027-admission-guide-143.pdf"
+  },
+  {
+    "name": "초당대학교",
+    "type": "사립",
+    "home": "https://admission.cdu.ac.kr/",
+    "region": "전남",
+    "lat": 34.99,
+    "lng": 126.46,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-180.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-111.pdf",
+    "admission": "files/2027-admission-guide-144.pdf"
+  },
+  {
+    "name": "총신대학교",
+    "type": "사립",
+    "home": "https://admission.csu.ac.kr/",
+    "region": "서울",
+    "lat": 37.487,
+    "lng": 126.974,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-181.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-112.pdf",
+    "admission": "files/2027-admission-guide-145.pdf"
+  },
+  {
+    "name": "추계예술대학교",
+    "type": "사립",
+    "home": "https://enter.chugye.ac.kr/main.do",
+    "region": "서울",
+    "lat": 37.56,
+    "lng": 126.957,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-182.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-113.pdf",
+    "admission": "files/2027-admission-guide-146.pdf"
+  },
+  {
+    "name": "춘천교육대학교",
+    "type": "국립",
+    "home": "https://www.cnue.ac.kr/enter/index.do",
+    "region": "강원",
+    "lat": 37.866,
+    "lng": 127.745,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-183.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-147.pdf"
+  },
+  {
+    "name": "충남대학교",
+    "type": "국립",
+    "home": "https://ipsi.cnu.ac.kr",
+    "region": "대전",
+    "lat": 36.367,
+    "lng": 127.345,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-184.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-114.pdf",
+    "admission": "files/2027-admission-guide-148.pdf"
+  },
+  {
+    "name": "충북대학교",
+    "type": "국립",
+    "home": "https://ipsi.chungbuk.ac.kr",
+    "region": "충북",
+    "lat": 36.628,
+    "lng": 127.456,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-185.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-115.pdf"
+  },
+  {
+    "name": "칼빈대학교",
+    "type": "사립",
+    "home": "http://www.calvin.ac.kr/iphak/index.do",
+    "region": "경기",
+    "lat": 37.23,
+    "lng": 127.2,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-186.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-149.pdf"
+  },
+  {
+    "name": "평택대학교",
+    "type": "사립",
+    "home": "https://entrance.ptu.ac.kr",
+    "region": "경기",
+    "lat": 36.97,
+    "lng": 127.1,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-187.pdf"
+      }
+    ]
+  },
+  {
+    "name": "포항공과대학교",
+    "type": "사립",
+    "home": "https://adm-u.postech.ac.kr/",
+    "region": "경북",
+    "lat": 36.013,
+    "lng": 129.322,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-188.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-150.pdf"
+  },
+  {
+    "name": "한경국립대학교",
+    "type": "국립",
+    "home": "https://ipsi.hknu.ac.kr/",
+    "region": "경기",
+    "lat": 37.013,
+    "lng": 127.265,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-189.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-116.pdf",
+    "admission": "files/2027-admission-guide-151.pdf"
+  },
+  {
+    "name": "한국공학대학교",
+    "type": "사립",
+    "home": "https://iphak.tukorea.ac.kr/main.htm",
+    "region": "경기",
+    "lat": 37.34,
+    "lng": 126.733,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-190.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-117.pdf",
+    "admission": "files/2027-admission-guide-152.pdf"
+  },
+  {
+    "name": "한국교원대학교",
+    "type": "국립",
+    "home": "https://www.knue.ac.kr/ipsi/index.do",
+    "region": "충북",
+    "lat": 36.61,
+    "lng": 127.36,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-191.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-153.pdf"
+  },
+  {
+    "name": "한국기술교육대학교",
+    "type": "국립",
+    "home": "https://www.koreatech.ac.kr/index.es?sid=a4",
+    "region": "충남",
+    "lat": 36.76,
+    "lng": 127.28,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-192.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-118.pdf",
+    "admission": "files/2027-admission-guide-154.pdf",
+    "jonghap": "files/2027-jonghap-guide-010.pdf"
+  },
+  {
+    "name": "한국성서대학교",
+    "type": "사립",
+    "home": "https://ipsi.bible.ac.kr/",
+    "region": "서울",
+    "lat": 37.638,
+    "lng": 127.069,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-193.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-119.pdf",
+    "admission": "files/2027-admission-guide-155.pdf"
+  },
+  {
+    "name": "한국외국어대학교",
+    "type": "사립",
+    "home": "https://adms.hufs.ac.kr/index.do",
+    "region": "서울",
+    "lat": 37.597,
+    "lng": 127.058,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-194.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-120.pdf",
+    "admission": "files/2027-admission-guide-156.pdf",
+    "jonghap": "files/2027-jonghap-guide-011.pdf"
+  },
+  {
+    "name": "한국체육대학교",
+    "type": "국립",
+    "home": "https://www.knsu.ac.kr/ipsi/index.do",
+    "region": "서울",
+    "lat": 37.518,
+    "lng": 127.131,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-195.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-121.pdf",
+    "admission": "files/2027-admission-guide-157.pdf"
+  },
+  {
+    "name": "한국침례신학대학교",
+    "type": "사립",
+    "home": "https://ipsi.kbtus.ac.kr/ipsi/Main.do",
+    "region": "대전",
+    "lat": 36.36,
+    "lng": 127.34,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-196.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-122.pdf",
+    "admission": "files/2027-admission-guide-158.pdf"
+  },
+  {
+    "name": "한국항공대학교",
+    "type": "사립",
+    "home": "https://ibhak.kau.ac.kr",
+    "region": "경기",
+    "lat": 37.6,
+    "lng": 126.864,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-197.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-159.pdf"
+  },
+  {
+    "name": "한남대학교",
+    "type": "사립",
+    "home": "https://ibsi.hannam.ac.kr",
+    "region": "대전",
+    "lat": 36.354,
+    "lng": 127.42,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-198.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-123.pdf",
+    "admission": "files/2027-admission-guide-160.pdf"
+  },
+  {
+    "name": "한동대학교",
+    "type": "사립",
+    "home": "https://www.handong.edu/kor/admission",
+    "region": "경북",
+    "lat": 36.1,
+    "lng": 129.39,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-199.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-124.pdf",
+    "admission": "files/2027-admission-guide-161.pdf"
+  },
+  {
+    "name": "한라대학교",
+    "type": "사립",
+    "home": "https://ipsi.halla.ac.kr/main/main.php",
+    "region": "강원",
+    "lat": 37.27,
+    "lng": 127.93,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-200.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-125.pdf",
+    "admission": "files/2027-admission-guide-162.pdf"
+  },
+  {
+    "name": "한림대학교",
+    "type": "사립",
+    "home": "https://admission.hallym.ac.kr/admission/index.do",
+    "region": "강원",
+    "lat": 37.888,
+    "lng": 127.737,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-201.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-163.pdf"
+  },
+  {
+    "name": "한서대학교",
+    "type": "사립",
+    "home": "https://helper.hanseo.ac.kr/",
+    "region": "충남",
+    "lat": 36.7,
+    "lng": 126.49,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-202.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-164.pdf"
+  },
+  {
+    "name": "한성대학교",
+    "type": "사립",
+    "home": "https://enter.hansung.ac.kr",
+    "region": "서울",
+    "lat": 37.582,
+    "lng": 127.01,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-203.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-165.pdf"
+  },
+  {
+    "name": "한세대학교",
+    "type": "사립",
+    "home": "https://ipsi.hansei.ac.kr/sites/ipsi/index.do",
+    "region": "경기",
+    "lat": 37.351,
+    "lng": 126.94,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-204.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-126.pdf",
+    "admission": "files/2027-admission-guide-166.pdf"
+  },
+  {
+    "name": "한신대학교",
+    "type": "사립",
+    "home": "https://ent.hs.ac.kr",
+    "region": "경기",
+    "lat": 37.18,
+    "lng": 127.08,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-205.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-127.pdf",
+    "admission": "files/2027-admission-guide-167.pdf"
+  },
+  {
+    "name": "한양대학교",
+    "type": "사립",
+    "home": "https://go.hanyang.ac.kr/gate.do",
+    "region": "서울",
+    "lat": 37.557,
+    "lng": 127.045,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-207.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-128.pdf",
+    "admission": "files/2027-admission-guide-168.pdf"
+  },
+  {
+    "name": "한양대학교(ERICA)",
+    "type": "사립",
+    "home": "https://goerica.hanyang.ac.kr/admission/html/main/main.asp",
+    "region": "경기",
+    "lat": 37.297,
+    "lng": 126.835,
+    "added": false,
+    "campuses": [
+      {
+        "c": "분교",
+        "u": "files/2028-admission-plan-206.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-169.pdf",
+    "jonghap": "files/2027-jonghap-guide-012.pdf"
+  },
+  {
+    "name": "한일장신대학교",
+    "type": "사립",
+    "home": "https://www.hanil.ac.kr/portal/ipsi/main/main.do",
+    "region": "전북",
+    "lat": 35.74,
+    "lng": 127.18,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-208.pdf"
+      }
+    ]
+  },
+  {
+    "name": "협성대학교",
+    "type": "사립",
+    "home": "https://iphak.uhs.ac.kr/",
+    "region": "경기",
+    "lat": 37.2,
+    "lng": 126.96,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-209.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-170.pdf"
+  },
+  {
+    "name": "호남대학교",
+    "type": "사립",
+    "home": "https://enter.honam.ac.kr",
+    "region": "광주",
+    "lat": 35.16,
+    "lng": 126.8,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-210.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-129.pdf",
+    "admission": "files/2027-admission-guide-171.pdf"
+  },
+  {
+    "name": "호남신학대학교",
+    "type": "사립",
+    "home": "https://ipsi.htus.ac.kr/",
+    "region": "광주",
+    "lat": 35.13,
+    "lng": 126.91,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-211.pdf"
+      }
+    ],
+    "admission": "files/2027-admission-guide-172.pdf"
+  },
+  {
+    "name": "호서대학교",
+    "type": "사립",
+    "home": "https://ipsi.hoseo.ac.kr",
+    "region": "충남",
+    "lat": 36.77,
+    "lng": 127.08,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-212.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-130.pdf",
+    "admission": "files/2027-admission-guide-173.pdf"
+  },
+  {
+    "name": "화성의과학대학교",
+    "type": "사립",
+    "home": "https://www.hsmu.ac.kr/admission/main/index.do",
+    "region": "경기",
+    "lat": 37.2,
+    "lng": 126.83,
+    "added": false,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": "files/2028-admission-plan-213.pdf"
+      }
+    ]
+  },
+  {
+    "name": "홍익대학교",
+    "type": "사립",
+    "home": "https://admission.hongik.ac.kr/main",
+    "region": "서울",
+    "lat": 37.551,
+    "lng": 126.925,
+    "added": true,
+    "campuses": [
+      {
+        "c": "서울캠퍼스",
+        "u": ""
+      }
+    ],
+    "report": "files/2026-prior-learning-131.pdf",
+    "admission": "files/2027-admission-guide-174.pdf",
+    "jonghap": "files/2027-jonghap-guide-013.pdf"
+  },
+  {
+    "name": "홍익대학교",
+    "type": "사립",
+    "home": "https://admission.hongik.ac.kr/main",
+    "region": "세종",
+    "lat": 36.621,
+    "lng": 127.291,
+    "added": true,
+    "campuses": [
+      {
+        "c": "세종캠퍼스",
+        "u": ""
+      }
+    ],
+    "admission": "files/2027-admission-guide-174.pdf",
+    "jonghap": "files/2027-jonghap-guide-013.pdf"
+  },
+  {
+    "name": "한국과학기술원(KAIST)",
+    "type": "국립",
+    "home": "https://admission.kaist.ac.kr/undergraduate",
+    "region": "대전",
+    "lat": 36.374,
+    "lng": 127.365,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": ""
+      }
+    ],
+    "report": "files/2026-prior-learning-132.pdf",
+    "admission": "files/2027-admission-guide-175.pdf"
+  },
+  {
+    "name": "광주과학기술원(GIST)",
+    "type": "국립",
+    "home": "https://admission.gist.ac.kr",
+    "region": "광주",
+    "lat": 35.228,
+    "lng": 126.843,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": ""
+      }
+    ],
+    "report": "files/2026-prior-learning-133.pdf",
+    "admission": "files/2027-admission-guide-176.pdf"
+  },
+  {
+    "name": "대구경북과학기술원(DGIST)",
+    "type": "국립",
+    "home": "https://www.dgist.ac.kr/adm/",
+    "region": "대구",
+    "lat": 35.696,
+    "lng": 128.455,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": ""
+      }
+    ],
+    "report": "files/2026-prior-learning-134.pdf",
+    "admission": "files/2027-admission-guide-177.pdf"
+  },
+  {
+    "name": "울산과학기술원(UNIST)",
+    "type": "국립",
+    "home": "https://admission.unist.ac.kr",
+    "region": "울산",
+    "lat": 35.572,
+    "lng": 129.19,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교",
+        "u": ""
+      }
+    ],
+    "report": "files/2026-prior-learning-135.pdf",
+    "admission": "files/2027-admission-guide-178.pdf"
+  },
+  {
+    "name": "동덕여자대학교",
+    "type": "사립",
+    "home": "https://ipsi.dongduk.ac.kr",
+    "region": "서울",
+    "lat": 37.6063,
+    "lng": 127.0428,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-136.pdf",
+    "admission": "files/2027-admission-guide-179.pdf"
+  },
+  {
+    "name": "국립강릉원주대학교",
+    "type": "국립",
+    "home": "https://iphak.gwnu.ac.kr",
+    "region": "강원",
+    "lat": 37.77,
+    "lng": 128.8674,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-137.pdf"
+  },
+  {
+    "name": "한국에너지공과대학교",
+    "type": "사립",
+    "home": "https://www.kentech.ac.kr",
+    "region": "전남",
+    "lat": 35.0145,
+    "lng": 126.7889,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-138.pdf",
+    "admission": "files/2027-admission-guide-180.pdf"
+  },
+  {
+    "name": "경찰대학",
+    "type": "국립",
+    "home": "https://www.police.ac.kr",
+    "region": "충남",
+    "lat": 36.786,
+    "lng": 127.0985,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-139.pdf",
+    "admission": "files/2027-admission-guide-181.pdf"
+  },
+  {
+    "name": "육군사관학교",
+    "type": "국립",
+    "home": "https://www.kma.ac.kr",
+    "region": "서울",
+    "lat": 37.623,
+    "lng": 127.103,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-140.pdf",
+    "admission": "files/2027-admission-guide-182.pdf"
+  },
+  {
+    "name": "공군사관학교",
+    "type": "국립",
+    "home": "https://www.afa.ac.kr",
+    "region": "충북",
+    "lat": 36.568,
+    "lng": 127.556,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-141.pdf",
+    "admission": "files/2027-admission-guide-183.pdf"
+  },
+  {
+    "name": "해군사관학교",
+    "type": "국립",
+    "home": "https://www.navy.ac.kr",
+    "region": "경남",
+    "lat": 35.139,
+    "lng": 128.692,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-142.pdf",
+    "admission": "files/2027-admission-guide-184.pdf"
+  },
+  {
+    "name": "국군간호사관학교",
+    "type": "국립",
+    "home": "https://www.kafna.ac.kr",
+    "region": "대전",
+    "lat": 36.362,
+    "lng": 127.33,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-143.pdf",
+    "admission": "files/2027-admission-guide-185.pdf"
+  },
+  {
+    "name": "한국전통문화대학교",
+    "type": "국립",
+    "home": "https://www.nuch.ac.kr",
+    "region": "충남",
+    "lat": 36.2745,
+    "lng": 126.91,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "report": "files/2026-prior-learning-144.pdf",
+    "admission": "files/2027-admission-guide-186.pdf"
+  },
+  {
+    "name": "호원대학교",
+    "type": "사립",
+    "home": "https://ipsi.howon.ac.kr",
+    "region": "전북",
+    "lat": 35.975,
+    "lng": 126.736,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "admission": "files/2027-admission-guide-187.pdf"
+  },
+  {
+    "name": "한국예술종합학교",
+    "type": "국립",
+    "home": "https://www.karts.ac.kr",
+    "region": "서울",
+    "lat": 37.608,
+    "lng": 127.056,
+    "added": true,
+    "campuses": [
+      {
+        "c": "본교"
+      }
+    ],
+    "admission": "files/2027-admission-guide-188.pdf"
+  }
+]

@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2028학년도 입학전형 시행계획 — 교육대학교 9개교</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #080e1e;
+    --bg-card: #0e1626;
+    --bg-card2: #121e30;
+    --text-main: #e8eef8;
+    --text-sub: #8898b8;
+    --border: rgba(80,120,200,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── UNIVERSITY SWITCHER ── */
+  .univ-switcher {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .univ-switcher label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+  .univ-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 36px 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    outline: none;
+    transition: border-color .2s, background .2s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+  .univ-select:hover { border-color: rgba(255,255,255,0.45); background-color: rgba(255,255,255,0.12); }
+  .univ-select option { background: #1a1a2e; color: #fff; }
+
+  /* ── COMMON ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .two-col { grid-template-columns: 1fr !important; }
+    .three-col { grid-template-columns: 1fr !important; }
+    .univ-switcher { top: 10px; right: 10px; }
+    .univ-switcher label { display: none; }
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  .tag-new { display:inline-block; background:rgba(111,207,138,0.12); color:#6fcf8a; border:1px solid rgba(111,207,138,0.3); font-size:10px; padding:1px 7px; border-radius:20px; margin-left:6px; vertical-align:middle; }
+  .tag-del { display:inline-block; background:rgba(248,113,113,0.1); color:#f87171; border:1px solid rgba(248,113,113,0.3); font-size:10px; padding:1px 7px; border-radius:20px; margin-left:6px; vertical-align:middle; }
+  .tag-change { display:inline-block; background:rgba(200,168,75,0.1); color:#c8a84b; border:1px solid rgba(200,168,75,0.3); font-size:10px; padding:1px 7px; border-radius:20px; margin-left:6px; vertical-align:middle; }
+  .delta-pos { color: #6fcf8a; }
+  .delta-neg { color: #f87171; }
+  .delta-neu { color: #8898b8; }
+
+  /* ============================================================
+     서울교대 ─ 딥 다크 + 스카이 블루 · 화이트
+  ============================================================ */
+  :root {
+    --se-blue: #1060c0;
+    --se-blue-mid: #2080e0;
+    --se-blue-light: #60b0ff;
+    --se-sky: #80d0ff;
+    --se-bg-dark: #050c1a;
+    --se-bg-card: #091424;
+    --se-bg-card2: #0d1c30;
+    --se-text-main: #d8eeff;
+    --se-text-sub: #6090b8;
+    --se-text-accent: #60b0ff;
+    --se-border: rgba(32,128,224,0.18);
+    --se-border-acc: rgba(96,176,255,0.32);
+  }
+  #page-seoul { display: block; }
+
+  .se-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--se-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--se-bg-dark) 0%,#081020 100%); }
+  .se-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(16,96,192,0.18) 0%,transparent 70%); }
+  .se-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(32,128,224,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(32,128,224,0.04) 1px,transparent 1px); background-size:50px 50px; }
+  .se-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--se-sky); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .se-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .se-hero h1 span { color:var(--se-blue-light); }
+  .se-hero-sub { font-size:15px; color:var(--se-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .se-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--se-blue),var(--se-blue-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .se-nav { position:sticky; top:0; z-index:100; background:rgba(5,12,26,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--se-border); padding:0 40px; }
+  .se-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .se-nav-inner::-webkit-scrollbar { display:none; }
+  .se-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--se-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .se-nav-link:hover { color:var(--se-text-main); border-bottom-color:var(--se-blue-light); }
+  .se-section { padding:52px 0 36px; border-bottom:1px solid var(--se-border); }
+  .se-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--se-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .se-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--se-blue-light),var(--se-blue)); border-radius:2px; flex-shrink:0; }
+  .se-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .se-stat-card { background:var(--se-bg-card); border:1px solid var(--se-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .se-stat-card:hover { border-color:var(--se-blue-light); transform:translateY(-2px); }
+  .se-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--se-blue),var(--se-blue-light)); opacity:0; transition:opacity .3s; }
+  .se-stat-card:hover::after { opacity:1; }
+  .se-stat-label { font-size:11px; color:var(--se-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .se-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .se-stat-value span { font-size:13px; color:var(--se-text-sub); margin-left:3px; }
+  .se-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .se-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .se-table th { background:rgba(16,96,192,0.18); color:var(--se-blue-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--se-border); }
+  .se-table td { padding:10px 12px; border-bottom:1px solid rgba(32,128,224,0.07); color:var(--se-text-main); vertical-align:top; line-height:1.5; }
+  .se-table tr:last-child td { border-bottom:none; }
+  .se-table tr:hover td { background:rgba(32,128,224,0.04); }
+  .se-panel { background:var(--se-bg-card); border:1px solid var(--se-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .se-panel-title { font-size:13px; font-weight:500; color:var(--se-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .se-key-box { background:linear-gradient(135deg,rgba(16,96,192,0.14),rgba(16,96,192,0.05)); border:1px solid rgba(32,128,224,0.2); border-left:3px solid var(--se-blue-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .se-key-box-title { font-size:12px; color:var(--se-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .se-key-box p { font-size:13px; color:var(--se-text-sub); line-height:1.6; }
+  .se-key-box p strong { color:var(--se-text-main); }
+  .se-key-box-gold { background:linear-gradient(135deg,rgba(200,168,75,0.1),rgba(200,168,75,0.03)); border:1px solid rgba(200,168,75,0.25); border-left:3px solid #c8a84b; border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .se-key-box-gold .se-key-box-title { color:#c8a84b; }
+  .se-key-box-gold p { font-size:13px; color:var(--se-text-sub); line-height:1.6; }
+  .se-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--se-text-sub); border-top:1px solid var(--se-border); }
+  .notice { font-size:11px; color:var(--se-text-sub); margin-top:10px; padding-top:10px; border-top:1px dashed rgba(32,128,224,0.15); }
+
+  /* ============================================================
+     경인교대 ─ 딥 다크 + 인디고
+  ============================================================ */
+  :root {
+    --gi-indigo: #3040c0;
+    --gi-indigo-mid: #4060e0;
+    --gi-indigo-light: #8090ff;
+    --gi-purple: #9080e8;
+    --gi-bg-dark: #060812;
+    --gi-bg-card: #0a0e22;
+    --gi-bg-card2: #0e1430;
+    --gi-text-main: #dde0ff;
+    --gi-text-sub: #7080b8;
+    --gi-text-accent: #8090ff;
+    --gi-border: rgba(64,96,224,0.18);
+    --gi-border-acc: rgba(128,144,255,0.32);
+  }
+  #page-gyeongin { display: none; }
+
+  .gi-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--gi-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--gi-bg-dark) 0%,#08082a 100%); }
+  .gi-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(48,64,192,0.18) 0%,transparent 70%); }
+  .gi-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(64,96,224,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(64,96,224,0.04) 1px,transparent 1px); background-size:50px 50px; }
+  .gi-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--gi-purple); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .gi-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .gi-hero h1 span { color:var(--gi-indigo-light); }
+  .gi-hero-sub { font-size:15px; color:var(--gi-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .gi-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--gi-indigo),var(--gi-indigo-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .gi-nav { position:sticky; top:0; z-index:100; background:rgba(6,8,18,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--gi-border); padding:0 40px; }
+  .gi-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .gi-nav-inner::-webkit-scrollbar { display:none; }
+  .gi-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--gi-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .gi-nav-link:hover { color:var(--gi-text-main); border-bottom-color:var(--gi-indigo-light); }
+  .gi-section { padding:52px 0 36px; border-bottom:1px solid var(--gi-border); }
+  .gi-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--gi-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .gi-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--gi-indigo-light),var(--gi-indigo)); border-radius:2px; flex-shrink:0; }
+  .gi-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .gi-stat-card { background:var(--gi-bg-card); border:1px solid var(--gi-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .gi-stat-card:hover { border-color:var(--gi-indigo-light); transform:translateY(-2px); }
+  .gi-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gi-indigo),var(--gi-indigo-light)); opacity:0; transition:opacity .3s; }
+  .gi-stat-card:hover::after { opacity:1; }
+  .gi-stat-label { font-size:11px; color:var(--gi-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .gi-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .gi-stat-value span { font-size:13px; color:var(--gi-text-sub); margin-left:3px; }
+  .gi-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .gi-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .gi-table th { background:rgba(48,64,192,0.18); color:var(--gi-indigo-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--gi-border); }
+  .gi-table td { padding:10px 12px; border-bottom:1px solid rgba(64,96,224,0.07); color:var(--gi-text-main); vertical-align:top; line-height:1.5; }
+  .gi-table tr:last-child td { border-bottom:none; }
+  .gi-table tr:hover td { background:rgba(64,96,224,0.04); }
+  .gi-panel { background:var(--gi-bg-card); border:1px solid var(--gi-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .gi-panel-title { font-size:13px; font-weight:500; color:var(--gi-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .gi-key-box { background:linear-gradient(135deg,rgba(48,64,192,0.14),rgba(48,64,192,0.05)); border:1px solid rgba(64,96,224,0.2); border-left:3px solid var(--gi-indigo-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .gi-key-box-title { font-size:12px; color:var(--gi-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .gi-key-box p { font-size:13px; color:var(--gi-text-sub); line-height:1.6; }
+  .gi-key-box p strong { color:var(--gi-text-main); }
+  .gi-key-box-gold { background:linear-gradient(135deg,rgba(200,168,75,0.1),rgba(200,168,75,0.03)); border:1px solid rgba(200,168,75,0.25); border-left:3px solid #c8a84b; border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .gi-key-box-gold .gi-key-box-title { color:#c8a84b; }
+  .gi-key-box-gold p { font-size:13px; color:var(--gi-text-sub); line-height:1.6; }
+  .gi-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--gi-text-sub); border-top:1px solid var(--gi-border); }
+  .gi-notice { font-size:11px; color:var(--gi-text-sub); margin-top:10px; padding-top:10px; border-top:1px dashed rgba(64,96,224,0.15); }
+
+  /* ============================================================
+     공주교대 ─ 딥 다크 + 에메랄드 / 청록
+  ============================================================ */
+  :root {
+    --gj-teal: #0a9080;
+    --gj-teal-mid: #0cb0a0;
+    --gj-teal-light: #40d8c0;
+    --gj-cyan: #60ffe0;
+    --gj-bg-dark: #051210;
+    --gj-bg-card: #081e1a;
+    --gj-bg-card2: #0c2820;
+    --gj-text-main: #d0f8f0;
+    --gj-text-sub: #608a80;
+    --gj-text-accent: #40d8c0;
+    --gj-border: rgba(10,144,128,0.18);
+    --gj-border-acc: rgba(64,216,192,0.32);
+  }
+  #page-gongju { display: none; }
+
+  .gj-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--gj-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--gj-bg-dark) 0%,#061814 100%); }
+  .gj-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(10,144,128,0.18) 0%,transparent 70%); }
+  .gj-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(10,144,128,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(10,144,128,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .gj-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--gj-cyan); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .gj-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .gj-hero h1 span { color:var(--gj-teal-light); }
+  .gj-hero-sub { font-size:15px; color:var(--gj-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .gj-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--gj-teal),var(--gj-teal-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .gj-nav { position:sticky; top:0; z-index:100; background:rgba(5,18,16,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--gj-border); padding:0 40px; }
+  .gj-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .gj-nav-inner::-webkit-scrollbar { display:none; }
+  .gj-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--gj-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .gj-nav-link:hover { color:var(--gj-text-main); border-bottom-color:var(--gj-teal-light); }
+  .gj-section { padding:52px 0 36px; border-bottom:1px solid var(--gj-border); }
+  .gj-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--gj-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .gj-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--gj-teal-light),var(--gj-teal)); border-radius:2px; flex-shrink:0; }
+  .gj-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .gj-stat-card { background:var(--gj-bg-card); border:1px solid var(--gj-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .gj-stat-card:hover { border-color:var(--gj-teal-light); transform:translateY(-2px); }
+  .gj-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gj-teal),var(--gj-teal-light)); opacity:0; transition:opacity .3s; }
+  .gj-stat-card:hover::after { opacity:1; }
+  .gj-stat-label { font-size:11px; color:var(--gj-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .gj-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .gj-stat-value span { font-size:13px; color:var(--gj-text-sub); margin-left:3px; }
+  .gj-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .gj-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .gj-table th { background:rgba(10,144,128,0.18); color:var(--gj-teal-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--gj-border); }
+  .gj-table td { padding:10px 12px; border-bottom:1px solid rgba(10,144,128,0.07); color:var(--gj-text-main); vertical-align:top; line-height:1.5; }
+  .gj-table tr:last-child td { border-bottom:none; }
+  .gj-table tr:hover td { background:rgba(10,144,128,0.04); }
+  .gj-panel { background:var(--gj-bg-card); border:1px solid var(--gj-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .gj-panel-title { font-size:13px; font-weight:500; color:var(--gj-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .gj-key-box { background:linear-gradient(135deg,rgba(10,144,128,0.14),rgba(10,144,128,0.05)); border:1px solid rgba(10,144,128,0.2); border-left:3px solid var(--gj-teal-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .gj-key-box-title { font-size:12px; color:var(--gj-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .gj-key-box p { font-size:13px; color:var(--gj-text-sub); line-height:1.6; }
+  .gj-key-box p strong { color:var(--gj-text-main); }
+  .gj-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--gj-text-sub); border-top:1px solid var(--gj-border); }
+  .gj-notice { font-size:11px; color:var(--gj-text-sub); margin-top:10px; padding-top:10px; border-top:1px dashed rgba(10,144,128,0.15); }
+
+  /* ============================================================
+     광주교대 ─ 딥 다크 + 오렌지 레드
+  ============================================================ */
+  :root {
+    --gw-orange: #d04010;
+    --gw-orange-mid: #e86020;
+    --gw-orange-light: #ff9050;
+    --gw-yellow: #ffb870;
+    --gw-bg-dark: #140a05;
+    --gw-bg-card: #201008;
+    --gw-bg-card2: #2a180a;
+    --gw-text-main: #fff0e0;
+    --gw-text-sub: #a07060;
+    --gw-text-accent: #ff9050;
+    --gw-border: rgba(208,64,16,0.18);
+    --gw-border-acc: rgba(255,144,80,0.32);
+  }
+  #page-gwangju { display: none; }
+
+  .gw-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--gw-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--gw-bg-dark) 0%,#1c0c06 100%); }
+  .gw-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(208,64,16,0.18) 0%,transparent 70%); }
+  .gw-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(208,64,16,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(208,64,16,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .gw-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--gw-yellow); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .gw-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .gw-hero h1 span { color:var(--gw-orange-light); }
+  .gw-hero-sub { font-size:15px; color:var(--gw-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .gw-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--gw-orange),var(--gw-orange-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .gw-nav { position:sticky; top:0; z-index:100; background:rgba(20,10,5,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--gw-border); padding:0 40px; }
+  .gw-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .gw-nav-inner::-webkit-scrollbar { display:none; }
+  .gw-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--gw-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .gw-nav-link:hover { color:var(--gw-text-main); border-bottom-color:var(--gw-orange-light); }
+  .gw-section { padding:52px 0 36px; border-bottom:1px solid var(--gw-border); }
+  .gw-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--gw-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .gw-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--gw-orange-light),var(--gw-orange)); border-radius:2px; flex-shrink:0; }
+  .gw-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .gw-stat-card { background:var(--gw-bg-card); border:1px solid var(--gw-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .gw-stat-card:hover { border-color:var(--gw-orange-light); transform:translateY(-2px); }
+  .gw-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gw-orange),var(--gw-orange-light)); opacity:0; transition:opacity .3s; }
+  .gw-stat-card:hover::after { opacity:1; }
+  .gw-stat-label { font-size:11px; color:var(--gw-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .gw-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .gw-stat-value span { font-size:13px; color:var(--gw-text-sub); margin-left:3px; }
+  .gw-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .gw-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .gw-table th { background:rgba(208,64,16,0.18); color:var(--gw-orange-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--gw-border); }
+  .gw-table td { padding:10px 12px; border-bottom:1px solid rgba(208,64,16,0.07); color:var(--gw-text-main); vertical-align:top; line-height:1.5; }
+  .gw-table tr:last-child td { border-bottom:none; }
+  .gw-table tr:hover td { background:rgba(208,64,16,0.04); }
+  .gw-panel { background:var(--gw-bg-card); border:1px solid var(--gw-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .gw-panel-title { font-size:13px; font-weight:500; color:var(--gw-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .gw-key-box { background:linear-gradient(135deg,rgba(208,64,16,0.14),rgba(208,64,16,0.05)); border:1px solid rgba(208,64,16,0.2); border-left:3px solid var(--gw-orange-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .gw-key-box-title { font-size:12px; color:var(--gw-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .gw-key-box p { font-size:13px; color:var(--gw-text-sub); line-height:1.6; }
+  .gw-key-box p strong { color:var(--gw-text-main); }
+  .gw-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--gw-text-sub); border-top:1px solid var(--gw-border); }
+
+  /* ============================================================
+     대구교대 ─ 딥 다크 + 그린
+  ============================================================ */
+  :root {
+    --dg-green: #1a8040;
+    --dg-green-mid: #28a050;
+    --dg-green-light: #50d080;
+    --dg-lime: #a0f060;
+    --dg-bg-dark: #051008;
+    --dg-bg-card: #081a0c;
+    --dg-bg-card2: #0c2414;
+    --dg-text-main: #d8f8e0;
+    --dg-text-sub: #60a070;
+    --dg-text-accent: #50d080;
+    --dg-border: rgba(26,128,64,0.18);
+    --dg-border-acc: rgba(80,208,128,0.32);
+  }
+  #page-daegu { display: none; }
+
+  .dg-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--dg-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--dg-bg-dark) 0%,#061408 100%); }
+  .dg-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(26,128,64,0.18) 0%,transparent 70%); }
+  .dg-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(26,128,64,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(26,128,64,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .dg-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--dg-lime); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .dg-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .dg-hero h1 span { color:var(--dg-green-light); }
+  .dg-hero-sub { font-size:15px; color:var(--dg-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .dg-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--dg-green),var(--dg-green-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .dg-nav { position:sticky; top:0; z-index:100; background:rgba(5,16,8,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--dg-border); padding:0 40px; }
+  .dg-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .dg-nav-inner::-webkit-scrollbar { display:none; }
+  .dg-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--dg-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .dg-nav-link:hover { color:var(--dg-text-main); border-bottom-color:var(--dg-green-light); }
+  .dg-section { padding:52px 0 36px; border-bottom:1px solid var(--dg-border); }
+  .dg-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--dg-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .dg-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--dg-green-light),var(--dg-green)); border-radius:2px; flex-shrink:0; }
+  .dg-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .dg-stat-card { background:var(--dg-bg-card); border:1px solid var(--dg-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .dg-stat-card:hover { border-color:var(--dg-green-light); transform:translateY(-2px); }
+  .dg-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--dg-green),var(--dg-green-light)); opacity:0; transition:opacity .3s; }
+  .dg-stat-card:hover::after { opacity:1; }
+  .dg-stat-label { font-size:11px; color:var(--dg-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .dg-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .dg-stat-value span { font-size:13px; color:var(--dg-text-sub); margin-left:3px; }
+  .dg-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .dg-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .dg-table th { background:rgba(26,128,64,0.18); color:var(--dg-green-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--dg-border); }
+  .dg-table td { padding:10px 12px; border-bottom:1px solid rgba(26,128,64,0.07); color:var(--dg-text-main); vertical-align:top; line-height:1.5; }
+  .dg-table tr:last-child td { border-bottom:none; }
+  .dg-table tr:hover td { background:rgba(26,128,64,0.04); }
+  .dg-panel { background:var(--dg-bg-card); border:1px solid var(--dg-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .dg-panel-title { font-size:13px; font-weight:500; color:var(--dg-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .dg-key-box { background:linear-gradient(135deg,rgba(26,128,64,0.14),rgba(26,128,64,0.05)); border:1px solid rgba(26,128,64,0.2); border-left:3px solid var(--dg-green-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .dg-key-box-title { font-size:12px; color:var(--dg-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .dg-key-box p { font-size:13px; color:var(--dg-text-sub); line-height:1.6; }
+  .dg-key-box p strong { color:var(--dg-text-main); }
+  .dg-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--dg-text-sub); border-top:1px solid var(--dg-border); }
+
+  /* ============================================================
+     부산교대 ─ 딥 다크 + 딥 레드/마룬
+  ============================================================ */
+  :root {
+    --bs-red: #a01828;
+    --bs-red-mid: #c02030;
+    --bs-red-light: #e05060;
+    --bs-rose: #ff8090;
+    --bs-bg-dark: #120508;
+    --bs-bg-card: #1e080e;
+    --bs-bg-card2: #280e14;
+    --bs-text-main: #ffe0e8;
+    --bs-text-sub: #a06070;
+    --bs-text-accent: #e05060;
+    --bs-border: rgba(160,24,40,0.18);
+    --bs-border-acc: rgba(224,80,96,0.32);
+  }
+  #page-busan { display: none; }
+
+  .bs-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--bs-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--bs-bg-dark) 0%,#180608 100%); }
+  .bs-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(160,24,40,0.18) 0%,transparent 70%); }
+  .bs-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(160,24,40,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(160,24,40,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .bs-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--bs-rose); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .bs-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .bs-hero h1 span { color:var(--bs-red-light); }
+  .bs-hero-sub { font-size:15px; color:var(--bs-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .bs-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--bs-red),var(--bs-red-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .bs-nav { position:sticky; top:0; z-index:100; background:rgba(18,5,8,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--bs-border); padding:0 40px; }
+  .bs-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .bs-nav-inner::-webkit-scrollbar { display:none; }
+  .bs-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--bs-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .bs-nav-link:hover { color:var(--bs-text-main); border-bottom-color:var(--bs-red-light); }
+  .bs-section { padding:52px 0 36px; border-bottom:1px solid var(--bs-border); }
+  .bs-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--bs-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .bs-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--bs-red-light),var(--bs-red)); border-radius:2px; flex-shrink:0; }
+  .bs-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .bs-stat-card { background:var(--bs-bg-card); border:1px solid var(--bs-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .bs-stat-card:hover { border-color:var(--bs-red-light); transform:translateY(-2px); }
+  .bs-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--bs-red),var(--bs-red-light)); opacity:0; transition:opacity .3s; }
+  .bs-stat-card:hover::after { opacity:1; }
+  .bs-stat-label { font-size:11px; color:var(--bs-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .bs-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .bs-stat-value span { font-size:13px; color:var(--bs-text-sub); margin-left:3px; }
+  .bs-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .bs-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .bs-table th { background:rgba(160,24,40,0.18); color:var(--bs-red-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--bs-border); }
+  .bs-table td { padding:10px 12px; border-bottom:1px solid rgba(160,24,40,0.07); color:var(--bs-text-main); vertical-align:top; line-height:1.5; }
+  .bs-table tr:last-child td { border-bottom:none; }
+  .bs-table tr:hover td { background:rgba(160,24,40,0.04); }
+  .bs-panel { background:var(--bs-bg-card); border:1px solid var(--bs-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .bs-panel-title { font-size:13px; font-weight:500; color:var(--bs-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .bs-key-box { background:linear-gradient(135deg,rgba(160,24,40,0.14),rgba(160,24,40,0.05)); border:1px solid rgba(160,24,40,0.2); border-left:3px solid var(--bs-red-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .bs-key-box-title { font-size:12px; color:var(--bs-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .bs-key-box p { font-size:13px; color:var(--bs-text-sub); line-height:1.6; }
+  .bs-key-box p strong { color:var(--bs-text-main); }
+  .bs-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--bs-text-sub); border-top:1px solid var(--bs-border); }
+
+  /* ============================================================
+     진주교대 ─ 딥 다크 + 앰버/골드
+  ============================================================ */
+  :root {
+    --jj-amber: #b07010;
+    --jj-amber-mid: #d09020;
+    --jj-amber-light: #f0b840;
+    --jj-gold: #ffd060;
+    --jj-bg-dark: #100c02;
+    --jj-bg-card: #1c1404;
+    --jj-bg-card2: #261c06;
+    --jj-text-main: #fff8d8;
+    --jj-text-sub: #a09050;
+    --jj-text-accent: #f0b840;
+    --jj-border: rgba(176,112,16,0.18);
+    --jj-border-acc: rgba(240,184,64,0.32);
+  }
+  #page-jinju { display: none; }
+
+  .jj-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--jj-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--jj-bg-dark) 0%,#160e02 100%); }
+  .jj-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(176,112,16,0.18) 0%,transparent 70%); }
+  .jj-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(176,112,16,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(176,112,16,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .jj-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--jj-gold); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .jj-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .jj-hero h1 span { color:var(--jj-amber-light); }
+  .jj-hero-sub { font-size:15px; color:var(--jj-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .jj-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--jj-amber),var(--jj-amber-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .jj-nav { position:sticky; top:0; z-index:100; background:rgba(16,12,2,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--jj-border); padding:0 40px; }
+  .jj-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .jj-nav-inner::-webkit-scrollbar { display:none; }
+  .jj-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--jj-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .jj-nav-link:hover { color:var(--jj-text-main); border-bottom-color:var(--jj-amber-light); }
+  .jj-section { padding:52px 0 36px; border-bottom:1px solid var(--jj-border); }
+  .jj-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--jj-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .jj-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--jj-amber-light),var(--jj-amber)); border-radius:2px; flex-shrink:0; }
+  .jj-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .jj-stat-card { background:var(--jj-bg-card); border:1px solid var(--jj-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .jj-stat-card:hover { border-color:var(--jj-amber-light); transform:translateY(-2px); }
+  .jj-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--jj-amber),var(--jj-amber-light)); opacity:0; transition:opacity .3s; }
+  .jj-stat-card:hover::after { opacity:1; }
+  .jj-stat-label { font-size:11px; color:var(--jj-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .jj-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .jj-stat-value span { font-size:13px; color:var(--jj-text-sub); margin-left:3px; }
+  .jj-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .jj-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .jj-table th { background:rgba(176,112,16,0.18); color:var(--jj-amber-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--jj-border); }
+  .jj-table td { padding:10px 12px; border-bottom:1px solid rgba(176,112,16,0.07); color:var(--jj-text-main); vertical-align:top; line-height:1.5; }
+  .jj-table tr:last-child td { border-bottom:none; }
+  .jj-table tr:hover td { background:rgba(176,112,16,0.04); }
+  .jj-panel { background:var(--jj-bg-card); border:1px solid var(--jj-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .jj-panel-title { font-size:13px; font-weight:500; color:var(--jj-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .jj-key-box { background:linear-gradient(135deg,rgba(176,112,16,0.14),rgba(176,112,16,0.05)); border:1px solid rgba(176,112,16,0.2); border-left:3px solid var(--jj-amber-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .jj-key-box-title { font-size:12px; color:var(--jj-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .jj-key-box p { font-size:13px; color:var(--jj-text-sub); line-height:1.6; }
+  .jj-key-box p strong { color:var(--jj-text-main); }
+  .jj-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--jj-text-sub); border-top:1px solid var(--jj-border); }
+
+  /* ============================================================
+     청주교대 ─ 딥 다크 + 사파이어/스틸블루
+  ============================================================ */
+  :root {
+    --cj-blue: #1848a0;
+    --cj-blue-mid: #2060c0;
+    --cj-blue-light: #5090e0;
+    --cj-steel: #90c0f0;
+    --cj-bg-dark: #050a14;
+    --cj-bg-card: #08121e;
+    --cj-bg-card2: #0c1a2a;
+    --cj-text-main: #d8eaff;
+    --cj-text-sub: #6088a8;
+    --cj-text-accent: #5090e0;
+    --cj-border: rgba(24,72,160,0.18);
+    --cj-border-acc: rgba(80,144,224,0.32);
+  }
+  #page-cheongju { display: none; }
+
+  .cj-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--cj-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--cj-bg-dark) 0%,#060c18 100%); }
+  .cj-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(24,72,160,0.18) 0%,transparent 70%); }
+  .cj-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(24,72,160,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(24,72,160,0.04) 1px,transparent 1px); background-size:50px 50px; }
+  .cj-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--cj-steel); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .cj-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .cj-hero h1 span { color:var(--cj-blue-light); }
+  .cj-hero-sub { font-size:15px; color:var(--cj-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .cj-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--cj-blue),var(--cj-blue-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .cj-nav { position:sticky; top:0; z-index:100; background:rgba(5,10,20,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--cj-border); padding:0 40px; }
+  .cj-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .cj-nav-inner::-webkit-scrollbar { display:none; }
+  .cj-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--cj-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .cj-nav-link:hover { color:var(--cj-text-main); border-bottom-color:var(--cj-blue-light); }
+  .cj-section { padding:52px 0 36px; border-bottom:1px solid var(--cj-border); }
+  .cj-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--cj-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .cj-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--cj-blue-light),var(--cj-blue)); border-radius:2px; flex-shrink:0; }
+  .cj-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .cj-stat-card { background:var(--cj-bg-card); border:1px solid var(--cj-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .cj-stat-card:hover { border-color:var(--cj-blue-light); transform:translateY(-2px); }
+  .cj-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--cj-blue),var(--cj-blue-light)); opacity:0; transition:opacity .3s; }
+  .cj-stat-card:hover::after { opacity:1; }
+  .cj-stat-label { font-size:11px; color:var(--cj-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .cj-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .cj-stat-value span { font-size:13px; color:var(--cj-text-sub); margin-left:3px; }
+  .cj-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .cj-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .cj-table th { background:rgba(24,72,160,0.18); color:var(--cj-blue-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--cj-border); }
+  .cj-table td { padding:10px 12px; border-bottom:1px solid rgba(24,72,160,0.07); color:var(--cj-text-main); vertical-align:top; line-height:1.5; }
+  .cj-table tr:last-child td { border-bottom:none; }
+  .cj-table tr:hover td { background:rgba(24,72,160,0.04); }
+  .cj-panel { background:var(--cj-bg-card); border:1px solid var(--cj-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .cj-panel-title { font-size:13px; font-weight:500; color:var(--cj-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .cj-key-box { background:linear-gradient(135deg,rgba(24,72,160,0.14),rgba(24,72,160,0.05)); border:1px solid rgba(24,72,160,0.2); border-left:3px solid var(--cj-blue-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .cj-key-box-title { font-size:12px; color:var(--cj-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .cj-key-box p { font-size:13px; color:var(--cj-text-sub); line-height:1.6; }
+  .cj-key-box p strong { color:var(--cj-text-main); }
+  .cj-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--cj-text-sub); border-top:1px solid var(--cj-border); }
+
+  /* ============================================================
+     춘천교대 ─ 딥 다크 + 바이올렛/라벤더
+  ============================================================ */
+  :root {
+    --cc-violet: #5030a0;
+    --cc-violet-mid: #7050c0;
+    --cc-violet-light: #a080e8;
+    --cc-lavender: #c8a8ff;
+    --cc-bg-dark: #0a0614;
+    --cc-bg-card: #100a20;
+    --cc-bg-card2: #160e2a;
+    --cc-text-main: #ecdcff;
+    --cc-text-sub: #806898;
+    --cc-text-accent: #a080e8;
+    --cc-border: rgba(80,48,160,0.18);
+    --cc-border-acc: rgba(160,128,232,0.32);
+  }
+  #page-chuncheon { display: none; }
+
+  .cc-hero { position:relative; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:60px 60px 50px; border-bottom:1px solid var(--cc-border-acc); overflow:hidden; background:linear-gradient(135deg,var(--cc-bg-dark) 0%,#0e0820 100%); }
+  .cc-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 110% at 90% 50%,rgba(80,48,160,0.18) 0%,transparent 70%); }
+  .cc-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(80,48,160,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(80,48,160,0.05) 1px,transparent 1px); background-size:50px 50px; }
+  .cc-hero-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--cc-lavender); margin-bottom:16px; font-weight:500; position:relative; z-index:1; }
+  .cc-hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+  .cc-hero h1 span { color:var(--cc-violet-light); }
+  .cc-hero-sub { font-size:15px; color:var(--cc-text-sub); margin-top:8px; position:relative; z-index:1; }
+  .cc-hero-badge { display:inline-block; background:linear-gradient(135deg,var(--cc-violet),var(--cc-violet-mid)); color:#fff; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:2px; margin-top:18px; font-weight:500; position:relative; z-index:1; }
+  .cc-nav { position:sticky; top:0; z-index:100; background:rgba(10,6,20,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--cc-border); padding:0 40px; }
+  .cc-nav-inner { display:flex; max-width:1200px; margin:0 auto; overflow-x:auto; scrollbar-width:none; }
+  .cc-nav-inner::-webkit-scrollbar { display:none; }
+  .cc-nav-link { display:block; padding:14px 16px; font-size:12px; color:var(--cc-text-sub); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s,border-color .2s; letter-spacing:.5px; }
+  .cc-nav-link:hover { color:var(--cc-text-main); border-bottom-color:var(--cc-violet-light); }
+  .cc-section { padding:52px 0 36px; border-bottom:1px solid var(--cc-border); }
+  .cc-section-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:600; color:var(--cc-text-accent); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .cc-section-title::before { content:''; width:4px; height:20px; background:linear-gradient(180deg,var(--cc-violet-light),var(--cc-violet)); border-radius:2px; flex-shrink:0; }
+  .cc-stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:28px; }
+  .cc-stat-card { background:var(--cc-bg-card); border:1px solid var(--cc-border); border-radius:8px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .3s,transform .2s; }
+  .cc-stat-card:hover { border-color:var(--cc-violet-light); transform:translateY(-2px); }
+  .cc-stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--cc-violet),var(--cc-violet-light)); opacity:0; transition:opacity .3s; }
+  .cc-stat-card:hover::after { opacity:1; }
+  .cc-stat-label { font-size:11px; color:var(--cc-text-sub); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .cc-stat-value { font-size:30px; font-family:'Noto Serif KR',serif; font-weight:700; color:#fff; line-height:1; }
+  .cc-stat-value span { font-size:13px; color:var(--cc-text-sub); margin-left:3px; }
+  .cc-stat-delta { font-size:11px; margin-top:5px; font-weight:500; }
+  .cc-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .cc-table th { background:rgba(80,48,160,0.18); color:var(--cc-violet-light); font-size:11px; font-weight:500; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--cc-border); }
+  .cc-table td { padding:10px 12px; border-bottom:1px solid rgba(80,48,160,0.07); color:var(--cc-text-main); vertical-align:top; line-height:1.5; }
+  .cc-table tr:last-child td { border-bottom:none; }
+  .cc-table tr:hover td { background:rgba(80,48,160,0.04); }
+  .cc-panel { background:var(--cc-bg-card); border:1px solid var(--cc-border); border-radius:8px; padding:22px; margin-bottom:16px; }
+  .cc-panel-title { font-size:13px; font-weight:500; color:var(--cc-text-accent); margin-bottom:14px; letter-spacing:.5px; }
+  .cc-key-box { background:linear-gradient(135deg,rgba(80,48,160,0.14),rgba(80,48,160,0.05)); border:1px solid rgba(80,48,160,0.2); border-left:3px solid var(--cc-violet-light); border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .cc-key-box-title { font-size:12px; color:var(--cc-text-accent); font-weight:500; letter-spacing:1px; margin-bottom:5px; }
+  .cc-key-box p { font-size:13px; color:var(--cc-text-sub); line-height:1.6; }
+  .cc-key-box p strong { color:var(--cc-text-main); }
+  .cc-key-box-gold { background:linear-gradient(135deg,rgba(200,168,75,0.1),rgba(200,168,75,0.03)); border:1px solid rgba(200,168,75,0.25); border-left:3px solid #c8a84b; border-radius:6px; padding:14px 18px; margin-bottom:12px; }
+  .cc-key-box-gold .cc-key-box-title { color:#c8a84b; }
+  .cc-key-box-gold p { font-size:13px; color:var(--cc-text-sub); line-height:1.6; }
+  .cc-footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--cc-text-sub); border-top:1px solid var(--cc-border); }
+</style>
+</head>
+<body>
+
+<!-- 대학 선택기 -->
+ <div style="margin-bottom: 20px;">
+<a href="index.html" class="btn" style="background-color: #1b2430; color: #ffffff; border: none; text-decoration: none; padding: 10px 18px;">🏠 메인 화면으로 돌아가기</a>
+</div>
+<section class="hero" aria-labelledby="pageTitle">
+<div class="univ-switcher">
+  <label>대학 선택</label>
+  <select class="univ-select" onchange="switchUniv(this.value)">
+    <option value="seoul">서울교육대학교</option>
+    <option value="gyeongin">경인교육대학교</option>
+    <option value="gongju">공주교육대학교</option>
+    <option value="gwangju">광주교육대학교</option>
+    <option value="daegu">대구교육대학교</option>
+    <option value="busan">부산교육대학교</option>
+    <option value="jinju">진주교육대학교</option>
+    <option value="cheongju">청주교육대학교</option>
+    <option value="chuncheon">춘천교육대학교</option>
+  </select>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     서울교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-seoul">
+  <div class="se-hero">
+    <div class="se-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="se-hero-label">Seoul National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>서울교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="se-hero-sub">초등교육과 · 서울특별시 서초구 · 2026년 4월 발표</div>
+      <div class="se-hero-badge">SNUE · 서울교대</div>
+    </div>
+  </div>
+
+  <nav class="se-nav">
+    <div class="se-nav-inner">
+      <a class="se-nav-link" href="#se-overview">전형 개요</a>
+      <a class="se-nav-link" href="#se-susi">수시모집</a>
+      <a class="se-nav-link" href="#se-jeongsi">정시모집</a>
+      <a class="se-nav-link" href="#se-csat">수능 최저</a>
+      <a class="se-nav-link" href="#se-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="se-section" id="se-overview">
+      <div class="se-section-title">📊 2028학년도 전형 개요</div>
+      <div class="se-stat-row">
+        <div class="se-stat-card">
+          <div class="se-stat-label">총 모집인원</div>
+          <div class="se-stat-value">355<span>명</span></div>
+          <div class="se-stat-delta delta-neu">수시 245 + 정시 110</div>
+        </div>
+        <div class="se-stat-card">
+          <div class="se-stat-label">수시 합계</div>
+          <div class="se-stat-value">245<span>명</span></div>
+          <div class="se-stat-delta delta-neu">정원내 228</div>
+        </div>
+        <div class="se-stat-card">
+          <div class="se-stat-label">정시(나군)</div>
+          <div class="se-stat-value">110<span>명</span></div>
+          <div class="se-stat-delta delta-pos">2026 이월 3명 포함</div>
+        </div>
+        <div class="se-stat-card">
+          <div class="se-stat-label">수능 최저</div>
+          <div class="se-stat-value" style="font-size:16px;">전형별 상이</div>
+          <div class="se-stat-delta delta-neu">교직인성 2개 합 6↑</div>
+        </div>
+        <div class="se-stat-card">
+          <div class="se-stat-label">모집시기</div>
+          <div class="se-stat-value" style="font-size:16px;">수·정시</div>
+          <div class="se-stat-delta delta-neu">정시 나군</div>
+        </div>
+      </div>
+
+      <table class="se-table">
+        <thead><tr><th>모집시기</th><th>전형유형</th><th>전형명</th><th>모집인원</th><th>정원구분</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="8" style="color:var(--se-sky);font-weight:500;">수시</td><td>학생부교과</td><td><strong style="color:var(--se-text-accent)">학교장추천전형</strong></td><td><strong style="color:#fff">40명</strong></td><td>정원 내</td></tr>
+          <tr><td>학생부종합</td><td><strong style="color:var(--se-text-accent)">교직인성우수자전형</strong></td><td><strong style="color:#fff">150명</strong></td><td>정원 내</td></tr>
+          <tr><td>기회균형Ⅰ</td><td>국가보훈대상자전형</td><td>5명</td><td>정원 내</td></tr>
+          <tr><td>기회균형Ⅰ</td><td>농어촌학생전형</td><td>10명</td><td>정원 내</td></tr>
+          <tr><td>기회균형Ⅱ</td><td>기초생활수급자등전형</td><td>19명</td><td>정원 외</td></tr>
+          <tr><td>기회균형Ⅱ</td><td>장애인등대상자전형</td><td>11명</td><td>정원 외</td></tr>
+          <tr><td>기타</td><td>재외국민특별전형</td><td>7명</td><td>정원 외</td></tr>
+          <tr><td>기타</td><td>북한이탈학생전형</td><td>3명</td><td>정원 외</td></tr>
+          <tr><td style="color:var(--se-sky);font-weight:500;">정시(나)</td><td>수능위주</td><td><strong style="color:var(--se-text-accent)">일반전형</strong></td><td><strong style="color:#fff">110명</strong></td><td>정원 내</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="se-section" id="se-susi">
+      <div class="se-section-title">📋 수시모집 전형방법</div>
+      <div class="two-col">
+        <div class="se-panel">
+          <div class="se-panel-title">🎓 학교장추천전형 (40명)</div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">1단계 (2배수)</div>
+            <p>학생부 교과성적 <strong>70%</strong> + 교과 정성평가 <strong>30%</strong></p>
+          </div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">2단계 (최종)</div>
+            <p>1단계 성적 <strong>80%</strong> + 면접평가 <strong>20%</strong></p>
+          </div>
+          <div class="se-key-box-gold">
+            <div class="se-key-box-title">지원 자격</div>
+            <p>2028년 2월 국내 고교 졸업예정자 중 <strong>고교장 추천</strong>을 받은 자<br>
+            고교별 재적인원 × 3% 이내 (소수점 첫째자리 올림)<br>
+            <span class="tag-new">최저 미적용</span></p>
+          </div>
+        </div>
+        <div class="se-panel">
+          <div class="se-panel-title">📚 교직인성우수자전형 (150명)</div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">1단계 (1.5배수)</div>
+            <p>학생부 서류평가 <strong>100%</strong></p>
+          </div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">2단계 (최종)</div>
+            <p>1단계 성적 <strong>50%</strong> + 면접평가 <strong>50%</strong></p>
+          </div>
+          <div class="se-key-box-gold">
+            <div class="se-key-box-title">수능 최저학력기준</div>
+            <p><strong>국어·수학·영어·탐구</strong> 중 2개 영역 합 <strong>6등급 이내</strong><br>
+            한국사 <strong>4등급 이내</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:16px;">
+        <div class="se-panel">
+          <div class="se-panel-title">🤝 기회균형특별전형Ⅰ (국가보훈 5명 / 농어촌 10명)</div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">전형방법 (2배수)</div>
+            <p>1단계: 서류평가 100% → 2단계: 1단계 50% + 면접 50%</p>
+          </div>
+          <div class="se-key-box-gold">
+            <div class="se-key-box-title">수능 최저</div>
+            <p>국·수·영·탐 중 2개 합 <strong>8등급 이내</strong> + 한국사 4등급↑</p>
+          </div>
+        </div>
+        <div class="se-panel">
+          <div class="se-panel-title">🤝 기회균형특별전형Ⅱ (기초수급 19명 / 장애인 11명)</div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">전형방법</div>
+            <p>1단계: 서류평가 100% → 2단계: 1단계 50% + 면접 50%</p>
+          </div>
+          <div class="se-key-box-gold">
+            <div class="se-key-box-title">수능 최저</div>
+            <p>국·수·영·탐 중 2개 합 <strong>8등급 이내</strong> + 한국사 4등급↑</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-section" id="se-jeongsi">
+      <div class="se-section-title">🎯 정시모집 — 나군 일반전형 (110명)</div>
+      <div class="two-col">
+        <div class="se-panel">
+          <div class="se-panel-title">전형방법</div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">1단계 (2배수)</div>
+            <p>수능성적 <strong>100%</strong></p>
+          </div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">2단계 (최종)</div>
+            <p>1단계 성적 <strong>80%</strong> + 면접평가 <strong>20%</strong></p>
+          </div>
+          <div class="se-key-box-gold">
+            <div class="se-key-box-title">수능 최저학력기준</div>
+            <p>영어 <strong>3등급 이내</strong>, 한국사 <strong>4등급 이내</strong></p>
+          </div>
+        </div>
+        <div class="se-panel">
+          <div class="se-panel-title">⚠️ 학교폭력 조치사항 반영</div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">수시 — 학교장추천전형</div>
+            <p>1~9호: <strong style="color:#f87171;">지원 자격 제한(추천 불가)</strong></p>
+          </div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">수시 — 교직인성우수자전형</div>
+            <p>1~9호: <strong style="color:#f87171;">1단계 평가 시 부적격 처리</strong></p>
+          </div>
+          <div class="se-key-box">
+            <div class="se-key-box-title">정시 — 일반전형</div>
+            <p>1~9호: <strong style="color:#f87171;">1단계 평가 시 부적격 처리</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-section" id="se-score">
+      <div class="se-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="se-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>탐구(사회/과학)</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--se-sky);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">33.3%</strong></td>
+            <td><strong style="color:#fff">33.3%</strong></td>
+            <td><strong style="color:#fff">33.3%</strong></td>
+            <td>영어 미반영 (최저만 적용)</td>
+          </tr>
+          <tr>
+            <td style="color:var(--se-sky);font-weight:500;">활용지표</td>
+            <td>표준점수</td>
+            <td>표준점수</td>
+            <td>표준점수</td>
+            <td>한국사: 최저 적용만</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="notice">※ 영어 영역은 수능 최저학력기준에만 활용하며 점수 반영에서 제외됨 | 탐구: 사회·과학 중 선택</p>
+    </div>
+
+  </div>
+  <div class="se-footer">
+    ※ 본 자료는 2028학년도 서울교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.<br>
+    입학처: <strong>admission.snue.ac.kr</strong>
+  </div>
+</div><!-- /page-seoul -->
+
+
+<!-- ══════════════════════════════════════════════
+     경인교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-gyeongin">
+  <div class="gi-hero">
+    <div class="gi-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="gi-hero-label">Gyeongin National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>경인교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="gi-hero-sub">초등교육과 · 경기도 안양시 · 2026년 4월 발표</div>
+      <div class="gi-hero-badge">GINUE · 경인교대</div>
+    </div>
+  </div>
+
+  <nav class="gi-nav">
+    <div class="gi-nav-inner">
+      <a class="gi-nav-link" href="#gi-overview">전형 개요</a>
+      <a class="gi-nav-link" href="#gi-susi">수시모집</a>
+      <a class="gi-nav-link" href="#gi-jeongsi">정시모집</a>
+      <a class="gi-nav-link" href="#gi-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="gi-section" id="gi-overview">
+      <div class="gi-section-title">📊 2028학년도 전형 개요</div>
+      <div class="gi-stat-row">
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">총 모집인원</div>
+          <div class="gi-stat-value">582<span>명</span></div>
+          <div class="gi-stat-delta delta-neu">수시 401 + 정시 181</div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">입학정원</div>
+          <div class="gi-stat-value">526<span>명</span></div>
+          <div class="gi-stat-delta delta-neu">초등교육과</div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">정시(나군)</div>
+          <div class="gi-stat-value">171<span>명</span></div>
+          <div class="gi-stat-delta delta-pos">2026 이월 2명 포함</div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">수능 최저</div>
+          <div class="gi-stat-value" style="font-size:14px;">교과전형 적용</div>
+          <div class="gi-stat-delta delta-neu">4개 영역 합 14↑</div>
+        </div>
+        <div class="gi-stat-card">
+          <div class="gi-stat-label">성비 적용</div>
+          <div class="gi-stat-value" style="font-size:16px;">없음</div>
+          <div class="gi-stat-delta delta-pos">수시·정시 모두</div>
+        </div>
+      </div>
+      <table class="gi-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>정원구분</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="7" style="color:var(--gi-purple);font-weight:500;">수시</td><td><strong style="color:var(--gi-text-accent)">학생부종합 교직적성전형</strong></td><td><strong style="color:#fff">225명</strong></td><td>정원 내</td></tr>
+          <tr><td><strong style="color:var(--gi-text-accent)">학생부교과 학교장추천전형</strong></td><td><strong style="color:#fff">110명</strong></td><td>정원 내</td></tr>
+          <tr><td>학생부종합 국가보훈대상자전형</td><td>4명</td><td>정원 내</td></tr>
+          <tr><td>학생부종합 저소득층학생전형</td><td>18명</td><td>정원 내</td></tr>
+          <tr><td>학생부종합 농어촌학생전형</td><td>21명</td><td>정원 외</td></tr>
+          <tr><td>학생부종합 장애인학생전형</td><td>20명</td><td>정원 외</td></tr>
+          <tr><td>학생부종합 서해5도학생전형</td><td>3명</td><td>정원 외</td></tr>
+          <tr><td colspan="1" style="color:var(--gi-purple);font-weight:500;">정시(나)</td><td><strong style="color:var(--gi-text-accent)">수능 일반학생전형</strong></td><td><strong style="color:#fff">171명</strong></td><td>정원 내</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gi-section" id="gi-susi">
+      <div class="gi-section-title">📋 수시모집 전형방법</div>
+      <div class="two-col">
+        <div class="gi-panel">
+          <div class="gi-panel-title">📚 학생부종합 교직적성전형 (225명)</div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">1단계 (250%)</div>
+            <p>서류평가 <strong>100%</strong> (1,000점)</p>
+          </div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">2단계 (100%)</div>
+            <p>서류평가 <strong>70%</strong> (700점) + 면접평가 <strong>30%</strong> (300점)</p>
+          </div>
+          <div class="gi-key-box-gold">
+            <div class="gi-key-box-title">수능 최저학력기준</div>
+            <p><strong>없음</strong></p>
+          </div>
+        </div>
+        <div class="gi-panel">
+          <div class="gi-panel-title">🎓 학생부교과 학교장추천전형 (110명)</div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">일괄합산</div>
+            <p>학생부 교과 <strong>90%</strong> (900점) + 출결 <strong>10%</strong> (100점)</p>
+          </div>
+          <div class="gi-key-box-gold">
+            <div class="gi-key-box-title">수능 최저학력기준</div>
+            <p>국어·수학·영어·탐구(사/과) <strong>4개 영역 합 14등급 이내</strong><br>
+            탐구는 상위 1과목 반영</p>
+          </div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">교과성적 반영</div>
+            <p>석차등급·성취도 환산 / 1~5등급제 반영<br>
+            출결: 미인정 결석일수 기준 9등급</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gi-section" id="gi-jeongsi">
+      <div class="gi-section-title">🎯 정시모집 — 나군 (171명)</div>
+      <div class="two-col">
+        <div class="gi-panel">
+          <div class="gi-panel-title">수능 일반학생전형 (171명)</div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">전형방법 (일괄합산)</div>
+            <p>수능성적 <strong>90%</strong> (900점) + 출결 <strong>10%</strong> (100점)</p>
+          </div>
+          <div class="gi-key-box-gold">
+            <div class="gi-key-box-title">수능 최저</div>
+            <p>한국사 <strong>4등급 이내</strong> (일반학생전형)</p>
+          </div>
+        </div>
+        <div class="gi-panel">
+          <div class="gi-panel-title">탈북학생전형 (3명)</div>
+          <div class="gi-key-box">
+            <div class="gi-key-box-title">전형방법</div>
+            <p>면접평가 <strong>100%</strong> (수능 미반영)</p>
+          </div>
+          <div class="gi-key-box-gold">
+            <div class="gi-key-box-title">수능 최저</div>
+            <p><strong>없음</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gi-section" id="gi-score">
+      <div class="gi-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="gi-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(사/과)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--gi-purple);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+          </tr>
+          <tr>
+            <td style="color:var(--gi-purple);font-weight:500;">활용지표</td>
+            <td>백분위</td>
+            <td>백분위</td>
+            <td>등급 환산점수</td>
+            <td>백분위 (2과목 평균)</td>
+          </tr>
+          <tr>
+            <td colspan="5" style="color:var(--gi-text-sub);font-size:12px;">영어 환산: 1등급 100 / 2등급 95 / 3등급 90 / 4등급 85 / 5등급 80 / 6등급 75 / 7등급 70 / 8등급 65 / 9등급 60점</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="gi-footer">
+    ※ 본 자료는 2028학년도 경인교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.
+  </div>
+</div><!-- /page-gyeongin -->
+
+
+<!-- ══════════════════════════════════════════════
+     공주교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-gongju">
+  <div class="gj-hero">
+    <div class="gj-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="gj-hero-label">Gongju National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>공주교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="gj-hero-sub">초등교육과 · 충청남도 공주시 · 2026년 4월 발표</div>
+      <div class="gj-hero-badge">GJUE · 공주교대</div>
+    </div>
+  </div>
+
+  <nav class="gj-nav">
+    <div class="gj-nav-inner">
+      <a class="gj-nav-link" href="#gj-overview">전형 개요</a>
+      <a class="gj-nav-link" href="#gj-susi">수시모집</a>
+      <a class="gj-nav-link" href="#gj-jeongsi">정시모집</a>
+      <a class="gj-nav-link" href="#gj-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="gj-section" id="gj-overview">
+      <div class="gj-section-title">📊 2028학년도 전형 개요</div>
+      <div class="gj-stat-row">
+        <div class="gj-stat-card">
+          <div class="gj-stat-label">총 모집인원</div>
+          <div class="gj-stat-value">341<span>명</span></div>
+          <div class="gj-stat-delta delta-neu">수시 237 + 정시 104</div>
+        </div>
+        <div class="gj-stat-card">
+          <div class="gj-stat-label">수시 정원내</div>
+          <div class="gj-stat-value">215<span>명</span></div>
+          <div class="gj-stat-delta delta-neu">학생부종합 위주</div>
+        </div>
+        <div class="gj-stat-card">
+          <div class="gj-stat-label">정시(나군)</div>
+          <div class="gj-stat-value">104<span>명</span></div>
+          <div class="gj-stat-delta delta-pos">2026 이월 2명 포함</div>
+        </div>
+        <div class="gj-stat-card">
+          <div class="gj-stat-label">수능 최저</div>
+          <div class="gj-stat-value" style="font-size:16px;">없음</div>
+          <div class="gj-stat-delta delta-pos">수시·정시 모두 미적용</div>
+        </div>
+        <div class="gj-stat-card">
+          <div class="gj-stat-label">지역인재 비율</div>
+          <div class="gj-stat-value">54.3<span>%</span></div>
+          <div class="gj-stat-delta delta-pos">충남·세종·대전</div>
+        </div>
+      </div>
+      <table class="gj-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>정원구분</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="7" style="color:var(--gj-cyan);font-weight:500;">수시</td><td><strong style="color:var(--gj-text-accent)">교직적성인재</strong></td><td><strong style="color:#fff">25명</strong></td><td>정원 내</td><td>3배수 선발</td></tr>
+          <tr><td><strong style="color:var(--gj-text-accent)">지역인재선발</strong> <span class="tag-new">충남·세종·대전</span></td><td><strong style="color:#fff">185명</strong></td><td>정원 내</td><td>1.5배수 선발</td></tr>
+          <tr><td>국가보훈대상자</td><td>5명</td><td>정원 내</td><td>2배수 선발</td></tr>
+          <tr><td>농어촌학생</td><td>14명</td><td>정원 외</td><td>2배수 선발</td></tr>
+          <tr><td>기회균형선발</td><td>5명</td><td>정원 외</td><td>2배수 선발</td></tr>
+          <tr><td>장애인 등 대상자</td><td>3명</td><td>정원 외</td><td>2배수 선발</td></tr>
+          <tr><td>만학도</td><td>5명</td><td>정원 외</td><td>만 30세 이상</td></tr>
+          <tr><td colspan="1" style="color:var(--gj-cyan);font-weight:500;">정시(나)</td><td><strong style="color:var(--gj-text-accent)">일반학생</strong></td><td><strong style="color:#fff">99명</strong></td><td>정원 내</td><td>2배수 선발</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gj-section" id="gj-susi">
+      <div class="gj-section-title">📋 수시모집 전형방법 (전 전형 수능 최저 없음)</div>
+      <div class="two-col">
+        <div class="gj-panel">
+          <div class="gj-panel-title">📚 모든 학생부종합전형 공통 방법</div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">1단계</div>
+            <p>서류평가 <strong>100%</strong> (1,000점) — 전형별 선발배수 적용</p>
+          </div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">2단계</div>
+            <p>서류평가 <strong>70%</strong> (700점) + 면접평가 <strong>30%</strong> (300점)</p>
+          </div>
+        </div>
+        <div class="gj-panel">
+          <div class="gj-panel-title">🌏 지역인재선발전형 특이사항</div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">지원 자격</div>
+            <p><strong>충청남도, 세종특별자치시, 대전광역시</strong> 소재 고등학교에서<br>
+            입학부터 졸업(예정)까지 전 교육과정 이수</p>
+          </div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">1단계 선발배수</div>
+            <p><strong>1.5배수</strong> (교직적성인재: 3배수, 국가보훈·농어촌: 2배수)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gj-section" id="gj-jeongsi">
+      <div class="gj-section-title">🎯 정시모집 — 나군 (104명)</div>
+      <div class="two-col">
+        <div class="gj-panel">
+          <div class="gj-panel-title">일반학생전형 전형방법</div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">1단계 (2배수)</div>
+            <p>수능성적 <strong>100%</strong> (500점)</p>
+          </div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">2단계 (최종)</div>
+            <p>수능 <strong>90%</strong> (500점) + 면접 <strong>10%</strong> (100점)</p>
+          </div>
+          <div class="gj-key-box-gold">
+            <div class="gj-key-box-title">수능 최저학력기준</div>
+            <p><strong>없음</strong></p>
+          </div>
+        </div>
+        <div class="gj-panel">
+          <div class="gj-panel-title">만학도전형 (정원외 5명)</div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">전형방법</div>
+            <p>수능 90% + 면접 10% (일괄합산)</p>
+          </div>
+          <div class="gj-key-box">
+            <div class="gj-key-box-title">지원 자격</div>
+            <p>2028.3.1 기준 <strong>만 30세 이상</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gj-section" id="gj-score">
+      <div class="gj-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="gj-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(통합사회·통합과학)</th><th>한국사</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--gj-cyan);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td>가산점</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gj-cyan);font-weight:500;">활용지표</td>
+            <td>표준점수</td>
+            <td>표준점수</td>
+            <td>등급 환산점수</td>
+            <td>표준점수</td>
+            <td>등급별 가산</td>
+          </tr>
+          <tr>
+            <td colspan="6" style="color:var(--gj-text-sub);font-size:12px;">영어: 1등급 200 / 2등급 190 / 3등급 180 / 4등급 170 / 5등급 160 / 6등급 140 / 7등급 120 / 8등급 100 / 9등급 80점<br>
+            한국사 가산: 1등급 +2 / 2등급 +1.75 / 3등급 +1.5 / 4등급 +1 / 5등급 이하 0점</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="gj-footer">
+    ※ 본 자료는 2028학년도 공주교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.
+  </div>
+</div><!-- /page-gongju -->
+
+
+<!-- ══════════════════════════════════════════════
+     광주교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-gwangju">
+  <div class="gw-hero">
+    <div class="gw-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="gw-hero-label">Gwangju National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>광주교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="gw-hero-sub">초등교육과 · 광주광역시 북구 · 2026년 4월 발표</div>
+      <div class="gw-hero-badge">GNUE · 광주교대</div>
+    </div>
+  </div>
+
+  <nav class="gw-nav">
+    <div class="gw-nav-inner">
+      <a class="gw-nav-link" href="#gw-overview">전형 개요</a>
+      <a class="gw-nav-link" href="#gw-susi">수시모집</a>
+      <a class="gw-nav-link" href="#gw-jeongsi">정시모집</a>
+      <a class="gw-nav-link" href="#gw-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="gw-section" id="gw-overview">
+      <div class="gw-section-title">📊 2028학년도 전형 개요</div>
+      <div class="gw-stat-row">
+        <div class="gw-stat-card">
+          <div class="gw-stat-label">총 모집인원</div>
+          <div class="gw-stat-value">338<span>명</span></div>
+          <div class="gw-stat-delta delta-neu">수시 267 + 정시 71</div>
+        </div>
+        <div class="gw-stat-card">
+          <div class="gw-stat-label">지역인재 비율</div>
+          <div class="gw-stat-value">50.3<span>%</span></div>
+          <div class="gw-stat-delta delta-pos">광주·전남 170명</div>
+        </div>
+        <div class="gw-stat-card">
+          <div class="gw-stat-label">정시(나군)</div>
+          <div class="gw-stat-value">71<span>명</span></div>
+          <div class="gw-stat-delta delta-neu">수능 일반 56</div>
+        </div>
+        <div class="gw-stat-card">
+          <div class="gw-stat-label">수능 최저</div>
+          <div class="gw-stat-value" style="font-size:16px;">없음</div>
+          <div class="gw-stat-delta delta-pos">전 전형 미적용</div>
+        </div>
+        <div class="gw-stat-card">
+          <div class="gw-stat-label">특수 전형</div>
+          <div class="gw-stat-value" style="font-size:14px;">전남 교육감</div>
+          <div class="gw-stat-delta delta-neu">추천·다문화 60명</div>
+        </div>
+      </div>
+      <table class="gw-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>정원구분</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="10" style="color:var(--gw-yellow);font-weight:500;">수시</td><td><strong style="color:var(--gw-text-accent)">교직적성우수자전형</strong></td><td><strong style="color:#fff">50명</strong></td><td>정원 내</td></tr>
+          <tr><td>다문화전형</td><td>5명</td><td>정원 내</td></tr>
+          <tr><td><strong style="color:var(--gw-text-accent)">전남교육감추천전형</strong> <span class="tag-new">장학+의무복무</span></td><td><strong style="color:#fff">50명</strong></td><td>정원 내</td></tr>
+          <tr><td>전남교육감다문화전형</td><td>10명</td><td>정원 내</td></tr>
+          <tr><td><strong style="color:var(--gw-text-accent)">지역인재전형</strong> <span class="tag-change">50→60 확대</span></td><td><strong style="color:#fff">60명</strong></td><td>정원 내</td></tr>
+          <tr><td>사회통합전형</td><td>7명</td><td>정원 내</td></tr>
+          <tr><td>농어촌학생전형 <span class="tag-change">7→9 확대</span></td><td>9명</td><td>정원 외</td></tr>
+          <tr><td>기초/차상위/한부모전형 <span class="tag-change">10→6 축소</span></td><td>6명</td><td>정원 외</td></tr>
+          <tr><td>장애인대상자전형</td><td>10명</td><td>정원 외</td></tr>
+          <tr><td>만학도전형</td><td>10명</td><td>정원 외</td></tr>
+          <tr><td rowspan="2" style="color:var(--gw-yellow);font-weight:500;">정시(나)</td><td><strong style="color:var(--gw-text-accent)">수능 일반전형</strong></td><td><strong style="color:#fff">56명</strong></td><td>정원 내</td></tr>
+          <tr><td>수능 만학도전형 <span class="tag-change">10→15 확대</span></td><td>15명</td><td>정원 외</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gw-section" id="gw-susi">
+      <div class="gw-section-title">📋 수시모집 전형방법</div>
+      <div class="two-col">
+        <div class="gw-panel">
+          <div class="gw-panel-title">📚 교직적성우수자전형 / 다문화 / 기초차상위 / 농어촌 (일괄합산)</div>
+          <div class="gw-key-box">
+            <div class="gw-key-box-title">전형방법</div>
+            <p>서류평가 <strong>70%</strong> + 면접평가 <strong>30%</strong> (비대면 면접)</p>
+          </div>
+        </div>
+        <div class="gw-panel">
+          <div class="gw-panel-title">🎓 전남교육감추천 / 지역인재 / 사회통합 / 장애인 / 만학도 (다단계)</div>
+          <div class="gw-key-box">
+            <div class="gw-key-box-title">1단계 선발</div>
+            <p>서류평가 <strong>100%</strong> → 전형별 배수 선발 (250~400%)</p>
+          </div>
+          <div class="gw-key-box">
+            <div class="gw-key-box-title">2단계</div>
+            <p>서류평가 <strong>70%</strong> + 면접평가 <strong>30%</strong> (대면 면접)</p>
+          </div>
+        </div>
+      </div>
+      <div class="gw-key-box" style="margin-top:16px;">
+        <div class="gw-key-box-title">🌟 전남교육감추천전형 특이사항</div>
+        <p>전라남도교육청에서 4년간 장학금 지급 + 졸업 후 전라남도 초등교사 임용시험 응시 및 임용 후 <strong>5년간 의무 복무</strong></p>
+      </div>
+    </div>
+
+    <div class="gw-section" id="gw-jeongsi">
+      <div class="gw-section-title">🎯 정시모집 — 나군 (71명)</div>
+      <div class="two-col">
+        <div class="gw-panel">
+          <div class="gw-panel-title">수능 일반전형 (56명)</div>
+          <div class="gw-key-box">
+            <div class="gw-key-box-title">전형방법 (일괄합산)</div>
+            <p>수능성적 <strong>90%</strong> + 비교과(출결) <strong>10%</strong></p>
+          </div>
+          <div class="gw-key-box">
+            <div class="gw-key-box-title">수능 최저</div>
+            <p><strong>없음</strong></p>
+          </div>
+        </div>
+        <div class="gw-panel">
+          <div class="gw-panel-title">수능 만학도전형 (15명 정원외)</div>
+          <div class="gw-key-box">
+            <div class="gw-key-box-title">전형방법</div>
+            <p>수능성적 <strong>90%</strong> + 비교과(출결) <strong>10%</strong></p>
+          </div>
+          <div class="gw-key-box">
+            <div class="gw-key-box-title">지원 자격</div>
+            <p>2028.3.1 기준 <strong>만 30세 이상</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gw-section" id="gw-score">
+      <div class="gw-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="gw-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(통합사회·통합과학)</th><th>한국사</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--gw-yellow);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td>가산점</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gw-yellow);font-weight:500;">활용지표</td>
+            <td>백분위</td>
+            <td>백분위</td>
+            <td>등급 환산점수</td>
+            <td>백분위</td>
+            <td>등급별 가산</td>
+          </tr>
+          <tr>
+            <td colspan="6" style="color:var(--gw-text-sub);font-size:12px;">영어: 1등급 250 / 2등급 240 / 3등급 230 / 4등급 220 / 5등급 210 / 6등급 200 / 7등급 190 / 8등급 180 / 9등급 170점<br>
+            한국사 가산: 1등급 +2 / 2등급 +1.5 / 3등급 +1 / 4등급 +0.5 / 5등급 이하 0점</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="gw-footer">
+    ※ 본 자료는 2028학년도 광주교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.
+  </div>
+</div><!-- /page-gwangju -->
+
+
+<!-- ══════════════════════════════════════════════
+     대구교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-daegu">
+  <div class="dg-hero">
+    <div class="dg-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="dg-hero-label">Daegu National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>대구교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="dg-hero-sub">초등교육과 · 대구광역시 남구 · 2026년 4월 발표</div>
+      <div class="dg-hero-badge">DNUE · 대구교대</div>
+    </div>
+  </div>
+
+  <nav class="dg-nav">
+    <div class="dg-nav-inner">
+      <a class="dg-nav-link" href="#dg-overview">전형 개요</a>
+      <a class="dg-nav-link" href="#dg-susi">수시모집</a>
+      <a class="dg-nav-link" href="#dg-jeongsi">정시모집</a>
+      <a class="dg-nav-link" href="#dg-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="dg-section" id="dg-overview">
+      <div class="dg-section-title">📊 2028학년도 전형 개요</div>
+      <div class="dg-stat-row">
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">총 모집인원</div>
+          <div class="dg-stat-value">404<span>명</span></div>
+          <div class="dg-stat-delta delta-neu">수시 312 + 정시 62 + 자율화 30</div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">수시 정원내</div>
+          <div class="dg-stat-value">281<span>명</span></div>
+          <div class="dg-stat-delta delta-neu">지역인재 220명</div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">정시(나군)</div>
+          <div class="dg-stat-value">62<span>명</span></div>
+          <div class="dg-stat-delta delta-neu">수능 일반+사회배려</div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">전형기간 자율화</div>
+          <div class="dg-stat-value">30<span>명</span></div>
+          <div class="dg-stat-delta delta-neu">만학도 (정원외)</div>
+        </div>
+        <div class="dg-stat-card">
+          <div class="dg-stat-label">수능 최저</div>
+          <div class="dg-stat-value" style="font-size:16px;">없음</div>
+          <div class="dg-stat-delta delta-pos">전 전형 미적용</div>
+        </div>
+      </div>
+      <table class="dg-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>정원내</th><th>정원외</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="8" style="color:var(--dg-lime);font-weight:500;">수시</td><td><strong style="color:var(--dg-text-accent)">학생부종합(참스승전형)</strong></td><td><strong style="color:#fff">50명</strong></td><td>-</td></tr>
+          <tr><td><strong style="color:var(--dg-text-accent)">학생부종합(대구지역인재)</strong></td><td><strong style="color:#fff">90명</strong></td><td>-</td></tr>
+          <tr><td><strong style="color:var(--dg-text-accent)">학생부종합(경북지역인재)</strong></td><td><strong style="color:#fff">130명</strong></td><td>-</td></tr>
+          <tr><td>학생부종합(다문화가족)</td><td>6명</td><td>-</td></tr>
+          <tr><td>학생부종합(국가보훈대상자)</td><td>5명</td><td>-</td></tr>
+          <tr><td>학생부종합(농어촌학생)</td><td>-</td><td>15명</td></tr>
+          <tr><td>학생부종합(장애인 등)</td><td>-</td><td>10명</td></tr>
+          <tr><td>재외국민(중·고교 국외이수)</td><td>-</td><td>6명</td></tr>
+          <tr><td rowspan="2" style="color:var(--dg-lime);font-weight:500;">정시(나)</td><td><strong style="color:var(--dg-text-accent)">수능위주(일반전형)</strong></td><td><strong style="color:#fff">56명</strong></td><td>-</td></tr>
+          <tr><td>수능위주(사회배려자)</td><td>-</td><td>6명</td></tr>
+          <tr><td rowspan="2" style="color:var(--dg-lime);font-weight:500;">자율화</td><td>학생부종합(만학도 1차)</td><td>-</td><td>15명</td></tr>
+          <tr><td>수능위주(만학도 2차)</td><td>-</td><td>15명</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dg-section" id="dg-susi">
+      <div class="dg-section-title">📋 수시모집 전형방법</div>
+      <div class="two-col">
+        <div class="dg-panel">
+          <div class="dg-panel-title">📚 참스승전형 (50명) — 전형방법</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">1단계 (5배수)</div>
+            <p>서류평가 <strong>100%</strong></p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">2단계</div>
+            <p>1단계 성적 <strong>70%</strong> + 면접평가 <strong>30%</strong></p>
+          </div>
+        </div>
+        <div class="dg-panel">
+          <div class="dg-panel-title">🎓 지역인재 / 국가보훈 / 다문화 (2배수)</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">1단계 (2배수)</div>
+            <p>서류평가 <strong>100%</strong></p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">2단계</div>
+            <p>1단계 성적 <strong>70%</strong> + 면접평가 <strong>30%</strong></p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">면접 불합격 규정</div>
+            <p>면접 미응시 시 불합격 / 예비초등교사로 부적합 판단 시 탈락</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dg-section" id="dg-jeongsi">
+      <div class="dg-section-title">🎯 정시모집 — 나군 (62명)</div>
+      <div class="two-col">
+        <div class="dg-panel">
+          <div class="dg-panel-title">수능위주(일반전형) 56명</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">전형방법 (일괄합산)</div>
+            <p>수능성적 <strong>80%</strong> + 면접평가 <strong>20%</strong></p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">출결 반영</div>
+            <p>미인정(무단) 결석 1일당 수능점수 <strong>1점 감점</strong></p>
+          </div>
+        </div>
+        <div class="dg-panel">
+          <div class="dg-panel-title">수능위주(사회배려자) 6명 (정원외)</div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">지원 자격</div>
+            <p>기초생활수급자, 차상위계층, 한부모가족 지원대상자</p>
+          </div>
+          <div class="dg-key-box">
+            <div class="dg-key-box-title">전형방법</div>
+            <p>수능성적 80% + 면접 20% (일괄합산)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dg-section" id="dg-score">
+      <div class="dg-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="dg-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(사회·과학)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--dg-lime);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">30%</strong></td>
+            <td><strong style="color:#fff">30%</strong></td>
+            <td><strong style="color:#fff">15%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+          </tr>
+          <tr>
+            <td style="color:var(--dg-lime);font-weight:500;">활용지표</td>
+            <td>표준점수</td>
+            <td>표준점수</td>
+            <td>등급 환산점수</td>
+            <td>표준점수</td>
+          </tr>
+          <tr>
+            <td colspan="5" style="color:var(--dg-text-sub);font-size:12px;">영어: 1등급 150 / 2등급 147 / 3등급 142 / 4등급 134 / 5등급 124 / 6등급 110 / 7등급 90 / 8등급 65 / 9등급 0점</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="dg-footer">
+    ※ 본 자료는 2028학년도 대구교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.<br>
+    입학상담: <strong>053-620-1276~80</strong> | <strong>admission.dnue.ac.kr</strong>
+  </div>
+</div><!-- /page-daegu -->
+
+
+<!-- ══════════════════════════════════════════════
+     부산교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-busan">
+  <div class="bs-hero">
+    <div class="bs-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="bs-hero-label">Busan National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>부산교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="bs-hero-sub">초등교육학부 · 부산광역시 연제구 · 2026년 4월 발표</div>
+      <div class="bs-hero-badge">BNUE · 부산교대 <span style="font-size:10px;opacity:0.7;">(2027 부산대 통합 예정)</span></div>
+    </div>
+  </div>
+
+  <nav class="bs-nav">
+    <div class="bs-nav-inner">
+      <a class="bs-nav-link" href="#bs-overview">전형 개요</a>
+      <a class="bs-nav-link" href="#bs-susi">수시모집</a>
+      <a class="bs-nav-link" href="#bs-jeongsi">정시모집</a>
+      <a class="bs-nav-link" href="#bs-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="bs-section" id="bs-overview">
+      <div class="bs-section-title">📊 2028학년도 전형 개요</div>
+      <div class="bs-stat-row">
+        <div class="bs-stat-card">
+          <div class="bs-stat-label">총 모집인원</div>
+          <div class="bs-stat-value">342<span>명</span></div>
+          <div class="bs-stat-delta delta-neu">수시 222 + 정시 120</div>
+        </div>
+        <div class="bs-stat-card">
+          <div class="bs-stat-label">입학정원</div>
+          <div class="bs-stat-value">313<span>명</span></div>
+          <div class="bs-stat-delta delta-neu">초등교육학부</div>
+        </div>
+        <div class="bs-stat-card">
+          <div class="bs-stat-label">정시(나군)</div>
+          <div class="bs-stat-value">120<span>명</span></div>
+          <div class="bs-stat-delta delta-neu">수능 일반전형</div>
+        </div>
+        <div class="bs-stat-card">
+          <div class="bs-stat-label">통합 예고</div>
+          <div class="bs-stat-value" style="font-size:14px;">부산대 통합</div>
+          <div class="bs-stat-delta delta-neg">2027년 예정 — 변경 가능</div>
+        </div>
+        <div class="bs-stat-card">
+          <div class="bs-stat-label">수능 최저</div>
+          <div class="bs-stat-value" style="font-size:16px;">없음</div>
+          <div class="bs-stat-delta delta-pos">전 전형 미적용</div>
+        </div>
+      </div>
+      <div class="bs-key-box" style="margin-bottom:20px;">
+        <div class="bs-key-box-title">⚠️ 중요 안내</div>
+        <p>「2028학년도 대학입학전형 시행계획」 중 일부 사항은 <strong>부산교대-부산대 통합 예정</strong>에 따라 변경될 수 있으므로, 반드시 추후 발표되는 모집요강을 확인하시기 바랍니다.</p>
+      </div>
+      <table class="bs-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>전형방법</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="6" style="color:var(--bs-rose);font-weight:500;">수시</td><td><strong style="color:var(--bs-text-accent)">학생부종합(초등교직적성자)</strong></td><td><strong style="color:#fff">65명</strong></td><td rowspan="6">1단계(3배수) 서류 100% → 2단계 1단계60%+면접40%</td></tr>
+          <tr><td><strong style="color:var(--bs-text-accent)">학생부종합(지역인재)</strong> <span class="tag-new">부·울·경</span></td><td><strong style="color:#fff">125명</strong></td></tr>
+          <tr><td>학생부종합(국가보훈대상자)</td><td>3명</td></tr>
+          <tr><td>학생부종합(농어촌학생)</td><td>12명</td></tr>
+          <tr><td>학생부종합(장애인등대상자)</td><td>12명</td></tr>
+          <tr><td>학생부종합(저소득층학생)</td><td>5명</td></tr>
+          <tr><td colspan="1" style="color:var(--bs-rose);font-weight:500;">정시(나)</td><td><strong style="color:var(--bs-text-accent)">수능(일반전형)</strong></td><td><strong style="color:#fff">120명</strong></td><td>수능 95.2% + 면접 4.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bs-section" id="bs-susi">
+      <div class="bs-section-title">📋 수시모집 — 학생부종합 COMPASS 인재상</div>
+      <div class="two-col">
+        <div class="bs-panel">
+          <div class="bs-panel-title">전형방법 (모든 전형 공통)</div>
+          <div class="bs-key-box">
+            <div class="bs-key-box-title">1단계 (3배수)</div>
+            <p>서류종합평가 <strong>100%</strong> (학교생활기록부 정성 평가)</p>
+          </div>
+          <div class="bs-key-box">
+            <div class="bs-key-box-title">2단계 (최종)</div>
+            <p>1단계 성적 <strong>60%</strong> (실질 71.4%) + 면접 <strong>40%</strong> (실질 28.6%)</p>
+          </div>
+          <div class="bs-key-box-gold">
+            <div class="bs-key-box-title">학교폭력 조치사항</div>
+            <p>수시 전체: 1~9호 모두 <strong style="color:#f87171;">부적격 처리</strong></p>
+          </div>
+        </div>
+        <div class="bs-panel">
+          <div class="bs-panel-title">🧭 COMPASS 인재상 핵심역량</div>
+          <div class="bs-key-box">
+            <div class="bs-key-box-title">서류평가 역량</div>
+            <p><strong>O</strong> 공동체 리더십 역량<br>
+            <strong>M</strong> 다문화·글로벌 역량<br>
+            <strong>S</strong> 공감·정서 조절 역량<br>
+            <strong>S</strong> 자기관리역량</p>
+          </div>
+          <div class="bs-key-box">
+            <div class="bs-key-box-title">면접평가 역량</div>
+            <p><strong>C</strong> 의사소통역량<br>
+            <strong>P</strong> 교직 인성 및 전문성 개발 역량<br>
+            <strong>A</strong> 창의융합역량</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section" id="bs-jeongsi">
+      <div class="bs-section-title">🎯 정시모집 — 나군 일반전형 (120명)</div>
+      <div class="two-col">
+        <div class="bs-panel">
+          <div class="bs-panel-title">전형요소 및 배점</div>
+          <div class="bs-key-box">
+            <div class="bs-key-box-title">배점 구조</div>
+            <p>수능 800점 + 면접 200점 = 총 1,000점<br>
+            실질반영비율: 수능 <strong>95.2%</strong> / 면접 <strong>4.8%</strong><br>
+            (면접 기본점수 160점 부여)</p>
+          </div>
+          <div class="bs-key-box-gold">
+            <div class="bs-key-box-title">수능 최저학력기준</div>
+            <p><strong>없음</strong></p>
+          </div>
+        </div>
+        <div class="bs-panel">
+          <div class="bs-panel-title">면접고사 평가기준</div>
+          <div class="bs-key-box">
+            <div class="bs-key-box-title">평가방법</div>
+            <p>3명 내외 집단면접 / COMPASS 기반<br>
+            의사소통역량, 교직인성, 창의융합역량 평가</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section" id="bs-score">
+      <div class="bs-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="bs-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(통합사회·통합과학)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--bs-rose);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+          </tr>
+          <tr>
+            <td style="color:var(--bs-rose);font-weight:500;">활용지표</td>
+            <td>표준점수</td>
+            <td>표준점수 (등급환산)</td>
+            <td>등급 환산점수</td>
+            <td>표준점수</td>
+          </tr>
+          <tr>
+            <td colspan="5" style="color:var(--bs-text-sub);font-size:12px;">영어: 1등급 200 / 2등급 190 / 3등급 176 / 4등급 152 / 5등급 118 / 6등급 78 / 7등급 44 / 8등급 20 / 9등급 0점</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="bs-footer">
+    ※ 본 자료는 2028학년도 부산교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 2027년 부산대 통합 예정으로 변경될 수 있습니다.<br>
+    입학본부: <strong>051-500-7561~7</strong> | <strong>enter.bnue.ac.kr</strong>
+  </div>
+</div><!-- /page-busan -->
+
+
+<!-- ══════════════════════════════════════════════
+     진주교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-jinju">
+  <div class="jj-hero">
+    <div class="jj-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="jj-hero-label">Chinju National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>진주교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="jj-hero-sub">초등교육과 · 경남 진주시 · 2026년 4월 발표</div>
+      <div class="jj-hero-badge">CUE · 진주교대</div>
+    </div>
+  </div>
+
+  <nav class="jj-nav">
+    <div class="jj-nav-inner">
+      <a class="jj-nav-link" href="#jj-overview">전형 개요</a>
+      <a class="jj-nav-link" href="#jj-susi">수시모집</a>
+      <a class="jj-nav-link" href="#jj-jeongsi">정시모집</a>
+      <a class="jj-nav-link" href="#jj-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="jj-section" id="jj-overview">
+      <div class="jj-section-title">📊 2028학년도 전형 개요</div>
+      <div class="jj-stat-row">
+        <div class="jj-stat-card">
+          <div class="jj-stat-label">총 모집인원</div>
+          <div class="jj-stat-value">330<span>명</span></div>
+          <div class="jj-stat-delta delta-neu">수시 228 + 정시 102</div>
+        </div>
+        <div class="jj-stat-card">
+          <div class="jj-stat-label">입학정원 (유보후)</div>
+          <div class="jj-stat-value">281<span>명</span></div>
+          <div class="jj-stat-delta delta-neu">법정정원 319명</div>
+        </div>
+        <div class="jj-stat-card">
+          <div class="jj-stat-label">정시(나군)</div>
+          <div class="jj-stat-value">102<span>명</span></div>
+          <div class="jj-stat-delta delta-neu">수능 일반학생</div>
+        </div>
+        <div class="jj-stat-card">
+          <div class="jj-stat-label">지역인재</div>
+          <div class="jj-stat-value">123<span>명</span></div>
+          <div class="jj-stat-delta delta-pos">경남·부산·울산</div>
+        </div>
+        <div class="jj-stat-card">
+          <div class="jj-stat-label">수능 최저</div>
+          <div class="jj-stat-value" style="font-size:16px;">없음</div>
+          <div class="jj-stat-delta delta-pos">전 전형 미적용</div>
+        </div>
+      </div>
+      <table class="jj-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>정원구분</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="8" style="color:var(--jj-gold);font-weight:500;">수시</td><td><strong style="color:var(--jj-text-accent)">학생부종합(21세기형 교직 적성자)</strong></td><td><strong style="color:#fff">50명</strong></td><td>정원 내</td></tr>
+          <tr><td><strong style="color:var(--jj-text-accent)">학생부종합(지역인재)</strong> <span class="tag-new">경남·부산·울산</span></td><td><strong style="color:#fff">123명</strong></td><td>정원 내</td></tr>
+          <tr><td>학생부종합(국가보훈대상자)</td><td>3명</td><td>정원 내</td></tr>
+          <tr><td>학생부종합(다문화·탈북학생)</td><td>3명</td><td>정원 내</td></tr>
+          <tr><td>학생부종합(농어촌학생)</td><td>12명</td><td>정원 외</td></tr>
+          <tr><td>학생부종합(기회균형)</td><td>5명</td><td>정원 외</td></tr>
+          <tr><td>학생부종합(장애인 등 대상자)</td><td>12명</td><td>정원 외</td></tr>
+          <tr><td>학생부종합(만학도)</td><td>20명</td><td>정원 외</td></tr>
+          <tr><td colspan="1" style="color:var(--jj-gold);font-weight:500;">정시(나)</td><td><strong style="color:var(--jj-text-accent)">수능(일반학생)</strong></td><td><strong style="color:#fff">102명</strong></td><td>정원 내</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="jj-section" id="jj-susi">
+      <div class="jj-section-title">📋 수시모집 전형방법 (전 전형 수능 최저 없음)</div>
+      <div class="two-col">
+        <div class="jj-panel">
+          <div class="jj-panel-title">📚 모든 학생부종합전형 공통</div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">1단계 (250%)</div>
+            <p>서류평가 <strong>100%</strong> (700점)</p>
+          </div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">2단계 (최종)</div>
+            <p>서류평가 <strong>70%</strong> (700점) + 심층면접 <strong>30%</strong> (300점)</p>
+          </div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">실질반영비율</div>
+            <p>서류 <strong>63.6%</strong> / 심층면접 <strong>36.4%</strong></p>
+          </div>
+        </div>
+        <div class="jj-panel">
+          <div class="jj-panel-title">학교폭력 조치사항</div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">수시 / 정시 모든 전형</div>
+            <p>1~9호 중 어느 하나라도 기재 시 → <strong style="color:#f87171;">불합격 처리</strong></p>
+          </div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">서류 제출 의무</div>
+            <p>모든 지원자 학교생활기록부 <strong>필수 제출</strong><br>
+            미제출 시 불합격 (국내 고교 진학 없는 경우 예외)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jj-section" id="jj-jeongsi">
+      <div class="jj-section-title">🎯 정시모집 — 나군 일반학생전형 (102명)</div>
+      <div class="two-col">
+        <div class="jj-panel">
+          <div class="jj-panel-title">전형방법 (일괄합산)</div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">수능성적 반영</div>
+            <p>대학수학능력시험 성적 <strong>100%</strong> (800점)</p>
+          </div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">면접고사</div>
+            <p>정시는 면접 미실시</p>
+          </div>
+          <div class="jj-key-box-gold">
+            <div class="jj-key-box-title">수능 최저학력기준</div>
+            <p><strong>없음</strong></p>
+          </div>
+        </div>
+        <div class="jj-panel">
+          <div class="jj-panel-title">정원외 전형 이월</div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">수시 미충원 시</div>
+            <p>농어촌·기회균형·장애인·만학도 → 정시 해당 전형으로 이월</p>
+          </div>
+          <div class="jj-key-box">
+            <div class="jj-key-box-title">한국사</div>
+            <p>성적 미반영 / <strong>동점자 선발 기준</strong>에만 활용</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jj-section" id="jj-score">
+      <div class="jj-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="jj-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(사회·과학)</th><th>한국사</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--jj-gold);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td style="color:var(--jj-text-sub)">미반영</td>
+          </tr>
+          <tr>
+            <td style="color:var(--jj-gold);font-weight:500;">활용지표</td>
+            <td>백분위</td>
+            <td>백분위</td>
+            <td>등급 환산점수</td>
+            <td>백분위</td>
+            <td>동점자 기준</td>
+          </tr>
+          <tr>
+            <td colspan="6" style="color:var(--jj-text-sub);font-size:12px;">영어: 1등급 200 / 2등급 194 / 3등급 188 / 4등급 160 / 5등급 140 / 6등급 100 / 7등급 60 / 8등급 20 / 9등급 0점</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="jj-footer">
+    ※ 본 자료는 2028학년도 진주교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.<br>
+    입학관리팀: <strong>055-740-1521~1525</strong> | <strong>cue.ac.kr</strong>
+  </div>
+</div><!-- /page-jinju -->
+
+
+<!-- ══════════════════════════════════════════════
+     청주교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-cheongju">
+  <div class="cj-hero">
+    <div class="cj-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="cj-hero-label">Cheongju National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>청주교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="cj-hero-sub">초등교육과 · 충청북도 청주시 · 2026년 3월 발표</div>
+      <div class="cj-hero-badge">CNUE · 청주교대</div>
+    </div>
+  </div>
+
+  <nav class="cj-nav">
+    <div class="cj-nav-inner">
+      <a class="cj-nav-link" href="#cj-overview">전형 개요</a>
+      <a class="cj-nav-link" href="#cj-susi">수시모집</a>
+      <a class="cj-nav-link" href="#cj-jeongsi">정시모집</a>
+      <a class="cj-nav-link" href="#cj-score">수능 반영</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="cj-section" id="cj-overview">
+      <div class="cj-section-title">📊 2028학년도 전형 개요</div>
+      <div class="cj-stat-row">
+        <div class="cj-stat-card">
+          <div class="cj-stat-label">총 모집인원</div>
+          <div class="cj-stat-value">277<span>명</span></div>
+          <div class="cj-stat-delta delta-neu">수시 209 + 정시 68</div>
+        </div>
+        <div class="cj-stat-card">
+          <div class="cj-stat-label">수시 정원내</div>
+          <div class="cj-stat-value">184<span>명</span></div>
+          <div class="cj-stat-delta delta-neu">지역인재 134명</div>
+        </div>
+        <div class="cj-stat-card">
+          <div class="cj-stat-label">정시(나군)</div>
+          <div class="cj-stat-value">68<span>명</span></div>
+          <div class="cj-stat-delta delta-neu">수능 일반전형</div>
+        </div>
+        <div class="cj-stat-card">
+          <div class="cj-stat-label">지역인재</div>
+          <div class="cj-stat-value">134<span>명</span></div>
+          <div class="cj-stat-delta delta-pos">충북·세종·대전 <span class="tag-change">+2</span></div>
+        </div>
+        <div class="cj-stat-card">
+          <div class="cj-stat-label">수능 최저</div>
+          <div class="cj-stat-value" style="font-size:16px;">없음</div>
+          <div class="cj-stat-delta delta-pos">전 전형 미적용</div>
+        </div>
+      </div>
+      <table class="cj-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>정원구분</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="7" style="color:var(--cj-steel);font-weight:500;">수시</td><td><strong style="color:var(--cj-text-accent)">학생부종합(배움나눔인재)</strong></td><td><strong style="color:#fff">42명</strong></td><td>정원 내</td></tr>
+          <tr><td><strong style="color:var(--cj-text-accent)">학생부종합(지역인재)</strong> <span class="tag-change">+2명</span></td><td><strong style="color:#fff">134명</strong></td><td>정원 내</td></tr>
+          <tr><td>학생부종합(국가보훈대상자) <span class="tag-change">-2명</span></td><td>3명</td><td>정원 내</td></tr>
+          <tr><td>학생부종합(다문화가족자녀)</td><td>5명</td><td>정원 내</td></tr>
+          <tr><td>학생부종합(농어촌학생)</td><td>7명</td><td>정원 외</td></tr>
+          <tr><td>학생부종합(장애인학생)</td><td>10명</td><td>정원 외</td></tr>
+          <tr><td>학생부종합(기회균형선발제)</td><td>8명</td><td>정원 외</td></tr>
+          <tr><td colspan="1" style="color:var(--cj-steel);font-weight:500;">정시(나)</td><td><strong style="color:var(--cj-text-accent)">수능(일반전형)</strong></td><td><strong style="color:#fff">68명</strong></td><td>정원 내</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cj-section" id="cj-susi">
+      <div class="cj-section-title">📋 수시모집 전형방법</div>
+      <div class="two-col">
+        <div class="cj-panel">
+          <div class="cj-panel-title">📚 배움나눔인재전형 (42명) — 면접 미실시</div>
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">전형방법 (일괄합산)</div>
+            <p>서류평가 <strong>100%</strong> (1,000점) — 면접 없음</p>
+          </div>
+          <div class="cj-key-box-gold">
+            <div class="cj-key-box-title">학교폭력 조치사항</div>
+            <p>1~3호: 서류평가 50점 감점 / 4~5호: 75점 감점 / 6~7호: 100점 감점<br>
+            <strong style="color:#f87171;">8~9호: 결격(부적격) 처리</strong></p>
+          </div>
+        </div>
+        <div class="cj-panel">
+          <div class="cj-panel-title">🎓 지역인재전형 (134명) — 2단계 면접</div>
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">1단계 (200%)</div>
+            <p>서류평가 <strong>100%</strong> (600점)</p>
+          </div>
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">2단계 (최종)</div>
+            <p>서류평가 <strong>60%</strong> (600점) + 면접 <strong>40%</strong> (400점)</p>
+          </div>
+          <div class="cj-key-box-gold">
+            <div class="cj-key-box-title">지원 자격</div>
+            <p>충청북도, 세종특별자치시, 대전광역시 소재 고교 전 교육과정 이수<br>
+            <strong>학교폭력 기재 시 지원 불가</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="cj-panel" style="margin-top:16px;">
+        <div class="cj-panel-title">🤝 그 외 전형 (국가보훈·다문화·농어촌·장애인·기회균형) — 3단계 선발</div>
+        <div class="two-col">
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">1단계 (300%)</div>
+            <p>서류평가 <strong>100%</strong> (600점)</p>
+          </div>
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">2단계</div>
+            <p>서류평가 <strong>60%</strong> + 면접 <strong>40%</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cj-section" id="cj-jeongsi">
+      <div class="cj-section-title">🎯 정시모집 — 나군 일반전형 (68명)</div>
+      <div class="two-col">
+        <div class="cj-panel">
+          <div class="cj-panel-title">수능(일반전형) — 면접 미실시</div>
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">전형방법 (일괄합산)</div>
+            <p>수능성적 <strong>100%</strong> (1,000점) — 면접 없음</p>
+          </div>
+          <div class="cj-key-box-gold">
+            <div class="cj-key-box-title">학교폭력 조치사항 (일반전형)</div>
+            <p>1~3호: 50점 감점 / 4~5호: 75점 감점 / 6~7호: 100점 감점<br>
+            <strong style="color:#f87171;">8~9호: 결격 처리</strong></p>
+          </div>
+        </div>
+        <div class="cj-panel">
+          <div class="cj-panel-title">정원외 전형 (면접 실시)</div>
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">전형방법</div>
+            <p>수능 800점 (90.9%) + 면접 200점 (기본점 120점, 실질 9.1%)</p>
+          </div>
+          <div class="cj-key-box">
+            <div class="cj-key-box-title">해당 전형</div>
+            <p>농어촌학생 / 장애인학생 / 기회균형선발제 (수시 미충원 이월)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cj-section" id="cj-score">
+      <div class="cj-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="cj-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(사/과)</th><th>한국사</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--cj-steel);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td><strong style="color:#fff">25%</strong></td>
+            <td>응시 필수 (미반영)</td>
+          </tr>
+          <tr>
+            <td style="color:var(--cj-steel);font-weight:500;">활용지표</td>
+            <td>표준점수</td>
+            <td>표준점수</td>
+            <td>등급 환산점수</td>
+            <td>표준점수 (2과목 합)</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td colspan="6" style="color:var(--cj-text-sub);font-size:12px;">
+              일반전형 영어: 1등급 250 / 2등급 240 / 3등급 223 / 4등급 193 / 5등급 150 / 6등급 100 / 7등급 58 / 8등급 28 / 9등급 0점<br>
+              정원외 전형 영어: 1등급 200 / 2등급 192 / 3등급 178 / 4등급 154 / 5등급 120 / 6등급 80 / 7등급 46 / 8등급 22 / 9등급 0점
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="cj-footer">
+    ※ 본 자료는 2028학년도 청주교육대학교 대학입학전형 시행계획(2026.03 기준)이며, 변경될 수 있습니다.
+  </div>
+</div><!-- /page-cheongju -->
+
+
+<!-- ══════════════════════════════════════════════
+     춘천교육대학교
+══════════════════════════════════════════════ -->
+<div id="page-chuncheon">
+  <div class="cc-hero">
+    <div class="cc-hero-grid"></div>
+    <div style="position:relative;z-index:1;width:100%;">
+      <div class="cc-hero-label">Chuncheon National University of Education · 2028학년도 입학전형 시행계획</div>
+      <h1>춘천교육대학교<br><span>2028학년도</span> 대학입학전형</h1>
+      <div class="cc-hero-sub">초등교육학과 · 강원도 춘천시 · 2026년 4월 발표</div>
+      <div class="cc-hero-badge">CNUE · 춘천교대</div>
+    </div>
+  </div>
+
+  <nav class="cc-nav">
+    <div class="cc-nav-inner">
+      <a class="cc-nav-link" href="#cc-overview">전형 개요</a>
+      <a class="cc-nav-link" href="#cc-susi">수시모집</a>
+      <a class="cc-nav-link" href="#cc-jeongsi">정시모집</a>
+      <a class="cc-nav-link" href="#cc-score">수능 반영</a>
+      <a class="cc-nav-link" href="#cc-changes">주요 변경</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="cc-section" id="cc-overview">
+      <div class="cc-section-title">📊 2028학년도 전형 개요</div>
+      <div class="cc-stat-row">
+        <div class="cc-stat-card">
+          <div class="cc-stat-label">총 모집인원</div>
+          <div class="cc-stat-value">314<span>명</span></div>
+          <div class="cc-stat-delta delta-pos">+10명 (2027 대비)</div>
+        </div>
+        <div class="cc-stat-card">
+          <div class="cc-stat-label">수시</div>
+          <div class="cc-stat-value">184<span>명</span></div>
+          <div class="cc-stat-delta delta-neu">58.6%</div>
+        </div>
+        <div class="cc-stat-card">
+          <div class="cc-stat-label">정시(나군)</div>
+          <div class="cc-stat-value">130<span>명</span></div>
+          <div class="cc-stat-delta delta-pos">+10명 (만학도 신설)</div>
+        </div>
+        <div class="cc-stat-card">
+          <div class="cc-stat-label">지역인재</div>
+          <div class="cc-stat-value">60<span>명</span></div>
+          <div class="cc-stat-delta delta-neu">강원교육인재</div>
+        </div>
+        <div class="cc-stat-card">
+          <div class="cc-stat-label">수능 최저</div>
+          <div class="cc-stat-value" style="font-size:14px;">전형별 상이</div>
+          <div class="cc-stat-delta delta-neu">수시 있음 · 정시 있음</div>
+        </div>
+      </div>
+      <table class="cc-table">
+        <thead><tr><th>모집시기</th><th>전형명</th><th>모집인원</th><th>수능 최저</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="7" style="color:var(--cc-lavender);font-weight:500;">수시</td><td><strong style="color:var(--cc-text-accent)">학생부종합(교직적·인성인재)</strong></td><td><strong style="color:#fff">96명</strong></td><td>3개 영역 합 9↑</td></tr>
+          <tr><td><strong style="color:var(--cc-text-accent)">학생부종합(강원교육인재)</strong></td><td><strong style="color:#fff">60명</strong></td><td>3개 영역 합 10↑</td></tr>
+          <tr><td>학생부종합(국가보훈대상자)</td><td>4명</td><td>3개 영역 합 12↑</td></tr>
+          <tr><td>학생부종합(다문화가정의 자녀)</td><td>2명</td><td>3개 영역 합 14↑</td></tr>
+          <tr><td>학생부종합(농어촌학생)</td><td>12명</td><td>3개 영역 합 12↑</td></tr>
+          <tr><td>학생부종합(기초생활·차상위)</td><td>5명</td><td>3개 영역 합 12↑</td></tr>
+          <tr><td>학생부종합(특수교육대상자)</td><td>5명</td><td>3개 영역 합 14↑</td></tr>
+          <tr><td rowspan="2" style="color:var(--cc-lavender);font-weight:500;">정시(나)</td><td><strong style="color:var(--cc-text-accent)">수능(일반학생)</strong></td><td><strong style="color:#fff">120명</strong></td><td>3개 영역 합 14↑</td></tr>
+          <tr><td>수능(만학도) <span class="tag-new">신설</span></td><td>10명</td><td>3개 영역 합 14↑</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cc-section" id="cc-susi">
+      <div class="cc-section-title">📋 수시모집 전형방법 — 서류평가 100% (면접 없음)</div>
+      <div class="two-col">
+        <div class="cc-panel">
+          <div class="cc-panel-title">📚 모든 수시 전형 공통</div>
+          <div class="cc-key-box">
+            <div class="cc-key-box-title">전형방법 (일괄합산)</div>
+            <p>서류평가 <strong>100%</strong> — <strong>면접 미실시</strong></p>
+          </div>
+          <div class="cc-key-box">
+            <div class="cc-key-box-title">서류평가 3대 역량</div>
+            <p><strong>학업역량</strong> / <strong>공동체역량</strong> / <strong>진로역량</strong><br>
+            복수 입학사정관이 정성·종합 평가</p>
+          </div>
+          <div class="cc-key-box">
+            <div class="cc-key-box-title">서류평가 과락 기준</div>
+            <p>최종 취득점수 <strong>70점 이하</strong> 시 과락 — 선발인원 미달 시도 불합격</p>
+          </div>
+        </div>
+        <div class="cc-panel">
+          <div class="cc-panel-title">📊 수능 최저학력기준 (수시)</div>
+          <table class="cc-table" style="font-size:12px;">
+            <thead><tr><th>전형</th><th>기준</th><th>한국사</th></tr></thead>
+            <tbody>
+              <tr><td>교직적·인성</td><td>3개 영역 합 <strong style="color:#fff">9</strong>이내</td><td rowspan="7">4등급↑</td></tr>
+              <tr><td>강원교육인재</td><td>3개 영역 합 <strong style="color:#fff">10</strong>이내</td></tr>
+              <tr><td>국가보훈</td><td>3개 영역 합 <strong style="color:#fff">12</strong>이내</td></tr>
+              <tr><td>다문화</td><td>3개 영역 합 <strong style="color:#fff">14</strong>이내</td></tr>
+              <tr><td>농어촌</td><td>3개 영역 합 <strong style="color:#fff">12</strong>이내</td></tr>
+              <tr><td>기초생활·차상위</td><td>3개 영역 합 <strong style="color:#fff">12</strong>이내</td></tr>
+              <tr><td>특수교육대상자</td><td>3개 영역 합 <strong style="color:#fff">14</strong>이내</td></tr>
+            </tbody>
+          </table>
+          <div class="cc-key-box" style="margin-top:12px;font-size:12px;">
+            <div class="cc-key-box-title">탐구 반영 방법</div>
+            <p>사회/과학탐구 <strong>상위 1과목</strong> 반영</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cc-section" id="cc-jeongsi">
+      <div class="cc-section-title">🎯 정시모집 — 나군 (130명)</div>
+      <div class="two-col">
+        <div class="cc-panel">
+          <div class="cc-panel-title">수능(일반학생) 120명 + 수능(만학도) 10명</div>
+          <div class="cc-key-box">
+            <div class="cc-key-box-title">전형방법 (일괄합산)</div>
+            <p>대학수학능력시험 <strong>100%</strong> — 면접 미실시</p>
+          </div>
+          <div class="cc-key-box-gold">
+            <div class="cc-key-box-title">수능 최저학력기준</div>
+            <p>국어·수학·영어·탐구(상위 1과목) 중 <strong>3개 영역 합 14등급 이내</strong><br>
+            ※ 한국사 미적용</p>
+          </div>
+          <div class="cc-key-box">
+            <div class="cc-key-box-title">만학도전형 <span class="tag-new">2028 신설</span></div>
+            <p>2028.3.1 기준 <strong>만 30세 이상</strong> / 정원외 10명</p>
+          </div>
+        </div>
+        <div class="cc-panel">
+          <div class="cc-panel-title">학교폭력 조치사항 반영</div>
+          <div class="cc-key-box">
+            <div class="cc-key-box-title">수시 (서류평가 기반)</div>
+            <p>1호: <strong>40점 감점</strong> (감점 후 60점 미만이면 60점)<br>
+            2~9호: <strong style="color:#f87171;">부적격 처리</strong></p>
+          </div>
+          <div class="cc-key-box">
+            <div class="cc-key-box-title">정시 (수능 환산점수 기반)</div>
+            <p>1호: <strong>100점 감점</strong><br>
+            2~9호: <strong style="color:#f87171;">부적격 처리</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cc-section" id="cc-score">
+      <div class="cc-section-title">📝 정시 수능 영역별 반영비율</div>
+      <table class="cc-table">
+        <thead><tr><th>영역</th><th>국어</th><th>수학</th><th>영어</th><th>탐구(사/과 상위 1과목)</th><th>한국사</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">반영비율</td>
+            <td><strong style="color:#fff">33.3%</strong></td>
+            <td><strong style="color:#fff">33.3%</strong></td>
+            <td><strong style="color:#fff">16.7%</strong></td>
+            <td><strong style="color:#fff">16.7%</strong></td>
+            <td>가산점</td>
+          </tr>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">활용지표</td>
+            <td>표준점수</td>
+            <td>표준점수</td>
+            <td>등급 환산점수</td>
+            <td>표준점수</td>
+            <td>등급별 가산</td>
+          </tr>
+          <tr>
+            <td colspan="6" style="color:var(--cc-text-sub);font-size:12px;">
+              영어: 1등급 100 / 2등급 95 / 3등급 88 / 4등급 76 / 5등급 59 / 6등급 39 / 7등급 22 / 8등급 10 / 9등급 0점<br>
+              한국사: 1등급 10 / 2등급 9.8 / 3등급 9.6 / 4등급 9.4 / 5등급 이하 0점
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cc-section" id="cc-changes">
+      <div class="cc-section-title">🔄 2027 → 2028 주요 변경사항</div>
+      <table class="cc-table">
+        <thead><tr><th>구분</th><th>2027학년도</th><th>2028학년도</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">총 모집인원</td>
+            <td>304명</td>
+            <td><strong style="color:#6fcf8a">314명 (+10명)</strong></td>
+          </tr>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">정시 만학도</td>
+            <td>없음</td>
+            <td><strong style="color:#6fcf8a">수능(만학도) 10명 신설 <span class="tag-new">NEW</span></strong></td>
+          </tr>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">정시 인원</td>
+            <td>120명</td>
+            <td><strong style="color:#6fcf8a">130명 (+10명)</strong></td>
+          </tr>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">수시 수능최저</td>
+            <td>유지</td>
+            <td>동일 유지</td>
+          </tr>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">정시 수능최저</td>
+            <td>3개 영역 합 14↑</td>
+            <td>3개 영역 합 14↑ (동일)</td>
+          </tr>
+          <tr>
+            <td style="color:var(--cc-lavender);font-weight:500;">면접</td>
+            <td>수시·정시 모두 미실시</td>
+            <td>수시·정시 모두 미실시 (동일)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="cc-footer">
+    ※ 본 자료는 2028학년도 춘천교육대학교 대학입학전형 시행계획(2026.04 기준)이며, 변경될 수 있습니다.<br>
+    입학처: <strong>033-260-6081~3</strong> | 강원도 춘천시 공지로 126
+  </div>
+</div><!-- /page-chuncheon -->
+
+
+<script>
+function switchUniv(val) {
+  ['seoul','gyeongin','gongju','gwangju','daegu','busan','jinju','cheongju','chuncheon'].forEach(function(id) {
+    var el = document.getElementById('page-' + id);
+    if(el) el.style.display = (val === id) ? 'block' : 'none';
+  });
+  var bgMap = {
+    'seoul':     '#050c1a',
+    'gyeongin':  '#060812',
+    'gongju':    '#051210',
+    'gwangju':   '#140a05',
+    'daegu':     '#051008',
+    'busan':     '#120508',
+    'jinju':     '#100c02',
+    'cheongju':  '#050a14',
+    'chuncheon': '#0a0614'
+  };
+  document.body.style.background = bgMap[val] || '#080e1e';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+// 초기 상태
+['gyeongin','gongju','gwangju','daegu','busan','jinju','cheongju','chuncheon'].forEach(function(id) {
+  var el = document.getElementById('page-' + id);
+  if(el) el.style.display = 'none';
+});
+document.getElementById('page-seoul').style.display = 'block';
+document.body.style.background = '#050c1a';
+</script>
+</body>
+</html>

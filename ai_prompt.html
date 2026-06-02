@@ -1,0 +1,3821 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="고등학생을 위한 AI 활용 데이터 분석 실전 가이드. 실험데이터·공공데이터·센서로그·이미지·텍스트를 어떤 AI 분석 방법으로 다룰지 단계별로 안내합니다." />
+<meta name="theme-color" content="#0f2454" />
+<title>AI 데이터 분석 방법 가이드 | 프롬프트·코드·검증 실전 매뉴얼</title>
+<style>
+:root {
+  --bg:#f5f7fb; --paper:#ffffff; --ink:#172033; --muted:#64748b; --line:#dbe4f0;
+  --blue:#2563eb; --navy:#0f2454; --cyan:#06b6d4; --green:#10b981; --orange:#f59e0b; --red:#ef4444; --purple:#7c3aed;
+  --shadow:0 22px 60px rgba(15,35,84,.13); --radius:22px; --max:1200px;
+  --code-bg:#0b1220; --code-ink:#dbeafe;
+}
+[data-theme="dark"]{
+  --bg:#0b1220; --paper:#0f1a2e; --ink:#e2e8f0; --muted:#94a3b8; --line:#1f2d4a;
+  --code-bg:#060d1d; --code-ink:#e0f2fe;
+  --shadow:0 22px 60px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.64;transition:background .25s ease,color .25s ease}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px;border-radius:6px}
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{left:16px;top:16px;width:auto;height:auto;background:white;color:#000;z-index:9999;padding:10px 14px;border-radius:10px;border:2px solid var(--blue)}
+
+/* Scroll progress */
+.progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));z-index:1000;transition:width .1s ease}
+
+.header{position:sticky;top:0;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:90}
+[data-theme="dark"] .header{background:rgba(11,18,32,.88)}
+.nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px}
+.brand{display:flex;gap:10px;align-items:center;font-weight:950;letter-spacing:-.045em;color:var(--navy)}
+[data-theme="dark"] .brand{color:#e0f2fe}
+.brand-mark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:white;box-shadow:0 9px 24px rgba(37,99,235,.28);font-weight:950}
+.nav-right{display:flex;align-items:center;gap:8px}
+.navlinks{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.navlinks a{font-size:.91rem;color:#334155;padding:8px 11px;border-radius:999px;font-weight:800}
+[data-theme="dark"] .navlinks a{color:#cbd5e1}
+.navlinks a:hover{background:#eef4ff;color:var(--blue)}
+[data-theme="dark"] .navlinks a:hover{background:#1e293b;color:#7dd3fc}
+.theme-toggle{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:white;cursor:pointer;display:grid;place-items:center;color:var(--navy);font-size:1.1rem}
+[data-theme="dark"] .theme-toggle{background:#1e293b;color:#fde68a;border-color:#334155}
+.theme-toggle:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.1)}
+
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 12% 20%,rgba(6,182,212,.24),transparent 31%),radial-gradient(circle at 88% 15%,rgba(124,58,237,.20),transparent 30%),linear-gradient(135deg,#081634 0%,#142b63 52%,#063e57 100%);color:white}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent)}
+.hero-inner{position:relative;max-width:var(--max);margin:0 auto;padding:76px 20px 60px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.12);font-weight:900;color:#e0faff;font-size:.88rem}
+h1{font-size:clamp(2.45rem,5.3vw,5.1rem);line-height:1.03;margin:18px 0 16px;letter-spacing:-.075em}
+.hero p.lead{font-size:1.15rem;color:#dbeafe;max-width:780px;margin:0 0 22px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{border:0;border-radius:14px;padding:12px 16px;font-weight:950;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.18s ease;white-space:nowrap;font-size:.96rem}
+.btn-primary{background:white;color:var(--navy)}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.24)}
+.btn-ghost{background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.22)}.btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-card{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:22px;box-shadow:0 24px 80px rgba(0,0,0,.24);backdrop-filter:blur(8px)}
+.hero-card h2{margin:0 0 12px;font-size:1.28rem;letter-spacing:-.03em}
+.question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.qitem{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:13px}
+.qitem b{display:block;color:white;margin-bottom:3px}.qitem span{font-size:.91rem;color:#dcecff}
+
+.hero-stats{display:flex;gap:16px;margin-top:20px;flex-wrap:wrap}
+.hero-stat{display:flex;flex-direction:column;padding:10px 14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;min-width:90px}
+.hero-stat b{font-size:1.5rem;color:white;line-height:1.1;letter-spacing:-.03em}
+.hero-stat span{font-size:.78rem;color:#bfdbfe;font-weight:700;margin-top:2px}
+
+.container{max-width:var(--max);margin:0 auto;padding:54px 20px}
+.section-title{margin:0 0 12px;font-size:clamp(1.75rem,3.2vw,2.7rem);letter-spacing:-.055em;line-height:1.15;color:var(--navy)}
+[data-theme="dark"] .section-title{color:#e0f2fe}
+.section-sub{margin:0 0 26px;color:var(--muted);font-size:1.04rem;max-width:940px}
+.grid{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 10px 35px rgba(18,34,66,.06)}
+.card h3{margin:0 0 10px;font-size:1.23rem;letter-spacing:-.035em;color:var(--navy)}
+[data-theme="dark"] .card h3{color:#e0f2fe}
+.card p{margin:0;color:var(--muted)}
+.kicker{font-weight:950;color:var(--blue);font-size:.84rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+[data-theme="dark"] .kicker{color:#7dd3fc}
+.pill-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.pill{display:inline-flex;align-items:center;border:1px solid #d8e3f5;background:#f4f7fb;border-radius:999px;padding:5px 9px;font-size:.81rem;font-weight:850;color:#40516b}
+[data-theme="dark"] .pill{background:#1e293b;color:#cbd5e1;border-color:#334155}
+.pill.blue{background:#eaf2ff;color:#1d4ed8;border-color:#bfd5ff}
+[data-theme="dark"] .pill.blue{background:rgba(37,99,235,.15);color:#93c5fd;border-color:rgba(37,99,235,.4)}
+.pill.green{background:#eafff6;color:#047857;border-color:#b7f1d5}
+[data-theme="dark"] .pill.green{background:rgba(16,185,129,.15);color:#6ee7b7;border-color:rgba(16,185,129,.4)}
+.pill.orange{background:#fff7e7;color:#b45309;border-color:#fde0aa}.pill.purple{background:#f3e8ff;color:#6d28d9;border-color:#ddd0fe}.pill.red{background:#fff1f2;color:#be123c;border-color:#fecdd3}
+
+.flow{display:grid;gap:12px;counter-reset:step}
+.flow-step{display:grid;grid-template-columns:64px 1fr;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 32px rgba(18,34,66,.06)}
+.flow-no{width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:white;font-size:1.15rem;font-weight:950}
+.flow-step h3{margin:0 0 6px;color:var(--navy);letter-spacing:-.03em}
+[data-theme="dark"] .flow-step h3{color:#e0f2fe}
+.flow-step p{margin:0;color:#475569}
+[data-theme="dark"] .flow-step p{color:#cbd5e1}
+.flow-step .example{margin-top:10px}
+
+.example,.warn,.good,.danger{border-radius:14px;padding:12px 14px;margin-top:12px;color:#334155}
+[data-theme="dark"] .example,[data-theme="dark"] .warn,[data-theme="dark"] .good,[data-theme="dark"] .danger{color:#cbd5e1}
+.example{border-left:4px solid var(--blue);background:#f7fbff}
+[data-theme="dark"] .example{background:rgba(37,99,235,.08)}
+.warn{border-left:4px solid var(--orange);background:#fff8ed;color:#63420b}
+[data-theme="dark"] .warn{background:rgba(245,158,11,.1);color:#fde68a}
+.good{border-left:4px solid var(--green);background:#edfff7;color:#064e3b}
+[data-theme="dark"] .good{background:rgba(16,185,129,.1);color:#a7f3d0}
+.danger{border-left:4px solid var(--red);background:#fff1f2;color:#7f1d1d}
+[data-theme="dark"] .danger{background:rgba(239,68,68,.1);color:#fecaca}
+
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:0 10px 35px rgba(18,34,66,.05)}
+table{width:100%;border-collapse:collapse;min-width:790px}
+th,td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:#f2f6fc;color:#0f2b5c;font-weight:950}
+[data-theme="dark"] th{background:#1e293b;color:#e0f2fe}
+td{color:#334155}
+[data-theme="dark"] td{color:#cbd5e1}
+
+.controls{display:grid;grid-template-columns:1.4fr repeat(2,.75fr);gap:10px;margin:20px 0}
+.controls input,.controls select,.builder input,.builder select,.builder textarea{width:100%;border:1px solid #d5e0ef;background:var(--paper);border-radius:14px;padding:12px 13px;color:var(--ink);outline:none}
+[data-theme="dark"] .controls input,[data-theme="dark"] .controls select,[data-theme="dark"] .builder input,[data-theme="dark"] .builder select,[data-theme="dark"] .builder textarea{border-color:#334155;background:#1e293b;color:#e2e8f0}
+.controls input:focus,.controls select:focus,.builder input:focus,.builder select:focus,.builder textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.12)}
+.method-count{font-weight:900;color:var(--navy);margin:0 0 8px}
+[data-theme="dark"] .method-count{color:#bfdbfe}
+.method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.method-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 10px 30px rgba(18,34,66,.06);display:flex;flex-direction:column;gap:10px;transition:transform .15s ease,box-shadow .15s ease}
+.method-card:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(18,34,66,.12)}
+.method-card h3{margin:0;color:var(--navy);letter-spacing:-.035em;font-size:1.08rem}
+[data-theme="dark"] .method-card h3{color:#e0f2fe}
+.method-card p{margin:0;color:#526176;font-size:.94rem}
+[data-theme="dark"] .method-card p{color:#94a3b8}
+.method-meta{display:flex;flex-wrap:wrap;gap:6px}
+.method-card button{align-self:flex-start;margin-top:auto;background:#eef4ff;color:#1d4ed8;border:1px solid #c7d8ff;border-radius:11px;padding:8px 10px;font-weight:900;cursor:pointer}
+[data-theme="dark"] .method-card button{background:rgba(37,99,235,.15);color:#93c5fd;border-color:rgba(37,99,235,.4)}
+.method-card button:hover{background:#dfeaff}
+[data-theme="dark"] .method-card button:hover{background:rgba(37,99,235,.25)}
+
+.selector{background:linear-gradient(135deg,var(--paper),#f7fbff);border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:var(--shadow)}
+[data-theme="dark"] .selector{background:linear-gradient(135deg,#0f1a2e,#1e293b)}
+.selector-row{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+.selector label{display:block;font-weight:900;color:var(--navy);margin-bottom:6px}
+[data-theme="dark"] .selector label{color:#e0f2fe}
+.selector select{width:100%;border:1px solid #d5e0ef;background:var(--paper);border-radius:14px;padding:12px 13px;color:var(--ink)}
+[data-theme="dark"] .selector select{background:#1e293b;color:#e2e8f0;border-color:#334155}
+.selector-output{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.suggestion{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px}
+.suggestion h4{margin:0 0 8px;color:var(--navy)}
+[data-theme="dark"] .suggestion h4{color:#e0f2fe}
+.suggestion p{margin:0;color:#526176;font-size:.92rem}
+[data-theme="dark"] .suggestion p{color:#94a3b8}
+
+.recipe-card{background:var(--code-bg);color:var(--code-ink);border:1px solid #1f3152;border-radius:22px;overflow:hidden;box-shadow:0 16px 45px rgba(11,18,32,.18);margin-bottom:18px}
+.recipe-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;background:#111c33;border-bottom:1px solid rgba(255,255,255,.1);padding:14px 16px}
+.recipe-head h3{margin:4px 0 4px;color:white;letter-spacing:-.03em}.recipe-head p{margin:0;color:#bfdbfe;font-size:.94rem}
+.tag{display:inline-flex;background:#21345b;color:#bfdbfe;border-radius:999px;padding:4px 8px;font-size:.76rem;font-weight:950}
+.copy{border:0;background:#243b63;color:white;border-radius:10px;padding:7px 10px;cursor:pointer;font-size:.82rem;font-weight:900;white-space:nowrap;transition:.15s}
+.copy:hover{background:#33578f}
+.copy.copied{background:var(--green)}
+pre{margin:0;padding:16px;overflow:auto;white-space:pre;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:.88rem;line-height:1.55}
+
+.prompt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.prompt-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(18,34,66,.05);display:flex;flex-direction:column}
+.prompt-head{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);background:#f8fbff}
+[data-theme="dark"] .prompt-head{background:#1e293b}
+.prompt-head h3{margin:0;font-size:1.02rem;color:var(--navy)}
+[data-theme="dark"] .prompt-head h3{color:#e0f2fe}
+.prompt-card p{margin:0;padding:14px 16px;color:#334155;white-space:pre-line;font-size:.94rem}
+[data-theme="dark"] .prompt-card p{color:#cbd5e1}
+
+.route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.route-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(18,34,66,.05)}
+.route-card h3{margin:0 0 10px;color:var(--navy)}
+[data-theme="dark"] .route-card h3{color:#e0f2fe}
+.route-card dl{display:grid;grid-template-columns:110px 1fr;gap:8px;margin:0;color:#334155}
+[data-theme="dark"] .route-card dl{color:#cbd5e1}
+.route-card dt{font-weight:950;color:#1d4ed8}
+[data-theme="dark"] .route-card dt{color:#7dd3fc}
+.route-card dd{margin:0}
+.mini-prompt{margin-top:12px;background:#f7fbff;border-left:4px solid var(--blue);border-radius:12px;padding:10px 12px;color:#334155;font-size:.93rem}
+[data-theme="dark"] .mini-prompt{background:rgba(37,99,235,.08);color:#cbd5e1}
+
+.check-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.check-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 10px 28px rgba(18,34,66,.05);transition:.15s}
+.check-card:hover{transform:translateY(-2px);border-color:var(--blue)}
+.check-card h3{margin:0 0 8px;color:var(--navy);font-size:1.05rem;display:flex;align-items:center;gap:8px}
+[data-theme="dark"] .check-card h3{color:#e0f2fe}
+.check-card .icon{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#fff1f2;color:#be123c;font-weight:950}
+.check-card p{margin:0;color:#526176}
+[data-theme="dark"] .check-card p{color:#94a3b8}
+
+.builder{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
+.builder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.builder label{font-weight:950;color:var(--navy);font-size:.94rem;display:block;margin-bottom:6px}
+[data-theme="dark"] .builder label{color:#e0f2fe}
+.builder textarea{min-height:92px;resize:vertical}
+.output{margin-top:16px;background:var(--code-bg);color:#e0f2fe;border-radius:18px;padding:16px;white-space:pre-wrap;border:1px solid #203458;font-family:"SFMono-Regular",Consolas,monospace;font-size:.9rem;max-height:520px;overflow:auto}
+
+.footer{background:#0b1220;color:#dbeafe;padding:36px 20px;margin-top:40px}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.footer b{color:white}
+.footer a{color:#7dd3fc;text-decoration:underline}
+
+.floaters{position:fixed;right:18px;bottom:18px;z-index:120;display:flex;flex-direction:column;gap:10px;opacity:0;pointer-events:none;transition:.2s ease}
+.floaters.show{opacity:1;pointer-events:auto}
+.floaters a,.floaters button{border:0;border-radius:999px;padding:12px 14px;background:#0f2454;color:white;box-shadow:0 10px 24px rgba(15,36,84,.25);font-weight:950;cursor:pointer;text-align:center}
+.floaters a.main{background:linear-gradient(135deg,var(--blue),var(--cyan))}
+
+.modal{position:fixed;inset:0;background:rgba(8,16,32,.56);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+.modal.show{display:flex}
+.modal-card{width:min(900px,100%);max-height:88vh;overflow:auto;background:var(--paper);border-radius:28px;box-shadow:0 40px 120px rgba(0,0,0,.35);border:1px solid var(--line)}
+.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:22px 24px;border-bottom:1px solid var(--line);background:#f8fbff;position:sticky;top:0;z-index:2}
+[data-theme="dark"] .modal-head{background:#1e293b}
+.modal-head h2{margin:0;color:var(--navy);letter-spacing:-.04em}
+[data-theme="dark"] .modal-head h2{color:#e0f2fe}
+.close{border:0;background:#e2e8f0;border-radius:12px;width:38px;height:38px;cursor:pointer;font-weight:950;color:#334155;font-size:1.2rem}
+[data-theme="dark"] .close{background:#334155;color:#e2e8f0}
+.modal-body{padding:22px 24px}
+.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.detail{border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--paper)}
+.detail b{display:block;color:#1d4ed8;margin-bottom:5px}
+[data-theme="dark"] .detail b{color:#7dd3fc}
+.detail p{margin:0;color:#334155}
+[data-theme="dark"] .detail p{color:#cbd5e1}
+.modal-prompt{background:var(--code-bg);color:#dbeafe;border-radius:16px;padding:14px;white-space:pre-wrap;font-family:"SFMono-Regular",Consolas,monospace;font-size:.9rem;max-height:300px;overflow:auto}
+
+.credit-line{margin-top:18px;display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#e0f2fe;font-weight:900;font-size:.94rem}
+.credit-line span{opacity:.76;font-weight:700}.credit-line b{color:white}
+
+.prompt-architecture{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+.prompt-formula{background:linear-gradient(135deg,var(--paper),#f8fbff);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 34px rgba(18,34,66,.06)}
+[data-theme="dark"] .prompt-formula{background:linear-gradient(135deg,#0f1a2e,#1e293b)}
+.prompt-formula h3{margin:0 0 10px;color:var(--navy);letter-spacing:-.035em}
+[data-theme="dark"] .prompt-formula h3{color:#e0f2fe}
+.prompt-formula p{margin:0 0 12px;color:var(--muted)}
+.formula-list{display:grid;gap:8px}.formula-item{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start;border:1px solid #e2e8f0;background:var(--paper);border-radius:14px;padding:10px 12px}
+[data-theme="dark"] .formula-item{border-color:#334155}
+.formula-item b{color:#1d4ed8}
+[data-theme="dark"] .formula-item b{color:#7dd3fc}
+.formula-item span{color:#334155;font-size:.94rem}
+[data-theme="dark"] .formula-item span{color:#cbd5e1}
+
+.bad-prompt{background:#fff7ed;border:1px solid #fed7aa;border-radius:18px;padding:16px}
+.good-prompt{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:18px;padding:16px}
+[data-theme="dark"] .bad-prompt{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3)}
+[data-theme="dark"] .good-prompt{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.3)}
+.bad-prompt b{color:#c2410c}.good-prompt b{color:#047857}
+[data-theme="dark"] .bad-prompt b{color:#fbbf24}[data-theme="dark"] .good-prompt b{color:#6ee7b7}
+.prompt-compare{display:grid;gap:12px}.prompt-compare p{margin:6px 0 0;color:#334155}
+[data-theme="dark"] .prompt-compare p{color:#cbd5e1}
+
+.prompt-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 18px}
+.prompt-tools input{min-width:240px;flex:1;border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:var(--paper);color:var(--ink)}
+[data-theme="dark"] .prompt-tools input{background:#1e293b;border-color:#334155;color:#e2e8f0}
+.prompt-filter-btn{border:1px solid #cbd5e1;background:var(--paper);color:#334155;border-radius:999px;padding:9px 12px;font-weight:900;cursor:pointer;transition:.15s}
+[data-theme="dark"] .prompt-filter-btn{background:#1e293b;color:#cbd5e1;border-color:#334155}
+.prompt-filter-btn.active,.prompt-filter-btn:hover{background:#0f2454;color:white;border-color:#0f2454}
+.prompt-card.pro{position:relative}
+.prompt-card.pro:before{content:attr(data-prompt-group);position:absolute;right:14px;top:52px;background:#eef2ff;color:#1d4ed8;border-radius:999px;padding:4px 8px;font-size:.72rem;font-weight:950}
+[data-theme="dark"] .prompt-card.pro:before{background:rgba(37,99,235,.2);color:#93c5fd}
+.prompt-meta{display:grid;gap:8px;padding:14px 16px 0}
+.prompt-meta-row{display:grid;grid-template-columns:82px 1fr;gap:8px;font-size:.9rem}
+.prompt-meta-row b{color:#1d4ed8}
+[data-theme="dark"] .prompt-meta-row b{color:#7dd3fc}
+.prompt-meta-row span{color:#334155}
+[data-theme="dark"] .prompt-meta-row span{color:#cbd5e1}
+.prompt-block{margin:14px 16px 16px;background:var(--code-bg);color:#dbeafe;border-radius:16px;padding:14px;white-space:pre-wrap;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:.86rem;line-height:1.55;border:1px solid #203458;max-height:340px;overflow:auto}
+.prompt-card.hidden{display:none!important}
+.prompt-count{font-weight:900;color:#475569;margin-left:auto}
+[data-theme="dark"] .prompt-count{color:#cbd5e1}
+
+.prompt-lab{margin-top:24px;background:linear-gradient(135deg,#0b1220,#102a5f 62%,#063e57);border-radius:30px;padding:24px;color:#dbeafe;box-shadow:var(--shadow);overflow:hidden;position:relative}
+.prompt-lab:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%,rgba(6,182,212,.22),transparent 28%),radial-gradient(circle at 84% 18%,rgba(124,58,237,.22),transparent 28%);pointer-events:none}
+.prompt-lab>*{position:relative}
+.prompt-lab h3{margin:0 0 8px;color:white;font-size:1.55rem;letter-spacing:-.04em}
+.prompt-lab p{margin:0 0 16px;color:#bfdbfe}
+.prompt-lab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.prompt-lab label{display:block;color:#e0f2fe;font-weight:900;margin-bottom:6px}
+.prompt-lab input,.prompt-lab textarea,.prompt-lab select{width:100%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:white;border-radius:14px;padding:11px 12px}
+.prompt-lab select option{color:#111827}
+.prompt-lab textarea{min-height:78px;resize:vertical}
+.prompt-lab-output{margin-top:16px;background:rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:16px;white-space:pre-wrap;font-family:"SFMono-Regular",Consolas,monospace;color:#e0f2fe;min-height:120px;max-height:420px;overflow:auto}
+.prompt-lab-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.prompt-lab .btn-light{background:white;color:#0f2454}
+.prompt-lab .btn-dark{background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.22)}
+
+.creator-panel{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:18px 20px}
+.creator-mark{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:white;font-weight:950;box-shadow:0 10px 26px rgba(37,99,235,.25)}
+.creator-panel small{display:block;color:#93c5fd;font-weight:900}
+.creator-panel strong{display:block;color:white;font-size:1.04rem}
+.creator-panel span{display:block;color:#dbeafe;font-size:.93rem;margin-top:2px}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:36px;transform:translateX(-50%) translateY(20px);background:#0f2454;color:white;padding:12px 18px;border-radius:14px;font-weight:900;box-shadow:0 18px 40px rgba(0,0,0,.3);z-index:300;opacity:0;pointer-events:none;transition:.25s ease;font-size:.94rem}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.success{background:var(--green)}
+.toast.error{background:var(--red)}
+
+/* Data sources */
+.source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.source-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px;transition:.15s}
+.source-card:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 12px 32px rgba(18,34,66,.1)}
+.source-card h3{margin:0;color:var(--navy);font-size:1.06rem;display:flex;align-items:center;justify-content:space-between;gap:8px}
+[data-theme="dark"] .source-card h3{color:#e0f2fe}
+.source-card p{margin:0;color:#526176;font-size:.93rem;flex:1}
+[data-theme="dark"] .source-card p{color:#94a3b8}
+.source-card .source-url{font-size:.84rem;color:var(--blue);font-weight:900;word-break:break-all}
+.source-card .source-tag{font-size:.74rem;padding:3px 8px;border-radius:999px;background:#eef4ff;color:#1d4ed8;font-weight:900;white-space:nowrap}
+[data-theme="dark"] .source-card .source-tag{background:rgba(37,99,235,.2);color:#93c5fd}
+
+/* Ethics callouts */
+.ethics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ethics-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px;position:relative;overflow:hidden}
+.ethics-card:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.ethics-card h3{margin:0 0 10px;color:var(--navy);display:flex;align-items:center;gap:10px}
+[data-theme="dark"] .ethics-card h3{color:#e0f2fe}
+.ethics-card .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:white;font-weight:950;font-size:.96rem}
+.ethics-card p{margin:0 0 10px;color:#475569}
+[data-theme="dark"] .ethics-card p{color:#cbd5e1}
+.ethics-card ul{margin:0;padding-left:20px;color:#475569}
+[data-theme="dark"] .ethics-card ul{color:#cbd5e1}
+.ethics-card li{margin-bottom:6px;font-size:.94rem}
+
+/* FAQ */
+.faq{display:grid;gap:10px}
+.faq-item{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.faq-q{padding:16px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:900;color:var(--navy);font-size:1rem;background:transparent;border:0;width:100%;text-align:left}
+[data-theme="dark"] .faq-q{color:#e0f2fe}
+.faq-q:hover{background:#f8fbff}
+[data-theme="dark"] .faq-q:hover{background:#1e293b}
+.faq-q .arrow{transition:transform .25s ease;color:var(--blue);font-size:1.2rem}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 18px 16px;color:#475569;line-height:1.7}
+[data-theme="dark"] .faq-a{color:#cbd5e1}
+.faq-item.open .faq-a{display:block}
+
+/* TOC */
+.toc{position:fixed;top:50%;right:20px;transform:translateY(-50%);background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 18px 50px rgba(18,34,66,.15);z-index:80;max-width:200px;display:none}
+.toc.show{display:block}
+.toc h4{margin:0 0 8px;font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:950}
+.toc ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.toc a{font-size:.86rem;color:#475569;padding:6px 10px;border-radius:8px;display:block;font-weight:700;border-left:3px solid transparent}
+[data-theme="dark"] .toc a{color:#cbd5e1}
+.toc a:hover{background:#f0f6ff;color:var(--blue)}
+[data-theme="dark"] .toc a:hover{background:#1e293b;color:#7dd3fc}
+.toc a.active{background:#eaf2ff;color:var(--blue);border-left-color:var(--blue);font-weight:950}
+[data-theme="dark"] .toc a.active{background:rgba(37,99,235,.2);color:#93c5fd;border-left-color:#7dd3fc}
+
+@media (max-width:1280px){.toc{display:none!important}}
+@media (max-width:960px){
+  .prompt-architecture,.prompt-lab-grid{grid-template-columns:1fr}
+  .prompt-count{width:100%;margin-left:0}
+  .credit-line{border-radius:16px}
+  .hero-inner{grid-template-columns:1fr}
+  .grid-3,.grid-4,.method-grid,.prompt-grid,.check-grid,.source-grid,.ethics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .selector-row{grid-template-columns:1fr}
+  .selector-output{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .nav{align-items:flex-start;flex-direction:column}
+  .navlinks{justify-content:flex-start}
+  .grid-2,.grid-3,.grid-4,.method-grid,.prompt-grid,.route-grid,.check-grid,.builder-grid,.detail-grid,.source-grid,.ethics-grid{grid-template-columns:1fr}
+  .controls{grid-template-columns:1fr}
+  .question-grid{grid-template-columns:1fr}
+  h1{font-size:2.55rem}
+  .flow-step{grid-template-columns:1fr}
+  .hero-inner{padding:50px 16px 40px}
+  .container{padding:40px 16px}
+}
+
+@media print {
+  .header,.floaters,.toc,.theme-toggle,.hero-actions,.prompt-tools,.controls,button{display:none!important}
+  body{background:white;color:black}
+  .hero{background:white;color:black;padding:20px 0}
+  .hero p.lead,h1{color:black}
+  .badge,.credit-line{border:1px solid #999;background:white;color:black}
+  .recipe-card,.prompt-block,.output,.modal-prompt{background:white;color:black;border:1px solid #999}
+  pre{color:black}
+  .card,.method-card,.flow-step,.check-card,.route-card,.builder,.selector,.source-card,.ethics-card,.faq-item,.prompt-card,.prompt-formula{break-inside:avoid;page-break-inside:avoid}
+}
+</style>
+</head>
+<body id="top">
+<div class="progress-bar" id="progressBar"></div>
+<a class="skip" href="#content">본문 바로가기</a>
+
+<header class="header">
+  <nav class="nav" aria-label="주요 메뉴">
+    <a class="brand" href="#top"><span class="brand-mark">AI</span><span>데이터 분석 방법 가이드</span></a>
+    <div class="nav-right">
+      <div class="navlinks">
+        <a href="#workflow">흐름</a><a href="#matrix">방법 선택</a><a href="#library">분석법 도감</a><a href="#recipes">코드</a><a href="#prompts">프롬프트</a><a href="#sources">데이터 출처</a><a href="#ethics">윤리</a><a href="#faq">FAQ</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="다크모드 전환" title="다크모드 전환">🌙</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="badge">🎓 고등학생을 위한 AI 활용 데이터 분석 실전 매뉴얼</span>
+      <h1>데이터를 AI로<br>어떻게 분석할 것인가</h1>
+      <p class="lead">이 페이지는 탐구 주제 목록이 아니라, 실험데이터·공공데이터·센서로그·이미지·텍스트를 어떤 AI 분석 방법으로 다룰지 구체적으로 안내하는 분석법 중심 웹페이지입니다. AI는 답을 대신 쓰는 도구가 아니라, 분석법 선택·코드 생성·오류 검토·해석 정교화를 돕는 데이터 분석 파트너로 사용합니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#library">분석법 도감 보기</a>
+        <a class="btn btn-ghost" href="#selector">내 데이터에 맞는 방법 찾기</a>
+        <a class="btn btn-ghost" href="#recipes">Python 코드 보기</a>
+      </div>
+      <div class="hero-stats" aria-label="페이지 구성 요약">
+        <div class="hero-stat"><b id="statMethods">90+</b><span>분석법</span></div>
+        <div class="hero-stat"><b id="statPrompts">30+</b><span>프롬프트</span></div>
+        <div class="hero-stat"><b id="statRecipes">14+</b><span>코드 레시피</span></div>
+        <div class="hero-stat"><b>9</b><span>분석 단계</span></div>
+      </div>
+      <div class="credit-line"><span>기획·제작</span><b>충청남도교육청진로융합교육원 교육연구사 정재연</b></div>
+    </div>
+    <aside class="hero-card">
+      <h2>AI에게 맡길 수 있는 분석 보조 역할</h2>
+      <div class="question-grid">
+        <div class="qitem"><b>정리</b><span>열 의미, 단위, 결측, 이상치, 데이터 구조 점검</span></div>
+        <div class="qitem"><b>선택</b><span>비교·관계·예측·분류·군집 중 적절한 분석법 추천</span></div>
+        <div class="qitem"><b>구현</b><span>pandas, matplotlib, scikit-learn 코드 초안 생성</span></div>
+        <div class="qitem"><b>검증</b><span>데이터 누수, 과적합, 인과 과장, 그래프 오류 점검</span></div>
+        <div class="qitem"><b>해석</b><span>수치 근거가 있는 결과 문장과 한계 문장 작성</span></div>
+        <div class="qitem"><b>기록</b><span>AI 활용 과정, 사람이 검증한 내용, 수정 이력 관리</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<nav class="toc" id="toc" aria-label="목차">
+  <h4>이 페이지</h4>
+  <ul>
+    <li><a href="#principles">핵심 원칙</a></li>
+    <li><a href="#workflow">분석 9단계</a></li>
+    <li><a href="#matrix">방법 선택표</a></li>
+    <li><a href="#selector">분석법 추천기</a></li>
+    <li><a href="#library">분석법 도감</a></li>
+    <li><a href="#routes">데이터 유형별</a></li>
+    <li><a href="#recipes">코드 레시피</a></li>
+    <li><a href="#prompts">프롬프트</a></li>
+    <li><a href="#mistakes">자주 생기는 오류</a></li>
+    <li><a href="#sources">데이터 출처</a></li>
+    <li><a href="#tools">AI 도구별 팁</a></li>
+    <li><a href="#ethics">윤리·저작권</a></li>
+    <li><a href="#builder">분석 설계서</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<main id="content">
+<section class="container" id="principles">
+  <h2 class="section-title">AI 데이터 분석의 핵심 원칙</h2>
+  <p class="section-sub">좋은 분석은 복잡한 모델을 쓰는 것이 아니라, 데이터의 구조와 질문에 맞는 방법을 고르고, 결과를 검증 가능한 근거로 해석하는 것입니다.</p>
+  <div class="grid grid-4">
+    <article class="card"><div class="kicker">01</div><h3>분석 질문을 먼저 정한다</h3><p>"AI로 분석해줘"가 아니라 "조건별 차이", "변수 관계", "미래 예측", "유형 분류", "패턴 발견" 중 무엇을 원하는지 정합니다.</p></article>
+    <article class="card"><div class="kicker">02</div><h3>원자료를 보존한다</h3><p>AI가 제안한 전처리를 적용하더라도 원자료, 전처리본, 분석 코드, 그래프를 분리해 재현 가능하게 관리합니다.</p></article>
+    <article class="card"><div class="kicker">03</div><h3>모델보다 검증을 중시한다</h3><p>훈련/검증 분리, 교차검증, 잔차분석, 오분류 분석, 외부 검증을 통해 결과가 우연인지 확인합니다.</p></article>
+    <article class="card"><div class="kicker">04</div><h3>AI 결과를 사람이 판단한다</h3><p>AI는 코드와 해석 초안을 만들 수 있지만, 단위·측정 맥락·변수 의미·인과 해석은 학생이 직접 판단해야 합니다.</p></article>
+  </div>
+  <div class="good"><b>핵심 문장:</b> "AI를 사용했다"가 아니라 "AI가 제안한 분석법을 데이터 구조에 맞게 검토하고, 오류를 수정하며, 결과를 근거 중심으로 해석했다"가 분석 역량입니다.</div>
+</section>
+
+<section class="container" id="workflow">
+  <h2 class="section-title">AI 활용 데이터 분석 9단계</h2>
+  <p class="section-sub">각 단계마다 AI에게 요청할 일과 학생이 직접 확인할 일을 분리해야 합니다.</p>
+  <div class="flow">
+    <article class="flow-step"><div class="flow-no">1</div><div><h3>데이터 설명을 AI에게 제공</h3><p>파일을 통째로 던지기보다 열 이름, 샘플 10행, 측정 방법, 단위, 연구 목적을 함께 제공합니다. 개인정보·민감정보는 마스킹하거나 제외합니다.</p><div class="example"><b>요청 예시:</b> "이 데이터의 열 이름과 샘플 10행을 보고 분석 전에 확인할 오류와 가능한 분석 질문을 표로 정리해줘."</div></div></article>
+    <article class="flow-step"><div class="flow-no">2</div><div><h3>데이터 품질 점검</h3><p>결측치, 중복, 이상치, 단위 불일치, 범주 오타, 날짜 형식 오류를 먼저 찾습니다.</p><div class="warn"><b>주의:</b> AI가 제안한 삭제·대체 기준은 반드시 측정 맥락으로 검토합니다. 자동 결측 대체(mean imputation)는 분산을 왜곡할 수 있습니다.</div></div></article>
+    <article class="flow-step"><div class="flow-no">3</div><div><h3>분석 목적 분류</h3><p>설명, 비교, 관계, 예측, 분류, 패턴 발견, 최적화 중 하나로 목적을 분류합니다. 목적이 바뀌면 분석법도 바뀝니다.</p></div></article>
+    <article class="flow-step"><div class="flow-no">4</div><div><h3>분석법 후보 3개 이상 비교</h3><p>한 가지 방법으로 바로 결론을 내리지 말고, 쉬운 방법과 복잡한 방법을 함께 비교합니다.</p><div class="example"><b>예:</b> 평균 비교 → 효과크기 → 회귀분석 / 산점도 → 상관분석 → 잔차분석</div></div></article>
+    <article class="flow-step"><div class="flow-no">5</div><div><h3>코드 생성과 실행</h3><p>AI에게 Python 코드를 요청하되, 각 코드 줄의 목적과 입력·출력 형태를 설명하게 합니다. 라이브러리 버전과 한국어 처리 환경을 명시하면 오류가 줄어듭니다.</p></div></article>
+    <article class="flow-step"><div class="flow-no">6</div><div><h3>그래프와 수치 동시 확인</h3><p>수치만 보지 말고 분포, 산점도, 잔차, 오차막대, 오분류 사례를 함께 봅니다. 그래프 제목·축·단위·표본 수·오차막대 종류를 반드시 표기합니다.</p></div></article>
+    <article class="flow-step"><div class="flow-no">7</div><div><h3>검증 루틴 적용</h3><p>데이터 누수, 과적합, 표본 불균형, 이상치 영향, 인과 과장, 그래프 왜곡, 코드 실행 결과 일치성을 점검합니다.</p></div></article>
+    <article class="flow-step"><div class="flow-no">8</div><div><h3>결과를 근거 문장으로 변환</h3><p>"좋아졌다"가 아니라 "A 조건의 평균이 B보다 2.3 높고 표준편차는…"처럼 수치 근거를 포함합니다. 인과가 아니라 관계·경향·가능성으로 표현합니다.</p></div></article>
+    <article class="flow-step"><div class="flow-no">9</div><div><h3>AI 활용 기록 남기기</h3><p>프롬프트, AI 제안, 직접 검증한 내용, 수정한 내용, 최종 반영 여부를 기록합니다. 보고서에 AI 사용 사실을 명시하는 것은 학술 정직성의 출발점입니다.</p></div></article>
+  </div>
+</section>
+
+
+<section class="container" id="matrix">
+  <h2 class="section-title">분석 목적별 방법 선택 매트릭스</h2>
+  <p class="section-sub">데이터 분석은 질문의 유형에 따라 방법이 달라집니다. 아래 표를 보고 먼저 큰 방향을 정하세요.</p>
+  <div class="table-wrap"><table><thead><tr><th>분석 목적</th><th>데이터 형태</th><th>추천 분석법</th><th>해석 핵심</th></tr></thead><tbody>
+<tr><td>값을 요약하고 싶다</td><td>수치형 1~2개</td><td>기술통계, 히스토그램, boxplot</td><td>평균만 쓰지 말고 분포와 산포를 함께 보여준다.</td></tr>
+<tr><td>조건별 차이를 비교하고 싶다</td><td>집단 변수 + 수치형 결과</td><td>오차막대, 평균 비교, 효과크기, ANOVA</td><td>반복 수와 표준편차를 반드시 제시한다.</td></tr>
+<tr><td>두 변수 관계를 보고 싶다</td><td>연속형 변수 2개 이상</td><td>산점도, 상관분석, 회귀분석, 잔차분석</td><td>상관과 인과를 구분한다.</td></tr>
+<tr><td>결과를 예측하고 싶다</td><td>입력 변수 + 목표값</td><td>회귀모델, 랜덤포레스트, 교차검증</td><td>훈련/검증 분리를 먼저 한다.</td></tr>
+<tr><td>유형을 자동 분류하고 싶다</td><td>특징값 + 라벨</td><td>로지스틱 회귀, 의사결정나무, 혼동행렬</td><td>정확도만 보지 말고 오분류를 본다.</td></tr>
+<tr><td>숨은 패턴을 찾고 싶다</td><td>라벨 없는 다변량 데이터</td><td>PCA, K-means, 군집 프로파일링</td><td>군집 이름은 원자료 근거로 붙인다.</td></tr>
+<tr><td>시간 흐름을 분석하고 싶다</td><td>시간 + 측정값</td><td>이동평균, 추세, lag 분석, 이상 구간 탐지</td><td>무작위 셔플을 피하고 시간순으로 검증한다.</td></tr>
+<tr><td>텍스트를 분석하고 싶다</td><td>문장, 기사, 서술형 응답</td><td>키워드 빈도, n-gram, TF-IDF, 문서 군집</td><td>한국어는 형태소 분석이 필요할 수 있다.</td></tr>
+<tr><td>이미지를 수치화하고 싶다</td><td>사진, 현미경 이미지, 타임랩스</td><td>RGB 평균, 임계값 분할, 객체 계수, 면적 측정</td><td>조명, 거리, 기준자 조건을 통제한다.</td></tr>
+<tr><td>최적 조건을 찾고 싶다</td><td>조건 조합 + 결과값</td><td>격자 탐색, 민감도 분석, 시나리오 비교</td><td>측정 범위 밖으로 결론을 확장하지 않는다.</td></tr>
+<tr><td>분석 결과를 검증하고 싶다</td><td>분석 결과, 모델 출력</td><td>잔차분석, 교차검증, 외부 검증, AI 답변 점검</td><td>한 번의 결과로 단정하지 않는다.</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="container" id="selector">
+  <h2 class="section-title">내 데이터에 맞는 AI 분석법 추천기</h2>
+  <p class="section-sub">데이터 유형과 목표를 고르면 분석법 도감에서 적절한 방법을 자동으로 추천합니다.</p>
+  <div class="selector">
+    <div class="selector-row">
+      <div><label for="dataType">데이터 유형</label><select id="dataType"><option>수치형 실험데이터</option><option>공공데이터</option><option>센서·시계열</option><option>텍스트</option><option>이미지</option><option>공간·지도</option><option>라벨 있는 분류 데이터</option><option>라벨 없는 다변량 데이터</option></select></div>
+      <div><label for="goalType">분석 목표</label><select id="goalType"><option>요약</option><option>비교</option><option>관계</option><option>예측</option><option>분류</option><option>패턴 발견</option><option>최적화</option><option>검증</option></select></div>
+      <button class="btn btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--cyan));color:white" id="recommendBtn">추천 보기</button>
+    </div>
+    <div class="selector-output" id="selectorOutput"></div>
+  </div>
+</section>
+
+<section class="container" id="library">
+  <h2 class="section-title">AI 분석 방법 라이브러리</h2>
+  <p class="section-sub">분석법을 이름만 아는 데서 멈추지 않도록, 언제 쓰는지·AI에게 무엇을 시킬지·학생이 무엇을 검증할지까지 정리했습니다. 카드를 클릭하면 자세한 설명과 복사 가능한 프롬프트가 열립니다.</p>
+  <div class="controls">
+    <input id="searchInput" type="search" placeholder="🔍 분석법, 데이터, 키워드 검색 (예: 회귀, 이미지, 결측, 군집)" />
+    <select id="catFilter"><option value="all">전체 분야</option></select>
+    <select id="levelFilter"><option value="all">전체 수준</option><option>기초</option><option>중급</option><option>심화</option></select>
+  </div>
+  <p class="method-count" id="methodCount"></p>
+  <div class="method-grid" id="methodGrid"></div>
+</section>
+
+<section class="container" id="routes">
+  <h2 class="section-title">데이터 유형별 분석 루트</h2>
+  <p class="section-sub">자료가 어떤 형태인지 알면 분석의 절반은 정해집니다. 아래 루트를 따라 AI에게 구체적으로 요청하세요.</p>
+  <div class="route-grid">
+<article class="route-card">
+  <h3>실험 반복측정 데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>조건, 반복번호, 측정값, 단위</dd><dt>추천 분석 루트</dt><dd>반복 측정 요약 → 오차막대 → 평균 비교 → 효과크기 → 한계 해석</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 조건별 반복 수가 같지 않을 때 평균 비교가 가능한지, 어떤 그래프와 지표를 써야 하는지 알려줘.</div>
+</article>
+<article class="route-card">
+  <h3>공공데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>날짜, 지역, 지표값, 출처</dd><dt>추천 분석 루트</dt><dd>데이터 병합 → 결측·이상치 → 시계열/상관/회귀 → 지도화</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 공공데이터 두 개를 날짜와 지역 기준으로 합치려 한다. 병합 전 점검할 항목과 분석법 후보를 제안해줘.</div>
+</article>
+<article class="route-card">
+  <h3>센서·IoT 로그</h3>
+  <dl><dt>데이터 형태</dt><dd>시간, 센서ID, 측정값, 상태</dd><dt>추천 분석 루트</dt><dd>캘리브레이션 → 이동평균 → 피크/이상 구간 탐지 → 지연상관</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 센서값이 흔들리는 데이터에서 노이즈를 줄이고 이상 구간을 찾는 절차를 알려줘.</div>
+</article>
+<article class="route-card">
+  <h3>설문·범주형 데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>응답자ID, 문항, 선택지, 서술형</dd><dt>추천 분석 루트</dt><dd>빈도표 → 교차표 → 비율 비교 → 텍스트 분류</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 설문 데이터에서 집단별 응답 비율 차이와 서술형 응답 키워드를 함께 분석하는 절차를 제안해줘.</div>
+</article>
+<article class="route-card">
+  <h3>텍스트 데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>문서ID, 날짜, 제목, 본문</dd><dt>추천 분석 루트</dt><dd>형태소 분석 → 불용어 정리 → 키워드 빈도 → TF-IDF → 문서 군집</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 한국어 기사 제목 200개에서 시기별 키워드 변화를 분석하려고 한다. 형태소 분석 도구 선택과 전처리를 제안해줘.</div>
+</article>
+<article class="route-card">
+  <h3>이미지 데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>파일명, 조건, 촬영시간, 이미지</dd><dt>추천 분석 루트</dt><dd>조명 통제 → 색/면적/객체 수 추출 → 조건별 비교</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 식물 잎 사진에서 색 변화와 면적 변화를 수치화하려면 어떤 절차와 검증이 필요한지 알려줘.</div>
+</article>
+<article class="route-card">
+  <h3>시계열 데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>시간, 값, 외부요인</dd><dt>추천 분석 루트</dt><dd>추세 → 계절성 → lag 변수 → 시간순 예측</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 시간순 데이터를 무작위로 섞지 않고 예측 모델을 만드는 절차를 설명해줘.</div>
+</article>
+<article class="route-card">
+  <h3>공간·지도 데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>위도, 경도, 측정값, 장소특성</dd><dt>추천 분석 루트</dt><dd>지도화 → 거리 기반 분석 → 격자화 → 공간 패턴 해석</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 위치별 미세먼지 측정값을 지도화하고 도로 거리와의 관계를 분석하는 방법을 알려줘.</div>
+</article>
+<article class="route-card">
+  <h3>생명정보 공개자료</h3>
+  <dl><dt>데이터 형태</dt><dd>서열, 발현량, 샘플정보</dd><dt>추천 분석 루트</dt><dd>품질 점검 → 특징 추출 → PCA/군집 → 분류</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 공개 생명정보 데이터에서 PCA와 군집화를 적용할 때 전처리와 해석 주의점을 알려줘.</div>
+</article>
+<article class="route-card">
+  <h3>시뮬레이션 데이터</h3>
+  <dl><dt>데이터 형태</dt><dd>입력조건, 반복번호, 결과값</dd><dt>추천 분석 루트</dt><dd>민감도 분석 → 몬테카를로 → 시나리오 비교 → 최적화</dd></dl>
+  <div class="mini-prompt"><b>AI 요청:</b> 입력값 불확실성을 반영해 결과 분포를 계산하고 시나리오를 비교하는 방법을 알려줘.</div>
+</article>
+</div>
+</section>
+
+
+<section class="container" id="recipes">
+  <h2 class="section-title">Python 코드 레시피</h2>
+  <p class="section-sub">코드는 그대로 복사해서 시작하되, <b>열 이름과 파일명을 자신의 데이터에 맞게 바꿔야</b> 합니다. AI에게 "이 코드가 내 데이터 구조에 맞는지 수정해줘"라고 요청하면 분석 자동화 속도가 크게 올라갑니다.</p>
+  <div class="warn" style="margin-bottom:18px"><b>실행 환경 안내:</b> 모든 코드는 Python 3.9+, pandas 2.x, scikit-learn 1.x, matplotlib 3.x 기준입니다. Google Colab, Jupyter Notebook, VS Code의 Python 환경에서 모두 실행됩니다. 한국어 그래프 라벨이 깨질 때는 <code>matplotlib.rcParams['font.family']='Malgun Gothic'</code>(Windows) 또는 <code>'AppleGothic'</code>(Mac)을 설정하세요.</div>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 01</span><h3>CSV 데이터 품질 진단</h3><p>데이터 분석의 첫 단계는 원자료가 분석 가능한 상태인지 확인하는 것이다.</p></div><button class="copy" data-copy-target="recipe-0">📋 복사</button></div>
+  <pre id="recipe-0"><code>import pandas as pd
+
+# 1) CSV 불러오기 (한글 깨짐 시 encoding='cp949' 또는 'utf-8-sig' 시도)
+df = pd.read_csv('data.csv')
+
+# 2) 기본 구조 확인
+print('행, 열 개수:', df.shape)
+print(df.head(10))
+print(df.info())
+
+# 3) 결측치 확인
+missing = df.isna().sum().sort_values(ascending=False)
+missing_rate = (df.isna().mean() * 100).round(2)
+print(pd.DataFrame({'결측개수': missing, '결측률(%)': missing_rate}))
+
+# 4) 수치형 변수 요약
+print(df.describe())
+
+# 5) 범주형 변수 고유값 확인 (오타 발견용)
+for col in df.select_dtypes(include='object').columns:
+    print(f'\n[{col}] 고유값 {df[col].nunique()}개')
+    print(df[col].value_counts().head(10))
+
+# 6) 중복 행 확인
+print('중복 행 수:', df.duplicated().sum())</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 02</span><h3>반복 측정 요약과 오차막대</h3><p>조건별 반복 측정값을 평균과 표준편차로 요약하고 그래프로 보여준다.</p></div><button class="copy" data-copy-target="recipe-1">📋 복사</button></div>
+  <pre id="recipe-1"><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+# 예: condition 열에는 조건명, value 열에는 측정값이 있다고 가정
+df = pd.read_csv('experiment.csv')
+
+summary = df.groupby('condition')['value'].agg(['count', 'mean', 'std']).reset_index()
+summary['se'] = summary['std'] / (summary['count'] ** 0.5)  # 표준오차
+print(summary)
+
+# 표준편차(SD) 오차막대: 자료 자체의 흩어짐
+# 표준오차(SE) 오차막대: 평균 추정의 불확실성
+# 그래프 캡션에 어떤 오차인지 반드시 명시할 것
+plt.figure(figsize=(8, 5))
+plt.bar(summary['condition'], summary['mean'], yerr=summary['std'],
+        capsize=5, color='#2563eb', alpha=0.7, edgecolor='#0f2454')
+plt.xlabel('Condition')
+plt.ylabel('Mean value (단위 명시)')
+plt.title(f'Mean ± SD by condition (n={summary["count"].iloc[0]})')
+plt.tight_layout()
+plt.show()</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 03</span><h3>이상치 후보 찾기 (IQR)</h3><p>IQR 기준으로 극단값 후보를 찾고, 삭제 전 검토 목록을 만든다.</p></div><button class="copy" data-copy-target="recipe-2">📋 복사</button></div>
+  <pre id="recipe-2"><code>import pandas as pd
+
+df = pd.read_csv('data.csv')
+col = 'value'
+
+# IQR 방식 (분포 가정 없음, 일반적으로 권장)
+q1 = df[col].quantile(0.25)
+q3 = df[col].quantile(0.75)
+iqr = q3 - q1
+lower = q1 - 1.5 * iqr
+upper = q3 + 1.5 * iqr
+
+outliers = df[(df[col] &lt; lower) | (df[col] &gt; upper)]
+print(f'IQR 기준 하한: {lower:.3f}, 상한: {upper:.3f}')
+print(f'이상치 후보 수: {len(outliers)} / 전체 {len(df)}')
+print(outliers)
+
+# z-score 방식은 정규분포 가정에 가까울 때만 사용
+# 치우친 분포에서는 IQR 또는 비율 기준이 더 안전
+z_scores = ((df[col] - df[col].mean()) / df[col].std()).abs()
+print(f'\nz-score &gt; 3인 행 수: {(z_scores &gt; 3).sum()}')
+
+# 삭제하기 전 확인할 것:
+# 1. 측정 당시 장비 오류가 있었는가?
+# 2. 단위 입력 오류인가?
+# 3. 실제로 의미 있는 특이 사례인가?
+# 4. 삭제 전후 결론이 달라지는가? (sensitivity check)</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 04</span><h3>상관행렬과 산점도</h3><p>여러 변수 간 관계 후보를 찾고 시각화한다.</p></div><button class="copy" data-copy-target="recipe-3">📋 복사</button></div>
+  <pre id="recipe-3"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 수치형 열만 선택
+df = pd.read_csv('data.csv')
+num = df.select_dtypes(include='number')
+
+corr = num.corr()
+print(corr.round(3))
+
+# Heatmap: 발산형 색(diverging) 사용 - 양수/음수 상관을 시각적으로 구분
+plt.figure(figsize=(8, 6))
+plt.imshow(corr, aspect='auto', cmap='RdBu_r', vmin=-1, vmax=1)
+plt.colorbar(label='Correlation')
+plt.xticks(range(len(corr.columns)), corr.columns, rotation=90)
+plt.yticks(range(len(corr.columns)), corr.columns)
+# 셀에 값 표시
+for i in range(len(corr.columns)):
+    for j in range(len(corr.columns)):
+        plt.text(j, i, f'{corr.iloc[i,j]:.2f}', ha='center', va='center',
+                 color='white' if abs(corr.iloc[i,j])&gt;0.5 else 'black', fontsize=8)
+plt.title('Correlation matrix')
+plt.tight_layout()
+plt.show()
+
+# 두 변수 산점도 예시
+plt.figure(figsize=(6, 5))
+plt.scatter(df['x'], df['y'], alpha=0.6, edgecolor='white')
+plt.xlabel('x (단위)')
+plt.ylabel('y (단위)')
+plt.title(f'Scatter plot (n={len(df)})')
+plt.tight_layout()
+plt.show()</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 05</span><h3>단순선형회귀</h3><p>x가 y를 얼마나 설명하는지 회귀식과 R²로 확인한다.</p></div><button class="copy" data-copy-target="recipe-4">📋 복사</button></div>
+  <pre id="recipe-4"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_absolute_error
+
+df = pd.read_csv('data.csv').dropna(subset=['x', 'y'])
+X = df[['x']]
+y = df['y']
+
+model = LinearRegression()
+model.fit(X, y)
+pred = model.predict(X)
+
+print(f'회귀식: y = {model.coef_[0]:.4f} * x + {model.intercept_:.4f}')
+print(f'R²: {r2_score(y, pred):.3f}')
+print(f'MAE: {mean_absolute_error(y, pred):.3f}')
+
+# 잔차 분석: 패턴이 있으면 선형 가정 위반 가능
+residuals = y - pred
+plt.figure(figsize=(12, 4))
+plt.subplot(1, 2, 1)
+plt.scatter(df['x'], y, label='data', alpha=0.6)
+plt.plot(df['x'], pred, color='red', label='linear fit')
+plt.xlabel('x'); plt.ylabel('y'); plt.legend()
+plt.title(f'Linear regression (R²={r2_score(y, pred):.3f})')
+
+plt.subplot(1, 2, 2)
+plt.scatter(pred, residuals, alpha=0.6)
+plt.axhline(0, color='red', linestyle='--')
+plt.xlabel('Predicted'); plt.ylabel('Residual')
+plt.title('Residual plot (패턴이 없어야 함)')
+plt.tight_layout()
+plt.show()</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 06</span><h3>다중회귀와 검증 분리 (+VIF)</h3><p>여러 변수를 이용해 결과를 예측하고 다중공선성·과적합을 점검한다.</p></div><button class="copy" data-copy-target="recipe-5">📋 복사</button></div>
+  <pre id="recipe-5"><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_absolute_error
+
+df = pd.read_csv('data.csv')
+features = ['x1', 'x2', 'x3']
+X = df[features]
+y = df['target']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# 훈련/검증 성능 비교: 격차가 크면 과적합
+for name, X_part, y_part in [('train', X_train, y_train), ('test', X_test, y_test)]:
+    pred = model.predict(X_part)
+    print(f'{name}  R²={r2_score(y_part, pred):.3f}  MAE={mean_absolute_error(y_part, pred):.3f}')
+
+# 계수 (영향 크기 순서)
+coef = pd.Series(model.coef_, index=features).sort_values(key=abs, ascending=False)
+print('\n[계수]\n', coef)
+
+# 다중공선성 확인: VIF가 10 이상이면 변수 간 중복이 심함
+# (statsmodels 설치: pip install statsmodels)
+try:
+    from statsmodels.stats.outliers_influence import variance_inflation_factor
+    vif = pd.DataFrame({
+        'feature': features,
+        'VIF': [variance_inflation_factor(X.values, i) for i in range(len(features))]
+    })
+    print('\n[VIF] (10 이상이면 다중공선성 의심)\n', vif)
+except ImportError:
+    # statsmodels 없으면 상관행렬로 대체 점검
+    print('\n[변수 간 상관 (|r|&gt;0.8이면 중복 의심)]')
+    print(X.corr().round(2))</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 07</span><h3>분류 모델과 혼동행렬</h3><p>정상/이상, 성공/실패 같은 분류 문제를 평가한다.</p></div><button class="copy" data-copy-target="recipe-6">📋 복사</button></div>
+  <pre id="recipe-6"><code>import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
+
+df = pd.read_csv('classification.csv')
+features = ['x1', 'x2', 'x3']
+X = df[features]
+y = df['label']
+
+# stratify=y : 클래스 비율을 유지하며 분리 (불균형 데이터에 필수)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+# class_weight='balanced' : 소수 클래스에 가중치
+model = RandomForestClassifier(random_state=42, class_weight='balanced', n_estimators=100)
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+
+print('=== 혼동행렬 ===')
+print(confusion_matrix(y_test, pred))
+print('\n=== 분류 리포트 ===')
+print(classification_report(y_test, pred))
+
+# 시각화
+ConfusionMatrixDisplay.from_predictions(y_test, pred, cmap='Blues')
+plt.title('Confusion Matrix')
+plt.tight_layout()
+plt.show()
+
+# 변수 중요도 (예측 기여도 - 인과 효과 아님!)
+importance = pd.Series(model.feature_importances_, index=features).sort_values()
+plt.figure(figsize=(7, 4))
+importance.plot(kind='barh', color='#06b6d4')
+plt.xlabel('Importance (예측 기여도)')
+plt.title('Feature importance')
+plt.tight_layout()
+plt.show()</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 08</span><h3>K-means 군집화와 PCA 시각화</h3><p>라벨 없는 데이터를 비슷한 유형으로 묶고 2차원으로 시각화한다.</p></div><button class="copy" data-copy-target="recipe-7">📋 복사</button></div>
+  <pre id="recipe-7"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+
+df = pd.read_csv('data.csv')
+features = ['x1', 'x2', 'x3', 'x4']
+X = df[features].dropna()
+
+# 표준화: 단위가 다른 변수를 동등하게 비교
+X_scaled = StandardScaler().fit_transform(X)
+
+# Elbow method: 적절한 k 찾기
+inertias = []
+ks = range(2, 8)
+for k in ks:
+    km = KMeans(n_clusters=k, random_state=42, n_init=10)
+    km.fit(X_scaled)
+    inertias.append(km.inertia_)
+
+plt.figure(figsize=(6, 4))
+plt.plot(ks, inertias, 'o-', color='#2563eb')
+plt.xlabel('Number of clusters (k)')
+plt.ylabel('Inertia (within-cluster sum of squares)')
+plt.title('Elbow method')
+plt.tight_layout()
+plt.show()
+
+# 최종 모델 (예시: k=3, elbow 결과 보고 조정)
+k = 3
+kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+clusters = kmeans.fit_predict(X_scaled)
+X['cluster'] = clusters
+
+# PCA로 2차원 시각화 (군집별 색 구분 + 범례)
+pca = PCA(n_components=2)
+XY = pca.fit_transform(X_scaled)
+
+plt.figure(figsize=(7, 5))
+colors = ['#2563eb', '#10b981', '#f59e0b', '#7c3aed', '#ef4444', '#06b6d4']
+for c in range(k):
+    mask = clusters == c
+    plt.scatter(XY[mask, 0], XY[mask, 1], c=colors[c], label=f'Cluster {c}',
+                alpha=0.7, edgecolor='white', s=50)
+plt.xlabel(f'PC1 ({pca.explained_variance_ratio_[0]*100:.1f}%)')
+plt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]*100:.1f}%)')
+plt.title(f'K-means clusters (k={k}) projected by PCA')
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+# 군집별 프로파일: 각 군집의 평균값으로 이름 붙이기
+print('=== 군집별 평균값 (원자료 단위) ===')
+print(X.groupby('cluster')[features].mean().round(3))</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 09</span><h3>시계열 이동평균과 이상 구간 (개선)</h3><p>센서 로그에서 큰 흐름과 비정상 구간을 찾는다. 전체 평균이 아닌 <b>이동 통계</b> 기반으로 이상 구간을 탐지한다.</p></div><button class="copy" data-copy-target="recipe-8">📋 복사</button></div>
+  <pre id="recipe-8"><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('sensor.csv')
+df['time'] = pd.to_datetime(df['time'])
+df = df.sort_values('time').reset_index(drop=True)
+
+col = 'value'
+window = 12  # 이동 창 크기 (데이터 간격에 맞게 조정)
+
+# 이동평균과 이동표준편차 (rolling): 시계열 추세를 반영한 이상 탐지
+df['moving_avg'] = df[col].rolling(window=window, min_periods=1, center=True).mean()
+df['moving_std'] = df[col].rolling(window=window, min_periods=1, center=True).std()
+
+# 이상 구간: 이동평균 ± 3 * 이동표준편차 범위를 벗어난 점
+df['upper'] = df['moving_avg'] + 3 * df['moving_std']
+df['lower'] = df['moving_avg'] - 3 * df['moving_std']
+df['anomaly'] = (df[col] &gt; df['upper']) | (df[col] &lt; df['lower'])
+
+print(f'전체 {len(df)}개 중 이상 후보: {df["anomaly"].sum()}개')
+
+plt.figure(figsize=(12, 5))
+plt.plot(df['time'], df[col], label='raw', color='#cbd5e1', linewidth=0.8)
+plt.plot(df['time'], df['moving_avg'], label='moving average', color='#2563eb', linewidth=2)
+plt.fill_between(df['time'], df['lower'], df['upper'], alpha=0.15, color='#2563eb', label='±3 SD band')
+plt.scatter(df.loc[df['anomaly'], 'time'], df.loc[df['anomaly'], col],
+            color='#ef4444', label='anomaly', zorder=5, s=40)
+plt.xlabel('Time')
+plt.ylabel(col)
+plt.title(f'Rolling mean anomaly detection (window={window})')
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+# 이상으로 표시된 점이 정말 이상인지 원자료와 측정 로그를 직접 확인할 것
+# 센서 고장, 정상 변동, 진짜 이상사건을 구분하는 것은 사람의 몫</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 10</span><h3>한국어 텍스트 키워드 빈도 분석</h3><p>한국어는 조사가 단어에 붙어 단순 split이 부정확하다. 형태소 분석 라이브러리(KoNLPy 등)를 권장한다.</p></div><button class="copy" data-copy-target="recipe-9">📋 복사</button></div>
+  <pre id="recipe-9"><code>from collections import Counter
+import pandas as pd
+import matplotlib.pyplot as plt
+import re
+
+df = pd.read_csv('text.csv')
+texts = df['text'].dropna().astype(str)
+
+# ====== 방법 A: 라이브러리 없이 간단 처리 (영문/단순 한글) ======
+# - 빠르지만 한국어 조사가 단어에 붙어 나옴 ("학교는", "학교를"이 다른 단어로 카운트됨)
+stopwords = {'그리고','하지만','또한','대한','관련','으로','에서','이다','있다','이다','하는',
+             '이런','그런','저런','우리','저희','때문','정도','이번','다음','경우'}
+
+words = []
+for text in texts:
+    # 특수문자 제거
+    cleaned = re.sub(r'[^\w\s가-힣]', ' ', text)
+    for w in cleaned.split():
+        w = w.strip()
+        if len(w) &gt;= 2 and w not in stopwords:
+            words.append(w)
+
+counter = Counter(words)
+top = pd.DataFrame(counter.most_common(20), columns=['word', 'count'])
+print(top)
+
+plt.figure(figsize=(9, 5))
+plt.barh(top['word'][::-1], top['count'][::-1], color='#2563eb')
+plt.xlabel('Count')
+plt.title('Top 20 keywords (간단 처리)')
+plt.tight_layout()
+plt.show()
+
+# ====== 방법 B: KoNLPy로 명사만 추출 (정확하지만 설치 필요) ======
+# pip install konlpy   (Mac/Linux는 Java 설치 필요)
+# from konlpy.tag import Okt
+# okt = Okt()
+# nouns = []
+# for text in texts:
+#     for n in okt.nouns(text):
+#         if len(n) &gt;= 2 and n not in stopwords:
+#             nouns.append(n)
+# Counter(nouns).most_common(20)
+
+# ====== 방법 C: 형태소 분석 없이도 정확도를 올리는 방법 ======
+# - 조사 목록을 만들어 단어 끝에서 제거
+# - 자주 등장하는 어미("입니다", "합니다") 제외
+# - 길이 3자 이상만 유지</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 11</span><h3>TF-IDF 특징어 추출</h3><p>여러 문서에서 각 문서를 구분하는 특징 단어를 찾는다.</p></div><button class="copy" data-copy-target="recipe-10">📋 복사</button></div>
+  <pre id="recipe-10"><code>import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+df = pd.read_csv('documents.csv')
+texts = df['text'].fillna('').astype(str).tolist()
+
+# 한국어는 token_pattern을 한글 포함으로 설정
+vectorizer = TfidfVectorizer(
+    max_features=1000,
+    token_pattern=r'(?u)\b[\w가-힣]{2,}\b',
+    min_df=2  # 최소 2개 문서에 등장한 단어만
+)
+X = vectorizer.fit_transform(texts)
+terms = vectorizer.get_feature_names_out()
+
+# 각 문서별 특징어 상위 10개
+for doc_idx in range(min(5, len(texts))):  # 처음 5개 문서만 출력
+    row = X[doc_idx].toarray().ravel()
+    top_idx = row.argsort()[-10:][::-1]
+    print(f'\n[문서 {doc_idx}] 특징어:')
+    for i in top_idx:
+        if row[i] &gt; 0:
+            print(f'  {terms[i]}: {row[i]:.3f}')</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 12</span><h3>이미지 RGB 평균 분석</h3><p>사진의 색상 변화를 숫자로 바꿔 조건별로 비교한다.</p></div><button class="copy" data-copy-target="recipe-11">📋 복사</button></div>
+  <pre id="recipe-11"><code># pip install Pillow numpy pandas
+from PIL import Image
+import numpy as np
+import pandas as pd
+from pathlib import Path
+
+records = []
+image_folder = Path('images')
+
+for file in sorted(image_folder.glob('*.jpg')):
+    img = Image.open(file).convert('RGB')
+    arr = np.array(img)
+    mean_rgb = arr.reshape(-1, 3).mean(axis=0)
+    brightness = arr.mean()  # 전체 픽셀 평균 밝기
+    # HSV로 변환해 색조(Hue) 평균도 함께 추출
+    hsv = np.array(img.convert('HSV'))
+    hue_mean = hsv[..., 0].mean()
+    records.append({
+        'file': file.name,
+        'R_mean': round(mean_rgb[0], 2),
+        'G_mean': round(mean_rgb[1], 2),
+        'B_mean': round(mean_rgb[2], 2),
+        'brightness': round(brightness, 2),
+        'hue_mean': round(hue_mean, 2)
+    })
+
+result = pd.DataFrame(records)
+print(result)
+result.to_csv('image_color_summary.csv', index=False, encoding='utf-8-sig')
+
+# 주의: 촬영 조명·각도·거리·배경이 달라지면 색 변화가 왜곡됨
+# - 같은 조명, 같은 거리, 같은 배경으로 촬영
+# - 색 표준카드(컬러체커)나 흰색 기준판을 함께 촬영해 보정</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 13</span><h3>몬테카를로 시뮬레이션</h3><p>측정 오차가 결과에 미치는 영향을 확률적으로 확인한다.</p></div><button class="copy" data-copy-target="recipe-12">📋 복사</button></div>
+  <pre id="recipe-12"><code>import numpy as np
+import matplotlib.pyplot as plt
+
+# 재현성: 같은 seed로 결과 고정
+rng = np.random.default_rng(seed=42)
+
+# 예: 밀도 = 질량 / 부피
+# 질량은 평균 10.0g, 표준편차 0.2g / 부피는 평균 5.0mL, 표준편차 0.1mL라고 가정
+n = 10000
+mass = rng.normal(loc=10.0, scale=0.2, size=n)
+volume = rng.normal(loc=5.0, scale=0.1, size=n)
+density = mass / volume
+
+p025, p975 = np.percentile(density, [2.5, 97.5])
+print(f'평균 밀도: {density.mean():.4f} g/mL')
+print(f'표준편차: {density.std():.4f}')
+print(f'95% 범위: [{p025:.4f}, {p975:.4f}]')
+print(f'특정 기준(2.05 g/mL) 초과 확률: {(density &gt; 2.05).mean()*100:.2f}%')
+
+plt.figure(figsize=(8, 5))
+plt.hist(density, bins=50, color='#2563eb', alpha=0.7, edgecolor='white')
+plt.axvline(density.mean(), color='red', linestyle='--', label=f'mean={density.mean():.3f}')
+plt.axvline(p025, color='orange', linestyle=':', label=f'95% CI')
+plt.axvline(p975, color='orange', linestyle=':')
+plt.xlabel('Density (g/mL)')
+plt.ylabel('Frequency')
+plt.title(f'Monte Carlo simulation (n={n})')
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+# 주의: 입력 분포 가정(여기서는 정규분포)이 틀리면 결과도 틀림
+# - 실제 측정값으로 분포 확인 후 가정 변경 가능 (균등, 삼각, 로그정규 등)</code></pre>
+</article>
+
+<article class="recipe-card">
+  <div class="recipe-head"><div><span class="tag">CODE 14</span><h3>AI 활용 기록표 만들기</h3><p>AI가 한 일과 학생이 검증한 일을 분리해 기록한다.</p></div><button class="copy" data-copy-target="recipe-13">📋 복사</button></div>
+  <pre id="recipe-13"><code>import pandas as pd
+from datetime import datetime
+
+# 분석 과정에서 한 줄씩 추가
+log = pd.DataFrame([
+    {
+        'date': '2026-05-14',
+        'step': 1,
+        'purpose': '결측치 점검 코드 작성',
+        'ai_model': 'ChatGPT-4',
+        'prompt_summary': '결측률 계산 pandas 코드 요청',
+        'ai_suggestion': 'isna().sum(), 결측률 계산 코드 제안',
+        'my_verification': '원자료 3개 행을 직접 확인해 실제 결측과 일치하는지 검토',
+        'revision': '측정 불가로 기록된 NA는 삭제하지 않고 별도 범주로 유지',
+        'used_in_report': 'yes'
+    },
+    {
+        'date': '2026-05-15',
+        'step': 2,
+        'purpose': '회귀분석 코드 검증',
+        'ai_model': 'Claude',
+        'prompt_summary': '회귀 결과 해석 요청',
+        'ai_suggestion': 'R²=0.72라서 강한 관계라고 해석',
+        'my_verification': '잔차에 곡선 패턴 발견, 선형 가정 위반 가능성 확인',
+        'revision': '2차 다항회귀로 변경, 해석을 "관계"로 표현',
+        'used_in_report': 'yes'
+    }
+])
+
+log.to_csv('ai_usage_log.csv', index=False, encoding='utf-8-sig')
+print(log[['date', 'step', 'purpose', 'used_in_report']])
+
+# 보고서에 첨부할 수 있도록 마크다운으로도 출력
+print('\n=== 보고서용 요약 ===')
+for _, row in log.iterrows():
+    print(f"- [{row['date']}] {row['purpose']}")
+    print(f"  · AI 제안: {row['ai_suggestion']}")
+    print(f"  · 내 검증: {row['my_verification']}")
+    print(f"  · 수정: {row['revision']}")</code></pre>
+</article>
+
+</section>
+
+<section class="container" id="prompts">
+  <h2 class="section-title">AI 프롬프트 실전 라이브러리</h2>
+  <p class="section-sub">좋은 프롬프트는 “분석해줘”가 아니라, 데이터의 맥락·열 구조·분석 목표·검증 기준·출력 형식을 함께 제시하는 분석 명세서입니다. 아래 템플릿은 실제 데이터를 붙여 넣고 바로 수정해 사용할 수 있도록 구체적으로 구성했습니다.</p>
+
+  <div class="prompt-architecture">
+    <article class="prompt-formula">
+      <div class="kicker">Prompt Architecture</div>
+      <h3>AI 분석 프롬프트 6요소</h3>
+      <p>AI에게 분석을 맡길수록 학생이 제공해야 할 정보는 더 구체적이어야 합니다.</p>
+      <div class="formula-list">
+        <div class="formula-item"><b>맥락</b><span>어떤 수업·실험·공공데이터에서 나온 자료인지 설명</span></div>
+        <div class="formula-item"><b>자료</b><span>열 이름, 단위, 샘플 10행, 표본 수, 결측 여부 제공</span></div>
+        <div class="formula-item"><b>목표</b><span>비교·관계·예측·분류·군집·최적화 중 목적을 명시</span></div>
+        <div class="formula-item"><b>제약</b><span>고등학생 수준, Python 사용, 학교 실험실 자료 등 조건 제시</span></div>
+        <div class="formula-item"><b>검증</b><span>데이터 누수, 이상치, 과적합, 인과 과장 점검 요청</span></div>
+        <div class="formula-item"><b>출력</b><span>표, 코드, 그래프, 보고서 문장, 체크리스트 등 형식 지정</span></div>
+      </div>
+    </article>
+    <article class="prompt-formula">
+      <div class="kicker">Before → After</div>
+      <h3>뻔한 요청을 분석 명세서로 바꾸기</h3>
+      <div class="prompt-compare">
+        <div class="bad-prompt"><b>부족한 요청</b><p>“이 CSV 분석해줘.”<br>“그래프 그려줘.”<br>“머신러닝 해줘.”</p></div>
+        <div class="good-prompt"><b>좋은 요청</b><p>“열 이름과 샘플 10행을 보고 단위·결측·이상치를 점검한 뒤, 조건별 평균 비교와 오차막대 그래프를 그리는 pandas 코드를 작성해줘. 결과 해석은 인과가 아니라 경향으로 표현해줘.”</p></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="prompt-tools" aria-label="프롬프트 필터">
+    <input id="promptSearch" type="search" placeholder="프롬프트 검색: 결측치, 회귀, 이미지, 발표, 검증 등" />
+    <button class="prompt-filter-btn active" data-prompt-filter="all">전체</button><button class="prompt-filter-btn" data-prompt-filter="기본 설계">기본 설계</button><button class="prompt-filter-btn" data-prompt-filter="자료 이해">자료 이해</button><button class="prompt-filter-btn" data-prompt-filter="분석 선택">분석 선택</button><button class="prompt-filter-btn" data-prompt-filter="코드 생성">코드 생성</button><button class="prompt-filter-btn" data-prompt-filter="검증·오류">검증·오류</button><button class="prompt-filter-btn" data-prompt-filter="해석·보고">해석·보고</button><button class="prompt-filter-btn" data-prompt-filter="심화">심화</button>
+    <span class="prompt-count" id="promptCount">39개 템플릿</span>
+  </div>
+
+  <div class="prompt-grid" id="promptGrid">
+<article class="prompt-card pro" data-prompt-group="기본 설계" data-prompt-keywords="기본 설계 프로젝트 착수용 만능 프롬프트 분석을 시작하기 전, ai에게 전체 분석의 큰 그림을 잡게 할 때 데이터 출처, 열 이름, 샘플 10행, 분석 목표, 사용 가능한 도구 분석 절차, 전처리, 추천 분석법, 검증 기준, 산출물 목록">
+  <div class="prompt-head"><h3>프로젝트 착수용 만능 프롬프트</h3><button class="copy" data-copy-text="너는 고등학생 데이터 분석 멘토이자 Python 분석 코치야. 아래 정보를 바탕으로 분석 계획을 세워줘.
+
+[데이터 출처와 수집 방식]
+{예: 학교 실험실에서 온도 조건별 효소 반응속도를 5회 반복 측정}
+
+[열 이름과 단위]
+{예: temperature_C, trial, absorbance_change_per_min}
+
+[샘플 데이터 10행]
+{붙여넣기}
+
+[분석 목표]
+{예: 온도 조건에 따른 반응속도 차이를 비교하고 최적 온도 범위를 찾기}
+
+다음 형식으로 답해줘.
+1. 데이터 구조에서 먼저 확인해야 할 점
+2. 가능한 분석 질문 5개
+3. 추천 분석법 3개와 선택 이유
+4. 필요한 전처리 단계
+5. Python 코드 작성 순서
+6. 그래프 종류와 축·단위
+7. 결과 해석 시 피해야 할 과장 표현
+8. 검증 체크리스트
+9. 보고서에 남길 AI 활용 기록 항목">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>분석을 시작하기 전, AI에게 전체 분석의 큰 그림을 잡게 할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>데이터 출처, 열 이름, 샘플 10행, 분석 목표, 사용 가능한 도구</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>분석 절차, 전처리, 추천 분석법, 검증 기준, 산출물 목록</span></div>
+  </div>
+  <div class="prompt-block">너는 고등학생 데이터 분석 멘토이자 Python 분석 코치야. 아래 정보를 바탕으로 분석 계획을 세워줘.
+
+[데이터 출처와 수집 방식]
+{예: 학교 실험실에서 온도 조건별 효소 반응속도를 5회 반복 측정}
+
+[열 이름과 단위]
+{예: temperature_C, trial, absorbance_change_per_min}
+
+[샘플 데이터 10행]
+{붙여넣기}
+
+[분석 목표]
+{예: 온도 조건에 따른 반응속도 차이를 비교하고 최적 온도 범위를 찾기}
+
+다음 형식으로 답해줘.
+1. 데이터 구조에서 먼저 확인해야 할 점
+2. 가능한 분석 질문 5개
+3. 추천 분석법 3개와 선택 이유
+4. 필요한 전처리 단계
+5. Python 코드 작성 순서
+6. 그래프 종류와 축·단위
+7. 결과 해석 시 피해야 할 과장 표현
+8. 검증 체크리스트
+9. 보고서에 남길 AI 활용 기록 항목</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="기본 설계" data-prompt-keywords="기본 설계 프롬프트 개선 요청 ai 답변이 추상적이거나 코드가 바로 실행되지 않을 때 처음 사용한 프롬프트, ai 답변, 부족했던 점 더 정확한 후속 프롬프트와 추가 질문 목록">
+  <div class="prompt-head"><h3>프롬프트 개선 요청</h3><button class="copy" data-copy-text="아래는 내가 AI에게 보낸 프롬프트와 받은 답변이야. 답변이 너무 추상적이거나 실행하기 어렵다. 더 구체적인 분석 결과를 얻기 위해 프롬프트를 개선해줘.
+
+[내가 보낸 프롬프트]
+{붙여넣기}
+
+[AI가 준 답변]
+{붙여넣기}
+
+[부족했던 점]
+{예: 데이터 단위 확인이 없음 / 코드가 실행되지 않음 / 그래프 해석이 과장됨}
+
+다음 형식으로 답해줘.
+1. 기존 프롬프트의 약점
+2. AI가 오해할 수 있는 표현
+3. 개선된 프롬프트 완성본
+4. 분석 전에 추가로 제공해야 할 정보
+5. 후속 질문 5개">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>AI 답변이 추상적이거나 코드가 바로 실행되지 않을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>처음 사용한 프롬프트, AI 답변, 부족했던 점</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>더 정확한 후속 프롬프트와 추가 질문 목록</span></div>
+  </div>
+  <div class="prompt-block">아래는 내가 AI에게 보낸 프롬프트와 받은 답변이야. 답변이 너무 추상적이거나 실행하기 어렵다. 더 구체적인 분석 결과를 얻기 위해 프롬프트를 개선해줘.
+
+[내가 보낸 프롬프트]
+{붙여넣기}
+
+[AI가 준 답변]
+{붙여넣기}
+
+[부족했던 점]
+{예: 데이터 단위 확인이 없음 / 코드가 실행되지 않음 / 그래프 해석이 과장됨}
+
+다음 형식으로 답해줘.
+1. 기존 프롬프트의 약점
+2. AI가 오해할 수 있는 표현
+3. 개선된 프롬프트 완성본
+4. 분석 전에 추가로 제공해야 할 정보
+5. 후속 질문 5개</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="자료 이해" data-prompt-keywords="자료 이해 데이터 딕셔너리 만들기 열 이름이 많거나 공공데이터 설명서를 함께 읽어야 할 때 열 이름, 데이터 설명서 일부, 샘플 행 열별 의미, 단위, 자료형, 분석 가능성, 확인 질문">
+  <div class="prompt-head"><h3>데이터 딕셔너리 만들기</h3><button class="copy" data-copy-text="다음 데이터의 데이터 딕셔너리를 만들어줘. 열 이름만 보고 단정하지 말고, 확실하지 않은 내용은 “확인 필요”로 표시해줘.
+
+[데이터 설명서 또는 수집 맥락]
+{붙여넣기}
+
+[열 이름]
+{붙여넣기}
+
+[샘플 10행]
+{붙여넣기}
+
+표 형식으로 정리해줘.
+- 열 이름
+- 추정 의미
+- 단위
+- 자료형: 수치형/범주형/날짜형/텍스트형
+- 분석에 사용할 수 있는지
+- 주의할 오류 가능성
+- 내가 원자료에서 확인해야 할 질문">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>열 이름이 많거나 공공데이터 설명서를 함께 읽어야 할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>열 이름, 데이터 설명서 일부, 샘플 행</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>열별 의미, 단위, 자료형, 분석 가능성, 확인 질문</span></div>
+  </div>
+  <div class="prompt-block">다음 데이터의 데이터 딕셔너리를 만들어줘. 열 이름만 보고 단정하지 말고, 확실하지 않은 내용은 “확인 필요”로 표시해줘.
+
+[데이터 설명서 또는 수집 맥락]
+{붙여넣기}
+
+[열 이름]
+{붙여넣기}
+
+[샘플 10행]
+{붙여넣기}
+
+표 형식으로 정리해줘.
+- 열 이름
+- 추정 의미
+- 단위
+- 자료형: 수치형/범주형/날짜형/텍스트형
+- 분석에 사용할 수 있는지
+- 주의할 오류 가능성
+- 내가 원자료에서 확인해야 할 질문</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="자료 이해" data-prompt-keywords="자료 이해 결측치·중복·오타 점검 엑셀이나 csv를 처음 불러온 직후 데이터 구조, 결측이 의심되는 열, 범주형 열 점검 코드와 처리 기준">
+  <div class="prompt-head"><h3>결측치·중복·오타 점검</h3><button class="copy" data-copy-text="다음 데이터에서 결측치, 중복 행, 범주형 오타, 날짜 형식 오류를 점검하고 싶다.
+
+[데이터 설명]
+{붙여넣기}
+
+[열 이름과 샘플]
+{붙여넣기}
+
+pandas 코드와 함께 다음 내용을 제시해줘.
+1. 열별 결측률 계산 코드
+2. 중복 행 확인 코드
+3. 범주형 값의 고유값 확인 코드
+4. 날짜 형식 변환 코드
+5. 삭제·대체·보류를 결정하는 기준
+6. 처리 전후 표본 수를 기록하는 방법
+7. 결측치 처리가 결론에 줄 수 있는 영향">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>엑셀이나 CSV를 처음 불러온 직후</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>데이터 구조, 결측이 의심되는 열, 범주형 열</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>점검 코드와 처리 기준</span></div>
+  </div>
+  <div class="prompt-block">다음 데이터에서 결측치, 중복 행, 범주형 오타, 날짜 형식 오류를 점검하고 싶다.
+
+[데이터 설명]
+{붙여넣기}
+
+[열 이름과 샘플]
+{붙여넣기}
+
+pandas 코드와 함께 다음 내용을 제시해줘.
+1. 열별 결측률 계산 코드
+2. 중복 행 확인 코드
+3. 범주형 값의 고유값 확인 코드
+4. 날짜 형식 변환 코드
+5. 삭제·대체·보류를 결정하는 기준
+6. 처리 전후 표본 수를 기록하는 방법
+7. 결측치 처리가 결론에 줄 수 있는 영향</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="자료 이해" data-prompt-keywords="자료 이해 단위 변환과 스케일 점검 ℃/k, mg/l/ppm, 날짜/시간 등 단위가 섞여 있을 때 열별 단위, 측정 방식, 분석 목표 단위 변환식, 표준화 여부, 검증 질문">
+  <div class="prompt-head"><h3>단위 변환과 스케일 점검</h3><button class="copy" data-copy-text="다음 데이터는 여러 단위가 섞여 있을 가능성이 있다. 단위 오류를 막기 위한 점검표를 만들어줘.
+
+[열 이름과 단위]
+{예: temp_C, pressure_hPa, concentration_mg_L, time_sec}
+
+[분석 목표]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 반드시 통일해야 할 단위
+2. 변환식과 변환 후 열 이름
+3. 단위를 변환하면 안 되는 열
+4. 모델 학습 전 표준화/정규화가 필요한 열
+5. 단위 변환 전후 확인용 코드
+6. 그래프 축에 표시해야 할 단위
+7. 단위 오류가 결론을 왜곡하는 예시">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>℃/K, mg/L/ppm, 날짜/시간 등 단위가 섞여 있을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>열별 단위, 측정 방식, 분석 목표</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>단위 변환식, 표준화 여부, 검증 질문</span></div>
+  </div>
+  <div class="prompt-block">다음 데이터는 여러 단위가 섞여 있을 가능성이 있다. 단위 오류를 막기 위한 점검표를 만들어줘.
+
+[열 이름과 단위]
+{예: temp_C, pressure_hPa, concentration_mg_L, time_sec}
+
+[분석 목표]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 반드시 통일해야 할 단위
+2. 변환식과 변환 후 열 이름
+3. 단위를 변환하면 안 되는 열
+4. 모델 학습 전 표준화/정규화가 필요한 열
+5. 단위 변환 전후 확인용 코드
+6. 그래프 축에 표시해야 할 단위
+7. 단위 오류가 결론을 왜곡하는 예시</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="자료 이해" data-prompt-keywords="자료 이해 실험 변인 구조 검토 실험데이터를 분석하기 전 조작변인·종속변인·통제변인을 정리할 때 실험 목적, 실험 조건, 측정값, 반복 수 변인표, 분석법 후보, 통제 실패 가능성">
+  <div class="prompt-head"><h3>실험 변인 구조 검토</h3><button class="copy" data-copy-text="다음 실험을 데이터 분석 관점에서 검토해줘.
+
+[실험 목적]
+{붙여넣기}
+
+[실험 조건]
+{예: 온도 20/30/40/50℃, 조건당 5회 반복}
+
+[측정값]
+{예: 반응속도, 전압, 길이 변화, 색상값}
+
+[통제하려고 한 조건]
+{붙여넣기}
+
+다음 표로 정리해줘.
+- 조작변인
+- 종속변인
+- 통제변인
+- 반복 측정 구조
+- 조건 간 비교에 적절한 분석법
+- 오차가 생길 수 있는 지점
+- 분석 전에 추가로 기록해야 할 정보">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>실험데이터를 분석하기 전 조작변인·종속변인·통제변인을 정리할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>실험 목적, 실험 조건, 측정값, 반복 수</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>변인표, 분석법 후보, 통제 실패 가능성</span></div>
+  </div>
+  <div class="prompt-block">다음 실험을 데이터 분석 관점에서 검토해줘.
+
+[실험 목적]
+{붙여넣기}
+
+[실험 조건]
+{예: 온도 20/30/40/50℃, 조건당 5회 반복}
+
+[측정값]
+{예: 반응속도, 전압, 길이 변화, 색상값}
+
+[통제하려고 한 조건]
+{붙여넣기}
+
+다음 표로 정리해줘.
+- 조작변인
+- 종속변인
+- 통제변인
+- 반복 측정 구조
+- 조건 간 비교에 적절한 분석법
+- 오차가 생길 수 있는 지점
+- 분석 전에 추가로 기록해야 할 정보</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="자료 이해" data-prompt-keywords="자료 이해 공공데이터 병합 전 점검 날씨+대기질, 인구+지역, 교통+위치처럼 여러 자료를 합칠 때 각 데이터의 키 열, 기간, 지역 단위, 샘플 행 병합 전략, 키 정합성 점검 코드">
+  <div class="prompt-head"><h3>공공데이터 병합 전 점검</h3><button class="copy" data-copy-text="두 개 이상의 공공데이터를 병합하려고 한다. 잘못된 병합을 피하기 위한 절차를 설계해줘.
+
+[데이터 A]
+출처: {붙여넣기}
+키 열: {예: 날짜, 지역코드}
+샘플: {붙여넣기}
+
+[데이터 B]
+출처: {붙여넣기}
+키 열: {예: 날짜, 지역코드}
+샘플: {붙여넣기}
+
+다음 순서로 답해줘.
+1. 병합 기준 열 후보
+2. 날짜·지역·ID 단위가 맞는지 확인할 질문
+3. 중복 키와 누락 키 확인 코드
+4. inner/left/right merge 중 어떤 방식을 쓸지
+5. 병합 실패 행을 따로 저장하는 코드
+6. 병합 후 생길 수 있는 가짜 상관 위험">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>날씨+대기질, 인구+지역, 교통+위치처럼 여러 자료를 합칠 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>각 데이터의 키 열, 기간, 지역 단위, 샘플 행</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>병합 전략, 키 정합성 점검 코드</span></div>
+  </div>
+  <div class="prompt-block">두 개 이상의 공공데이터를 병합하려고 한다. 잘못된 병합을 피하기 위한 절차를 설계해줘.
+
+[데이터 A]
+출처: {붙여넣기}
+키 열: {예: 날짜, 지역코드}
+샘플: {붙여넣기}
+
+[데이터 B]
+출처: {붙여넣기}
+키 열: {예: 날짜, 지역코드}
+샘플: {붙여넣기}
+
+다음 순서로 답해줘.
+1. 병합 기준 열 후보
+2. 날짜·지역·ID 단위가 맞는지 확인할 질문
+3. 중복 키와 누락 키 확인 코드
+4. inner/left/right merge 중 어떤 방식을 쓸지
+5. 병합 실패 행을 따로 저장하는 코드
+6. 병합 후 생길 수 있는 가짜 상관 위험</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 분석 목적 분류와 방법 추천 어떤 분석법을 써야 할지 모를 때 분석 목표, 데이터 유형, 변수 목록, 표본 수 방법 후보 5개, 난이도, 장단점, 산출물">
+  <div class="prompt-head"><h3>분석 목적 분류와 방법 추천</h3><button class="copy" data-copy-text="내 데이터에 맞는 분석법을 추천해줘. 단순히 어려운 방법을 추천하지 말고, 고등학생이 설명 가능한 방법부터 심화 방법까지 단계적으로 제시해줘.
+
+[분석 목표]
+{예: 비교 / 관계 확인 / 예측 / 분류 / 군집 / 이상 탐지 / 최적화}
+
+[데이터 유형]
+{예: 반복 측정 실험데이터, 공공데이터, 센서 로그, 이미지, 텍스트, 설문}
+
+[주요 변수]
+{붙여넣기}
+
+[표본 수]
+{예: 총 120행, 조건별 10회}
+
+표 형식으로 답해줘.
+- 분석법
+- 적합한 이유
+- 필요한 전제
+- 필요한 그래프
+- Python 라이브러리
+- 해석할 때 주의점
+- 고등학생 발표 난이도">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>어떤 분석법을 써야 할지 모를 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>분석 목표, 데이터 유형, 변수 목록, 표본 수</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>방법 후보 5개, 난이도, 장단점, 산출물</span></div>
+  </div>
+  <div class="prompt-block">내 데이터에 맞는 분석법을 추천해줘. 단순히 어려운 방법을 추천하지 말고, 고등학생이 설명 가능한 방법부터 심화 방법까지 단계적으로 제시해줘.
+
+[분석 목표]
+{예: 비교 / 관계 확인 / 예측 / 분류 / 군집 / 이상 탐지 / 최적화}
+
+[데이터 유형]
+{예: 반복 측정 실험데이터, 공공데이터, 센서 로그, 이미지, 텍스트, 설문}
+
+[주요 변수]
+{붙여넣기}
+
+[표본 수]
+{예: 총 120행, 조건별 10회}
+
+표 형식으로 답해줘.
+- 분석법
+- 적합한 이유
+- 필요한 전제
+- 필요한 그래프
+- Python 라이브러리
+- 해석할 때 주의점
+- 고등학생 발표 난이도</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 평균 비교 분석 설계 두 조건 또는 여러 조건의 실험 결과를 비교할 때 조건명, 반복 수, 측정값, 단위 요약통계, 오차막대, 효과크기, 해석 기준">
+  <div class="prompt-head"><h3>평균 비교 분석 설계</h3><button class="copy" data-copy-text="조건별 측정값을 비교하려고 한다. 평균만 비교하지 말고 분산과 반복 수까지 고려한 분석 절차를 제안해줘.
+
+[조건]
+{예: pH 4, 6, 8, 10}
+
+[측정값과 단위]
+{예: reaction_rate(abs/min)}
+
+[반복 수]
+{예: 조건당 5회}
+
+다음 내용을 포함해줘.
+1. 조건별 평균, 중앙값, 표준편차, 표준오차 계산 코드
+2. 오차막대 그래프 코드
+3. 효과크기 또는 차이의 크기를 표현하는 방법
+4. 반복 수가 적을 때 해석 주의점
+5. “차이가 있다”와 “차이가 커 보인다”를 구분하는 문장 예시
+6. 추가 실험이 필요한 경우">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>두 조건 또는 여러 조건의 실험 결과를 비교할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>조건명, 반복 수, 측정값, 단위</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>요약통계, 오차막대, 효과크기, 해석 기준</span></div>
+  </div>
+  <div class="prompt-block">조건별 측정값을 비교하려고 한다. 평균만 비교하지 말고 분산과 반복 수까지 고려한 분석 절차를 제안해줘.
+
+[조건]
+{예: pH 4, 6, 8, 10}
+
+[측정값과 단위]
+{예: reaction_rate(abs/min)}
+
+[반복 수]
+{예: 조건당 5회}
+
+다음 내용을 포함해줘.
+1. 조건별 평균, 중앙값, 표준편차, 표준오차 계산 코드
+2. 오차막대 그래프 코드
+3. 효과크기 또는 차이의 크기를 표현하는 방법
+4. 반복 수가 적을 때 해석 주의점
+5. “차이가 있다”와 “차이가 커 보인다”를 구분하는 문장 예시
+6. 추가 실험이 필요한 경우</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 상관·회귀 분석 설계 두 변수의 관계를 보고 싶을 때 독립변수 후보, 종속변수, 산점도 맥락 상관, 회귀, 잔차, 인과 주의 문장">
+  <div class="prompt-head"><h3>상관·회귀 분석 설계</h3><button class="copy" data-copy-text="두 변수 사이의 관계를 분석하려고 한다. 상관분석과 회귀분석 중 무엇이 적절한지 판단하고, 인과 과장을 피하는 분석 절차를 제안해줘.
+
+[보고 싶은 관계]
+{예: 기온과 전력 사용량 / CO2 농도와 기공 개폐 정도 / 공부 시간과 점수}
+
+[변수와 단위]
+X: {붙여넣기}
+Y: {붙여넣기}
+
+[자료 수집 방식]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 먼저 그릴 산점도와 추세선
+2. Pearson/Spearman 중 선택 기준
+3. 단순회귀 코드
+4. 잔차분석에서 볼 점
+5. 누락 변수 후보
+6. 인과 표현을 피한 결과 문장 예시
+7. 후속 분석 아이디어">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>두 변수의 관계를 보고 싶을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>독립변수 후보, 종속변수, 산점도 맥락</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>상관, 회귀, 잔차, 인과 주의 문장</span></div>
+  </div>
+  <div class="prompt-block">두 변수 사이의 관계를 분석하려고 한다. 상관분석과 회귀분석 중 무엇이 적절한지 판단하고, 인과 과장을 피하는 분석 절차를 제안해줘.
+
+[보고 싶은 관계]
+{예: 기온과 전력 사용량 / CO2 농도와 기공 개폐 정도 / 공부 시간과 점수}
+
+[변수와 단위]
+X: {붙여넣기}
+Y: {붙여넣기}
+
+[자료 수집 방식]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 먼저 그릴 산점도와 추세선
+2. Pearson/Spearman 중 선택 기준
+3. 단순회귀 코드
+4. 잔차분석에서 볼 점
+5. 누락 변수 후보
+6. 인과 표현을 피한 결과 문장 예시
+7. 후속 분석 아이디어</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 시계열 분석 루트 시간 순서가 중요한 센서·기상·주가·전력 데이터 시간 열, 측정 간격, 측정값, 분석 기간 이동평균, 추세, 이상 구간, 예측 주의점">
+  <div class="prompt-head"><h3>시계열 분석 루트</h3><button class="copy" data-copy-text="시간순 데이터 분석 절차를 설계해줘. 시간 순서를 무작위로 섞는 방법은 피하고, 추세와 이상 구간을 구분해서 분석하고 싶다.
+
+[시간 열]
+{예: timestamp, 날짜, 측정시간}
+
+[측정 간격]
+{예: 1분마다, 하루마다, 월별}
+
+[측정값]
+{예: 온도, 미세먼지, 전압, 습도}
+
+[분석 목표]
+{예: 추세 확인, 이상 구간 탐지, 전후 비교, 간단한 예측}
+
+다음 내용을 제시해줘.
+1. 날짜형 변환과 정렬 코드
+2. 결측 시간 구간 확인 코드
+3. 이동평균과 원자료를 함께 그리는 그래프
+4. 이상 구간 후보 탐지 방법
+5. 시간 기반 train/test 분리 방법
+6. 예측 결과 해석 주의점">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>시간 순서가 중요한 센서·기상·주가·전력 데이터</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>시간 열, 측정 간격, 측정값, 분석 기간</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>이동평균, 추세, 이상 구간, 예측 주의점</span></div>
+  </div>
+  <div class="prompt-block">시간순 데이터 분석 절차를 설계해줘. 시간 순서를 무작위로 섞는 방법은 피하고, 추세와 이상 구간을 구분해서 분석하고 싶다.
+
+[시간 열]
+{예: timestamp, 날짜, 측정시간}
+
+[측정 간격]
+{예: 1분마다, 하루마다, 월별}
+
+[측정값]
+{예: 온도, 미세먼지, 전압, 습도}
+
+[분석 목표]
+{예: 추세 확인, 이상 구간 탐지, 전후 비교, 간단한 예측}
+
+다음 내용을 제시해줘.
+1. 날짜형 변환과 정렬 코드
+2. 결측 시간 구간 확인 코드
+3. 이동평균과 원자료를 함께 그리는 그래프
+4. 이상 구간 후보 탐지 방법
+5. 시간 기반 train/test 분리 방법
+6. 예측 결과 해석 주의점</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 분류 모델 설계 정상/이상, 합격/불합격, 종 종류 등 라벨을 예측할 때 라벨 열, 입력 변수, 표본 수, 클래스 비율 기준모델, 분류 모델, 혼동행렬, f1">
+  <div class="prompt-head"><h3>분류 모델 설계</h3><button class="copy" data-copy-text="라벨이 있는 데이터를 분류 모델로 분석하려고 한다. 정확도만 보지 말고 클래스 불균형과 오분류 사례까지 확인하는 절차를 제안해줘.
+
+[라벨 열]
+{예: normal/abnormal, species, pass/fail}
+
+[입력 변수]
+{붙여넣기}
+
+[클래스별 표본 수]
+{붙여넣기}
+
+다음 순서로 답해줘.
+1. 기준모델을 먼저 만드는 이유
+2. train/test 분리 코드
+3. 로지스틱 회귀 또는 결정트리 코드
+4. 혼동행렬, 정밀도, 재현율, F1 계산 코드
+5. 오분류 사례를 추출하는 코드
+6. 어떤 오류가 더 중요한지 판단하는 질문
+7. 보고서 해석 문장 예시">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>정상/이상, 합격/불합격, 종 종류 등 라벨을 예측할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>라벨 열, 입력 변수, 표본 수, 클래스 비율</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>기준모델, 분류 모델, 혼동행렬, F1</span></div>
+  </div>
+  <div class="prompt-block">라벨이 있는 데이터를 분류 모델로 분석하려고 한다. 정확도만 보지 말고 클래스 불균형과 오분류 사례까지 확인하는 절차를 제안해줘.
+
+[라벨 열]
+{예: normal/abnormal, species, pass/fail}
+
+[입력 변수]
+{붙여넣기}
+
+[클래스별 표본 수]
+{붙여넣기}
+
+다음 순서로 답해줘.
+1. 기준모델을 먼저 만드는 이유
+2. train/test 분리 코드
+3. 로지스틱 회귀 또는 결정트리 코드
+4. 혼동행렬, 정밀도, 재현율, F1 계산 코드
+5. 오분류 사례를 추출하는 코드
+6. 어떤 오류가 더 중요한지 판단하는 질문
+7. 보고서 해석 문장 예시</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 군집·pca 분석 설계 라벨이 없는 다변량 데이터에서 유형을 찾고 싶을 때 수치형 변수 목록, 표본 수, 분석 목적 표준화, pca, 군집, 군집 프로파일">
+  <div class="prompt-head"><h3>군집·PCA 분석 설계</h3><button class="copy" data-copy-text="라벨이 없는 다변량 데이터에서 패턴을 찾고 싶다. PCA와 K-means 군집분석을 적용할 수 있는지 검토해줘.
+
+[데이터 설명]
+{붙여넣기}
+
+[수치형 변수 목록]
+{붙여넣기}
+
+[표본 수]
+{붙여넣기}
+
+다음 내용을 포함해줘.
+1. 표준화가 필요한 이유와 코드
+2. PCA를 먼저 해볼 때의 장점
+3. K-means 군집 수 후보를 정하는 방법
+4. 군집별 평균값 프로파일 표
+5. 2차원 산점도 시각화 코드
+6. 군집을 이름 붙일 때 주의점
+7. 군집이 실제 원인 집단이라고 단정하지 않는 문장">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>라벨이 없는 다변량 데이터에서 유형을 찾고 싶을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>수치형 변수 목록, 표본 수, 분석 목적</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>표준화, PCA, 군집, 군집 프로파일</span></div>
+  </div>
+  <div class="prompt-block">라벨이 없는 다변량 데이터에서 패턴을 찾고 싶다. PCA와 K-means 군집분석을 적용할 수 있는지 검토해줘.
+
+[데이터 설명]
+{붙여넣기}
+
+[수치형 변수 목록]
+{붙여넣기}
+
+[표본 수]
+{붙여넣기}
+
+다음 내용을 포함해줘.
+1. 표준화가 필요한 이유와 코드
+2. PCA를 먼저 해볼 때의 장점
+3. K-means 군집 수 후보를 정하는 방법
+4. 군집별 평균값 프로파일 표
+5. 2차원 산점도 시각화 코드
+6. 군집을 이름 붙일 때 주의점
+7. 군집이 실제 원인 집단이라고 단정하지 않는 문장</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 텍스트 데이터 분석 설계 기사, 보고서, 설문 서술형 응답, 댓글을 분석할 때 텍스트 원문, 날짜/집단 열, 분석 목표 정제, 키워드, tf-idf, 감성/주제 한계">
+  <div class="prompt-head"><h3>텍스트 데이터 분석 설계</h3><button class="copy" data-copy-text="텍스트 데이터를 분석하려고 한다. 단어 빈도만 세는 수준을 넘어, 전처리와 해석의 한계를 함께 고려한 절차를 제안해줘.
+
+[텍스트 데이터 종류]
+{예: 과학 기사 제목, 설문 서술형 응답, 동아리 활동 소감문}
+
+[비교하고 싶은 기준]
+{예: 시기별, 집단별, 주제별}
+
+[샘플 텍스트 10개]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 전처리 단계: 불용어, 특수문자, 중복 제거
+2. 키워드 빈도 분석 코드
+3. TF-IDF로 특징어 추출하는 방법
+4. 워드클라우드보다 더 좋은 시각화 후보
+5. 짧은 텍스트 분석의 한계
+6. 개인정보와 민감 표현 처리 기준
+7. 결과 문장 예시">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>기사, 보고서, 설문 서술형 응답, 댓글을 분석할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>텍스트 원문, 날짜/집단 열, 분석 목표</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>정제, 키워드, TF-IDF, 감성/주제 한계</span></div>
+  </div>
+  <div class="prompt-block">텍스트 데이터를 분석하려고 한다. 단어 빈도만 세는 수준을 넘어, 전처리와 해석의 한계를 함께 고려한 절차를 제안해줘.
+
+[텍스트 데이터 종류]
+{예: 과학 기사 제목, 설문 서술형 응답, 동아리 활동 소감문}
+
+[비교하고 싶은 기준]
+{예: 시기별, 집단별, 주제별}
+
+[샘플 텍스트 10개]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 전처리 단계: 불용어, 특수문자, 중복 제거
+2. 키워드 빈도 분석 코드
+3. TF-IDF로 특징어 추출하는 방법
+4. 워드클라우드보다 더 좋은 시각화 후보
+5. 짧은 텍스트 분석의 한계
+6. 개인정보와 민감 표현 처리 기준
+7. 결과 문장 예시</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 이미지 데이터 분석 설계 식물 잎, 색 변화, 현미경 사진, 구름 사진 등을 수치화할 때 이미지 종류, 촬영 조건, 측정하고 싶은 특징 색상, 면적, 객체 수, 촬영 조건 검증">
+  <div class="prompt-head"><h3>이미지 데이터 분석 설계</h3><button class="copy" data-copy-text="이미지 데이터를 수치화해서 분석하고 싶다. 딥러닝부터 제안하지 말고, 고등학생 수준에서 가능한 색상·면적·객체 수 분석부터 설계해줘.
+
+[이미지 대상]
+{예: 식물 잎, pH 지시약 색 변화, 현미경 세포 사진, 구름 사진}
+
+[촬영 조건]
+{예: 같은 조명, 같은 거리, 같은 배경 여부}
+
+[측정하고 싶은 특징]
+{예: 녹색 정도, 병반 면적, 객체 개수, 밝기 변화}
+
+다음 내용을 포함해줘.
+1. 촬영 조건을 통제해야 하는 이유
+2. RGB/HSV 색상값으로 분석하는 방법
+3. 임계값 분할로 면적을 구하는 절차
+4. ImageJ 또는 Python 활용 방법
+5. 결과 검증을 위해 사람이 확인할 표본
+6. 이미지 분석에서 생길 수 있는 오류
+7. 보고서 그래프와 캡션 예시">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>식물 잎, 색 변화, 현미경 사진, 구름 사진 등을 수치화할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>이미지 종류, 촬영 조건, 측정하고 싶은 특징</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>색상, 면적, 객체 수, 촬영 조건 검증</span></div>
+  </div>
+  <div class="prompt-block">이미지 데이터를 수치화해서 분석하고 싶다. 딥러닝부터 제안하지 말고, 고등학생 수준에서 가능한 색상·면적·객체 수 분석부터 설계해줘.
+
+[이미지 대상]
+{예: 식물 잎, pH 지시약 색 변화, 현미경 세포 사진, 구름 사진}
+
+[촬영 조건]
+{예: 같은 조명, 같은 거리, 같은 배경 여부}
+
+[측정하고 싶은 특징]
+{예: 녹색 정도, 병반 면적, 객체 개수, 밝기 변화}
+
+다음 내용을 포함해줘.
+1. 촬영 조건을 통제해야 하는 이유
+2. RGB/HSV 색상값으로 분석하는 방법
+3. 임계값 분할로 면적을 구하는 절차
+4. ImageJ 또는 Python 활용 방법
+5. 결과 검증을 위해 사람이 확인할 표본
+6. 이미지 분석에서 생길 수 있는 오류
+7. 보고서 그래프와 캡션 예시</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="분석 선택" data-prompt-keywords="분석 선택 공간·지도 데이터 분석 설계 위도·경도, 지역별 미세먼지, 도시 열섬, 소음 측정값을 분석할 때 좌표, 지역 단위, 측정값, 기준점 지도화, 거리 분석, 격자화, 공간 해석 주의">
+  <div class="prompt-head"><h3>공간·지도 데이터 분석 설계</h3><button class="copy" data-copy-text="위치 데이터 또는 지역별 데이터를 분석하려고 한다. 지도 시각화와 거리 기반 분석을 어떻게 할지 설계해줘.
+
+[데이터 설명]
+{예: 학교 주변 30개 지점에서 측정한 소음 dB와 위도·경도}
+
+[위치 정보]
+{예: 위도·경도 / 행정동 / 시군구}
+
+[측정값]
+{붙여넣기}
+
+[분석 목표]
+{예: 도로와의 거리와 소음의 관계, 지역별 열섬 패턴}
+
+다음 내용을 제시해줘.
+1. 좌표·지역명 오류 점검 방법
+2. 지도에 측정값을 표시하는 방법
+3. 기준점과 거리 계산 아이디어
+4. 거리-측정값 산점도와 회귀분석
+5. 공간 데이터에서 인과 과장을 피하는 이유
+6. 개인정보·위치정보 주의점">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>위도·경도, 지역별 미세먼지, 도시 열섬, 소음 측정값을 분석할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>좌표, 지역 단위, 측정값, 기준점</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>지도화, 거리 분석, 격자화, 공간 해석 주의</span></div>
+  </div>
+  <div class="prompt-block">위치 데이터 또는 지역별 데이터를 분석하려고 한다. 지도 시각화와 거리 기반 분석을 어떻게 할지 설계해줘.
+
+[데이터 설명]
+{예: 학교 주변 30개 지점에서 측정한 소음 dB와 위도·경도}
+
+[위치 정보]
+{예: 위도·경도 / 행정동 / 시군구}
+
+[측정값]
+{붙여넣기}
+
+[분석 목표]
+{예: 도로와의 거리와 소음의 관계, 지역별 열섬 패턴}
+
+다음 내용을 제시해줘.
+1. 좌표·지역명 오류 점검 방법
+2. 지도에 측정값을 표시하는 방법
+3. 기준점과 거리 계산 아이디어
+4. 거리-측정값 산점도와 회귀분석
+5. 공간 데이터에서 인과 과장을 피하는 이유
+6. 개인정보·위치정보 주의점</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="코드 생성" data-prompt-keywords="코드 생성 pandas 분석 시작 코드 csv/엑셀 파일을 python에서 처음 불러올 때 파일명, 인코딩, 열 설명, 분석 목표 불러오기, 구조 확인, 기본 요약 코드">
+  <div class="prompt-head"><h3>pandas 분석 시작 코드</h3><button class="copy" data-copy-text="다음 데이터 파일을 pandas로 분석하기 위한 시작 코드를 작성해줘. 코드가 실행될 수 있도록 단계별로 주석을 달아줘.
+
+[파일 형식]
+{CSV/엑셀}
+
+[파일명]
+{예: data.csv}
+
+[열 설명]
+{붙여넣기}
+
+[분석 목표]
+{붙여넣기}
+
+필수 포함 사항:
+1. 라이브러리 import
+2. 파일 불러오기
+3. 행·열 수 확인
+4. 상위 10행 출력
+5. 자료형 확인
+6. 결측치 요약
+7. 수치형 기초통계
+8. 범주형 고유값 확인
+9. 이후 분석을 위한 주석 처리된 다음 단계">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>CSV/엑셀 파일을 Python에서 처음 불러올 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>파일명, 인코딩, 열 설명, 분석 목표</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>불러오기, 구조 확인, 기본 요약 코드</span></div>
+  </div>
+  <div class="prompt-block">다음 데이터 파일을 pandas로 분석하기 위한 시작 코드를 작성해줘. 코드가 실행될 수 있도록 단계별로 주석을 달아줘.
+
+[파일 형식]
+{CSV/엑셀}
+
+[파일명]
+{예: data.csv}
+
+[열 설명]
+{붙여넣기}
+
+[분석 목표]
+{붙여넣기}
+
+필수 포함 사항:
+1. 라이브러리 import
+2. 파일 불러오기
+3. 행·열 수 확인
+4. 상위 10행 출력
+5. 자료형 확인
+6. 결측치 요약
+7. 수치형 기초통계
+8. 범주형 고유값 확인
+9. 이후 분석을 위한 주석 처리된 다음 단계</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="코드 생성" data-prompt-keywords="코드 생성 전처리 파이프라인 코드 수작업 전처리 대신 재현 가능한 코드를 만들 때 전처리 규칙, 결측 처리 기준, 파생변수 원자료 보존, 전처리본 생성, 로그 저장">
+  <div class="prompt-head"><h3>전처리 파이프라인 코드</h3><button class="copy" data-copy-text="원자료를 보존하면서 전처리본을 만드는 Python 코드를 작성해줘.
+
+[원자료 파일명]
+{붙여넣기}
+
+[전처리해야 할 내용]
+- 결측치: {처리 기준}
+- 이상치: {처리 기준}
+- 단위 변환: {처리 기준}
+- 파생변수: {계산식}
+
+다음 조건을 지켜줘.
+1. 원자료 파일은 수정하지 않는다.
+2. 전처리 과정을 함수로 나눈다.
+3. 처리 전후 행 수와 열 수를 출력한다.
+4. 삭제된 행 또는 수정된 값을 로그로 남긴다.
+5. 전처리본을 processed_data.csv로 저장한다.
+6. 각 코드 줄에 목적을 주석으로 설명한다.">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>수작업 전처리 대신 재현 가능한 코드를 만들 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>전처리 규칙, 결측 처리 기준, 파생변수</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>원자료 보존, 전처리본 생성, 로그 저장</span></div>
+  </div>
+  <div class="prompt-block">원자료를 보존하면서 전처리본을 만드는 Python 코드를 작성해줘.
+
+[원자료 파일명]
+{붙여넣기}
+
+[전처리해야 할 내용]
+- 결측치: {처리 기준}
+- 이상치: {처리 기준}
+- 단위 변환: {처리 기준}
+- 파생변수: {계산식}
+
+다음 조건을 지켜줘.
+1. 원자료 파일은 수정하지 않는다.
+2. 전처리 과정을 함수로 나눈다.
+3. 처리 전후 행 수와 열 수를 출력한다.
+4. 삭제된 행 또는 수정된 값을 로그로 남긴다.
+5. 전처리본을 processed_data.csv로 저장한다.
+6. 각 코드 줄에 목적을 주석으로 설명한다.</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="코드 생성" data-prompt-keywords="코드 생성 그래프 코드 정교화 그래프가 예쁘기보다 정확하게 읽히도록 만들 때 그래프 목적, x/y 변수, 단위, 비교 집단 축·단위·범례·캡션 포함 그래프 코드">
+  <div class="prompt-head"><h3>그래프 코드 정교화</h3><button class="copy" data-copy-text="다음 분석 결과를 시각화하려고 한다. 그래프를 정확하게 읽을 수 있도록 Python matplotlib 코드를 작성해줘.
+
+[그래프 목적]
+{예: 조건별 평균 비교 / 두 변수 관계 / 시간 변화 / 집단별 비율}
+
+[x축 변수와 단위]
+{붙여넣기}
+
+[y축 변수와 단위]
+{붙여넣기}
+
+[비교 집단]
+{있으면 입력}
+
+다음 조건을 지켜줘.
+1. 그래프 제목은 분석 질문을 반영한다.
+2. x축·y축에 단위를 표시한다.
+3. 표본 수가 필요하면 그래프 또는 캡션에 표시한다.
+4. 평균 비교는 오차막대를 포함한다.
+5. 색만으로 정보를 구분하지 않도록 범례를 넣는다.
+6. 그래프 아래에 쓸 캡션 예시를 작성한다.">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>그래프가 예쁘기보다 정확하게 읽히도록 만들 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>그래프 목적, x/y 변수, 단위, 비교 집단</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>축·단위·범례·캡션 포함 그래프 코드</span></div>
+  </div>
+  <div class="prompt-block">다음 분석 결과를 시각화하려고 한다. 그래프를 정확하게 읽을 수 있도록 Python matplotlib 코드를 작성해줘.
+
+[그래프 목적]
+{예: 조건별 평균 비교 / 두 변수 관계 / 시간 변화 / 집단별 비율}
+
+[x축 변수와 단위]
+{붙여넣기}
+
+[y축 변수와 단위]
+{붙여넣기}
+
+[비교 집단]
+{있으면 입력}
+
+다음 조건을 지켜줘.
+1. 그래프 제목은 분석 질문을 반영한다.
+2. x축·y축에 단위를 표시한다.
+3. 표본 수가 필요하면 그래프 또는 캡션에 표시한다.
+4. 평균 비교는 오차막대를 포함한다.
+5. 색만으로 정보를 구분하지 않도록 범례를 넣는다.
+6. 그래프 아래에 쓸 캡션 예시를 작성한다.</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="코드 생성" data-prompt-keywords="코드 생성 코드 오류 해결 요청 ai가 만든 코드가 실행되지 않거나 에러가 날 때 에러 메시지, 코드, 데이터 열 이름 오류 원인, 수정 코드, 예방 방법">
+  <div class="prompt-head"><h3>코드 오류 해결 요청</h3><button class="copy" data-copy-text="아래 Python 코드에서 오류가 발생했다. 단순히 고친 코드만 주지 말고, 왜 오류가 났는지와 다시 막는 방법까지 설명해줘.
+
+[오류 메시지]
+{붙여넣기}
+
+[실행한 코드]
+{붙여넣기}
+
+[데이터 열 이름]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 오류의 직접 원인
+2. 데이터 구조와 관련된 원인 가능성
+3. 수정 코드
+4. 수정 코드가 하는 일
+5. 비슷한 오류를 막기 위한 점검 코드
+6. 분석 결과가 달라질 수 있는 부분">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>AI가 만든 코드가 실행되지 않거나 에러가 날 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>에러 메시지, 코드, 데이터 열 이름</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>오류 원인, 수정 코드, 예방 방법</span></div>
+  </div>
+  <div class="prompt-block">아래 Python 코드에서 오류가 발생했다. 단순히 고친 코드만 주지 말고, 왜 오류가 났는지와 다시 막는 방법까지 설명해줘.
+
+[오류 메시지]
+{붙여넣기}
+
+[실행한 코드]
+{붙여넣기}
+
+[데이터 열 이름]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 오류의 직접 원인
+2. 데이터 구조와 관련된 원인 가능성
+3. 수정 코드
+4. 수정 코드가 하는 일
+5. 비슷한 오류를 막기 위한 점검 코드
+6. 분석 결과가 달라질 수 있는 부분</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="코드 생성" data-prompt-keywords="코드 생성 머신러닝 기본 코드 요청 예측·분류 모델을 만들되 과적합을 피하고 싶을 때 입력 변수, 목표 변수, 데이터 크기, 문제 유형 분리, 기준모델, 학습, 평가, 해석 코드">
+  <div class="prompt-head"><h3>머신러닝 기본 코드 요청</h3><button class="copy" data-copy-text="다음 데이터로 머신러닝 모델을 만들려고 한다. 복잡한 모델보다 기준모델과 검증을 포함한 기본 코드를 작성해줘.
+
+[문제 유형]
+{회귀/분류}
+
+[목표 변수]
+{붙여넣기}
+
+[입력 변수]
+{붙여넣기}
+
+[데이터 크기]
+{예: 300행, 입력 변수 8개}
+
+다음 내용을 포함해줘.
+1. train/test 분리 코드
+2. 기준모델 baseline 설정
+3. 간단한 모델 1개 학습 코드
+4. 회귀/분류에 맞는 평가 지표
+5. 결과표 출력 코드
+6. 과적합 여부를 확인하는 방법
+7. 변수 중요도 또는 계수 해석 주의점
+8. 데이터 누수 점검 질문">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>예측·분류 모델을 만들되 과적합을 피하고 싶을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>입력 변수, 목표 변수, 데이터 크기, 문제 유형</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>분리, 기준모델, 학습, 평가, 해석 코드</span></div>
+  </div>
+  <div class="prompt-block">다음 데이터로 머신러닝 모델을 만들려고 한다. 복잡한 모델보다 기준모델과 검증을 포함한 기본 코드를 작성해줘.
+
+[문제 유형]
+{회귀/분류}
+
+[목표 변수]
+{붙여넣기}
+
+[입력 변수]
+{붙여넣기}
+
+[데이터 크기]
+{예: 300행, 입력 변수 8개}
+
+다음 내용을 포함해줘.
+1. train/test 분리 코드
+2. 기준모델 baseline 설정
+3. 간단한 모델 1개 학습 코드
+4. 회귀/분류에 맞는 평가 지표
+5. 결과표 출력 코드
+6. 과적합 여부를 확인하는 방법
+7. 변수 중요도 또는 계수 해석 주의점
+8. 데이터 누수 점검 질문</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="코드 생성" data-prompt-keywords="코드 생성 분석 노트북 주석 달기 코드 제출·공유·발표 전 코드 설명을 정리할 때 python 코드 전체 셀별 목적, 코드 주석, 발표 설명문">
+  <div class="prompt-head"><h3>분석 노트북 주석 달기</h3><button class="copy" data-copy-text="아래 Python 분석 코드에 고등학생이 이해할 수 있는 주석을 달아줘. 단, 코드의 의미를 과장하지 말고 실제 동작만 설명해줘.
+
+[코드]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 코드 전체 흐름 요약
+2. 셀 또는 블록별 목적
+3. 주석이 포함된 수정 코드
+4. 각 결과물이 분석에서 어떤 역할을 하는지
+5. 발표에서 설명할 때 사용할 쉬운 문장
+6. 코드가 틀릴 수 있는 부분과 확인 방법">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>코드 제출·공유·발표 전 코드 설명을 정리할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>Python 코드 전체</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>셀별 목적, 코드 주석, 발표 설명문</span></div>
+  </div>
+  <div class="prompt-block">아래 Python 분석 코드에 고등학생이 이해할 수 있는 주석을 달아줘. 단, 코드의 의미를 과장하지 말고 실제 동작만 설명해줘.
+
+[코드]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 코드 전체 흐름 요약
+2. 셀 또는 블록별 목적
+3. 주석이 포함된 수정 코드
+4. 각 결과물이 분석에서 어떤 역할을 하는지
+5. 발표에서 설명할 때 사용할 쉬운 문장
+6. 코드가 틀릴 수 있는 부분과 확인 방법</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="검증·오류" data-prompt-keywords="검증·오류 ai 생성 코드 검증 ai가 만든 코드를 그대로 믿기 전에 코드, 데이터 구조, 원하는 결과 오류 가능성, 수정 코드, 검증 테스트">
+  <div class="prompt-head"><h3>AI 생성 코드 검증</h3><button class="copy" data-copy-text="다음 코드를 데이터 분석 검토자 관점에서 점검해줘. 실행 가능성만 보지 말고 분석 오류도 찾아줘.
+
+[데이터 구조]
+{열 이름, 자료형, 샘플}
+
+[코드]
+{붙여넣기}
+
+[내가 얻고 싶은 결과]
+{붙여넣기}
+
+검토 항목:
+1. 열 이름이나 자료형 오류
+2. 결측치 처리 오류
+3. 단위 변환 오류
+4. 데이터 누수 가능성
+5. train/test 분리 오류
+6. 통계 방법 부적절성
+7. 그래프 축·단위 오류
+8. 인과 해석 과장
+9. 수정 코드
+10. 수정 후 확인할 테스트">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>AI가 만든 코드를 그대로 믿기 전에</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>코드, 데이터 구조, 원하는 결과</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>오류 가능성, 수정 코드, 검증 테스트</span></div>
+  </div>
+  <div class="prompt-block">다음 코드를 데이터 분석 검토자 관점에서 점검해줘. 실행 가능성만 보지 말고 분석 오류도 찾아줘.
+
+[데이터 구조]
+{열 이름, 자료형, 샘플}
+
+[코드]
+{붙여넣기}
+
+[내가 얻고 싶은 결과]
+{붙여넣기}
+
+검토 항목:
+1. 열 이름이나 자료형 오류
+2. 결측치 처리 오류
+3. 단위 변환 오류
+4. 데이터 누수 가능성
+5. train/test 분리 오류
+6. 통계 방법 부적절성
+7. 그래프 축·단위 오류
+8. 인과 해석 과장
+9. 수정 코드
+10. 수정 후 확인할 테스트</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="검증·오류" data-prompt-keywords="검증·오류 데이터 누수 집중 점검 모델 성능이 비정상적으로 높거나 예측 모델을 만들 때 목표 변수, 입력 변수 목록, 각 변수 측정 시점 누수 의심 변수, 제거 기준, 재분석 절차">
+  <div class="prompt-head"><h3>데이터 누수 집중 점검</h3><button class="copy" data-copy-text="예측 모델에서 데이터 누수가 있는지 점검해줘.
+
+[목표 변수]
+{붙여넣기}
+
+[입력 변수 목록]
+{붙여넣기}
+
+[각 변수의 측정 시점]
+{예: 결과 발생 전/후, 동시에 측정, 나중에 기록}
+
+다음 표로 답해줘.
+- 변수명
+- 누수 위험: 높음/중간/낮음
+- 위험한 이유
+- 제거 또는 수정 방법
+- 제거 후 성능을 다시 비교하는 방법
+
+마지막에 “성능이 높아도 믿기 어려운 경우”를 5가지로 정리해줘.">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>모델 성능이 비정상적으로 높거나 예측 모델을 만들 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>목표 변수, 입력 변수 목록, 각 변수 측정 시점</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>누수 의심 변수, 제거 기준, 재분석 절차</span></div>
+  </div>
+  <div class="prompt-block">예측 모델에서 데이터 누수가 있는지 점검해줘.
+
+[목표 변수]
+{붙여넣기}
+
+[입력 변수 목록]
+{붙여넣기}
+
+[각 변수의 측정 시점]
+{예: 결과 발생 전/후, 동시에 측정, 나중에 기록}
+
+다음 표로 답해줘.
+- 변수명
+- 누수 위험: 높음/중간/낮음
+- 위험한 이유
+- 제거 또는 수정 방법
+- 제거 후 성능을 다시 비교하는 방법
+
+마지막에 “성능이 높아도 믿기 어려운 경우”를 5가지로 정리해줘.</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="검증·오류" data-prompt-keywords="검증·오류 과적합·일반화 점검 모델이 훈련 데이터에서는 잘 맞지만 새 데이터에서 불안할 때 훈련 성능, 검증 성능, 데이터 크기, 모델 종류 과적합 판단, 교차검증, 단순 모델 비교">
+  <div class="prompt-head"><h3>과적합·일반화 점검</h3><button class="copy" data-copy-text="모델이 과적합되었는지 판단하고 싶다. 아래 정보를 바탕으로 점검 절차와 개선 방법을 알려줘.
+
+[모델 종류]
+{붙여넣기}
+
+[훈련 성능]
+{붙여넣기}
+
+[검증 또는 테스트 성능]
+{붙여넣기}
+
+[데이터 크기]
+{붙여넣기}
+
+답변에 포함할 것:
+1. 과적합 가능성 판단
+2. 성능 차이를 해석하는 방법
+3. 교차검증 코드 또는 절차
+4. 더 단순한 모델과 비교하는 이유
+5. 모델 복잡도를 줄이는 방법
+6. 보고서에 쓸 수 있는 한계 문장">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>모델이 훈련 데이터에서는 잘 맞지만 새 데이터에서 불안할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>훈련 성능, 검증 성능, 데이터 크기, 모델 종류</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>과적합 판단, 교차검증, 단순 모델 비교</span></div>
+  </div>
+  <div class="prompt-block">모델이 과적합되었는지 판단하고 싶다. 아래 정보를 바탕으로 점검 절차와 개선 방법을 알려줘.
+
+[모델 종류]
+{붙여넣기}
+
+[훈련 성능]
+{붙여넣기}
+
+[검증 또는 테스트 성능]
+{붙여넣기}
+
+[데이터 크기]
+{붙여넣기}
+
+답변에 포함할 것:
+1. 과적합 가능성 판단
+2. 성능 차이를 해석하는 방법
+3. 교차검증 코드 또는 절차
+4. 더 단순한 모델과 비교하는 이유
+5. 모델 복잡도를 줄이는 방법
+6. 보고서에 쓸 수 있는 한계 문장</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="검증·오류" data-prompt-keywords="검증·오류 통계 가정 점검 t-test, anova, 회귀분석 등 통계 방법을 쓸 때 분석법 후보, 데이터 분포, 표본 수 가정, 대안 분석법, 해석 주의">
+  <div class="prompt-head"><h3>통계 가정 점검</h3><button class="copy" data-copy-text="다음 분석법을 사용해도 되는지 통계적 가정을 점검해줘. 고등학생 수준으로 설명하되, 무리한 결론을 피하게 해줘.
+
+[사용하려는 분석법]
+{예: t-test, ANOVA, Pearson 상관, 선형회귀}
+
+[데이터 설명]
+{붙여넣기}
+
+[표본 수]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 이 분석법이 요구하는 기본 가정
+2. 내 데이터에서 확인해야 할 그래프
+3. 가정이 약하게 만족될 때 쓸 수 있는 대안
+4. 분석 결과를 안전하게 표현하는 문장
+5. 표본 수가 적을 때의 한계
+6. 추가 실험 또는 추가 데이터가 필요한 경우">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>t-test, ANOVA, 회귀분석 등 통계 방법을 쓸 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>분석법 후보, 데이터 분포, 표본 수</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>가정, 대안 분석법, 해석 주의</span></div>
+  </div>
+  <div class="prompt-block">다음 분석법을 사용해도 되는지 통계적 가정을 점검해줘. 고등학생 수준으로 설명하되, 무리한 결론을 피하게 해줘.
+
+[사용하려는 분석법]
+{예: t-test, ANOVA, Pearson 상관, 선형회귀}
+
+[데이터 설명]
+{붙여넣기}
+
+[표본 수]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 이 분석법이 요구하는 기본 가정
+2. 내 데이터에서 확인해야 할 그래프
+3. 가정이 약하게 만족될 때 쓸 수 있는 대안
+4. 분석 결과를 안전하게 표현하는 문장
+5. 표본 수가 적을 때의 한계
+6. 추가 실험 또는 추가 데이터가 필요한 경우</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="검증·오류" data-prompt-keywords="검증·오류 반례와 대체 설명 찾기 결론이 너무 그럴듯해 보여 비판적 검토가 필요할 때 주장, 근거 수치, 그래프, 데이터 수집 방식 반례, 누락 변수, 대체 설명, 추가 검증">
+  <div class="prompt-head"><h3>반례와 대체 설명 찾기</h3><button class="copy" data-copy-text="내 분석 결론을 비판적으로 검토해줘. 결론을 무조건 강화하지 말고, 반례와 대체 설명을 적극적으로 찾아줘.
+
+[내 결론]
+{붙여넣기}
+
+[근거 수치 또는 그래프 설명]
+{붙여넣기}
+
+[데이터 수집 방식]
+{붙여넣기}
+
+다음 항목으로 답해줘.
+1. 결론을 약화시킬 수 있는 반례
+2. 누락된 변수 후보
+3. 같은 결과를 설명할 수 있는 다른 원인
+4. 추가로 확인해야 할 그래프
+5. 추가 실험 또는 데이터 수집 제안
+6. 더 신중한 결론 문장으로 수정한 예시">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>결론이 너무 그럴듯해 보여 비판적 검토가 필요할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>주장, 근거 수치, 그래프, 데이터 수집 방식</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>반례, 누락 변수, 대체 설명, 추가 검증</span></div>
+  </div>
+  <div class="prompt-block">내 분석 결론을 비판적으로 검토해줘. 결론을 무조건 강화하지 말고, 반례와 대체 설명을 적극적으로 찾아줘.
+
+[내 결론]
+{붙여넣기}
+
+[근거 수치 또는 그래프 설명]
+{붙여넣기}
+
+[데이터 수집 방식]
+{붙여넣기}
+
+다음 항목으로 답해줘.
+1. 결론을 약화시킬 수 있는 반례
+2. 누락된 변수 후보
+3. 같은 결과를 설명할 수 있는 다른 원인
+4. 추가로 확인해야 할 그래프
+5. 추가 실험 또는 데이터 수집 제안
+6. 더 신중한 결론 문장으로 수정한 예시</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="검증·오류" data-prompt-keywords="검증·오류 재현 가능성 최종 점검 보고서 제출 전, 다른 사람이 같은 결과를 재현할 수 있게 만들 때 폴더 구조, 파일명, 코드, 결과물 재현 체크리스트, 누락 항목, 실행 순서">
+  <div class="prompt-head"><h3>재현 가능성 최종 점검</h3><button class="copy" data-copy-text="내 데이터 분석이 재현 가능한지 점검해줘.
+
+[폴더 구조]
+{붙여넣기}
+
+[파일 목록]
+{붙여넣기}
+
+[분석 코드 또는 노트북 구성]
+{붙여넣기}
+
+다음 체크리스트로 답해줘.
+1. 원자료가 보존되어 있는가
+2. 전처리 과정이 코드로 남아 있는가
+3. 그래프와 표가 어떤 코드에서 생성됐는가
+4. 무작위성이 있다면 seed가 고정되어 있는가
+5. 사용한 라이브러리와 버전 기록이 있는가
+6. 결과를 다시 만들기 위한 실행 순서
+7. 누락된 기록과 보완 방법">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>보고서 제출 전, 다른 사람이 같은 결과를 재현할 수 있게 만들 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>폴더 구조, 파일명, 코드, 결과물</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>재현 체크리스트, 누락 항목, 실행 순서</span></div>
+  </div>
+  <div class="prompt-block">내 데이터 분석이 재현 가능한지 점검해줘.
+
+[폴더 구조]
+{붙여넣기}
+
+[파일 목록]
+{붙여넣기}
+
+[분석 코드 또는 노트북 구성]
+{붙여넣기}
+
+다음 체크리스트로 답해줘.
+1. 원자료가 보존되어 있는가
+2. 전처리 과정이 코드로 남아 있는가
+3. 그래프와 표가 어떤 코드에서 생성됐는가
+4. 무작위성이 있다면 seed가 고정되어 있는가
+5. 사용한 라이브러리와 버전 기록이 있는가
+6. 결과를 다시 만들기 위한 실행 순서
+7. 누락된 기록과 보완 방법</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="해석·보고" data-prompt-keywords="해석·보고 결과 문단 작성 분석 결과를 보고서 문장으로 바꿀 때 주요 수치, 그래프 설명, 분석법, 한계 관찰 사실·해석·한계가 분리된 문단">
+  <div class="prompt-head"><h3>결과 문단 작성</h3><button class="copy" data-copy-text="다음 분석 결과를 보고서의 결과 및 해석 문단으로 바꿔줘. 수치 근거 없이 단정하지 말고, 관찰된 사실과 가능한 해석을 분리해줘.
+
+[분석법]
+{예: 조건별 평균 비교, 상관분석, 선형회귀, 분류 모델}
+
+[주요 수치]
+{붙여넣기}
+
+[그래프에서 보이는 패턴]
+{붙여넣기}
+
+[한계]
+{붙여넣기}
+
+문단 구조:
+1. 관찰된 결과
+2. 수치 근거
+3. 가능한 해석
+4. 대체 설명 또는 한계
+5. 후속 분석 필요성
+
+주의: 상관관계를 인과관계처럼 표현하지 말아줘.">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>분석 결과를 보고서 문장으로 바꿀 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>주요 수치, 그래프 설명, 분석법, 한계</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>관찰 사실·해석·한계가 분리된 문단</span></div>
+  </div>
+  <div class="prompt-block">다음 분석 결과를 보고서의 결과 및 해석 문단으로 바꿔줘. 수치 근거 없이 단정하지 말고, 관찰된 사실과 가능한 해석을 분리해줘.
+
+[분석법]
+{예: 조건별 평균 비교, 상관분석, 선형회귀, 분류 모델}
+
+[주요 수치]
+{붙여넣기}
+
+[그래프에서 보이는 패턴]
+{붙여넣기}
+
+[한계]
+{붙여넣기}
+
+문단 구조:
+1. 관찰된 결과
+2. 수치 근거
+3. 가능한 해석
+4. 대체 설명 또는 한계
+5. 후속 분석 필요성
+
+주의: 상관관계를 인과관계처럼 표현하지 말아줘.</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="해석·보고" data-prompt-keywords="해석·보고 그래프 캡션 작성 보고서와 발표자료에 그래프를 넣을 때 그래프 종류, 축 이름, 핵심 패턴, 표본 수 제목, 캡션, 발표 설명문">
+  <div class="prompt-head"><h3>그래프 캡션 작성</h3><button class="copy" data-copy-text="아래 그래프에 들어갈 제목과 캡션을 작성해줘. 그래프가 보여주는 사실과 해석을 구분해줘.
+
+[그래프 종류]
+{예: 산점도, 오차막대 그래프, 히스토그램, 혼동행렬, 시계열 그래프}
+
+[x축]
+{이름과 단위}
+
+[y축]
+{이름과 단위}
+
+[표본 수]
+{예: n=60, 조건당 5회}
+
+[핵심 패턴]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 그래프 제목 3안
+2. 보고서용 캡션 2안
+3. 발표에서 말할 30초 설명
+4. 그래프 해석에서 피해야 할 표현
+5. 축·단위·표본 수 표시 점검표">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>보고서와 발표자료에 그래프를 넣을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>그래프 종류, 축 이름, 핵심 패턴, 표본 수</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>제목, 캡션, 발표 설명문</span></div>
+  </div>
+  <div class="prompt-block">아래 그래프에 들어갈 제목과 캡션을 작성해줘. 그래프가 보여주는 사실과 해석을 구분해줘.
+
+[그래프 종류]
+{예: 산점도, 오차막대 그래프, 히스토그램, 혼동행렬, 시계열 그래프}
+
+[x축]
+{이름과 단위}
+
+[y축]
+{이름과 단위}
+
+[표본 수]
+{예: n=60, 조건당 5회}
+
+[핵심 패턴]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 그래프 제목 3안
+2. 보고서용 캡션 2안
+3. 발표에서 말할 30초 설명
+4. 그래프 해석에서 피해야 할 표현
+5. 축·단위·표본 수 표시 점검표</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="해석·보고" data-prompt-keywords="해석·보고 한계와 후속 분석 작성 결과가 나온 뒤 보고서의 논의 부분을 쓸 때 분석 결과, 데이터 제한, 실험 조건, 오류 가능성 한계, 보완 방법, 후속 분석">
+  <div class="prompt-head"><h3>한계와 후속 분석 작성</h3><button class="copy" data-copy-text="내 분석의 한계와 후속 분석을 작성해줘. “시간이 부족했다” 같은 일반적 표현이 아니라 데이터와 방법 중심으로 써줘.
+
+[분석 결과 요약]
+{붙여넣기}
+
+[데이터 제한]
+{예: 표본 수, 기간, 지역, 측정 장비, 반복 수}
+
+[분석법 제한]
+{붙여넣기}
+
+다음 항목으로 정리해줘.
+1. 데이터 품질의 한계
+2. 표본 수와 대표성의 한계
+3. 분석법 가정의 한계
+4. 누락 변수 가능성
+5. 결과 해석에서 조심할 점
+6. 후속 분석 5가지
+7. 후속 실험 또는 데이터 수집 계획">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>결과가 나온 뒤 보고서의 논의 부분을 쓸 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>분석 결과, 데이터 제한, 실험 조건, 오류 가능성</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>한계, 보완 방법, 후속 분석</span></div>
+  </div>
+  <div class="prompt-block">내 분석의 한계와 후속 분석을 작성해줘. “시간이 부족했다” 같은 일반적 표현이 아니라 데이터와 방법 중심으로 써줘.
+
+[분석 결과 요약]
+{붙여넣기}
+
+[데이터 제한]
+{예: 표본 수, 기간, 지역, 측정 장비, 반복 수}
+
+[분석법 제한]
+{붙여넣기}
+
+다음 항목으로 정리해줘.
+1. 데이터 품질의 한계
+2. 표본 수와 대표성의 한계
+3. 분석법 가정의 한계
+4. 누락 변수 가능성
+5. 결과 해석에서 조심할 점
+6. 후속 분석 5가지
+7. 후속 실험 또는 데이터 수집 계획</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="해석·보고" data-prompt-keywords="해석·보고 ai 활용 기록표 작성 ai 사용 과정을 투명하게 남길 때 사용한 프롬프트, ai 제안, 내가 수정한 부분 ai 활용 로그, 학생 판단 기록">
+  <div class="prompt-head"><h3>AI 활용 기록표 작성</h3><button class="copy" data-copy-text="내가 AI를 활용한 분석 과정을 투명하게 기록하려고 한다. 아래 내용을 바탕으로 AI 활용 기록표를 만들어줘.
+
+[사용한 AI 도구]
+{예: ChatGPT, Gemini, Claude 등}
+
+[프롬프트]
+{붙여넣기}
+
+[AI가 제안한 내용]
+{붙여넣기}
+
+[내가 직접 검증한 내용]
+{붙여넣기}
+
+[최종적으로 수정·반영한 내용]
+{붙여넣기}
+
+표의 열은 다음과 같이 해줘.
+- 날짜
+- 사용 목적
+- 입력한 자료
+- 프롬프트 요약
+- AI 제안
+- 직접 검증한 근거
+- 수정한 내용
+- 최종 반영 여부
+- 남은 한계">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>AI 사용 과정을 투명하게 남길 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>사용한 프롬프트, AI 제안, 내가 수정한 부분</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>AI 활용 로그, 학생 판단 기록</span></div>
+  </div>
+  <div class="prompt-block">내가 AI를 활용한 분석 과정을 투명하게 기록하려고 한다. 아래 내용을 바탕으로 AI 활용 기록표를 만들어줘.
+
+[사용한 AI 도구]
+{예: ChatGPT, Gemini, Claude 등}
+
+[프롬프트]
+{붙여넣기}
+
+[AI가 제안한 내용]
+{붙여넣기}
+
+[내가 직접 검증한 내용]
+{붙여넣기}
+
+[최종적으로 수정·반영한 내용]
+{붙여넣기}
+
+표의 열은 다음과 같이 해줘.
+- 날짜
+- 사용 목적
+- 입력한 자료
+- 프롬프트 요약
+- AI 제안
+- 직접 검증한 근거
+- 수정한 내용
+- 최종 반영 여부
+- 남은 한계</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="해석·보고" data-prompt-keywords="해석·보고 발표 예상 질문 생성 발표나 면접 전에 분석 과정 질문을 준비할 때 보고서 요약, 데이터, 분석법, 결과, 한계 예상 질문, 답변 키워드, 추가 확인 자료">
+  <div class="prompt-head"><h3>발표 예상 질문 생성</h3><button class="copy" data-copy-text="아래 데이터 분석 보고서를 바탕으로 발표에서 받을 수 있는 예상 질문을 만들어줘. 질문은 분석 과정을 실제로 이해했는지 확인하는 수준으로 만들어줘.
+
+[보고서 요약]
+{붙여넣기}
+
+[데이터와 분석법]
+{붙여넣기}
+
+[핵심 결과]
+{붙여넣기}
+
+[한계]
+{붙여넣기}
+
+다음 영역별로 질문을 만들어줘.
+1. 데이터 수집과 신뢰도 5개
+2. 전처리와 이상치 5개
+3. 분석법 선택 이유 5개
+4. 그래프와 수치 해석 5개
+5. 모델 검증과 한계 5개
+6. AI 활용 과정 5개
+
+각 질문마다 답변 키워드도 함께 제시해줘.">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>발표나 면접 전에 분석 과정 질문을 준비할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>보고서 요약, 데이터, 분석법, 결과, 한계</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>예상 질문, 답변 키워드, 추가 확인 자료</span></div>
+  </div>
+  <div class="prompt-block">아래 데이터 분석 보고서를 바탕으로 발표에서 받을 수 있는 예상 질문을 만들어줘. 질문은 분석 과정을 실제로 이해했는지 확인하는 수준으로 만들어줘.
+
+[보고서 요약]
+{붙여넣기}
+
+[데이터와 분석법]
+{붙여넣기}
+
+[핵심 결과]
+{붙여넣기}
+
+[한계]
+{붙여넣기}
+
+다음 영역별로 질문을 만들어줘.
+1. 데이터 수집과 신뢰도 5개
+2. 전처리와 이상치 5개
+3. 분석법 선택 이유 5개
+4. 그래프와 수치 해석 5개
+5. 모델 검증과 한계 5개
+6. AI 활용 과정 5개
+
+각 질문마다 답변 키워드도 함께 제시해줘.</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="심화" data-prompt-keywords="심화 파생변수·특징공학 아이디어 원자료만으로 관계가 잘 보이지 않아 의미 있는 지표를 만들 때 원자료 변수, 교과 개념, 분석 목표 파생변수 후보, 계산식, 데이터 누수 위험">
+  <div class="prompt-head"><h3>파생변수·특징공학 아이디어</h3><button class="copy" data-copy-text="원자료에서 분석에 더 의미 있는 파생변수 또는 특징을 만들고 싶다. 교과 개념과 연결되는 변수만 제안해줘.
+
+[원자료 변수]
+{붙여넣기}
+
+[관련 교과 개념]
+{예: 속도, 가속도, 효율, 농도, 반응속도, 밀도, 엔트로피, 생장률, 다양도}
+
+[분석 목표]
+{붙여넣기}
+
+다음 표로 답해줘.
+- 파생변수 이름
+- 계산식
+- 단위
+- 관련 교과 개념
+- 분석에 도움이 되는 이유
+- 데이터 누수 위험 여부
+- 그래프 또는 모델에서 활용 방법
+- 해석 시 주의점">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>원자료만으로 관계가 잘 보이지 않아 의미 있는 지표를 만들 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>원자료 변수, 교과 개념, 분석 목표</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>파생변수 후보, 계산식, 데이터 누수 위험</span></div>
+  </div>
+  <div class="prompt-block">원자료에서 분석에 더 의미 있는 파생변수 또는 특징을 만들고 싶다. 교과 개념과 연결되는 변수만 제안해줘.
+
+[원자료 변수]
+{붙여넣기}
+
+[관련 교과 개념]
+{예: 속도, 가속도, 효율, 농도, 반응속도, 밀도, 엔트로피, 생장률, 다양도}
+
+[분석 목표]
+{붙여넣기}
+
+다음 표로 답해줘.
+- 파생변수 이름
+- 계산식
+- 단위
+- 관련 교과 개념
+- 분석에 도움이 되는 이유
+- 데이터 누수 위험 여부
+- 그래프 또는 모델에서 활용 방법
+- 해석 시 주의점</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="심화" data-prompt-keywords="심화 기준모델 baseline 설정 머신러닝 모델이 정말 의미 있는지 비교 기준이 필요할 때 예측/분류 문제, 목표 변수, 기존 간단한 규칙 baseline, 비교 지표, 개선 정도">
+  <div class="prompt-head"><h3>기준모델 baseline 설정</h3><button class="copy" data-copy-text="내 모델이 의미 있는지 판단하기 위한 기준모델 baseline을 설계해줘.
+
+[문제 유형]
+{회귀/분류}
+
+[목표 변수]
+{붙여넣기}
+
+[현재 사용하려는 모델]
+{붙여넣기}
+
+[데이터 설명]
+{붙여넣기}
+
+다음 내용을 제시해줘.
+1. 가장 단순한 기준모델 정의
+2. 기준모델 코드
+3. 내 모델과 비교할 평가 지표
+4. 개선율을 계산하는 방법
+5. 기준모델보다 조금 나은 결과를 과장하지 않는 표현
+6. 기준모델이 의외로 강할 때 해석하는 방법">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>머신러닝 모델이 정말 의미 있는지 비교 기준이 필요할 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>예측/분류 문제, 목표 변수, 기존 간단한 규칙</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>baseline, 비교 지표, 개선 정도</span></div>
+  </div>
+  <div class="prompt-block">내 모델이 의미 있는지 판단하기 위한 기준모델 baseline을 설계해줘.
+
+[문제 유형]
+{회귀/분류}
+
+[목표 변수]
+{붙여넣기}
+
+[현재 사용하려는 모델]
+{붙여넣기}
+
+[데이터 설명]
+{붙여넣기}
+
+다음 내용을 제시해줘.
+1. 가장 단순한 기준모델 정의
+2. 기준모델 코드
+3. 내 모델과 비교할 평가 지표
+4. 개선율을 계산하는 방법
+5. 기준모델보다 조금 나은 결과를 과장하지 않는 표현
+6. 기준모델이 의외로 강할 때 해석하는 방법</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="심화" data-prompt-keywords="심화 설명가능성·변수 중요도 해석 모델이 어떤 변수를 중요하게 보는지 설명하고 싶을 때 모델 종류, 변수 목록, 성능 결과 중요도, 계수, 해석 주의, 후속 실험">
+  <div class="prompt-head"><h3>설명가능성·변수 중요도 해석</h3><button class="copy" data-copy-text="모델의 변수 중요도를 해석하고 싶다. 단, 변수 중요도를 인과관계로 오해하지 않도록 설명해줘.
+
+[모델 종류]
+{예: 선형회귀, 로지스틱 회귀, 결정트리, 랜덤포레스트}
+
+[입력 변수 목록]
+{붙여넣기}
+
+[성능 결과]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 이 모델에서 변수 중요도가 계산되는 방식
+2. 변수 중요도 그래프 코드
+3. 중요도가 높은 변수의 해석 문장
+4. 중요도와 인과관계의 차이
+5. 상관된 변수 때문에 생길 수 있는 왜곡
+6. 후속 실험 또는 검증 아이디어">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>모델이 어떤 변수를 중요하게 보는지 설명하고 싶을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>모델 종류, 변수 목록, 성능 결과</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>중요도, 계수, 해석 주의, 후속 실험</span></div>
+  </div>
+  <div class="prompt-block">모델의 변수 중요도를 해석하고 싶다. 단, 변수 중요도를 인과관계로 오해하지 않도록 설명해줘.
+
+[모델 종류]
+{예: 선형회귀, 로지스틱 회귀, 결정트리, 랜덤포레스트}
+
+[입력 변수 목록]
+{붙여넣기}
+
+[성능 결과]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 이 모델에서 변수 중요도가 계산되는 방식
+2. 변수 중요도 그래프 코드
+3. 중요도가 높은 변수의 해석 문장
+4. 중요도와 인과관계의 차이
+5. 상관된 변수 때문에 생길 수 있는 왜곡
+6. 후속 실험 또는 검증 아이디어</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="심화" data-prompt-keywords="심화 오차 사례 분석 평균 성능보다 실패한 사례를 분석해 모델을 개선하고 싶을 때 실제값, 예측값, 입력 변수, 오차 기준 오차 상위 사례, 공통 특징, 개선안">
+  <div class="prompt-head"><h3>오차 사례 분석</h3><button class="copy" data-copy-text="모델이 크게 틀린 사례를 분석하고 싶다. 평균 성능만 보지 말고 오차가 큰 행의 공통 특징을 찾아줘.
+
+[실제값 열]
+{붙여넣기}
+
+[예측값 열]
+{붙여넣기}
+
+[입력 변수]
+{붙여넣기}
+
+[오차 기준]
+{예: 절대오차 상위 10개, 오분류 사례}
+
+다음 내용을 포함해줘.
+1. 오차 열을 만드는 코드
+2. 오차가 큰 상위 사례 추출 코드
+3. 오차 사례의 공통 특징을 찾는 방법
+4. 측정 오류와 모델 한계를 구분하는 질문
+5. 모델 개선 방법
+6. 보고서에 쓸 오차 분석 문장">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>평균 성능보다 실패한 사례를 분석해 모델을 개선하고 싶을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>실제값, 예측값, 입력 변수, 오차 기준</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>오차 상위 사례, 공통 특징, 개선안</span></div>
+  </div>
+  <div class="prompt-block">모델이 크게 틀린 사례를 분석하고 싶다. 평균 성능만 보지 말고 오차가 큰 행의 공통 특징을 찾아줘.
+
+[실제값 열]
+{붙여넣기}
+
+[예측값 열]
+{붙여넣기}
+
+[입력 변수]
+{붙여넣기}
+
+[오차 기준]
+{예: 절대오차 상위 10개, 오분류 사례}
+
+다음 내용을 포함해줘.
+1. 오차 열을 만드는 코드
+2. 오차가 큰 상위 사례 추출 코드
+3. 오차 사례의 공통 특징을 찾는 방법
+4. 측정 오류와 모델 한계를 구분하는 질문
+5. 모델 개선 방법
+6. 보고서에 쓸 오차 분석 문장</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="심화" data-prompt-keywords="심화 몬테카를로 시뮬레이션 설계 측정 오차나 불확실성이 결과에 미치는 영향을 보고 싶을 때 계산식, 입력값 범위, 오차 범위, 반복 횟수 시뮬레이션 절차, 결과 분포, 확률 해석">
+  <div class="prompt-head"><h3>몬테카를로 시뮬레이션 설계</h3><button class="copy" data-copy-text="측정값의 불확실성을 반영해 몬테카를로 시뮬레이션을 해보고 싶다.
+
+[계산하려는 결과값]
+{예: 효율, 예상 농도, 에너지 절감량, 위험지수}
+
+[계산식]
+{붙여넣기}
+
+[입력 변수와 오차 범위]
+{예: 질량 10.0±0.2g, 시간 5.0±0.1s}
+
+[반복 횟수]
+{예: 10,000회}
+
+다음 내용을 포함해줘.
+1. 입력값을 어떤 분포로 가정할지
+2. Python 시뮬레이션 코드
+3. 결과값 평균, 표준편차, 신뢰구간 계산
+4. 결과 분포 히스토그램 코드
+5. 특정 기준을 넘을 확률 계산
+6. 분포 가정의 한계 문장">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>측정 오차나 불확실성이 결과에 미치는 영향을 보고 싶을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>계산식, 입력값 범위, 오차 범위, 반복 횟수</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>시뮬레이션 절차, 결과 분포, 확률 해석</span></div>
+  </div>
+  <div class="prompt-block">측정값의 불확실성을 반영해 몬테카를로 시뮬레이션을 해보고 싶다.
+
+[계산하려는 결과값]
+{예: 효율, 예상 농도, 에너지 절감량, 위험지수}
+
+[계산식]
+{붙여넣기}
+
+[입력 변수와 오차 범위]
+{예: 질량 10.0±0.2g, 시간 5.0±0.1s}
+
+[반복 횟수]
+{예: 10,000회}
+
+다음 내용을 포함해줘.
+1. 입력값을 어떤 분포로 가정할지
+2. Python 시뮬레이션 코드
+3. 결과값 평균, 표준편차, 신뢰구간 계산
+4. 결과 분포 히스토그램 코드
+5. 특정 기준을 넘을 확률 계산
+6. 분포 가정의 한계 문장</div>
+</article>
+<article class="prompt-card pro" data-prompt-group="심화" data-prompt-keywords="심화 최적화 분석 설계 조건 조합 중 가장 좋은 조건을 찾을 때 조작 가능한 변수, 결과 지표, 제약조건 grid search, 순위표, 검증 실험">
+  <div class="prompt-head"><h3>최적화 분석 설계</h3><button class="copy" data-copy-text="여러 조건 조합에서 최적 조건을 찾고 싶다. 무작정 최고값 하나만 고르지 말고, 제약조건과 검증 실험까지 포함해 설계해줘.
+
+[조작 가능한 변수]
+{예: 온도, pH, 농도, 시간, 센서 위치}
+
+[결과 지표]
+{예: 반응속도, 정확도, 에너지 효율, 비용}
+
+[제약조건]
+{예: 안전 범위, 비용, 시간, 장비 한계}
+
+[측정 데이터]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 조건 조합표 구성 방법
+2. grid search 또는 순위표 코드
+3. 최고 조건과 안정적인 조건을 구분하는 기준
+4. 조건별 결과 시각화 방법
+5. 최적 조건 주변에서 추가 실험을 설계하는 방법
+6. “최적”이라고 말할 수 있는 범위와 한계">복사</button></div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row"><b>언제</b><span>조건 조합 중 가장 좋은 조건을 찾을 때</span></div>
+    <div class="prompt-meta-row"><b>입력자료</b><span>조작 가능한 변수, 결과 지표, 제약조건</span></div>
+    <div class="prompt-meta-row"><b>받을결과</b><span>grid search, 순위표, 검증 실험</span></div>
+  </div>
+  <div class="prompt-block">여러 조건 조합에서 최적 조건을 찾고 싶다. 무작정 최고값 하나만 고르지 말고, 제약조건과 검증 실험까지 포함해 설계해줘.
+
+[조작 가능한 변수]
+{예: 온도, pH, 농도, 시간, 센서 위치}
+
+[결과 지표]
+{예: 반응속도, 정확도, 에너지 효율, 비용}
+
+[제약조건]
+{예: 안전 범위, 비용, 시간, 장비 한계}
+
+[측정 데이터]
+{붙여넣기}
+
+다음 형식으로 답해줘.
+1. 조건 조합표 구성 방법
+2. grid search 또는 순위표 코드
+3. 최고 조건과 안정적인 조건을 구분하는 기준
+4. 조건별 결과 시각화 방법
+5. 최적 조건 주변에서 추가 실험을 설계하는 방법
+6. “최적”이라고 말할 수 있는 범위와 한계</div>
+</article>
+  </div>
+
+  <div class="prompt-lab" id="prompt-builder-lab">
+    <h3>프롬프트 조립기</h3>
+    <p>데이터 유형과 분석 목표를 입력하면, AI에게 바로 보낼 수 있는 분석 요청문을 자동으로 구성합니다.</p>
+    <div class="prompt-lab-grid">
+      <div><label for="labDataType">데이터 유형</label><select id="labDataType"><option>반복 측정 실험데이터</option><option>공공데이터</option><option>센서·시계열 데이터</option><option>이미지 데이터</option><option>텍스트 데이터</option><option>설문 데이터</option><option>공간·지도 데이터</option><option>머신러닝용 표 데이터</option></select></div>
+      <div><label for="labGoal">분석 목표</label><select id="labGoal"><option>데이터 품질 점검</option><option>조건별 비교</option><option>변수 간 관계 분석</option><option>예측 모델 만들기</option><option>분류 모델 만들기</option><option>군집·패턴 발견</option><option>이상치·이상 구간 탐지</option><option>최적 조건 찾기</option><option>결과 해석과 보고서 작성</option></select></div>
+      <div><label for="labColumns">열 이름·단위</label><textarea id="labColumns" placeholder="예: temperature_C, trial, reaction_rate_abs_per_min"></textarea></div>
+      <div><label for="labContext">수집 맥락</label><textarea id="labContext" placeholder="예: 효소 반응속도를 온도 조건별로 5회 반복 측정하였다."></textarea></div>
+      <div><label for="labConstraint">제약 조건</label><textarea id="labConstraint" placeholder="예: 고등학생 수준, Python pandas/matplotlib 사용, 인과 표현 금지"></textarea></div>
+      <div><label for="labOutput">원하는 산출물</label><textarea id="labOutput" placeholder="예: 전처리 코드, 오차막대 그래프, 결과 문장, 한계"></textarea></div>
+    </div>
+    <div class="prompt-lab-actions">
+      <button class="btn btn-light" id="labGenerateBtn" type="button">프롬프트 생성</button>
+      <button class="btn btn-dark" id="labCopyBtn" type="button">생성문 복사</button>
+    </div>
+    <div class="prompt-lab-output" id="labOutputBox">위 항목을 채운 뒤 “프롬프트 생성”을 누르세요.</div>
+  </div>
+</section>
+
+
+<section class="container" id="mistakes">
+  <h2 class="section-title">AI 데이터 분석에서 자주 생기는 오류</h2>
+  <p class="section-sub">AI를 활용할수록 결과가 그럴듯해 보이기 때문에, 오류를 찾는 루틴이 더 중요합니다.</p>
+  <div class="check-grid">
+    <article class="check-card"><h3><span class="icon">⚠</span>데이터 누수</h3><p>정답을 알 수 있는 미래 정보가 입력 변수에 들어가 성능이 비정상적으로 높아지는 오류입니다. 예: 시계열을 무작위 셔플하기, 결과값에서 만든 파생변수 포함.</p></article>
+    <article class="check-card"><h3><span class="icon">↔</span>인과 과장</h3><p>상관분석이나 회귀분석 결과를 "원인"으로 단정하지 말고 관계·경향·가능성으로 표현합니다. 관찰 데이터로는 인과를 입증하기 어렵습니다.</p></article>
+    <article class="check-card"><h3><span class="icon">🎯</span>과적합</h3><p>훈련 데이터에서는 잘 맞지만 새 데이터에서는 실패하는 모델입니다. 훈련/검증 점수 차이가 크면 의심합니다. 검증 분리와 교차검증이 필요합니다.</p></article>
+    <article class="check-card"><h3><span class="icon">📏</span>단위 오류</h3><p>mg/L, ppm, ℃, K, 시간 단위가 섞이면 그래프와 모델이 모두 틀어집니다. 분석 전 단위 통일 점검표를 만드세요.</p></article>
+    <article class="check-card"><h3><span class="icon">⚖</span>표본 불균형</h3><p>정상 데이터가 대부분이면 정확도 95% 모델도 이상을 전혀 못 찾을 수 있습니다. 정밀도·재현율·F1을 함께 보세요.</p></article>
+    <article class="check-card"><h3><span class="icon">📊</span>그래프 왜곡</h3><p>축 범위 조작, 부적절한 로그 스케일, 표본 수 누락, 오차막대 생략은 결론을 과장할 수 있습니다.</p></article>
+    <article class="check-card"><h3><span class="icon">🤖</span>AI 환각</h3><p>AI가 없는 라이브러리, 틀린 통계 개념, 존재하지 않는 함수·논문·출처를 자신 있게 제안할 수 있습니다. 코드는 반드시 실행해 검증하세요.</p></article>
+    <article class="check-card"><h3><span class="icon">📚</span>출처·저작권</h3><p>공공데이터, 이미지, 논문, 기사 자료는 출처와 이용 조건을 확인해야 합니다. 무단 사용은 표절·저작권 침해가 됩니다.</p></article>
+    <article class="check-card"><h3><span class="icon">🔒</span>개인정보</h3><p>설문, 위치, 건강, 성적 관련 데이터는 익명화하고 민감정보를 AI에 직접 입력하지 않습니다. 이름·학번·연락처는 분석 전 마스킹합니다.</p></article>
+  </div>
+</section>
+
+<section class="container" id="sources">
+  <h2 class="section-title">분석에 쓸 수 있는 공공·공개 데이터 출처</h2>
+  <p class="section-sub">실제 데이터로 분석을 시작할 때 참고할 수 있는 한국·해외 데이터 포털입니다. 모든 데이터는 이용 조건과 저작권을 확인한 뒤 사용하세요.</p>
+  <div class="source-grid">
+    <article class="source-card">
+      <h3>공공데이터포털 <span class="source-tag">한국</span></h3>
+      <p>중앙·지방·공공기관 데이터의 통합 창구. 기상, 교통, 환경, 보건, 교육 등 광범위한 분야의 CSV·API 제공.</p>
+      <div class="source-url">data.go.kr</div>
+    </article>
+    <article class="source-card">
+      <h3>국가통계포털(KOSIS) <span class="source-tag">한국</span></h3>
+      <p>인구·가구·경제·사회 통계의 공식 출처. 시계열·지역별 비교 데이터에 강점.</p>
+      <div class="source-url">kosis.kr</div>
+    </article>
+    <article class="source-card">
+      <h3>기상자료개방포털 <span class="source-tag">한국</span></h3>
+      <p>기상청의 관측·예보 데이터. 기온·강수·풍속·미세먼지 시계열 분석에 적합.</p>
+      <div class="source-url">data.kma.go.kr</div>
+    </article>
+    <article class="source-card">
+      <h3>에어코리아 <span class="source-tag">환경</span></h3>
+      <p>전국 대기질 측정망 데이터. 미세먼지·오존·CO·NO₂ 등 시간별 측정값.</p>
+      <div class="source-url">airkorea.or.kr</div>
+    </article>
+    <article class="source-card">
+      <h3>서울 열린데이터광장 <span class="source-tag">지자체</span></h3>
+      <p>서울시 행정·교통·관광·환경 데이터. 지역 단위 탐구에 유용. 다른 광역시도 비슷한 포털 운영.</p>
+      <div class="source-url">data.seoul.go.kr</div>
+    </article>
+    <article class="source-card">
+      <h3>한국교육학술정보원 RISS <span class="source-tag">학술</span></h3>
+      <p>국내 학술논문·학위논문·연구보고서 검색. 선행연구 정리에 활용.</p>
+      <div class="source-url">riss.kr</div>
+    </article>
+    <article class="source-card">
+      <h3>Kaggle Datasets <span class="source-tag">해외</span></h3>
+      <p>전 세계 사용자 공유 데이터셋과 노트북. 머신러닝 연습용 데이터가 풍부.</p>
+      <div class="source-url">kaggle.com/datasets</div>
+    </article>
+    <article class="source-card">
+      <h3>UCI ML Repository <span class="source-tag">해외</span></h3>
+      <p>오래 검증된 머신러닝용 데이터셋 모음. 분류·회귀·군집 학습용으로 적합.</p>
+      <div class="source-url">archive.ics.uci.edu</div>
+    </article>
+    <article class="source-card">
+      <h3>Our World in Data <span class="source-tag">국제</span></h3>
+      <p>인구·환경·보건·교육·경제의 국가 비교 데이터와 시각화. CSV 다운로드 제공.</p>
+      <div class="source-url">ourworldindata.org</div>
+    </article>
+    <article class="source-card">
+      <h3>NASA Earth Data <span class="source-tag">과학</span></h3>
+      <p>위성 관측, 기후, 해양 데이터. 환경·기후 탐구에 활용 가능.</p>
+      <div class="source-url">earthdata.nasa.gov</div>
+    </article>
+    <article class="source-card">
+      <h3>NCBI / Ensembl <span class="source-tag">생명정보</span></h3>
+      <p>유전자, 단백질, 생명정보 공개 데이터. 생명과학 탐구에 활용.</p>
+      <div class="source-url">ncbi.nlm.nih.gov</div>
+    </article>
+    <article class="source-card">
+      <h3>국립국어원 모두의 말뭉치 <span class="source-tag">텍스트</span></h3>
+      <p>한국어 자연어 처리용 말뭉치. 텍스트 분석 학습에 활용.</p>
+      <div class="source-url">corpus.korean.go.kr</div>
+    </article>
+  </div>
+  <div class="warn" style="margin-top:18px"><b>데이터 사용 전 확인:</b> ① 이용 약관과 라이선스(공공데이터 개방, CC-BY, MIT 등) ② 출처 표기 방법 ③ 개인정보 포함 여부 ④ 갱신 주기 ⑤ 측정 단위와 결측 표기 방식. 보고서에는 데이터 다운로드 날짜·URL·라이선스를 반드시 명시하세요.</div>
+</section>
+
+<section class="container" id="tools">
+  <h2 class="section-title">AI 도구별 데이터 분석 활용 팁</h2>
+  <p class="section-sub">대화형 AI마다 강점이 조금씩 다릅니다. 도구를 바꿔보고 결과를 비교하는 것도 중요한 검증 방법입니다.</p>
+  <div class="grid grid-3">
+    <article class="card">
+      <div class="kicker">대화형 LLM</div>
+      <h3>ChatGPT, Claude, Gemini 등</h3>
+      <p style="margin-bottom:10px">분석 설계, 코드 초안, 결과 해석 문장 작성에 강점. 파일 업로드와 코드 실행을 지원하는 버전은 데이터 자체를 분석할 수도 있습니다.</p>
+      <div class="pill-row">
+        <span class="pill blue">분석 설계</span>
+        <span class="pill blue">코드 생성</span>
+        <span class="pill blue">해석 작성</span>
+      </div>
+      <div class="example" style="margin-top:10px"><b>활용 팁:</b> 같은 질문을 두 개 이상의 도구에 보내 답변이 일치하는지 비교하면 환각을 줄일 수 있습니다.</div>
+    </article>
+    <article class="card">
+      <div class="kicker">코드 실행 환경</div>
+      <h3>Google Colab, Jupyter</h3>
+      <p style="margin-bottom:10px">AI가 만든 Python 코드를 바로 실행해 결과를 확인할 수 있는 무료 클라우드 노트북. GPU도 일부 제공됩니다.</p>
+      <div class="pill-row">
+        <span class="pill green">코드 실행</span>
+        <span class="pill green">그래프</span>
+        <span class="pill green">공유</span>
+      </div>
+      <div class="example" style="margin-top:10px"><b>활용 팁:</b> 셀별로 실행하면서 중간 결과를 확인하세요. AI에게 코드를 받자마자 전부 실행하지 말고 한 셀씩 검증하는 것이 안전합니다.</div>
+    </article>
+    <article class="card">
+      <div class="kicker">No-code 분석</div>
+      <h3>Excel, Google Sheets</h3>
+      <p style="margin-bottom:10px">코드 없이도 가능한 기초 분석 도구. AI 챗봇과 함께 쓰면 수식·피벗 사용법을 빠르게 익힐 수 있습니다.</p>
+      <div class="pill-row">
+        <span class="pill orange">기초 통계</span>
+        <span class="pill orange">차트</span>
+        <span class="pill orange">피벗</span>
+      </div>
+      <div class="example" style="margin-top:10px"><b>활용 팁:</b> 100행 미만 소량 데이터의 EDA는 스프레드시트가 더 빠를 수 있습니다. 본격적 분석은 Python으로 전환하세요.</div>
+    </article>
+    <article class="card">
+      <div class="kicker">시각화</div>
+      <h3>matplotlib, Plotly, Tableau Public</h3>
+      <p style="margin-bottom:10px">분석 결과를 발표용 그래프로 만드는 도구. matplotlib은 기본기에, Plotly는 인터랙티브에, Tableau Public은 대시보드에 강점.</p>
+      <div class="pill-row">
+        <span class="pill purple">정적 그래프</span>
+        <span class="pill purple">인터랙티브</span>
+        <span class="pill purple">대시보드</span>
+      </div>
+      <div class="example" style="margin-top:10px"><b>활용 팁:</b> AI에게 "matplotlib으로 발표용 그래프를 만들어 줘. 제목, 축 라벨, 단위, 범례, 캡션 포함"이라고 요청하세요.</div>
+    </article>
+    <article class="card">
+      <div class="kicker">이미지·신호</div>
+      <h3>ImageJ, OpenCV</h3>
+      <p style="margin-bottom:10px">이미지 분석 전문 도구. ImageJ는 GUI 기반으로 시작이 쉽고, OpenCV는 Python에서 정교한 처리가 가능.</p>
+      <div class="pill-row">
+        <span class="pill blue">면적 측정</span>
+        <span class="pill blue">색상 분석</span>
+        <span class="pill blue">객체 계수</span>
+      </div>
+      <div class="example" style="margin-top:10px"><b>활용 팁:</b> 처음에는 ImageJ로 손쉽게 실험한 뒤, 반복 분석이 필요할 때 OpenCV로 자동화하면 좋습니다.</div>
+    </article>
+    <article class="card">
+      <div class="kicker">설문·수집</div>
+      <h3>Google Forms, Kakao i Open</h3>
+      <p style="margin-bottom:10px">설문 데이터 수집과 CSV 내보내기. AI에게 설문 문항 검토와 응답 분석 코드까지 요청할 수 있습니다.</p>
+      <div class="pill-row">
+        <span class="pill green">설문</span>
+        <span class="pill green">자동 수집</span>
+        <span class="pill green">CSV 출력</span>
+      </div>
+      <div class="example" style="margin-top:10px"><b>활용 팁:</b> 설문 설계 단계부터 AI에게 "응답을 어떻게 분석할 수 있는지" 미리 물어 문항을 다듬으세요.</div>
+    </article>
+  </div>
+  <div class="good" style="margin-top:18px"><b>도구 비교 검증 루틴:</b> ① 같은 데이터를 두 도구로 분석 ② 결과가 일치하면 신뢰도 ↑ ③ 일치하지 않으면 원인을 추적(전처리 차이, 함수 차이, 환경 차이) ④ 보고서에는 사용한 도구와 버전을 모두 기록.</div>
+</section>
+
+<section class="container" id="ethics">
+  <h2 class="section-title">AI·데이터 분석 윤리와 학술 정직성</h2>
+  <p class="section-sub">기술적으로 가능하다는 것과 윤리적으로 정당하다는 것은 다릅니다. 보고서·논문·발표에 AI를 사용했다면 그 사실을 명시하는 것이 학술 정직성의 출발점입니다.</p>
+  <div class="ethics-grid">
+    <article class="ethics-card">
+      <h3><span class="num">1</span>개인정보·민감정보 보호</h3>
+      <p>이름, 학번, 전화번호, 주소, 건강 정보, 가족 사항, 정확한 위치 등은 AI에 직접 입력하지 않습니다. 분석 전 단계에서 익명화·마스킹·집계 처리합니다.</p>
+      <ul>
+        <li>이름 → 일련번호로 치환</li>
+        <li>주소 → 시군구 단위까지만 유지</li>
+        <li>생년월일 → 연령대(10대, 20대)로 집계</li>
+        <li>위도·경도 → 격자 단위로 흐리기</li>
+      </ul>
+    </article>
+    <article class="ethics-card">
+      <h3><span class="num">2</span>저작권과 출처 표기</h3>
+      <p>공공데이터, 논문, 이미지, 기사, 코드, AI 생성물 모두 출처와 라이선스를 확인합니다. CC-BY는 출처 표기 시 사용 가능, CC-NC는 비영리 한정, All Rights Reserved는 별도 허락 필요.</p>
+      <ul>
+        <li>데이터: 출처, URL, 다운로드 날짜, 라이선스</li>
+        <li>코드: 참고한 글·라이브러리·AI 모델 명시</li>
+        <li>이미지: 직접 촬영 / 라이선스 명시 / 출처 표기</li>
+        <li>AI 생성문: 어떤 AI를 어떻게 썼는지 기록</li>
+      </ul>
+    </article>
+    <article class="ethics-card">
+      <h3><span class="num">3</span>AI 사용 명시</h3>
+      <p>AI를 사용했다는 사실을 보고서·발표 자료에 명확히 적습니다. 어떤 부분에서 어떤 모델을 어떻게 사용했고, 학생이 어떻게 검증·수정했는지 함께 기록하면 표절 논란을 피할 수 있습니다.</p>
+      <ul>
+        <li>사용 모델과 버전(예: ChatGPT-4, Claude 3.5)</li>
+        <li>사용 단계: 코드, 해석, 문장 다듬기 등</li>
+        <li>학생이 직접 검증·수정한 내용</li>
+        <li>AI 생성문을 그대로 복붙하지 않기</li>
+      </ul>
+    </article>
+    <article class="ethics-card">
+      <h3><span class="num">4</span>데이터 조작 금지</h3>
+      <p>불리한 이상치를 임의로 삭제하거나 결과를 미리 정해놓고 분석하지 않습니다. 모든 전처리 결정은 측정 맥락과 사전 기준으로 정당화되어야 합니다.</p>
+      <ul>
+        <li>이상치 삭제 시 이유와 기준 기록</li>
+        <li>여러 분석법 중 유리한 것만 골라 제시하지 않기</li>
+        <li>그래프 축·스케일로 차이를 과장하지 않기</li>
+        <li>분석 전 가설과 분석 후 결과를 구분해 기술</li>
+      </ul>
+    </article>
+    <article class="ethics-card">
+      <h3><span class="num">5</span>표현의 정직성</h3>
+      <p>실제 데이터가 보여준 것보다 더 강하게 해석하지 않습니다. "원인이다"보다 "관계가 관찰되었다", "증명되었다"보다 "지지하는 결과가 나왔다"가 정확합니다.</p>
+      <ul>
+        <li>인과 표현 자제: "원인" → "관계·경향"</li>
+        <li>확정 표현 자제: "증명" → "시사·지지"</li>
+        <li>적용 범위 명시: 측정 범위 밖 결론 금지</li>
+        <li>한계 문단을 반드시 포함</li>
+      </ul>
+    </article>
+    <article class="ethics-card">
+      <h3><span class="num">6</span>인간 대상 연구</h3>
+      <p>친구·가족·학우를 대상으로 한 설문이나 측정은 사전에 연구 목적·익명성·중단 권리를 알리고 동의를 받습니다. 미성년자나 민감 주제는 보호자·교사와 상의합니다.</p>
+      <ul>
+        <li>참여 동의서(서면 또는 전자)</li>
+        <li>익명 처리 약속</li>
+        <li>중단 가능성 안내</li>
+        <li>결과 공개 범위 합의</li>
+      </ul>
+    </article>
+  </div>
+  <div class="danger" style="margin-top:18px"><b>학교생활기록부·대회 제출 시 주의:</b> AI를 사용한 부분을 숨기고 본인이 한 것처럼 작성하는 것은 학술 부정행위로 간주될 수 있습니다. "어떤 AI를 어떻게 활용했고, 어디서 직접 판단했는지"를 투명하게 적는 것이 오히려 AI 활용 역량을 보여주는 길입니다.</div>
+</section>
+
+
+<section class="container" id="builder">
+  <h2 class="section-title">AI 데이터 분석 설계서 빌더</h2>
+  <p class="section-sub">분석을 시작하기 전에 아래 항목을 채우면, AI에게 보낼 수 있는 분석 계획 프롬프트와 기록 양식이 만들어집니다.</p>
+  <div class="builder">
+    <div class="builder-grid">
+      <div><label for="bData">데이터 설명</label><textarea id="bData" placeholder="예: 온도 조건별 효소 반응속도 반복 측정 데이터, 조건당 5회"></textarea></div>
+      <div><label for="bGoal">분석 목표</label><textarea id="bGoal" placeholder="예: 온도에 따라 반응속도가 어떻게 달라지는지 비교하고 최적 온도 범위를 찾고 싶다."></textarea></div>
+      <div><label for="bVars">주요 변수와 단위</label><textarea id="bVars" placeholder="예: temperature(℃), trial, reaction_rate(abs/min)"></textarea></div>
+      <div><label for="bMethod">관심 분석법</label><select id="bMethod"><option>분석법 추천을 받고 싶다</option><option>기술통계·시각화</option><option>평균 비교·효과크기</option><option>상관·회귀분석</option><option>머신러닝 예측</option><option>분류 모델</option><option>군집·PCA</option><option>시계열 분석</option><option>텍스트 분석</option><option>이미지 분석</option><option>최적화·시뮬레이션</option></select></div>
+      <div><label for="bCheck">검증하고 싶은 부분</label><textarea id="bCheck" placeholder="예: 이상치 처리 기준, 반복 수가 충분한지, 회귀분석이 적절한지"></textarea></div>
+      <div><label for="bOutput">원하는 산출물</label><textarea id="bOutput" placeholder="예: 요약표, 오차막대 그래프, 회귀식, 결과 해석 문장, 한계"></textarea></div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+      <button class="btn btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--cyan));color:white" id="buildBtn">📝 분석 프롬프트 생성</button>
+      <button class="btn" style="background:#eef2ff;color:#1d4ed8" id="copyOutputBtn">📋 결과 복사</button>
+      <button class="btn" style="background:#f0fdf4;color:#047857" id="downloadOutputBtn">⬇ 텍스트로 저장</button>
+      <button class="btn" style="background:#fef3c7;color:#92400e" id="printPageBtn">🖨 인쇄</button>
+    </div>
+    <div class="output" id="builderOutput">위 항목을 채운 뒤 "분석 프롬프트 생성"을 누르세요. 결과는 ChatGPT, Claude, Gemini 등 대화형 AI에 바로 붙여 넣을 수 있는 형태로 만들어집니다.</div>
+  </div>
+</section>
+
+<section class="container" id="faq">
+  <h2 class="section-title">자주 묻는 질문</h2>
+  <p class="section-sub">고등학생들이 AI로 데이터 분석을 시작할 때 가장 많이 던지는 질문과 답변을 모았습니다.</p>
+  <div class="faq" id="faqList">
+    <div class="faq-item">
+      <button class="faq-q">Python을 전혀 모르는데 시작할 수 있나요? <span class="arrow">▾</span></button>
+      <div class="faq-a">가능합니다. 이 페이지의 코드 레시피를 그대로 Google Colab에 붙여 넣고 실행하면 결과를 볼 수 있습니다. 처음에는 코드를 읽고 어떤 단계가 무슨 일을 하는지 이해하는 것에 집중하세요. AI에게 "이 코드 한 줄씩 설명해줘"라고 요청하면 친절히 안내해 줍니다. 한 학기 정도 따라 하면 기본기는 충분히 갖춰집니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">AI가 알려준 코드가 실행이 안 됩니다. 어떻게 하나요? <span class="arrow">▾</span></button>
+      <div class="faq-a">실행한 코드와 에러 메시지를 통째로 복사해 AI에게 다시 물어보세요. "이 에러가 났는데 원인과 해결책을 알려줘"라고 하면 대부분 해결됩니다. 자주 발생하는 원인은 ① 라이브러리 미설치(pip install로 해결) ② 파일 경로 오류 ③ 열 이름 불일치 ④ 데이터 자료형 문제입니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">AI가 만든 분석 결과를 그대로 보고서에 써도 되나요? <span class="arrow">▾</span></button>
+      <div class="faq-a">그대로 쓰면 안 됩니다. AI 답변은 ① 데이터 단위와 측정 맥락을 모릅니다 ② 환각으로 틀린 통계 개념을 자신 있게 말합니다 ③ 인과 과장 표현을 자주 씁니다. 반드시 학생이 결과를 검증하고, 본인의 언어로 다시 쓰며, 한계도 함께 기술해야 합니다. AI 사용 사실은 보고서에 명시하세요.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">데이터가 너무 적은데 머신러닝을 해도 되나요? <span class="arrow">▾</span></button>
+      <div class="faq-a">표본이 30개 미만이라면 머신러닝보다 기술통계와 시각화에 집중하는 편이 정직합니다. 분류 문제는 클래스당 30개 이상, 회귀 모델은 변수당 10개 이상의 표본을 권장합니다. 표본이 적으면 어떤 모델이든 과적합되기 쉽고, 결론이 표본 추출 운에 좌우됩니다. 부족한 데이터로 화려한 모델을 돌리는 것보다, 적은 데이터를 잘 설명하는 그래프와 한계 분석이 더 좋은 보고서를 만듭니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">결과가 가설과 다르게 나왔어요. 어떻게 해야 하나요? <span class="arrow">▾</span></button>
+      <div class="faq-a">가설과 다른 결과도 훌륭한 결과입니다. 데이터가 보여주는 사실을 그대로 기술하고, 왜 가설과 달랐는지 가능한 이유를 분석하세요(① 가설의 전제 오류 ② 측정 조건 한계 ③ 표본 부족 ④ 통제하지 못한 변수). 가설에 맞도록 데이터를 조작하거나 분석법을 바꿔가며 유리한 결과를 고르는 것(cherry-picking)은 학술 부정행위입니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">상관관계가 0.7이면 강한 관계인가요? <span class="arrow">▾</span></button>
+      <div class="faq-a">표본 수와 데이터 특성에 따라 다릅니다. 일반적으로 |r| ≥ 0.7은 강한 선형 관계로 해석하지만, ① 표본이 적으면 우연한 결과일 수 있고 ② 이상치 몇 개로 만들어진 상관일 수 있으며 ③ 비선형 관계는 r 값이 낮게 나옵니다. 산점도를 반드시 함께 확인하고, 잔차 분석으로 관계의 형태를 검토하세요. 그리고 "상관은 인과가 아니다"를 늘 기억하세요.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">한국어 텍스트 분석이 잘 안 됩니다 <span class="arrow">▾</span></button>
+      <div class="faq-a">한국어는 조사가 단어에 붙어 영어식 공백 분리만으로는 정확한 분석이 어렵습니다. 해결책: ① KoNLPy 같은 형태소 분석 라이브러리 사용(Java 설치 필요) ② 간단한 분석은 명사만 추출 ③ 텍스트 길이가 짧으면 빈도보다는 키워드 클러스터로 접근. 환경 설치가 부담스럽다면 영문 자막·기사 데이터로 먼저 연습해보는 것도 방법입니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">대학 입시·학생부에 어떻게 활용하면 좋을까요? <span class="arrow">▾</span></button>
+      <div class="faq-a">결과의 화려함보다 <b>분석 과정의 진정성과 검증 노력</b>이 더 중요합니다. 추천: ① 분석 질문을 본인 관심사에서 도출 ② AI 활용 단계와 본인의 판단을 구분해 기록 ③ 한계와 후속 분석 아이디어를 명확히 기술 ④ 분석에 사용한 데이터·코드·프롬프트를 정리한 별도 부록 작성. "AI가 다 해줬다"는 인상보다 "AI를 도구로 활용하면서도 본인이 주도했다"는 인상을 주는 것이 핵심입니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">AI에 데이터를 올려도 안전한가요? <span class="arrow">▾</span></button>
+      <div class="faq-a">대부분의 AI 서비스는 입력 내용을 모델 학습이나 운영에 활용할 수 있습니다(약관 확인). 따라서 ① 개인정보·민감정보는 절대 업로드하지 않기 ② 학교·기관 비공개 자료는 사전 허락을 받기 ③ 가능하면 익명화된 샘플만 보여주기를 권장합니다. 일부 유료 플랜은 입력을 학습에 쓰지 않는다고 명시하기도 합니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">코드 인터프리터(데이터 분석) 기능을 써야 하나요? <span class="arrow">▾</span></button>
+      <div class="faq-a">파일 업로드와 코드 실행을 지원하는 AI(예: ChatGPT의 Advanced Data Analysis, Claude의 Analysis Tool 등)는 작은 데이터의 빠른 탐색에 매우 편리합니다. 다만 ① 데이터가 클라우드에 올라가는 점 ② 결과 재현이 어려운 점 ③ 보고서 코드로 그대로 쓰기 어려운 점이 있어, <b>탐색은 거기서, 최종 분석은 본인 환경(Colab/Jupyter)에서 재현</b>하는 워크플로를 추천합니다.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><b>AI 데이터 분석 방법 가이드</b><br/>실험데이터·공공데이터·센서데이터·이미지·텍스트 분석을 위한 실전형 웹페이지<br/><small style="opacity:.7">최종 업데이트: 2026년 5월</small></div>
+    <div class="creator-panel">
+      <div class="creator-mark">AI</div>
+      <div><small>기획·제작</small><strong>정재연 교육연구사</strong><span>충청남도교육청진로융합교육원</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="floaters" id="floaters">
+  <a class="main" href="index.html" aria-label="메인 페이지로 이동">메인</a>
+  <button id="topBtn" aria-label="위로 가기">↑ 위로</button>
+</div>
+
+<div class="modal" id="methodModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <div class="modal-head"><div><div class="pill-row" id="modalPills"></div><h2 id="modalTitle"></h2></div><button class="close" id="modalClose" aria-label="닫기">×</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script id="methodsData" type="application/json">[{"cat": "데이터 준비·품질", "level": "기초", "name": "데이터 구조 진단", "goal": "열 이름, 단위, 자료형, 표본 수를 먼저 확인해 분석 가능한 데이터인지 판단한다.", "data": "CSV, 엑셀, 센서 로그, 실험 기록표", "use": "분석을 시작하기 전 모든 데이터", "ai": "열별 의미 추정, 데이터 딕셔너리 초안, 전처리 목록 작성", "human": "열의 실제 의미와 단위는 원자료 설명·실험노트로 직접 확인", "output": "데이터 요약표, 열별 자료형, 분석 가능성 판단", "caution": "AI가 열 이름만 보고 의미를 단정할 수 있으므로 샘플 행과 측정 맥락을 함께 제공한다.", "prompt": "다음 데이터의 열 이름과 샘플 10행을 보고 열별 의미, 자료형, 단위 추정, 전처리 필요 여부, 가능한 분석법을 표로 정리해줘. 모르는 부분은 추정이라고 표시해줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "결측치 패턴 분석", "goal": "빈칸이 우연한 누락인지 특정 조건에서 반복되는 누락인지 구분한다.", "data": "반복 측정, 공공데이터, 설문", "use": "결측값이 있는 모든 데이터", "ai": "열별 결측률 계산 코드, 결측 패턴 시각화 코드", "human": "결석, 센서 고장, 측정 누락 등 실제 원인 판단", "output": "결측률 표, 결측 패턴 그래프, 처리 기준", "caution": "평균 대체를 무조건 적용하면 분산과 관계가 왜곡될 수 있다.", "prompt": "결측치가 있는 열을 찾고 열별 결측률, 행별 결측 패턴을 확인하는 pandas 코드를 작성해줘. 삭제·대체·보류 판단 기준도 알려줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "이상치 후보 탐지", "goal": "측정 오류, 극단값, 의미 있는 특이 사례를 분리해 판단한다.", "data": "온도, pH, 속도, 농도, 길이, 전압 등 수치형 자료", "use": "측정값 범위가 넓거나 반복 측정이 많은 경우", "ai": "IQR, z-score, 산점도 기반 후보 탐지 코드", "human": "장비 오류인지 실제 현상인지 기록과 대조", "output": "이상치 후보 목록, 처리 전후 비교", "caution": "불리한 값을 삭제하는 방식은 연구윤리 문제가 될 수 있다.", "prompt": "수치형 데이터에서 IQR과 z-score 방식으로 이상치 후보를 찾는 코드를 작성해줘. 삭제 전 확인해야 할 실험 맥락 질문도 함께 제시해줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "단위 통일과 스케일링", "goal": "서로 다른 단위와 크기를 가진 변수를 비교 가능하게 만든다.", "data": "시간, 거리, 질량, 농도, 전압, 전력 등", "use": "여러 변수를 함께 분석하거나 모델에 넣을 때", "ai": "단위 변환식 제안, 표준화·정규화 코드", "human": "원단위와 변환 단위가 물리적으로 맞는지 확인", "output": "변환 전후 표, 표준화 변수", "caution": "단위를 지우고 숫자만 비교하면 해석이 틀린다.", "prompt": "열별 단위를 확인하고 통일해야 할 단위와 변환식을 제안해줘. 표준화가 필요한 열과 필요하지 않은 열을 구분해줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "반복 측정 요약", "goal": "반복 실험값을 평균, 표준편차, 표준오차, 신뢰구간으로 요약한다.", "data": "조건별 3회 이상 반복 측정값", "use": "실험 조건 간 비교 전", "ai": "요약 통계표와 오차막대 그래프 코드", "human": "반복이 독립인지, 반복 수가 충분한지 판단", "output": "조건별 평균±표준편차, 오차막대", "caution": "반복 수가 너무 적으면 우연한 오차와 조건 효과를 구분하기 어렵다.", "prompt": "조건별 반복 측정 데이터로 평균, 표준편차, 표준오차, 95% 신뢰구간을 계산하고 오차막대 그래프를 그리는 코드를 작성해줘."}, {"cat": "데이터 준비·품질", "level": "중급", "name": "데이터 병합과 키 정합", "goal": "여러 출처의 데이터를 날짜, 지역, ID 기준으로 결합한다.", "data": "날씨+대기질, 실험조건+결과, 설문+성적 등", "use": "공공데이터와 실험데이터를 연결할 때", "ai": "merge 코드, 중복 키 점검, 매칭 실패 목록 생성", "human": "동일한 날짜·지역·대상을 가리키는지 확인", "output": "병합 데이터셋, 매칭 실패 표", "caution": "시간 단위가 다르면 가짜 관계가 만들어질 수 있다.", "prompt": "두 데이터프레임을 날짜와 지역 기준으로 병합하려고 한다. 키 중복, 누락, 시간 단위 불일치 점검 절차와 pandas 코드를 작성해줘."}, {"cat": "데이터 준비·품질", "level": "중급", "name": "파생변수 생성", "goal": "원자료에서 분석에 더 의미 있는 비율·변화율·효율·지수를 만든다.", "data": "시간, 거리, 전력, 인구, 면적, 농도 등", "use": "원자료만으로 관계가 잘 보이지 않을 때", "ai": "파생변수 후보와 계산식 제안", "human": "새 변수가 교과 개념상 의미 있는지 판단", "output": "변화율, 밀도, 효율, 위험지수 등", "caution": "결과값을 포함해 파생변수를 만들면 데이터 누수가 발생한다.", "prompt": "이 데이터에서 물리·화학·생명·환경 맥락상 의미 있는 파생변수 후보를 계산식과 함께 제안해줘. 데이터 누수 위험이 있는 변수도 표시해줘."}, {"cat": "데이터 준비·품질", "level": "중급", "name": "표본 균형 확인", "goal": "집단별 데이터 수가 지나치게 불균형한지 확인한다.", "data": "분류 데이터, 비교 실험, 설문 데이터", "use": "처리/대조, 정상/이상 등 집단 비교 전", "ai": "집단별 표본 수 표와 불균형 경고 작성", "human": "표본 추가 가능성, 비교 타당성 판단", "output": "집단별 표본 수, 불균형 비율", "caution": "표본 수가 크게 다른 집단의 정확도만 비교하면 착시가 생긴다.", "prompt": "범주형 변수별 표본 수를 확인하고 표본 불균형이 심한 경우 어떤 평가 지표와 보정 방법을 써야 하는지 설명해줘."}, {"cat": "데이터 준비·품질", "level": "심화", "name": "데이터 누수 점검", "goal": "미래 정보나 정답 정보를 모델 학습에 몰래 넣는 오류를 막는다.", "data": "예측·분류 모델 데이터", "use": "머신러닝 모델을 만들기 전", "ai": "잠재적 누수 변수 후보 탐지 질문 목록 작성", "human": "변수가 측정되는 시점과 실제 사용 시점을 직접 검토", "output": "누수 의심 변수 목록, 제거 사유", "caution": "데이터 누수가 있으면 모델 성능이 비현실적으로 높아진다.", "prompt": "이 예측 모델의 입력 변수 목록을 보고 데이터 누수 가능성이 있는 변수를 찾아줘. 각 변수에 대해 왜 위험한지, 제거 또는 수정 방법을 제안해줘."}, {"cat": "데이터 준비·품질", "level": "심화", "name": "재현 가능한 데이터 파이프라인", "goal": "원자료에서 최종 결과까지 같은 절차로 다시 실행 가능하게 만든다.", "data": "모든 분석 프로젝트", "use": "보고서 제출 전", "ai": "폴더 구조, 파일명 규칙, 분석 순서 스크립트 제안", "human": "원자료를 보존하고 수정본을 별도 관리", "output": "분석 폴더 구조, 실행 순서 문서", "caution": "엑셀에서 수작업으로 고친 값은 추적이 어렵다.", "prompt": "원자료, 전처리본, 분석 코드, 그래프, 보고서가 분리된 재현 가능한 폴더 구조와 파일명 규칙을 제안해줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "히스토그램 분포 분석", "goal": "데이터가 한쪽으로 치우쳤는지, 두 집단이 섞였는지 확인한다.", "data": "수치형 단일 변수", "use": "평균을 내기 전", "ai": "히스토그램과 평균·중앙값 비교 코드", "human": "분포 형태가 측정 원리와 맞는지 판단", "output": "분포 그래프, 치우침 해석", "caution": "평균 하나만 보면 치우침과 다봉성을 놓칠 수 있다.", "prompt": "이 수치형 변수의 히스토그램을 그리고 평균·중앙값·최빈값·왜도 관점에서 해석하는 문장 예시를 작성해줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "상자그림 Boxplot", "goal": "집단별 중앙값, 산포, 이상치를 한눈에 비교한다.", "data": "집단 변수 + 수치형 결과", "use": "조건별 결과 비교 전", "ai": "boxplot 코드와 이상치 후보 설명", "human": "극단값의 원인과 실험 맥락 확인", "output": "상자그림, 집단별 비교 해석", "caution": "표본 수가 적으면 상자그림 해석이 불안정하다.", "prompt": "조건별 결과값을 boxplot으로 비교하고 중앙값, 사분위범위, 이상치 관점에서 해석하는 방법을 알려줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "산점도와 추세선", "goal": "두 수치형 변수 사이 관계의 방향과 형태를 확인한다.", "data": "두 개 이상의 연속형 변수", "use": "상관·회귀 분석 전", "ai": "산점도, 추세선, 라벨링 코드", "human": "상관이 인과를 의미하지 않음을 해석에 반영", "output": "산점도, 추세선, 관계 해석", "caution": "몇 개의 이상치가 전체 추세를 만들 수 있다.", "prompt": "두 변수의 산점도와 선형 추세선을 그리고 관계가 선형인지 비선형인지 판단하는 기준을 알려줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "상관행렬 Heatmap", "goal": "여러 변수 간 관계 후보를 한꺼번에 살펴본다.", "data": "여러 수치형 변수", "use": "다중회귀나 변수 선택 전", "ai": "상관계수 행렬, heatmap 코드", "human": "물리적으로 불가능한 관계와 우연한 상관 걸러내기", "output": "상관행렬 표, 강한 관계 후보", "caution": "상관이 높아도 공통 원인이나 시간 추세 때문일 수 있다.", "prompt": "수치형 변수의 상관계수 행렬을 만들고 강한 양의 상관, 강한 음의 상관, 다중공선성 의심 변수를 표로 정리해줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "오차막대 그래프", "goal": "조건별 평균 차이가 오차 범위보다 큰지 시각적으로 판단한다.", "data": "조건별 반복 측정값", "use": "실험 결과 발표", "ai": "평균과 표준편차/표준오차 계산 후 그래프 작성", "human": "오차막대가 무엇을 나타내는지 명확히 표기", "output": "평균±표준편차 또는 평균±표준오차 그래프", "caution": "표준편차와 표준오차를 혼동하면 해석이 달라진다.", "prompt": "조건별 반복 측정값으로 평균과 표준편차를 계산해 오차막대 그래프를 그려줘. 그래프 제목, 축 이름, 단위까지 포함해줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "구간별 프로파일 그래프", "goal": "시간, 농도, 거리 구간에 따라 값이 어떻게 변하는지 본다.", "data": "시간별 온도, 농도별 반응, 거리별 신호", "use": "변화 양상을 설명할 때", "ai": "구간 평균, 이동평균, 라인 그래프 코드", "human": "구간 폭이 의미 있는지 판단", "output": "구간별 변화 그래프", "caution": "구간을 임의로 나누면 결론이 달라질 수 있다.", "prompt": "연속형 독립변수를 일정 구간으로 나누어 종속변수 평균 변화를 보여주는 그래프와 표를 만드는 코드를 작성해줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "누적막대와 비율 비교", "goal": "범주별 구성비가 어떻게 다른지 시각화한다.", "data": "범주형 변수 2개", "use": "설문, 생태종 구성, 유형별 빈도 비교", "ai": "교차표와 비율 그래프 코드", "human": "비율과 실제 표본 수를 함께 확인", "output": "구성비 그래프, 교차표", "caution": "표본 수가 작은 집단의 비율은 과장될 수 있다.", "prompt": "두 범주형 변수의 교차표와 행 기준 비율을 만들고 누적막대그래프로 시각화하는 코드를 작성해줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "대시보드형 요약", "goal": "핵심 지표를 한 화면에 정리해 빠르게 판단한다.", "data": "여러 변수와 요약 지표", "use": "프로젝트 발표와 보고서 요약", "ai": "요약 지표 선정, 표와 그래프 배치 제안", "human": "지표가 연구 질문에 직접 답하는지 검토", "output": "요약 카드, 핵심 그래프 3개", "caution": "그래프가 많으면 메시지가 흐려진다.", "prompt": "이 분석 결과를 발표용 대시보드 1페이지로 정리하려고 한다. 핵심 지표 4개, 그래프 3개, 해석 문장 구조를 제안해줘."}, {"cat": "시각화·EDA", "level": "심화", "name": "불확실성 시각화", "goal": "결과값의 오차와 신뢰구간을 그래프에 반영한다.", "data": "반복 측정, 추정값, 예측값", "use": "결과를 과장하지 않기 위해", "ai": "부트스트랩 신뢰구간 계산과 시각화 코드", "human": "오차의 원인과 표본 수 한계 설명", "output": "신뢰구간 그래프, 예측구간", "caution": "선 하나만 그리면 결과가 지나치게 확정적으로 보인다.", "prompt": "반복 측정 데이터에서 부트스트랩으로 평균의 95% 신뢰구간을 계산하고 그래프에 표시하는 코드를 작성해줘."}, {"cat": "시각화·EDA", "level": "심화", "name": "전후 비교 시각화", "goal": "개입 전후 변화가 실제로 일어났는지 표현한다.", "data": "전후 측정 데이터, 동일 대상 반복 측정", "use": "캠페인, 장치 개선, 조건 변화 평가", "ai": "paired line plot, 전후 차이 계산 코드", "human": "동일 대상 매칭이 맞는지 확인", "output": "전후 변화 그래프, 변화량 표", "caution": "전후 데이터가 같은 대상이 아니면 해석이 달라진다.", "prompt": "동일 대상의 개입 전후 데이터를 선 그래프로 연결하고 변화량 평균과 변화 방향을 요약하는 코드를 작성해줘."}, {"cat": "통계 비교", "level": "기초", "name": "평균 비교", "goal": "두 집단의 평균 차이가 어느 정도인지 계산한다.", "data": "두 조건의 반복 측정 수치", "use": "처리군과 대조군 비교", "ai": "평균, 표준편차, 차이 계산 코드", "human": "표본 수와 반복 독립성 확인", "output": "평균 차이 표, 오차막대", "caution": "평균 차이가 있어도 산포가 크면 결론이 약하다.", "prompt": "두 조건의 평균, 표준편차, 표준오차, 평균 차이를 계산하고 결과 해석 문장을 써줘."}, {"cat": "통계 비교", "level": "중급", "name": "효과크기 Cohen's d", "goal": "차이가 통계적으로만이 아니라 실제로 얼마나 큰지 본다.", "data": "두 집단 수치형 결과", "use": "평균 비교를 보고서에 설득력 있게 제시할 때", "ai": "Cohen's d 계산 코드와 해석 기준", "human": "단위와 실제 의미를 함께 설명", "output": "효과크기, 실질적 차이 설명", "caution": "p값만으로 결과의 의미를 판단하지 않는다.", "prompt": "두 집단의 평균 차이에 대해 Cohen's d 효과크기를 계산하고 작은/중간/큰 효과인지 해석하는 코드를 작성해줘."}, {"cat": "통계 비교", "level": "중급", "name": "신뢰구간 비교", "goal": "평균이나 비율 추정값의 불확실성을 범위로 표현한다.", "data": "반복 측정, 비율 자료", "use": "표본 기반 추정 결과 제시", "ai": "부트스트랩 또는 표준오차 기반 신뢰구간 코드", "human": "표본 추출 방식의 타당성 확인", "output": "95% 신뢰구간, 시각화", "caution": "신뢰구간은 참값이 들어갈 확률이라는 단순 표현으로 오해하지 않도록 주의한다.", "prompt": "평균의 95% 신뢰구간을 계산하고 결과를 ‘추정값 ± 불확실성’ 관점에서 해석하는 문장 예시를 작성해줘."}, {"cat": "통계 비교", "level": "중급", "name": "분산 비교", "goal": "조건별 결과의 흔들림이 다른지 확인한다.", "data": "반복 측정 수치 자료", "use": "안정성, 재현성, 정밀도 비교", "ai": "분산, 표준편차, 변동계수 계산", "human": "측정 단위와 평균 크기를 고려", "output": "변동계수 표, 안정성 비교", "caution": "평균이 다른 집단의 표준편차만 비교하면 왜곡될 수 있다.", "prompt": "조건별 평균, 표준편차, 변동계수를 계산하고 어느 조건이 더 안정적인지 해석해줘."}, {"cat": "통계 비교", "level": "중급", "name": "범주형 비율 비교", "goal": "두 집단에서 성공/실패, 유무, 유형 비율이 다른지 본다.", "data": "교차표, 설문, 발아율, 합격/불합격 등", "use": "비율 차이를 비교할 때", "ai": "교차표, 비율, 카이제곱 검정 개념 설명", "human": "기대빈도가 너무 작지 않은지 확인", "output": "교차표, 비율 그래프", "caution": "표본 수가 작으면 비율 차이가 불안정하다.", "prompt": "두 범주형 변수의 교차표와 비율을 계산하고, 카이제곱 검정이 적절한지 판단 기준을 설명해줘."}, {"cat": "통계 비교", "level": "심화", "name": "분산분석 ANOVA", "goal": "세 집단 이상 평균 차이를 한 번에 비교한다.", "data": "세 조건 이상 반복 측정값", "use": "농도 4수준, 온도 5수준 등 여러 조건 비교", "ai": "ANOVA 절차와 사후 비교 개념 설명", "human": "정규성·분산 동질성·반복 수 확인", "output": "조건별 평균, 전체 차이 판단", "caution": "ANOVA 후 어떤 집단끼리 다른지는 별도 확인이 필요하다.", "prompt": "세 집단 이상의 평균 차이를 비교할 때 ANOVA를 쓰는 절차, 가정, 사후비교가 필요한 이유를 고등학생 수준으로 설명해줘."}, {"cat": "통계 비교", "level": "심화", "name": "비모수 비교", "goal": "정규분포 가정이 어려운 작은 표본을 비교한다.", "data": "소표본, 순위형 자료, 치우친 분포", "use": "표본 수가 작고 이상치가 많은 경우", "ai": "Mann-Whitney, Kruskal-Wallis 개념 안내", "human": "순위 비교의 의미를 정확히 해석", "output": "중앙값 비교, 순위 기반 결과", "caution": "비모수 검정도 표본 설계가 나쁘면 해결책이 아니다.", "prompt": "표본 수가 작고 분포가 치우친 두 집단을 비교하려고 한다. 평균 비교 대신 어떤 비모수 방법을 고려할 수 있는지 설명해줘."}, {"cat": "통계 비교", "level": "심화", "name": "부트스트랩 비교", "goal": "분포 가정이 어려울 때 재표집으로 차이의 불확실성을 추정한다.", "data": "반복 측정 수치 자료", "use": "복잡한 공식 없이 신뢰구간을 만들 때", "ai": "재표집 코드와 신뢰구간 계산", "human": "원자료가 대표성을 갖는지 판단", "output": "차이의 부트스트랩 분포, 신뢰구간", "caution": "원자료 표본이 편향되면 재표집도 편향된다.", "prompt": "두 조건의 평균 차이에 대해 부트스트랩으로 95% 신뢰구간을 구하는 Python 코드를 작성해줘."}, {"cat": "상관·회귀", "level": "기초", "name": "피어슨 상관분석", "goal": "두 연속형 변수의 선형 관계 강도를 계산한다.", "data": "연속형 변수 2개", "use": "산점도에서 직선 관계가 보일 때", "ai": "상관계수 계산과 산점도 코드", "human": "이상치와 비선형 관계 확인", "output": "상관계수 r, 산점도", "caution": "상관은 인과가 아니다.", "prompt": "두 변수의 피어슨 상관계수를 계산하고 산점도와 함께 해석하는 코드를 작성해줘. 상관과 인과의 차이도 설명해줘."}, {"cat": "상관·회귀", "level": "중급", "name": "스피어만 순위상관", "goal": "비선형 단조 관계나 순위형 자료의 관계를 본다.", "data": "순위형 자료, 치우친 수치 자료", "use": "피어슨 상관 가정이 약할 때", "ai": "순위상관 계산 절차 설명", "human": "관계가 단조적인지 그래프로 확인", "output": "Spearman rho, 순위 관계 해석", "caution": "복잡한 곡선 관계를 모두 설명하지는 못한다.", "prompt": "피어슨 상관과 스피어만 상관의 차이를 설명하고, 이 데이터에 어떤 상관분석이 적절한지 판단 기준을 알려줘."}, {"cat": "상관·회귀", "level": "중급", "name": "단순선형회귀", "goal": "하나의 독립변수로 결과를 설명하거나 예측한다.", "data": "x-y 연속형 변수", "use": "농도-흡광도, 시간-온도, 거리-신호 관계", "ai": "회귀식, 결정계수, 예측 코드", "human": "잔차 패턴과 단위 해석 확인", "output": "회귀식, R², 추세선", "caution": "R²가 높아도 원리 설명이 부실하면 약한 분석이다.", "prompt": "단순선형회귀를 적용해 회귀식, R², 잔차를 계산하고 결과를 해석하는 코드를 작성해줘."}, {"cat": "상관·회귀", "level": "중급", "name": "다중회귀", "goal": "여러 변수가 결과에 동시에 미치는 영향을 본다.", "data": "독립변수 여러 개 + 연속형 결과", "use": "기상요인과 대기질, 조건과 반응속도 등", "ai": "모델 학습, 계수 비교, 표준화 안내", "human": "변수 간 중복과 물리적 의미 확인", "output": "회귀계수, 예측 성능, 변수 영향", "caution": "변수가 많으면 표본 수 부족과 다중공선성 문제가 생긴다.", "prompt": "여러 독립변수로 종속변수를 예측하는 다중회귀 코드를 작성하고, 계수 해석 시 주의할 점을 알려줘."}, {"cat": "상관·회귀", "level": "심화", "name": "다항회귀", "goal": "직선이 아닌 곡선 관계를 모델링한다.", "data": "곡선형 산점도", "use": "최적 온도, 포화 곡선, 저항 변화 등", "ai": "다항 특성 생성과 차수 비교 코드", "human": "과적합 여부와 과학적 근거 확인", "output": "곡선 회귀식, 차수 비교", "caution": "차수가 높을수록 좋은 모델은 아니다.", "prompt": "산점도 관계가 곡선형일 때 1차, 2차, 3차 다항회귀를 비교하고 과적합을 판단하는 코드를 작성해줘."}, {"cat": "상관·회귀", "level": "심화", "name": "로지스틱 회귀", "goal": "결과가 성공/실패처럼 이진일 때 확률을 예측한다.", "data": "발아 여부, 고장 여부, 위험/정상 등", "use": "분류와 확률 해석이 모두 필요할 때", "ai": "로지스틱 모델 코드와 계수 해석", "human": "클래스 불균형과 임계값 확인", "output": "확률 예측, 분류 기준", "caution": "정확도만 보면 소수 클래스를 놓칠 수 있다.", "prompt": "이진 결과를 예측하는 로지스틱 회귀 코드를 작성하고, 계수·확률·임계값을 어떻게 해석하는지 설명해줘."}, {"cat": "상관·회귀", "level": "중급", "name": "잔차분석", "goal": "모델이 놓친 패턴과 오차 원인을 확인한다.", "data": "회귀 모델 결과", "use": "회귀식 제시 후 검증 단계", "ai": "잔차 그래프와 오차 지표 코드", "human": "잔차 패턴이 교과 원리와 관련 있는지 해석", "output": "잔차 산점도, 오차 원인 분석", "caution": "잔차가 패턴을 보이면 모델 가정이 맞지 않을 수 있다.", "prompt": "회귀 모델의 잔차를 계산하고 잔차 그래프를 그려줘. 잔차에 패턴이 있을 때 가능한 원인을 알려줘."}, {"cat": "상관·회귀", "level": "심화", "name": "교호작용 분석", "goal": "두 변수가 함께 작용할 때 결과가 어떻게 달라지는지 확인한다.", "data": "온도×pH, 습도×풍속 등 복수 조건 데이터", "use": "한 변수 효과가 다른 변수 조건에 따라 달라질 때", "ai": "상호작용 변수 생성과 3D/등고선 시각화 제안", "human": "표본 수와 조건 조합이 충분한지 확인", "output": "교호작용 그래프, 조건별 해석", "caution": "데이터가 희박하면 교호작용 해석이 과장된다.", "prompt": "온도와 pH가 효소 활성에 미치는 영향을 분석하려고 한다. 교호작용 변수를 만드는 방법과 결과 해석 방법을 알려줘."}, {"cat": "머신러닝 예측", "level": "기초", "name": "훈련/검증 데이터 분리", "goal": "모델이 새 데이터에서도 작동하는지 확인한다.", "data": "예측 모델 데이터", "use": "머신러닝 시작 전", "ai": "train_test_split 코드와 비율 제안", "human": "분리 전 전처리로 인한 데이터 누수 방지", "output": "훈련 점수, 검증 점수", "caution": "전체 데이터로 학습하고 평가하면 성능이 부풀려진다.", "prompt": "예측 모델을 만들기 전에 데이터를 훈련/검증 세트로 나누는 이유와 Python 코드를 설명해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "KNN 회귀·분류", "goal": "비슷한 사례를 기준으로 값을 예측하거나 분류한다.", "data": "수치형 특징이 여러 개인 데이터", "use": "간단한 기준 모델이 필요할 때", "ai": "스케일링, k값 비교 코드", "human": "거리 개념이 의미 있는 변수인지 확인", "output": "예측값, k별 성능 비교", "caution": "스케일링을 하지 않으면 단위가 큰 변수가 지배한다.", "prompt": "KNN 모델을 적용할 때 스케일링이 필요한 이유와 k값을 비교하는 코드를 작성해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "의사결정나무", "goal": "조건 분기 규칙으로 예측 과정을 설명한다.", "data": "표 형태의 수치·범주 데이터", "use": "해석 가능한 모델이 필요할 때", "ai": "트리 모델 학습, 규칙 추출, 깊이 제한 코드", "human": "규칙이 과학적으로 말이 되는지 검토", "output": "분기 규칙, 변수 중요도", "caution": "깊은 트리는 훈련데이터를 외울 수 있다.", "prompt": "의사결정나무 모델을 학습하고 max_depth를 바꾸며 과적합을 확인하는 코드를 작성해줘."}, {"cat": "머신러닝 예측", "level": "심화", "name": "랜덤포레스트", "goal": "여러 결정나무를 결합해 예측 안정성을 높인다.", "data": "표 형태의 다변량 데이터", "use": "비선형 관계와 변수 중요도를 함께 볼 때", "ai": "모델 학습, 변수 중요도 시각화 코드", "human": "중요도가 높은 변수가 실제 원인인지 구분", "output": "예측 성능, 변수 중요도", "caution": "중요도는 인과 효과가 아니라 예측 기여도다.", "prompt": "랜덤포레스트로 예측 모델을 만들고 변수 중요도를 시각화하는 코드를 작성해줘. 중요도 해석의 한계도 알려줘."}, {"cat": "머신러닝 예측", "level": "심화", "name": "그래디언트 부스팅", "goal": "약한 모델을 순차적으로 개선해 높은 예측 성능을 낸다.", "data": "표 형태의 복잡한 데이터", "use": "예측 성능이 중요한 경우", "ai": "부스팅 모델 학습과 검증 성능 비교", "human": "과적합과 하이퍼파라미터 확인", "output": "검증 성능, 오차 지표", "caution": "성능은 높지만 해석이 어려울 수 있다.", "prompt": "Gradient Boosting 계열 모델을 사용할 때 학습률, 트리 수, 깊이가 어떤 의미인지 고등학생 수준으로 설명해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "교차검증", "goal": "데이터 분할 운에 따라 성능이 흔들리는지 확인한다.", "data": "표본 수가 제한된 모델링 데이터", "use": "검증 신뢰도를 높이고 싶을 때", "ai": "k-fold cross validation 코드", "human": "동일 대상 데이터가 여러 번 섞이지 않는지 확인", "output": "평균 성능±표준편차", "caution": "시계열 데이터는 무작위 교차검증이 부적절할 수 있다.", "prompt": "k-fold 교차검증으로 모델 성능 평균과 표준편차를 계산하는 코드를 작성해줘. 시계열 데이터에서는 왜 주의해야 하는지도 설명해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "하이퍼파라미터 탐색", "goal": "모델 설정값을 체계적으로 비교한다.", "data": "모델링 데이터", "use": "모델 성능 개선 단계", "ai": "GridSearchCV 또는 반복 실험 코드", "human": "검증 데이터에 과도하게 맞추지 않도록 제한", "output": "설정별 성능표, 최적 설정", "caution": "테스트 데이터를 반복적으로 보며 튜닝하면 평가가 오염된다.", "prompt": "랜덤포레스트의 n_estimators와 max_depth를 비교하는 하이퍼파라미터 탐색 코드를 작성해줘."}, {"cat": "머신러닝 예측", "level": "심화", "name": "모델 베이스라인 비교", "goal": "복잡한 모델이 단순 평균 예측보다 실제로 나은지 확인한다.", "data": "모든 예측 데이터", "use": "모델을 주장하기 전", "ai": "평균 예측, 선형회귀, 트리 모델 성능 비교 코드", "human": "성능 향상이 문제 맥락상 의미 있는지 판단", "output": "베이스라인 대비 개선율", "caution": "베이스라인 없이 높은 성능이라고 말하면 설득력이 약하다.", "prompt": "평균 예측, 선형회귀, 랜덤포레스트를 같은 데이터에서 비교하고 베이스라인 대비 개선율을 계산하는 코드를 작성해줘."}, {"cat": "분류·평가", "level": "기초", "name": "혼동행렬", "goal": "분류 모델이 어떤 유형을 맞히고 틀리는지 확인한다.", "data": "정답 라벨이 있는 분류 데이터", "use": "정확도 이상의 평가가 필요할 때", "ai": "혼동행렬 계산과 시각화 코드", "human": "오분류 사례의 실제 의미 검토", "output": "TP, FP, FN, TN 표", "caution": "정확도만 보면 중요한 오류 유형을 놓친다.", "prompt": "분류 모델의 혼동행렬을 만들고 TP, FP, FN, TN의 의미를 실제 사례로 설명해줘."}, {"cat": "분류·평가", "level": "중급", "name": "정밀도·재현율·F1", "goal": "소수 클래스 탐지가 중요한 문제에서 성능을 평가한다.", "data": "불균형 분류 데이터", "use": "이상 탐지, 위험 예측, 질병 여부 등", "ai": "precision, recall, f1 계산 코드", "human": "어떤 오류가 더 위험한지 문제 맥락 판단", "output": "지표표, 임계값 선택 근거", "caution": "정밀도와 재현율은 동시에 높이기 어렵다.", "prompt": "정확도, 정밀도, 재현율, F1의 차이를 설명하고 이 데이터에 어떤 지표가 중요한지 판단해줘."}, {"cat": "분류·평가", "level": "심화", "name": "ROC와 AUC", "goal": "분류 임계값 변화에 따른 성능을 비교한다.", "data": "확률 예측 분류 모델", "use": "임계값을 조정해야 할 때", "ai": "ROC 곡선과 AUC 계산 코드", "human": "AUC가 높아도 실제 임계값에서 성능 확인", "output": "ROC 곡선, AUC 값", "caution": "불균형이 심하면 PR 곡선도 함께 봐야 한다.", "prompt": "로지스틱 회귀의 예측확률로 ROC 곡선과 AUC를 계산하는 코드를 작성하고 해석 방법을 알려줘."}, {"cat": "분류·평가", "level": "중급", "name": "임계값 튜닝", "goal": "확률을 분류로 바꾸는 기준을 문제 목적에 맞게 조정한다.", "data": "확률 예측 결과", "use": "거짓 양성/거짓 음성 비용이 다를 때", "ai": "임계값별 지표표와 그래프 코드", "human": "오류 비용을 실제 맥락으로 정의", "output": "임계값 선택표, 선택 근거", "caution": "0.5가 항상 최적 임계값은 아니다.", "prompt": "분류 확률에서 임계값을 0.1~0.9로 바꾸며 precision, recall, F1을 비교하는 코드를 작성해줘."}, {"cat": "분류·평가", "level": "중급", "name": "클래스 불균형 보정", "goal": "소수 클래스를 무시하는 모델을 개선한다.", "data": "정상 95%, 이상 5% 같은 데이터", "use": "드문 사건 분류", "ai": "class_weight, resampling 개념 안내", "human": "인위적 증강이 실제 분포를 왜곡하지 않는지 확인", "output": "보정 전후 성능 비교", "caution": "소수 클래스를 복제하면 과적합이 생길 수 있다.", "prompt": "클래스 불균형 데이터에서 class_weight와 resampling의 차이를 설명하고, 어떤 경우에 어떤 방법이 적절한지 알려줘."}, {"cat": "분류·평가", "level": "심화", "name": "다중분류 평가", "goal": "세 개 이상 라벨의 예측 성능을 유형별로 본다.", "data": "종 분류, 감정 분류, 등급 분류", "use": "분류 라벨이 여러 개인 경우", "ai": "classification_report와 라벨별 성능표 코드", "human": "헷갈리는 라벨 쌍을 실제로 검토", "output": "라벨별 precision/recall/F1", "caution": "전체 평균 성능만 보면 취약한 라벨을 놓친다.", "prompt": "다중분류 모델의 라벨별 precision, recall, F1을 계산하고 어떤 라벨에서 오류가 많은지 해석하는 코드를 작성해줘."}, {"cat": "분류·평가", "level": "심화", "name": "오분류 사례 분석", "goal": "모델이 틀린 사례를 모아 원인을 해석한다.", "data": "분류 예측 결과와 원자료", "use": "모델 개선 또는 보고서 한계 분석", "ai": "오분류 표 추출, 특징 요약 코드", "human": "라벨 오류인지 모델 한계인지 직접 확인", "output": "오분류 사례표, 개선 아이디어", "caution": "오류 사례를 보지 않으면 성능 수치만 남는다.", "prompt": "분류 모델이 틀린 행만 추출하고, 오분류 사례의 공통 특징을 요약하는 pandas 코드를 작성해줘."}, {"cat": "군집·차원축소", "level": "중급", "name": "K-means 군집화", "goal": "비슷한 데이터끼리 그룹을 나눠 숨은 패턴을 찾는다.", "data": "라벨 없는 수치형 다변량 데이터", "use": "유형 발견, 조건 그룹화", "ai": "스케일링, k값 비교, 군집 시각화 코드", "human": "군집이 실제 의미 있는 유형인지 확인", "output": "군집 라벨, 중심값, 군집별 특징", "caution": "k값을 임의로 정하면 결론이 흔들린다.", "prompt": "K-means 군집화를 적용하고 k값을 2~6까지 비교하는 방법과 군집별 특징을 해석하는 코드를 작성해줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "DBSCAN", "goal": "밀도가 높은 영역을 군집으로 찾고 잡음을 분리한다.", "data": "공간 데이터, 센서 데이터, 비정형 분포", "use": "군집 모양이 원형이 아닐 때", "ai": "eps, min_samples 개념과 탐색 절차", "human": "파라미터 선택이 결과에 미치는 영향 확인", "output": "군집과 잡음 라벨", "caution": "스케일링과 파라미터에 매우 민감하다.", "prompt": "DBSCAN의 eps와 min_samples가 무엇인지 설명하고, 적절한 값을 찾는 방법을 알려줘."}, {"cat": "군집·차원축소", "level": "중급", "name": "계층적 군집화", "goal": "데이터가 단계적으로 묶이는 구조를 본다.", "data": "라벨 없는 수치형 자료", "use": "유사도 구조를 설명하고 싶을 때", "ai": "덴드로그램 개념과 코드 안내", "human": "거리 기준과 연결 방식 선택 이유 확인", "output": "덴드로그램, 군집 해석", "caution": "거리 기준이 바뀌면 결과도 달라진다.", "prompt": "계층적 군집화의 덴드로그램을 해석하는 방법과 K-means와의 차이를 설명해줘."}, {"cat": "군집·차원축소", "level": "중급", "name": "PCA 주성분분석", "goal": "여러 변수를 적은 축으로 압축해 구조를 본다.", "data": "상관된 수치형 변수 여러 개", "use": "시각화, 노이즈 축소, 변수 구조 이해", "ai": "스케일링, 주성분, 설명분산 계산 코드", "human": "주성분 축의 의미를 변수 기여도로 해석", "output": "2D 투영 그래프, 설명분산", "caution": "주성분은 원래 변수 그대로의 의미가 아니다.", "prompt": "PCA를 적용해 2차원으로 시각화하고, 각 주성분이 어떤 변수 조합인지 해석하는 코드를 작성해줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "t-SNE/UMAP 개념", "goal": "고차원 데이터를 2차원으로 펼쳐 가까운 구조를 시각화한다.", "data": "이미지 특징, 텍스트 벡터, 생명정보 데이터", "use": "복잡한 패턴을 그림으로 탐색할 때", "ai": "기법의 목적과 파라미터 의미 설명", "human": "거리와 군집을 과도하게 해석하지 않도록 주의", "output": "2D 임베딩 시각화", "caution": "시각화용이지 인과나 명확한 군집 증명은 아니다.", "prompt": "t-SNE와 PCA의 차이를 고등학생 수준으로 설명하고, 시각화 결과를 해석할 때 주의할 점을 알려줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "군집 안정성 점검", "goal": "군집 결과가 초기값이나 표본 변화에 따라 흔들리는지 본다.", "data": "군집 분석 결과", "use": "군집을 결론으로 제시하기 전", "ai": "여러 시드와 k값 비교 절차 제안", "human": "군집별 의미가 반복적으로 유지되는지 확인", "output": "군집 안정성 요약", "caution": "한 번 나온 군집을 실제 유형으로 단정하면 위험하다.", "prompt": "K-means 군집 결과의 안정성을 확인하기 위해 여러 random_state와 k값을 비교하는 절차를 설계해줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "군집 프로파일링", "goal": "나뉜 군집이 어떤 특징을 갖는지 표로 설명한다.", "data": "군집 라벨 + 원자료", "use": "군집 결과 해석 단계", "ai": "군집별 평균·중앙값·빈도 요약 코드", "human": "이름 붙이기가 과장되지 않았는지 점검", "output": "군집 프로파일표, 유형명", "caution": "군집 이름은 데이터 근거가 있어야 한다.", "prompt": "군집 라벨이 있는 데이터에서 군집별 변수 평균과 특징을 표로 정리하고 군집 이름을 붙이는 기준을 알려줘."}, {"cat": "시계열·센서", "level": "기초", "name": "이동평균", "goal": "시간에 따른 노이즈를 줄이고 큰 흐름을 본다.", "data": "시간별 온도, 습도, 전압, 미세먼지", "use": "센서값이 요동칠 때", "ai": "rolling mean 코드와 창 크기 비교", "human": "창 크기가 과학적으로 타당한지 확인", "output": "원자료+이동평균 그래프", "caution": "창이 너무 크면 중요한 변화가 사라진다.", "prompt": "시간별 센서 데이터에 이동평균을 적용하고 원자료와 함께 그래프로 그리는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "기초", "name": "추세선과 변화율", "goal": "시간에 따라 증가·감소하는 정도를 계산한다.", "data": "연속 시간 측정값", "use": "장기 변화 경향 설명", "ai": "기울기 계산, 선형 추세 코드", "human": "계절성이나 외부 요인 확인", "output": "추세선, 변화율", "caution": "짧은 기간 추세를 장기 결론으로 확대하면 위험하다.", "prompt": "시간에 따른 변화율과 선형 추세선을 계산하고 결과를 해석하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "중급", "name": "피크 탐지", "goal": "최댓값이 나타나는 시점과 빈도를 찾는다.", "data": "신호, 심박, 소음, 전압, 센서값", "use": "이벤트 발생 시점을 찾을 때", "ai": "임계값 기반 피크 탐지 코드", "human": "피크가 실제 사건인지 로그와 대조", "output": "피크 시점표, 피크 빈도", "caution": "임계값을 임의로 정하면 결과가 바뀐다.", "prompt": "센서 데이터에서 일정 임계값 이상인 피크를 찾고 피크 간 간격을 계산하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "중급", "name": "이상 구간 탐지", "goal": "평소 패턴과 다른 시간 구간을 찾는다.", "data": "연속 센서 로그", "use": "고장, 급격한 환경 변화, 이벤트 탐지", "ai": "이동평균·z-score 기반 구간 탐지", "human": "센서 교정 오류와 실제 현상 구분", "output": "이상 구간 목록, 원인 후보", "caution": "센서 고장이 자연현상처럼 보일 수 있다.", "prompt": "센서 시계열에서 평소보다 3표준편차 이상 벗어난 구간을 찾고 그래프에 표시하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "중급", "name": "지연 상관 Lag 분석", "goal": "한 변수 변화가 다른 변수에 시간차를 두고 영향을 주는지 본다.", "data": "기상+대기질, 온도+전력, 자극+반응", "use": "원인 후보와 반응 사이 지연이 있을 때", "ai": "lag 변수 생성과 상관 비교 코드", "human": "인과 과대해석을 피하고 외부 요인 고려", "output": "지연별 상관표, 최적 lag 후보", "caution": "상관이 높아도 실제 원인이라는 뜻은 아니다.", "prompt": "두 시계열 변수 사이의 lag를 0~24시간까지 바꾸며 상관계수를 비교하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "심화", "name": "계절성 분리", "goal": "반복되는 주기와 장기 추세를 나눠 본다.", "data": "일별·월별 공공데이터", "use": "날씨, 전력, 교통, 대기질 분석", "ai": "추세·주기·잔차 개념 설명", "human": "측정 기간이 충분한지 확인", "output": "추세 그래프, 주기 패턴", "caution": "기간이 짧으면 계절성을 믿기 어렵다.", "prompt": "시계열 데이터에서 추세, 주기, 잔차를 구분하는 사고방식과 간단한 이동평균 기반 분석 절차를 설명해줘."}, {"cat": "시계열·센서", "level": "심화", "name": "간단 예측 모델", "goal": "과거 값을 이용해 미래 값을 예측한다.", "data": "시간 순서가 있는 수치 데이터", "use": "단기 예측 또는 시나리오 비교", "ai": "lag feature 생성, 시간순 train/test 코드", "human": "미래 정보가 학습에 섞이지 않도록 확인", "output": "예측 그래프, MAE/RMSE", "caution": "시계열은 무작위로 섞어 나누면 안 된다.", "prompt": "시계열 데이터를 시간순으로 훈련/검증 분리하고 lag 변수를 만들어 예측하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "심화", "name": "센서 캘리브레이션", "goal": "저가 센서값을 기준 장비나 표준값에 맞게 보정한다.", "data": "센서값 + 기준값", "use": "아두이노, 스마트폰 센서, IoT 데이터", "ai": "보정식 회귀와 보정 전후 오차 비교", "human": "기준값의 신뢰도와 측정 조건 확인", "output": "보정식, 보정 전후 RMSE", "caution": "보정 데이터 범위를 벗어나면 식이 틀릴 수 있다.", "prompt": "저가 센서값과 기준 장비값을 비교해 선형 보정식을 만들고 보정 전후 오차를 비교하는 코드를 작성해줘."}, {"cat": "텍스트 분석", "level": "기초", "name": "키워드 빈도 분석", "goal": "문서에서 자주 등장하는 단어를 세어 핵심 주제를 본다.", "data": "기사 제목, 보고서 요약, 설문 서술형", "use": "텍스트 데이터 첫 분석", "ai": "불용어 제거, 빈도표, 막대그래프 코드", "human": "단어 의미가 맥락에 따라 다른지 확인", "output": "상위 키워드 표, 빈도 그래프", "caution": "많이 나온 단어가 항상 중요한 개념은 아니다.", "prompt": "한국어 텍스트 목록에서 불용어를 제거하고 키워드 빈도표와 막대그래프를 만드는 코드를 작성해줘."}, {"cat": "텍스트 분석", "level": "중급", "name": "n-gram 분석", "goal": "연속된 단어 묶음을 세어 표현 패턴을 찾는다.", "data": "문장·기사·응답 텍스트", "use": "단어 하나만으로 의미가 부족할 때", "ai": "2-gram, 3-gram 빈도 계산 방법", "human": "띄어쓰기와 형태소 처리 한계 인식", "output": "상위 구문 목록", "caution": "자동 토큰화 오류가 결과에 영향을 준다.", "prompt": "텍스트에서 2단어 묶음과 3단어 묶음 빈도를 구하는 방법을 설명하고 Python 예시를 작성해줘."}, {"cat": "텍스트 분석", "level": "중급", "name": "TF-IDF", "goal": "문서별로 특징적인 단어를 찾는다.", "data": "여러 문서, 기사, 보고서 묶음", "use": "단순 빈도보다 문서 차이를 보고 싶을 때", "ai": "TF-IDF 벡터화 코드와 상위 단어 추출", "human": "단어가 실제 주제를 대표하는지 검토", "output": "문서별 특징어 표", "caution": "짧은 문서에서는 값이 불안정할 수 있다.", "prompt": "여러 문서에 TF-IDF를 적용해 각 문서의 특징어 상위 10개를 뽑는 코드를 작성해줘."}, {"cat": "텍스트 분석", "level": "중급", "name": "텍스트 군집화", "goal": "비슷한 문서끼리 묶어 주제 유형을 찾는다.", "data": "기사, 보고서, 설문 응답", "use": "라벨이 없는 텍스트 묶음", "ai": "TF-IDF + K-means 절차 제안", "human": "군집 이름을 원문 근거로 붙임", "output": "문서 군집, 군집별 키워드", "caution": "군집이 실제 주제와 다를 수 있으므로 원문 검토가 필요하다.", "prompt": "TF-IDF 벡터와 K-means로 텍스트를 군집화하고 군집별 대표 키워드를 뽑는 절차를 알려줘."}, {"cat": "텍스트 분석", "level": "심화", "name": "감성·태도 분류", "goal": "문장에 나타난 긍정·부정·우려·찬성 등을 분류한다.", "data": "설문 응답, 댓글, 기사 문장", "use": "태도 변화 분석", "ai": "분류 기준표 작성과 샘플 라벨링 보조", "human": "모호한 문장은 사람이 직접 판단", "output": "범주별 빈도, 예시 문장", "caution": "AI 감성분석 결과를 그대로 정답으로 쓰면 안 된다.", "prompt": "설문 서술형 응답을 긍정, 부정, 중립, 우려로 분류하려고 한다. 분류 기준표와 검증 절차를 제안해줘."}, {"cat": "텍스트 분석", "level": "심화", "name": "문헌 요약 매트릭스", "goal": "여러 논문·기사의 방법과 결과를 비교표로 정리한다.", "data": "초록, 논문 요약, 기사 자료", "use": "선행연구 정리 또는 자료조사", "ai": "연구목적·자료·방법·결론 추출 표 생성", "human": "원문을 대조해 왜곡 여부 확인", "output": "문헌 비교표, 공통점·차이점", "caution": "AI 요약은 원문 출처 확인 없이 인용하면 위험하다.", "prompt": "논문 초록 5개를 비교해 연구목적, 데이터, 분석방법, 주요 결과, 한계를 표로 정리하는 프롬프트를 만들어줘."}, {"cat": "텍스트 분석", "level": "심화", "name": "질문 자동 생성", "goal": "텍스트 자료에서 후속 분석 질문을 뽑아낸다.", "data": "교과서, 기사, 보고서, 논문 요약", "use": "자료 읽기 후 분석 방향 설정", "ai": "개념 질문, 비교 질문, 데이터 질문 생성", "human": "질문이 실제 데이터로 답 가능한지 판단", "output": "후속 분석 질문 목록", "caution": "질문 생성은 출발점일 뿐 검증 가능한 형태로 다시 고쳐야 한다.", "prompt": "다음 자료를 바탕으로 데이터로 답할 수 있는 분석 질문 10개를 만들고, 각 질문에 필요한 데이터와 분석법을 연결해줘."}, {"cat": "이미지 분석", "level": "기초", "name": "색상 평균 분석", "goal": "이미지의 RGB, 밝기, 색상 비율을 수치화한다.", "data": "식물 잎, 용액 색, 지표면 사진", "use": "색 변화로 상태를 추정할 때", "ai": "이미지 로드, RGB 평균, 히스토그램 코드", "human": "촬영 조명과 배경 조건 통제", "output": "색상 평균, 색상 분포 그래프", "caution": "조명 차이가 색 변화처럼 보일 수 있다.", "prompt": "이미지 파일 여러 장에서 RGB 평균과 밝기 평균을 계산하고 조건별로 비교하는 Python 코드를 작성해줘."}, {"cat": "이미지 분석", "level": "중급", "name": "임계값 분할", "goal": "밝기나 색 기준으로 관심 영역을 배경과 분리한다.", "data": "현미경 이미지, 잎 면적, 얼룩, 물체 사진", "use": "객체 면적이나 개수를 측정할 때", "ai": "threshold 적용과 마스크 생성 절차", "human": "임계값 선택 기준을 사진 예시로 검토", "output": "마스크 이미지, 면적 비율", "caution": "자동 임계값이 모든 사진에 맞지는 않는다.", "prompt": "이미지에서 특정 색 영역을 분리해 면적 비율을 계산하는 알고리즘 절차와 Python 예시를 작성해줘."}, {"cat": "이미지 분석", "level": "중급", "name": "객체 계수", "goal": "이미지 속 점, 세포, 입자, 씨앗 수를 센다.", "data": "현미경 사진, 입자 사진, 씨앗 발아 사진", "use": "반복 계수가 필요한 경우", "ai": "분할 후 객체 라벨링 절차 설명", "human": "겹친 객체와 노이즈를 사람이 검토", "output": "객체 수, 크기 분포", "caution": "자동 계수는 수동 검증 샘플이 필요하다.", "prompt": "현미경 이미지에서 세포 수를 자동으로 세려면 어떤 전처리, 임계값, 객체 분리, 검증 절차가 필요한지 설명해줘."}, {"cat": "이미지 분석", "level": "중급", "name": "면적·길이 측정", "goal": "사진 속 대상의 크기를 픽셀에서 실제 단위로 변환한다.", "data": "식물 길이, 결정 크기, 얼룩 면적", "use": "성장, 확산, 침식 등 변화 측정", "ai": "스케일바 또는 기준물 기반 변환식 안내", "human": "카메라 각도와 기준물 위치 확인", "output": "실제 길이·면적 측정값", "caution": "기준물 없이 픽셀만으로 실제 크기를 말할 수 없다.", "prompt": "이미지에서 기준자 10cm가 몇 픽셀인지 이용해 대상 길이와 면적을 실제 단위로 환산하는 절차를 설명해줘."}, {"cat": "이미지 분석", "level": "심화", "name": "엣지 검출", "goal": "경계선을 찾아 형태 변화를 분석한다.", "data": "물체 윤곽, 균열, 해안선, 잎 가장자리", "use": "형태와 경계 변화가 핵심일 때", "ai": "윤곽 추출 개념과 전처리 제안", "human": "노이즈와 그림자를 제거했는지 확인", "output": "윤곽선, 경계 길이, 형태 지표", "caution": "경계가 실제 물체인지 그림자인지 구분해야 한다.", "prompt": "이미지에서 물체 윤곽선을 추출해 둘레와 면적을 계산하는 분석 절차를 단계별로 설명해줘."}, {"cat": "이미지 분석", "level": "심화", "name": "타임랩스 이미지 분석", "goal": "시간에 따른 이미지 변화를 수치화한다.", "data": "식물 생장, 결정 성장, 확산 사진 연속", "use": "영상 또는 시간순 사진 데이터", "ai": "프레임별 특징 추출과 변화 그래프 코드", "human": "촬영 위치와 조명 고정 여부 확인", "output": "시간-면적/색/길이 그래프", "caution": "프레임마다 촬영 조건이 달라지면 변화가 왜곡된다.", "prompt": "시간순 이미지 여러 장에서 관심 영역 면적을 계산해 시간에 따른 변화 그래프를 만드는 절차를 알려줘."}, {"cat": "이미지 분석", "level": "심화", "name": "이미지 분류 기초", "goal": "사진을 유형별로 자동 분류하는 모델의 원리를 이해한다.", "data": "라벨 있는 이미지 데이터", "use": "정상/이상, 종류 분류 등", "ai": "훈련/검증 분리, 특징 추출, 평가 지표 안내", "human": "라벨 품질과 데이터 편향 확인", "output": "분류 정확도, 오분류 사례", "caution": "이미지 수가 적으면 딥러닝보다 규칙 기반 분석이 더 적절할 수 있다.", "prompt": "고등학생 수준에서 이미지 분류 프로젝트를 할 때 데이터 수, 라벨링, 검증, 오분류 분석 절차를 설계해줘."}, {"cat": "공간·네트워크", "level": "기초", "name": "위치 데이터 지도화", "goal": "측정 지점을 지도나 좌표평면에 표시한다.", "data": "위도·경도, 장소명, GPS 로그", "use": "환경 측정, 통학로, 지역 비교", "ai": "좌표 변환, 지도 시각화 방법 제안", "human": "개인 위치 정보 보호 확인", "output": "측정 지점 지도, 위치별 값", "caution": "개인 이동경로는 익명화가 필요하다.", "prompt": "위도·경도와 측정값이 있는 데이터를 지도에 표시하고 색으로 값의 크기를 나타내는 절차를 설명해줘."}, {"cat": "공간·네트워크", "level": "중급", "name": "거리 기반 분석", "goal": "학교, 도로, 공원 등 기준점과의 거리가 결과에 미치는 영향을 본다.", "data": "좌표 + 측정값", "use": "소음, 대기질, 접근성 분석", "ai": "거리 계산과 산점도·회귀 제안", "human": "거리 외 요인을 함께 고려", "output": "거리-결과 관계 그래프", "caution": "가까움이 원인을 의미하지는 않는다.", "prompt": "측정 지점과 도로 사이 거리를 계산하고 거리와 소음 값의 관계를 분석하는 절차를 알려줘."}, {"cat": "공간·네트워크", "level": "중급", "name": "공간 격자화", "goal": "지역을 일정 격자로 나눠 평균값을 비교한다.", "data": "지역별 측정값, 좌표 데이터", "use": "열섬, 미세먼지, 소음 지도 만들기", "ai": "격자 평균과 히트맵 생성 아이디어", "human": "격자 크기 선택 근거 확인", "output": "공간 히트맵, 격자별 평균", "caution": "격자 크기를 바꾸면 패턴이 달라질 수 있다.", "prompt": "위치 측정 데이터를 일정 격자로 나누어 격자별 평균을 계산하고 히트맵으로 표현하는 방법을 설명해줘."}, {"cat": "공간·네트워크", "level": "심화", "name": "공간 자기상관 사고", "goal": "가까운 지역의 값이 서로 비슷한지 확인한다.", "data": "지역 단위 통계, 환경 관측값", "use": "공간 패턴의 군집 여부 설명", "ai": "Moran's I 개념과 해석 안내", "human": "행정구역 경계와 이웃 정의 확인", "output": "공간 군집 여부 판단", "caution": "전문 통계가 필요하므로 개념 수준으로 신중히 사용한다.", "prompt": "공간 자기상관이 무엇인지 고등학생 수준으로 설명하고, 지역별 미세먼지 데이터에서 어떤 질문으로 연결할 수 있는지 알려줘."}, {"cat": "공간·네트워크", "level": "중급", "name": "네트워크 중심성", "goal": "연결망에서 중요한 노드나 허브를 찾는다.", "data": "친구관계, 교통, 인용, 정보 흐름 네트워크", "use": "관계 데이터 분석", "ai": "노드·엣지 표 구성과 중심성 개념 설명", "human": "개인관계 데이터는 동의와 익명화 필요", "output": "중심 노드, 연결 구조 그림", "caution": "중심성이 높다고 가치가 높다는 뜻은 아니다.", "prompt": "노드와 엣지 데이터로 네트워크를 만들고 연결 중심성, 매개 중심성을 해석하는 방법을 설명해줘."}, {"cat": "공간·네트워크", "level": "심화", "name": "경로 최적화 기초", "goal": "여러 지점 방문 순서나 이동 비용을 줄이는 방법을 탐색한다.", "data": "좌표, 거리, 시간 비용", "use": "통학로, 센서 배치, 배송 경로 문제", "ai": "탐욕 알고리즘, 완전탐색, 휴리스틱 설명", "human": "안전·현실 제약을 함께 반영", "output": "추천 경로, 비용 비교", "caution": "최단거리가 항상 최선은 아니다.", "prompt": "여러 측정 지점을 방문하는 경로를 줄이기 위해 사용할 수 있는 단순 알고리즘과 Python 구현 아이디어를 알려줘."}, {"cat": "최적화·시뮬레이션", "level": "기초", "name": "격자 탐색 Grid Search", "goal": "여러 조건 조합을 체계적으로 비교해 최적 조건을 찾는다.", "data": "조건 조합과 결과값", "use": "온도·농도·시간 등 실험 조건 최적화", "ai": "조건표 생성, 결과 랭킹 코드", "human": "최적 조건 주변을 추가 실험할지 판단", "output": "조건별 성능표, 최적 조건", "caution": "측정하지 않은 범위까지 최적이라고 말하면 안 된다.", "prompt": "온도, pH, 시간 조건 조합별 결과 데이터에서 최적 조건을 찾고 상위 5개 조건을 표로 정리하는 코드를 작성해줘."}, {"cat": "최적화·시뮬레이션", "level": "중급", "name": "민감도 분석", "goal": "입력값이 조금 바뀔 때 결과가 얼마나 달라지는지 확인한다.", "data": "모델식, 시뮬레이션, 계산 지표", "use": "어떤 변수가 중요한지 파악", "ai": "변수별 변화 범위와 결과 그래프 생성", "human": "변화 범위가 현실적인지 판단", "output": "민감도 그래프, 핵심 변수", "caution": "입력 범위를 비현실적으로 잡으면 결론이 왜곡된다.", "prompt": "모델의 입력 변수 3개를 각각 변화시키며 결과값 변화를 비교하는 민감도 분석 절차와 코드를 작성해줘."}, {"cat": "최적화·시뮬레이션", "level": "중급", "name": "몬테카를로 시뮬레이션", "goal": "불확실한 입력값을 여러 번 무작위로 뽑아 결과 분포를 본다.", "data": "오차 범위가 있는 계산 모델", "use": "측정 오차가 결론에 미치는 영향 분석", "ai": "무작위 샘플링과 결과 분포 코드", "human": "입력 분포 가정의 타당성 확인", "output": "결과 분포, 위험 확률", "caution": "분포 가정이 틀리면 시뮬레이션도 틀린다.", "prompt": "측정값의 오차 범위를 반영해 몬테카를로 시뮬레이션으로 결과값 분포를 계산하는 코드를 작성해줘."}, {"cat": "최적화·시뮬레이션", "level": "중급", "name": "파라미터 피팅", "goal": "실험 데이터에 가장 잘 맞는 모델식의 상수를 찾는다.", "data": "시간-농도, 냉각곡선, 성장곡선", "use": "이론식과 실험값 비교", "ai": "최소제곱 피팅 개념과 코드 제안", "human": "상수의 단위와 물리적 의미 확인", "output": "피팅 곡선, 추정 파라미터", "caution": "데이터에만 잘 맞고 원리상 말이 안 될 수 있다.", "prompt": "실험 데이터에 지수함수 또는 선형 모델을 피팅하고 모델별 오차를 비교하는 절차를 알려줘."}, {"cat": "최적화·시뮬레이션", "level": "심화", "name": "시나리오 비교", "goal": "정책이나 설계 선택에 따라 결과가 어떻게 달라지는지 비교한다.", "data": "공공데이터, 계산 모델, 가정표", "use": "에너지 절감, 탄소 배출, 예산 배분", "ai": "시나리오 표와 계산식 구조 제안", "human": "가정이 현실적인지 출처 확인", "output": "시나리오별 결과표, 의사결정 근거", "caution": "가정을 숨기면 결론을 검증할 수 없다.", "prompt": "에너지 절감 시나리오 3개를 비교하는 분석표를 만들려고 한다. 필요한 변수, 계산식, 그래프, 해석 구조를 제안해줘."}, {"cat": "최적화·시뮬레이션", "level": "심화", "name": "선형계획법 개념", "goal": "제약조건 안에서 목적함수를 최대화·최소화한다.", "data": "자원 배분, 혼합 비율, 시간표 문제", "use": "최적화 사고를 보여주고 싶을 때", "ai": "목적함수와 제약조건 작성 보조", "human": "제약조건이 현실과 맞는지 검토", "output": "최적해, 제약조건 표", "caution": "전문 도구 없이 개념과 작은 예제로 접근하는 것이 적절하다.", "prompt": "고등학생 수준의 선형계획법 예시로 목적함수와 제약조건을 세우는 방법을 설명해줘."}, {"cat": "최적화·시뮬레이션", "level": "심화", "name": "디지털 트윈 기초", "goal": "현실 시스템의 간단한 계산 모델을 만들어 조건 변화를 실험한다.", "data": "학교 전력, 실내 온도, 물 순환, 교통 흐름", "use": "실험하기 어려운 시스템을 모델로 비교", "ai": "모델 변수, 입력, 출력, 검증 방법 구조화", "human": "모델이 단순화한 부분을 명확히 기록", "output": "시뮬레이션 모델, 조건별 결과", "caution": "모델은 현실의 축소판이므로 한계를 반드시 써야 한다.", "prompt": "학교 교실 온도 변화를 간단한 디지털 트윈으로 모델링하려고 한다. 필요한 변수, 가정, 검증 데이터, 결과 그래프를 설계해줘."}, {"cat": "설명가능성·검증", "level": "기초", "name": "모델 성능 지표 선택", "goal": "문제 목적에 맞는 평가 지표를 고른다.", "data": "예측·분류 모델 결과", "use": "모델 결과를 보고서에 쓸 때", "ai": "회귀/분류별 지표 추천과 해석", "human": "어떤 오류가 더 중요한지 판단", "output": "MAE, RMSE, R², F1 등", "caution": "지표 하나로 모델을 평가하지 않는다.", "prompt": "회귀와 분류 문제에서 각각 어떤 성능 지표를 써야 하는지 데이터 예시와 함께 표로 정리해줘."}, {"cat": "설명가능성·검증", "level": "중급", "name": "교차검증 리포트", "goal": "모델 성능의 평균과 흔들림을 함께 제시한다.", "data": "예측 모델", "use": "성능 신뢰도 표현", "ai": "fold별 점수와 평균±표준편차 표 생성", "human": "fold가 데이터 구조를 깨지 않는지 확인", "output": "교차검증 표, 신뢰도 해석", "caution": "평균이 높아도 표준편차가 크면 안정성이 낮다.", "prompt": "교차검증 결과를 평균과 표준편차로 요약하고, 모델 안정성을 해석하는 문장 예시를 써줘."}, {"cat": "설명가능성·검증", "level": "중급", "name": "변수 중요도", "goal": "모델이 어떤 변수를 많이 사용했는지 확인한다.", "data": "트리 기반 모델, 회귀 모델", "use": "모델 해석과 후속 실험 설계", "ai": "중요도 계산과 막대그래프 코드", "human": "예측 기여도와 원인 효과를 구분", "output": "중요도 순위, 해석 문장", "caution": "중요도는 인과관계 증거가 아니다.", "prompt": "모델의 변수 중요도를 계산하고, 이를 인과가 아니라 예측 기여도로 해석하는 보고서 문장을 작성해줘."}, {"cat": "설명가능성·검증", "level": "심화", "name": "부분의존도 사고", "goal": "한 변수를 바꿀 때 예측값이 어떻게 변하는지 본다.", "data": "머신러닝 모델", "use": "비선형 모델 해석", "ai": "부분의존도 개념과 그래프 생성 안내", "human": "다른 변수와의 상호작용을 함께 고려", "output": "변수-예측 변화 그래프", "caution": "상관된 변수에서는 해석이 왜곡될 수 있다.", "prompt": "부분의존도 그래프가 무엇인지 설명하고, 랜덤포레스트 모델에서 특정 변수 효과를 해석하는 방법을 알려줘."}, {"cat": "설명가능성·검증", "level": "중급", "name": "오차 분석", "goal": "예측이 크게 빗나간 사례를 찾아 원인을 추적한다.", "data": "예측값과 실제값", "use": "모델 개선과 한계 작성", "ai": "잔차 큰 행 추출, 공통 특징 요약", "human": "측정 오류, 누락 변수, 특수 조건 확인", "output": "오차 상위 사례표, 원인 후보", "caution": "평균 오차만 보면 특정 조건의 실패를 놓친다.", "prompt": "예측 오차가 큰 상위 10개 사례를 추출하고 공통 특징을 분석하는 pandas 코드를 작성해줘."}, {"cat": "설명가능성·검증", "level": "심화", "name": "외부 검증", "goal": "다른 시간·장소·집단 데이터에서도 모델이 작동하는지 확인한다.", "data": "추가 데이터, 다른 기간 공공데이터", "use": "모델 일반화 주장 전", "ai": "외부 검증 데이터 설계와 성능 비교표", "human": "훈련 데이터와 다른 조건을 명확히 기록", "output": "내부/외부 성능 비교", "caution": "외부 검증이 없으면 일반화 주장이 약하다.", "prompt": "모델을 다른 지역 데이터로 외부 검증하려고 한다. 어떤 조건을 맞추고 어떤 성능표를 만들어야 하는지 알려줘."}, {"cat": "설명가능성·검증", "level": "심화", "name": "AI 답변 검증 루틴", "goal": "AI가 만든 코드와 해석의 오류를 체계적으로 검토한다.", "data": "AI 생성 코드, 분석 결과, 해석문", "use": "AI를 분석 보조로 사용할 때마다", "ai": "체크리스트와 반례 질문 생성", "human": "코드 실행 결과와 원자료를 직접 확인", "output": "검증 체크리스트, 수정 로그", "caution": "AI 답변은 권위가 아니라 초안이다.", "prompt": "AI가 작성한 분석 코드와 해석문을 검증하기 위한 체크리스트를 만들어줘. 데이터, 코드, 통계, 해석, 윤리 항목으로 나눠줘."}, {"cat": "자동화·보고", "level": "기초", "name": "분석 계획서 자동 초안", "goal": "데이터 목표와 분석법을 한 장 계획서로 정리한다.", "data": "분석 전 정보", "use": "분석 시작 단계", "ai": "목표, 변수, 방법, 산출물 구조화", "human": "실현 가능성과 자료 접근성 판단", "output": "분석 계획서", "caution": "AI 초안을 그대로 제출하지 말고 실제 데이터 조건에 맞춰 수정해야 한다.", "prompt": "내 데이터 목표, 변수, 자료 출처를 바탕으로 분석 계획서 초안을 작성해줘. 분석법 선택 이유와 예상 산출물을 포함해줘."}, {"cat": "자동화·보고", "level": "중급", "name": "코드 주석 생성", "goal": "분석 코드의 목적과 흐름을 이해하기 쉽게 설명한다.", "data": "Python 코드", "use": "코드 제출·공유 전", "ai": "셀별 주석과 함수 설명 생성", "human": "주석이 코드 동작과 일치하는지 확인", "output": "주석 달린 코드", "caution": "주석이 많아도 실제 이해가 없으면 면접에서 드러난다.", "prompt": "다음 Python 코드에 고등학생이 이해할 수 있는 주석을 달아줘. 각 단계가 데이터 분석에서 어떤 역할을 하는지도 설명해줘."}, {"cat": "자동화·보고", "level": "중급", "name": "그래프 캡션 작성", "goal": "그래프가 말하는 핵심을 한두 문장으로 정리한다.", "data": "분석 그래프", "use": "보고서와 발표 자료 작성", "ai": "그래프 제목, 축, 단위, 핵심 패턴 문장 제안", "human": "그래프가 실제 수치를 정확히 반영하는지 확인", "output": "그래프 캡션, 해석 문장", "caution": "그래프 해석은 관찰과 추론을 구분해야 한다.", "prompt": "이 그래프 결과를 보고서에 넣을 캡션으로 작성해줘. 관찰된 패턴과 가능한 해석을 구분해줘."}, {"cat": "자동화·보고", "level": "중급", "name": "결과 해석 문장화", "goal": "분석 결과를 수치 근거가 있는 문장으로 바꾼다.", "data": "통계표, 모델 결과", "use": "보고서 결과·논의 작성", "ai": "수치 기반 해석문, 한계 문장 제안", "human": "과장 표현과 인과 표현 검토", "output": "결과 문단, 한계 문단", "caution": "수치 없는 ‘유의미하다’ 표현은 피한다.", "prompt": "다음 분석 결과표를 바탕으로 결과 문단을 작성해줘. 반드시 수치 근거를 포함하고, 인과가 아니라 관계로 표현해줘."}, {"cat": "자동화·보고", "level": "심화", "name": "분석 로그 작성", "goal": "AI 사용 과정과 사람의 판단을 투명하게 기록한다.", "data": "프롬프트, 코드, 수정 기록", "use": "AI 활용 보고서 작성", "ai": "프롬프트-응답-검증-수정 기록 양식", "human": "어떤 결정을 사람이 했는지 명확히 작성", "output": "AI 활용 기록표", "caution": "AI가 한 일과 학생이 한 일을 구분하지 않으면 신뢰가 떨어진다.", "prompt": "AI 활용 기록표 양식을 만들어줘. 날짜, 목적, 입력 데이터, 프롬프트, AI 제안, 내가 검증한 내용, 수정한 내용, 최종 반영 여부를 포함해줘."}, {"cat": "자동화·보고", "level": "심화", "name": "발표 질문 생성", "goal": "분석 과정에서 받을 수 있는 질문을 미리 점검한다.", "data": "완성된 분석 보고서", "use": "발표·면접 대비", "ai": "방법, 데이터, 해석, 한계 질문 생성", "human": "질문에 수치와 근거로 답변 연습", "output": "예상 질문, 답변 키워드", "caution": "답변 암기가 아니라 분석 근거 이해가 중요하다.", "prompt": "내 분석 보고서를 바탕으로 예상 질문 15개를 만들어줘. 데이터 품질, 분석법 선택, 결과 해석, 한계, 후속 분석으로 나눠줘."}, {"cat": "자동화·보고", "level": "심화", "name": "동료 검토 프롬프트", "goal": "분석의 약점을 찾기 위해 비판적 검토를 요청한다.", "data": "보고서 초안, 코드, 그래프", "use": "제출 전 최종 점검", "ai": "검토자 역할 프롬프트와 루브릭 생성", "human": "AI 지적사항 중 타당한 것만 반영", "output": "수정 체크리스트", "caution": "AI의 비판도 틀릴 수 있으므로 근거를 확인한다.", "prompt": "내 보고서를 엄격한 데이터 분석 멘토 관점에서 검토해줘. 데이터, 전처리, 분석법, 그래프, 해석, 윤리 항목별로 문제점과 수정안을 제시해줘."}]</script>
+
+
+<script>
+// ==================== 다크모드 토글 ====================
+const themeToggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    root.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀';
+    themeToggle.setAttribute('aria-label', '라이트모드 전환');
+  } else {
+    root.removeAttribute('data-theme');
+    themeToggle.textContent = '🌙';
+    themeToggle.setAttribute('aria-label', '다크모드 전환');
+  }
+}
+// 시스템 선호 감지 (저장은 sessionStorage가 차단된 환경 대비해 메모리만)
+let currentTheme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+applyTheme(currentTheme);
+themeToggle.addEventListener('click', () => {
+  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  applyTheme(currentTheme);
+});
+
+// ==================== 스크롤 진행률 ====================
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+  progressBar.style.width = scrolled + '%';
+});
+
+// ==================== Toast (알림) ====================
+const toast = document.getElementById('toast');
+let toastTimer;
+function showToast(msg, type = '') {
+  toast.textContent = msg;
+  toast.className = 'toast show ' + type;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// ==================== 복사 기능 ====================
+function copyText(text) {
+  if (!text) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('✓ 복사되었습니다', 'success');
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showToast('✓ 복사되었습니다', 'success');
+  } catch (e) {
+    showToast('복사에 실패했습니다', 'error');
+  }
+  document.body.removeChild(ta);
+}
+
+// ==================== 분석법 라이브러리 ====================
+const methods = JSON.parse(document.getElementById('methodsData').textContent);
+const catFilter = document.getElementById('catFilter');
+const levelFilter = document.getElementById('levelFilter');
+const searchInput = document.getElementById('searchInput');
+const methodGrid = document.getElementById('methodGrid');
+const methodCount = document.getElementById('methodCount');
+const modal = document.getElementById('methodModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalPills = document.getElementById('modalPills');
+const modalBody = document.getElementById('modalBody');
+
+// 분석법 개수를 헤로 통계에 반영
+document.getElementById('statMethods').textContent = methods.length + '+';
+
+function unique(arr) { return [...new Set(arr)]; }
+unique(methods.map(m => m.cat)).forEach(cat => {
+  const opt = document.createElement('option');
+  opt.value = cat;
+  opt.textContent = cat;
+  catFilter.appendChild(opt);
+});
+
+function escapeHTML(str) {
+  return String(str).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+}
+
+function highlightHTML(text, q) {
+  if (!q) return escapeHTML(text);
+  const escapedText = escapeHTML(text);
+  const escapedQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp('(' + escapedQ + ')', 'gi');
+  return escapedText.replace(re, '<mark style="background:#fef3c7;color:#92400e;padding:0 2px;border-radius:3px">$1</mark>');
+}
+
+function renderMethods() {
+  const q = searchInput.value.trim().toLowerCase();
+  const cat = catFilter.value;
+  const level = levelFilter.value;
+  const filtered = methods.filter(m => {
+    const hay = Object.values(m).join(' ').toLowerCase();
+    return (cat === 'all' || m.cat === cat) && (level === 'all' || m.level === level) && (!q || hay.includes(q));
+  });
+  methodCount.textContent = `총 ${filtered.length}개 분석법 표시 / 전체 ${methods.length}개`;
+  if (filtered.length === 0) {
+    methodGrid.innerHTML = '<div class="card" style="grid-column:1/-1;text-align:center;color:#64748b">검색 결과가 없습니다. 다른 키워드로 시도해보세요.</div>';
+    return;
+  }
+  methodGrid.innerHTML = filtered.map(m => `
+    <article class="method-card">
+      <div class="method-meta"><span class="pill blue">${escapeHTML(m.cat)}</span><span class="pill green">${escapeHTML(m.level)}</span></div>
+      <h3>${highlightHTML(m.name, q)}</h3>
+      <p>${highlightHTML(m.goal, q)}</p>
+      <div class="pill-row"><span class="pill">${escapeHTML(m.data)}</span></div>
+      <button onclick="openMethod(${methods.indexOf(m)})" aria-label="${escapeHTML(m.name)} 자세히 보기">자세히 보기 →</button>
+    </article>`).join('');
+}
+
+function openMethod(i) {
+  const m = methods[i];
+  modalTitle.textContent = m.name;
+  modalPills.innerHTML = `<span class="pill blue">${escapeHTML(m.cat)}</span><span class="pill green">${escapeHTML(m.level)}</span>`;
+  modalBody.innerHTML = `
+    <div class="detail-grid">
+      <div class="detail"><b>언제 쓰나</b><p>${escapeHTML(m.use)}</p></div>
+      <div class="detail"><b>데이터 형태</b><p>${escapeHTML(m.data)}</p></div>
+      <div class="detail"><b>AI에게 맡길 일</b><p>${escapeHTML(m.ai)}</p></div>
+      <div class="detail"><b>학생이 검증할 일</b><p>${escapeHTML(m.human)}</p></div>
+      <div class="detail"><b>산출물</b><p>${escapeHTML(m.output)}</p></div>
+      <div class="detail"><b>주의점</b><p>${escapeHTML(m.caution)}</p></div>
+    </div>
+    <h3 style="color:var(--navy);margin:18px 0 8px">복사해서 쓰는 AI 요청문</h3>
+    <div class="modal-prompt" id="modalPrompt">${escapeHTML(m.prompt)}</div>
+    <button class="copy" style="margin-top:10px" onclick="copyText(document.getElementById('modalPrompt').textContent)">📋 프롬프트 복사</button>`;
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  // 첫 포커스를 닫기 버튼에 두기
+  setTimeout(() => document.getElementById('modalClose').focus(), 50);
+}
+window.openMethod = openMethod;
+
+function closeModal() {
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+// ESC 키로 모달 닫기
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+});
+
+[catFilter, levelFilter].forEach(el => el.addEventListener('change', renderMethods));
+let searchTimer;
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(renderMethods, 150);
+});
+renderMethods();
+
+// ==================== 프롬프트 라이브러리 필터 ====================
+const promptCards = Array.from(document.querySelectorAll('.prompt-card.pro'));
+const promptSearch = document.getElementById('promptSearch');
+const promptFilterBtns = document.querySelectorAll('.prompt-filter-btn');
+const promptCount = document.getElementById('promptCount');
+let currentPromptFilter = 'all';
+
+// 프롬프트 개수를 헤로 통계에 반영
+if (promptCards.length > 0) {
+  document.getElementById('statPrompts').textContent = promptCards.length + '+';
+}
+
+function filterPrompts() {
+  const q = promptSearch ? promptSearch.value.trim().toLowerCase() : '';
+  let visible = 0;
+  promptCards.forEach(card => {
+    const group = card.dataset.promptGroup;
+    const keywords = (card.dataset.promptKeywords || '').toLowerCase();
+    const matchFilter = currentPromptFilter === 'all' || group === currentPromptFilter;
+    const matchSearch = !q || keywords.includes(q) || card.textContent.toLowerCase().includes(q);
+    if (matchFilter && matchSearch) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+  if (promptCount) promptCount.textContent = `${visible}개 / ${promptCards.length}개 표시`;
+}
+promptFilterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    promptFilterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentPromptFilter = btn.dataset.promptFilter;
+    filterPrompts();
+  });
+});
+if (promptSearch) {
+  let pTimer;
+  promptSearch.addEventListener('input', () => {
+    clearTimeout(pTimer);
+    pTimer = setTimeout(filterPrompts, 150);
+  });
+}
+filterPrompts();
+
+// ==================== 프롬프트 조립기 (Prompt Lab) ====================
+const labGenerateBtn = document.getElementById('labGenerateBtn');
+const labCopyBtn = document.getElementById('labCopyBtn');
+const labOutputBox = document.getElementById('labOutputBox');
+
+if (labGenerateBtn) {
+  labGenerateBtn.addEventListener('click', () => {
+    const dt = document.getElementById('labDataType').value;
+    const goal = document.getElementById('labGoal').value;
+    const cols = document.getElementById('labColumns').value.trim() || '[열 이름과 단위를 입력하세요]';
+    const ctx = document.getElementById('labContext').value.trim() || '[데이터 수집 맥락을 입력하세요]';
+    const con = document.getElementById('labConstraint').value.trim() || '고등학생 수준, Python pandas/matplotlib 사용';
+    const out = document.getElementById('labOutput').value.trim() || '전처리 코드, 그래프, 해석 문장, 한계';
+    const text = `너는 고등학생 데이터 분석 멘토야. 다음 분석 요청을 검토하고, 데이터 구조 점검부터 단계적으로 안내해줘.
+
+[데이터 유형]
+${dt}
+
+[분석 목표]
+${goal}
+
+[열 이름·단위]
+${cols}
+
+[수집 맥락]
+${ctx}
+
+[제약 조건]
+${con}
+
+[원하는 산출물]
+${out}
+
+다음 순서로 답해줘.
+1. 분석 전 추가로 확인할 질문 5개
+2. 데이터 구조 진단(열 의미·자료형·단위·역할)
+3. 추천 분석법 3개 비교(장점·한계·난이도)
+4. 전처리 체크리스트
+5. 단계별 Python 코드(주석 포함)
+6. 그래프 설계(제목·축·단위·범례·캡션)
+7. 검증 체크리스트(데이터 누수·과적합·인과 과장 등)
+8. 결과 문장 예시(관찰→해석→한계)
+9. AI 활용 기록표 항목
+10. 후속 프롬프트 3개
+
+[중요 조건]
+- 모르는 내용은 추정하지 말고 "확인 필요"로 표시
+- 인과가 입증되지 않은 경우 "원인"이 아니라 "관계·경향"으로 표현
+- 코드는 고등학생이 수정할 수 있도록 주석을 충분히 달기`;
+    labOutputBox.textContent = text;
+  });
+  labCopyBtn.addEventListener('click', () => copyText(labOutputBox.textContent));
+}
+
+// ==================== 복사 버튼 (data-copy-target / data-copy-text) ====================
+document.querySelectorAll('.copy').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.copyTarget;
+    const text = btn.dataset.copyText || (target ? document.getElementById(target).innerText : '');
+    if (text) {
+      copyText(text);
+      // 시각적 피드백
+      const original = btn.textContent;
+      btn.classList.add('copied');
+      btn.textContent = '✓ 완료';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.textContent = original;
+      }, 1500);
+    }
+  });
+});
+
+// ==================== 추천기 ====================
+const goalMap = {
+  '요약': ['데이터 구조 진단','히스토그램 분포 분석','반복 측정 요약'],
+  '비교': ['오차막대 그래프','평균 비교','효과크기 Cohen\'s d'],
+  '관계': ['산점도와 추세선','피어슨 상관분석','단순선형회귀'],
+  '예측': ['훈련/검증 데이터 분리','단순선형회귀','랜덤포레스트'],
+  '분류': ['로지스틱 회귀','혼동행렬','정밀도·재현율·F1'],
+  '패턴 발견': ['PCA 주성분분석','K-means 군집화','군집 프로파일링'],
+  '최적화': ['격자 탐색 Grid Search','민감도 분석','시나리오 비교'],
+  '검증': ['데이터 누수 점검','잔차분석','AI 답변 검증 루틴']
+};
+const dataMap = {
+  '센서·시계열': ['이동평균','피크 탐지','지연 상관 Lag 분석'],
+  '텍스트': ['키워드 빈도 분석','TF-IDF','텍스트 군집화'],
+  '이미지': ['색상 평균 분석','임계값 분할','객체 계수'],
+  '공간·지도': ['위치 데이터 지도화','거리 기반 분석','공간 격자화'],
+  '라벨 있는 분류 데이터': ['혼동행렬','정밀도·재현율·F1','오분류 사례 분석'],
+  '라벨 없는 다변량 데이터': ['PCA 주성분분석','K-means 군집화','군집 안정성 점검'],
+  '수치형 실험데이터': ['반복 측정 요약','오차막대 그래프','효과크기 Cohen\'s d'],
+  '공공데이터': ['데이터 병합과 키 정합','상관행렬 Heatmap','시계열 이동평균과 이상 구간']
+};
+function recommend() {
+  const goal = document.getElementById('goalType').value;
+  const dtype = document.getElementById('dataType').value;
+  const names = [...new Set([...(goalMap[goal] || []), ...(dataMap[dtype] || [])])].slice(0, 6);
+  const picked = names.map(n => methods.find(m => m.name === n)).filter(Boolean);
+  const out = document.getElementById('selectorOutput');
+  if (picked.length === 0) {
+    out.innerHTML = '<div class="suggestion"><p>해당 조합에 맞는 분석법이 라이브러리에 없습니다. 분석법 도감에서 직접 검색해보세요.</p></div>';
+    return;
+  }
+  out.innerHTML = picked.map(m => `
+    <div class="suggestion">
+      <h4>${escapeHTML(m.name)}</h4>
+      <p><b>${escapeHTML(m.cat)}</b> · ${escapeHTML(m.goal)}</p>
+      <button class="copy" style="margin-top:10px" onclick="openMethod(${methods.indexOf(m)})">자세히 보기 →</button>
+    </div>`).join('');
+}
+document.getElementById('recommendBtn').addEventListener('click', recommend);
+recommend();
+
+// ==================== 플로팅 버튼 ====================
+const floaters = document.getElementById('floaters');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 420) floaters.classList.add('show');
+  else floaters.classList.remove('show');
+});
+document.getElementById('topBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ==================== 분석 설계 빌더 ====================
+const buildBtn = document.getElementById('buildBtn');
+const builderOutput = document.getElementById('builderOutput');
+function generateBuilderPrompt() {
+  const data = document.getElementById('bData').value.trim() || '[데이터 설명 입력]';
+  const goal = document.getElementById('bGoal').value.trim() || '[분석 목표 입력]';
+  const vars = document.getElementById('bVars').value.trim() || '[주요 변수와 단위 입력]';
+  const method = document.getElementById('bMethod').value;
+  const check = document.getElementById('bCheck').value.trim() || '[검증하고 싶은 부분 입력]';
+  const output = document.getElementById('bOutput').value.trim() || '[원하는 산출물 입력]';
+  return `너는 고등학생 데이터 분석 멘토이자 Python 코드 리뷰어야. 아래 데이터 분석을 도와줘. 바로 결론부터 쓰지 말고, 먼저 데이터 구조와 분석 가능성을 점검한 뒤 단계적으로 안내해줘.
+
+[데이터 설명]
+${data}
+
+[분석 목표]
+${goal}
+
+[주요 변수와 단위]
+${vars}
+
+[관심 분석법]
+${method}
+
+[검증하고 싶은 부분]
+${check}
+
+[원하는 산출물]
+${output}
+
+[답변 순서]
+0. 분석 전에 내가 추가로 확인해야 할 질문 5개
+1. 열별 의미·자료형·단위·역할을 정리한 데이터 딕셔너리
+2. 분석 목표가 요약/비교/관계/예측/분류/패턴 발견/최적화 중 어디에 해당하는지 판단
+3. 분석법 후보 3개 비교표: 선택 이유, 장점, 한계, 필요한 그래프, 난이도
+4. 전처리 계획: 결측치, 이상치, 단위 변환, 중복, 표본 불균형 점검
+5. Python 코드 초안: 파일 불러오기 → 품질 점검 → 전처리 → 분석 → 시각화 → 결과 저장
+6. 그래프 설계: 제목, x축, y축, 단위, 범례, 캡션 예시
+7. 검증 체크리스트: 데이터 누수, 과적합, 통계 가정, 인과 과장, 개인정보·출처 문제
+8. 결과 문장 예시: 관찰된 사실 → 가능한 해석 → 한계와 후속 분석 순서
+9. AI 활용 기록표에 남길 내용: AI 제안, 내가 검증한 내용, 수정·제외한 내용
+10. 다음 대화에서 이어서 물어볼 후속 프롬프트 3개
+
+[중요 조건]
+- 모르는 내용은 추정하지 말고 "확인 필요"라고 표시해줘.
+- 원자료 확인이 필요한 부분은 질문으로 남겨줘.
+- 인과관계가 입증되지 않은 경우 '원인'이라고 쓰지 말고 '관계/경향/가능성'으로 표현해줘.
+- 코드는 고등학생이 수정할 수 있도록 주석을 충분히 달아줘.`;
+}
+buildBtn.addEventListener('click', () => {
+  builderOutput.textContent = generateBuilderPrompt();
+  showToast('✓ 프롬프트가 생성되었습니다', 'success');
+});
+document.getElementById('copyOutputBtn').addEventListener('click', () => {
+  if (builderOutput.textContent.startsWith('위 항목을')) {
+    showToast('먼저 "분석 프롬프트 생성"을 눌러주세요', 'error');
+    return;
+  }
+  copyText(builderOutput.textContent);
+});
+
+// 텍스트 파일로 다운로드
+document.getElementById('downloadOutputBtn').addEventListener('click', () => {
+  if (builderOutput.textContent.startsWith('위 항목을')) {
+    showToast('먼저 "분석 프롬프트 생성"을 눌러주세요', 'error');
+    return;
+  }
+  const blob = new Blob([builderOutput.textContent], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const now = new Date();
+  const stamp = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}`;
+  a.href = url;
+  a.download = `ai_analysis_prompt_${stamp}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('✓ 텍스트 파일로 저장되었습니다', 'success');
+});
+
+// 인쇄
+document.getElementById('printPageBtn').addEventListener('click', () => {
+  window.print();
+});
+
+// ==================== FAQ 아코디언 ====================
+document.querySelectorAll('.faq-item').forEach(item => {
+  const btn = item.querySelector('.faq-q');
+  btn.addEventListener('click', () => {
+    item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+  });
+});
+
+// ==================== TOC 활성 섹션 표시 ====================
+const toc = document.getElementById('toc');
+const tocLinks = toc.querySelectorAll('a');
+const sections = Array.from(tocLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+function updateTOC() {
+  if (window.innerWidth <= 1280) {
+    toc.classList.remove('show');
+    return;
+  }
+  if (window.scrollY > 600) toc.classList.add('show');
+  else toc.classList.remove('show');
+
+  let current = sections[0];
+  const offset = 100;
+  for (const sec of sections) {
+    if (sec.getBoundingClientRect().top - offset <= 0) current = sec;
+  }
+  tocLinks.forEach(a => {
+    if (a.getAttribute('href') === '#' + current.id) a.classList.add('active');
+    else a.classList.remove('active');
+  });
+}
+window.addEventListener('scroll', updateTOC);
+window.addEventListener('resize', updateTOC);
+updateTOC();
+
+// 코드 레시피 개수 카운트
+const recipeCount = document.querySelectorAll('.recipe-card').length;
+if (recipeCount > 0) document.getElementById('statRecipes').textContent = recipeCount + '+';
+
+</script>
+</body>
+</html>

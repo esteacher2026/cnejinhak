@@ -1,0 +1,2515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 화학 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 화학 15개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Palette: 충남교육청 진로진학 자료, 학술적·전문적 분위기 (물리학 워크북과 동일 톤) */
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+  /* 영역 색상: 화학 4영역 */
+  --lang:#b45309;       /* 화학의 언어 — 따뜻한 황토 */
+  --structure:#0e6b5c;  /* 물질의 구조와 성질 — 짙은 청록 */
+  --eq:#1d4ed8;         /* 화학 평형 — 진한 청색 */
+  --rxn:#7c3aed;        /* 역동적인 화학 반응 — 보라 */
+  /* 기능 색상 */
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+  --maxw:1380px;
+  --shadow-card: 0 1px 0 var(--line-soft), 0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift: 0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(180,83,9,.025), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(14,107,92,.025), transparent 40%);
+  z-index:0;
+}
+
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{margin:0;line-height:1.2;letter-spacing:-.025em;font-family:"Fraunces","IBM Plex Sans KR",serif;font-weight:700}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--lang)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.serif{font-family:"Fraunces","Gowun Batang",serif}
+.mono{font-family:"JetBrains Mono",monospace;font-feature-settings:"tnum"}
+
+/* ───────── 상단 바 ───────── */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease, left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--lang)}
+
+/* ───────── 메인(홈) 이동 — 상단 링크 + 우하단 플로팅 ───────── */
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease, color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease, background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--lang)}
+.fab-home svg{width:15px;height:15px;flex:none}
+@media print{.fab-home{display:none !important}}
+@media (max-width:640px){
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ───────── 커버 ───────── */
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem}
+.kicker{
+  font-size:.7rem;
+  color:var(--lang);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--lang);
+}
+h1.cover-title{
+  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:-.045em;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--lang);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--lang);border-color:var(--lang)}
+.btn svg{width:14px;height:14px}
+
+/* ───────── 통계 카드 ───────── */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+/* ───────── 섹션 헤더 ───────── */
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--lang);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+/* ───────── 원칙 카드 ───────── */
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--lang);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{
+  margin:.6rem 0 .5rem;
+  font-size:1.15rem;
+  font-family:"Fraunces",serif;
+}
+.principle p{
+  color:var(--muted);
+  font-size:.92rem;
+  margin:0;
+}
+
+/* ───────── CBI 흐름 도식 ───────── */
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--lang);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-size:.96rem;
+  margin:.25rem 0;
+  letter-spacing:-.01em;
+}
+.cbi-step p{
+  font-size:.78rem;
+  color:var(--muted);
+  margin:0;
+  line-height:1.5;
+}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+/* ───────── 브라우저 ───────── */
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.side::-webkit-scrollbar{width:6px}
+.side::-webkit-scrollbar-thumb{background:var(--faint);border-radius:0}
+
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--lang);
+}
+.std-item.on .std-title{color:var(--ink)}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-lang{background:rgba(180,83,9,.08);color:var(--lang);border-color:rgba(180,83,9,.3)}
+.domain-structure{background:rgba(14,107,92,.08);color:var(--structure);border-color:rgba(14,107,92,.3)}
+.domain-eq{background:rgba(29,78,216,.08);color:var(--eq);border-color:rgba(29,78,216,.3)}
+.domain-rxn{background:rgba(124,58,237,.08);color:var(--rxn);border-color:rgba(124,58,237,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  letter-spacing:-.01em;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* ───────── 상세 패널 ───────── */
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg, var(--paper-soft), var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  letter-spacing:-.025em;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--lang);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{display:block;font-size:.65rem;color:var(--lang);letter-spacing:.15em;font-family:"JetBrains Mono",monospace;margin-bottom:.3rem;font-weight:700}
+
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--lang);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--lang)}
+
+.panel{padding:1.6rem 1.9rem 2.4rem}
+.blk{margin-bottom:1.7rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding-bottom:.4rem;
+  margin-bottom:.95rem;
+  font-family:"JetBrains Mono",monospace;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.blk-h .hint{
+  font-family:"IBM Plex Sans KR",sans-serif;
+  font-size:.72rem;
+  color:var(--faint);
+  text-transform:none;
+  font-weight:500;
+  letter-spacing:0;
+}
+
+/* ───────── 카드 그리드 ───────── */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
+.card{
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  padding:1.05rem 1.1rem;
+  border-radius:2px;
+  transition:all .15s ease;
+}
+.card:hover{border-color:var(--ink-2);box-shadow:var(--shadow-card)}
+.card h4{
+  font-size:.98rem;
+  margin-bottom:.5rem;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+}
+.card h4 .icon{
+  width:18px;
+  height:18px;
+  background:var(--ink);
+  color:var(--paper-soft);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  font-weight:700;
+  border-radius:2px;
+}
+.card p,.card li{
+  font-size:.88rem;
+  color:var(--muted);
+  line-height:1.6;
+  margin:.2rem 0;
+}
+.card p b, .card li b{color:var(--ink-2);font-weight:600}
+.card.accent-lang{border-left:3px solid var(--lang)}
+.card.accent-structure{border-left:3px solid var(--structure)}
+.card.accent-eq{border-left:3px solid var(--eq)}
+.card.accent-rxn{border-left:3px solid var(--rxn)}
+.card.accent-gold{border-left:3px solid var(--gold)}
+.card.accent-green{border-left:3px solid var(--green)}
+
+/* ───────── 알약 태그 ───────── */
+.pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{
+  font-size:.76rem;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:.28rem .68rem;
+  color:var(--ink-2);
+  background:var(--paper-soft);
+  font-weight:500;
+}
+.pill.solid{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-color:var(--ink);
+}
+
+/* ───────── 일반화 박스 ───────── */
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.3rem 1.4rem;
+  border-radius:2px;
+  position:relative;
+  overflow:hidden;
+}
+.general::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:4px;
+  height:100%;
+  background:var(--gold);
+}
+.general .gen-row{margin-bottom:.85rem}
+.general .gen-row:last-child{margin-bottom:0}
+.general b{
+  color:#e6c378;
+  font-size:.7rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+  display:block;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.general p{
+  margin:0;
+  font-size:.96rem;
+  line-height:1.6;
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:400;
+  letter-spacing:-.005em;
+}
+
+/* ───────── 질문 4종 ───────── */
+.q-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+.q{
+  border-left:3px solid var(--gold);
+  padding:.95rem 1.05rem;
+  background:var(--paper-soft);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  border-radius:0 2px 2px 0;
+}
+.q.fact{border-left-color:var(--structure)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.66rem;
+  color:var(--faint);
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.12em;
+  font-weight:700;
+  margin-bottom:.4rem;
+  text-transform:uppercase;
+}
+.q.fact b{color:var(--structure)}
+.q.concept b{color:var(--gold)}
+.q.debate b{color:var(--red)}
+.q.transfer b{color:var(--green)}
+.q p{
+  margin:0;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.55;
+  font-family:"Fraunces",serif;
+  font-weight:400;
+}
+
+/* ───────── 차시별 행 ───────── */
+.lesson-row{
+  display:grid;
+  grid-template-columns:130px 1.1fr 1.1fr .8fr;
+  border:1px solid var(--line);
+  border-bottom:0;
+  background:var(--card);
+}
+.lesson-row:last-child{border-bottom:1px solid var(--line)}
+.lesson-row:first-child{border-radius:2px 2px 0 0}
+.lesson-row:last-child{border-radius:0 0 2px 2px}
+.lesson-row>div{
+  padding:.95rem 1rem;
+  border-right:1px solid var(--line-soft);
+  font-size:.86rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+.lesson-row>div:last-child{border-right:0}
+.lesson-row>div:first-child{
+  background:var(--paper-deep);
+  font-weight:700;
+  color:var(--ink);
+  font-family:"Fraunces",serif;
+  font-size:.95rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:.2rem;
+}
+.lesson-row>div:first-child .stage-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--lang);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.lesson-hd{
+  display:grid;
+  grid-template-columns:130px 1.1fr 1.1fr .8fr;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+}
+.lesson-hd>div{
+  padding:.65rem 1rem;
+  font-weight:700;
+}
+
+/* ───────── 학생부 기록 ───────── */
+.record{
+  border:1.5px solid var(--green);
+  background:rgba(14,107,92,.06);
+  padding:1.15rem 1.25rem;
+  border-radius:2px;
+  position:relative;
+}
+.record::before{
+  content:"NEIS";
+  position:absolute;
+  top:.85rem;
+  right:1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  letter-spacing:.15em;
+  color:var(--green);
+  font-weight:700;
+  border:1px solid var(--green);
+  padding:.15rem .35rem;
+  border-radius:2px;
+}
+.record b{
+  color:var(--green);
+  font-size:.7rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+  display:block;
+  margin-bottom:.4rem;
+  font-weight:700;
+}
+.record p{
+  margin:.3rem 0 0;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.7;
+}
+
+.sample-record{
+  background:var(--paper-soft);
+  border:1px dashed var(--line);
+  padding:1rem 1.15rem;
+  font-family:"Gowun Batang",serif;
+  font-size:.93rem;
+  line-height:1.8;
+  color:var(--ink-2);
+  border-radius:2px;
+  position:relative;
+}
+.sample-record::before{
+  content:"세특 기록 예시";
+  position:absolute;
+  top:-.5rem;
+  left:1rem;
+  background:var(--paper);
+  padding:0 .5rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+/* ───────── 매트릭스 ───────── */
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:1100px}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.85rem .8rem;
+  text-align:left;
+  white-space:nowrap;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  font-weight:700;
+}
+td{
+  border-bottom:1px solid var(--line-soft);
+  padding:.8rem;
+  color:var(--muted);
+  vertical-align:top;
+  line-height:1.55;
+}
+tr:hover td{background:var(--paper-soft)}
+.mcode{
+  font-weight:800;
+  color:var(--ink);
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.78rem;
+  transition:color .15s;
+}
+.mcode:hover{color:var(--lang)}
+
+/* ───────── 운영 가이드 ───────── */
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+}
+.guide-block{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:1.5rem;
+  border-radius:2px;
+  border-top:3px solid var(--ink);
+}
+.guide-block .stage{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  font-weight:700;
+}
+.guide-block h3{
+  font-family:"Fraunces",serif;
+  font-size:1.25rem;
+  margin:.3rem 0 .8rem;
+}
+.guide-block ul{padding-left:1.1rem;margin:0}
+.guide-block li{font-size:.88rem;line-height:1.65}
+
+.theory-section{
+  background:var(--paper-soft);
+  border:1px solid var(--line);
+  padding:1.8rem;
+  margin-top:1.5rem;
+  border-radius:2px;
+}
+.theory-section h3{
+  font-family:"Fraunces",serif;
+  font-size:1.3rem;
+  margin-bottom:1rem;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.theory-section h3::before{
+  content:"";
+  width:6px;
+  height:24px;
+  background:var(--lang);
+}
+.theory-section p{
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.75;
+  margin:.5rem 0;
+}
+.theory-section .ref{
+  font-size:.78rem;
+  color:var(--faint);
+  font-style:italic;
+  margin-top:1rem;
+  font-family:"Fraunces",serif;
+}
+
+details{margin:.5rem 0}
+details summary{
+  cursor:pointer;
+  padding:.55rem .8rem;
+  background:var(--paper-deep);
+  border-radius:2px;
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--ink);
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{
+  content:"+";
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  color:var(--lang);
+  transition:transform .2s;
+}
+details[open] summary::after{transform:rotate(45deg)}
+details > div{padding:.8rem 1rem;font-size:.88rem;color:var(--muted);line-height:1.7}
+
+/* ───────── 푸터 ───────── */
+.footer{
+  margin-top:5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--ink);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  font-size:.8rem;
+  color:var(--muted);
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer .credit{
+  font-family:"Fraunces",serif;
+  font-style:italic;
+}
+.footer .meta{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+}
+
+/* ───────── 안전 박스 ───────── */
+.safety-box{
+  background:rgba(165,54,42,.05);
+  border:1px solid var(--red);
+  border-left:3px solid var(--red);
+  padding:1rem 1.15rem;
+  border-radius:2px;
+}
+.safety-box h4{color:var(--red)!important;margin-bottom:.4rem}
+.safety-box p{color:var(--ink-2)}
+
+/* ───────── 반응형 ───────── */
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cbi-flow{grid-template-columns:repeat(3,1fr)}
+  .cbi-step:nth-child(3)::after{display:none}
+}
+@media(max-width:900px){
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat:nth-child(odd){border-right:1px solid var(--line)}
+  .stat:nth-child(even){border-right:0}
+  .principles,.cards,.cards3,.cards4,.q-grid,.guide-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .lesson-hd>div{border-bottom:1px solid #444}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .detail-hd, .panel{padding-left:1.2rem;padding-right:1.2rem}
+}
+
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ───────── 상단 바 ───────── -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">化</div>
+      <div class="b-text">
+        <strong>일반선택 화학 수업설계 워크북</strong>
+        <span>개념기반탐구 · 15개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">PDF · 인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ═════════════════════ 홈 ═════════════════════ -->
+<section id="home" class="view active">
+
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective</div>
+        <h1 class="cover-title">화학 성취기준에서 내일 <em>실험·계산·기록</em>까지, 화학 수업설계 워크북.</h1>
+        <p class="lead">
+          15개 성취기준 원문을 그대로 보존하고, 각 성취기준마다 개념기반탐구(CBI) 흐름, 차시별 수업방법, 교사 발문, 학생 활동지, 계산·자료 처리, 오개념 피드백, 실험 안전, 수행평가 루브릭, 학생부 관찰 증거를 통합 설계했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            성취기준별 수업 설계 시작
+          </button>
+          <button class="btn" onclick="openView('matrix')">15개 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v10M4 8l4 4 4-4M3 14h10"/></svg>
+            CSV 내려받기
+          </button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 화학 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책9] 과학과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>수업 설계 · 실험 운영 · 수행평가 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">4<small>영역</small></span>
+      <span class="label">화학의 언어 · 구조와 성질 · 평형 · 역동적 반응</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">15<small>기준</small></span>
+      <span class="label">성취기준 원문 100% 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 물질·반응·계산·실험·기록의 통합</h2>
+    <p>화학은 물질·반응을 ‘입자 모형 — 정량 계산 — 실험 조작 — 오차 분석’의 사슬로 연결할 때 수업의 질이 비약합니다. 본 워크북은 그 사슬을 교실 장면 단위로 구체화합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>수업 실행 중심</h3>
+      <p>성취기준을 클릭하면 도입에서 실험 설계, 자료 처리, 계산·모형, 전이 적용까지 내일 수업에 바로 쓸 수 있는 장면이 펼쳐집니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>개념 형성의 흐름</h3>
+      <p>현상 → 사전 개념 → 개념 갈등 → 증거 수집 → 일반화 → 전이의 흐름으로 개념기반탐구의 완결성을 확보합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>기록 가능한 탐구</h3>
+      <p>계산지·실험표·모형·오차 분석·수정 과정이 학생부종합전형형 관찰 증거로 자연스럽게 남도록 설계했습니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 모든 차시의 뼈대</h2>
+    <p>Erickson &amp; Lanning의 개념기반탐구 모형에 따라 학생이 <b>사실</b>에서 <b>개념</b>으로, 개념에서 <b>일반화</b>로 사고를 확장하도록 설계했습니다. 이 흐름은 15개 성취기준 모두에 일관되게 적용됩니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step">
+      <div class="step-n">01 · ENGAGE</div>
+      <strong>참여</strong>
+      <p>실제 물질·현상에 마주서 호기심과 정의적 몰입을 일으킨다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">02 · FOCUS</div>
+      <strong>초점</strong>
+      <p>관찰을 화학 개념 렌즈로 정렬하고 핵심 질문을 형성한다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">03 · INVESTIGATE</div>
+      <strong>조사·탐구</strong>
+      <p>실험·계산·모형화를 통해 자료를 수집하고 증거를 만든다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">04 · ORGANIZE</div>
+      <strong>조직화</strong>
+      <p>표·그래프·반응식·입자 모형으로 자료를 표상하고 패턴을 찾는다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">05 · GENERALIZE</div>
+      <strong>일반화</strong>
+      <p>개념 간 관계를 자신의 말로 진술하고 증거로 뒷받침한다.</p>
+    </div>
+    <div class="cbi-step">
+      <div class="step-n">06 · TRANSFER</div>
+      <strong>전이</strong>
+      <p>새로운 맥락(일상·산업·진로)에 일반화를 적용하고 평가한다.</p>
+    </div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. 화학에서는 ‘계산을 정확히 한 학생’보다 <b>입자 모형과 실험 자료, 오차 원인을 연결해 자기 언어로 설명할 수 있는 학생</b>이 더 인상적인 평가를 받습니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+
+</section>
+
+<!-- ═════════════════════ 성취기준 보드 ═════════════════════ -->
+<section id="standards" class="view">
+
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>왼쪽 목록에서 성취기준을 고르면 오른쪽에 6개 탭(개요·CBI·수업방법·활동지·평가·기록)이 펼쳐집니다. 필터로 영역과 수업 유형을 좁힐 수 있습니다.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드·제목·개념·산출물 검색" />
+        <div class="filter-row" style="margin-top:.6rem">
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>화학의 언어</option>
+            <option>물질의 구조와 성질</option>
+            <option>화학 평형</option>
+            <option>역동적인 화학 반응</option>
+          </select>
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>실험</option>
+            <option>정량</option>
+            <option>자료</option>
+            <option>모형</option>
+            <option>조사</option>
+            <option>분석</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail"></article>
+  </div>
+
+</section>
+
+<!-- ═════════════════════ 매트릭스 ═════════════════════ -->
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>화학 15개 성취기준 수업 매트릭스</h2>
+    <p>전체 성취기준의 수업 유형, 핵심 개념, 핵심 산출물, 학생부 관찰 증거를 한눈에 비교합니다. 코드를 누르면 상세 페이지로 이동합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>핵심 산출물</th>
+          <th>관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═════════════════════ 운영 가이드 ═════════════════════ -->
+<section id="guide" class="view">
+
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>본 워크북을 교실에서 효과적으로 활용하기 위한 단계별 안내입니다. 수업 전·중·후의 흐름은 모든 성취기준에 공통 적용됩니다.</p>
+  </div>
+
+  <div class="guide-grid">
+    <div class="guide-block">
+      <div class="stage">STAGE 01 · BEFORE</div>
+      <h3>수업 전 준비</h3>
+      <ul>
+        <li>성취기준 원문, 공식 탐구 활동, 성취수준 A–E 확인</li>
+        <li>예상 오개념과 사전 진단 질문 점검</li>
+        <li>시약·기구·MSDS·안전 장비·폐액 처리 기준 확인</li>
+        <li>학생 활동지, 계산지, 관찰표 사전 준비</li>
+        <li>학생부 기록 근거가 될 산출물 형식 결정</li>
+      </ul>
+    </div>
+    <div class="guide-block">
+      <div class="stage">STAGE 02 · DURING</div>
+      <h3>수업 중 운영</h3>
+      <ul>
+        <li>현상 제시 → 사전 개념 드러내는 발문</li>
+        <li>탐구 설계 시 변인·도구·시약·안전 조건 안내</li>
+        <li>자료를 표·그래프·반응식·입자 모형으로 표상</li>
+        <li>주장-증거-추론(CER) 구조로 결론 작성 지도</li>
+        <li>오개념 진단 후 즉시 피드백 후 수정 기회 제공</li>
+      </ul>
+    </div>
+    <div class="guide-block">
+      <div class="stage">STAGE 03 · AFTER</div>
+      <h3>수업 후 정리</h3>
+      <ul>
+        <li>학생 산출물, 피드백 후 수정본, 발화 메모 보존</li>
+        <li>관찰 증거를 학생부 기록 근거로 정리</li>
+        <li>심화탐구 주제 제시 및 후속 활동 안내</li>
+        <li>수행평가 루브릭(A–E)에 따른 채점</li>
+        <li>폐액·시약 정리 및 안전 일지 점검</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="theory-section">
+    <h3>학생부종합전형 대응 — 무엇을 어떻게 기록할 것인가</h3>
+    <p>대학이 화학 교과 세특에서 평가하는 핵심은 <b>입자 수준의 사고력, 정량 분석 능력, 실험 조작과 오차 해석의 신뢰성, 산업·진로로의 전이 사고</b>입니다. 본 워크북의 각 성취기준 페이지에는 이러한 평가 요소를 자연스럽게 드러낼 수 있는 활동이 설계되어 있습니다.</p>
+    <p><b>기록 시 유의사항</b>: 단순 활동 나열(“○○ 실험을 수행함”)이 아니라, <em>학생이 어떤 의문을 가지고 어떤 자료·계산·모형으로 어떤 결론을 도출했는지, 그리고 그 결론이 어떤 새로운 질문이나 진로 탐색으로 이어졌는지</em>를 구체적인 산출물 근거와 함께 기록하는 것이 권장됩니다.</p>
+  </div>
+
+  <div class="theory-section" style="margin-top:1rem">
+    <h3>2022 개정 일반선택 ‘화학’의 핵심 변경 사항</h3>
+    <p><b>영역 구조 재편</b>: 화학의 언어 · 물질의 구조와 성질 · 화학 평형 · 역동적인 화학 반응의 4개 영역. ‘원자의 세계’(오비탈·양자수·주기율) 단원이 일반선택에서 <b>완전히 삭제</b>되었고, 이전 화학Ⅱ에 있던 ‘화학 평형’이 일반선택으로 이동했습니다.</p>
+    <p><b>축소·이동된 내용</b>: 산화-환원 반응은 진로선택 ‘화학 반응의 세계’로 이동, 옥텟 규칙의 확장은 다루지 않으며 중심 원자는 2·3주기 전형 원소로 제한, 압력 평형 상수(Kp) 미도입, 중화 적정 곡선 미도입, 강산·강염기 중심으로만 운영합니다.</p>
+    <p><b>강조점</b>: 정량 계산보다 ‘몰·반응식·평형 상수·pH·중화’의 양적 관계가 입자 모형과 실험 결과로 어떻게 연결되는지를 강조하며, 화학의 사회적 유용성과 진로 연계를 명시적 학습 목표로 둡니다.</p>
+    <div class="ref">— 교육부 고시 제2022-33호 [별책9] 과학과 교육과정 및 한국화학회 해설 참조</div>
+  </div>
+
+  <div class="footer">
+    <div class="credit">충청남도교육청 · 진로진학 자료개발 워크북</div>
+    <div class="meta">v2.0 · 2022 REVISED CURRICULUM · GENERAL ELECTIVE CHEMISTRY</div>
+  </div>
+
+</section>
+
+</main>
+
+<script>
+/* ═══════════════════════════════════════════════
+   15개 성취기준 데이터 (2022 개정 별책9 기준)
+   각 항목은 성취기준 원문 · 공식 탐구 · CBI 흐름 ·
+   수업방법 · 활동지 · 평가 · 기록을 모두 포함
+   ═══════════════════════════════════════════════ */
+const DATA = [
+  /* ───────── 화학의 언어 ───────── */
+  {
+    code:"[12화학01-01]",
+    domain:"화학의 언어",
+    standard:"화학이 현대 과학⋅기술⋅사회의 발전에 기여한 사례를 조사⋅발표하며 화학에 흥미와 호기심을 가질 수 있다.",
+    official:[],
+    title:"화학은 현대 사회 문제를 어떻게 해결하는가",
+    type:"조사·발표형 · 과학기술사회형(STS)",
+    period:"1~2차시",
+    lens:"물질 이해와 사회 문제 해결",
+    concept:"화학의 사회적 유용성",
+    related:"화학기술, 물질의 구조·성질·반응, 지속가능성, 과학기술사회(STS), 녹색화학",
+    phenomenon:"의약품(코로나19 백신·항암제), 이차전지 양극재, 반도체 식각 공정 화학, 친환경 플라스틱(PLA·PHA), 정수 기술, 식품 보존 기술 등 화학이 삶의 문제를 해결한 사례",
+    conflict:"학생이 화학을 ‘위험한 약품을 다루는 학문’으로 이해하는 사전 개념을 드러내고, 위험성은 ‘물질 자체’보다 ‘농도·노출·관리’의 함수임을 사례로 재구성한다.",
+    general:"화학은 물질의 구조·성질·반응을 이해하고 조절함으로써 현대 과학·기술·사회 문제 해결에 기여하며, 그 기여는 편익과 위험이 함께 평가되어야 한다.",
+    studentGeneral:"화학은 위험한 물질을 다루는 학문이 아니라, 물질을 이해해 사회 문제를 해결하는 데 쓰이는 학문이다.",
+    questions:[
+      "화학이 현대 과학⋅기술⋅사회의 발전에 기여한 사례에는 무엇이 있는가?",
+      "화학 지식은 사회 문제 해결과 기술 혁신에 어떻게 연결되는가?",
+      "화학기술의 편익과 위험은 어떻게 균형 있게 평가해야 하는가?",
+      "지속가능한 사회를 위해 앞으로 어떤 화학기술이 필요하며, 나의 진로는 어디에 위치하는가?"
+    ],
+    products:["화학기술 사례 분석 발표 자료","‘물질 — 원리 — 사회 영향’ 연결도","편익·위험 비교표","진로 확장 질문지"],
+    evidence:[
+      "사례 속 ‘핵심 물질’과 ‘화학 원리’를 명확히 분리해 설명함",
+      "화학 원리와 사회적 영향을 인과 관계로 연결함",
+      "편익과 위험을 균형 있게 판단하고 출처의 신뢰도를 평가함",
+      "후속 탐구 질문 또는 진로 연결 질문을 제안함"
+    ],
+    data:"사례별로 ‘핵심 물질 — 화학 원리(구조·성질·반응) — 기술 기능 — 사회적 편익 — 위험 또는 한계 — 개선 방향’을 6열 표로 정리한다. 출처는 1차 자료(논문·정부 통계·전문 매체) 우선.",
+    calculation:"정량 계산보다 자료 출처의 신뢰도, 물질명·원리·기능 표현의 정확성, 사회 영향 근거의 일관성을 검토한다.",
+    misconception:"‘화학은 위험한 물질을 다루는 학문이다.’ ‘화학은 자연스러운 것의 반대다.’",
+    correction:"위험성은 물질 자체뿐 아니라 농도·노출·사용 맥락·관리 방법의 함수임을 사례 분석으로 보이고, ‘자연/인공’ 이분법을 ‘분자 수준에서 동일함’으로 교정한다(예: 비타민C의 자연·합성 동일성).",
+    failure:"발표가 ‘사회적 효과 나열’에 머물면 반드시 ‘물질명 / 구조·성질 또는 반응 / 기술 기능’을 한 줄씩 추가하게 한다.",
+    safety:"조사·발표형 수업이므로 실험 안전보다 출처 신뢰성, 과장 광고 구분, 자료 인용 윤리를 강조한다.",
+    career:"화학공학, 약학·신약 개발, 신소재공학, 환경화학, 반도체 소재, 이차전지, 과학커뮤니케이션, 정책 평가",
+    deepDive:"한국 반도체·이차전지 산업의 핵심 원료(전구체·전해질·식각 가스 등)를 1개 선정해 ‘화학 원리 — 공급망 — 지정학적 리스크’를 분석하는 산업-과학 융합 보고서 작성.",
+    sample:"코로나19 mRNA 백신의 핵심 성분인 지질 나노 입자(LNP)를 사례로 선정해, ‘이온화 가능 지질·콜레스테롤·PEG-지질’의 화학 구조와 ‘세포 내 mRNA 전달’이라는 기능을 1:1로 매핑한 분석 보고서를 작성함. 보존 온도(-70℃) 문제를 분자 안정성과 연결해 사회적 비용을 평가하고, 진로 질문으로 ‘제형 과학자(formulation scientist)’의 역할을 탐색함.",
+    tool:"화학-1 / 조사·발표 / 화학이 현대 과학·기술·사회의 발전에 기여한 사례 분석"
+  },
+  {
+    code:"[12화학01-02]",
+    domain:"화학의 언어",
+    standard:"다양한 단위를 몰로 환산할 수 있음을 이해하고, 물질의 양을 몰 단위로 표현할 수 있다.",
+    official:["다양한 물질의 몰질량을 탐색하고, 특정한 몰수에 해당하는 물질의 질량 측정하기"],
+    title:"보이지 않는 입자의 수를 어떻게 저울로 다룰까",
+    type:"정량 측정형 · 실험형",
+    period:"2차시",
+    lens:"미시(입자)와 거시(질량·부피)의 연결",
+    concept:"몰과 표준화된 화학 언어",
+    related:"몰(mol), 아보가드로수(6.022×10²³), 몰질량, 입자 수, 질량, 기체의 부피(STP·25℃ 1기압), 단위 환산",
+    phenomenon:"영양제 함량(mg vs mmol), 약품 조제, 실험실 시약 계량, 화학 제품 라벨, 식품 영양 성분표처럼 ‘보이지 않는 입자의 양’을 ‘질량’으로 다루는 사례",
+    conflict:"학생은 몰을 ‘질량의 한 종류’로 생각할 수 있다. 같은 1 mol이라도 물질마다 질량은 다르지만 입자 수는 같다는 점을 측정·계산으로 확인한다.",
+    general:"몰은 미시적 입자의 수를 거시적 질량·부피와 연결하는 화학의 ‘표준 언어’이며, 정량적 의사소통의 약속이다.",
+    studentGeneral:"몰은 질량 단위가 아니라 ‘입자 수를 세는 단위’이며, 몰질량을 이용하면 저울로 다룰 수 있다.",
+    questions:[
+      "몰은 무엇을 나타내는 단위인가(질량인가, 부피인가, 수인가)?",
+      "보이지 않는 입자의 양을 어떻게 측정 가능한 질량·부피로 표현할 수 있는가?",
+      "화학에서 몰은 ‘계산 도구’인가, ‘과학적 소통의 언어’인가?",
+      "의약품·식품 성분 함량 표시에서 몰 개념은 어떻게 활용되며, 왜 mg과 mmol을 함께 쓰는가?"
+    ],
+    products:["몰 환산 계산지","질량 측정 기록표(목표 — 측정 — 차이)","단위 변환 설명 카드","오차 원인 메모"],
+    evidence:[
+      "몰과 질량을 명확히 구분함",
+      "몰질량을 이용해 목표 질량을 정확히 계산함",
+      "계산값과 측정값의 차이를 정량적으로 분석함",
+      "단위(mol·g·g/mol)를 일관되게 표기함"
+    ],
+    data:"물질명, 화학식, 몰질량(g/mol), 목표 몰수(mol), 계산 질량(g), 실제 측정 질량(g), 차이(g), 차이율(%), 오차 원인을 표로 정리한다. 1 mol H₂O와 1 mol NaCl의 질량(18.0g vs 58.5g)이 입자 수는 같음을 비교 활동.",
+    calculation:"<b>목표 질량 = 목표 몰수 × 몰질량</b>. 단위(mol, g/mol, g)를 함께 표기해 단위 상쇄를 시각화. 입자 수 N = n × Nₐ로 미시 양과 거시 양의 다리를 확인.",
+    misconception:"‘몰은 질량 단위이다.’ ‘1 mol이면 모두 같은 무게다.’",
+    correction:"1 mol의 물(18g)과 1 mol의 염화 나트륨(58.5g)은 질량은 다르지만 입자 수가 6.022×10²³개로 같다는 측정·계산 비교로 교정한다.",
+    failure:"단위 환산 오류가 많으면 ‘몰수 × 몰질량 = 질량’의 빈칸형 계산표와 단위 상쇄 예시(mol × g/mol = g)를 제공한다.",
+    safety:"분말 시약은 흡입을 피하고 마스크를 권장한다. 식품 재료(설탕·소금)를 사용하더라도 실험실에서 다룬 물질은 절대 섭취하지 않는다.",
+    career:"약학·제약, 식품화학, 분석화학, 환경 시료 분석, 화학공정 계량, 영양학",
+    deepDive:"가정용 영양제(비타민C·칼슘 등) 라벨의 ‘mg’ 표기를 ‘mmol’로 환산해 ‘성인 권장량을 입자 수로 표현하면 얼마인가’를 분석하고, 권장량 결정 근거를 조사하는 보건-과학 융합 탐구.",
+    sample:"1 mol의 NaCl(58.5g)·물(18.0g)·포도당(180.2g)을 각각 ±0.01g 전자저울로 계량한 결과, NaCl과 물에서는 차이가 0.05g 이내였으나 포도당은 흡습성으로 +0.15g의 차이가 발생함을 보고함. ‘몰은 질량이 아니라 입자 수의 단위’임을 자기 언어로 정리하고, 비타민C 라벨의 1000mg을 5.68 mmol로 환산해 ‘권장량을 입자 수로 본다는 것의 의미’를 진로 질문으로 확장함.",
+    tool:"화학-2 / 선다형 / 물질의 부피와 질량을 몰로 환산하기"
+  },
+  {
+    code:"[12화학01-03]",
+    domain:"화학의 언어",
+    standard:"여러 가지 반응을 화학 반응식으로 나타내고, 화학 반응에서 물질의 양적 관계를 설명할 수 있다.",
+    official:["화학 반응에서의 양적 관계를 확인할 수 있는 실험을 계획하고 수행하기"],
+    title:"화학 반응식의 계수는 실제 양과 어떻게 연결되는가",
+    type:"실험 계획·정량 해석형",
+    period:"2~3차시",
+    lens:"기호 표현(반응식)과 실제 물질량(몰수비)의 연결",
+    concept:"화학 반응의 양적 관계",
+    related:"화학 반응식, 계수비, 입자 수비, 몰수비, 몰질량, 제한 반응물, 이론값, 실험값, 수율(yield)",
+    phenomenon:"베이킹소다와 식초의 반응(NaHCO₃ + CH₃COOH), 마그네슘과 염산 반응, 침전 생성 반응(AgNO₃ + NaCl), 기체 발생 반응처럼 반응 전 물질의 양이 생성물의 양을 결정하는 상황",
+    conflict:"학생은 계수를 ‘식을 맞추기 위한 숫자’로만 볼 수 있다. 계수비가 ‘입자 수비 = 몰수비’이며 생성물 양 예측에 직접 쓰인다는 점을 실험값과 비교해 발견하게 한다.",
+    general:"화학 반응식은 물질의 종류뿐 아니라 ‘반응물과 생성물 사이의 정량적 관계’를 표현하는 모형이며, 이는 산업의 수율과 비용을 결정한다.",
+    studentGeneral:"반응식의 계수는 실제 반응하는 입자 수비와 몰수비를 나타내므로 ‘얼마를 넣으면 얼마가 나오는지’ 예측할 수 있다.",
+    questions:[
+      "화학 반응식의 계수는 무엇을 의미하는가(질량비인가, 입자 수비인가)?",
+      "계수비는 실제 반응물·생성물의 양적 관계와 어떻게 연결되는가?",
+      "화학 반응식은 실제 반응의 복잡성(부반응·중간체)을 충분히 표현하는가?",
+      "산업 공정(암모니아 합성·연소·발효)에서 수율을 높이려면 반응식의 양적 관계를 어떻게 활용해야 하는가?"
+    ],
+    products:["반응식 해석 보고서","이론값-실험값 비교표","양적 관계 계산지","오차 분석 문장(CER)"],
+    evidence:[
+      "반응식을 균형 잡힌 형태로 완성함",
+      "계수비를 몰수비로 정확히 해석함",
+      "이론값과 실험값을 비교하고 수율을 계산함",
+      "측정 오차·부반응·반응 조건의 영향을 분리해 분석함"
+    ],
+    data:"반응식, 계수비, 반응물 몰수, 예상 생성물 양(이론값), 실험값, 차이, 오차율(%), 수율(%)을 표로 정리한다. 침전 질량·기체 부피·반응 전후 질량 변화 중 측정 가능한 지표를 선택.",
+    calculation:"<b>계수비 = 몰수비</b>로 해석. 몰수 = 질량 ÷ 몰질량. 이론량 = 반응물 몰수 × (생성물 계수/반응물 계수) × 생성물 몰질량. 오차율 = |실험값-이론값|/이론값 × 100%. 수율 = 실험값/이론값 × 100%.",
+    misconception:"‘계수는 단순히 식을 맞추기 위한 숫자이다.’ ‘계수가 질량비와 같다.’",
+    correction:"계수는 입자 수비이자 몰수비이므로 실제 양 예측에 쓰임을 계산과 실험으로 확인하고, 질량비는 ‘계수 × 몰질량’ 계산을 거쳐야 함을 명시.",
+    failure:"생성물 양 측정이 어려우면 ① 침전 질량(여과·건조), ② 발생 기체 부피(수상 치환), ③ 반응 전후 전체 질량 변화 중 가능한 지표로 바꿔 운영.",
+    safety:"기체 발생 반응은 절대 밀폐 용기에서 수행하지 않는다. 산·염기 농도를 묽게 하고, 발생 기체(CO₂·H₂)의 안전성과 환기를 확인. 보안경·장갑 필수.",
+    career:"화학공학(공정 설계), 제약 합성, 환경 정화 반응(촉매·중화), 연소공학, 식품 발효",
+    deepDive:"하버-보슈 암모니아 합성(N₂ + 3H₂ → 2NH₃)의 ‘이론적 양적 관계’와 ‘실제 산업 수율(~15-20%)’ 차이를 평형·온도·압력 관점에서 분석하고, 이 공정이 세계 인구 부양에 미친 영향을 조사하는 산업-역사 융합 탐구.",
+    sample:"마그네슘 리본 0.10g(0.00411 mol)을 묽은 염산과 반응시켜 발생한 수소 기체의 부피를 수상치환법으로 측정한 결과, 25℃ 1기압에서 이론값 100mL 대비 실험값 94mL로 수율 94%를 도출함. 손실분을 ‘기체 포집 시 누출·수증기 압력 보정 누락·표면 산화막’의 세 가지 원인으로 분리해 CER 구조로 보고서를 작성하고, 이를 산업 수율 개선 전략으로 확장함.",
+    tool:"화학-3 / 서·논술형 / 화학 반응식에서 물질의 양적 관계 해석하기"
+  },
+
+  /* ───────── 물질의 구조와 성질 ───────── */
+  {
+    code:"[12화학02-01]",
+    domain:"물질의 구조와 성질",
+    standard:"실험을 통해 화학 결합의 전기적 성질을 설명할 수 있다.",
+    official:["물의 전기 분해 실험하기"],
+    title:"전기 분해는 화학 결합의 어떤 성질을 보여 주는가",
+    type:"실험 증거 기반 탐구",
+    period:"2차시",
+    lens:"전자의 관여와 결합 변화",
+    concept:"화학 결합과 전자의 관여",
+    related:"전기 분해, 전자, 이온, 화학 결합, 물, 수소, 산소, 전극(+/-), 전해질",
+    phenomenon:"수전해 그린수소 생산, 연료전지, 물의 전기 분해 장치(호프만 전기분해기), 도금 공정",
+    conflict:"학생은 ‘전기가 물을 물리적으로 쪼갠다’고 생각할 수 있다. 전기 에너지가 ‘전자의 이동과 결합 변화’에 관여한다는 관점으로 전환한다.",
+    general:"화학 결합은 ‘전자의 관여’로 형성되며, 전기 분해는 결합의 본질을 드러내는 실험적 증거가 된다.",
+    studentGeneral:"물의 전기 분해는 ‘물이 수소와 산소의 결합으로 이루어졌고, 결합 변화에 전자가 관여한다’는 것을 보여 준다.",
+    questions:[
+      "물의 전기 분해에서 (+)극과 (-)극에서 각각 어떤 물질이 생성되는가?",
+      "전기 분해 결과는 ‘화학 결합에 전자가 관여한다’는 것을 어떻게 보여 주는가?",
+      "실험 관찰만으로 보이지 않는 ‘전자의 역할’을 충분히 설명할 수 있는가?",
+      "그린수소 생산 기술과 연료전지는 어떤 결합 변화로 작동하며, 탄소중립에 어떻게 기여하는가?"
+    ],
+    products:["전기 분해 실험 보고서","전극별 관찰표(부피·확인 방법)","입자 모형 설명도","안전 수칙 체크리스트"],
+    evidence:[
+      "(+)극·(-)극별 생성 기체를 부피·확인 방법으로 구분함",
+      "관찰 결과를 결합 변화(공유결합 → 원자/분자)와 연결함",
+      "전자의 이동을 입자 모형으로 표현함",
+      "실험 안전 수칙(보안경·환기·전원 관리)을 준수함"
+    ],
+    data:"전극(+/-), 관찰 변화, 생성 기체(O₂/H₂), 부피비(약 1:2), 확인 방법(꺼져가는 불씨/딱 소리), 결합 변화 해석을 표로 정리하고 물 분자 모형에 결합 변화·전자 관여를 화살표로 표시한다.",
+    calculation:"정량 부피비(수소:산소 = 2:1)를 비교하되, 주된 평가는 ‘결합의 전기적 성질 설명’에 둔다. 반응식 2H₂O → 2H₂ + O₂의 계수비와 관찰된 부피비를 연결.",
+    misconception:"‘전기는 물을 물리적으로 쪼갠다.’ ‘전류 자체가 수소와 산소다.’",
+    correction:"전자의 이동과 화학 결합의 끊김·생성으로 전기 분해를 설명하게 하고, ‘물질이 다른 물질로 변하는 화학 변화’임을 강조한다.",
+    failure:"기체 발생량이 적으면 ① 전극 접촉 상태, ② 전원 전압, ③ 전해질(NaOH 또는 Na₂SO₄) 농도, ④ 실험 시간을 순서대로 점검. 고전압 사용은 절대 금지.",
+    safety:"보안경·장갑 착용. 발생 기체(특히 H₂) 주변에 절대 불꽃을 가까이하지 않는다. 전원 장치는 저전압(9~12V)으로 운영하고, NaOH 등 전해질 취급 시 피부 접촉 주의. 폐액은 중화 후 처리.",
+    career:"수전해 그린수소 생산, 연료전지, 전기화학, 이차전지(전해액 개발), 에너지 저장 기술(ESS), 도금·표면처리",
+    deepDive:"국가별 그린수소 생산 전략(한국·독일·호주)을 ‘수전해 효율(에너지 소비량/생산 H₂)’ 관점에서 비교하고, 신재생 전기·고분자 전해질막(PEM)·고체 산화물(SOEC) 등 기술별 화학 원리와 한계를 분석.",
+    sample:"호프만 전기분해기에서 0.1M Na₂SO₄ 수용액에 9V 직류를 가해 (+)극에 O₂(약 12mL), (-)극에 H₂(약 24mL)를 포집하여 부피비 1:2를 확인하고, 반응식 2H₂O → 2H₂ + O₂의 계수비와 정확히 일치함을 보고함. ‘전기가 물을 쪼개는 것이 아니라 전자의 이동을 통해 O-H 결합이 끊어지고 새로운 결합이 생기는 것’임을 입자 모형으로 설명하고, 그린수소 생산 효율 문제를 진로 질문으로 확장함.",
+    tool:"화학-4 / 서·논술형 / 화학 결합이 형성될 때 전자가 관여한다는 것 설명하기"
+  },
+  {
+    code:"[12화학02-02]",
+    domain:"물질의 구조와 성질",
+    standard:"전기 음성도의 주기적 변화를 이해하고, 결합한 원소들의 전기 음성도 차이와 쌍극자 모멘트를 이용하여 결합의 극성을 판단할 수 있다.",
+    official:[],
+    title:"전기 음성도 차이로 결합의 극성을 판단할 수 있을까",
+    type:"자료 분석·판정형",
+    period:"1~2차시",
+    lens:"전자 끌림과 전하 분포",
+    concept:"전기 음성도와 결합의 극성",
+    related:"전기 음성도(Pauling 척도), 주기성, 극성 공유 결합, 무극성 공유 결합, 이온 결합, 쌍극자 모멘트, 부분 전하(δ⁺·δ⁻)",
+    phenomenon:"물과 기름이 섞이지 않는 현상, 극성 용매(물)·무극성 용매(헥세인)의 용해도 차이, 세정제(계면활성제)의 양친매성 작용, 약물의 친수성·소수성",
+    conflict:"학생은 ‘전기 음성도 차이만 알면 분자 전체의 극성을 판단할 수 있다’고 생각할 수 있다. ‘결합 극성’과 ‘분자 전체 극성(분자 구조 + 쌍극자 합)’을 분리해 판단하도록 한다.",
+    general:"결합의 극성은 결합한 원소들의 전기 음성도 차이와 전하 분포의 비대칭성으로 판단되며, 분자 전체의 극성은 결합 극성의 벡터적 합산에 따라 달라진다.",
+    studentGeneral:"전기 음성도 차이가 클수록 결합 전자가 한쪽으로 치우치며, 그 쌍극자의 방향과 분자 모양을 함께 보아야 분자 전체의 극성을 알 수 있다.",
+    questions:[
+      "전기 음성도는 무엇을 의미하며, 주기율표에서 어떻게 변하는가?",
+      "전기 음성도 차이는 결합의 전하 분포를 어떻게 예측하게 하는가?",
+      "결합의 극성을 ‘하나의 수치 기준(예: 1.7)’만으로 판단하는 것은 충분한가?",
+      "용매 선택, 약물 설계, 세정제·계면활성제 개발에서 결합 극성은 어떻게 활용되는가?"
+    ],
+    products:["전기 음성도 분석표(주기성 그래프)","결합 극성 판정표","쌍극자 방향 표시도","‘결합 극성 vs 분자 전체 극성’ 비교 메모"],
+    evidence:[
+      "주기율표에서 전기 음성도 경향(같은 주기·같은 족)을 정확히 해석함",
+      "결합별 전기 음성도 차이(Δχ)를 계산함",
+      "쌍극자 방향과 분자 모양을 함께 고려함",
+      "‘결합 극성’과 ‘분자 전체 극성’을 명확히 구분함(CO₂ vs H₂O 비교)"
+    ],
+    data:"결합(H-Cl, O-H, C=O, N-H 등), 원소별 전기 음성도, 차이 Δχ, 쌍극자 방향(화살표), 결합 극성(극성/무극성), 분자 모양, 분자 전체 극성(극성/무극성)을 표로 정리한다.",
+    calculation:"전기 음성도 차이 Δχ = |χA - χB|. 정량 수치에 얽매이지 않고 정성적 경향(작음/중간/큼) 해석에 집중. 쌍극자 모멘트는 정성적으로 다루며, ‘방향과 대칭성’이 핵심임을 강조.",
+    misconception:"‘전기 음성도 차이만 알면 분자 전체의 극성을 판단할 수 있다.’ ‘대칭 분자는 무조건 무극성이다(예외 없음)’.",
+    correction:"CO₂(C=O 결합은 극성, 분자는 직선형으로 대칭 → 무극성)와 H₂O(O-H 결합은 극성, 굽은형으로 비대칭 → 극성)를 비교하여 ‘결합 극성 ≠ 분자 극성’임을 보인다.",
+    failure:"수치 기준에만 의존하는 학생에게는 ‘결합 극성’과 ‘분자 전체 극성’을 별도 칸으로 분리한 활동지를 제공하고, 분자 모형 키트로 3D 구조를 직접 만들게 한다.",
+    safety:"자료 분석형 수업이므로 실험 안전 부담은 낮다. 데이터 출처(Pauling vs 다른 척도)와 수치 해석 기준의 일관성을 사전 확인.",
+    career:"신소재·고분자, 약물 분자 설계(drug design), 용매 선택(녹색화학), 표면화학·코팅, 화장품·향료",
+    deepDive:"의약품에서 ‘LogP(분배계수)’가 약물의 흡수·분포에 미치는 영향을 ‘분자의 극성·소수성 균형’ 관점에서 분석하고, 같은 약효를 가진 약물의 구조 변형 사례(예: 아스피린 → 살리실산)를 조사하는 약학-화학 융합 탐구.",
+    sample:"H-F, O-H, N-H, C-H, C-O 결합의 전기 음성도 차이를 계산해 극성 정도를 순위화하고, 이를 바탕으로 CO₂(직선형, 무극성)와 H₂O(굽은형, 극성)의 차이를 ‘결합 극성의 벡터적 합’으로 설명함. 이를 ‘물에 잘 녹는 약물(아스피린의 카복실기)’ 사례에 적용해 약물 설계에서 극성-구조 관계가 흡수율을 결정한다는 결론을 도출함.",
+    tool:"별도 예시 평가도구 없음 / 결합 극성 판정 형성평가로 운영"
+  },
+  {
+    code:"[12화학02-03]",
+    domain:"물질의 구조와 성질",
+    standard:"원자와 분자를 루이스 전자점식으로 표현하고, 전자쌍 반발 이론을 근거로 분자의 구조를 추론하여 모형으로 나타낼 수 있다.",
+    official:["소프트웨어를 활용하여 분자 구조 모델링하기"],
+    title:"전자점식은 어떻게 3차원 분자 구조로 이어지는가",
+    type:"모형화형 · 디지털 모델링형",
+    period:"2차시",
+    lens:"전자쌍 배치와 입체 구조",
+    concept:"전자쌍 반발 이론과 분자 구조",
+    related:"루이스 전자점식, 공유 전자쌍, 비공유 전자쌍, 전자쌍 반발 이론(VSEPR, 명시적 명칭은 교과서에 따라), 분자 구조(직선·굽은·삼각피라미드·정사면체), 옥텟 규칙",
+    phenomenon:"H₂O, CO₂, NH₃, CH₄의 구조 이미지 비교. 같은 ‘원자 5개’라도 NH₃(삼각피라미드)와 CH₄(정사면체)의 구조가 다른 현상.",
+    conflict:"학생은 ‘전자점식이 평면 그림이므로 실제 분자도 평면’이라고 생각할 수 있다. 전자쌍의 반발을 최소화하는 3차원 배치를 모델링으로 확인한다.",
+    general:"분자의 구조는 중심 원자 주변 전자쌍(공유·비공유)이 서로의 반발을 최소화하는 방향으로 형성된다.",
+    studentGeneral:"전자점식은 출발점이고, 공유 전자쌍과 비공유 전자쌍의 반발을 생각하면 분자의 3차원 모양을 예측할 수 있다.",
+    questions:[
+      "루이스 전자점식은 무엇을 어떻게 나타내는가?",
+      "전자점식만으로 분자의 입체 구조를 어떻게 예측할 수 있는가?",
+      "2차원 전자점식은 3차원 분자 구조를 충분히 표현할 수 있는가?",
+      "분자 구조 예측은 약물 설계·신소재·효소-기질 결합 연구에 어떻게 활용되는가?"
+    ],
+    products:["루이스 전자점식 작성지(H₂O·NH₃·CH₄·CO₂)","분자 구조 모델링 보고서","예측-검증 비교표","수정된 구조 모형(키트 또는 디지털)"],
+    evidence:[
+      "원자가 전자 수를 정확히 계산함",
+      "공유 전자쌍과 비공유 전자쌍을 구분함",
+      "전자쌍 반발 이론으로 구조를 예측함(직선·굽은·삼각피라미드·정사면체)",
+      "디지털 모델링 결과와 자신의 예측을 비교해 수정함"
+    ],
+    data:"분자식, 중심 원자, 원자가 전자 수, 총 전자쌍 수, 공유 전자쌍 수, 비공유 전자쌍 수, 예측 구조, 결합각(약 109.5°·107°·104.5° 등), 모델링 결과를 표로 정리.",
+    calculation:"총 원자가 전자 수 계산 → 결합 전자쌍과 비공유 전자쌍 배치 → 옥텟 규칙 확인. <b>중심 원자는 2·3주기 전형 원소(H·Be·B·C·N·O·F·Si·P·S·Cl)로 제한</b>하고, <b>옥텟 규칙의 확장(PF₅·SF₆ 등)은 다루지 않음</b>. 풍선 모양 비유 대신 전자점식과 디지털 모델링 중심.",
+    misconception:"‘전자점식은 평면 그림이므로 분자도 평면이다.’ ‘비공유 전자쌍은 분자 모양에 영향을 주지 않는다.’",
+    correction:"전자점식은 ‘전자 배치의 기호 표현’이고 실제 구조는 ‘전자쌍 반발을 최소화하는 3차원 배치’임을 분자 모델링으로 확인. 비공유 전자쌍이 결합각을 좁히는 효과(H₂O 104.5°, NH₃ 107°)도 보임.",
+    failure:"루이스 구조 작성이 어려우면 ① 총 원자가 전자 수 계산, ② 중심 원자 선택(전기 음성도 낮은 원자), ③ 결합쌍 배치, ④ 옥텟 확인의 4단계 체크리스트를 제공.",
+    safety:"디지털 모델링과 분자 모형 키트 중심 활동. 키트 사용 시 작은 부품 분실·파손, 어린이 삼킴 위험에 유의.",
+    career:"계산화학(computational chemistry), 약물 개발(분자 도킹), 분자 설계, 나노소재, 결정학",
+    deepDive:"신약 개발에서 ‘분자 도킹 시뮬레이션’이 효소-기질 결합을 예측하는 원리를 조사하고, 코로나19 항바이러스제(팍스로비드 등)의 활성 분자 구조와 표적 단백질의 결합을 무료 시각화 도구(PyMOL·Mol*)로 탐색하는 디지털 화학 융합 탐구.",
+    sample:"MolView·Avogadro 등 무료 분자 모델링 소프트웨어로 H₂O(굽은형, 104.5°), NH₃(삼각피라미드, 107°), CH₄(정사면체, 109.5°), CO₂(직선형, 180°)를 직접 그려보고, 비공유 전자쌍이 결합각에 미치는 영향을 정량적으로 비교함. 이를 코로나19 치료제 분자(니르마트렐비르)의 구조 탐색으로 확장해 ‘약물 설계의 기초가 전자쌍 반발 이론’임을 자기 언어로 정리함.",
+    tool:"화학-5 / 서·논술형 / 원자와 분자를 전자점식으로 표현하고, 분자 구조 예측하기"
+  },
+  {
+    code:"[12화학02-04]",
+    domain:"물질의 구조와 성질",
+    standard:"물질의 물리적, 화학적 성질을 분자의 구조와 연관 짓고, 이에 대한 호기심을 가질 수 있다.",
+    official:["소프트웨어를 활용하여 분자 구조 모델링하기"],
+    title:"분자 구조가 물질의 성질을 어떻게 바꾸는가",
+    type:"구조-성질 비교 탐구",
+    period:"2차시",
+    lens:"구조와 성질의 인과 관계",
+    concept:"분자 구조와 물질의 성질",
+    related:"분자 구조, 극성, 분자 간 상호작용(수소 결합·쌍극자-쌍극자·분산력), 끓는점, 녹는점, 용해성, 반응성, 물리적·화학적 성질",
+    phenomenon:"물(H₂O, bp 100℃)과 이산화 탄소(CO₂, 승화 -78℃)의 성질 차이, 에탄올(녹음)과 다이메틸에터(녹음 안 됨)의 물 용해도 차이, 메테인(기체)과 헥세인(액체)의 상태 차이, 세정제(양친매성)의 작용",
+    conflict:"학생은 ‘분자식이나 구성 원소가 비슷하면 성질도 비슷하다’고 생각할 수 있다. ‘구조 — 극성 — 분자 간 상호작용 — 성질’의 연결을 통해 차이를 설명한다.",
+    general:"물질의 성질은 ‘분자 구조 — 전하 분포 — 분자 간 상호작용’의 사슬에서 비롯되며, 구조 이해는 성질 예측으로 이어진다.",
+    studentGeneral:"분자식만으로 성질을 알 수 없고, 분자의 모양·극성·분자 사이 힘을 함께 보아야 성질을 설명할 수 있다.",
+    questions:[
+      "물질의 물리적 성질과 화학적 성질에는 무엇이 있는가?",
+      "왜 분자식이나 구성 원소가 비슷해도 성질은 달라질 수 있는가?",
+      "물질의 성질을 예측할 때 ‘구조’가 가장 중요한 요인인가, 아니면 다른 요인도 있는가?",
+      "신약·향료·세정제·친환경 용매 개발에서 구조-성질 관계는 어떻게 활용되는가?"
+    ],
+    products:["구조-성질 비교표(구조·극성·상호작용·물성)","분자 구조 모델","성질 예측 설명문","CER 글쓰기"],
+    evidence:[
+      "분자 구조(2D·3D)를 정확히 표현함",
+      "구조와 극성을 근거로 성질을 예측함",
+      "실제 물성 자료로 예측을 검증함",
+      "구조-성질 관계에 대한 호기심을 후속 질문으로 확장함"
+    ],
+    data:"물질명, 분자 구조, 극성, 분자 간 상호작용(수소결합 가능 여부 등), 끓는점, 녹는점, 물 용해성, 반응성, 성질 예측 근거를 비교표로 정리. H₂O–H₂S–H₂Se의 끓는점 경향 비교는 수소결합을 보여주는 좋은 사례.",
+    calculation:"정량 계산보다 ‘구조 자료(분자 모형) — 물성 자료(끓는점·용해도 표)’를 1:1 대응. 끓는점 경향을 분자량과 분자 간 상호작용 두 축으로 그래프화하면 명확해짐.",
+    misconception:"‘분자식이 비슷하면 성질도 비슷하다.’ ‘분자량이 크면 무조건 끓는점이 높다.’",
+    correction:"분자 구조·극성·분자 간 상호작용이 성질 차이를 만든다는 점을 사례별 자료로 연결. 특히 H₂O(bp 100℃) > H₂S(bp -60℃)의 ‘분자량 역전’을 수소결합으로 설명.",
+    failure:"성질 자료 해석이 산만해지면 ‘물리적 성질’과 ‘화학적 성질’을 분리한 비교표를 제공하고, 한 번에 한 가지 성질만 비교하게 함.",
+    safety:"물질 성질 비교 실험을 할 경우 인화성(에탄올·헥세인), 독성, 휘발성을 확인하고 환기 유지. 자료 분석으로 대체 가능.",
+    career:"신약 개발, 향료·화장품, 고분자 소재, 친환경 용매(녹색화학), 식품화학, 농약·비료 개발",
+    deepDive:"PET·PE·PLA·PHA 등 ‘플라스틱의 분자 구조’가 생분해성에 미치는 영향을 분석하고, 미세플라스틱 문제를 해결할 신소재의 설계 방향을 제안하는 환경-화학 융합 탐구.",
+    sample:"H₂O(bp 100℃)·H₂S(bp -60℃)·H₂Se(bp -41℃)의 끓는점을 분자량 순서와 비교한 결과 ‘분자량이 가장 작은 H₂O가 끓는점이 가장 높은 역전 현상’을 발견하고, 이를 ‘수소결합’으로 설명함. 같은 원리를 메탄올·에탄올의 끓는점 비교에 적용해 ‘작용기와 분자 간 상호작용이 물성을 결정한다’는 일반화를 자기 언어로 정리하고, 생분해성 플라스틱 PLA의 분자 구조 차이를 진로 질문으로 확장함.",
+    tool:"화학-6 / 선다형 / 물질의 분자 구조를 파악하여 물질의 성질 설명하기"
+  },
+
+  /* ───────── 화학 평형 ───────── */
+  {
+    code:"[12화학03-01]",
+    domain:"화학 평형",
+    standard:"가역 반응에서 나타나는 화학 평형 상태의 특징을 설명할 수 있다.",
+    official:[],
+    title:"평형은 반응이 멈춘 상태인가",
+    type:"현상 해석·모형화형",
+    period:"1~2차시",
+    lens:"거시적 일정성과 미시적 변화",
+    concept:"가역 반응과 동적 평형",
+    related:"가역 반응, 정반응, 역반응, 동적 평형, 거시적 일정성, 미시적 변화, 반응 속도",
+    phenomenon:"탄산음료 병을 열고 닫을 때의 변화(CO₂(g) ⇌ CO₂(aq)), NO₂-N₂O₄ 색 변화 평형, 포화 용액의 용해·석출이 동시에 일어나는 현상, 헤모글로빈의 산소 결합",
+    conflict:"학생은 ‘겉보기 변화가 멈추면 반응도 멈춘 것’이라고 생각할 수 있다. 미시적으로는 정반응과 역반응이 ‘같은 속도로 계속 일어나는 동적 상태’로 재구성한다.",
+    general:"화학 평형은 ‘반응이 멈춘 상태’가 아니라 ‘정반응과 역반응이 같은 속도로 일어나는 동적 상태’이다.",
+    studentGeneral:"평형에서는 겉으로는 변화가 없어 보여도 입자 수준에서는 반응이 양방향으로 계속 일어난다.",
+    questions:[
+      "가역 반응이란 무엇이며, 비가역 반응과 어떻게 다른가?",
+      "겉보기 변화가 멈춘 상태를 왜 ‘반응이 멈췄다’고 볼 수 없는가?",
+      "관찰 가능한 변화가 없으면 과학적으로 ‘변화 없음’으로 판단해도 되는가?",
+      "탄산음료·혈액의 산소 운반·암모니아 합성 산업 공정에서 동적 평형은 어떻게 나타나는가?"
+    ],
+    products:["동적 평형 모형(입자 그림 + 반응 속도 화살표)","거시 — 미시 비교도","평형 상태 설명문","모둠 토의 기록"],
+    evidence:[
+      "가역 반응을 정의하고 비가역과 구분함",
+      "거시적 일정성과 미시적 변화를 명확히 구분함",
+      "정반응·역반응 속도가 같아지는 시점을 모형화함",
+      "일상·생체 사례와 연결함"
+    ],
+    data:"시간에 따른 반응물·생성물 농도 변화와 정반응·역반응 속도 변화를 개념 그래프로 표현. 거시 관찰(색·부피·압력)과 미시 설명(분자 충돌·결합 형성·분해)을 비교표로 정리.",
+    calculation:"정량 계산보다 그래프의 ‘농도 일정 구간’과 ‘속도가 만나는 구간’ 해석에 중점. 농도 값이 주어지면 ‘시간이 지나 일정해지는 구간 = 평형 상태’로 해석.",
+    misconception:"‘평형은 반응이 정지한 상태이다.’ ‘평형에서 반응물과 생성물의 양이 같다.’",
+    correction:"동적 평형은 ‘속도가 같은 상태’이지 ‘양이 같은 상태’가 아님을 농도 그래프로 보임. 평형은 ‘동적 균형’임을 입자 모형(들어오고 나가는 속도가 같은 물탱크 비유)으로 설명.",
+    failure:"색 변화나 관찰이 약하면 실제 실험보다 시뮬레이션(PhET ‘Reactions & Rates’), 입자 모형 카드, 농도 변화 그래프 자료를 사용.",
+    safety:"자료·모형 수업으로 운영하면 안전 부담이 낮음. 실제 평형 실험(NO₂·CrO₄²⁻/Cr₂O₇²⁻)은 시약 농도·환기·폐액 처리 기준 확인.",
+    career:"생화학(효소 반응·헤모글로빈), 화학공정(암모니아·황산 합성), 대기화학(오존·CO₂), 식품 탄산화",
+    deepDive:"인체의 ‘CO₂-혈액 완충 평형’(CO₂ + H₂O ⇌ H⁺ + HCO₃⁻)이 운동·과호흡·산성증에서 어떻게 작동하는지 조사하고, 평형 이동 관점에서 응급 처치 원리를 분석하는 의학-화학 융합 탐구.",
+    sample:"탄산음료 병의 마개 닫힘/열림 상태에서 CO₂(g) ⇌ CO₂(aq)의 평형 이동을 관찰하고, ‘마개를 닫은 상태’에서 거시적으로 변화가 없지만 미시적으로는 기체 분자가 끊임없이 용액 안팎으로 드나든다는 점을 입자 모형으로 설명함. 이를 헤모글로빈의 O₂ 결합 평형에 적용해 ‘운동 중 근육 조직에서 평형이 어떻게 이동해 산소가 공급되는가’를 분석함.",
+    tool:"화학-7 / 서·논술형 / 화학 평형의 겉보기 특징과 동적 평형 상태 설명하기"
+  },
+  {
+    code:"[12화학03-02]",
+    domain:"화학 평형",
+    standard:"화학 반응에서 반응물과 생성물의 농도 자료를 통해 평형 상수의 의미를 설명할 수 있다.",
+    official:["자료 해석을 통해 화학 평형에서 농도비의 규칙성을 찾는 탐구하기"],
+    title:"평형 농도 자료에서 어떤 규칙성을 찾을 수 있는가",
+    type:"자료 해석·정량 계산형",
+    period:"2차시",
+    lens:"농도비와 정량적 규칙성",
+    concept:"평형 상수(K)와 농도비",
+    related:"반응물 농도, 생성물 농도, 농도비, 평형 상수(Kc), 반응식 계수, 평형 상태",
+    phenomenon:"같은 반응이 여러 초기 농도 조건에서 평형에 도달했을 때 농도값은 다르지만 ‘특정 농도비’가 일정하게 나타나는 자료를 제시(예: H₂ + I₂ ⇌ 2HI의 평형 자료).",
+    conflict:"학생은 평형 상수를 ‘농도의 단순 합 또는 차이’로 오해할 수 있다. 반응식 계수를 ‘지수’로 반영한 농도비가 일정함을 자료 계산으로 발견한다.",
+    general:"평형 상수는 평형 상태에서 ‘반응식 계수를 반영한 반응물과 생성물의 농도 관계’를 나타내는 정량적 지표이며, 온도가 일정할 때 일정하다.",
+    studentGeneral:"평형 상태의 농도 자료를 반응식에 맞게 비율로 계산하면 일정한 값(K)을 얻을 수 있다.",
+    questions:[
+      "평형 상수는 어떤 농도값을 어떤 방식으로 계산하는가?",
+      "여러 평형 자료에서 왜 일정한 K값이 나타나는가?",
+      "평형 상수 하나로 반응의 성격(완결성·선택성)을 충분히 설명할 수 있는가?",
+      "산업 공정에서 수율을 예측하거나 조절할 때 평형 상수는 어떻게 활용되는가?"
+    ],
+    products:["평형 상수 계산표(자료별 K)","농도비 규칙성 그래프","K값 해석 보고서","자료 해석 발표 자료"],
+    evidence:[
+      "평형 상수식(Kc 표현)을 작성함",
+      "농도 자료에서 계수를 지수로 반영해 K를 계산함",
+      "여러 자료에서 K값의 일관성을 확인함",
+      "K값의 크기로 반응의 진행 정도(반응물·생성물 우세)를 해석함"
+    ],
+    data:"자료 번호, 초기 농도, 평형 농도, 평형 상수식, 계산한 K값, 해석을 표로 정리. 자료별 K값의 일관성을 그래프(자료번호 vs K)로 시각화. <b>몰 농도 기반 Kc만 다루고, 압력 평형 상수 Kp는 도입하지 않음.</b>",
+    calculation:"<b>Kc = [생성물]^계수 / [반응물]^계수</b>. 반응식 계수를 ‘지수’로 반영하는 것이 핵심. K > 1이면 생성물 우세, K < 1이면 반응물 우세로 해석. 자료 3~4개에서 K값이 일정함을 직접 계산.",
+    misconception:"‘평형 상수는 농도의 단순 합 또는 차이다.’ ‘K가 크면 반응이 빠르다.’",
+    correction:"K는 ‘반응식 계수를 지수로 반영한 농도비’이며, K의 크기는 ‘반응의 도달점(얼마나 진행되는가)’을 알려주지 ‘속도’를 알려주지는 않음을 명시.",
+    failure:"지수와 계수 연결에서 오류가 많으면 ‘반응식 계수’와 ‘K식 지수’를 같은 색으로 연결한 빈칸형 활동지를 제공.",
+    safety:"자료 해석형 수업으로 운영 가능. 실제 실험과 연결할 경우 시약 농도·환기·폐액 기준 확인.",
+    career:"화학공정 최적화, 환경화학(오염물질 분해 평형), 생화학 평형(효소·완충), 공정 수율 분석",
+    deepDive:"하버-보슈 암모니아 합성(N₂ + 3H₂ ⇌ 2NH₃)의 K값이 온도에 따라 어떻게 변하는지 조사하고, 산업에서 ‘낮은 온도(K 큼)와 빠른 속도’ 사이의 절충(약 400-500℃, 200-300기압)을 어떻게 결정하는지 분석하는 산업화학 융합 탐구.",
+    sample:"H₂ + I₂ ⇌ 2HI 반응의 평형 자료 4개에서 K = [HI]²/([H₂][I₂])를 계산해 각각 53.5, 53.8, 54.1, 53.9로 일정함을 확인하고, ‘계수가 K의 지수가 되는 이유’를 자기 언어로 정리함. 이를 N₂ + 3H₂ ⇌ 2NH₃ 산업 공정에 적용해 K값의 온도 의존성과 ‘저온일수록 K는 크지만 속도는 느려져 산업적으로는 절충이 필요함’을 진로 질문으로 확장함.",
+    tool:"별도 예시 평가도구 없음 / 농도비 규칙성 자료해석 과제로 운영"
+  },
+  {
+    code:"[12화학03-03]",
+    domain:"화학 평형",
+    standard:"반응 지수의 의미를 알고, 이를 평형 상수와 비교하여 반응의 진행 방향을 예측할 수 있다.",
+    official:["자료 해석을 통해 화학 평형에서 농도비의 규칙성을 찾는 탐구하기"],
+    title:"현재 농도만 보고 반응 방향을 예측할 수 있을까",
+    type:"예측·판단형",
+    period:"1~2차시",
+    lens:"현재 상태와 평형 도달 방향",
+    concept:"반응 지수(Q)와 진행 방향 예측",
+    related:"반응 지수 Q, 평형 상수 K, 현재 농도, 정반응, 역반응, 평형 도달",
+    phenomenon:"평형에 도달하지 않은 혼합물의 현재 농도 자료를 제시하고, ‘이후 반응이 어느 방향으로 진행될지’ 예측하게 한다(예: 초기 농도가 평형보다 반응물이 많은 경우 vs 생성물이 많은 경우).",
+    conflict:"학생은 ‘Q는 반응 속도다’ 또는 ‘Q와 K는 같다’고 오해할 수 있다. Q는 ‘현재 상태의 지표’이며 K와의 비교가 ‘방향 판단’의 도구임을 이해한다.",
+    general:"반응 지수(Q)와 평형 상수(K)의 비교는 반응이 ‘평형에 도달하기 위해 어느 방향으로 진행될지’를 예측하게 한다.",
+    studentGeneral:"현재 농도로 계산한 Q를 K와 비교하면 반응이 정반응 쪽인지 역반응 쪽인지 예측할 수 있다.",
+    questions:[
+      "반응 지수 Q는 무엇을 어떻게 나타내는가?",
+      "Q와 K를 비교하면 왜 반응 진행 방향을 예측할 수 있는가?",
+      "농도 자료만으로 실제 반응의 진행 속도까지 예측할 수 있는가?",
+      "공정 제어·환경 모니터링에서 ‘현재 반응 상태’를 판단할 때 Q-K 비교는 어떻게 활용되는가?"
+    ],
+    products:["Q-K 비교 분석지","진행 방향 예측 보고서","예측 근거 발표 자료","오답 수정 기록"],
+    evidence:[
+      "반응 지수식을 K식과 동일한 형태로 작성함",
+      "현재 농도로 Q값을 계산함",
+      "Q와 K의 대소를 비교해 방향을 정확히 예측함",
+      "예측 근거를 자기 언어로 설명함"
+    ],
+    data:"현재 농도, Q값, K값, Q와 K의 대소 관계(Q<K, Q=K, Q>K), 예상 진행 방향(→ / ← / 평형), 근거 문장을 표로 정리.",
+    calculation:"<b>Q는 K식과 동일한 형태에 ‘현재 농도’ 대입</b>. <b>Q < K → 정반응 방향, Q > K → 역반응 방향, Q = K → 평형 상태</b>. 화살표 보조자료로 직관화.",
+    misconception:"‘Q가 크면 반응이 빠르다.’ ‘Q와 K는 본질적으로 같다.’",
+    correction:"Q는 ‘속도가 아니라 현재 농도 상태의 지표’이며, K와 비교할 때만 ‘평형 도달 방향’을 알 수 있음을 강조. Q는 시간이 지나면 K로 수렴함을 그래프로 확인.",
+    failure:"방향 판단을 반대로 하는 학생에게는 ‘생성물 농도비가 평형 농도비보다 큰가/작은가’를 묻는 단계별 화살표 보조자료를 사용.",
+    safety:"계산·자료 해석 중심 활동. 실제 실험과 연결할 경우 반응물 독성·농도·폐액 기준 확인.",
+    career:"화학공정 제어, 반응 조건 진단, 생화학 평형(체내 산-염기 균형), 대기 오염 반응(NOx 평형)",
+    deepDive:"황산 산업(SO₂ + ½O₂ ⇌ SO₃)에서 ‘공정 중간 점검’ 시 Q-K 비교를 통해 다음 단계(촉매·온도·압력 조정)를 결정하는 사례를 조사하고, 실시간 모니터링과 데이터 분석이 화학공정에 미치는 영향을 분석.",
+    sample:"H₂ + I₂ ⇌ 2HI 반응(K=54)에서 ‘[HI]=0.5M, [H₂]=0.1M, [I₂]=0.1M’인 경우 Q=25로 계산해 Q<K이므로 정반응 진행을 예측하고, 1분 후 농도 변화 자료로 예측을 검증함. 이를 황산 산업의 SO₃ 생산 공정에 적용해 ‘공정 중간에 Q를 실시간 측정하면 어떤 조작(촉매·온도·압력)이 필요한지 알 수 있다’는 사례로 확장해 분석함.",
+    tool:"화학-8 / 서·논술형 / 반응 지수와 평형 상수를 비교하여 진행 방향 예측하기"
+  },
+  {
+    code:"[12화학03-04]",
+    domain:"화학 평형",
+    standard:"농도, 압력, 온도 변화에 따른 화학 평형의 이동을 이해하고, 이를 일상생활 속 현상을 설명하는 데 적용하여 화학의 유용함을 느낄 수 있다.",
+    official:["농도, 압력, 온도 변화에 따른 화학 평형 이동 실험하기"],
+    title:"평형계는 조건 변화에 어떻게 대응하는가",
+    type:"실험형 · 전이 적용형",
+    period:"2~3차시",
+    lens:"조건 변화와 새로운 평형",
+    concept:"평형 이동(르샤틀리에 원리)",
+    related:"농도, 압력, 온도, 평형 이동, 르샤틀리에 원리, 일상 현상, 산업 공정, 발열·흡열 반응",
+    phenomenon:"탄산음료(CO₂ 평형), 혈액의 산소 운반(헤모글로빈-O₂ 평형), 암모니아 합성(고압·저온), 온도 변화에 따른 NO₂-N₂O₄ 색 변화, 고산지대 적응(헤모글로빈 농도 증가)",
+    conflict:"학생은 ‘평형 이동’을 ‘반응이 한쪽으로 완전히 끝나는 것’으로 생각할 수 있다. ‘조건 변화 후 새로운 평형으로 재조정되는 과정’으로 설명한다.",
+    general:"평형계는 외부 조건 변화에 ‘그 변화를 줄이는 방향’으로 이동하여 새로운 평형 상태에 도달하며, 이 원리는 일상·생체·산업 현상 해석에 폭넓게 활용된다.",
+    studentGeneral:"평형계는 조건이 바뀌면 그 변화를 줄이는 방향으로 이동해 새로운 평형에 도달한다.",
+    questions:[
+      "화학 평형에 영향을 주는 조건에는 무엇이 있는가(농도·압력·온도)?",
+      "조건 변화에 따라 평형계는 왜 특정 방향으로 이동하는가(르샤틀리에 원리)?",
+      "평형 이동 원리는 일상생활 문제 해결에 실제로 유용한가?",
+      "탄산음료·고산지대 산소 운반·암모니아 합성 공정·해양 산성화는 평형 이동으로 어떻게 설명되는가?"
+    ],
+    products:["평형 이동 실험 보고서","조건 변화 — 예측 — 관찰 — 해석 비교표","일상·산업 사례 분석 발표","평형 이동 개념도(화살표)"],
+    evidence:[
+      "조건 변화에 따른 이동 방향을 르샤틀리에 원리로 예측함",
+      "실험 또는 시뮬레이션 결과와 비교 검증함",
+      "‘새로운 평형 상태’를 설명함(완결이 아니라 재조정)",
+      "일상·생체·산업 사례에 적용함"
+    ],
+    data:"조건 변화(농도↑, 압력↑, 온도↑/↓), 예측 이동 방향, 관찰 결과(색·부피·기체 발생), 해석(르샤틀리에), 일상 적용을 표로 정리. CrO₄²⁻/Cr₂O₇²⁻ 색 변화, NO₂-N₂O₄ 온도 실험 등 활용.",
+    calculation:"정량 계산보다 농도·압력·온도 변화에 따른 정성적 이동 방향 예측에 집중. 발열 반응(역반응 흡열) vs 흡열 반응(역반응 발열)에서 온도 변화 효과를 구분.",
+    misconception:"‘평형 이동은 반응이 한쪽으로 완전히 끝나는 것이다.’ ‘촉매는 평형을 이동시킨다.’",
+    correction:"평형 이동은 ‘새로운 평형 상태로의 재조정’이며 반응물·생성물이 여전히 공존함을 설명. 촉매는 평형 도달 속도만 빠르게 할 뿐 K값과 평형 위치는 바꾸지 않음을 명시.",
+    failure:"색 변화가 약하면 ① 농도·온도 변화 폭, ② 관찰 배경색(흰 종이), ③ 조도 조건을 조정. 압력 변화 실험은 시뮬레이션으로 대체.",
+    safety:"온도 변화 실험은 화상 주의(뜨거운 물·얼음물). 산·염기, 크롬산염 시약은 보호구 착용·환기·지정 폐액 처리.",
+    career:"화학공정(암모니아·황산·메탄올 합성), 환경화학(해양 산성화·대기 평형), 생화학(생체 완충), 기후-해양 탄산 평형",
+    deepDive:"해양 산성화(대기 CO₂ 증가 → 해수 H₂CO₃ 평형 이동 → pH 감소 → 산호 백화)를 평형 이동 관점에서 분석하고, 탄소중립 정책과 연결해 화학적 해결책을 제안하는 환경-화학 융합 탐구.",
+    sample:"CrO₄²⁻(노란색) ⇌ Cr₂O₇²⁻(주황색) 평형계에서 산을 첨가하면 주황색으로, 염기를 첨가하면 노란색으로 변하는 것을 관찰하고, 이를 르샤틀리에 원리로 설명함. 이어 ‘대기 CO₂ 증가 → 해수 CO₂(aq) 증가 → H₂CO₃ ⇌ H⁺ + HCO₃⁻ 평형 이동 → 해양 pH 감소’의 사슬을 추적해 해양 산성화 문제를 화학 평형 관점에서 분석한 보고서를 작성함.",
+    tool:"화학-9 / 서·논술형 / 일상생활 속 현상에서 화학 평형의 이동 설명하고 예측하기"
+  },
+
+  /* ───────── 역동적인 화학 반응 ───────── */
+  {
+    code:"[12화학04-01]",
+    domain:"역동적인 화학 반응",
+    standard:"물의 자동 이온화와 물의 이온화 상수를 이해하고, 수소 이온의 농도를 pH로 표현할 수 있다.",
+    official:["강산이나 강염기 희석 시 몰 농도에 따른 pH 데이터를 수집하여 그래프로 표현하고 해석하기"],
+    title:"pH 1 차이는 실제로 얼마나 큰 차이인가",
+    type:"데이터 수집·그래프 해석형",
+    period:"2차시",
+    lens:"로그 척도와 농도 표현",
+    concept:"물의 자동 이온화와 pH",
+    related:"물의 자동 이온화, 물의 이온화 상수(Kw=1.0×10⁻¹⁴), 수소 이온 농도 [H⁺], pH = -log[H⁺], 로그 척도, 희석",
+    phenomenon:"pH 시험지·pH 미터, 위산(pH 1.5-3.5), 수질 검사, 화장품 pH 표시, 음료 산도, 비누(pH 9-10)",
+    conflict:"학생은 ‘pH 1 차이를 작은 차이’로 생각할 수 있다. 희석 자료와 그래프로 ‘pH = -log[H⁺]’이라는 로그 표현의 의미(pH 1 차이 = 농도 10배 차이)를 확인한다.",
+    general:"pH는 수소 이온 농도를 ‘로그 척도’로 간결하게 표현하는 척도이며, 용액의 산성·염기성 정도를 정량적으로 비교할 수 있게 한다.",
+    studentGeneral:"pH가 1 차이 나면 수소 이온 농도는 10배 차이가 난다.",
+    questions:[
+      "pH는 무엇을 어떻게 나타내는 값인가(왜 로그를 쓰는가)?",
+      "pH 1 차이는 수소 이온 농도에서 어떤 의미를 갖는가?",
+      "pH만으로 용액의 화학적 위험성을 충분히 판단할 수 있는가(농도와 부식성)?",
+      "수질·식품·화장품·생체 항상성에서 pH 관리는 왜 중요하며, pH가 조금만 변해도 큰 문제가 되는 이유는?"
+    ],
+    products:["pH-농도 그래프(로그 vs 선형 비교)","희석 데이터 해석 보고서","측정값-이론값 비교표","오차 분석 문장(CER)"],
+    evidence:[
+      "강산·강염기 희석 데이터를 정확히 수집함",
+      "몰 농도와 pH의 관계를 그래프로 시각화함",
+      "로그 관계(pH 1 차이 = 농도 10배 차이)를 해석함",
+      "측정값과 이론값 차이를 분석함"
+    ],
+    data:"희석 배율(1·10·100·1000배), 몰 농도, pH 이론값, pH 측정값, 차이, 해석을 표로 정리. 농도-pH 그래프를 ① 선형 vs ② 로그 두 가지로 그려 비교.",
+    calculation:"<b>pH = -log[H⁺]</b>의 정성·기초 계산 수준. 10배 희석에 따른 pH 변화 경향(강산은 pH 1씩 증가, 단 pH 6 이상에서는 물의 자동 이온화 영향으로 7에 수렴)을 그래프로 해석. 물의 이온화 상수 Kw = [H⁺][OH⁻] = 1.0×10⁻¹⁴(25℃).",
+    misconception:"‘pH가 1 낮아지면 산성이 조금 강해진다.’ ‘pH가 0보다 작거나 14보다 크면 안 된다.’",
+    correction:"pH 1 차이 = 농도 10배 차이를 계산과 그래프로 확인. 강한 산(예: 1M HCl)의 pH는 0이며, 더 진한 산은 pH < 0도 가능함을 보임.",
+    failure:"pH 시험지 해상도가 낮으면 pH 센서·디지털 pH 미터 또는 교사 제공 데이터를 사용. 고농도 강산·강염기는 0.1M 이하 저농도 자료로 대체.",
+    safety:"산·염기 희석은 ‘산을 물에 천천히 넣기(AAA 규칙: Always Add Acid)’ 원칙. 보호구 착용, 저농도(0.1M 이하) 운영. 폐액은 산·염기 폐액 분리 처리.",
+    career:"수질 분석, 식품 산도 관리, 의약품 용액(IV 용액), 화장품 pH(피부 5.5), 생체 항상성(혈액 pH 7.4±0.05)",
+    deepDive:"인체 혈액의 pH가 7.35-7.45 범위로 엄격히 조절되는 이유와 그 범위를 벗어났을 때(산성증·알칼리증)의 응급 상황을 ‘완충 작용·신장·폐의 보상 작용’으로 분석하는 의학-화학 융합 탐구.",
+    sample:"0.1M HCl 용액을 10배씩 5단계로 희석해 pH 미터로 측정한 결과, pH가 1.0 → 2.0 → 3.0 → 4.0 → 5.0 → 6.0으로 순차 증가하다가 마지막 단계에서 6.8 정도로 7에 수렴하는 현상을 관찰함. 이를 ‘물의 자동 이온화의 영향이 강산의 [H⁺] 기여보다 커지는 경계’로 설명하고, 혈액 pH 변화가 0.1만 일어나도 의식 저하·경련이 일어나는 이유를 진로 질문으로 확장함.",
+    tool:"화학-10 / 서·논술형 / 용액의 액성에 따른 pH와 수소 이온 농도와의 상관관계 이해하기"
+  },
+  {
+    code:"[12화학04-02]",
+    domain:"역동적인 화학 반응",
+    standard:"몰 농도의 의미를 이해하고, 원하는 몰 농도의 용액을 만들 수 있다.",
+    official:["적절한 실험 도구를 사용하여 표준 용액 만들기"],
+    title:"원하는 농도의 용액을 정확히 만들려면 무엇을 측정해야 하는가",
+    type:"정량 조제·오차 분석형",
+    period:"2차시",
+    lens:"정량 조제와 신뢰도",
+    concept:"몰 농도와 표준 용액 제조",
+    related:"몰 농도(M = mol/L), 용질, 용액(용질+용매), 최종 부피, 부피 플라스크, 표준 용액, 정량 조제",
+    phenomenon:"병원 수액(생리식염수 0.9%·약 0.15M NaCl), 표준 용액(분석 기준), 실험실 시약 제조, 환경 시료 분석에서 농도 정확도가 결정적인 사례",
+    conflict:"학생은 ‘용질을 물에 넣고 물의 부피를 맞추면 된다’고 생각할 수 있다. ‘농도 기준은 최종 용액 부피’이며, ‘용질 + 용매의 부피 ≠ 용질 부피 + 용매 부피’임을 실험으로 확인.",
+    general:"몰 농도는 ‘용액 속 용질의 양을 부피와 연결하는 정량적 표현’이며, 정확한 용액 제조의 표준 기준이다.",
+    studentGeneral:"원하는 농도의 용액을 만들려면 필요한 용질의 몰수·질량을 계산하고, ‘최종 용액의 부피’를 부피 플라스크로 정확히 맞춰야 한다.",
+    questions:[
+      "몰 농도는 어떻게 정의되는가(분모는 용매 부피인가, 용액 부피인가)?",
+      "원하는 농도의 용액을 만들려면 무엇을 얼마나 정확히 측정해야 하는가?",
+      "정확한 용액 제조에서 ‘계산 능력’과 ‘실험 조작 능력’ 중 무엇이 더 결정적인가?",
+      "환경 분석·의약품 조제·식품 산업에서 표준 용액의 정확도는 왜 그토록 중요한가?"
+    ],
+    products:["표준 용액 제조 계획서","몰 농도 계산지","용액 제조 과정 체크리스트(8단계)","오차 원인 분석표"],
+    evidence:[
+      "목표 농도와 최종 부피를 설정함",
+      "필요한 용질 질량을 정확히 계산함(M × V × 몰질량)",
+      "기구(부피 플라스크·전자저울·세척병)를 적절히 선택함",
+      "표선 맞춤·정량 옮김·반복 세척의 의미를 설명함"
+    ],
+    data:"목표 농도(M), 최종 부피(L), 필요한 몰수(mol), 필요한 질량(g), 실제 측정 질량(g), 제조 절차, 오차 원인을 표로 정리. 부피 플라스크의 ‘표선’의 의미와 메니스커스 읽는 법을 그림으로 설명.",
+    calculation:"<b>필요 몰수 n = M × V(L), 필요한 질량 m = n × 몰질량</b>. <b>‘최종 부피는 용액 전체 부피’이지 ‘물의 부피’가 아님</b>을 명시. 예: 0.1M NaCl 100mL → 5.85mg NaCl을 증류수에 녹여 ‘부피 플라스크 100mL 표선까지’ 채움.",
+    misconception:"‘용질을 100mL 물에 넣으면 0.1M이 된다(틀림)’. ‘최종 부피는 물의 부피로 정한다.’",
+    correction:"몰 농도는 ‘최종 용액 부피 기준’이며, 부피 플라스크의 표선 맞춤이 농도 정확도를 결정함을 실제 제조 과정에서 확인.",
+    failure:"용질이 완전히 녹지 않으면 ① 소량의 증류수로 먼저 비커에서 녹인 뒤 ② 부피 플라스크로 정량 이동 ③ 비커·깔때기를 증류수로 3회 반복 세척해 손실 방지.",
+    safety:"시약의 독성·흡습성·부식성을 MSDS로 확인. 보안경·장갑 착용. 부피 플라스크 파손 시 즉시 정리. 남은 용액은 지정된 폐액통에 처리.",
+    career:"분석화학, 의약품 조제(약사·약학연구원), 환경 시료 전처리, 식품 품질 관리, 임상 검사",
+    deepDive:"의약품 용량의 ‘유효 농도 범위(therapeutic window)’가 좁은 약물(예: 디곡신·와파린)의 조제에서 표준 용액 정확도가 환자 생명에 미치는 영향을 조사하고, 약물 농도 모니터링(TDM) 원리를 분석.",
+    sample:"0.100M NaOH 100mL 표준 용액 제조에서 NaOH 0.400g을 정량(±0.001g) 측정해 부피 플라스크 100mL 표선까지 맞춘 후, 적정으로 실제 농도를 확인한 결과 0.0987M로 ±1.3% 오차를 얻음. 오차 원인을 ‘NaOH의 흡습성·CO₂ 흡수·표선 메니스커스 읽기’의 세 가지로 분리해 분석하고, 정확도가 환자 생명에 직결되는 디곡신 조제 사례로 진로를 확장함.",
+    tool:"별도 예시 평가도구 없음 / 표준 용액 제조 수행평가로 운영"
+  },
+  {
+    code:"[12화학04-03]",
+    domain:"역동적인 화학 반응",
+    standard:"중화 반응을 이해하고, 중화 반응에서의 양적 관계를 설명할 수 있다.",
+    official:[],
+    title:"중화 반응에서 ‘같은 부피’와 ‘같은 양’은 같은 뜻인가",
+    type:"모형화 · 양적 관계 해석형",
+    period:"2차시",
+    lens:"이온 반응과 몰수비",
+    concept:"중화 반응의 양적 관계",
+    related:"산(H⁺), 염기(OH⁻), 수소 이온, 수산화 이온, 물, 몰수비, 알짜 이온 반응식, 강산, 강염기, 구경꾼 이온",
+    phenomenon:"제산제(위산 중화), 폐수 중화 처리, 산성 토양 중화(석회 살포), 벌침 응급 처치(약염기), 음식의 신맛 중화",
+    conflict:"학생은 ‘같은 부피의 산과 염기를 섞으면 항상 중화된다’고 생각할 수 있다. ‘농도 × 부피 = 몰수’의 곱을 비교해야 함을 계산과 이온 모형으로 확인.",
+    general:"중화 반응은 ‘수소 이온과 수산화 이온의 반응(H⁺ + OH⁻ → H₂O)’으로 설명되며, 몰수비를 통해 양적 관계를 예측할 수 있다.",
+    studentGeneral:"중화는 ‘부피가 같다고 되는 것’이 아니라 ‘수소 이온과 수산화 이온의 몰수가 맞아야’ 일어난다.",
+    questions:[
+      "중화 반응에서 생성되는 물질은 무엇인가(물 + 염)?",
+      "중화 반응에서 ‘같은 부피’와 ‘같은 양(몰수)’은 같은 의미인가?",
+      "중화 반응을 ‘이온 모형’으로 설명하는 것이 실제 용액 현상을 충분히 설명하는가?",
+      "폐수 처리·위산 중화제·산성 토양 개선에서 중화의 양적 관계는 어떻게 활용되는가?"
+    ],
+    products:["이온 모형 설명지(반응 전·후 입자 그림)","중화 양적 관계 분석표","알짜 이온 반응식","몰수 계산 풀이"],
+    evidence:[
+      "알짜 이온 반응식(H⁺ + OH⁻ → H₂O)을 작성함",
+      "산·염기 몰수를 정확히 계산함",
+      "남는 이온(H⁺ 또는 OH⁻, 구경꾼 이온)을 판단함",
+      "양적 관계를 이온 모형으로 시각화함"
+    ],
+    data:"산 농도, 산 부피, 산 H⁺ 몰수, 염기 농도, 염기 부피, 염기 OH⁻ 몰수, 남는 이온의 종류와 양, 중화 여부, 최종 액성(산성·중성·염기성)을 표로 정리.",
+    calculation:"<b>몰수 n = M × V(L)</b>. <b>강산과 강염기 반응으로 제한</b>하고, ‘H⁺ 몰수 = OH⁻ 몰수’이면 완전 중화, 다르면 더 많은 쪽 이온이 남아 액성 결정. 예: 0.1M HCl 100mL(H⁺ 0.01mol) + 0.1M NaOH 100mL(OH⁻ 0.01mol) → 완전 중화.",
+    misconception:"‘산과 염기는 같은 부피를 섞으면 항상 중화된다.’ ‘중화하면 무조건 pH=7이다(강산-강염기 한정 정답이지만 약산-약염기는 다름).’",
+    correction:"중화 여부는 ‘부피가 아니라 몰수 비교’로 판단해야 함을 계산과 이온 모형으로 확인. 강산-강염기의 완전 중화만 pH=7이며, 다른 경우는 다름을 명시(단 약산·약염기는 본 성취기준 범위 밖).",
+    failure:"농도와 부피 단위를 혼동하는 학생에게는 ‘L 단위 변환 칸’과 ‘몰수 계산 칸’을 분리한 계산지를 제공.",
+    safety:"산·염기 수용액 취급 시 보호구 착용. 0.1M 이하 저농도 사용 권장. 중화 후에도 pH와 폐액 기준 확인. 산을 물에 넣을 때 ‘AAA 규칙’ 준수.",
+    career:"폐수 처리(환경공학), 제산제(약학), 토양 산성화 조절(농학), 식품 산도 조절, 응급 의학",
+    deepDive:"제산제(탄산수소 나트륨·수산화 알루미늄 등)의 종류별 위산 중화 능력(ANC, Acid Neutralizing Capacity)을 비교하고, 부작용(가스 발생·변비 등)이 중화 반응 화학과 어떻게 연결되는지 분석하는 약학-화학 융합 탐구.",
+    sample:"0.1M HCl 50mL(H⁺ 0.005 mol)와 0.1M NaOH 30mL(OH⁻ 0.003 mol)를 혼합한 후, H⁺ 0.002 mol이 남아 산성을 유지함을 계산으로 예측하고 pH 시험지로 검증함(pH ≈ 2). 이를 ‘부피가 더 큰 산 쪽이 항상 이긴다는 직관’의 반례로 정리하고, 제산제의 ‘ANC 값’이 단순 부피가 아닌 몰수 기반임을 진로 질문으로 확장함.",
+    tool:"화학-11 / 서·논술형 / 중화 반응을 모형으로 나타내기와 양적 관계로 설명하기"
+  },
+  {
+    code:"[12화학04-04]",
+    domain:"역동적인 화학 반응",
+    standard:"중화 적정 실험을 계획하고 수행하여 미지 시료의 농도를 찾을 수 있다.",
+    official:["식초 속 아세트산 함량 구하는 실험하기"],
+    title:"식초 속 아세트산 농도를 어떻게 신뢰롭게 구할까",
+    type:"분석화학 실험 · 오차 평가형",
+    period:"2~3차시",
+    lens:"정량 분석과 신뢰도",
+    concept:"중화 적정과 미지 농도 결정",
+    related:"중화 적정, 표준 용액, 미지 시료, 지시약(페놀프탈레인), 종말점, 농도 계산, 반복 측정, 희석",
+    phenomenon:"식초 산도 표시(보통 6-7%), 식품 품질 관리(QC), 환경 수질의 산도 분석, 의약품 정량처럼 ‘미지 시료의 농도를 신뢰롭게 구해야 하는’ 상황",
+    conflict:"학생은 ‘지시약 색이 한 번 변한 적정값만으로 농도를 정할 수 있다’고 생각할 수 있다. 반복 측정·평균·종말점 판단·희석 배율·기구 오차가 결과 신뢰도에 어떻게 영향을 주는지 직접 경험.",
+    general:"중화 적정은 ‘알려진 농도의 용액(표준 용액)을 이용하여 미지 시료의 농도를 정량적으로 결정하는 분석 방법’이며, 신뢰도는 반복·평균·오차 관리로 확보된다.",
+    studentGeneral:"반복 측정과 정확한 계산을 통해 식초 속 아세트산 농도를 신뢰롭게 구할 수 있다.",
+    questions:[
+      "중화 적정에서 ‘표준 용액’의 역할은 무엇인가?",
+      "미지 시료의 농도는 어떤 실험 설계와 계산으로 신뢰롭게 결정되는가?",
+      "적정 실험에서 결과의 신뢰도는 ‘기구의 정밀도’보다 ‘실험자의 판단’에 더 크게 좌우되는가?",
+      "식품 품질 관리·수질 분석·의약품 검사에서 정량 분석은 왜 사회적으로 중요한가?"
+    ],
+    products:["중화 적정 실험 보고서","반복 측정표(3~5회)","아세트산 함량 계산표","오차 분석 및 개선안 제안"],
+    evidence:[
+      "적정 실험을 계획함(시료 부피·표준 용액·지시약·반복 횟수)",
+      "3회 이상 반복 측정값을 평균 처리함",
+      "표준 용액 농도와 희석 배율을 반영해 계산함",
+      "종말점·뷰렛 눈금·희석·세척 등 단계별 오차를 분석함"
+    ],
+    data:"회차, 시료 부피, 표준 용액 농도(예: 0.1M NaOH), 적정 부피, 평균 적정 부피, 계산한 아세트산 농도, 희석 배율, 식초 원액 농도(%), 오차 원인을 표로 정리. <b>적정 곡선(pH-부피 그래프)은 다루지 않음.</b>",
+    calculation:"<b>중화 몰수 관계: C표준 × V표준 = C시료 × V시료</b>를 사용. 식초를 10배 희석했다면 최종 농도에 ×10. 반복 측정 평균값을 사용하고, 종말점을 명백히 지나친 회차는 제외 기준을 정함. 함량(%) = (CH₃COOH 질량 / 식초 질량) × 100%.",
+    misconception:"‘색이 변한 순간 한 번의 값으로 농도를 정하면 된다.’ ‘적정 한 번이면 정답이다.’",
+    correction:"반복 측정·평균·종말점 판단·뷰렛 눈금·희석 배율을 모두 고려해야 ‘정량 분석의 신뢰도’가 확보됨을 보임. ‘우연 오차’와 ‘계통 오차’를 구분.",
+    failure:"종말점을 지나친 회차는 표시하고 제외 기준을 정함. 적정값 편차가 크면 ① 뷰렛 기포·세척 상태, ② 지시약 양(1-2방울 적정), ③ 흔들기 방법, ④ 시료 희석 과정 점검.",
+    safety:"보안경·장갑 착용. 뷰렛 파손과 NaOH 용액의 피부 접촉(미끄럽고 따가운 느낌)에 주의. 산·염기 폐액은 ‘지정된 폐액통’에 처리. <b>중화 적정 곡선과 약산-약염기 적정은 다루지 않음.</b>",
+    career:"분석화학, 식품 품질 관리(QC·QA), 환경 수질 분석, 의약품 정량 분석, 임상 검사, 산업 표준 인증",
+    deepDive:"시판되는 식초·과일주스·탄산음료의 산도를 직접 적정으로 측정하고, 라벨 표기와의 일치 여부를 분석한 후 ‘식품 표시제와 분석화학의 사회적 역할’을 조사하는 시민과학-화학 융합 탐구.",
+    sample:"시판 식초를 10배 희석한 후 0.1M NaOH로 페놀프탈레인 지시약을 이용해 3회 반복 적정한 결과, 적정 부피 평균 12.4±0.2mL을 얻어 식초의 아세트산 함량을 약 7.4%로 산출함(라벨 표기 7%와 ±0.4%p 오차). 손실분을 ‘희석 시 메니스커스 오차·종말점의 약간 지나침·식초 내 비휘발성 산 영향’으로 분리해 분석하고, 같은 방법을 과일주스 산도 분석에 적용해 ‘식품 표시 검증’이라는 사회적 의미로 진로를 확장함.",
+    tool:"화학-12 / 실험·실습 / 식초 속 아세트산 함량 구하는 실험을 수행한다"
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY = {
+  "화학의 언어":"lang",
+  "물질의 구조와 성질":"structure",
+  "화학 평형":"eq",
+  "역동적인 화학 반응":"rxn"
+};
+
+let current=0;
+let tab="overview";
+
+/* ───── 유틸 ───── */
+function esc(s){
+  return String(s ?? "").replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+}
+function cls(d){ return "domain-" + (DOMAIN_KEY[d] || "lang"); }
+
+function openView(id){
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".nav button[data-view]").forEach(b=>b.classList.toggle("on", b.dataset.view===id));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".nav button[data-view]").forEach(b=>b.onclick=()=>openView(b.dataset.view));
+
+function pills(arr, solid){
+  return `<div class="pills">${(arr||[]).map(x=>`<span class="pill${solid?' solid':''}">${esc(x)}</span>`).join("")}</div>`;
+}
+function block(title, body, hint){
+  return `<div class="blk">
+    <div class="blk-h"><span>${esc(title)}</span>${hint?`<span class="hint">${esc(hint)}</span>`:""}</div>
+    ${body}
+  </div>`;
+}
+function filtered(){
+  const q=(document.getElementById("search")?.value||"").toLowerCase();
+  const d=document.getElementById("domain")?.value||"전체 영역";
+  const ty=document.getElementById("type")?.value||"전체 수업 유형";
+  return DATA.filter(x =>
+    (d==="전체 영역" || x.domain===d) &&
+    (ty==="전체 수업 유형" || x.type.includes(ty)) &&
+    [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().includes(q)
+  );
+}
+function renderList(){
+  const arr=filtered();
+  if(!arr.some(x=>DATA.indexOf(x)===current) && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = `${arr.length} / ${DATA.length} STANDARDS`;
+  document.getElementById("list").innerHTML = arr.map(x=>{
+    const i=DATA.indexOf(x);
+    return `
+      <button class="std-item ${i===current ? "on" : ""}" onclick="select(${i})">
+        <div>
+          <span class="code">${esc(x.code)}</span>
+          <span class="chip ${cls(x.domain)}">${esc(x.domain)}</span>
+          ${x.official.length ? '<span class="chip">공식탐구</span>' : ''}
+        </div>
+        <span class="std-title">${esc(x.title)}</span>
+        <span class="std-text">${esc(x.standard)}</span>
+      </button>
+    `;
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+/* ───── 차시별 표 ───── */
+function tableRows(x){
+  return `
+    <div class="lesson-hd">
+      <div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 01</span>도입<br>참여·초점</div>
+      <div>교사는 <b>${esc(x.phenomenon)}</b>을(를) 제시하고 사전 개념을 드러내는 발문을 한다.</div>
+      <div>학생은 개인 예상을 적고, 관련 화학 개념(물질·반응·구조 등)을 자유롭게 제안한다.</div>
+      <div>사전 예상지<br>탐구 질문지</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 02</span>탐구 설계</div>
+      <div>교사는 시약·기구·변인·안전 조건·계산 방법을 안내한다. 모둠별 역할 분담을 점검한다.</div>
+      <div>학생은 측정값·계산값·비교 기준·통제 변인을 정하고 역할을 나눈다.</div>
+      <div>탐구 설계표</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 03</span>자료 수집</div>
+      <div>교사는 실험·계산·모형화를 순회 지도하며 도구·시약·안전을 점검한다.</div>
+      <div>학생은 자료를 수집한다. ${esc(x.data)}</div>
+      <div>관찰표<br>계산지·모형</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 04</span>해석·일반화</div>
+      <div>교사는 오개념 ‘<b>${esc(x.misconception)}</b>’을 진단하고 개념 연결 질문을 던진다.</div>
+      <div>학생은 자료에서 규칙성을 찾고 주장-증거-추론(CER) 구조로 결론·일반화 진술을 작성한다.</div>
+      <div>CER 결론문<br>일반화 진술</div>
+    </div>
+    <div class="lesson-row">
+      <div><span class="stage-n">STEP 05</span>전이·확장</div>
+      <div>교사는 일상·산업·진로·사회 맥락으로 일반화의 적용 범위를 확장하는 발문을 던진다.</div>
+      <div>학생은 전이 과제와 심화 질문을 작성하고, 새로운 맥락에 일반화를 적용한다.</div>
+      <div>최종 산출물<br>심화 질문지</div>
+    </div>
+  `;
+}
+
+/* ───── 패널 ───── */
+function panel(x){
+  const qs=x.questions;
+  const panels={
+    overview:
+      block("성취기준 원문", `<div class="std-full"><b>${esc(x.code)}</b>${esc(x.standard)}</div>`) +
+      `<div class="cards">
+        <div class="card accent-lang">
+          <h4><span class="icon">i</span>수업 개요</h4>
+          <p><b>제목 :</b> ${esc(x.title)}</p>
+          <p><b>유형 :</b> ${esc(x.type)}</p>
+          <p><b>권장 차시 :</b> ${esc(x.period)}</p>
+          <p><b>공식 탐구 :</b> ${x.official.length ? esc(x.official.join(", ")) : "재구성 탐구 중심"}</p>
+          <p><b>핵심 개념 :</b> ${esc(x.concept)}</p>
+          <p><b>개념 렌즈 :</b> ${esc(x.lens)}</p>
+        </div>
+        <div class="card accent-structure">
+          <h4><span class="icon">▲</span>핵심 산출물</h4>
+          ${pills(x.products)}
+        </div>
+      </div>` +
+      block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+      block("예시 평가도구 연결", `<div class="card"><p>${esc(x.tool)}</p></div>`, "충남교육청·교육부 보급 평가도구"),
+
+    cbi:
+      block("개념 형성의 흐름",
+        `<div class="cards">
+          <div class="card accent-gold">
+            <h4><span class="icon">F</span>현상(Phenomenon)</h4>
+            <p>${esc(x.phenomenon)}</p>
+          </div>
+          <div class="card accent-lang">
+            <h4><span class="icon">C</span>개념 갈등(Conflict)</h4>
+            <p>${esc(x.conflict)}</p>
+          </div>
+        </div>
+        <div class="general" style="margin-top:.9rem">
+          <div class="gen-row">
+            <b>교사용 일반화 진술 (Generalization)</b>
+            <p>${esc(x.general)}</p>
+          </div>
+          <div class="gen-row">
+            <b>학생용 일반화 진술 (Student-Friendly)</b>
+            <p>${esc(x.studentGeneral)}</p>
+          </div>
+        </div>`,
+        "Erickson & Lanning CBI 모형"
+      ) +
+      block("탐구 질문 4종 — 사실에서 전이까지",
+        `<div class="q-grid">
+          <div class="q fact"><b>Factual · 사실적 질문</b><p>${esc(qs[0])}</p></div>
+          <div class="q concept"><b>Conceptual · 개념적 질문</b><p>${esc(qs[1])}</p></div>
+          <div class="q debate"><b>Debatable · 논쟁적 질문</b><p>${esc(qs[2])}</p></div>
+          <div class="q transfer"><b>Transfer · 전이 질문</b><p>${esc(qs[3])}</p></div>
+        </div>`,
+        "수업 도입·전개·마무리 3구간에 배치"
+      ) +
+      block("핵심 개념과 관련 개념",
+        `<div class="card">
+          <p><b>핵심 개념(Macro Concept) :</b> ${esc(x.concept)}</p>
+          <p><b>개념 렌즈(Conceptual Lens) :</b> ${esc(x.lens)}</p>
+          <p><b>관련 개념(Related Concepts) :</b> ${esc(x.related)}</p>
+        </div>`
+      ),
+
+    lesson:
+      block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+      block("교사 발문 세트 — 즉시 사용 가능",
+        `<div class="cards">
+          <div class="card accent-structure">
+            <h4>탐구 전 발문</h4>
+            <ul>
+              <li>이 현상에서 가장 먼저 설명해야 할 ‘물질·반응·구조 또는 농도’는 무엇인가?</li>
+              <li>어떤 변인을 어떻게 바꾸고, 어떤 값을 측정·계산해야 하는가?</li>
+            </ul>
+          </div>
+          <div class="card accent-gold">
+            <h4>탐구 중 발문</h4>
+            <ul>
+              <li>${esc(x.questions[1])}</li>
+              <li>이 자료(또는 모형)가 우리의 주장을 충분히 뒷받침하는가?</li>
+            </ul>
+          </div>
+          <div class="card accent-lang">
+            <h4>탐구 후 발문</h4>
+            <ul>
+              <li>오차 또는 한계는 어느 단계에서 발생했는가(시약·기구·판단·계산)?</li>
+              <li>${esc(x.questions[3])}</li>
+            </ul>
+          </div>
+        </div>`
+      ) +
+      block("오개념·실패 상황 대처 매뉴얼",
+        `<div class="cards3">
+          <div class="card accent-lang">
+            <h4>예상 오개념</h4>
+            <p>${esc(x.misconception)}</p>
+            <p style="margin-top:.5rem"><b>교정 전략 :</b> ${esc(x.correction)}</p>
+          </div>
+          <div class="card accent-gold">
+            <h4>실패 상황 대처</h4>
+            <p>${esc(x.failure)}</p>
+          </div>
+          <div class="safety-box">
+            <h4>⚠ 안전·폐액</h4>
+            <p>${esc(x.safety)}</p>
+          </div>
+        </div>`
+      ),
+
+    worksheet:
+      block("학생 활동지 — 9문항 표준 구성",
+        `<div class="card">
+          <ol>
+            <li>오늘의 현상에서 가장 ‘설명이 필요한’ 화학 개념을 한 문장으로 쓰시오.</li>
+            <li>${esc(qs[1])}</li>
+            <li>탐구에서 ‘측정할 값’과 ‘계산할 값’을 구분해 쓰시오.</li>
+            <li>다음 자료 처리 안내에 따라 표·그래프·모형을 작성하시오. <em>${esc(x.data)}</em></li>
+            <li>계산식 또는 입자 모형으로 자료를 처리하시오.</li>
+            <li>자료에서 찾은 ‘규칙성’을 한 문장으로 진술하시오(가설→일반화).</li>
+            <li>주장-증거-추론(CER) 구조로 결론을 작성하시오.</li>
+            <li>이 결론의 ‘한계와 오차 원인’을 2가지 이상 쓰시오.</li>
+            <li>${esc(qs[3])}</li>
+          </ol>
+        </div>`
+      ) +
+      block("계산·자료 처리 안내",
+        `<div class="card accent-structure">
+          <h4><span class="icon">D</span>측정·표상 가이드</h4>
+          <p>${esc(x.data)}</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>계산·모형 안내</h4>
+          <p>${esc(x.calculation)}</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>해석·일반화 문장 예시</h4>
+          <p>“자료의 변화 경향은 <b>${esc(x.concept)}</b> 개념으로 설명할 수 있으며, 이 결과는 <b>${esc(x.lens)}</b>의 관점에서 새로운 상황에 적용할 수 있다.”</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>오차·한계 분석 문장 예시</h4>
+          <p>“측정 조건(±__), 시약 농도·순도, 기구 눈금, 실험자의 판단, 통제되지 않은 변인이 결과에 영향을 주었을 수 있다.”</p>
+        </div>`
+      ),
+
+    assessment:
+      block("수행평가 과제 — 성취기준 도달 확인",
+        `<div class="card accent-green">
+          <h4><span class="icon">✓</span>${esc(x.title)}</h4>
+          <p><b>${esc(x.products[0])}</b>을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 자료·계산·모형 근거로 설명한다.</p>
+          <p style="margin-top:.5rem"><b>제출물 :</b> 활동지 + 산출물 + 자기평가 1쪽</p>
+        </div>`
+      ) +
+      block("평가 요소(지식·이해 / 과정·기능 / 가치·태도)",
+        `<div class="cards3">
+          <div class="card accent-lang">
+            <h4>지식·이해</h4>
+            <p><b>${esc(x.concept)}</b>와 관련 개념의 정확한 설명</p>
+          </div>
+          <div class="card accent-structure">
+            <h4>과정·기능</h4>
+            <p>탐구 설계, 자료 수집, 계산·그래프·모형 처리, 오차 분석, 안전 관리</p>
+          </div>
+          <div class="card accent-eq">
+            <h4>가치·태도</h4>
+            <p>실험 안전, 화학의 사회적 유용성, 지속가능성, 진로·사회적 의미 인식</p>
+          </div>
+        </div>`
+      ) +
+      block("성취수준 A–E 루브릭",
+        `<div class="cards3">
+          <div class="card accent-lang">
+            <h4>A · B 수준</h4>
+            <p>자료·계산·모형·오차 분석을 통합하여 <b>복잡한 맥락에 전이</b>하고, 한계와 개선안 또는 산업·사회 적용을 제안한다.</p>
+          </div>
+          <div class="card accent-gold">
+            <h4>C 수준</h4>
+            <p>안내된 절차에 따라 탐구를 수행하고, 핵심 개념을 <b>자신의 언어로</b> 설명하며 관련 사례에 적용한다.</p>
+          </div>
+          <div class="card">
+            <h4>D · E 수준</h4>
+            <p>제시된 자료·절차 일부를 활용하여 기본 용어와 현상의 관련성을 말한다.</p>
+          </div>
+        </div>`,
+        "교육부 고시 별책9 성취수준 기반"
+      ) +
+      block("피드백 방향",
+        `<div class="cards">
+          <div class="card accent-structure">
+            <h4>보충 피드백</h4>
+            <p>용어 설명에 머물지 않도록 <b>표·계산식·입자 모형 중 하나로 근거를 표현</b>하게 한다. 사전 개념과 새 개념의 차이를 그림으로 표시.</p>
+          </div>
+          <div class="card accent-rxn">
+            <h4>심화 피드백</h4>
+            <p>변수 재설계, 반복 측정, 한계 분석, 산업·진로 전이 과제를 추가하게 한다. 다른 성취기준과의 개념 연결도 권장.</p>
+          </div>
+        </div>`
+      ),
+
+    record:
+      `<div class="record">
+        <b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>
+        <p>${esc(x.evidence.join(" / "))}</p>
+      </div>` +
+      block("관찰 가능한 수행 증거 정리",
+        `<div class="cards">
+          <div class="card accent-green">
+            <h4>기록 가능한 산출물</h4>
+            ${pills(x.products)}
+          </div>
+          <div class="card accent-gold">
+            <h4>권장 기록 소재</h4>
+            <p>「${esc(x.title)}」 수업에서 <b>${esc(x.products[0])}</b>을(를) 작성하며 <b>${esc(x.concept)}</b> 개념을 자료·계산·모형 근거로 설명하고, 오차·한계 또는 산업·사회적 전이 가능성을 자기 언어로 제시함.</p>
+          </div>
+        </div>`
+      ) +
+      block("세부능력 및 특기사항 기록 예시",
+        `<div class="sample-record">${esc(x.sample)}</div>`,
+        "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+      ) +
+      block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+        `<div class="card accent-rxn">
+          <h4><span class="icon">★</span>심화탐구 제안</h4>
+          <p>${esc(x.deepDive)}</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>전이 질문</h4>
+          <p style="font-family:'Fraunces',serif">${esc(x.questions[3])}</p>
+        </div>
+        <div class="card" style="margin-top:.7rem">
+          <h4>연계 진로 분야</h4>
+          ${pills(x.career.split(", "))}
+        </div>`
+      )
+  };
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  const x=DATA[current];
+  const tabbar=TABS.map(([id,label,n])=>`
+    <button class="${tab===id?'on':''}" onclick="setTab('${id}')">
+      <span class="t-n">${n}</span>${label}
+    </button>
+  `).join("");
+  document.getElementById("detail").innerHTML=`
+    <div class="detail-hd">
+      <div class="chip-row">
+        <span class="chip ${cls(x.domain)}">${esc(x.domain)}</span>
+        <span class="chip">${esc(x.code)}</span>
+        ${x.official.length ? '<span class="chip">공식 탐구 포함</span>' : '<span class="chip">재구성 중심</span>'}
+        <span class="chip">${esc(x.period)}</span>
+      </div>
+      <h2>${esc(x.title)}</h2>
+      <div class="std-full"><b>성취기준 원문</b>${esc(x.standard)}</div>
+    </div>
+    <div class="tabbar">${tabbar}</div>
+    <div class="panel">${panel(x)}</div>
+  `;
+}
+
+/* ───── 매트릭스 ───── */
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML=DATA.map((x,i)=>`
+    <tr>
+      <td><span class="chip ${cls(x.domain)}">${esc(x.domain)}</span></td>
+      <td class="mcode" onclick="openStandard(${i})">${esc(x.code)}</td>
+      <td><b style="color:var(--ink);font-family:'Fraunces',serif">${esc(x.title)}</b></td>
+      <td>${esc(x.type)}</td>
+      <td>${esc(x.concept)}</td>
+      <td>${esc(x.products.join(", "))}</td>
+      <td>${esc(x.evidence.join(" / "))}</td>
+    </tr>
+  `).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+
+/* ───── CSV 다운로드 ───── */
+function downloadCSV(){
+  const rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","심화탐구","연계진로"],
+    ...DATA.map(x=>[
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.deepDive, x.career
+    ])
+  ];
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="화학_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+
+/* ───── 초기화 ───── */
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+/* ───── 키보드 단축키 ───── */
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    const arr=filtered();
+    const idx=arr.findIndex(x=>DATA.indexOf(x)===current);
+    if(idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    const arr=filtered();
+    const idx=arr.findIndex(x=>DATA.indexOf(x)===current);
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+/* 우하단 메인 플로팅 버튼: 스크롤 시 표시 */
+(function(){
+  const fab=document.getElementById("fabHome");
+  if(!fab) return;
+  let ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+</body>
+</html>

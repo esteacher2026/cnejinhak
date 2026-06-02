@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>입시 동영상 모음</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+  :root {
+    --blue-dark: #0d2b6e;
+    --blue-mid: #1a3fa8;
+    --blue-bright: #2563eb;
+    --blue-light: #dbeafe;
+    --accent: #f59e0b;
+    --accent-light: #fef3c7;
+    --white: #ffffff;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-600: #475569;
+    --gray-800: #1e293b;
+    --text-main: #0f172a;
+    --shadow: 0 2px 12px rgba(13,43,110,0.10);
+    --shadow-hover: 0 6px 24px rgba(13,43,110,0.18);
+    --radius: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    background: var(--gray-100);
+    color: var(--text-main);
+    min-height: 100vh;
+  }
+
+  /* ── 헤더 ── */
+  header {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 60%, var(--blue-bright) 100%);
+    color: var(--white);
+    padding: 0;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.18);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 28px 14px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .header-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.25);
+  }
+
+  .header-text h1 {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .header-text p {
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.78;
+    margin-top: 3px;
+  }
+
+  .header-count {
+    margin-left: auto;
+    background: rgba(255,255,255,0.18);
+    border: 2px solid rgba(255,255,255,0.30);
+    border-radius: 12px;
+    padding: 8px 16px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .header-count .num {
+    font-size: 26px;
+    font-weight: 900;
+    display: block;
+    line-height: 1;
+  }
+
+  .header-count .label {
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.85;
+  }
+
+  /* 경고 배너 */
+  .notice-bar {
+    background: #fffbeb;
+    border-top: 1px solid #fde68a;
+    padding: 8px 28px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .notice-bar::before {
+    content: '▲';
+    font-size: 10px;
+    color: #f59e0b;
+  }
+
+  /* ── 검색 & 필터 ── */
+  .controls {
+    background: var(--white);
+    border-bottom: 2px solid var(--gray-200);
+    padding: 14px 28px;
+    position: sticky;
+    top: 88px;
+    z-index: 90;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .controls-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--gray-400);
+  }
+
+  #searchInput {
+    width: 100%;
+    padding: 9px 12px 9px 36px;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    outline: none;
+    transition: border-color 0.2s;
+    background: var(--gray-100);
+  }
+
+  #searchInput:focus { border-color: var(--blue-bright); background: var(--white); }
+
+  /* 필터 버튼 */
+  .filter-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid var(--gray-200);
+    background: var(--white);
+    font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+    color: var(--gray-600);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--blue-bright);
+    color: var(--blue-bright);
+  }
+
+  .filter-btn.active {
+    background: var(--blue-mid);
+    border-color: var(--blue-mid);
+    color: var(--white);
+  }
+
+  /* ── 메인 컨텐츠 ── */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 22px 28px 40px;
+  }
+
+  /* 결과 카운트 */
+  .result-info {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+  }
+
+  /* 채널 섹션 */
+  .channel-section {
+    margin-bottom: 32px;
+  }
+
+  .channel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--blue-dark);
+  }
+
+  .channel-name {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--blue-dark);
+  }
+
+  .channel-badge {
+    background: var(--blue-mid);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  /* 카드 그리드 */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  /* 카드 */
+  .video-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 2px solid var(--gray-200);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--blue-bright);
+    border-radius: 0 0 0 0;
+    transition: width 0.2s;
+  }
+
+  .video-card:hover {
+    border-color: var(--blue-bright);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .video-card:hover::before {
+    width: 6px;
+  }
+
+  .card-play {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background: var(--blue-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .video-card:hover .card-play {
+    background: var(--blue-bright);
+    transform: scale(1.08);
+  }
+
+  .card-play svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--white);
+    margin-left: 2px;
+  }
+
+  .card-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--text-main);
+    word-break: keep-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-channel {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-400);
+    margin-top: 4px;
+  }
+
+  /* 빈 상태 */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-400);
+  }
+
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-state p { font-size: 15px; font-weight: 700; }
+
+  /* 하이라이트 */
+  mark {
+    background: var(--accent-light);
+    color: var(--blue-dark);
+    border-radius: 3px;
+    padding: 0 1px;
+  }
+
+  /* 반응형 */
+  @media (max-width: 640px) {
+    .header-inner { padding: 14px 16px 12px; }
+    .notice-bar { padding: 8px 16px; }
+    .controls { padding: 12px 16px; top: 78px; }
+    main { padding: 16px 16px 32px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .header-text h1 { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div style="margin-bottom: 20px;">
+<a href="index.html" class="btn" style="background-color: #1b2430; color: #ffffff; border: none; text-decoration: none; padding: 10px 18px;">🏠 메인 화면으로 돌아가기</a>
+</div>
+<section class="hero" aria-labelledby="pageTitle">
+  <div class="header-inner">
+    <div class="header-icon">🎬</div>
+    <div class="header-text">
+      <h1>입시 동영상 모음</h1>
+      <p>대입전형 이해를 위한 유튜브 영상 자료 모음집 &nbsp;|&nbsp; 제작: 새솔고 김태진</p>
+    </div>
+    <div class="header-count">
+      <span class="num" id="totalCount">39</span>
+      <span class="label">개 영상</span>
+    </div>
+  </div>
+  <div class="notice-bar">공교육의 범위 안에서 활용해 주시기 바랍니다.</div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="동영상 제목 검색...">
+    </div>
+    <button class="filter-btn active" data-filter="all">전체</button>
+    <button class="filter-btn" data-filter="대학 어디가 TV">대학 어디가 TV</button>
+    <button class="filter-btn" data-filter="쎈진학">쎈진학</button>
+    <button class="filter-btn" data-filter="울산진로진학지원센터">울산진로진학지원센터</button>
+    <button class="filter-btn" data-filter="대전진로진학TV">대전진로진학TV</button>
+    <button class="filter-btn" data-filter="전북교육대입정보TV">전북교육대입정보TV</button>
+  </div>
+</div>
+
+<main>
+  <div class="result-info" id="resultInfo">총 39개 영상</div>
+  <div id="app"></div>
+</main>
+
+<script>
+const DATA = [
+  { channel: "대학 어디가 TV", title: "2027학년도 학생부종합전형의 이해", url: "https://youtu.be/xO-zj0uUHG8?si=2raBqEiGHXdD3p-V" },
+  { channel: "대학 어디가 TV", title: "2027학년도 학생부교과전형의 이해", url: "https://youtu.be/j3okgjEPxRI?si=RMeeqP0OYXspbb6G" },
+  { channel: "대학 어디가 TV", title: "2027학년도 전공자율선택제의 이해", url: "https://youtu.be/Izb9Zj-zjVo?si=i6gfLl0-GDKpwzOB" },
+  { channel: "대학 어디가 TV", title: "2027학년도 대입 주요사항 및 변경사항", url: "https://youtu.be/DjGijmGyUZQ?si=etxinxeiNwBXETEZ" },
+  { channel: "대학 어디가 TV", title: "2027학년도 특별전형의 이해(기회균형, 지역인재 등)", url: "https://youtu.be/o1viK_lv_cA?si=JwrrcZEcVkFVR1KN" },
+  { channel: "대학 어디가 TV", title: "2027학년도 수능위주전형의 이해", url: "https://youtu.be/FZD9BvRv1m0?si=AnMjQihyZVxP0svR" },
+  { channel: "대학 어디가 TV", title: "2027학년도 논술위주전형의 이해", url: "https://youtu.be/CwW8vZwbNy0?si=A8HgFRDlRFTHFGJy" },
+  { channel: "쎈진학", title: "2027 대입전형의 이해와 대비", url: "https://youtu.be/F24ihR20NMI?si=_nxpmqQmt683oGQD" },
+  { channel: "쎈진학", title: "2026 대입 결과 분석", url: "https://youtu.be/fuYd4v7dnEQ?si=bXsP7ippPvhMe4_p" },
+  { channel: "쎈진학", title: "수시 전형별 진학지도", url: "https://youtu.be/M_-oIfMQhRQ?si=MCRVRrAfQ9Zzktp-" },
+  { channel: "쎈진학", title: "입학사정관에게 듣는 학생부종합전형 평가", url: "https://youtu.be/uchvfbelL24?si=ZInvwhkajaSPLRjS" },
+  { channel: "쎈진학", title: "2027 대입 수시모집 이해와 대비", url: "https://youtu.be/2sIM8G9DCFw?si=4gxa3q6stcBU6SQ5" },
+  { channel: "쎈진학", title: "2027 대입 정시모집 이해와 대비", url: "https://youtu.be/SHBPZP46l3Q?si=TvkXg35pX0nsN_Np" },
+  { channel: "쎈진학", title: "2027 대입 학생부교과전형 이해와 대비", url: "https://youtu.be/EP4MZYlxaMA?si=xUM3ZQ1YCK4UZpSa" },
+  { channel: "쎈진학", title: "2027 대입 학생부종합전형 이해와 대비", url: "https://youtu.be/FHL6I3sLcyg?si=9CixkB_9uBwEo359" },
+  { channel: "쎈진학", title: "2027 대입 논술전형 이해와 대비", url: "https://youtu.be/tQsxIiqloS0?si=ONSOuMF9GECLEi0m" },
+  { channel: "쎈진학", title: "2027 대입 정시모집 이해와 대비 (2)", url: "https://youtu.be/pXgoOg2c4Cs?si=6_Gda2QVauND4Fp_" },
+  { channel: "쎈진학", title: "2027 대입 센진학 프로그램 활용 상담의 실제", url: "https://youtu.be/DErTbKvgAOA?si=-F6LztoHe2Rszm3E" },
+  { channel: "울산진로진학지원센터", title: "2027 대입전형의 주요 사항 및 전형 특징 요약 안내", url: "https://youtu.be/hi8Y8Hpmtug?si=--1QdZ0MujbgyHaD" },
+  { channel: "울산진로진학지원센터", title: "2027 수도권 주요대학 전년 대비 변경사항 안내", url: "https://youtu.be/l6vVMSWOQWI?si=N9zWvUfTScyWN2Or" },
+  { channel: "울산진로진학지원센터", title: "2027 부울경 지역 주요대학 전년 대비 변경사항 안내", url: "https://youtu.be/qy_yEAcRdTo?si=LKfS5D2H8w9rSGuE" },
+  { channel: "울산진로진학지원센터", title: "2027 대구경북지역 주요대학 전년대비 변경사항 안내", url: "https://youtu.be/On24sWP8ZcA?si=D4JENEAJUnlsozAM" },
+  { channel: "울산진로진학지원센터", title: "2027 학생부교과전형 학생부 반영방법 안내", url: "https://youtu.be/davizuXsDI4?si=cACTfUJBFsJZa0Kn" },
+  { channel: "울산진로진학지원센터", title: "2027 지역균형전형 안내", url: "https://youtu.be/SRHxiN38G5E?si=7hvMyvVNmHjEnDuK" },
+  { channel: "울산진로진학지원센터", title: "2027 학생부 종합전형의 특징 안내", url: "https://youtu.be/h5fmiIzNQ-E?si=KJ2h47CDpYEwASpc" },
+  { channel: "울산진로진학지원센터", title: "2027 학생부 종합전형 서류평가 안내", url: "https://youtu.be/vHqg5bNxBgQ?si=xVKpiqy1fj3f5gI2" },
+  { channel: "울산진로진학지원센터", title: "2027 인문 논술전형의 특징 안내", url: "https://youtu.be/Izoz-LP8JX4?si=woXCBB6Qg8ufaUXA" },
+  { channel: "울산진로진학지원센터", title: "2027 자연 논술전형의 특징 안내", url: "https://youtu.be/skPh3krv16M?si=tQ6pZJllGvjJo_p6" },
+  { channel: "울산진로진학지원센터", title: "2027 정시전형의 특징 안내", url: "https://youtu.be/btBqBOID_NY?si=WCEG9gd6eUB_yVlx" },
+  { channel: "울산진로진학지원센터", title: "2027 농어촌특별전형 안내", url: "https://youtu.be/fkvMKCjkd0Q?si=RAfdwjnkO0AqUphL" },
+  { channel: "울산진로진학지원센터", title: "2027 지역인재특별전형 안내", url: "https://youtu.be/WuhjF82GG9c?si=G4Y6KH4UjrnsKTvo" },
+  { channel: "울산진로진학지원센터", title: "2027 전공자율선택제 안내", url: "https://youtu.be/g1z7zjk1ygM?si=Zm7xMtN9Pz0aaGQy" },
+  { channel: "울산진로진학지원센터", title: "2027 계약학과 및 첨단학과 안내", url: "https://youtu.be/7i9BOgZvqNE?si=g1UmP1WE9S8k4z87" },
+  { channel: "대전진로진학TV", title: "2027학년도 대입 전형 특징과 전망", url: "https://youtu.be/U5NosVYk0zs?si=lzTSycNFKCNuPJei" },
+  { channel: "대전진로진학TV", title: "2028학년도 대입 특징과 바람직한 학교 생활", url: "https://youtu.be/U5NosVYk0zs?si=5gmB7wLeIxmEVhEA" },
+  { channel: "대전진로진학TV", title: "2027학년도 대학 입시 시기별 학습전략", url: "https://youtu.be/d_Q-VPyApDg?si=O4aBBJa9zUThKkLB" },
+  { channel: "대전진로진학TV", title: "학생부종합전형 대비 학생부 항목별 점검 Tip", url: "https://youtu.be/nWQdoh6UtWQ?si=51ZKXtJqkSVa6FwI" },
+  { channel: "전북교육대입정보TV", title: "고3 담임교사 진학지도 역량강화 연수 1부", url: "https://youtu.be/y8uKLdMmnw4?si=AoR3Uk2CkDWwy1TP" },
+  { channel: "전북교육대입정보TV", title: "고3 담임교사 진학지도 역량강화 연수 2부", url: "https://youtu.be/x7AZmqiaA58?si=LToJu6uGnD65SULm" },
+];
+
+const CHANNELS = ["대학 어디가 TV", "쎈진학", "울산진로진학지원센터", "대전진로진학TV", "전북교육대입정보TV"];
+
+const CHANNEL_COLORS = {
+  "대학 어디가 TV": "#0d2b6e",
+  "쎈진학": "#1d4ed8",
+  "울산진로진학지원센터": "#0369a1",
+  "대전진로진학TV": "#0f766e",
+  "전북교육대입정보TV": "#7c3aed",
+};
+
+let currentFilter = 'all';
+let currentSearch = '';
+
+function highlight(text, query) {
+  if (!query) return text;
+  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  return text.replace(regex, '<mark>$1</mark>');
+}
+
+function render() {
+  const app = document.getElementById('app');
+  const q = currentSearch.trim();
+
+  const filtered = DATA.filter(item => {
+    const matchChannel = currentFilter === 'all' || item.channel === currentFilter;
+    const matchSearch = !q || item.title.includes(q) || item.channel.includes(q);
+    return matchChannel && matchSearch;
+  });
+
+  document.getElementById('resultInfo').textContent = `총 ${filtered.length}개 영상${q ? ` (검색: "${q}")` : ''}`;
+
+  if (filtered.length === 0) {
+    app.innerHTML = `<div class="empty-state"><div class="icon">🔍</div><p>검색 결과가 없습니다.</p></div>`;
+    return;
+  }
+
+  const byChannel = {};
+  const channels = currentFilter === 'all' ? CHANNELS : [currentFilter];
+  channels.forEach(ch => { byChannel[ch] = []; });
+  filtered.forEach(item => {
+    if (byChannel[item.channel]) byChannel[item.channel].push(item);
+  });
+
+  let html = '';
+  channels.forEach(ch => {
+    const items = byChannel[ch];
+    if (!items || items.length === 0) return;
+    html += `
+      <div class="channel-section">
+        <div class="channel-header" style="border-color:${CHANNEL_COLORS[ch]}">
+          <span class="channel-name" style="color:${CHANNEL_COLORS[ch]}">${ch}</span>
+          <span class="channel-badge" style="background:${CHANNEL_COLORS[ch]}">${items.length}개</span>
+        </div>
+        <div class="cards-grid">
+          ${items.map(item => `
+            <a class="video-card" href="${item.url}" target="_blank" rel="noopener">
+              <div class="card-play" style="background:${CHANNEL_COLORS[item.channel]}">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polygon points="3,1 13,8 3,15"/></svg>
+              </div>
+              <div class="card-text">
+                <div class="card-title">${highlight(item.title, q)}</div>
+                <div class="card-channel">${item.channel}</div>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  });
+
+  app.innerHTML = html;
+}
+
+// 검색
+document.getElementById('searchInput').addEventListener('input', function() {
+  currentSearch = this.value;
+  render();
+});
+
+// 필터
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    currentFilter = this.dataset.filter;
+    render();
+  });
+});
+
+render();
+</script>
+</body>
+</html>
