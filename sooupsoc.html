@@ -1,0 +1,2452 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 사회와 문화 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 사회와 문화 15개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 사회조사, 관점 비교, 미디어 분석, 쟁점 토론, 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#0f6980;
+  --atmo-bg:#e1f0f3;
+  --geo:#8a5a1f;
+  --geo-bg:#f1e6d6;
+  --astro:#4c4f93;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(15,105,128,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(76,79,147,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:-.025em;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:-.045em;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.15em;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">社</div>
+      <div class="b-text">
+        <strong>일반선택 사회와 문화 수업설계 워크북</strong>
+        <span>개념기반탐구 · 15개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective Society and Culture</div>
+        <h1 class="cover-title">사회와 문화 성취기준별 <em>개념기반탐구</em> 수업 플랫폼</h1>
+        <p class="lead">
+          일반선택 사회와 문화 15개 성취기준을 원문, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 단계별 탐구수업, 사회조사·미디어 분석·쟁점 토론,
+          학생부종합전형형 산출물, 평가·피드백까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button>
+          <button class="btn" onclick="openView('matrix')">15개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 사회와 문화 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책 7] 사회과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>사회조사 · 관점 비교 · 미디어 비판 · 쟁점 토론 · 사회 참여 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">4<small>영역</small></span>
+      <span class="label">사회현상 · 사회 구조 · 일상 문화 · 불평등과 복지</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">15<small>기준</small></span>
+      <span class="label">성취기준 원문 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 일상 사례, 사회학적 개념, 자료 탐구, 시민적 전이의 통합</h2>
+    <p>
+      사회와 문화는 개념을 외우는 과목이 아니라 학생의 일상과 사회문제를 사회학적 관점으로 다시 해석하는 과목입니다.
+      본 워크북은 현상 제시, 개념 갈등, 관점 비교, 자료 수집과 분석, 윤리적 판단, 사회문제 해결 방안 제안이 하나의 탐구 흐름으로 이어지도록 설계했습니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>일상에서 개념으로</h3>
+      <p>학생이 경험하는 학교, 가족, 미디어, 또래, 문화, 불평등 사례를 사회학적 개념과 이론으로 재해석합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>관점 비교와 자료 탐구</h3>
+      <p>기능론·갈등론·상징적 상호 작용론, 양적·질적 연구, 자료 수집 방법을 실제 사례 분석과 연결합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>시민적 전이</h3>
+      <p>탐구 결과가 논술·토론·보고서에서 멈추지 않고 사회문제 해결, 문화 다양성 존중, 복지 쟁점 판단, 사회 참여로 확장되게 합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 모든 차시의 뼈대</h2>
+    <p>학생이 자신의 경험과 사회 사례에서 출발해 개념 간 관계를 일반화하고, 새로운 사회문제와 시민적 실천으로 전이하도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>학생 일상, 뉴스, 미디어, 통계, 사례를 통해 사회현상에 대한 궁금증을 연다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>관점, 구조와 행위, 규범, 권력, 문화 다양성, 불평등, 권리와 책임 중 하나를 렌즈로 삼는다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>조사·탐구</strong><p>설문, 면접, 관찰, 문헌, 통계, 미디어 자료를 수집하고 연구 윤리를 점검한다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>관점 비교표, 원인-결과 도식, 관계망, 쟁점 매트릭스, CER 논증으로 자료를 표상한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>사회현상 설명을 넘어 개념 간 관계를 자기 언어로 진술한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>새로운 사회 사례, 미디어 메시지, 문화 쟁점, 불평등 문제, 복지 정책에 적용한다.</p></div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 찾고 싶은 것은 ‘개념 암기량’이 아니라 <b>사례를 개념으로 해석하는 힘, 자료를 비판적으로 다루는 태도, 사회문제에 대한 합리적 판단</b>입니다. CBI는 학생이 사회현상을 설명하고, 관점을 비교하며, 자료와 윤리를 근거로 자기 생각을 정교화하는 과정을 남깁니다.</p>
+    <p>각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 수업 중 관찰 가능한 수행 증거, 권장 기록 소재, 심화탐구 주제를 함께 제시했습니다.</p>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          
+          
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>사회현상의 이해와 탐구</option>
+            <option>사회 구조와 사회 변동</option>
+            <option>일상 문화와 문화 변동</option>
+            <option>사회 불평등과 사회 복지</option>
+          </select>
+          
+          
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>사례</option>
+            <option>연구</option>
+            <option>자료</option>
+            <option>토론</option>
+            <option>미디어</option>
+            <option>프로젝트</option>
+            <option>쟁점</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>사회와 문화 15개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 수업 제목, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>사회와 문화 수업은 개념 설명에서 멈추지 않고, 학생의 경험과 사회 사례를 이론으로 해석하고 자료 탐구와 윤리적 판단을 거쳐 시민적 실천으로 확장하도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>학생 일상 사례, 뉴스, 통계, 미디어 자료, 가상 연구 사례를 준비하고 민감한 개인정보·차별·혐오 표현이 포함되지 않도록 검토합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 관점 비교표, 연구 설계표, 자료 수집 윤리 점검표, 미디어 분석표, 쟁점 토론 기록, CER 논증문을 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>결과물뿐 아니라 초안, 피드백 후 수정본, 자료 출처, 관점 전환 메모, 사회문제 해결 방안의 근거를 함께 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 사회와 문화 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+  {
+    "title": "개인의 문제는 언제 사회현상이 되는가?",
+    "type": "사회학적 상상력 사례분석형",
+    "period": "2차시",
+    "lens": "관점과 사회학적 상상력",
+    "concept": "사회현상과 사회학적 상상력",
+    "related": "자연현상, 사회현상, 사회학적 상상력, 기능론, 갈등론, 상징적 상호 작용론, 개인과 사회",
+    "phenomenon": "청소년 수면 부족, 학원 이용, 아르바이트, 외모 관리, 스마트폰 사용처럼 학생의 일상 사례를 제시하고 개인 선택처럼 보이는 일이 사회 구조와 어떻게 연결되는지 묻는다.",
+    "conflict": "학생은 사회현상을 개인의 성격이나 선택 문제로만 해석할 수 있다. 같은 현상을 기능론, 갈등론, 상징적 상호 작용론으로 다르게 해석하면 개인 문제와 사회 구조의 연결이 드러난다.",
+    "general": "사회현상은 개인의 경험 속에 나타나지만 사회 구조, 제도, 의미, 권력 관계와 연결되어 있으며, 사회학적 상상력은 개인적 경험을 사회적 맥락 속에서 해석하게 한다.",
+    "studentGeneral": "내가 겪는 일이 꼭 나만의 문제가 아닐 수 있고, 사회의 제도와 문화 속에서 다시 볼 수 있다.",
+    "questions": [
+      "사회현상은 자연현상과 어떤 점에서 다른가?",
+      "사회학적 상상력은 개인의 경험과 사회 구조를 어떻게 연결하는가?",
+      "사회현상을 설명할 때 어떤 관점이 가장 설득력 있는가?",
+      "내 주변의 문제를 사회학적 상상력으로 분석하면 어떤 새로운 질문이 생기는가?"
+    ],
+    "products": [
+      "일상 사례 사회학적 상상력 분석표",
+      "관점별 해석 비교 카드",
+      "사회현상 CER 논증문"
+    ],
+    "evidence": [
+      "자연현상과 사회현상의 차이를 사례로 설명함",
+      "개인 경험을 사회 구조와 연결함",
+      "기능론·갈등론·상징적 상호 작용론을 비교 적용함",
+      "근거를 들어 자신의 관점을 제시함"
+    ],
+    "data": "학생 일상 사례를 선택하고, 개인 요인·사회 제도·문화 규범·상호작용 의미·권력 관계를 구분하여 자료를 정리한다.",
+    "modeling": "하나의 사례를 세 관점으로 해석한 비교표와 개인 경험-사회 구조 연결 도식으로 표현한다.",
+    "source": "학생 생활 사례, 뉴스 기사, 청소년 통계, 학교생활 관련 자료, 사회학적 관점 설명 자료",
+    "scale": "범위: 개인 경험-학교-가정-사회 제도 / 시간: 현재 경험과 사회 변화 과정",
+    "uncertainty": "일상 사례는 개인차가 크고, 같은 현상도 관점에 따라 강조점이 달라지므로 단일 원인으로 결론 내리지 않는다.",
+    "misconception": "사회현상은 개인들이 많이 모여서 생기는 현상일 뿐이다.",
+    "correction": "사회현상은 다수의 행동뿐 아니라 규범, 제도, 권력, 의미가 함께 작동한 결과임을 관점별 해석 비교로 확인하게 한다.",
+    "failure": "학생이 기능론·갈등론·상징적 상호 작용론을 암기식으로 나열하면, 동일 사례를 각 관점의 질문으로 다시 해석하게 한다.",
+    "safe": "학생 개인 경험을 공개할 때 민감한 가정사, 경제 상황, 건강 정보가 노출되지 않도록 익명 사례를 활용한다.",
+    "deepDive": "입시 경쟁, 청소년 노동, 외모 규범 중 하나를 골라 개인의 선택과 사회 구조의 관계를 사회학적 상상력으로 분석한다.",
+    "career": "사회학, 교육학, 청소년상담, 사회복지, 언론, 공공정책",
+    "sample": "청소년 수면 부족 사례를 개인 습관 문제가 아니라 입시 경쟁, 가족 기대, 스마트폰 문화, 학교 시간표와 연결하여 분석하고, 기능론·갈등론·상징적 상호 작용론의 차이를 근거 중심으로 비교함.",
+    "code": "[12사문01-01]",
+    "domain": "사회현상의 이해와 탐구",
+    "standard": "사회현상의 탐구를 위해 사회현상의 특징에 대한 이해와 사회학적 상상력이 필요함을 인식하고, 사회현상에 대한 다양한 관점을 비교한다.",
+    "levels": {
+      "A": "사례를 분석하여 자연현상과 사회현상의 특징을 도출하여 비교하고, 사회학적 상상력의 필요성에 대한 인식을 바탕으로 개인의 삶에 영향을 미치는 사회현상의 사례를 발견하여 분석하며, 사회현상을 기능론, 갈등론, 상징적 상호 작용론의 관점으로 해석함으로써 사회현상을 다양한 관점에서 탐구하는 데 관심을 가지고 실천할 수 있다.",
+      "B": "자연현상과 다른 사회현상의 특징을 사례를 통해 설명하고, 사회학적 상상력의 필요성에 대한 인식을 바탕으로 개인의 삶에 영향을 미치는 사회현상의 사례를 발견하며, 기능론, 갈등론, 상징적 상호 작용론을 비교하고, 사회현상을 다양한 관점에서 탐구하는 데 관심을 가진다.",
+      "C": "사회현상의 특징을 설명하고, 사회학적 상상력의 필요성을 인식하며, 기능론, 갈등론, 상징적 상호 작용론을 설명하고, 사회현상 탐구에 관심을 가진다.",
+      "D": "사회현상의 특징과 사회학적 상상력의 의미를 설명하고, 기능론, 갈등론, 상징적 상호 작용론을 구분할 수 있다.",
+      "E": "사회현상의 특징과 사회학적 상상력의 의미, 사회현상에 대한 다양한 관점이 있음을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-1 / 논술형 / 사회현상에 대한 관점 비교와 반박 논증"
+  },
+  {
+    "title": "사회현상은 숫자로 볼까, 이야기로 들을까?",
+    "type": "양적·질적 연구 비교형",
+    "period": "2차시",
+    "lens": "증거와 해석",
+    "concept": "사회현상 연구 방법",
+    "related": "양적 연구, 질적 연구, 연구 주제, 가설, 변수, 통계, 면접, 참여 관찰, 해석",
+    "phenomenon": "학교생활 만족도, 청소년 소비 문화, 온라인 혐오 표현, 또래 관계 같은 주제를 두고 설문 통계와 면접 기록이 서로 다른 정보를 보여 주는 사례를 제시한다.",
+    "conflict": "학생은 숫자가 더 객관적이거나, 생생한 인터뷰가 더 진실하다고 단순 판단할 수 있다. 연구 질문에 따라 양적 연구와 질적 연구의 강점과 한계가 달라진다.",
+    "general": "사회현상 연구 방법은 연구 질문과 자료의 성격에 따라 선택되며, 양적 연구는 경향과 관계를, 질적 연구는 의미와 맥락을 깊이 이해하는 데 강점이 있다.",
+    "studentGeneral": "무엇을 알고 싶은지에 따라 설문이 더 좋을 때도 있고, 면접이 더 좋을 때도 있다.",
+    "questions": [
+      "양적 연구와 질적 연구의 특징과 절차는 무엇인가?",
+      "연구 질문은 연구 방법 선택에 어떤 영향을 미치는가?",
+      "사회현상 연구에서 객관성은 숫자만으로 확보되는가?",
+      "내 관심 주제를 연구하려면 어떤 방법을 선택하고 어떻게 보완해야 하는가?"
+    ],
+    "products": [
+      "연구 방법 비교표",
+      "연구 사례 분석 보고서",
+      "나의 연구 설계 초안"
+    ],
+    "evidence": [
+      "양적·질적 연구의 절차와 특징을 비교함",
+      "연구 질문과 방법을 연결함",
+      "자료의 장점과 한계를 설명함",
+      "연구 사례를 방법론 관점에서 분석함"
+    ],
+    "data": "하나의 사회현상에 대해 설문 자료와 면접 자료를 함께 제시하고, 각 자료가 설명할 수 있는 것과 설명하기 어려운 것을 구분한다.",
+    "modeling": "연구 질문-연구 방법-자료 유형-분석 방식-한계의 흐름도로 연구 설계를 표현한다.",
+    "source": "청소년 통계, 학교 설문 예시, 면접 기록 예시, 연구 보고서 요약문, 언론 보도 자료",
+    "scale": "범위: 학급·학교 사례-청소년 집단-사회 전체 / 시간: 단면 조사와 변화 추적",
+    "uncertainty": "설문은 표본과 문항 구성의 영향을 받고, 면접은 연구자 해석과 참여자 맥락의 영향을 받는다.",
+    "misconception": "양적 연구는 객관적이고 질적 연구는 주관적이므로 양적 연구가 더 과학적이다.",
+    "correction": "두 연구 방법 모두 과학적 절차를 지킬 수 있으며, 연구 질문에 따라 적합성과 한계가 다름을 사례 분석으로 확인하게 한다.",
+    "failure": "학생이 연구 방법 이름만 맞히면, 왜 그 방법을 선택했는지와 어떤 자료를 얻을 수 있는지까지 설명하게 한다.",
+    "safe": "실제 학생 대상 연구 설계 시 익명성, 동의, 민감 문항 회피, 자료 보관 원칙을 안내한다.",
+    "deepDive": "같은 주제를 설문조사와 심층 면접으로 동시에 연구하면 결론이 어떻게 달라질지 비교 설계한다.",
+    "career": "사회조사분석, 데이터 분석, 여론조사, UX 리서치, 교육연구, 정책연구",
+    "sample": "청소년 온라인 관계 만족도를 주제로 양적 연구와 질적 연구 설계를 비교하고, 설문은 경향 파악에, 면접은 관계 경험의 의미 해석에 강점이 있음을 연구 질문과 연결하여 설명함.",
+    "code": "[12사문01-02]",
+    "domain": "사회현상의 이해와 탐구",
+    "standard": "사회현상에 대한 양적 연구 방법과 질적 연구 방법의 특징 및 연구 절차를 비교하고, 각 연구 방법을 활용한 연구 사례를 분석한다.",
+    "levels": {
+      "A": "사회현상에 대한 양적 연구 방법과 질적 연구 방법의 특징 및 연구 절차를 비교하고, 각 연구 방법을 활용한 연구 사례를 조사･분석하여 각 연구 방법의 특징 및 연구 절차와 연결하여 설명할 수 있다.",
+      "B": "사회현상에 대한 양적 연구 방법과 질적 연구 방법의 특징 및 연구 절차를 비교하고, 각 연구 방법을 활용한 연구 사례를 조사하여 각 연구 방법의 특징과 연결하여 설명할 수 있다.",
+      "C": "사회현상에 대한 양적 연구 방법과 질적 연구 방법의 특징 및 연구 절차를 설명하고, 각 연구 방법을 활용한 연구 사례를 조사할 수 있다.",
+      "D": "사회현상에 대한 양적 연구 방법과 질적 연구 방법의 특징을 이해하고, 각 연구 방법을 활용한 연구 사례를 구분할 수 있다.",
+      "E": "사회현상에 대한 서로 다른 연구 방법이 있음을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-2 / 서술형 / 양적 연구와 질적 연구 방법 비교"
+  },
+  {
+    "title": "좋은 질문은 좋은 자료를 어떻게 만드는가?",
+    "type": "자료 수집 방법 설계형",
+    "period": "2차시",
+    "lens": "자료와 타당성",
+    "concept": "자료 수집 방법",
+    "related": "질문지법, 면접법, 참여 관찰법, 문헌 연구법, 실험법, 타당도, 신뢰도, 표본, 편향",
+    "phenomenon": "학교 급식 만족도, 교복 규정, 스마트폰 사용, 지역 청소년 공간 같은 주제를 조사할 때 질문지·면접·관찰·문헌 자료가 서로 다른 결과를 보여 주는 사례를 비교한다.",
+    "conflict": "학생은 자료를 많이 모으면 좋은 연구가 된다고 생각할 수 있다. 자료 수집 방법은 연구 목적, 대상, 윤리, 타당도에 맞게 선택되어야 한다.",
+    "general": "자료 수집 방법은 사회현상을 보는 창이며, 적절한 방법 선택과 문항·절차 설계가 자료의 타당성과 신뢰성을 결정한다.",
+    "studentGeneral": "좋은 조사는 아무 자료나 많이 모으는 것이 아니라, 질문에 맞는 자료를 제대로 모으는 것이다.",
+    "questions": [
+      "사회현상 탐구에 활용되는 자료 수집 방법에는 무엇이 있는가?",
+      "연구 주제와 자료 수집 방법은 어떻게 연결되는가?",
+      "질문지는 언제 사람들의 생각을 왜곡할 수 있는가?",
+      "내가 조사하고 싶은 문제에 가장 적절한 자료 수집 방법은 무엇인가?"
+    ],
+    "products": [
+      "자료 수집 방법 비교표",
+      "질문지 초안과 수정본",
+      "자료 수집 윤리 점검표"
+    ],
+    "evidence": [
+      "자료 수집 방법의 특징을 비교함",
+      "연구 목적에 맞는 방법을 선택함",
+      "문항의 편향과 윤리 문제를 점검함",
+      "피드백 후 조사 도구를 개선함"
+    ],
+    "data": "한 연구 주제에 대해 질문지 문항, 면접 질문, 관찰 기록표, 문헌 자료 목록을 설계하고 각각의 장단점을 비교한다.",
+    "modeling": "연구 주제-대상-자료 수집 방법-예상 자료-한계-윤리 조치의 설계표로 표현한다.",
+    "source": "학생 설계 질문지, 면접 질문 예시, 관찰 기록 예시, 공공 통계, 기존 연구·기사 자료",
+    "scale": "범위: 학급·학교·지역사회 / 시간: 일회 조사와 반복 조사",
+    "uncertainty": "응답자 수, 표본 편향, 문항 표현, 조사 환경, 연구자 기대가 자료의 품질에 영향을 줄 수 있다.",
+    "misconception": "질문지를 만들면 누구나 쉽게 객관적인 자료를 얻을 수 있다.",
+    "correction": "문항 표현, 응답 선택지, 조사 대상 선정이 결과를 왜곡할 수 있음을 나쁜 문항 수정 활동으로 확인하게 한다.",
+    "failure": "조사 도구가 너무 포괄적이면 연구 질문을 하나로 좁히고, 반드시 분석 가능한 문항과 기록 항목으로 바꾸게 한다.",
+    "safe": "실제 조사에서는 자발적 참여, 익명 처리, 민감 정보 배제, 결과 공유 범위를 명확히 한다.",
+    "deepDive": "같은 주제에 대해 질문지법과 면접법을 혼합한 소규모 탐구를 설계하고 두 자료가 서로 보완하는 지점을 분석한다.",
+    "career": "사회조사, 마케팅 리서치, 교육평가, UX 리서치, 공공정책, 통계",
+    "sample": "학교 내 휴식 공간 이용 실태를 조사하기 위해 질문지 문항과 관찰 기록표를 설계하고, 표본 편향과 문항 유도 가능성을 피드백 후 수정하여 자료 수집의 타당성을 높임.",
+    "code": "[12사문01-03]",
+    "domain": "사회현상의 이해와 탐구",
+    "standard": "사회현상에 대한 다양한 자료 수집 방법의 특징을 비교하고, 각 자료 수집 방법을 활용한 연구 사례를 분석한다.",
+    "levels": {
+      "A": "사회현상에 대한 다양한 자료 수집 방법의 특징을 비교하고, 각 자료 수집 방법을 활용한 연구 사례를 조사･분석하여 각 자료 수집 방법의 특징과 연결하여 설명할 수 있다.",
+      "B": "사회현상에 대한 다양한 자료 수집 방법의 특징을 비교하고, 각 자료 수집 방법을 활용한 연구 사례를 조사하여 특징별로 분석할 수 있다.",
+      "C": "사회현상에 대한 다양한 자료 수집 방법의 특징을 설명하고, 각 자료 수집 방법을 활용한 연구 사례를 조사할 수 있다.",
+      "D": "사회현상에 대한 다양한 자료 수집 방법의 특징을 이해하고, 각 자료 수집 방법을 활용한 연구 사례를 구분할 수 있다.",
+      "E": "사회현상에 대한 서로 다른 자료 수집 방법이 있음을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-3 / 프로젝트형 / 연구 주제에 맞는 질문지 제작과 자료 수집 방법 설계"
+  },
+  {
+    "title": "탐구의 자유는 어디까지 허용되어야 하는가?",
+    "type": "연구 윤리 쟁점 토론형",
+    "period": "2차시",
+    "lens": "윤리와 책임",
+    "concept": "연구 윤리와 가치 개입",
+    "related": "가치 개입, 가치 중립, 연구 윤리, 사전 동의, 익명성, 개인정보, 표절, 연구자의 책임",
+    "phenomenon": "SNS 게시물 분석, 학생 대상 설문, 몰래 관찰, 민감한 차별 경험 면접처럼 사회 탐구에서 연구 윤리 쟁점이 발생할 수 있는 사례를 제시한다.",
+    "conflict": "학생은 좋은 목적의 연구라면 자료를 자유롭게 수집해도 된다고 생각할 수 있다. 사회현상 탐구는 사람을 대상으로 하므로 연구자의 가치 개입과 윤리 책임을 함께 고려해야 한다.",
+    "general": "사회현상 탐구는 연구자의 관점과 가치가 개입될 수 있으므로 과학적 절차와 함께 참여자의 권리, 안전, 존엄을 보호하는 연구 윤리가 필요하다.",
+    "studentGeneral": "좋은 탐구는 흥미로운 결론만이 아니라 사람을 존중하는 과정까지 포함한다.",
+    "questions": [
+      "사회현상 탐구에서 연구자의 가치 개입은 왜 문제가 될 수 있는가?",
+      "연구 윤리를 지키기 위해 필요한 원칙은 무엇인가?",
+      "공익적 연구라면 개인 정보 활용을 더 넓게 허용할 수 있는가?",
+      "내 탐구 설계를 윤리적으로 바꾸려면 무엇을 수정해야 하는가?"
+    ],
+    "products": [
+      "연구 윤리 쟁점 판정표",
+      "윤리적 탐구 설계 수정안",
+      "연구 참여자 안내문"
+    ],
+    "evidence": [
+      "가치 개입과 가치 중립의 쟁점을 설명함",
+      "연구 윤리 원칙을 사례에 적용함",
+      "참여자 보호 방안을 제시함",
+      "탐구 설계를 윤리적으로 수정함"
+    ],
+    "data": "가상의 연구 사례를 읽고 사전 동의, 익명성, 피해 가능성, 자료 보관, 표절 여부, 연구자 편향을 점검한다.",
+    "modeling": "연구 단계별 윤리 점검표와 위험-대응 방안 매트릭스로 탐구 과정을 재설계한다.",
+    "source": "연구 윤리 가이드라인, 개인정보 보호 원칙, 가상 연구 사례, 학생 탐구 설계 초안",
+    "scale": "범위: 개인 참여자-학급·학교 공동체-사회 전체 / 시간: 연구 전·중·후 자료 관리",
+    "uncertainty": "윤리 판단은 연구 목적, 참여자 취약성, 자료 공개 범위, 예상 피해에 따라 달라질 수 있다.",
+    "misconception": "익명으로 조사하면 연구 윤리는 대부분 해결된다.",
+    "correction": "익명성 외에도 자발적 동의, 민감 정보 보호, 연구 목적 안내, 자료 보관과 폐기, 연구자의 편향 점검이 필요함을 사례별로 확인하게 한다.",
+    "failure": "토론이 추상적 윤리 구호에 머물면 실제 연구 설계의 어느 단계에서 어떤 위험이 발생하는지 표시하게 한다.",
+    "safe": "차별, 폭력, 가정환경 등 민감 주제를 실제 학생 경험으로 조사하지 않고 가상 사례나 공개 자료로 대체한다.",
+    "deepDive": "공개 SNS 자료를 연구에 활용할 때 사전 동의와 공익성, 개인정보 보호가 어떻게 충돌하는지 토론한다.",
+    "career": "사회조사 윤리, 데이터 윤리, 인권, 법학, 심리·교육 연구, 공공정책",
+    "sample": "SNS 게시물 분석 연구 사례에서 공개 자료라도 개인 식별 가능성과 맥락 왜곡 문제가 있음을 지적하고, 사전 동의·익명 처리·자료 보관 원칙을 반영한 윤리적 탐구 설계 수정안을 제시함.",
+    "code": "[12사문01-04]",
+    "domain": "사회현상의 이해와 탐구",
+    "standard": "사회현상의 탐구에서 발생하는 연구자의 가치 개입 및 연구 윤리 관련 쟁점을 토론하고, 연구 윤리를 준수하며 사회현상에 대한 탐구를 수행한다.",
+    "levels": {
+      "A": "사회현상의 탐구에서 발생하는 연구자의 가치 개입 및 연구 윤리 관련 쟁점을 조사･분석하고, 각 주장의 정당성을 평가하며 자신의 관점을 명료화하고, 연구 윤리를 준수하며 연구 주제를 선정하고 탐구를 설계･수행하여 타당한 결론을 도출할 수 있다.",
+      "B": "사회현상의 탐구에서 발생하는 연구자의 가치 개입 및 연구 윤리 관련 쟁점을 조사하여 자신의 관점을 명료화하고, 연구 윤리를 준수하며 연구 주제를 선정하고 탐구를 설계･수행할 수 있다.",
+      "C": "사회현상의 탐구에서 발생하는 연구자의 가치 개입 및 연구 윤리 관련 쟁점을 조사하고, 연구 윤리를 준수하며 연구 주제를 선정하고 탐구를 설계할 수 있다.",
+      "D": "사회현상 탐구에서 발생하는 연구 윤리 관련 쟁점과 연구 윤리 준수의 필요성을 알고, 사회현상에 대한 연구 주제를 선정할 수 있다.",
+      "E": "사회현상 탐구에서 연구 윤리 준수가 필요함을 알고, 사회현상 탐구에 관심을 가진다."
+    },
+    "official": [],
+    "tool": "워크북 재구성 / 수행평가형 / 성취기준 도달 과정과 산출물 평가"
+  },
+  {
+    "title": "나는 사회를 만들까, 사회가 나를 만들까?",
+    "type": "사회화 관점 비교형",
+    "period": "2차시",
+    "lens": "구조와 행위",
+    "concept": "사회 구조와 사회화",
+    "related": "사회 구조, 개인, 사회화, 사회화 기관, 재사회화, 예기사회화, 기능론, 갈등론, 상징적 상호 작용론",
+    "phenomenon": "가정, 학교, 또래 집단, 미디어, 직업 세계가 학생의 말투, 진로, 소비 취향, 성 역할 인식에 미치는 영향을 사례 카드로 제시한다.",
+    "conflict": "학생은 자신의 가치관과 행동이 순수한 개인 선택이라고 생각할 수 있다. 사회화 과정은 개인의 정체성을 만들지만 개인도 사회화 경험을 해석하고 바꾸는 행위자이다.",
+    "general": "개인은 사회 구조 속에서 사회화되지만, 사회화 과정에서 의미를 해석하고 선택하며 사회 구조에 영향을 미치는 존재이기도 하다.",
+    "studentGeneral": "나는 사회의 영향을 받으며 자라지만, 그 영향을 그대로 받아들이기만 하는 사람은 아니다.",
+    "questions": [
+      "사회화 과정과 사회화 기관에는 무엇이 있는가?",
+      "사회 구조와 개인은 어떤 관계를 맺는가?",
+      "사회화는 사회 유지에 필요한가, 불평등 재생산의 과정인가?",
+      "나의 사회화 경험을 돌아보면 어떤 선택과 변화 가능성이 보이는가?"
+    ],
+    "products": [
+      "나의 사회화 기관 영향 지도",
+      "사회화 관점 비교표",
+      "사회화 경험 성찰문"
+    ],
+    "evidence": [
+      "사회화 기관과 유형을 사례로 설명함",
+      "사회 구조와 개인의 관계를 분석함",
+      "사회화 이론적 관점을 비교함",
+      "자기 경험을 개념으로 해석함"
+    ],
+    "data": "가정·학교·또래·미디어·직업 세계 중 자신에게 영향을 준 사례를 익명화하여 정리하고, 사회화 기관과 유형을 분류한다.",
+    "modeling": "사회화 기관 영향 지도와 기능론·갈등론·상징적 상호 작용론 비교표로 사회화 경험을 해석한다.",
+    "source": "학생 익명 사례, 청소년 생활 통계, 미디어 콘텐츠, 사회화 이론 자료",
+    "scale": "범위: 개인-가족·학교-또래 집단-사회 제도 / 시간: 아동기·청소년기·성인기 사회화",
+    "uncertainty": "개인의 사회화 경험은 다양하며, 사회 구조의 영향과 개인의 선택을 명확히 분리하기 어려울 수 있다.",
+    "misconception": "사회화는 어른이 아이에게 규칙을 가르치는 과정이다.",
+    "correction": "사회화는 전 생애에 걸쳐 다양한 기관에서 일어나며, 개인이 의미를 해석하고 재구성하는 과정임을 사례로 확인하게 한다.",
+    "failure": "학생이 사회화 기관 목록만 외우면, 특정 기관이 어떤 가치와 규범을 어떤 방식으로 전달했는지 분석하게 한다.",
+    "safe": "가정환경이나 개인 정체성과 관련한 사례는 익명화하고 공유 여부를 학생이 선택하게 한다.",
+    "deepDive": "알고리즘 추천과 SNS가 청소년 사회화 기관으로 작동하는 방식을 기능론·갈등론·상징적 상호 작용론으로 비교한다.",
+    "career": "교육학, 사회학, 청소년지도, 상담, 미디어 연구, 사회복지",
+    "sample": "학교와 또래 집단, SNS가 자신의 진로 인식과 소비 취향에 미친 영향을 사회화 기관별로 분석하고, 사회화가 사회 유지와 불평등 재생산 모두와 관련될 수 있음을 관점 비교로 설명함.",
+    "code": "[12사문02-01]",
+    "domain": "사회 구조와 사회 변동",
+    "standard": "사회 구조와 개인의 관계에 대한 이해를 바탕으로 개인의 사회화 과정, 사회화 기관 및 유형을 설명하고, 사회화에 대한 서로 다른 이론적 관점을 비교한다.",
+    "levels": {
+      "A": "사회 구조와 개인의 관계를 설명하고, 사례를 조사･분석하여 개인의 사회화 과정, 사회화 기관 및 유형을 도출하며, 사회화 현상을 기능론, 갈등론, 상징적 상호 작용론의 관점에서 해석하여 비교할 수 있다.",
+      "B": "사회 구조와 개인의 관계를 설명하고, 사례를 조사하여 개인의 사회화 과정, 사회화 기관 및 유형을 설명하며, 사회화를 보는 기능론, 갈등론, 상징적 상호 작용론의 관점을 비교할 수 있다.",
+      "C": "사회 구조와 개인의 관계를 설명하고, 개인의 사회화 과정, 사회화 기관 및 유형을 설명하며, 사회화를 보는 기능론, 갈등론, 상징적 상호 작용론적 관점을 설명할 수 있다.",
+      "D": "개인의 사회화 과정, 사회화 기관 및 유형을 말하며, 사회화를 보는 기능론, 갈등론, 상징적 상호 작용론 관점을 구분할 수 있다.",
+      "E": "개인의 사회화 과정을 알고, 사회화를 보는 다양한 이론적 관점이 있음을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "워크북 재구성 / 보고서형 / 사회화 과정과 사회화 기관 및 이론적 관점 비교"
+  },
+  {
+    "title": "집단은 나의 관계를 어떻게 바꾸는가?",
+    "type": "사회 집단·조직 관계 분석형",
+    "period": "2차시",
+    "lens": "소속과 역할",
+    "concept": "사회 집단과 사회 조직",
+    "related": "1차 집단, 2차 집단, 내집단, 외집단, 준거 집단, 공식 조직, 비공식 조직, 관료제, 탈관료제, 역할",
+    "phenomenon": "가족, 학급, 동아리, 학생회, 회사, 플랫폼 커뮤니티, 팬덤처럼 다양한 집단과 조직이 개인의 관계와 행동을 바꾸는 사례를 제시한다.",
+    "conflict": "학생은 집단을 단순히 사람들이 모인 모임으로 이해할 수 있다. 집단과 조직은 소속감, 역할, 규칙, 권한, 의사소통 방식을 통해 개인의 사회생활을 구조화한다.",
+    "general": "사회 집단과 사회 조직은 개인에게 소속과 역할을 제공하지만, 동시에 관계 방식과 행동 선택을 제한하거나 확장한다.",
+    "studentGeneral": "내가 속한 집단은 나에게 역할과 기회를 주지만, 때로는 행동을 제한하기도 한다.",
+    "questions": [
+      "사회 집단과 사회 조직의 유형에는 무엇이 있는가?",
+      "집단과 조직은 개인의 사회적 관계에 어떤 영향을 미치는가?",
+      "효율적인 조직은 항상 좋은 조직인가?",
+      "우리 학교 또는 지역의 조직을 더 민주적이고 협력적으로 만들려면 무엇을 바꿔야 하는가?"
+    ],
+    "products": [
+      "나의 소속 집단 관계 지도",
+      "조직 유형 분석표",
+      "조직 개선 제안서"
+    ],
+    "evidence": [
+      "집단과 조직 유형을 사례로 분류함",
+      "집단이 개인 관계에 미치는 영향을 설명함",
+      "공식·비공식 구조를 구분함",
+      "조직 개선 방안을 제안함"
+    ],
+    "data": "하나의 학교 조직이나 온라인 커뮤니티를 선택해 구성원, 역할, 규칙, 의사소통 방식, 공식·비공식 관계를 정리한다.",
+    "modeling": "집단 관계망과 조직 구조도를 그려 개인의 역할, 권한, 소속감, 갈등 지점을 표시한다.",
+    "source": "학교 조직 사례, 동아리·학생회 자료, 온라인 커뮤니티 규칙, 조직 유형 설명 자료",
+    "scale": "범위: 개인-소집단-공식 조직-사회 제도 / 시간: 조직 형성과 변화 과정",
+    "uncertainty": "조직의 실제 작동 방식은 공식 규칙과 다를 수 있고, 구성원의 위치에 따라 경험이 다르게 나타난다.",
+    "misconception": "공식 조직은 규칙이 많아서 딱딱하고, 비공식 조직은 자유로워서 더 좋다.",
+    "correction": "공식 조직과 비공식 조직은 각각 장점과 한계가 있으며 실제 조직에서는 두 구조가 함께 작동함을 사례로 확인하게 한다.",
+    "failure": "유형 분류에만 머물면 집단이 개인의 관계, 정체성, 역할 수행에 미친 영향을 구체적 장면으로 쓰게 한다.",
+    "safe": "실제 학급·동아리 사례 분석 시 특정 학생이나 교사를 비난하는 방식이 되지 않도록 가상화하거나 구조 중심으로 분석한다.",
+    "deepDive": "플랫폼 노동 조직이나 팬덤 커뮤니티를 공식 조직·비공식 조직·준거 집단 개념으로 분석한다.",
+    "career": "조직관리, 경영, 교육행정, 사회복지, 커뮤니티 매니지먼트, HR",
+    "sample": "학생회 운영 사례를 공식 조직과 비공식 관계망으로 나누어 분석하고, 역할 배분과 의사소통 방식이 구성원의 참여와 소속감에 미치는 영향을 설명한 뒤 개선 방안을 제안함.",
+    "code": "[12사문02-02]",
+    "domain": "사회 구조와 사회 변동",
+    "standard": "사회 집단 및 사회 조직의 유형과 변화 양상에 대한 이해를 바탕으로 사회 집단 및 사회 조직이 개인의 사회생활과 사회적 관계에 미치는 영향을 설명한다.",
+    "levels": {
+      "A": "사례 조사 및 분석을 통해 사회 집단 및 사회 조직의 유형과 변화 양상을 도출하고, 사회 집단 및 사회 조직이 개인의 사회생활과 사회적 관계에 영향을 미치는 사례를 분석할 수 있다.",
+      "B": "사례 조사를 통해 사회 집단 및 사회 조직의 유형과 변화 양상을 파악하고, 사회 집단 및 사회 조직이 개인의 사회생활과 사회적 관계에 미치는 영향을 사례를 통해 설명할 수 있다.",
+      "C": "사회 집단 및 사회 조직의 유형과 변화 양상을 설명하며, 사회 집단 및 사회 조직이 개인의 사회생활과 사회적 관계에 영향을 미치는 영향을 사례를 통해 설명할 수 있다.",
+      "D": "사회 집단 및 사회 조직의 유형을 구분하고, 사회 집단 및 사회 조직이 개인의 사회생활과 사회적 관계에 영향을 미치는 사례를 탐색할 수 있다.",
+      "E": "사회 집단 및 사회 조직의 유형을 열거하고, 사회 집단 및 사회 조직이 개인의 사회생활과 사회적 관계에 영향을 미침을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-4 / 선다형+서술형 / 사회 집단과 사회 조직 유형 분석"
+  },
+  {
+    "title": "일탈은 개인의 문제인가, 사회의 신호인가?",
+    "type": "일탈 이론 사례 비교형",
+    "period": "2차시",
+    "lens": "규범과 통제",
+    "concept": "일탈 행동과 사회 통제",
+    "related": "일탈, 규범, 아노미 이론, 차별 교제 이론, 낙인 이론, 사회 통제, 공식적 통제, 비공식적 통제",
+    "phenomenon": "학교 규칙 위반, 온라인 악성 댓글, 청소년 범죄, 무단결석, 새로운 문화 실천이 일탈로 규정되는 사례를 제시한다.",
+    "conflict": "학생은 일탈을 나쁜 개인의 행동으로만 볼 수 있다. 일탈은 사회 규범, 기회 구조, 또래 관계, 낙인 과정, 통제 방식과 연결된다.",
+    "general": "일탈 행동은 개인의 특성만이 아니라 사회 규범, 기회 구조, 상호작용, 낙인, 사회 통제 방식 속에서 이해되어야 한다.",
+    "studentGeneral": "일탈을 이해하려면 누가 무엇을 잘못했는지만이 아니라 왜 그런 행동이 생기고 어떻게 일탈로 불리게 되었는지도 봐야 한다.",
+    "questions": [
+      "일탈 행동을 설명하는 주요 이론에는 무엇이 있는가?",
+      "사회 규범과 사회 통제는 일탈 행동에 어떤 영향을 미치는가?",
+      "낙인은 일탈을 줄이는가, 더 키우는가?",
+      "일탈 문제를 해결하기 위해 처벌 외에 어떤 접근이 필요한가?"
+    ],
+    "products": [
+      "일탈 사례 이론 적용표",
+      "사회 통제 유형 분석표",
+      "회복적 해결 방안 제안서"
+    ],
+    "evidence": [
+      "일탈 이론을 비교함",
+      "사례에 적절한 이론을 적용함",
+      "사회 통제의 필요성과 문제점을 분석함",
+      "개선 방안을 제시함"
+    ],
+    "data": "하나의 일탈 사례를 선택해 관련 규범, 행위자, 배경, 통제 방식, 낙인 가능성, 해결 방안을 정리한다.",
+    "modeling": "일탈 발생 요인과 통제 결과를 아노미·차별 교제·낙인 이론별 원인-결과 도식으로 표현한다.",
+    "source": "가상 사례, 공개 뉴스 자료, 학교 규칙, 청소년 관련 통계, 일탈 이론 설명 자료",
+    "scale": "범위: 개인 행동-또래 집단-학교·지역사회-제도 / 시간: 일탈 발생 전후와 통제 이후",
+    "uncertainty": "공개 사례는 당사자 정보가 제한되어 있고, 언론 보도는 특정 관점을 강조할 수 있으므로 단정적 판단을 피한다.",
+    "misconception": "일탈 행동은 규칙을 지키지 않는 개인의 인성 문제이다.",
+    "correction": "사회 구조, 또래 관계, 규범의 변화, 낙인 과정이 일탈에 영향을 줄 수 있음을 이론별 사례 비교로 확인하게 한다.",
+    "failure": "학생이 사건의 잘잘못 판단에 머물면 이론별 설명 질문을 제시하고, 처벌·예방·회복의 차이를 구분하게 한다.",
+    "safe": "실제 범죄 피해 사례를 선정적으로 다루지 않고, 당사자 신상과 혐오 표현을 배제한 가상화 자료를 사용한다.",
+    "deepDive": "온라인 혐오 표현과 악성 댓글을 일탈 이론과 플랫폼의 사회 통제 방식으로 분석한다.",
+    "career": "범죄학, 법학, 상담, 사회복지, 청소년지도, 플랫폼 정책",
+    "sample": "온라인 악성 댓글 사례를 아노미 이론, 차별 교제 이론, 낙인 이론으로 비교 분석하고, 단순 처벌보다 예방 교육과 플랫폼 규칙, 회복적 접근이 함께 필요함을 제안함.",
+    "code": "[12사문02-03]",
+    "domain": "사회 구조와 사회 변동",
+    "standard": "일탈 행동의 발생 요인이나 특성을 설명하는 다양한 일탈 이론을 비교하고, 일탈 행동에 대한 사회 통제의 유형과 사회 통제의 필요성 및 문제점을 분석한다.",
+    "levels": {
+      "A": "다양한 일탈 이론을 일탈 행동의 발생 요인이나 특성을 중심으로 비교하고, 사례 조사를 통해 일탈 행동에 대한 사회 통제의 유형과 사회 통제의 필요성 및 문제점을 분석할 수 있다.",
+      "B": "다양한 일탈 이론을 비교하고, 사례 조사를 통해 일탈 행동에 대한 사회 통제의 유형과 사회 통제의 필요성 및 문제점을 분석할 수 있다.",
+      "C": "다양한 일탈 이론을 설명하고, 일탈 행동에 대한 사회 통제의 유형과 사회 통제의 필요성 및 문제점을 설명할 수 있다.",
+      "D": "다양한 일탈 이론을 구분하고, 일탈 행동에 대한 사회 통제의 필요성 및 문제점을 말할 수 있다.",
+      "E": "일탈 행동의 발생 요인이나 특성을 설명하는 다양한 이론이 있음을 말하고, 일탈 행동에 대한 사회 통제의 필요성 및 문제점을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-5 / 서술형 / 일탈 이론과 사회 통제 분석"
+  },
+  {
+    "title": "사회 변동은 누가, 어떻게 만드는가?",
+    "type": "사회 변동·사회 운동 탐구형",
+    "period": "2차시",
+    "lens": "변동과 참여",
+    "concept": "사회 변동과 사회 운동",
+    "related": "사회 변동, 정보화, 세계화, 저출산·고령화, 사회 운동, 시민 참여, 집합 행동, 구조 변동",
+    "phenomenon": "기후 행동, 디지털 권리 운동, 장애인 이동권 운동, 여성 운동, 지역 소멸 대응, 저출산·고령화 문제 등 현대 사회 변동 사례를 제시한다.",
+    "conflict": "학생은 사회 변동을 기술 발전이나 시대 흐름처럼 자연스럽게 일어나는 변화로 이해할 수 있다. 사회 변동은 여러 요인의 복합 작용과 시민의 조직적 참여 속에서 만들어진다.",
+    "general": "사회 변동은 기술, 제도, 가치, 인구, 경제, 문화 요인이 상호 작용한 결과이며, 사회 운동은 시민이 변동의 방향에 참여하는 방식이다.",
+    "studentGeneral": "사회는 저절로 바뀌는 것이 아니라 여러 조건과 사람들의 행동이 만나 바뀐다.",
+    "questions": [
+      "현대 사회 변동의 주요 양상과 요인은 무엇인가?",
+      "사회 운동은 사회 변동 과정에서 어떤 역할을 하는가?",
+      "모든 사회 운동은 사회 발전에 기여하는가?",
+      "내가 관심 있는 사회문제에 참여 가능한 시민 행동은 무엇인가?"
+    ],
+    "products": [
+      "사회 변동 요인 분석표",
+      "사회 운동 사례 카드",
+      "시민 참여 프로젝트 제안서"
+    ],
+    "evidence": [
+      "사회 변동 요인을 복합적으로 설명함",
+      "사회 운동의 유형과 특징을 분석함",
+      "자료를 비판적으로 수집함",
+      "실천 가능한 참여 방안을 제시함"
+    ],
+    "data": "하나의 사회 운동 사례를 선택해 배경, 요구, 주체, 방식, 성과, 비판, 사회 변동과의 관계를 조사한다.",
+    "modeling": "사회 변동 요인 네트워크와 사회 운동의 요구-행동-성과-한계 흐름도로 표현한다.",
+    "source": "뉴스, 단체 누리집, 정책 자료, 통계, 다큐멘터리, 사회 운동 관련 공개 자료",
+    "scale": "범위: 개인 참여-지역사회-국가 제도-세계적 연대 / 시간: 운동 발생 배경과 변화 과정",
+    "uncertainty": "사회 운동 평가는 관점에 따라 달라질 수 있고, 성과와 한계는 장기적으로 나타날 수 있다.",
+    "misconception": "사회 변동은 기술 발전이나 경제 성장 때문에 자연스럽게 일어난다.",
+    "correction": "기술·인구·제도·가치·시민 참여가 상호 작용한다는 점을 사회 운동 사례와 연결해 확인하게 한다.",
+    "failure": "사회 운동 소개에 머물면 요구의 근거, 참여 방식, 성과와 한계, 비판 가능성을 균형 있게 분석하게 한다.",
+    "safe": "정치적 쟁점을 다룰 때 특정 입장을 강요하지 않고 자료 근거, 인권, 민주적 절차 중심으로 토론한다.",
+    "deepDive": "기후 행동 또는 디지털 권리 운동을 세계적 연대와 지역 실천의 관계 속에서 분석한다.",
+    "career": "사회운동 연구, 시민단체, 정책기획, 언론, 공공행정, 정치외교",
+    "sample": "장애인 이동권 운동 사례를 제도, 인권, 시민 참여, 미디어 보도와 연결하여 분석하고, 사회 운동이 사회 변동의 방향을 제안하는 과정임을 성과와 한계까지 포함해 설명함.",
+    "code": "[12사문02-04]",
+    "domain": "사회 구조와 사회 변동",
+    "standard": "사회 변동이 다양한 요인의 복합적인 상호 작용의 산물이라는 점을 설명하고, 현대 사회의 변동 과정에서 나타나는 다양한 사회 운동의 유형과 특징을 탐구한다.",
+    "levels": {
+      "A": "현대 사회 변동의 양상 및 변동에 영향을 미치는 다양한 요인에 대한 자료를 조사･분석하고, 현대 사회 변동 과정에서 나타나는 다양한 사회 운동의 유형과 특징을 탐구하며, 사회문제 해결을 위한 사회 운동을 계획하고 실천할 수 있다.",
+      "B": "현대 사회 변동의 양상 및 변동에 영향을 미치는 다양한 요인에 대한 자료를 조사하고, 현대 사회 변동 과정에서 나타나는 다양한 사회 운동의 유형과 특징을 분석하며, 사회문제 해결을 위한 사회 운동을 계획할 수 있다.",
+      "C": "현대 사회 변동의 양상 및 변동에 영향을 미치는 다양한 요인을 파악하고, 현대 사회 변동 과정에서 나타나는 다양한 사회 운동의 유형과 특징을 설명하며, 사회문제 해결을 위한 사회 운동에 관심을 가진다.",
+      "D": "현대 사회 변동의 양상 및 변동에 영향을 미치는 다양한 요인을 열거하고, 현대 사회 변동 과정에서 나타나는 사회 운동의 사례를 제시하며, 사회문제 해결을 위한 사회 운동에 관심을 가지기 위해 노력한다.",
+      "E": "현대 사회 변동의 양상을 열거하고, 현대 사회 변동 과정에서 다양한 사회 운동이 나타남을 알고, 사회문제 해결을 위한 참여의 필요성을 인식한다."
+    },
+    "official": [],
+    "tool": "사회와 문화-6 / 논술형·프로젝트형 / 사회 변동과 사회 운동의 유형 및 특징 탐구"
+  },
+  {
+    "title": "대중문화는 나를 즐겁게만 하는가?",
+    "type": "대중문화 관점 비판 토의형",
+    "period": "2차시",
+    "lens": "문화와 권력",
+    "concept": "대중문화의 영향",
+    "related": "대중문화, 문화 산업론, 문화주의, 취향 문화론, 리비스주의, 소비, 정체성, 상업화",
+    "phenomenon": "아이돌 콘텐츠, 숏폼 영상, 웹툰, 게임, 광고, 팬덤 문화처럼 학생이 일상적으로 접하는 대중문화 사례를 제시한다.",
+    "conflict": "학생은 대중문화를 개인 취향과 오락으로만 이해할 수 있다. 대중문화는 즐거움을 제공하면서도 산업, 권력, 정체성, 사회적 규범을 형성한다.",
+    "general": "대중문화는 개인의 취향과 정체성 형성에 영향을 주며, 동시에 산업적 이익과 사회적 의미가 결합된 문화 현상으로 다양한 관점에서 비판적으로 분석되어야 한다.",
+    "studentGeneral": "내가 좋아하는 콘텐츠도 재미만이 아니라 돈, 권력, 유행, 정체성과 연결되어 있다.",
+    "questions": [
+      "대중문화를 바라보는 다양한 관점에는 무엇이 있는가?",
+      "대중문화는 개인과 사회에 어떤 영향을 미치는가?",
+      "대중문화 비판은 대중의 취향을 무시하는 것인가?",
+      "내가 소비하는 대중문화를 더 능동적으로 읽으려면 무엇을 질문해야 하는가?"
+    ],
+    "products": [
+      "대중문화 사례 관점 분석표",
+      "비판적 문화 리뷰",
+      "토의 기록지"
+    ],
+    "evidence": [
+      "대중문화 관점을 비교함",
+      "일상 사례를 분석함",
+      "긍정적·부정적 영향을 균형 있게 평가함",
+      "토의에서 근거 있는 의견을 제시함"
+    ],
+    "data": "대중문화 콘텐츠 하나를 선택해 생산자, 소비자, 수익 구조, 재현 방식, 팬덤 반응, 사회적 영향을 정리한다.",
+    "modeling": "대중문화 사례를 관점별 질문 카드와 영향 분석 매트릭스로 표현한다.",
+    "source": "대중문화 콘텐츠, 광고·플랫폼 자료, 기사, 댓글·팬덤 반응, 문화 이론 설명 자료",
+    "scale": "범위: 개인 취향-팬덤-문화 산업-사회 규범 / 시간: 유행 형성과 확산 과정",
+    "uncertainty": "콘텐츠 영향은 수용자에 따라 다르게 나타나며, 댓글과 조회수는 전체 수용자 의견을 대표하지 않을 수 있다.",
+    "misconception": "대중문화는 개인 취향이므로 사회적으로 분석할 필요가 없다.",
+    "correction": "대중문화가 정체성, 소비, 젠더 규범, 정치적 메시지, 산업 구조와 연결됨을 사례 분석으로 확인하게 한다.",
+    "failure": "좋다·나쁘다 평가에 머물면 관점별 근거와 영향 대상을 나누어 분석하게 한다.",
+    "safe": "특정 팬덤, 성별, 세대 취향을 조롱하지 않고 콘텐츠와 구조를 비판하는 방식으로 토의한다.",
+    "deepDive": "숏폼 플랫폼의 추천 알고리즘이 대중문화 소비와 정체성 형성에 미치는 영향을 분석한다.",
+    "career": "문화콘텐츠, 미디어학, 광고, 문화비평, 엔터테인먼트, 사회학",
+    "sample": "숏폼 영상 콘텐츠를 문화 산업론과 문화주의 관점으로 분석하여 오락성과 수익 구조, 이용자의 능동적 해석을 함께 설명하고, 대중문화가 개인 정체성과 사회 규범에 미치는 영향을 토의함.",
+    "code": "[12사문03-01]",
+    "domain": "일상 문화와 문화 변동",
+    "standard": "대중문화에 대한 다양한 관점을 비교하고, 일상적으로 접하는 사례를 중심으로 대중문화가 개인과 사회에 미치는 영향을 토의한다.",
+    "levels": {
+      "A": "대중문화에 대한 다양한 관점을 비교하고, 사례를 조사･분석하여 대중문화가 개인과 사회에 미치는 영향을 다양한 관점에서 도출하고, 비판적으로 평가하여 토의할 수 있다.",
+      "B": "대중문화에 대한 다양한 관점을 비교하고, 사례를 조사하여 대중문화가 개인과 사회에 미치는 영향을 다양한 관점에서 파악하고, 자신의 의견을 주장할 수 있다.",
+      "C": "대중문화에 대한 다양한 관점을 설명하고, 사례를 통해 대중문화가 개인과 사회에 미치는 영향을 설명하며, 자신의 입장과 가장 가까운 주장을 선택할 수 있다.",
+      "D": "대중문화에 대한 다양한 관점을 열거하고, 사례를 통해 대중문화가 개인과 사회에 미치는 영향을 파악할 수 있다.",
+      "E": "대중문화에 대한 다양한 관점이 있으며 대중문화가 개인과 사회에 영향을 미친다는 것을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-7 / 토의·보고서형 / 대중문화 관점 비교와 영향 평가"
+  },
+  {
+    "title": "미디어 메시지는 우리를 어떻게 움직이는가?",
+    "type": "미디어 비판·대안 메시지 제작형",
+    "period": "2차시",
+    "lens": "프레이밍과 참여",
+    "concept": "미디어 효과와 메시지 생산",
+    "related": "미디어 효과, 의제 설정, 프레이밍, 문화 배양, 침묵의 나선, 허위 정보, 대안 메시지, 미디어 리터러시",
+    "phenomenon": "같은 사회문제를 다룬 뉴스 제목, 썸네일, 통계 그래프, 댓글 배열이 서로 다른 인상을 만드는 사례를 비교한다.",
+    "conflict": "학생은 미디어가 사실을 전달한다고 생각하거나, 반대로 모든 미디어가 조작이라고 단순화할 수 있다. 미디어 메시지는 선택과 구성 방식을 통해 현실 인식에 영향을 준다.",
+    "general": "미디어는 사회문제의 의제, 해석 틀, 여론 형성에 영향을 미치며, 시민은 메시지를 비판적으로 분석하고 대안적 메시지 생산에 참여할 수 있다.",
+    "studentGeneral": "뉴스와 영상은 사실을 보여 주지만, 무엇을 어떻게 보여 주는지에 따라 내 생각을 바꿀 수 있다.",
+    "questions": [
+      "미디어 효과를 설명하는 이론에는 무엇이 있는가?",
+      "미디어 메시지는 어떤 방식으로 현실 인식에 영향을 미치는가?",
+      "플랫폼 시대에 사람들은 미디어에 조종되는가, 능동적으로 해석하는가?",
+      "더 공정하고 책임 있는 대안 메시지를 만들려면 무엇을 바꿔야 하는가?"
+    ],
+    "products": [
+      "미디어 메시지 분석표",
+      "프레이밍 비교 카드",
+      "대안 메시지 제작물"
+    ],
+    "evidence": [
+      "미디어 효과 이론을 사례에 적용함",
+      "메시지의 내용·의도·영향을 분석함",
+      "문제점을 근거로 비판함",
+      "대안적 메시지를 제작함"
+    ],
+    "data": "같은 쟁점에 대한 서로 다른 미디어 자료를 수집해 제목, 이미지, 자료 선택, 누락된 관점, 예상 수용자 반응을 비교한다.",
+    "modeling": "의제 설정-프레이밍-수용자 반응-대안 메시지의 흐름도로 미디어 효과를 표현한다.",
+    "source": "뉴스 기사, 카드뉴스, 영상 썸네일, 광고, SNS 게시물, 댓글, 미디어 효과 이론 자료",
+    "scale": "범위: 개인 수용자-온라인 커뮤니티-여론-정책 / 시간: 이슈 발생과 확산 과정",
+    "uncertainty": "미디어 효과는 수용자의 배경, 기존 신념, 플랫폼 알고리즘, 사회적 맥락에 따라 다르게 나타난다.",
+    "misconception": "미디어는 사실을 있는 그대로 전달하거나 완전히 조작한다.",
+    "correction": "미디어는 사실을 선택·배열·강조하는 방식으로 메시지를 구성한다는 점을 제목과 이미지 비교로 확인하게 한다.",
+    "failure": "가짜뉴스 찾기에만 머물면 메시지의 의도, 프레이밍, 누락된 관점, 대안 표현까지 분석하게 한다.",
+    "safe": "혐오 표현, 폭력적 이미지, 자극적 콘텐츠를 그대로 재생산하지 않고 분석에 필요한 최소한의 자료만 사용한다.",
+    "deepDive": "같은 사회문제에 대한 언론사별 프레이밍 차이와 댓글 여론의 변화를 비교 분석한다.",
+    "career": "언론, 미디어 리터러시 교육, 광고·홍보, 콘텐츠 기획, 플랫폼 정책, 정치커뮤니케이션",
+    "sample": "동일한 사회문제를 다룬 뉴스 제목과 이미지의 프레이밍 차이를 분석하고, 의제 설정과 침묵의 나선 이론을 적용해 여론 형성 가능성을 설명한 뒤 균형 잡힌 대안 카드뉴스를 제작함.",
+    "code": "[12사문03-02]",
+    "domain": "일상 문화와 문화 변동",
+    "standard": "미디어의 효과에 대한 이해를 바탕으로 미디어가 생산하는 메시지를 비판적으로 분석하고 대안적 메시지 생산에 능동적으로 참여한다.",
+    "levels": {
+      "A": "미디어의 효과에 대한 다양한 이론을 비교하고, 기존의 미디어가 생산하는 메시지를 비판적으로 분석하여 대안적 메시지를 생산하고 평가할 수 있다.",
+      "B": "미디어의 효과에 대한 다양한 이론을 비교하고, 기존의 미디어가 생산하는 메시지를 분석하여 대안적 메시지를 생산할 수 있다.",
+      "C": "미디어의 효과에 대한 다양한 이론을 설명하고, 기존의 미디어가 생산한 메시지를 분석하여 문제점을 발견할 수 있다.",
+      "D": "미디어의 효과에 대한 다양한 이론을 열거하고, 기존의 미디어가 생산하는 메시지가 문제를 초래할 수 있음을 말할 수 있다.",
+      "E": "미디어의 효과에 대한 다양한 이론이 있다는 것과 기존의 미디어가 생산하는 메시지가 문제를 초래할 수 있음을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-8 / 미디어 분석형 / 미디어 메시지 비판과 대안 메시지 생산"
+  },
+  {
+    "title": "다름은 사회를 나누는가, 넓히는가?",
+    "type": "하위문화·다문화 관점 탐구형",
+    "period": "2차시",
+    "lens": "문화 다양성과 공존",
+    "concept": "하위문화와 다문화 사회",
+    "related": "하위문화, 주류 문화, 대항 문화, 지역 문화, 세대 문화, 이주민 문화, 동화주의, 다문화주의, 문화 다양성",
+    "phenomenon": "청소년 세대 문화, 지역 문화, 팬덤, 이주민 문화, 다문화 학생의 학교 경험처럼 주류 문화와 하위문화가 만나는 사례를 제시한다.",
+    "conflict": "학생은 하위문화를 특이한 취향이나 주류에서 벗어난 문화로 볼 수 있다. 하위문화는 정체성과 소속감을 만들고, 때로는 주류 문화의 한계를 드러낸다.",
+    "general": "하위문화와 이주민 문화는 주류 문화와의 관계 속에서 정체성, 갈등, 공존의 가능성을 만들며, 문화 다양성은 차이를 인정하고 제도적으로 보장할 때 증진된다.",
+    "studentGeneral": "다른 문화는 이상한 것이 아니라, 사회를 더 넓게 이해하게 하는 또 다른 삶의 방식이다.",
+    "questions": [
+      "하위문화와 주류 문화는 어떤 관계를 맺는가?",
+      "이주민 문화에 대한 동화주의와 다문화주의는 어떻게 다른가?",
+      "문화 다양성은 항상 사회 통합에 도움이 되는가?",
+      "우리 학교와 지역에서 문화 다양성을 증진하려면 무엇을 바꿔야 하는가?"
+    ],
+    "products": [
+      "하위문화 사례 분석 카드",
+      "동화주의·다문화주의 비교표",
+      "문화 다양성 증진 제안서"
+    ],
+    "evidence": [
+      "하위문화의 특징을 주류 문화와 연결함",
+      "이주민 문화 관점을 비교함",
+      "문화 다양성의 의의를 설명함",
+      "증진 방안을 제시함"
+    ],
+    "data": "하위문화 또는 이주민 문화 사례를 선택해 구성원, 상징, 언어, 규범, 주류 문화와의 관계, 갈등과 기여를 조사한다.",
+    "modeling": "주류 문화-하위문화 관계도와 동화주의·다문화주의 관점 비교표로 공존 방안을 표현한다.",
+    "source": "문화 사례 기사, 학교·지역 다문화 자료, 영상·인터뷰 자료, 문화 다양성 정책 자료",
+    "scale": "범위: 개인 정체성-학교·지역 공동체-국가 문화 정책 / 시간: 이주와 문화 변화 과정",
+    "uncertainty": "문화 집단 내부에도 차이가 있으며, 외부 자료만으로 특정 문화를 일반화하면 편견이 생길 수 있다.",
+    "misconception": "다문화 사회에서는 이주민이 주류 문화에 잘 적응하는 것이 가장 중요하다.",
+    "correction": "동화주의와 다문화주의의 차이를 비교하고, 이주민 문화가 사회의 문화 다양성과 정체성 형성에 기여할 수 있음을 사례로 확인하게 한다.",
+    "failure": "문화 소개에 머물면 주류 문화와의 관계, 차별 가능성, 제도적 지원 방안을 반드시 분석하게 한다.",
+    "safe": "이주 배경 학생이나 특정 문화 집단을 대상화하지 않고, 문화 상대주의와 인권 존중을 수업 규칙으로 세운다.",
+    "deepDive": "이중 언어 교육, 지역 다문화 축제, 이주민 노동자 지원 정책 중 하나를 문화 다양성 관점에서 평가한다.",
+    "career": "다문화교육, 사회복지, 국제교류, 문화정책, 인권, 지역공동체 활동",
+    "sample": "이주민 문화 사례를 동화주의와 다문화주의 관점으로 비교하고, 모국어와 문화 정체성 보장이 사회 통합과 문화 다양성 증진에 기여할 수 있음을 학교 차원의 실천 방안과 연결함.",
+    "code": "[12사문03-03]",
+    "domain": "일상 문화와 문화 변동",
+    "standard": "하위문화와 주류 문화의 관계에 대한 이해를 바탕으로 다문화 사회의 이주민 문화에 대한 서로 다른 관점을 비교하고, 이주민 문화가 갖는 의의에 기초하여 문화 다양성을 증진하기 위한 방안을 제시한다.",
+    "levels": {
+      "A": "사례를 조사하여 하위문화의 특징을 주류 문화와의 관련성을 바탕으로 도출하고, 다문화 사회의 이주민 문화에 대한 관점을 비교하여 이주민 문화의 의의를 파악하고, 문화 다양성을 증진하기 위한 방안을 제안하고 평가할 수 있다.",
+      "B": "사례를 조사하여 하위문화의 특징을 주류 문화와의 관련성을 바탕으로 파악하고, 다문화 사회의 이주민 문화에 대한 관점을 비교하여 이주민 문화의 의의를 파악하고, 문화 다양성을 증진하기 위한 방안을 제안할 수 있다.",
+      "C": "하위문화의 특징을 주류 문화와의 관련성을 바탕으로 설명하고, 다문화 사회의 이주민 문화에 대한 관점을 비교하고, 문화 다양성 증진의 필요성을 설명할 수 있다.",
+      "D": "하위문화의 특징을 제시하고, 다문화 사회의 이주민 문화에 대한 관점을 구분하며, 문화 다양성 증진의 필요성을 설명할 수 있다.",
+      "E": "다문화 사회의 이주민 문화에 대한 관점을 열거하며, 문화 다양성 증진이 필요함을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-9 / 논술형 / 하위문화·이주민 문화 관점 비교와 문화 다양성 방안"
+  },
+  {
+    "title": "문화는 변하면 사라지는가, 새로워지는가?",
+    "type": "문화 변동 쟁점 탐구형",
+    "period": "2차시",
+    "lens": "변동과 정체성",
+    "concept": "문화 변동과 문화 세계화",
+    "related": "문화 변동, 발명, 발견, 전파, 문화 접변, 문화 동화, 문화 병존, 문화 융합, 문화 지체, 문화 세계화",
+    "phenomenon": "한식의 세계화, K-콘텐츠, 지역 축제의 상품화, 전통문화의 디지털화, 외래 문화 수용 사례를 비교한다.",
+    "conflict": "학생은 문화 변동을 전통의 훼손이나 발전 중 하나로 단순 판단할 수 있다. 문화 변동은 정체성, 다양성, 상업화, 권력 관계가 함께 작동하는 과정이다.",
+    "general": "문화는 다양한 요인에 의해 지속적으로 변동하며, 문화 세계화는 새로운 융합과 확산을 만들지만 정체성 약화, 문화 상품화, 불평등한 문화 권력의 쟁점도 동반한다.",
+    "studentGeneral": "문화가 변한다는 것은 사라진다는 뜻만도, 좋아진다는 뜻만도 아니며 어떤 방식으로 변하는지가 중요하다.",
+    "questions": [
+      "문화 변동의 요인과 양상에는 무엇이 있는가?",
+      "문화 변동 과정에서 어떤 문제가 발생할 수 있는가?",
+      "문화의 세계화는 문화 다양성을 넓히는가, 줄이는가?",
+      "내가 접하는 문화 세계화 사례를 더 균형 있게 평가하려면 어떤 기준이 필요한가?"
+    ],
+    "products": [
+      "문화 변동 사례 흐름도",
+      "문화 세계화 쟁점 분석표",
+      "문화 다양성 보존·재해석 제안서"
+    ],
+    "evidence": [
+      "문화 변동 요인과 양상을 설명함",
+      "문화 변동의 문제점을 분석함",
+      "문화 세계화 쟁점을 탐구함",
+      "균형 있는 평가 기준을 제시함"
+    ],
+    "data": "문화 변동 사례 하나를 선택해 변동 요인, 전파 경로, 수용 방식, 새로 생긴 문화 요소, 갈등과 쟁점을 정리한다.",
+    "modeling": "발명·발견·전파와 문화 접변 양상을 시간 흐름도와 쟁점 매트릭스로 표현한다.",
+    "source": "문화 콘텐츠, 지역 축제 자료, 전통문화 보존 자료, 기사, 영상, 문화 정책 자료",
+    "scale": "범위: 지역 문화-국가 문화-세계 문화 네트워크 / 시간: 전통 형성, 변동, 세계화 이후",
+    "uncertainty": "문화 변동의 영향은 집단과 세대에 따라 다르게 평가될 수 있으며, 상업 자료는 성공 사례를 과장할 수 있다.",
+    "misconception": "전통문화가 변하면 원래의 가치가 사라진다.",
+    "correction": "문화 변동은 보존, 재해석, 융합, 상품화 등 다양한 양상으로 나타나며 가치 판단에는 기준이 필요함을 사례 비교로 확인하게 한다.",
+    "failure": "문화 변동 유형 암기에 머물면 실제 사례에서 어떤 요인이 어떤 양상을 만들었는지 시간 순서로 표시하게 한다.",
+    "safe": "특정 문화의 전통성을 외부 관점으로 단정하지 않고, 해당 문화 구성원의 관점과 권리를 고려한다.",
+    "deepDive": "K-콘텐츠의 세계화가 문화 다양성과 문화 산업 권력에 미치는 영향을 양면적으로 분석한다.",
+    "career": "문화정책, 콘텐츠 산업, 관광, 지역브랜딩, 문화유산, 국제문화교류",
+    "sample": "지역 축제의 관광 상품화 사례를 문화 변동 요인과 문화 세계화 쟁점으로 분석하고, 문화 융합과 정체성 약화 가능성을 함께 고려한 보존·재해석 방안을 제안함.",
+    "code": "[12사문03-04]",
+    "domain": "일상 문화와 문화 변동",
+    "standard": "문화 변동의 다양한 요인과 양상, 문화 변동 과정에서 발생하는 문제점을 이해하고, 문화의 세계화로 인해 나타나는 쟁점에 대해 탐구한다.",
+    "levels": {
+      "A": "문화 변동의 다양한 요인과 양상을 설명하고, 사례 조사 및 분석을 통해 문화 변동 과정에서 발생할 수 있는 문제점을 파악하고, 문화의 세계화로 인해 나타나는 쟁점을 도출하여 다양한 입장으로 분석한 후 자신의 견해를 합리적으로 주장할 수 있다.",
+      "B": "문화 변동의 다양한 요인과 양상을 설명하고, 사례 조사를 통해 문화 변동 과정에서 발생하는 문제점을 파악하고, 문화의 세계화로 인해 나타나는 쟁점을 도출하여 다양한 입장으로 분석할 수 있다.",
+      "C": "문화 변동의 다양한 요인과 양상을 설명하고, 문화 변동 과정에서 발생하는 문제점을 설명하고, 문화의 세계화로 인해 나타나는 쟁점을 도출할 수 있다.",
+      "D": "문화 변동의 다양한 요인과 양상을 열거하고, 문화 변동 과정에서 발생하는 문제점과 문화의 세계화로 인해 나타나는 쟁점을 말할 수 있다.",
+      "E": "문화 변동이 다양한 요인에 의해 여러 양상으로 나타난다는 것과 문화 변동 과정과 문화의 세계화 과정에서 여러 문제점이 나타날 수 있다는 것을 말할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-10 / 서술형 / 문화 변동 양상과 문화 세계화 쟁점 탐구"
+  },
+  {
+    "title": "불평등은 왜 계속 재생산되는가?",
+    "type": "사회 불평등 관점·계층 분석형",
+    "period": "2차시",
+    "lens": "계층과 기회",
+    "concept": "사회 불평등과 사회 이동",
+    "related": "사회 불평등, 기능론, 갈등론, 사회 계층, 사회 이동, 계층 구조, 피라미드형, 다이아몬드형, 정보 사회",
+    "phenomenon": "교육 기회, 주거, 소득, 직업, 디지털 접근성, 부모 배경과 진로 기회 차이를 통계와 사례로 제시한다.",
+    "conflict": "학생은 불평등을 개인 노력 차이 또는 불공정한 사회 구조 중 하나로만 해석할 수 있다. 불평등은 기능론과 갈등론의 관점에서 서로 다르게 설명되며 계층 구조와 사회 이동 가능성으로 분석할 수 있다.",
+    "general": "사회 불평등은 자원과 기회의 차등 분배로 나타나며, 이를 이해하려면 불평등의 기능, 권력 관계, 계층 구조, 사회 이동 가능성을 함께 분석해야 한다.",
+    "studentGeneral": "불평등을 보려면 누가 더 많이 가졌는지만이 아니라, 누가 왜 기회를 얻거나 잃는지도 봐야 한다.",
+    "questions": [
+      "사회 불평등을 이해하는 기능론과 갈등론은 어떻게 다른가?",
+      "사회 이동과 사회 계층 구조의 유형에는 무엇이 있는가?",
+      "능력주의는 불평등을 정당화할 수 있는가?",
+      "기회의 불평등을 줄이기 위해 어떤 제도와 실천이 필요한가?"
+    ],
+    "products": [
+      "불평등 관점 비교표",
+      "사회 이동 사례 분석표",
+      "계층 구조 시각화 자료"
+    ],
+    "evidence": [
+      "불평등 관점을 비교함",
+      "사회 이동과 계층 구조를 분석함",
+      "사례와 통계를 연결함",
+      "기회 구조의 문제를 설명함"
+    ],
+    "data": "교육·소득·직업·주거·디지털 접근성 중 하나의 불평등 자료를 선택해 계층 구조와 사회 이동 가능성을 분석한다.",
+    "modeling": "계층 구조 도식, 사회 이동 경로, 기능론·갈등론 비교표로 불평등을 시각화한다.",
+    "source": "소득·교육·직업 통계, 계층 이동 관련 자료, 뉴스 사례, 사회 불평등 이론 자료",
+    "scale": "범위: 개인 기회-가족 배경-학교·노동시장-사회 제도 / 시간: 세대 내·세대 간 이동",
+    "uncertainty": "불평등 통계는 지표 선택에 따라 다르게 보이며, 개인 사례만으로 전체 구조를 일반화할 수 없다.",
+    "misconception": "사회 불평등은 노력한 사람과 노력하지 않은 사람의 차이에서 비롯된다.",
+    "correction": "개인 노력뿐 아니라 가정 배경, 교육 기회, 노동시장 구조, 제도적 차이가 사회 이동에 영향을 줌을 통계와 사례로 확인하게 한다.",
+    "failure": "학생이 기능론·갈등론의 장단점 암기에 머물면 실제 자료를 두 관점으로 해석하고 한계를 비교하게 한다.",
+    "safe": "경제적 배경과 계층 경험을 다룰 때 학생 개인 상황이 노출되거나 낙인찍히지 않도록 공개 통계와 가상 사례를 활용한다.",
+    "deepDive": "디지털 전환이 사회 계층 구조와 사회 이동 가능성에 미치는 영향을 정보 격차 관점에서 분석한다.",
+    "career": "사회정책, 교육정책, 경제사회학, 노동연구, 공공데이터 분석, 사회복지",
+    "sample": "교육 기회 격차 자료를 기능론과 갈등론으로 비교 해석하고, 부모 배경과 지역 자원이 사회 이동 가능성에 미치는 영향을 계층 구조 도식으로 설명함.",
+    "code": "[12사문04-01]",
+    "domain": "사회 불평등과 사회 복지",
+    "standard": "사회 불평등 현상을 이해하는 서로 다른 관점을 비교하고, 사회 이동과 사회 계층 구조의 유형 및 특징을 분석한다.",
+    "levels": {
+      "A": "사회 불평등 현상을 이해하는 관점으로 기능론과 갈등론의 의의와 한계를 비교하고, 사례 조사 및 분석을 통해 사회 이동과 사회 계층 구조의 유형 및 특징을 도출할 수 있다.",
+      "B": "사회 불평등 현상을 이해하는 관점으로 기능론과 갈등론의 의의와 한계를 설명하고, 사례 조사를 통해 사회 이동과 사회 계층 구조의 유형 및 특징을 파악할 수 있다.",
+      "C": "사회 불평등 현상을 이해하는 관점으로 기능론과 갈등론을 설명하고, 사회 이동과 사회 계층 구조의 유형 및 특징을 설명할 수 있다.",
+      "D": "사회 불평등 현상을 이해하는 관점으로 기능론과 갈등론을 구분하고, 사회 이동과 사회 계층 구조의 유형 및 특징을 제시할 수 있다.",
+      "E": "사회 불평등 현상을 이해하는 관점으로 기능론과 갈등론을 말하고, 사회 이동과 사회 계층 구조의 유형을 열거할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-11 / 서술형 / 사회 불평등 관점과 계층 구조 분석"
+  },
+  {
+    "title": "차별받는 사람의 입장에서 사회를 다시 본다면?",
+    "type": "불평등 양상 공감·해결 프로젝트형",
+    "period": "2차시",
+    "lens": "공감과 정의",
+    "concept": "사회 불평등과 차별 해결",
+    "related": "빈곤, 성 불평등, 사회적 소수자, 차별, 낙인, 구조적 불평등, 공감, 인권, 해결 방안",
+    "phenomenon": "빈곤, 성별 임금 격차, 장애인 접근권, 이주민 차별, 노인 빈곤, 청년 주거 문제처럼 현대 사회의 다양한 불평등 양상을 자료와 사례로 제시한다.",
+    "conflict": "학생은 차별을 개인의 편견 문제로만 이해할 수 있다. 차별은 제도, 문화, 공간, 경제 구조 속에서 반복되며 차별받는 사람의 관점에서 문제를 다시 볼 필요가 있다.",
+    "general": "현대 사회의 불평등과 차별은 개인의 편견뿐 아니라 사회 구조와 제도 속에서 형성되며, 해결 방안은 피해자의 경험에 대한 공감과 구조 개선을 함께 요구한다.",
+    "studentGeneral": "차별을 줄이려면 불쌍하다고 느끼는 것만이 아니라, 그 사람이 왜 같은 기회를 얻기 어려운지 구조를 봐야 한다.",
+    "questions": [
+      "현대 사회의 다양한 불평등 양상에는 무엇이 있는가?",
+      "차별받는 사람의 입장에서 보면 사회 구조는 어떻게 다르게 보이는가?",
+      "공감은 불평등 해결에 충분한가?",
+      "우리 학교와 지역에서 실천 가능한 불평등 해결 방안은 무엇인가?"
+    ],
+    "products": [
+      "불평등 사례 분석 보고서",
+      "당사자 관점 공감 지도",
+      "불평등 해결 프로젝트 제안서"
+    ],
+    "evidence": [
+      "불평등 양상을 자료로 분석함",
+      "차별받는 사람의 관점을 고려함",
+      "구조적 원인과 영향을 설명함",
+      "실천 가능한 해결 방안을 제시함"
+    ],
+    "data": "하나의 불평등 양상을 선택해 실태 통계, 사례, 원인, 개인적·사회적 영향, 현재 정책, 개선 방안을 조사한다.",
+    "modeling": "당사자 경험-구조적 원인-사회적 영향-해결 방안의 공감 지도와 문제 해결 도식으로 표현한다.",
+    "source": "공공 통계, 인권 자료, 정책 자료, 뉴스 기사, 시민단체 자료, 당사자 인터뷰 공개 자료",
+    "scale": "범위: 개인 경험-학교·지역사회-국가 제도 / 시간: 차별 경험, 제도 변화, 장기 영향",
+    "uncertainty": "불평등 사례는 민감하며, 공개 자료가 당사자의 실제 경험을 충분히 대표하지 못할 수 있다.",
+    "misconception": "차별은 나쁜 생각을 가진 개인이 줄어들면 해결된다.",
+    "correction": "개인 편견뿐 아니라 제도, 공간, 언어, 문화 규범, 경제 구조가 차별을 지속시킬 수 있음을 사례 분석으로 확인하게 한다.",
+    "failure": "감상적 공감문에 머물면 실태 자료, 구조적 원인, 제도 개선 방안, 당사자 관점을 각각 근거로 쓰게 한다.",
+    "safe": "사회적 소수자 사례를 다룰 때 혐오 표현과 피해 경험의 선정적 소비를 금지하고, 당사자의 존엄과 권리를 중심에 둔다.",
+    "deepDive": "장애인 이동권 또는 청년 주거 문제를 접근권, 제도, 예산, 시민 인식의 관점에서 종합 분석한다.",
+    "career": "사회복지, 인권, 법학, 공공정책, 도시·복지 행정, 시민단체",
+    "sample": "장애인 이동권 사례를 통계와 당사자 관점 자료로 분석하고, 차별이 개인 배려 부족만이 아니라 공간 설계와 제도적 접근권 문제와 연결됨을 설명한 뒤 학교와 지역 차원의 개선안을 제시함.",
+    "code": "[12사문04-02]",
+    "domain": "사회 불평등과 사회 복지",
+    "standard": "현대 사회에서 나타나는 다양한 사회 불평등 양상을 분석하고, 차별받는 사람들의 입장에 대한 공감을 바탕으로 다양한 불평등 현상에 대한 해결 방안을 모색한다.",
+    "levels": {
+      "A": "현대 사회에서 나타나는 사회 불평등 양상에 관한 사례를 조사･분석하고, 차별받는 사람들의 삶에 대한 구체적인 이해와 공감을 바탕으로 불평등 현상으로 인한 문제의 해결 방안을 모색하여 이를 적극적으로 실천한다.",
+      "B": "현대 사회에서 나타나는 사회 불평등 양상에 관한 사례를 조사하고, 차별받는 사람들의 입장에 대한 공감을 바탕으로 불평등 현상으로 인한 문제의 해결 방안을 모색하여 실천하려는 자세를 가진다.",
+      "C": "현대 사회에서 나타나는 사회 불평등 양상의 사례를 설명하고, 차별받는 사람들의 입장에 대한 공감을 바탕으로 불평등 현상으로 인한 문제의 해결 방안을 모색한다.",
+      "D": "현대 사회에서 나타나는 사회 불평등 양상의 사례를 제시하고, 차별받는 사람들의 입장에 대한 이해를 바탕으로 불평등 현상으로 인한 문제의 해결에 관심을 가진다.",
+      "E": "현대 사회에서 나타나는 사회 불평등 양상을 열거하고, 불평등 현상으로 인한 문제 해결의 필요성을 인식한다."
+    },
+    "official": [],
+    "tool": "사회와 문화-12 / 프로젝트형 / 다양한 사회 불평등 양상 분석과 해결 방안"
+  },
+  {
+    "title": "복지는 누구에게, 어떻게, 어디까지 제공되어야 하는가?",
+    "type": "복지국가 쟁점 토론형",
+    "period": "2차시",
+    "lens": "권리와 책임",
+    "concept": "복지국가와 사회 복지 제도",
+    "related": "복지국가, 사회 보험, 공공 부조, 사회 서비스, 선별 복지, 보편 복지, 생산적 복지, 복지 재정, 사회권",
+    "phenomenon": "무상급식, 기초연금, 건강보험, 실업급여, 돌봄 서비스, 청년수당, 기본소득 같은 복지 쟁점 사례를 제시한다.",
+    "conflict": "학생은 복지를 세금을 써서 어려운 사람을 돕는 제도로만 이해할 수 있다. 복지는 권리, 위험 분담, 사회 통합, 재정 책임, 형평성 쟁점이 결합된 제도이다.",
+    "general": "복지국가는 인간다운 생활 보장과 사회적 위험 대응을 목표로 하며, 사회 복지 제도는 대상, 급여 방식, 재정, 권리와 책임의 균형에 따라 다양한 쟁점을 만든다.",
+    "studentGeneral": "복지는 단순한 도움이나 혜택이 아니라 사회가 위험을 함께 나누는 방식이다.",
+    "questions": [
+      "복지국가의 발전 과정과 사회 복지 제도의 유형에는 무엇이 있는가?",
+      "사회 보험, 공공 부조, 사회 서비스는 어떻게 다른가?",
+      "복지는 필요한 사람에게만 주어야 하는가, 모두에게 권리로 제공되어야 하는가?",
+      "우리 사회의 복지 쟁점을 더 공정하게 해결하려면 어떤 기준이 필요한가?"
+    ],
+    "products": [
+      "복지 제도 유형 비교표",
+      "복지 쟁점 토론 자료",
+      "복지 정책 개선 제안서"
+    ],
+    "evidence": [
+      "복지 제도의 유형과 특징을 비교함",
+      "복지국가 발전 과정을 설명함",
+      "복지 쟁점을 근거로 토론함",
+      "발전 방안을 제시함"
+    ],
+    "data": "복지 제도 하나를 선택해 대상, 재원, 급여 방식, 장점, 한계, 쟁점, 개선 방안을 조사한다.",
+    "modeling": "복지 제도의 대상-재원-급여-효과-쟁점 비교표와 선별·보편 복지 의사결정 기준표로 표현한다.",
+    "source": "복지 제도 안내 자료, 정부 예산·통계, 기사, 정책 토론 자료, 복지국가 이론 자료",
+    "scale": "범위: 개인 생애 위험-가족-지역사회-국가 재정 / 시간: 복지국가 발전과 최근 정책 변화",
+    "uncertainty": "복지 정책 평가는 재정 지속 가능성, 사각지대, 낙인 효과, 정책 목표에 따라 달라질 수 있다.",
+    "misconception": "복지는 가난한 사람에게 돈을 지원하는 제도이다.",
+    "correction": "사회 보험, 공공 부조, 사회 서비스가 서로 다른 사회적 위험과 권리 보장 방식을 가진다는 점을 제도 비교로 확인하게 한다.",
+    "failure": "선별·보편 복지 찬반에만 머물면 대상, 재원, 낙인, 사각지대, 행정 비용, 사회 통합 효과를 기준표로 비교하게 한다.",
+    "safe": "복지 수급자를 게으르거나 의존적인 사람으로 낙인찍는 표현을 피하고, 사회적 위험과 권리 보장 관점에서 토론한다.",
+    "deepDive": "청년수당, 기본소득, 돌봄 국가책임제 중 하나를 권리·효율·재정·형평성 기준으로 평가한다.",
+    "career": "사회복지, 공공행정, 정책분석, 보건복지, 사회보험, 법학",
+    "sample": "건강보험과 기초생활보장제도를 사회 보험과 공공 부조의 차이로 비교하고, 보편성과 선별성, 재정 지속 가능성, 사각지대 문제를 기준으로 복지 제도 개선 방향을 토론함.",
+    "code": "[12사문04-03]",
+    "domain": "사회 불평등과 사회 복지",
+    "standard": "복지 국가의 발전 과정에 대한 이해를 바탕으로 사회 복지 제도의 유형과 특징을 비교하고, 현대 사회에서 나타나고 있는 사회 복지를 둘러싼 쟁점을 토론한다.",
+    "levels": {
+      "A": "복지 국가의 발전 과정을 분석하고, 우리나라 사회 복지 제도의 유형과 특징을 비교하며, 현대 사회에서 나타나고 있는 사회 복지를 둘러싼 쟁점을 조사･분석하여 토론하고, 사회 복지의 발전 방안을 제안할 수 있다.",
+      "B": "복지 국가의 발전 과정을 설명하고, 우리나라 사회 복지 제도의 유형과 특징을 비교하며, 현대 사회에서 나타나고 있는 사회 복지를 둘러싼 쟁점을 조사하여 토론할 수 있다.",
+      "C": "복지 국가의 발전 과정을 이해하고, 우리나라 사회 복지 제도의 유형과 특징을 설명하며, 현대 사회에서 나타나고 있는 사회 복지를 둘러싼 쟁점을 조사하여 자신의 의견을 말할 수 있다.",
+      "D": "복지 국가의 발전 과정을 이해하고, 우리나라 사회 복지 제도의 유형과 특징을 말하며, 현대 사회에서 나타나고 있는 사회 복지를 둘러싼 쟁점을 발견할 수 있다.",
+      "E": "우리나라 사회 복지 제도의 유형을 열거하고, 사회 복지의 필요성을 인식할 수 있다."
+    },
+    "official": [],
+    "tool": "사회와 문화-13 / 토론형 / 복지 제도 유형 비교와 복지 쟁점 토론"
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "사회현상의 이해와 탐구":"atmo",
+  "사회 구조와 사회 변동":"geo",
+  "일상 문화와 문화 변동":"astro",
+  "사회 불평등과 사회 복지":"green"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "atmo");}
+function accent(d){return "accent-" + (DOMAIN_KEY[d] || "atmo");}
+function openView(id){
+  var views=document.querySelectorAll(".view");
+  for(var i=0;i<views.length;i++) views[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle("on", btns[j].dataset.view===id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+(function bindNav(){
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var i=0;i<btns.length;i++){
+    (function(b){ b.onclick=function(){ openView(b.dataset.view); }; })(btns[i]);
+  }
+})();
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill' + (solid?' solid':'') + '">' + esc(x) + '</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">' +
+    '<div class="blk-h"><span>' + esc(title) + '</span>' + (hint?'<span class="hint">' + esc(hint) + '</span>':"") + '</div>' +
+    body +
+  '</div>';
+}
+function filtered(){
+  var s=document.getElementById("search");
+  var d=document.getElementById("domain");
+  var t=document.getElementById("type");
+  var q=(s && s.value ? s.value : "").toLowerCase();
+  var domainVal=d && d.value ? d.value : "전체 영역";
+  var typeVal=t && t.value ? t.value : "전체 수업 유형";
+  return DATA.filter(function(x){
+    return (domainVal==="전체 영역" || x.domain===domainVal) &&
+      (typeVal==="전체 수업 유형" || x.type.indexOf(typeVal)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  var inArr=false;
+  for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ inArr=true; break; } }
+  if(!inArr && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '' +
+      '<button class="std-item ' + (i===current ? "on" : "") + '" onclick="select(' + i + ')">' +
+        '<div>' +
+          '<span class="code">' + esc(x.code) + '</span>' +
+          '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+          (x.official.length ? '<span class="chip">공식탐구</span>' : '') +
+        '</div>' +
+        '<span class="std-title">' + esc(x.title) + '</span>' +
+        '<span class="std-text">' + esc(x.standard) + '</span>' +
+      '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+
+
+function tableRows(x){
+  return '' +
+    '<div class="lesson-hd">' +
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 01</span>도입<br>참여·초점</div>' +
+      '<div>교사는 <b>' + esc(x.phenomenon) + '</b>을(를) 제시하고 사회현상에 대한 사전 개념과 일상적 해석을 드러내는 발문을 한다.</div>' +
+      '<div>학생은 개인 예상을 적고, 사례에서 설명이 필요한 사회학적 개념과 쟁점을 표시한다.</div>' +
+      '<div>사전 예상지<br>탐구 질문지</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 02</span>탐구 설계</div>' +
+      '<div>교사는 개념 렌즈, 자료 출처, 연구 윤리, 관점 비교 기준, 민감 사례 처리 원칙을 안내한다.</div>' +
+      '<div>학생은 사용할 사례와 자료 수집 방법, 관점 비교 방식, 토론 또는 논증 방식을 정한다.</div>' +
+      '<div>탐구 설계표<br>윤리 점검표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 03</span>자료 처리</div>' +
+      '<div>교사는 학생의 자료 출처, 표본·사례 선택, 문항 편향, 관점 누락, 인권 침해 가능성을 순회 점검한다.</div>' +
+      '<div>학생은 ' + esc(x.data) + '</div>' +
+      '<div>' + esc(x.products[0]) + '</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 04</span>자료 조직화</div>' +
+      '<div>교사는 사례 해석이 개념과 이론에 근거하는지, 다른 관점과 대안 설명이 가능한지 묻는다.</div>' +
+      '<div>학생은 ' + esc(x.modeling) + '</div>' +
+      '<div>비교표·도식·논증문</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 05</span>일반화·전이</div>' +
+      '<div>교사는 일반화 문장과 전이 질문을 통해 새로운 사회 사례, 미디어 메시지, 문화 쟁점, 불평등·복지 문제로 확장한다.</div>' +
+      '<div>학생은 CER 결론문을 작성하고 자료의 한계, 윤리 쟁점, 시민적 실천 가능성을 제안한다.</div>' +
+      '<div>CER 결론문<br>전이 질문</div>' +
+    '</div>';
+}
+
+function rubric(x){
+  var levels=x.levels || {};
+  function row(k){
+    var txt=levels[k] || "성취수준 자료를 확인해 보완한다.";
+    return '<div class="lv-row"><div class="lv ' + k + '">' + k + '</div><div class="lv-text">' + esc(txt) + '</div></div>';
+  }
+  return '<div class="rubric">' + row("A") + row("B") + row("C") + row("D") + row("E") + '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">' + arr.map(function(x){
+    return '<div class="step"><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={};
+
+  panels.overview =
+    block("성취기준 원문", '<div class="std-full"><b>' + esc(x.code) + '</b>' + esc(x.standard) + '</div>') +
+    '<div class="cards">' +
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4><span class="icon">i</span>수업 개요</h4>' +
+        '<p><b>제목 :</b> ' + esc(x.title) + '</p>' +
+        '<p><b>유형 :</b> ' + esc(x.type) + '</p>' +
+        '<p><b>권장 차시 :</b> ' + esc(x.period) + '</p>' +
+        '<p><b>탐구 설계 :</b> ' + (x.official.length ? esc(x.official.join(", ")) : "성취기준 기반 CBI 탐구") + '</p>' +
+        '<p><b>핵심 개념 :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈 :</b> ' + esc(x.lens) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4><span class="icon">▲</span>핵심 산출물</h4>' +
+        pills(x.products) +
+      '</div>' +
+    '</div>' +
+    block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+    block("예시 평가도구 연결", '<div class="card"><p>' + esc(x.tool) + '</p></div>', "성취기준·성취수준 기반 평가");
+
+  panels.cbi =
+    block("개념 형성의 흐름",
+      '<div class="cards">' +
+        '<div class="card accent-gold">' +
+          '<h4><span class="icon">F</span>현상(Phenomenon)</h4>' +
+          '<p>' + esc(x.phenomenon) + '</p>' +
+        '</div>' +
+        '<div class="card ' + accent(x.domain) + '">' +
+          '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>' +
+          '<p>' + esc(x.conflict) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="general" style="margin-top:.9rem">' +
+        '<div class="gen-row">' +
+          '<b>교사용 일반화 진술 (Generalization)</b>' +
+          '<p>' + esc(x.general) + '</p>' +
+        '</div>' +
+        '<div class="gen-row">' +
+          '<b>학생용 일반화 진술 (Student-Friendly)</b>' +
+          '<p>' + esc(x.studentGeneral) + '</p>' +
+        '</div>' +
+      '</div>',
+      "Erickson & Lanning CBI 모형"
+    ) +
+    block("탐구 질문 4종 — 사실에서 전이까지",
+      '<div class="q-grid">' +
+        '<div class="q fact"><b>Factual · 사실적 질문</b><p>' + esc(qs[0]) + '</p></div>' +
+        '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>' + esc(qs[1]) + '</p></div>' +
+        '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>' + esc(qs[2]) + '</p></div>' +
+        '<div class="q transfer"><b>Transfer · 전이 질문</b><p>' + esc(qs[3]) + '</p></div>' +
+      '</div>',
+      "수업 도입·전개·마무리 3구간에 배치"
+    ) +
+    block("핵심 개념과 관련 개념",
+      '<div class="card">' +
+        '<p><b>핵심 개념(Macro Concept) :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈(Conceptual Lens) :</b> ' + esc(x.lens) + '</p>' +
+        '<p><b>관련 개념(Related Concepts) :</b> ' + esc(x.related) + '</p>' +
+      '</div>'
+    );
+
+  panels.lesson =
+    block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+    block("교사 발문 세트 — 즉시 사용 가능",
+      '<div class="cards">' +
+        '<div class="card accent-atmo">' +
+          '<h4>탐구 전 발문</h4>' +
+          '<ul>' +
+            '<li>이 쟁점은 세계·국가·지역·일상 중 어떤 스케일에서 다르게 보이는가?</li>' +
+            '<li>우리는 어떤 지도·통계·사례 자료를 근거로 판단해야 하는가?</li>' +
+            '<li>한 관점만으로 설명할 때 빠지는 사람과 지역은 누구인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>탐구 중 발문</h4>' +
+          '<ul>' +
+            '<li>자료를 어떤 지도, 그래프, 흐름도, 이해관계자 맵으로 바꾸면 관계가 더 잘 보이는가?</li>' +
+            '<li>자료의 차이는 지역 차이, 스케일 차이, 관점 차이 중 무엇인가?</li>' +
+            '<li>우리 설명이 충분히 반영하지 못한 집단이나 장소는 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>탐구 후 발문</h4>' +
+          '<ul>' +
+            '<li>오늘 만든 일반화 문장을 다른 지역·쟁점·일상 실천에 적용해 보자.</li>' +
+            '<li>학생부 기록 근거로 남길 수 있는 산출물과 수행 장면은 무엇인가?</li>' +
+            '<li>다음 탐구에서 자료 출처, 공간 범위, 시간 범위, 관점을 어떻게 개선할 수 있는가?</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("오개념·실패 상황 대처·안전",
+      '<div class="cards3">' +
+        '<div class="card accent-red">' +
+          '<h4>예상 오개념</h4>' +
+          '<p>' + esc(x.misconception) + '</p>' +
+          '<p><b>피드백 :</b> ' + esc(x.correction) + '</p>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>실패 상황 대처</h4>' +
+          '<p>' + esc(x.failure) + '</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>안전·윤리</h4>' +
+          '<p>' + esc(x.safe) + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+
+  panels.worksheet =
+    block("학생 활동지 문항 — 실제 기록용",
+      steps([
+        "오늘의 사례에서 가장 설명이 필요한 사회학적 개념 또는 쟁점을 쓰시오.",
+        qs[1],
+        "탐구에서 사용할 자료의 출처, 연구 방법, 관점, 윤리 점검 사항을 쓰시오.",
+        x.data,
+        x.modeling,
+        "자료에서 찾은 규칙성 또는 관계를 한 문장으로 쓰시오.",
+        "주장-증거-추론 구조로 결론을 작성하시오.",
+        "자료의 한계, 연구 윤리 쟁점, 관점의 편향 가능성을 2가지 이상 쓰시오.",
+        qs[3]
+      ])
+    ) +
+    block("자료 처리 안내 — 출처·연구 방법·윤리",
+      '<div class="card accent-atmo">' +
+        '<h4>자료 출처</h4>' +
+        '<p>' + esc(x.source) + '</p>' +
+      '</div>' +
+      '<div class="card accent-geo" style="margin-top:.8rem">' +
+        '<h4>분석 범위</h4>' +
+        '<p>' + esc(x.scale) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green" style="margin-top:.8rem">' +
+        '<h4>자료 처리</h4>' +
+        '<p>' + esc(x.data) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro" style="margin-top:.8rem">' +
+        '<h4>모형화</h4>' +
+        '<p>' + esc(x.modeling) + '</p>' +
+      '</div>' +
+      '<div class="card accent-gold" style="margin-top:.8rem">' +
+        '<h4>자료·윤리·관점 한계</h4>' +
+        '<p>' + esc(x.uncertainty) + '</p>' +
+        '<p><b>해석 문장 틀 :</b> “자료의 변화 경향은 <b>' + esc(x.concept) + '</b> 개념으로 설명할 수 있으며, 이 결과는 <b>' + esc(x.lens) + '</b> 관점에서 새로운 사회현상과 문화·불평등 쟁점에 적용할 수 있다.”</p>' +
+      '</div>'
+    );
+
+  panels.assessment =
+    block("수행평가 과제",
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4>' + esc(x.title) + '</h4>' +
+        '<p>' + esc(x.products[0]) + '을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 사례·자료·관점 비교 근거로 설명한다.</p>' +
+      '</div>'
+    ) +
+    block("평가 요소",
+      '<div class="cards3">' +
+        '<div class="card accent-atmo">' +
+          '<h4>지식·이해</h4>' +
+          '<p>' + esc(x.concept) + '와 관련 개념의 정확한 설명</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>과정·기능</h4>' +
+          '<p>사회조사, 관점 비교, 자료 해석, 미디어 분석, 토론, CER 논증</p>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>가치·태도</h4>' +
+          '<p>연구 윤리, 인권, 문화 다양성, 공정성, 시민적 실천</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+    block("피드백 방향",
+      '<div class="card">' +
+        '<p><b>보충 :</b> 용어 나열에 머물지 말고 사례 분석, 자료 수집, 관점 비교, 윤리 점검 중 하나로 근거를 표현하게 한다.</p>' +
+        '<p><b>심화 :</b> 자료 출처 비교, 연구 방법 보완, 다른 관점 적용, 사회문제 해결 또는 시민 참여 전이 과제를 추가하게 한다.</p>' +
+      '</div>'
+    );
+
+  panels.record =
+    '<div class="record">' +
+      '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>' +
+      '<p>' + esc(x.evidence.join(" / ")) + '</p>' +
+    '</div>' +
+    block("관찰 가능한 수행 증거 정리",
+      '<div class="cards">' +
+        '<div class="card accent-green">' +
+          '<h4>기록 가능한 산출물</h4>' +
+          pills(x.products) +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>권장 기록 소재</h4>' +
+          '<p>「' + esc(x.title) + '」 수업에서 <b>' + esc(x.products[0]) + '</b>을(를) 작성하며 <b>' + esc(x.concept) + '</b> 개념을 사례·자료·관점 비교 근거로 설명하고, 자료 한계, 관점 전환 또는 시민적 실천 가능성을 자기 언어로 제시함.</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("세부능력 및 특기사항 기록 예시",
+      '<div class="sample-record">' + esc(x.sample) + '</div>',
+      "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+    ) +
+    block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+      '<div class="card accent-astro">' +
+        '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
+        '<p>' + esc(x.deepDive) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>전이 질문</h4>' +
+        '<p style="font-family:\'Fraunces\',serif">' + esc(x.questions[3]) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>연계 진로 분야</h4>' +
+        pills(x.career.split(", ")) +
+      '</div>'
+    );
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="' + (tab===id?'on':'') + '" onclick="setTab(\'' + id + '\')">' +
+      '<span class="t-n">' + n + '</span>' + label +
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML =
+    '<div class="detail-hd">' +
+      '<div class="chip-row">' +
+        '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+        '<span class="chip">' + esc(x.code) + '</span>' +
+        (x.official.length ? '<span class="chip">성취기준 기반 설계</span>' : '<span class="chip">CBI 탐구</span>') +
+        '<span class="chip">' + esc(x.period) + '</span>' +
+      '</div>' +
+      '<h2>' + esc(x.title) + '</h2>' +
+      '<div class="std-full"><b>성취기준 원문</b>' + esc(x.standard) + '</div>' +
+    '</div>' +
+    '<div class="tabbar">' + tabbar + '</div>' +
+    '<div class="panel">' + panel(x) + '</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML = DATA.map(function(x,i){
+    return '<tr>' +
+      '<td><span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span></td>' +
+      '<td class="mcode" onclick="openStandard(' + i + ')">' + esc(x.code) + '</td>' +
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">' + esc(x.title) + '</b></td>' +
+      '<td>' + esc(x.type) + '</td>' +
+      '<td>' + esc(x.concept) + '</td>' +
+      '<td>' + esc(x.products.join(", ")) + '</td>' +
+      '<td>' + esc(x.evidence.join(" / ")) + '</td>' +
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","자료출처","분석범위","자료·윤리·관점한계","심화탐구","연계진로"]
+  ];
+  for(var i=0;i<DATA.length;i++){
+    var x=DATA[i];
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.source, x.scale, x.uncertainty, x.deepDive, x.career
+    ]);
+  }
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="사회와문화_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>=0 && idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>
