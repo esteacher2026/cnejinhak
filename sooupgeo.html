@@ -1,0 +1,2332 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 세계시민과 지리 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 세계시민과 지리 13개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 지도·통계·GIS 자료 처리와 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#0f6980;
+  --atmo-bg:#e1f0f3;
+  --geo:#8a5a1f;
+  --geo-bg:#f1e6d6;
+  --astro:#4c4f93;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(15,105,128,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(76,79,147,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:-.025em;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:-.045em;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.15em;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">世</div>
+      <div class="b-text">
+        <strong>일반선택 세계시민과 지리 수업설계 워크북</strong>
+        <span>개념기반탐구 · 13개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective Global Citizenship and Geography</div>
+        <h1 class="cover-title">세계시민과 지리 성취기준별 <em>개념기반탐구</em> 수업 플랫폼</h1>
+        <p class="lead">
+          일반선택 세계시민과 지리 13개 성취기준을 원문, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 단계별 탐구수업, 지도·통계·GIS 자료 처리,
+          학생부종합전형형 산출물, 평가·피드백까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button>
+          <button class="btn" onclick="openView('matrix')">13개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 세계시민과 지리 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책 7] 사회과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>지도·통계 자료 해석 수업 · 쟁점 중심 수업 · 수행평가 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">4<small>영역</small></span>
+      <span class="label">세계화 · 자연환경과 문화 · 인구와 경제 · 환경과 평화</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">13<small>기준</small></span>
+      <span class="label">성취기준 원문 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 다중 스케일, 관계적 사고, 지리정보, 세계시민성의 통합</h2>
+    <p>
+      세계시민과 지리는 세계 여러 지역을 외우는 과목이 아니라, 세계화와 지역화, 인간과 자연의 상호 작용,
+      인구·식량·경제 네트워크, 에너지·환경·분쟁 문제를 지리적 스케일과 관계망 속에서 해석하는 과목입니다.
+      본 워크북은 자료 해석, 쟁점 분석, 가치 판단, 실천 제안, 학생부 기록 근거를 성취기준별로 연결합니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>원문 보존</h3>
+      <p>성취기준 원문과 교육과정의 의도를 유지하고, 교사가 바로 실행할 수 있는 탐구 질문과 활동 언어로 재구성합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>다중 스케일 사고</h3>
+      <p>세계적·국가적·지역적·일상적 스케일을 오가며 “어디에서, 누구에게, 어떤 관계로, 왜 다르게 나타나는가”를 묻게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>기록 가능성</h3>
+      <p>자료 수집, 지도화, 비교·분석, 관점 전환, 대안 제안, 피드백 후 수정 장면을 수업 설계 단계에서 먼저 확보합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 모든 차시의 뼈대</h2>
+    <p>학생이 일상과 세계 이슈의 연결에서 출발해 개념 간 관계를 일반화하고, 새로운 지역·쟁점·실천 맥락으로 전이하도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>일상과 연결된 세계 이슈, 지도, 사진, 기사, 통계를 제시한다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>위치, 장소, 지역, 스케일, 네트워크, 지속가능성, 정의 중 하나를 렌즈로 삼는다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>조사·탐구</strong><p>지도·통계·GIS·기사·정책 자료를 수집하고 출처와 관점을 점검한다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>통계지도, 흐름도, 이해관계자 맵, 원인-결과 도식으로 자료를 표상한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>현상 설명을 넘어 개념 간 관계를 자기 언어로 진술한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>다른 지역, 새로운 쟁점, 개인 실천, 정책 제안, 진로 맥락에 적용한다.</p></div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. CBI는 학생이 결과를 외우는 것이 아니라, 자료를 만들고 해석하며 결론을 자신의 언어로 진술하는 과정을 거치게 합니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>세계시민, 세계화와 지역 이해</option>
+            <option>모자이크 세계, 세계의 다양한 자연환경과 문화</option>
+            <option>네트워크 세계, 세계의 인구와 경제 공간</option>
+            <option>지속가능한 세계, 세계의 환경 문제와 평화</option>
+          </select>
+          
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>사례</option>
+            <option>GIS</option>
+            <option>쟁점</option>
+            <option>토론</option>
+            <option>통계</option>
+            <option>프로젝트</option>
+            <option>정책</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>세계시민과 지리 13개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 수업 제목, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>세계시민과 지리 수업은 지역 정보를 암기하는 데서 멈추지 않고, 지도·통계·사례 자료를 근거로 세계의 연결과 불균등, 지속가능성과 평화의 문제를 판단하고 실천으로 확장하도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>지도, 통계, 사진, 기사, 국제기구 자료, 공공데이터, GIS 또는 간단한 디지털 지도 도구를 준비하고 자료의 최신성·출처·공간 범위·관점의 편향 가능성을 표시합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 지도 해석, 통계 그래프, 이해관계자 맵, 원인-결과 도식, CER 문장, 관점 전환 메모를 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>결과물만 보관하지 말고 초안, 자료 출처표, 수정 이유, 관점 전환 메모, 대안 제안의 근거를 함께 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 세계시민과 지리 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+  {
+    "official": [],
+    "title": "세계화는 나의 하루를 어떻게 통과하는가?",
+    "type": "다중 스케일 사례분석형",
+    "period": "2차시",
+    "lens": "다중 스케일과 상호의존",
+    "concept": "세계화와 지역화",
+    "related": "세계화, 지역화, 스케일, 장소, 네트워크, 상호의존, 로컬, 글로벌, 세계시민성",
+    "phenomenon": "학생의 하루 속 음식, 의류, 스마트폰, 플랫폼 서비스, 뉴스 이슈의 생산지와 이동 경로를 세계지도에 표시한다.",
+    "conflict": "학생은 세계화를 외국 상품이 많아지는 현상으로만 이해할 수 있다. 같은 세계화가 어떤 지역에는 기회를, 다른 지역에는 불평등과 의존을 만들 수 있음을 사례로 드러낸다.",
+    "general": "세계화는 사람, 물자, 자본, 정보가 여러 지리적 스케일에서 연결되는 과정이며, 지역화와 함께 작동하면서 세계시민의 선택과 책임을 요구한다.",
+    "studentGeneral": "내 일상은 여러 지역과 연결되어 있고, 내가 하는 선택도 다른 지역의 삶에 영향을 줄 수 있다.",
+    "questions": [
+      "세계화란 무엇이며 어떤 모습으로 나타나는가?",
+      "세계화와 지역화는 왜 동시에 나타나는가?",
+      "세계화는 모두에게 같은 기회와 결과를 주는가?",
+      "나의 소비와 정보 이용을 세계시민의 관점에서 어떻게 바꿀 수 있는가?"
+    ],
+    "products": [
+      "나의 하루 글로벌 연결망 지도",
+      "세계화·지역화 사례 비교표",
+      "세계시민 실천 선언문"
+    ],
+    "evidence": [
+      "일상 사례를 세계·국가·지역 스케일로 재해석함",
+      "세계화와 지역화의 관계를 사례로 설명함",
+      "세계시민의 역할을 구체적 행동으로 제시함"
+    ],
+    "data": "하루 동안 사용한 물건과 정보의 출처를 조사하고, 생산지·유통 경로·소비 장소를 세계지도에 표시한다. 연결이 만든 이익과 문제를 함께 기록한다.",
+    "modeling": "일상 사례를 세계-국가-지역-개인 스케일로 배열한 연결망 지도와 원인-결과 도식으로 표현한다.",
+    "source": "상품 원산지 표시, 기업 공개 자료, 뉴스 기사, 학생 생활 조사, 세계지도 자료",
+    "scale": "공간: 개인의 일상-지역-국가-세계 / 시간: 최근 생활 사례와 세계화 이후 변화",
+    "uncertainty": "상품의 실제 공급망이 복수 국가에 걸쳐 있을 수 있고, 기업 자료와 기사 자료는 관점과 공개 범위가 다를 수 있다.",
+    "misconception": "세계화는 외국 상품이 많아지고 세계가 비슷해지는 현상일 뿐이다.",
+    "correction": "세계화는 동질화와 함께 지역의 고유성 강화, 지역 브랜드화, 로컬 정체성 재구성을 동시에 만들 수 있음을 사례 비교로 확인하게 한다.",
+    "failure": "학생이 사례를 나열하는 데 머물면 반드시 지도에 위치를 표시하고, 각 연결이 누구에게 이익과 부담을 주는지 적게 한다.",
+    "safe": "개인 생활 조사 자료는 사생활을 침해하지 않는 범위에서 익명·자발적으로 공유하게 한다.",
+    "deepDive": "공정무역, 로컬 브랜드, 플랫폼 노동, K-콘텐츠 중 하나를 선택해 세계화와 지역화의 동시 작동을 분석한다.",
+    "career": "국제관계, 지역연구, 글로벌 비즈니스, 공정무역, 국제개발협력, 사회과교육",
+    "sample": "일상 소비와 정보 이용 사례를 세계지도에 표시하며 세계화가 세계·국가·지역 스케일에서 다르게 작동함을 설명하고, 지역화 사례와 연결하여 세계시민으로서 실천 가능한 선택을 제안함.",
+    "code": "[12세지01-01]",
+    "domain": "세계시민, 세계화와 지역 이해",
+    "standard": "세계화의 의미를 지리적 스케일에 따라 이해하고, 세계화와 지역화의 관계 속에서 세계시민의 역할을 탐색한다.",
+    "levels": {
+      "A": "세계화의 의미를 세계적, 국가적, 지역적 스케일에 따라 다양하게 이해하고, 세계화와 지역화의 관계 속에서 세계의 다양한 지리적 문제와 쟁점의 해결을 위한 세계시민의 역할을 다각적으로 탐색하여 이를 내면화할 수 있다.",
+      "B": "세계화의 의미를 세계적, 국가적, 지역적 스케일에 따라 이해하고, 세계화와 지역화의 관계 속에서 세계의 지리적 문제와 쟁점의 해결을 위한 세계시민의 역할을 탐색한 후 일상생활에서 실천하는 태도를 가질 수 있다.",
+      "C": "세계화의 의미를 세계적, 국가적, 지역적 스케일에 따라 이해하고, 세계화와 지역화의 관계 속에서 세계의 지리적 문제와 쟁점의 해결을 위한 세계시민의 역할이 지닌 중요성을 인식할 수 있다.",
+      "D": "세계화의 의미를 이해하고, 세계의 지리적 문제와 쟁점의 해결을 위한 세계시민의 역할에 공감할 수 있다.",
+      "E": "세계화 시대에 세계시민의 역할에 관심을 가질 수 있다."
+    },
+    "tool": "세계시민과 지리-1 / 논술형 / 세계화의 의미를 다중 스케일 관점으로 이해하기 세계화와 지역화의 관계 속 세계시민 역할이 지닌 중요성 인식하기"
+  },
+  {
+    "official": [],
+    "title": "왜 어떤 지역은 합쳐지고 어떤 지역은 갈라지는가?",
+    "type": "지역 통합·분리 쟁점 탐구형",
+    "period": "2차시",
+    "lens": "정체성과 이해관계",
+    "concept": "지역 변화의 역동성",
+    "related": "지역, 경계, 민족, 언어, 종교, 경제 블록, 분리주의, 통합, 지정학, 주권",
+    "phenomenon": "EU 통합과 브렉시트, 경제 블록, 분리주의 운동, 국경 갈등 사례를 지도와 기사 자료로 비교한다.",
+    "conflict": "학생은 지역을 고정된 행정구역으로 생각할 수 있다. 지역은 정체성, 경제적 이익, 정치 권력, 문화적 기억에 따라 계속 재구성된다는 점을 탐구하게 한다.",
+    "general": "지역은 고정된 공간이 아니라 다양한 주체의 정체성과 이해관계가 상호 작용하며 통합과 분리로 변화하는 역동적 실체이다.",
+    "studentGeneral": "지역은 지도에 그어진 선만이 아니라 사람들이 맺는 관계와 이해관계에 따라 계속 변한다.",
+    "questions": [
+      "지역 통합과 분리의 사례에는 무엇이 있는가?",
+      "정체성과 경제적 이해관계는 지역 변화를 어떻게 만든다?",
+      "분리 요구는 언제 정당화될 수 있는가?",
+      "현재의 지역 갈등을 평화롭게 조정하려면 어떤 조건이 필요한가?"
+    ],
+    "products": [
+      "통합·분리 사례 분석 카드",
+      "원인-결과 도식",
+      "이해관계자 입장표",
+      "지역 변화 대응 제안문"
+    ],
+    "evidence": [
+      "정치·경제·문화 요인을 구분함",
+      "이해관계자별 입장을 비교함",
+      "지역 변화가 역동적이라는 점을 근거로 설명함",
+      "대응 방안을 제시함"
+    ],
+    "data": "한 사례를 골라 통합 또는 분리의 배경, 주요 행위자, 공간 범위, 갈등 요인, 변화 결과를 표로 정리한다.",
+    "modeling": "정치·경제·문화·역사 요인을 원인-결과 도식으로 연결하고, 행위자별 이해관계를 위치와 함께 표시한다.",
+    "source": "정치·경제 블록 지도, 국제 뉴스 기사, 국가·지역 통계, 국제기구 공개 자료",
+    "scale": "공간: 지역-국가-초국가 블록 / 시간: 갈등의 역사적 배경과 최근 변화",
+    "uncertainty": "분쟁과 분리 요구는 자료 제공 주체에 따라 표현이 달라질 수 있으므로 복수 출처와 지역민 관점 확인이 필요하다.",
+    "misconception": "지역 통합과 분리는 한 가지 원인 때문에 일어난다.",
+    "correction": "지역 변화는 경제적 이해관계, 문화 정체성, 역사적 경험, 국제 정세가 함께 작동한 결과임을 요인별 색상 도식으로 확인하게 한다.",
+    "failure": "찬반 토론이 감정적 주장으로 흐르면 먼저 사실 자료, 행위자, 가치 판단을 분리해 정리하게 한다.",
+    "safe": "민족, 종교, 국가 정체성을 다룰 때 특정 집단에 대한 편견이나 혐오 표현이 나오지 않도록 근거 중심 토론 규칙을 세운다.",
+    "deepDive": "경제 블록 확대가 지역 정체성과 국가 주권에 미치는 영향을 사례 중심으로 분석한다.",
+    "career": "국제정치, 지역학, 외교, 통상, 평화교육, 사회갈등 조정",
+    "sample": "지역 통합과 분리 사례를 조사하여 경제적 이익, 문화 정체성, 정치적 권한의 요인을 구분하고, 이해관계자별 입장 차이를 바탕으로 지역 변화의 역동성을 설명함.",
+    "code": "[12세지01-02]",
+    "domain": "세계시민, 세계화와 지역 이해",
+    "standard": "지역 통합과 분리 현상의 사례와 주요 원인을 탐구하고, 이를 바탕으로 지역 변화의 역동성을 파악한다.",
+    "levels": {
+      "A": "지역 통합과 분리 현상의 주요 사례를 조사하여 그 원인을 다양한 차원에서 분석한 후, 이를 토대로 지역의 역동적인 변화를 파악하여 이에 대한 대응 방안을 구체적으로 제시할 수 있다.",
+      "B": "지역 통합과 분리 현상의 주요 사례를 조사하여 그 원인을 분석한 후, 이를 토대로 지역의 역동적인 변화를 파악하여 이에 대한 대응 방안을 열거할 수 있다.",
+      "C": "지역 통합과 분리 현상의 주요 사례를 분석한 후, 이를 토대로 지역 변화의 역동성을 파악하여 이에 대한 대응이 필요함을 이해할 수 있다.",
+      "D": "지역 통합 또는 분리 현상의 사례를 토대로 지역 변화의 역동성을 이해할 수 있다.",
+      "E": "전 세계적으로 지역 변화의 역동성이 나타남을 말할 수 있다."
+    },
+    "tool": "세계시민과 지리-2 / 서술형 / 경제 블록과 지역 변화의 역동성 이해하기"
+  },
+  {
+    "official": [],
+    "title": "지리정보기술은 더 나은 결정을 어떻게 돕는가?",
+    "type": "GIS 의사결정형",
+    "period": "2차시",
+    "lens": "위치 기반 의사결정",
+    "concept": "지리정보기술과 공간 의사결정",
+    "related": "GIS, GPS, 원격탐사, 위치 정보, 접근성, 공간 분석, 개인정보, 공공 의사결정",
+    "phenomenon": "재난 문자, 내비게이션, 배달 플랫폼, 감염병 지도, 기후 위험 지도, 대중교통 앱 사례를 비교한다.",
+    "conflict": "학생은 지리정보기술을 편리한 앱 정도로만 이해할 수 있다. 위치 정보가 문제 해결을 돕지만 개인정보, 감시, 접근성 격차도 만들 수 있음을 함께 다룬다.",
+    "general": "지리정보기술은 위치와 속성 정보를 결합하여 문제 해결과 의사결정을 돕지만, 자료의 정확성·윤리성·접근성을 함께 검토해야 한다.",
+    "studentGeneral": "지도 앱은 단순한 편의 도구가 아니라 더 나은 결정을 돕는 자료이며, 동시에 책임 있게 써야 하는 정보이다.",
+    "questions": [
+      "지리정보기술은 세계시민의 삶에서 어디에 활용되는가?",
+      "위치 정보는 왜 의사결정의 질을 높이는가?",
+      "공공 안전을 위해 개인 위치 정보를 어디까지 활용할 수 있는가?",
+      "우리 지역 문제 해결에 GIS를 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "생활 문제 GIS 활용 제안서",
+      "공간 자료 출처표",
+      "위치 정보 윤리 체크리스트"
+    ],
+    "evidence": [
+      "문제와 필요한 공간 자료를 연결함",
+      "지도 해석 근거를 제시함",
+      "공공성과 개인정보 보호를 함께 고려함"
+    ],
+    "data": "통학 안전, 폭염 쉼터, 도서관 접근성, 쓰레기 배출, 재난 대피 중 하나를 골라 필요한 위치 정보와 속성 정보를 목록화한다.",
+    "modeling": "문제 지역, 취약 집단, 시설 위치, 이동 경로를 지도 레이어로 구성하고 의사결정 기준표를 만든다.",
+    "source": "공공데이터, 생활안전 지도 자료, 지방자치단체 공개 자료, 위성·항공사진, 현장 관찰",
+    "scale": "공간: 학교·지역 생활권-도시-국가 / 시간: 일상 운영, 재난 상황, 계절 변화",
+    "uncertainty": "공간 자료는 갱신 시점, 위치 정확도, 누락 시설, 개인정보 비식별 처리 방식에 따라 해석이 달라질 수 있다.",
+    "misconception": "지리정보기술은 위치를 보여 주는 편리한 지도 서비스일 뿐이다.",
+    "correction": "위치 정보와 인구·시설·위험도 같은 속성 정보가 결합될 때 실제 의사결정이 가능하다는 점을 레이어 비교로 확인하게 한다.",
+    "failure": "학생이 예쁜 지도 만들기에만 집중하면 지도가 바꾸는 결정, 결정의 수혜자, 배제되는 집단을 반드시 쓰게 한다.",
+    "safe": "개인 위치, 이동 경로, 사진 자료를 다룰 때 비식별화와 동의 원칙을 지키게 한다.",
+    "deepDive": "재난 대응 GIS와 개인정보 보호의 균형을 국내외 사례로 비교한다.",
+    "career": "GIS 분석, 도시계획, 재난안전, 공공정책, 교통, 데이터 시각화",
+    "sample": "지역 문제 해결을 위해 필요한 위치 정보와 의사결정 기준을 설정하고, GIS 활용 사례를 바탕으로 공공성·개인정보 보호·자료 신뢰성을 함께 검토함.",
+    "code": "[12세지01-03]",
+    "domain": "세계시민, 세계화와 지역 이해",
+    "standard": "지리정보기술이 세계시민의 삶과 연계되는 다양한 모습을 이해하고, 지리적 문제 해결 및 의사 결정에 활용되는 사례를 조사한다.",
+    "levels": {
+      "A": "일상생활 속 지리정보기술의 활용 사례를 조사하여 지리정보기술이 세계시민의 삶과 연계되는 다양한 모습을 이해하고, 지리정보기술을 지리적 문제 해결 및 의사 결정에 실제로 활용할 수 있는 방안을 도출할 수 있다.",
+      "B": "일상생활 속 지리정보기술의 활용 사례를 토대로 지리정보기술이 세계시민의 삶과 연계되는 모습을 이해하고, 지리정보기술이 지리적 문제 해결 및 의사 결정에 활용되는 사례를 조사하여 그 효과를 분석할 수 있다.",
+      "C": "지리정보기술이 세계시민의 삶과 연계되는 모습을 이해하고, 지리정보기술이 지리적 문제 해결 및 의사 결정에 활용되는 사례를 열거함으로써 지리정보기술의 효과를 이해할 수 있다.",
+      "D": "지리정보기술이 세계시민의 삶과 연계되는 모습을 열거하고, 지리적 문제 해결 및 의사 결정에 활용됨을 이해할 수 있다.",
+      "E": "지리정보기술이 세계시민의 삶과 연계되는 다양한 모습을 말할 수 있다."
+    },
+    "tool": "세계시민과 지리-3 / 선다형 / 지리정보기술이 세계시민의 삶과 연계되는 모습과 의사 결정에 활용되는 사례 이해하기"
+  },
+  {
+    "official": [],
+    "title": "기후는 생활방식을 결정하는가, 가능성을 여는가?",
+    "type": "기후 적응 사례 탐구형",
+    "period": "2차시",
+    "lens": "적응과 가능성",
+    "concept": "기후와 인간 생활",
+    "related": "기온, 강수, 건조, 냉대, 열대, 계절풍, 적응, 극복, 현지화 전략, 지속가능성",
+    "phenomenon": "건조 지역의 관개 농업, 냉대 지역의 주거·교통, 열대 지역의 작물, 기업의 기후 현지화 사례를 지도와 사진으로 비교한다.",
+    "conflict": "학생은 기후를 인간 생활을 결정하는 절대 조건으로 볼 수 있다. 인간은 기후에 적응하면서도 기술·문화·경제 활동으로 기후 조건을 활용하거나 극복한다.",
+    "general": "기후는 인간 생활의 제약이자 가능성이며, 지역의 생활양식은 자연환경과 인간의 적응·기술·문화가 상호 작용한 결과이다.",
+    "studentGeneral": "사람들은 기후에 맞춰 살아가지만, 기술과 문화로 기후 조건을 새롭게 활용하기도 한다.",
+    "questions": [
+      "세계의 주요 기후 특징은 무엇인가?",
+      "기후와 생활양식은 어떤 관계를 맺는가?",
+      "기후 극복은 언제 지속가능하지 않을 수 있는가?",
+      "기후변화 시대에 지역의 생활방식은 어떻게 달라져야 하는가?"
+    ],
+    "products": [
+      "기후 활용·극복 사례 비교 지도",
+      "기후-생활 관계 설명문",
+      "지속가능성 검토표"
+    ],
+    "evidence": [
+      "기후 요소와 생활 사례를 연결함",
+      "활용과 극복 사례를 구분함",
+      "지속가능성 관점으로 사례를 평가함"
+    ],
+    "data": "서로 다른 기후 지역 2곳을 선택해 기온·강수 자료와 주거·의복·산업·교통 사례를 정리한다.",
+    "modeling": "기후 자료와 생활양식 사례를 비교 지도와 관계 도식으로 표현하고 공통점·차이점을 설명한다.",
+    "source": "기후 그래프, 세계 기후 지도, 지역 사진, 기업 현지화 사례, 지역 생활문화 자료",
+    "scale": "공간: 기후 지역-국가-생활 공간 / 시간: 계절 변화와 기후변화 영향",
+    "uncertainty": "기후 평균값만으로 지역 생활을 설명하면 고도, 해류, 도시화, 소득, 기술 수준의 차이가 빠질 수 있다.",
+    "misconception": "기후는 지역 사람들의 생활방식을 일방적으로 결정한다.",
+    "correction": "같은 기후 조건에서도 기술, 문화, 경제 수준에 따라 다른 적응 방식이 나타남을 비교 사례로 확인하게 한다.",
+    "failure": "기후 구분 암기에 머물면 반드시 생활 사례와 연결해 설명하게 하고, 기후를 활용한 사례와 극복한 사례를 따로 쓰게 한다.",
+    "safe": "지역 생활방식을 기후 탓으로 단순화하거나 문화적 우열로 표현하지 않도록 사례와 근거 중심으로 지도한다.",
+    "deepDive": "폭염, 물 부족, 영구동토 융해 등 기후변화가 특정 지역의 생활방식에 미치는 영향을 분석한다.",
+    "career": "기후정책, 지역개발, 관광, 건축·도시설계, 국제개발협력, 환경교육",
+    "sample": "세계 기후 자료와 사진 자료를 활용해 지역별 생활양식을 비교하고, 기후 조건을 활용하거나 극복한 사례를 지속가능성 관점에서 평가함.",
+    "code": "[12세지02-01]",
+    "domain": "모자이크 세계, 세계의 다양한 자연환경과 문화",
+    "standard": "세계의 다양한 기후에 대한 이해를 바탕으로 기후를 활용하거나 극복한 사례를 찾아 인간 생활과의 관계를 탐색한다.",
+    "levels": {
+      "A": "시각 자료를 활용하여 세계의 다양한 기후가 지닌 특징과 이에 영향을 미치는 지리적 요인을 이해하고, 기후를 활용하거나 극복한 사례를 각각 조사하여 기후와 인간 생활과의 관계에 대한 자신의 견해를 발표할 수 있다.",
+      "B": "시각 자료를 활용하여 세계의 다양한 기후가 지닌 특징을 이해하고, 기후를 활용하거나 극복한 사례를 조사하여 기후와 인간 생활과의 관계를 설명할 수 있다.",
+      "C": "세계의 다양한 기후가 지닌 특징을 이해하고, 기후를 활용하거나 극복한 사례를 통해 기후와 인간 생활과의 관계를 설명할 수 있다.",
+      "D": "세계 주요 기후의 특징을 이해하고, 기후를 활용하거나 극복한 사례를 통해 기후와 인간 생활과의 관계를 이해할 수 있다.",
+      "E": "기후와 인간 생활과의 관계를 말할 수 있다."
+    },
+    "tool": "세계시민과 지리-4 / 선다형 / 세계의 다양한 기후가 지닌 특징 이해하기 기후를 활용하거나 극복한 사례를 통해 기후와 인간 생활과의 관계 설명하기"
+  },
+  {
+    "official": [],
+    "title": "아름다운 지형은 누구의 자원인가?",
+    "type": "개발·보존 쟁점 토론형",
+    "period": "2차시",
+    "lens": "보존과 이용의 균형",
+    "concept": "지형의 지속가능한 이용",
+    "related": "대지형, 관광자원, 경관 가치, 개발, 보존, 지역 경제, 생태계, 이해관계자, 세계유산",
+    "phenomenon": "그랜드캐니언, 알프스, 하롱베이, 제주 용암동굴, 히말라야 관광 개발 등 지형 관광지를 둘러싼 개발·보존 갈등 사례를 제시한다.",
+    "conflict": "학생은 아름다운 지형을 관광 자원으로만 볼 수 있다. 지형은 지역민의 삶, 생태계, 문화적 의미, 경제적 이익이 겹치는 공간이다.",
+    "general": "지형은 인간 생활과 경제 활동에 영향을 주는 자원이지만, 개발과 보존의 균형은 이해관계자와 미래 세대를 고려한 판단을 필요로 한다.",
+    "studentGeneral": "멋진 지형을 이용할 때는 돈이 되는가뿐 아니라 누가 살고, 무엇이 훼손되고, 오래 유지될 수 있는지도 봐야 한다.",
+    "questions": [
+      "세계 주요 지형은 인간 생활과 어떻게 연결되는가?",
+      "개발과 보존의 입장은 왜 충돌하는가?",
+      "지역 경제를 위해 자연경관을 훼손해도 되는가?",
+      "지속가능한 지형 이용 원칙을 다른 지역에 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "지형 개발 갈등 토론 자료",
+      "이해관계자 맵",
+      "지속가능한 이용 원칙 카드"
+    ],
+    "evidence": [
+      "지형 특성과 인간 생활을 연결함",
+      "입장별 근거를 비교함",
+      "지속가능한 이용 방안을 제안함"
+    ],
+    "data": "한 지형 관광지의 개발 찬성·반대 입장을 조사하고, 지역민·관광객·기업·정부·환경단체의 이해관계를 정리한다.",
+    "modeling": "지형 가치, 개발 이익, 보존 비용, 생태 영향, 지역민 삶의 변화를 이해관계자 맵으로 시각화한다.",
+    "source": "지형 사진과 지도, 관광 통계, 보호구역·세계유산 자료, 지역 기사, 환경영향 관련 자료",
+    "scale": "공간: 특정 지형 경관-지역 경제권-국가 관광 정책 / 시간: 개발 전후와 장기 보존",
+    "uncertainty": "관광 수익, 환경 훼손, 지역민 만족도는 측정 방식과 이해관계자에 따라 다르게 제시될 수 있다.",
+    "misconception": "아름다운 지형은 관광으로 활용할수록 지역에 이익이다.",
+    "correction": "관광 수익뿐 아니라 훼손, 접근권, 지역민 생활 변화, 미래 세대의 이용 가능성을 함께 검토하게 한다.",
+    "failure": "찬반 나열에 머물면 판단 기준을 먼저 만들고, 각 입장이 그 기준을 얼마나 충족하는지 비교하게 한다.",
+    "safe": "지역민과 원주민의 생활권, 문화적 의미를 관광객 관점으로만 소비하지 않도록 유의한다.",
+    "deepDive": "유네스코 세계유산 지역의 관광객 수 제한 정책을 지속가능성 관점에서 평가한다.",
+    "career": "관광지리, 환경정책, 문화유산 보전, 지역개발, 생태관광, 지리교육",
+    "sample": "세계 주요 지형의 특성과 인간 생활의 관계를 자료로 설명하고, 개발과 보존을 둘러싼 이해관계자 입장을 비교하여 지속가능한 이용 방안을 토론함.",
+    "tool": "워크북 재구성 / 토론형·보고서형 / 지형과 인간 생활의 상관성 파악하기, 개발과 보존 입장을 비교하여 지속가능한 이용 방안 제시하기",
+    "code": "[12세지02-02]",
+    "domain": "모자이크 세계, 세계의 다양한 자연환경과 문화",
+    "standard": "세계 주요 지형과 인간 생활의 상관성을 파악하고, 지형의 개발과 보존을 둘러싼 갈등 사례를 통해 지속가능한 이용 방안을 토론한다.",
+    "levels": {
+      "A": "세계의 주요 지형과 인간 생활의 상관성을 추론하고, 지형의 개발과 보존을 둘러싼 갈등 사례를 바탕으로 각 입장의 근거가 타당한지 검토하여 지속가능한 이용 방안에 대해 토론할 수 있다.",
+      "B": "세계의 주요 지형과 인간 생활의 상관성을 구체적인 사례를 통해 파악하고, 지형의 개발과 보존을 둘러싼 갈등 사례를 바탕으로 지속가능한 이용 방안을 논리적으로 제안할 수 있다.",
+      "C": "세계의 주요 지형과 인간 생활의 상관성을 파악하고, 지형의 개발과 보존을 둘러싼 입장 차이를 이해하여 지속가능한 이용 방안을 제안할 수 있다.",
+      "D": "세계의 주요 지형과 인간 생활의 상관성을 토대로 지형의 지속가능한 이용 방안이 필요함을 이해할 수 있다.",
+      "E": "세계의 주요 지형의 지속가능한 이용 방안이 필요함을 말할 수 있다."
+    }
+  },
+  {
+    "official": [],
+    "title": "종교 경관은 무엇을 말해 주는가?",
+    "type": "문화 경관 해석형",
+    "period": "1~2차시",
+    "lens": "경관 속 의미",
+    "concept": "종교와 문화 경관",
+    "related": "종교 경관, 성지, 의례, 금기, 생활양식, 문화권, 장소성, 상징, 문화 존중",
+    "phenomenon": "사원, 모스크, 성당, 순례길, 종교 도시, 장례·음식·복식 문화 사진을 경관 카드로 제시한다.",
+    "conflict": "학생은 종교를 교리 지식으로만 이해하거나 특정 종교에 대한 고정관념을 가질 수 있다. 종교 경관은 신념, 역사, 생활양식이 공간에 남긴 흔적으로 해석한다.",
+    "general": "종교는 인간 생활과 문화 경관을 형성하며, 경관을 읽는 과정은 타자의 삶과 장소의 의미를 이해하는 세계시민적 태도를 요구한다.",
+    "studentGeneral": "종교 경관을 보면 그 지역 사람들이 무엇을 중요하게 여기고 어떻게 살아왔는지 알 수 있다.",
+    "questions": [
+      "세계 주요 종교의 특징은 무엇인가?",
+      "종교 경관에는 어떤 의미가 담기는가?",
+      "종교 문화를 관광 대상으로 소비할 때 어떤 태도가 필요한가?",
+      "우리 주변의 종교·문화 경관을 존중하며 해석하려면 어떻게 해야 하는가?"
+    ],
+    "products": [
+      "종교 경관 의미 해석 카드",
+      "문화 존중 관람 원칙",
+      "경관 비교표"
+    ],
+    "evidence": [
+      "경관 요소와 종교적 의미를 연결함",
+      "생활양식 사례를 설명함",
+      "문화 존중 태도를 표현함"
+    ],
+    "data": "종교 경관 사진을 선택해 위치, 상징, 의례, 생활양식, 방문 시 유의점을 조사하고 해석문을 작성한다.",
+    "modeling": "경관 요소를 상징, 기능, 생활양식, 장소성으로 분류한 경관 해석 카드를 만든다.",
+    "source": "종교 경관 사진, 지도, 문화유산 자료, 여행 안내 자료, 종교와 생활문화 관련 설명 자료",
+    "scale": "공간: 특정 경관-도시·지역-문화권 / 시간: 종교 전파와 경관 형성의 역사",
+    "uncertainty": "사진 한 장만으로 종교와 지역 문화를 일반화할 수 없으며, 관광 자료는 상업적 관점을 포함할 수 있다.",
+    "misconception": "종교는 개인의 믿음 문제라서 지리적 경관과 큰 관련이 없다.",
+    "correction": "종교가 건축, 도시 구조, 음식, 복식, 축제, 순례 경로에 남긴 공간적 흔적을 경관 카드로 확인하게 한다.",
+    "failure": "종교별 특징 암기에 머물면 경관 사진에서 보이는 요소와 인간 생활의 관계를 문장으로 연결하게 한다.",
+    "safe": "종교를 비교할 때 우열 판단, 조롱, 고정관념을 피하고 경관과 생활양식의 의미를 존중하는 언어를 사용하게 한다.",
+    "deepDive": "성지 관광이 지역 경제와 종교 공동체에 미치는 영향을 비교한다.",
+    "career": "문화지리, 관광, 문화유산 해설, 국제이해교육, 종교문화 연구, 박물관·전시 기획",
+    "sample": "세계 주요 종교 경관 사진을 분석하여 건축·의례·생활양식의 의미를 설명하고, 문화 차이를 존중하는 관람 태도를 구체적으로 제안함.",
+    "code": "[12세지02-03]",
+    "domain": "모자이크 세계, 세계의 다양한 자연환경과 문화",
+    "standard": "세계 주요 종교의 특징 및 종교 경관의 의미를 이해하고, 각 종교가 인간 생활에 미치는 영향을 탐구한다.",
+    "levels": {
+      "A": "세계 주요 종교가 지닌 특징 및 종교 경관에 담긴 의미를 이해하고, 종교가 세계 각 지역의 문화와 경관에 영향을 준 사례를 다각적으로 분석하여 각 종교가 인간 생활에 미치는 영향을 탐구할 수 있다.",
+      "B": "세계 주요 종교가 지닌 특징 및 종교 경관에 담긴 의미를 이해하고, 종교가 세계 각 지역의 문화와 경관에 영향을 준 사례를 토대로 각 종교가 인간 생활에 미친 영향을 분석할 수 있다.",
+      "C": "세계 주요 종교가 지닌 특징 및 종교 경관에 담긴 의미를 토대로 각 종교가 인간 생활에 미치는 영향을 인식할 수 있다.",
+      "D": "세계 주요 종교가 지닌 특징을 토대로 종교가 인간 생활에 미치는 영향을 이해할 수 있다.",
+      "E": "세계 주요 종교가 다양하게 나타남을 말할 수 있다."
+    },
+    "tool": "세계시민과 지리-5 / 논술형 / 세계 주요 종교 파악하기 세계 주요 종교의 특징과 종교 경관에 담긴 의미, 인간 생활에 미치는 영향 이해하기"
+  },
+  {
+    "official": [],
+    "title": "음식과 축제는 지역을 어떻게 기억하게 하는가?",
+    "type": "문화 다양성 프로젝트형",
+    "period": "2차시",
+    "lens": "문화 다양성과 장소성",
+    "concept": "음식·축제와 문화 다양성",
+    "related": "장소성, 전통, 세계화, 혼종성, 문화 보존, 관광, 자연환경, 인문환경, 문화 정체성",
+    "phenomenon": "커리, 타코, 김치, 올리브 식문화, 카니발, 디아 데 로스 무에르토스, 송끄란 등 음식과 축제를 지도에 표시한다.",
+    "conflict": "학생은 음식과 축제를 흥미로운 문화 사례로만 볼 수 있다. 음식과 축제에는 기후, 농업, 종교, 역사, 이주, 세계화가 얽혀 있다.",
+    "general": "음식과 축제는 지역의 자연·인문환경이 축적된 문화 경관이며, 세계화 속 문화 다양성 보존은 존중과 재해석의 균형을 필요로 한다.",
+    "studentGeneral": "음식과 축제는 단순한 볼거리가 아니라 그 지역의 환경과 역사, 사람들의 삶이 담긴 문화이다.",
+    "questions": [
+      "음식과 축제는 어떤 지리적 배경에서 형성되는가?",
+      "세계화는 지역 문화를 어떻게 바꾸는가?",
+      "전통 문화는 원형 그대로 보존되어야 하는가?",
+      "우리 지역 또는 세계 지역의 문화 다양성을 지키기 위해 무엇을 할 수 있는가?"
+    ],
+    "products": [
+      "음식·축제 지리 스토리맵",
+      "문화 다양성 보존 제안서",
+      "문화 해석 카드"
+    ],
+    "evidence": [
+      "자연·인문환경과 문화 사례를 연결함",
+      "세계화의 영향을 설명함",
+      "문화 다양성 보존 방법을 구체화함"
+    ],
+    "data": "음식 또는 축제 하나를 선택해 기후·농업·종교·역사·이주·관광과의 관계를 스토리맵으로 구성한다.",
+    "modeling": "문화 사례의 지리적 배경, 변화 요인, 보존 쟁점을 장소성 도식과 스토리맵으로 표현한다.",
+    "source": "문화유산 자료, 지역 관광 자료, 음식·축제 관련 기사, 기후·농업 지도, 이주와 역사 자료",
+    "scale": "공간: 지역 문화권-국가-세계 문화 네트워크 / 시간: 전통 형성, 세계화 이후 변화",
+    "uncertainty": "문화 사례는 지역 내부에서도 다양하며, 관광 자료는 지역민의 관점보다 소비자 관점을 강조할 수 있다.",
+    "misconception": "음식과 축제는 지역을 소개하는 흥미로운 소재일 뿐이다.",
+    "correction": "음식과 축제가 자연환경, 생산 방식, 종교, 역사, 이주, 관광과 연결된 지리적 결과임을 요인별로 분석하게 한다.",
+    "failure": "문화 소개문 수준에 머물면 지리적 요인 2개 이상과 세계화에 따른 변화 1개 이상을 근거로 쓰게 한다.",
+    "safe": "다른 문화의 음식과 축제를 희화화하지 않고, 문화 전유와 상업화 쟁점을 존중의 언어로 다룬다.",
+    "deepDive": "한류, 이주, 관광이 특정 음식 문화의 정체성과 다양성에 미치는 영향을 분석한다.",
+    "career": "문화콘텐츠, 관광, 지역브랜딩, 국제교류, 문화유산 보전, 세계시민교육",
+    "sample": "세계 음식과 축제 사례를 자연환경 및 인문환경과 연결해 설명하고, 세계화 속에서 문화 다양성을 보존하기 위한 지역민 중심의 방안을 제안함.",
+    "code": "[12세지02-04]",
+    "domain": "모자이크 세계, 세계의 다양한 자연환경과 문화",
+    "standard": "세계의 다양한 음식과 축제를 지리적으로 설명하고, 문화 다양성을 보존하기 위한 방법을 모색한다.",
+    "levels": {
+      "A": "세계의 다양한 음식과 축제를 해당 지역의 자연 및 인문환경을 바탕으로 분석하고, 세계시민으로서 문화 다양성을 보존하기 위한 방법을 도출하여 이를 내면화할 수 있다.",
+      "B": "세계의 다양한 음식과 축제를 해당 지역의 자연 및 인문환경을 토대로 이해하고, 세계시민으로서 문화 다양성을 보존하기 위한 방법을 모색하는 태도를 가질 수 있다.",
+      "C": "세계의 다양한 음식과 축제를 자연 또는 인문환경을 토대로 분석하고, 세계시민으로서 문화 다양성 보존의 중요성을 인식할 수 있다.",
+      "D": "세계의 다양한 음식과 축제를 지리적 요인을 토대로 이해하고, 세계시민으로서 문화 다양성 보존의 필요성에 대해 공감할 수 있다.",
+      "E": "세계의 다양한 음식과 축제 사례를 통해 세계시민으로서 문화 다양성 보존에 관심을 가질 수 있다."
+    },
+    "tool": "세계시민과 지리-6 / 서술형 / 세계의 음식과 축제를 지리적 요인으로 이해하기 문화 다양성 보존의 필요성 이해하기"
+  },
+  {
+    "official": [],
+    "title": "인구 이동은 떠나는 곳과 도착하는 곳을 어떻게 바꾸는가?",
+    "type": "인구 통계·이주 사례 분석형",
+    "period": "2차시",
+    "lens": "이동과 지역 변화",
+    "concept": "인구 구조와 국제 이주",
+    "related": "인구 분포, 인구 피라미드, 고령화, 청년 인구, 난민, 노동 이주, 유출 지역, 유입 지역, 사회·경제적 영향",
+    "phenomenon": "고령화 국가, 청년 인구 비중이 높은 국가, 난민 이동, 노동 이주, 도시 집중 사례를 통계지도와 인구 피라미드로 비교한다.",
+    "conflict": "학생은 이주를 개인의 선택으로만 이해할 수 있다. 이주는 지역의 인구 구조, 노동시장, 가족, 복지, 문화 갈등과 연결된다.",
+    "general": "인구 분포와 구조의 차이는 지역별 문제를 만들며, 국제 이주는 유출 지역과 유입 지역 모두의 사회·경제 공간을 변화시킨다.",
+    "studentGeneral": "사람이 이동하면 떠난 지역과 도착한 지역이 모두 바뀐다.",
+    "questions": [
+      "세계 인구는 어디에 어떻게 분포하는가?",
+      "인구 구조는 지역 문제를 어떻게 만든다?",
+      "이주민 수용은 기회인가 부담인가?",
+      "인구 문제 해결 정책을 다른 지역에 적용하려면 무엇을 고려해야 하는가?"
+    ],
+    "products": [
+      "인구 피라미드 비교표",
+      "국제 이주 영향 분석표",
+      "이주 정책 제안문"
+    ],
+    "evidence": [
+      "통계 자료를 해석함",
+      "유출·유입 지역 영향을 구분함",
+      "인권과 사회·경제 효과를 함께 고려함"
+    ],
+    "data": "두 국가의 인구 피라미드를 비교하고, 이주가 노동시장·가족·복지·문화에 미치는 영향을 표로 정리한다.",
+    "modeling": "인구 피라미드, 이주 흐름 지도, 유출·유입 지역 영향 비교표로 인구 문제를 시각화한다.",
+    "source": "국가별 인구 통계, 국제기구 이주 자료, 인구 피라미드, 난민·노동 이주 사례 기사",
+    "scale": "공간: 국가-지역-도시·농촌 / 시간: 인구 구조 변화와 이주 흐름의 장기 변화",
+    "uncertainty": "이주 통계는 등록 여부, 난민 지위, 비공식 노동 이동에 따라 실제 규모와 차이가 있을 수 있다.",
+    "misconception": "이주는 개인이 더 나은 삶을 찾아 이동하는 문제일 뿐이다.",
+    "correction": "이주의 배경에 노동시장, 전쟁, 기후, 가족, 정책, 인구 구조가 함께 작용하며 유출·유입 지역 모두에 영향을 준다는 점을 비교표로 확인하게 한다.",
+    "failure": "통계 읽기에 어려움을 겪으면 연령대별 특징을 색으로 표시하고, 각 특징이 지역 문제와 어떻게 연결되는지 문장 틀을 제공한다.",
+    "safe": "이주민과 난민을 문제 자체로 표현하지 않고, 인권과 사회 통합 관점을 함께 다룬다.",
+    "deepDive": "난민 수용 정책과 노동 이민 정책을 인권, 경제, 사회 통합 관점에서 비교한다.",
+    "career": "인구학, 사회정책, 국제개발, 이주·난민 지원, 도시계획, 공공행정",
+    "sample": "세계 인구 구조 자료를 해석해 지역별 인구 문제를 설명하고, 국제 이주가 유출 지역과 유입 지역에 미치는 사회·경제적 영향을 균형 있게 분석함.",
+    "code": "[12세지03-01]",
+    "domain": "네트워크 세계, 세계의 인구와 경제 공간",
+    "standard": "세계 인구 분포 및 구조를 통해 세계 인구 문제를 이해하고, 국제적 이주가 인구 유출 지역과 유입 지역에 미치는 영향을 탐구한다.",
+    "levels": {
+      "A": "세계의 인구 분포와 인구 구조의 차이를 바탕으로 지역에 따라 다르게 나타나는 세계 인구 문제의 특징을 추론하고, 국제적 이주가 인구 유출 지역과 유입 지역에 미치는 영향을 사회･경제적 차원에서 탐구할 수 있다.",
+      "B": "세계의 인구 분포와 인구 구조의 차이를 바탕으로 지역에 따라 다르게 나타나는 세계 인구 문제의 특징을 이해하고, 국제적 이주가 인구 유출 지역과 유입 지역에 미치는 영향을 비교･분석할 수 있다.",
+      "C": "세계의 인구 분포와 인구 구조의 차이에 따라 나타나는 세계 인구 문제의 특징을 이해하고, 국제적 이주가 인구 유출 지역과 유입 지역에 미치는 영향을 설명할 수 있다.",
+      "D": "세계 인구 문제의 특징을 이해하고, 국제적 이주가 인구 유출 지역과 유입 지역에 미치는 영향을 열거할 수 있다.",
+      "E": "세계 인구 문제 및 국제적 이주가 지역에 미치는 영향이 다양하게 나타남을 말할 수 있다."
+    },
+    "tool": "세계시민과 지리-7 / 프로젝트 / 인구 변천 모형의 각 단계와 인구 현상을 연결하여 세계 인구 문제 이해하기 국제적 이주가 인구 유출 및 유입 지역에 미치는 영향 탐구하기"
+  },
+  {
+    "official": [],
+    "title": "굶주림은 생산 부족 때문인가, 분배 구조 때문인가?",
+    "type": "식량 체계 비판 탐구형",
+    "period": "2차시",
+    "lens": "분배와 안정성",
+    "concept": "식량 문제의 구조",
+    "related": "식량 안보, 생산지와 소비지, 곡물 메이저, 가격 변동, 기후위기, 무역, 취약성, 정책 대응",
+    "phenomenon": "밀·쌀·옥수수 생산지와 소비지 지도, 식량 가격 상승 기사, 곡물 기업 유통망, 기후 재해로 인한 공급 차질을 제시한다.",
+    "conflict": "학생은 식량 문제를 생산량 부족으로만 볼 수 있다. 실제 식량 문제는 생산, 유통, 가격, 소득, 전쟁, 기후위기, 정책이 얽힌 구조적 문제이다.",
+    "general": "식량 문제는 생산량만이 아니라 생산과 소비의 공간적 불일치, 유통 구조, 구매력, 기후·분쟁 위험이 결합해 발생한다.",
+    "studentGeneral": "먹을 것이 부족한 문제는 단순히 농사를 적게 지어서가 아니라, 어디서 생산되고 누가 살 수 있는지와도 관련된다.",
+    "questions": [
+      "주요 식량 자원은 어디서 생산되고 어디서 소비되는가?",
+      "식량 문제의 구조적 원인은 무엇인가?",
+      "곡물 기업의 영향력은 식량 안정에 도움이 되는가?",
+      "우리 사회의 식량 안보 전략은 어떻게 바뀌어야 하는가?"
+    ],
+    "products": [
+      "식량 생산·소비 흐름도",
+      "식량 문제 원인 구조도",
+      "국가별 대응 전략 비교표"
+    ],
+    "evidence": [
+      "생산·소비 자료를 지도화함",
+      "구조적 원인을 복합적으로 설명함",
+      "대응 전략의 효과와 한계를 평가함"
+    ],
+    "data": "한 식량 자원을 선택해 생산지, 소비지, 주요 수출입국, 가격 변동 요인, 취약 지역, 정책 대응을 흐름도로 정리한다.",
+    "modeling": "식량 생산-유통-소비-가격-정책의 관계를 원인 구조도와 국가별 대응 전략 비교표로 표현한다.",
+    "source": "국제 식량 통계, 곡물 생산·소비 지도, 식량 가격 자료, 기후·분쟁 관련 기사, 국가별 농업 정책 자료",
+    "scale": "공간: 생산지-소비지-국제 시장 / 시간: 계절 생산, 가격 변동, 위기 상황",
+    "uncertainty": "식량 통계는 생산량, 재고, 수출 제한, 비공식 거래, 기후 피해 예측에 따라 변동성이 크다.",
+    "misconception": "식량 문제는 세계 전체의 식량 생산량이 부족해서 발생한다.",
+    "correction": "생산량, 유통, 가격, 구매력, 전쟁, 기후위기, 정책 대응을 함께 배치하여 구조적 원인을 분석하게 한다.",
+    "failure": "원인 나열에 머물면 원인 간 관계를 화살표로 연결하고, 단기 대응과 장기 전략을 구분하게 한다.",
+    "safe": "식량 부족 지역을 무능하거나 가난한 지역으로 낙인찍지 않고, 구조적 취약성과 국제 체제의 관계를 중심으로 다룬다.",
+    "deepDive": "기후위기와 전쟁이 국제 곡물 가격과 식량 취약국에 미치는 영향을 분석한다.",
+    "career": "농업경제, 식량정책, 국제개발협력, 물류, 기후위기 대응, 윤리적 소비",
+    "sample": "주요 식량 자원의 생산·소비 자료를 분석하여 식량 문제가 생산 부족보다 유통·가격·기후·분쟁 등 구조적 요인과 관련됨을 설명하고, 국가별 대응 전략을 비교함.",
+    "code": "[12세지03-02]",
+    "domain": "네트워크 세계, 세계의 인구와 경제 공간",
+    "standard": "주요 식량 자원의 생산과 소비 양상을 통해 세계 식량 문제가 발생하는 구조적 원인을 파악하고, 식량의 안정적인 생산과 공급을 위한 각국의 대응 전략을 비교⋅분석한다.",
+    "levels": {
+      "A": "주요 식량 자원의 생산과 소비 양상을 나타낸 자료를 분석하여 세계 식량 문제가 발생하는 구조적 원인을 추론하고, 식량의 안정적인 생산과 공급을 위한 각국의 다양한 대응 전략을 비교･분석하여 그 실효성을 평가할 수 있다.",
+      "B": "주요 식량 자원의 생산과 소비 양상을 나타낸 자료를 토대로 세계 식량 문제가 발생하는 구조적 원인을 이해하고, 식량의 안정적인 생산과 공급을 위한 각국의 대응 전략을 비교하고, 그 실효성을 이해할 수 있다.",
+      "C": "주요 식량 자원의 생산과 소비 양상을 나타낸 자료를 통해 세계 식량 문제의 구조적 원인을 이해하고, 식량의 안정적인 생산과 공급을 위한 각국의 대응 전략이 지닌 특징을 제시할 수 있다.",
+      "D": "세계 식량 문제의 심각성을 이해하고, 식량의 안정적인 생산과 공급을 위한 각국의 대응 전략을 이해할 수 있다.",
+      "E": "세계 식량 문제의 해결을 위해 국가의 정책적 노력이 필요함을 말할 수 있다."
+    },
+    "tool": "세계시민과 지리-8 / 논술형 / 세계 식량 문제의 심각성 이해하기 식량의 안정적인 생산과 공급을 위한 각국의 대응 전략 이해하기"
+  },
+  {
+    "official": [],
+    "title": "값싼 상품의 진짜 비용은 어디에서 발생하는가?",
+    "type": "글로벌 가치사슬 분석형",
+    "period": "2차시",
+    "lens": "가치사슬과 불균등",
+    "concept": "초국적 기업과 공간적 불균등",
+    "related": "초국적 기업, 글로컬 가치사슬, 생산 네트워크, 노동, 소비, 윤리적 소비, 공정무역, 국제 협력",
+    "phenomenon": "스마트폰, 운동화, 초콜릿, 의류 중 하나의 원료·생산·조립·판매·폐기 경로를 지도화한다.",
+    "conflict": "학생은 값싼 상품을 소비자 이익으로만 볼 수 있다. 저렴한 가격 뒤에는 지역별 임금, 노동 조건, 환경 부담, 이윤 배분의 불균등이 존재한다.",
+    "general": "글로벌 경제 체제는 생산과 소비를 세계적으로 연결하지만, 가치와 부담의 배분은 공간적으로 불균등하게 나타난다.",
+    "studentGeneral": "내가 싸게 산 물건의 이익과 부담은 세계 여러 지역에 다르게 나뉜다.",
+    "questions": [
+      "초국적 기업은 글로벌 경제를 어떻게 조직하는가?",
+      "가치사슬에서 이익과 부담은 왜 다르게 배분되는가?",
+      "윤리적 소비는 구조적 불균등을 해결할 수 있는가?",
+      "한 상품의 가치사슬을 더 공정하게 만들려면 무엇이 필요한가?"
+    ],
+    "products": [
+      "상품 가치사슬 지도",
+      "공간적 불균등 분석표",
+      "윤리적 소비·국제협력 제안서"
+    ],
+    "evidence": [
+      "생산 네트워크를 공간적으로 표현함",
+      "불균등의 원인을 설명함",
+      "개인 실천과 국제 협력을 구분해 제안함"
+    ],
+    "data": "한 상품의 원료, 생산, 조립, 유통, 소비, 폐기 지역을 조사하고 각 단계에서 발생하는 가치와 부담을 표시한다.",
+    "modeling": "가치사슬 지도와 이익·노동·환경 부담 분배표를 만들어 공간적 불균등을 설명한다.",
+    "source": "기업 공급망 자료, 공정무역·노동권 자료, 상품 원산지 표시, 기사, 국제기구·시민단체 보고서",
+    "scale": "공간: 생산 현장-물류 네트워크-소비 시장-폐기 지역 / 시간: 상품 생애주기",
+    "uncertainty": "기업 공급망은 공개 범위가 제한될 수 있고, 노동 조건과 환경 부담 자료는 조사 기관에 따라 차이가 날 수 있다.",
+    "misconception": "값싼 상품은 소비자에게 이익이므로 좋은 경제 활동이다.",
+    "correction": "상품 가격에 포함되지 않은 노동, 환경, 지역 불균등의 비용을 가치사슬 단계별로 확인하게 한다.",
+    "failure": "기업 비판에만 머물면 기업, 소비자, 정부, 국제기구, 노동자의 역할을 구분하고 각 주체의 실천 가능성을 평가하게 한다.",
+    "safe": "특정 국가나 노동자를 비하하지 않고, 세계 경제 구조와 권력 관계를 중심으로 분석하게 한다.",
+    "deepDive": "공급망 실사법, 공정무역 인증, ESG가 글로벌 가치사슬의 공간적 불균등을 줄일 수 있는지 평가한다.",
+    "career": "경제지리, 국제통상, ESG, 물류·공급망 관리, 노동인권, 지속가능경영",
+    "sample": "초국적 기업의 상품 가치사슬을 지도화하며 생산·소비 공간의 불균등을 분석하고, 윤리적 소비와 국제 협력의 역할 및 한계를 균형 있게 제시함.",
+    "code": "[12세지03-03]",
+    "domain": "네트워크 세계, 세계의 인구와 경제 공간",
+    "standard": "초국적 기업을 중심으로 한 글로벌 경제 체제의 형성 과정을 탐색하고, 글로벌 경제에서의 공간적 불균등을 해소하기 위한 국제적 협력과 개인적 실천 방안에 대해 조사한다.",
+    "levels": {
+      "A": "초국적 기업 및 글로컬 가치 사슬 개념을 토대로 글로벌 경제 체제가 형성되는 과정을 분석하고, 글로벌 경제 체제에서의 공간적 불균등을 해소하기 위한 국제적 협력 사례를 제안하며 개인적 실천 방안을 내면화할 수 있다.",
+      "B": "초국적 기업을 중심으로 한 글로벌 경제 체제의 형성 과정을 이해하고, 글로벌 경제 체제에서의 공간적 불균등을 해소하기 위한 국제적 협력 및 개인적 실천 방안을 이해하는 태도를 가질 수 있다.",
+      "C": "초국적 기업이 글로벌 경제 체제에 영향을 미침을 이해하고, 글로벌 경제 체제에서의 공간적 불균등을 해소하기 위한 노력의 중요성을 인식할 수 있다.",
+      "D": "초국적 기업이 글로벌 경제 체제에 영향을 미침에 따라 글로벌 경제 체제에서 나타나는 공간적 불균등을 해소하기 위한 노력에 공감할 수 있다.",
+      "E": "글로벌 경제 체제에 따른 공간적 불균등의 해소에 관심을 가질 수 있다."
+    },
+    "tool": "세계시민과 지리-9 / 서술형 / 글로벌 경제 체제의 공간적 불균등 이해하기 글로벌 경제 체제에 따른 공간적 불균등의 해소 방안 제시하기"
+  },
+  {
+    "official": [],
+    "title": "에너지 전환은 모두에게 같은 의미인가?",
+    "type": "에너지 통계·정책 비교형",
+    "period": "2차시",
+    "lens": "전환과 형평성",
+    "concept": "에너지 전환과 지속가능성",
+    "related": "화석연료, 재생에너지, 에너지 믹스, 생산지와 소비지, 탄소 배출, 에너지 안보, 정의로운 전환",
+    "phenomenon": "국가별 에너지 소비 구조, 산유국·소비국 지도, 재생에너지 비중, 전력 접근성 자료를 비교한다.",
+    "conflict": "학생은 친환경 에너지 확대를 단순히 좋은 해결책으로 볼 수 있다. 에너지 전환은 기술뿐 아니라 비용, 입지, 지역 경제, 에너지 접근성, 국제 관계와 연결된다.",
+    "general": "지속가능한 에너지 생산은 자원 분포, 소비 구조, 기술 조건, 사회적 형평성을 함께 고려할 때 실현 가능하다.",
+    "studentGeneral": "에너지를 바꾸는 일은 발전소 종류만 바꾸는 것이 아니라 지역과 사람들의 삶을 함께 바꾸는 일이다.",
+    "questions": [
+      "세계 주요 에너지 자원은 어디서 생산되고 소비되는가?",
+      "친환경 에너지원의 장단점은 무엇인가?",
+      "에너지 전환 비용은 누가 부담해야 하는가?",
+      "특정 국가나 지역에 적합한 지속가능한 에너지 전략은 무엇인가?"
+    ],
+    "products": [
+      "국가별 에너지 전환 전략 제안서",
+      "에너지 믹스 비교 그래프",
+      "정의로운 전환 체크리스트"
+    ],
+    "evidence": [
+      "생산·소비 통계를 해석함",
+      "에너지원별 특성을 비교함",
+      "지속가능성과 형평성을 함께 고려함"
+    ],
+    "data": "국가 2곳을 골라 에너지 소비 구조, 자원 조건, 전력 접근성, 탄소 배출, 재생에너지 가능성을 비교한다.",
+    "modeling": "에너지 믹스 그래프, 자원 분포 지도, 정책 비교표를 결합하여 지속가능한 에너지 생산 전략을 제안한다.",
+    "source": "국가별 에너지 통계, 재생에너지 정책 자료, 전력 접근성 자료, 탄소 배출 자료, 에너지 자원 지도",
+    "scale": "공간: 에너지 생산지-소비지-국가 전력망-세계 에너지 시장 / 시간: 현재 에너지 구조와 전환 시나리오",
+    "uncertainty": "에너지 통계는 산정 기준과 갱신 시점이 다르고, 재생에너지 잠재량은 기술·입지·정책 수용성에 따라 달라질 수 있다.",
+    "misconception": "재생에너지를 늘리면 에너지 문제가 자연스럽게 해결된다.",
+    "correction": "입지, 간헐성, 저장, 비용, 지역 수용성, 에너지 접근성을 함께 고려해야 함을 국가별 비교로 확인하게 한다.",
+    "failure": "재생에너지 장점 나열에 머물면 특정 지역 조건에 맞는 에너지원 조합과 정책 조건을 제시하게 한다.",
+    "safe": "에너지 빈곤과 지역 산업 전환을 다룰 때 특정 지역의 책임으로 단순화하지 않고 구조적 조건을 고려한다.",
+    "deepDive": "정의로운 전환 관점에서 석탄 산업 지역의 고용, 지역 경제, 탄소 감축 정책을 함께 평가한다.",
+    "career": "에너지정책, 환경공학, 기후경제, 도시·지역계획, 국제기구, 지속가능경영",
+    "sample": "국가별 에너지 생산·소비 통계를 분석하고, 친환경 에너지원의 특성과 지역 조건을 고려하여 지속가능하고 형평성 있는 에너지 전환 전략을 제안함.",
+    "code": "[12세지04-01]",
+    "domain": "지속가능한 세계, 세계의 환경 문제와 평화",
+    "standard": "세계 주요 에너지 자원의 생산과 소비 현황을 조사하고, 다양한 친환경 에너지원의 특징에 대한 이해를 바탕으로 지속가능한 에너지 생산 방안을 제시한다.",
+    "levels": {
+      "A": "통계 자료를 활용하여 세계 주요 에너지 자원의 생산과 소비 현황을 분석하고, 이를 토대로 다양한 친환경 에너지원의 특징을 반영한 지속가능한 에너지 생산 방안을 수립할 수 있다.",
+      "B": "통계 자료를 활용하여 세계 주요 에너지 자원의 생산과 소비 현황을 파악하고, 이를 토대로 다양한 친환경 에너지원이 지속가능한 에너지 생산에 미치는 영향을 탐구할 수 있다.",
+      "C": "세계 주요 에너지 자원의 현황을 토대로, 다양한 친환경 에너지원이 지속가능한 에너지 생산에 미치는 영향을 분석할 수 있다.",
+      "D": "세계 주요 에너지 자원의 현황을 토대로, 지속가능한 에너지 전환의 필요성을 이해할 수 있다.",
+      "E": "지속가능한 에너지 전환의 필요성을 말할 수 있다."
+    },
+    "tool": "세계시민과 지리-10 / 프로젝트 / 다양한 친환경 에너지원의 특징 이해하기 전 세계 다양한 국가의 지속가능한 에너지 정책의 특징과 효과 탐구를 통해 지속가능한 에너지 생산 방안 탐색하기"
+  },
+  {
+    "official": [],
+    "title": "생태전환적 삶은 개인 실천만으로 가능한가?",
+    "type": "환경 쟁점·생활 점검형",
+    "period": "2차시",
+    "lens": "생태전환과 책임",
+    "concept": "환경 문제와 생태전환",
+    "related": "기후변화, 사막화, 플라스틱 오염, 생물다양성, 탄소 발자국, 생활방식, 구조적 책임, 전환",
+    "phenomenon": "탄소 발자국 계산, 플라스틱 이동 경로, 산불·홍수·가뭄 피해 지도, 국가별 배출량과 취약성 자료를 제시한다.",
+    "conflict": "학생은 환경 문제 해결을 개인 절약 문제로만 볼 수 있다. 생태전환은 개인 실천, 사회 제도, 기업 책임, 국제 협력이 함께 작동해야 한다.",
+    "general": "환경 문제는 여러 공간 규모에서 발생하며, 생태전환적 삶은 생활방식의 성찰과 사회 구조의 변화를 함께 요구한다.",
+    "studentGeneral": "환경을 지키려면 내가 바꾸는 행동과 사회가 바꿔야 할 제도를 함께 봐야 한다.",
+    "questions": [
+      "세계 주요 환경 문제에는 어떤 유형이 있는가?",
+      "환경 문제는 왜 지역별로 다르게 나타나는가?",
+      "환경 책임은 개인과 사회 중 누구에게 더 큰가?",
+      "나의 생활방식을 생태전환 관점에서 어떻게 바꿀 수 있는가?"
+    ],
+    "products": [
+      "나의 생활방식 전환 보고서",
+      "환경 문제 스케일 분석표",
+      "개인·사회 실천 분류표"
+    ],
+    "evidence": [
+      "환경 문제를 규모별로 분석함",
+      "생활방식을 비판적으로 점검함",
+      "개인 실천과 제도 변화를 연결함"
+    ],
+    "data": "자신의 하루 생활에서 에너지, 이동, 음식, 소비, 폐기물을 점검하고 개인 실천·학교 실천·지역 정책 제안을 구분한다.",
+    "modeling": "환경 문제를 개인-학교-지역-국가-세계 스케일로 배열하고, 책임 주체와 전환 방안을 함께 표시한다.",
+    "source": "환경 통계, 탄소 발자국 계산 자료, 기후변화·오염 지도, 국가별 대응 자료, 학생 생활 점검표",
+    "scale": "공간: 개인 생활-지역사회-국가-세계 / 시간: 일상 습관, 정책 변화, 장기 환경 영향",
+    "uncertainty": "개인의 환경 영향 계산은 추정값이며, 국가별 배출 책임과 피해 취약성은 지표 선택에 따라 다르게 보일 수 있다.",
+    "misconception": "환경 문제 해결은 개인이 아껴 쓰고 분리배출을 잘하면 충분하다.",
+    "correction": "개인 실천의 의미를 인정하되 기업, 제도, 지역 정책, 국제 협력과 연결해야 전환이 가능함을 책임 주체표로 확인하게 한다.",
+    "failure": "도덕적 다짐에 머물면 자료 근거, 실행 조건, 지속 가능성, 다른 사람에게 미치는 영향을 함께 쓰게 한다.",
+    "safe": "개인의 생활방식을 비난하기보다 구조적 조건과 선택 가능성의 차이를 고려해 성찰하도록 지도한다.",
+    "deepDive": "기후 정의 관점에서 배출 책임이 큰 지역과 피해 취약 지역의 불일치를 분석한다.",
+    "career": "환경정책, 기후위기 대응, 지속가능경영, 생태전환교육, 시민단체, 공공행정",
+    "sample": "세계 주요 환경 문제의 유형과 실태를 공간 규모별로 분석하고, 자신의 생활방식을 생태전환 관점에서 비판적으로 점검하여 개인 실천과 사회적 개선 방안을 함께 제안함.",
+    "code": "[12세지04-02]",
+    "domain": "지속가능한 세계, 세계의 환경 문제와 평화",
+    "standard": "세계 주요 환경 문제의 유형과 실태를 설명하고, 생태전환적 삶에 비추어 현재의 생활방식을 비판적으로 점검한다.",
+    "levels": {
+      "A": "세계 주요 환경 문제의 유형과 실태를 공간적 규모 및 국가별 대응을 중심으로 분석하고, 생태전환적 삶에 대한 이해를 토대로 자신의 생활방식을 비판적으로 점검하여 이를 내면화할 수 있다.",
+      "B": "세계 주요 환경 문제의 유형과 실태를 분석하고, 생태전환적 삶에 대한 이해를 토대로 자신의 생활방식을 비판적으로 점검하는 태도를 가질 수 있다.",
+      "C": "세계 주요 환경 문제의 유형 및 실태를 열거하고, 생태전환적 삶을 위해 생활방식 변화가 필요함을 인식할 수 있다.",
+      "D": "세계의 환경 문제가 심각함을 인식하고, 생태전환적 삶의 지향이 필요한 이유에 공감할 수 있다.",
+      "E": "생태전환적 삶이 세계의 환경 문제 해결에 도움이 된다는 사실에 관심을 가질 수 있다."
+    },
+    "tool": "세계시민과 지리-11 / 논술형 / 기후변화의 원인과 영향, 기후변화 해결을 위한 국제 사회의 노력 설명하기 생태전환적 삶에 비추어 기후변화 해결을 위한 세계시민의 역할 제시하기"
+  },
+  {
+    "official": [],
+    "title": "평화는 지리적으로 어떻게 만들어지는가?",
+    "type": "지정학 분쟁·평화 제안형",
+    "period": "2차시",
+    "lens": "지정학과 평화 정의",
+    "concept": "지정학적 분쟁과 평화",
+    "related": "지정학, 국경, 자원, 민족, 국제 정세, 난민, 평화, 정의, 국제기구, 시민 실천",
+    "phenomenon": "우크라이나, 미얀마, 팔레스타인, 남중국해, 자원 분쟁 등 지정학적 분쟁 사례를 지도·기사·연표로 비교한다.",
+    "conflict": "학생은 분쟁을 좋은 편과 나쁜 편의 대립으로 단순화할 수 있다. 분쟁은 역사, 국경, 자원, 강대국 전략, 지역민의 삶이 얽힌 복합적 현상이다.",
+    "general": "지정학적 분쟁은 국제 정세와 지역의 역사·자원·정체성이 결합해 발생하며, 평화와 정의는 다양한 행위자의 관점을 고려한 실천을 요구한다.",
+    "studentGeneral": "분쟁을 이해하려면 지도 위의 위치뿐 아니라 그곳에 사는 사람들의 삶과 국제 관계를 함께 봐야 한다.",
+    "questions": [
+      "지정학적 분쟁은 어디에서 왜 발생하는가?",
+      "국제 정세 변화는 지역 분쟁에 어떤 영향을 주는가?",
+      "평화를 위한 개입은 언제 정의로운가?",
+      "세계시민으로서 분쟁 지역의 평화에 어떻게 기여할 수 있는가?"
+    ],
+    "products": [
+      "분쟁 지역 평화 기여 제안서",
+      "분쟁 원인 다층 분석표",
+      "지역민 관점 카드"
+    ],
+    "evidence": [
+      "국제 정세와 지리적 조건을 연결함",
+      "지역민 관점을 고려함",
+      "평화와 정의를 위한 실천 방안을 제시함"
+    ],
+    "data": "한 분쟁 사례를 선택해 위치, 역사, 자원, 국제 관계, 주요 행위자, 피해 집단, 국제 사회의 노력을 정리한다.",
+    "modeling": "분쟁 원인을 지리적 조건, 역사, 자원, 국제 정세, 정체성, 행위자 관계로 나눈 다층 분석표로 표현한다.",
+    "source": "분쟁 지역 지도, 국제 뉴스, 국제기구 자료, 인권·난민 자료, 역사 연표, 지역민 증언 자료",
+    "scale": "공간: 분쟁 지역-국가-주변국-세계 질서 / 시간: 역사적 배경, 최근 정세, 평화 구축 과정",
+    "uncertainty": "분쟁 자료는 정치적 관점과 보도 환경에 따라 편향될 수 있으므로 복수 출처와 피해 당사자의 관점을 함께 검토해야 한다.",
+    "misconception": "지정학적 분쟁은 몇몇 국가의 권력 다툼으로만 설명할 수 있다.",
+    "correction": "국경, 자원, 역사, 정체성, 국제 동맹, 지역민의 삶이 함께 얽혀 있음을 다층 분석표로 확인하게 한다.",
+    "failure": "단순 찬반 논쟁에 머물면 지역민, 국가, 주변국, 국제기구, 시민의 관점을 분리하여 평화 방안을 제안하게 한다.",
+    "safe": "전쟁과 폭력 피해를 다룰 때 선정적 자료 사용을 피하고, 특정 민족·종교·국가에 대한 혐오 표현을 금지한다.",
+    "deepDive": "난민 문제를 지정학적 분쟁, 인권, 국가 안보, 국제 협력의 관점에서 종합 분석한다.",
+    "career": "국제관계, 평화학, 외교, 인권·난민 지원, 국제기구, 분쟁지역 연구",
+    "sample": "지정학적 분쟁 사례를 국제 정세 변화와 지리적 조건을 바탕으로 분석하고, 지역민의 삶과 세계시민의 역할을 고려하여 평화와 정의에 기여할 수 있는 실천 방안을 제시함.",
+    "code": "[12세지04-03]",
+    "domain": "지속가능한 세계, 세계의 환경 문제와 평화",
+    "standard": "다양한 지정학적 분쟁을 국제 정세의 변화와 관련지어 조사하고, 세계 평화와 정의에 기여할 수 있는 방안을 찾아 실천한다.",
+    "levels": {
+      "A": "다양한 지정학적 분쟁의 원인과 양상을 국제 정세의 변화 및 지리적 관점에서 분석하고, 세계시민으로서 세계 평화와 정의에 기여할 수 있는 방안을 수립하여 이를 내면화할 수 있다.",
+      "B": "지정학적 분쟁의 원인과 양상을 국제 정세 변화와 관련하여 이해하고, 이를 토대로 세계시민으로서 세계 평화와 정의에 기여할 수 있는 방안을 탐색하여 실천하는 태도를 가질 수 있다.",
+      "C": "지정학적 분쟁과 국제 정세 변화의 관련성을 이해하고, 세계시민으로서 세계 평화와 정의에 기여할 수 있는 방안을 인식할 수 있다.",
+      "D": "지정학적 분쟁이 국제 정세의 변화와 관련하여 나타남을 이해하고, 세계시민으로서 세계 평화와 정의에 기여해야 함에 공감할 수 있다.",
+      "E": "지정학적 분쟁의 발생 원인을 이해하고, 세계 평화와 정의의 필요성에 관심을 가질 수 있다."
+    },
+    "tool": "세계시민과 지리-12 / 서술형 / 지정학적 분쟁이 국제 정세의 변화와 관련하여 등장한다는 점 이해하기 세계시민으로서 세계 평화와 정의에 기여하기"
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "세계시민, 세계화와 지역 이해":"atmo",
+  "모자이크 세계, 세계의 다양한 자연환경과 문화":"geo",
+  "네트워크 세계, 세계의 인구와 경제 공간":"astro",
+  "지속가능한 세계, 세계의 환경 문제와 평화":"green"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "atmo");}
+function accent(d){return "accent-" + (DOMAIN_KEY[d] || "atmo");}
+function openView(id){
+  var views=document.querySelectorAll(".view");
+  for(var i=0;i<views.length;i++) views[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle("on", btns[j].dataset.view===id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+(function bindNav(){
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var i=0;i<btns.length;i++){
+    (function(b){ b.onclick=function(){ openView(b.dataset.view); }; })(btns[i]);
+  }
+})();
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill' + (solid?' solid':'') + '">' + esc(x) + '</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">' +
+    '<div class="blk-h"><span>' + esc(title) + '</span>' + (hint?'<span class="hint">' + esc(hint) + '</span>':"") + '</div>' +
+    body +
+  '</div>';
+}
+function filtered(){
+  var s=document.getElementById("search");
+  var d=document.getElementById("domain");
+  var t=document.getElementById("type");
+  var q=(s && s.value ? s.value : "").toLowerCase();
+  var domainVal=d && d.value ? d.value : "전체 영역";
+  var typeVal=t && t.value ? t.value : "전체 수업 유형";
+  return DATA.filter(function(x){
+    return (domainVal==="전체 영역" || x.domain===domainVal) &&
+      (typeVal==="전체 수업 유형" || x.type.indexOf(typeVal)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  var inArr=false;
+  for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ inArr=true; break; } }
+  if(!inArr && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '' +
+      '<button class="std-item ' + (i===current ? "on" : "") + '" onclick="select(' + i + ')">' +
+        '<div>' +
+          '<span class="code">' + esc(x.code) + '</span>' +
+          '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+          (x.official.length ? '<span class="chip">공식탐구</span>' : '') +
+        '</div>' +
+        '<span class="std-title">' + esc(x.title) + '</span>' +
+        '<span class="std-text">' + esc(x.standard) + '</span>' +
+      '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+
+function tableRows(x){
+  return '' +
+    '<div class="lesson-hd">' +
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 01</span>도입<br>참여·초점</div>' +
+      '<div>교사는 <b>' + esc(x.phenomenon) + '</b>을(를) 제시하고 지리적 현상과 세계시민 쟁점에 대한 사전 개념을 드러내는 발문을 한다.</div>' +
+      '<div>학생은 개인 예상을 적고, 자료에서 먼저 보이는 특징과 설명이 필요한 지점을 기록한다.</div>' +
+      '<div>사전 예상지<br>탐구 질문지</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 02</span>탐구 설계</div>' +
+      '<div>교사는 자료 출처, 공간 범위, 시간 범위, 비교 기준, 관점의 편향 가능성, 윤리 조건을 안내한다.</div>' +
+      '<div>학생은 사용할 자료와 지도·통계·흐름도·이해관계자 맵·CER 논증 방식 중 적절한 표상 방식을 정한다.</div>' +
+      '<div>탐구 설계표<br>자료 출처표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 03</span>자료 처리</div>' +
+      '<div>교사는 학생의 단위, 범례, 공간 범위, 시간 범위, 출처 신뢰성, 누락된 관점 점검 과정을 순회 관찰한다.</div>' +
+      '<div>학생은 ' + esc(x.data) + '</div>' +
+      '<div>' + esc(x.products[0]) + '</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 04</span>자료 조직화</div>' +
+      '<div>교사는 자료 해석 근거와 오개념을 점검하고, 설명이 반영하지 못한 지역·집단·관점을 묻는다.</div>' +
+      '<div>학생은 ' + esc(x.modeling) + '</div>' +
+      '<div>지도·그래프·도식·해석표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 05</span>일반화·전이</div>' +
+      '<div>교사는 일반화 문장과 전이 질문을 통해 다른 지역, 새로운 쟁점, 개인 실천, 정책 제안 맥락으로 확장한다.</div>' +
+      '<div>학생은 CER 결론문을 작성하고 자료의 한계, 관점의 편향, 후속 탐구 질문을 제안한다.</div>' +
+      '<div>CER 결론문<br>전이 질문</div>' +
+    '</div>';
+}
+
+function rubric(x){
+  var levels=x.levels || {};
+  function row(k){
+    var txt=levels[k] || "성취수준 자료를 확인해 보완한다.";
+    return '<div class="lv-row"><div class="lv ' + k + '">' + k + '</div><div class="lv-text">' + esc(txt) + '</div></div>';
+  }
+  return '<div class="rubric">' + row("A") + row("B") + row("C") + row("D") + row("E") + '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">' + arr.map(function(x){
+    return '<div class="step"><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={};
+
+  panels.overview =
+    block("성취기준 원문", '<div class="std-full"><b>' + esc(x.code) + '</b>' + esc(x.standard) + '</div>') +
+    '<div class="cards">' +
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4><span class="icon">i</span>수업 개요</h4>' +
+        '<p><b>제목 :</b> ' + esc(x.title) + '</p>' +
+        '<p><b>유형 :</b> ' + esc(x.type) + '</p>' +
+        '<p><b>권장 차시 :</b> ' + esc(x.period) + '</p>' +
+        '<p><b>탐구 설계 :</b> ' + (x.official.length ? esc(x.official.join(", ")) : "성취기준 기반 CBI 재구성") + '</p>' +
+        '<p><b>핵심 개념 :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈 :</b> ' + esc(x.lens) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4><span class="icon">▲</span>핵심 산출물</h4>' +
+        pills(x.products) +
+      '</div>' +
+    '</div>' +
+    block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+    block("예시 평가도구 연결", '<div class="card"><p>' + esc(x.tool) + '</p></div>', "성취기준·성취수준 기반 평가");
+
+  panels.cbi =
+    block("개념 형성의 흐름",
+      '<div class="cards">' +
+        '<div class="card accent-gold">' +
+          '<h4><span class="icon">F</span>현상(Phenomenon)</h4>' +
+          '<p>' + esc(x.phenomenon) + '</p>' +
+        '</div>' +
+        '<div class="card ' + accent(x.domain) + '">' +
+          '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>' +
+          '<p>' + esc(x.conflict) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="general" style="margin-top:.9rem">' +
+        '<div class="gen-row">' +
+          '<b>교사용 일반화 진술 (Generalization)</b>' +
+          '<p>' + esc(x.general) + '</p>' +
+        '</div>' +
+        '<div class="gen-row">' +
+          '<b>학생용 일반화 진술 (Student-Friendly)</b>' +
+          '<p>' + esc(x.studentGeneral) + '</p>' +
+        '</div>' +
+      '</div>',
+      "Erickson & Lanning CBI 모형"
+    ) +
+    block("탐구 질문 4종 — 사실에서 전이까지",
+      '<div class="q-grid">' +
+        '<div class="q fact"><b>Factual · 사실적 질문</b><p>' + esc(qs[0]) + '</p></div>' +
+        '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>' + esc(qs[1]) + '</p></div>' +
+        '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>' + esc(qs[2]) + '</p></div>' +
+        '<div class="q transfer"><b>Transfer · 전이 질문</b><p>' + esc(qs[3]) + '</p></div>' +
+      '</div>',
+      "수업 도입·전개·마무리 3구간에 배치"
+    ) +
+    block("핵심 개념과 관련 개념",
+      '<div class="card">' +
+        '<p><b>핵심 개념(Macro Concept) :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈(Conceptual Lens) :</b> ' + esc(x.lens) + '</p>' +
+        '<p><b>관련 개념(Related Concepts) :</b> ' + esc(x.related) + '</p>' +
+      '</div>'
+    );
+
+  panels.lesson =
+    block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+    block("교사 발문 세트 — 즉시 사용 가능",
+      '<div class="cards">' +
+        '<div class="card accent-atmo">' +
+          '<h4>탐구 전 발문</h4>' +
+          '<ul>' +
+            '<li>이 쟁점은 세계·국가·지역·일상 중 어떤 스케일에서 다르게 보이는가?</li>' +
+            '<li>우리는 어떤 지도·통계·사례 자료를 근거로 판단해야 하는가?</li>' +
+            '<li>한 관점만으로 설명할 때 빠지는 사람과 지역은 누구인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>탐구 중 발문</h4>' +
+          '<ul>' +
+            '<li>자료를 어떤 지도, 그래프, 흐름도, 이해관계자 맵으로 바꾸면 관계가 더 잘 보이는가?</li>' +
+            '<li>자료의 차이는 지역 차이, 스케일 차이, 관점 차이 중 무엇인가?</li>' +
+            '<li>우리 설명이 충분히 반영하지 못한 집단이나 장소는 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>탐구 후 발문</h4>' +
+          '<ul>' +
+            '<li>오늘 만든 일반화 문장을 다른 지역·쟁점·일상 실천에 적용해 보자.</li>' +
+            '<li>학생부 기록 근거로 남길 수 있는 산출물과 수행 장면은 무엇인가?</li>' +
+            '<li>다음 탐구에서 자료 출처, 공간 범위, 시간 범위, 관점을 어떻게 개선할 수 있는가?</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("오개념·실패 상황 대처·안전",
+      '<div class="cards3">' +
+        '<div class="card accent-red">' +
+          '<h4>예상 오개념</h4>' +
+          '<p>' + esc(x.misconception) + '</p>' +
+          '<p><b>피드백 :</b> ' + esc(x.correction) + '</p>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>실패 상황 대처</h4>' +
+          '<p>' + esc(x.failure) + '</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>안전·윤리</h4>' +
+          '<p>' + esc(x.safe) + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+
+  panels.worksheet =
+    block("학생 활동지 문항 — 실제 기록용",
+      steps([
+        "오늘의 현상에서 가장 설명이 필요한 지리 개념 또는 세계시민 쟁점을 쓰시오.",
+        qs[1],
+        "탐구에서 사용할 자료의 출처, 공간 범위, 시간 범위, 관점을 쓰시오.",
+        x.data,
+        x.modeling,
+        "자료에서 찾은 규칙성 또는 관계를 한 문장으로 쓰시오.",
+        "주장-증거-추론 구조로 결론을 작성하시오.",
+        "자료의 한계 또는 관점의 편향 가능성을 2가지 이상 쓰시오.",
+        qs[3]
+      ])
+    ) +
+    block("자료 처리 안내 — 출처·스케일·관점 한계",
+      '<div class="card accent-atmo">' +
+        '<h4>자료 출처</h4>' +
+        '<p>' + esc(x.source) + '</p>' +
+      '</div>' +
+      '<div class="card accent-geo" style="margin-top:.8rem">' +
+        '<h4>지리적 스케일</h4>' +
+        '<p>' + esc(x.scale) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green" style="margin-top:.8rem">' +
+        '<h4>자료 처리</h4>' +
+        '<p>' + esc(x.data) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro" style="margin-top:.8rem">' +
+        '<h4>모형화</h4>' +
+        '<p>' + esc(x.modeling) + '</p>' +
+      '</div>' +
+      '<div class="card accent-gold" style="margin-top:.8rem">' +
+        '<h4>자료·관점 한계</h4>' +
+        '<p>' + esc(x.uncertainty) + '</p>' +
+        '<p><b>해석 문장 틀 :</b> “자료의 변화 경향은 <b>' + esc(x.concept) + '</b> 개념으로 설명할 수 있으며, 이 결과는 <b>' + esc(x.lens) + '</b> 관점에서 새로운 세계 여러 지역의 지리적 현상과 쟁점에 적용할 수 있다.”</p>' +
+      '</div>'
+    );
+
+  panels.assessment =
+    block("수행평가 과제",
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4>' + esc(x.title) + '</h4>' +
+        '<p>' + esc(x.products[0]) + '을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 지도·통계·사례·GIS 근거로 설명한다.</p>' +
+      '</div>'
+    ) +
+    block("평가 요소",
+      '<div class="cards3">' +
+        '<div class="card accent-atmo">' +
+          '<h4>지식·이해</h4>' +
+          '<p>' + esc(x.concept) + '와 관련 개념의 정확한 설명</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>과정·기능</h4>' +
+          '<p>자료 수집, 지도화, 통계 해석, 사례 비교, 이해관계자 분석, CER 논증</p>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>가치·태도</h4>' +
+          '<p>문화 다양성, 인권, 지속가능성, 평화, 세계시민적 실천</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+    block("피드백 방향",
+      '<div class="card">' +
+        '<p><b>보충 :</b> 용어 나열에 머물지 말고 지도·통계·사례·관점 분석 중 하나로 근거를 표현하게 한다.</p>' +
+        '<p><b>심화 :</b> 자료 출처 비교, 공간 범위 확대, 관점 한계 분석, 다른 지역·정책·세계시민 실천 전이 과제를 추가하게 한다.</p>' +
+      '</div>'
+    );
+
+  panels.record =
+    '<div class="record">' +
+      '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>' +
+      '<p>' + esc(x.evidence.join(" / ")) + '</p>' +
+    '</div>' +
+    block("관찰 가능한 수행 증거 정리",
+      '<div class="cards">' +
+        '<div class="card accent-green">' +
+          '<h4>기록 가능한 산출물</h4>' +
+          pills(x.products) +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>권장 기록 소재</h4>' +
+          '<p>「' + esc(x.title) + '」 수업에서 <b>' + esc(x.products[0]) + '</b>을(를) 작성하며 <b>' + esc(x.concept) + '</b> 개념을 지도·통계·사례·GIS 근거로 설명하고, 자료 한계, 관점 전환 또는 세계시민적 실천 가능성을 자기 언어로 제시함.</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("세부능력 및 특기사항 기록 예시",
+      '<div class="sample-record">' + esc(x.sample) + '</div>',
+      "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+    ) +
+    block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+      '<div class="card accent-astro">' +
+        '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
+        '<p>' + esc(x.deepDive) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>전이 질문</h4>' +
+        '<p style="font-family:\'Fraunces\',serif">' + esc(x.questions[3]) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>연계 진로 분야</h4>' +
+        pills(x.career.split(", ")) +
+      '</div>'
+    );
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="' + (tab===id?'on':'') + '" onclick="setTab(\'' + id + '\')">' +
+      '<span class="t-n">' + n + '</span>' + label +
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML =
+    '<div class="detail-hd">' +
+      '<div class="chip-row">' +
+        '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+        '<span class="chip">' + esc(x.code) + '</span>' +
+        (x.official.length ? '<span class="chip">문서 기반 설계</span>' : '<span class="chip">CBI 재구성</span>') +
+        '<span class="chip">' + esc(x.period) + '</span>' +
+      '</div>' +
+      '<h2>' + esc(x.title) + '</h2>' +
+      '<div class="std-full"><b>성취기준 원문</b>' + esc(x.standard) + '</div>' +
+    '</div>' +
+    '<div class="tabbar">' + tabbar + '</div>' +
+    '<div class="panel">' + panel(x) + '</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML = DATA.map(function(x,i){
+    return '<tr>' +
+      '<td><span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span></td>' +
+      '<td class="mcode" onclick="openStandard(' + i + ')">' + esc(x.code) + '</td>' +
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">' + esc(x.title) + '</b></td>' +
+      '<td>' + esc(x.type) + '</td>' +
+      '<td>' + esc(x.concept) + '</td>' +
+      '<td>' + esc(x.products.join(", ")) + '</td>' +
+      '<td>' + esc(x.evidence.join(" / ")) + '</td>' +
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","자료출처","지리적스케일","자료·관점한계","심화탐구","연계진로"]
+  ];
+  for(var i=0;i<DATA.length;i++){
+    var x=DATA[i];
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.source, x.scale, x.uncertainty, x.deepDive, x.career
+    ]);
+  }
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="세계시민과지리_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>=0 && idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>
