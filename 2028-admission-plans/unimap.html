@@ -110,6 +110,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);
 .badge.공립{background:var(--pub-soft);color:var(--pub);}
 .badge.사립{background:var(--pri-soft);color:var(--pri);}
 .empty{text-align:center;color:var(--muted);font-size:13px;padding:40px 20px;}
+
+/* ===== University emblems ===== */
+.em{display:block;background:#fff;border:1px solid var(--line);object-fit:contain;flex-shrink:0;}
+.em.em-sm{width:26px;height:26px;border-radius:6px;padding:2px;}
+.em.em-md{width:38px;height:38px;border-radius:8px;padding:3px;}
+.em.em-lg{width:48px;height:48px;border-radius:10px;padding:4px;}
+.em-fb{display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);font-weight:800;letter-spacing:-.02em;flex-shrink:0;
+  font-family:var(--font);}
+.em-fb.em-sm{width:26px;height:26px;font-size:10.5px;border-radius:6px;}
+.em-fb.em-md{width:38px;height:38px;font-size:13.5px;border-radius:8px;}
+.em-fb.em-lg{width:48px;height:48px;font-size:16px;border-radius:10px;}
+.em-fb.국립{background:var(--nat-soft);color:var(--nat);}
+.em-fb.공립{background:var(--pub-soft);color:var(--pub);}
+.em-fb.사립{background:var(--pri-soft);color:var(--pri);}
 .grp-hd{position:sticky;top:0;background:linear-gradient(180deg,#fff 72%,rgba(255,255,255,0));
   padding:12px 11px 6px;font-size:11.5px;font-weight:800;letter-spacing:.05em;color:var(--ink-2);
   display:flex;align-items:center;gap:8px;z-index:2;}
@@ -141,7 +156,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);
 .leaflet-popup.uni-pop .leaflet-popup-content-wrapper{border-radius:14px;box-shadow:var(--shadow-lg);padding:0;overflow:hidden;}
 .leaflet-popup.uni-pop .leaflet-popup-content{margin:0;width:240px!important;}
 .pop-in{font-family:var(--font);}
-.pop-hd{padding:14px 15px 12px;}
+.pop-hd{padding:14px 15px 12px;display:flex;gap:11px;align-items:flex-start;}
+.pop-hd .p-hd-txt{flex:1;min-width:0;}
 .pop-hd .p-nm{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:7px;}
 .pop-hd .p-meta{display:flex;gap:7px;align-items:center;}
 .p-badge{font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;}
@@ -191,10 +207,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);
 .ucard{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;transition:box-shadow .14s,transform .14s,border-color .14s;}
 .ucard:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:#d6deea;}
 .ucard.added{border-color:#e7d49b;}
-.ucard-top{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.ucard-head{display:flex;gap:11px;align-items:flex-start;margin-bottom:12px;}
+.ucard-head-txt{flex:1;min-width:0;}
+.ucard-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;}
 .ucard-top .badge{font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;}
 .ucard-reg{font-size:11.5px;color:var(--muted);font-weight:600;}
-.ucard-nm{font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.3;margin-bottom:12px;}
+.ucard-nm{font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.3;}
 .ucard-acts{display:flex;flex-wrap:wrap;gap:7px;}
 .ua-home,.ua-pdf,.ua-report,.ua-guide,.ua-jonghap{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;padding:8px 12px;border-radius:9px;text-decoration:none;transition:filter .12s,background .12s;}
 .ua-home{color:#fff;}
@@ -329,9 +347,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script>
 (async () => {
-let DATA;
+let DATA, EMBLEMS = {};
 try { DATA = await fetch('data/universities.json',{cache:'no-cache'}).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }); }
 catch(err) { document.body.innerHTML = '<div style="padding:40px;font-family:sans-serif;color:#c00">데이터 로드 실패: '+err.message+'<br><small>data/universities.json 파일을 확인하세요.</small></div>'; throw err; }
+try { EMBLEMS = await fetch('data/emblems.json',{cache:'no-cache'}).then(r => r.ok ? r.json() : {}); } catch(_) { EMBLEMS = {}; }
+function emblemEl(d, size){
+  const f = EMBLEMS[d.name];
+  if(f) return `<img class="em em-${size}" src="emblems/${encodeURIComponent(f)}" alt="${esc(d.name)} 엠블럼" loading="lazy">`;
+  return `<span class="em-fb em-${size} ${d.type}">${esc(d.name.slice(0,2))}</span>`;
+}
 const REGION_VIEW = {"서울": [37.566, 126.978, 11], "부산": [35.18, 129.07, 11], "대구": [35.87, 128.6, 11], "인천": [37.45, 126.7, 10], "광주": [35.16, 126.85, 11], "대전": [36.35, 127.38, 11], "울산": [35.54, 129.2, 10], "세종": [36.58, 127.28, 11], "경기": [37.41, 127.2, 9], "강원": [37.8, 128.2, 8], "충북": [36.8, 127.7, 9], "충남": [36.55, 126.95, 9], "전북": [35.72, 127.1, 9], "전남": [34.86, 126.9, 8], "경북": [36.25, 128.8, 8], "경남": [35.26, 128.3, 9], "제주": [33.43, 126.56, 10]};
 const REGIONS = ["서울","인천","경기","강원","대전","세종","충북","충남","대구","경북","부산","울산","경남","광주","전남","전북","제주"];
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -369,8 +393,8 @@ function popHTML(d){
        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
        학생부종합전형 가이드북</a>`:'';
   return `<div class="pop-in">
-    <div class="pop-hd"><div class="p-nm">${esc(d.name)}</div>
-      <div class="p-meta"><span class="p-badge" style="background:var(--${cv}-soft);color:var(--${cv})">${d.type}</span><span class="p-reg">${esc(d.region)}</span></div></div>
+    <div class="pop-hd">${emblemEl(d,'lg')}<div class="p-hd-txt"><div class="p-nm">${esc(d.name)}</div>
+      <div class="p-meta"><span class="p-badge" style="background:var(--${cv}-soft);color:var(--${cv})">${d.type}</span><span class="p-reg">${esc(d.region)}</span></div></div></div>
     <div class="pop-bd">
       <a class="p-go" href="${esc(d.home)}" target="_blank" rel="noopener" style="background:var(--${cv})">입학처 홈페이지 바로가기
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
@@ -409,7 +433,7 @@ function render(){
     const arr=groups[rg].sort((a,b)=>a.d.name.localeCompare(b.d.name,'ko'));
     const hd=document.createElement('div');hd.className='grp-hd';hd.innerHTML=`${esc(rg)} <span class="gc">${arr.length}</span>`;frag.appendChild(hd);
     arr.forEach(r=>{const d=r.d,el=document.createElement('div');el.className='item';
-      el.innerHTML=`<span class="pin ${d.type} ${d.added?'added':''}"></span><span class="nm">${esc(d.name)}<small>${d.campuses.map(c=>esc(c.c)).join(', ')}</small></span><span class="badge ${d.type}">${d.type}</span>`;
+      el.innerHTML=`${emblemEl(d,'sm')}<span class="nm">${esc(d.name)}<small>${d.campuses.map(c=>esc(c.c)).join(', ')}</small></span><span class="badge ${d.type}">${d.type}</span>`;
       el.addEventListener('click',()=>{map.flyTo([d.lat,d.lng],Math.max(map.getZoom(),13),{duration:.6});setTimeout(()=>r.mk.openPopup(),650);if(window.innerWidth<=860)document.getElementById('panel').classList.remove('open');});
       r.el=el;frag.appendChild(el);});
   });
@@ -455,8 +479,10 @@ function cardHTML(d){
   const jonghap=d.jonghap?
     `<a class="ua-jonghap" href="${esc(d.jonghap)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>학종 가이드북</a>`:'';
   return `<div class="ucard ${d.added?'added':''}">
-    <div class="ucard-top"><span class="badge ${d.type}">${d.type}</span><span class="ucard-reg">${esc(d.region)} · ${d.campuses.map(c=>esc(c.c)).join(', ')}</span></div>
-    <div class="ucard-nm">${esc(d.name)}</div>
+    <div class="ucard-head">${emblemEl(d,'md')}<div class="ucard-head-txt">
+      <div class="ucard-top"><span class="badge ${d.type}">${d.type}</span><span class="ucard-reg">${esc(d.region)} · ${d.campuses.map(c=>esc(c.c)).join(', ')}</span></div>
+      <div class="ucard-nm">${esc(d.name)}</div>
+    </div></div>
     <div class="ucard-acts">
       <a class="ua-home" style="background:var(--${cv})" href="${esc(d.home)}" target="_blank" rel="noopener">입학처 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       ${admission}${pdfs}${pdfs?'':soon}${report}${jonghap}
