@@ -243,7 +243,7 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative
   gap:3rem;
   align-items:end;
 }
-.cover-meta{display:flex;flex-direction:column;gap:1rem}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
 .kicker{
   font-size:.7rem;
   color:var(--atmo);
@@ -262,11 +262,11 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative
   background:var(--atmo);
 }
 h1.cover-title{
-  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  font-size:4.35rem;
   max-width:22ch;
   font-family:"Fraunces",serif;
   font-weight:900;
-  letter-spacing:-.045em;
+  letter-spacing:0;
   line-height:1.05;
 }
 h1.cover-title em{
@@ -442,6 +442,73 @@ h1.cover-title em{
   font-size:.85rem;
 }
 .cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
 
 .browser{
   display:grid;
@@ -890,7 +957,7 @@ td.mcode:hover{text-decoration:underline}
   .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-bottom:1px solid var(--line)}
-  .cards,.cards3,.q-grid,.principles{grid-template-columns:1fr}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
   .principle{border-right:0;border-bottom:1px solid var(--line)}
   .lesson-row,.lesson-hd{grid-template-columns:1fr}
   .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
@@ -900,11 +967,15 @@ td.mcode:hover{text-decoration:underline}
 @media(max-width:640px){
   main{padding:0 1rem 3rem}
   .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
   .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
   .nav{width:100%;justify-content:flex-start;overflow-x:auto}
   .stats{grid-template-columns:1fr}
   .stat{border-right:0!important}
   .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
   .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
   .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
   .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
@@ -959,7 +1030,7 @@ td.mcode:hover{text-decoration:underline}
     <div class="cover-grid">
       <div class="cover-meta">
         <div class="kicker">2022 Revised Curriculum · General Elective Global Citizenship and Geography</div>
-        <h1 class="cover-title">세계시민과 지리 성취기준별 <em>개념기반탐구</em> 수업 플랫폼</h1>
+        <h1 class="cover-title">세계시민과 지리<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1>
         <p class="lead">
           일반선택 세계시민과 지리 13개 성취기준을 원문, 핵심 개념, 일반화 문장,
           사실적·개념적·논쟁적·전이 질문, 단계별 탐구수업, 지도·통계·GIS 자료 처리,
@@ -1056,8 +1127,25 @@ td.mcode:hover{text-decoration:underline}
 
   <div class="theory-section">
     <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
-    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. CBI는 학생이 결과를 외우는 것이 아니라, 자료를 만들고 해석하며 결론을 자신의 언어로 진술하는 과정을 거치게 합니다.</p>
-    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <p>대학이 학생부에서 읽고 싶은 것은 세계 지명이나 지역 사례의 암기량이 아니라 <b>공간 자료를 근거로 관계를 해석하고, 스케일을 바꾸어 사고하며, 세계시민적 판단으로 전이하는 과정</b>입니다. CBI는 학생이 지도·통계·GIS·기사 자료를 단순히 확인하는 데서 멈추지 않고, 위치·장소·지역·네트워크·지속가능성 같은 개념으로 현상을 다시 설명하게 만듭니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 지도화 과정, 자료 출처 점검, 비교 기준 설정, 이해관계자 분석, 대안 수정 장면이 함께 제시되어 있어 별도의 기록용 활동 없이도 수업 안에서 관찰 가능한 세특 근거를 확보할 수 있습니다.</p>
+    <div class="admission-proof-grid">
+      <div class="admission-proof-card">
+        <span class="tag">Evidence</span>
+        <h4>지도·통계 해석 근거</h4>
+        <p>학생이 원자료를 통계지도, 흐름도, 스케일 비교표로 바꾸는 과정에서 자료 선택 이유와 해석 근거가 드러납니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Scale</span>
+        <h4>지역에서 세계로 확장</h4>
+        <p>일상 공간의 문제를 국가·세계 스케일로 옮겨 설명하며 공간 불평등, 이동, 상호의존을 개념적으로 연결합니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Record</span>
+        <h4>세계시민성의 기록화</h4>
+        <p>쟁점 판단, 이해관계자 조정, 지속가능한 대안 제안과 피드백 후 수정이 학생의 탐구 태도와 성장 장면으로 남습니다.</p>
+      </div>
+    </div>
     <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
   </div>
 
