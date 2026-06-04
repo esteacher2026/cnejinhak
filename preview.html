@@ -202,8 +202,11 @@ transform: translateY(-3px);  /* 마우스 올리면 살짝 위로 */
     function resizeFrame() {
       try {
         const doc = frame.contentDocument || frame.contentWindow.document;
-        const h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight, 1200);
-        frame.style.height = (h + 40) + 'px';
+        // 측정 전 높이를 0으로 낮춰 documentElement.scrollHeight 순환참조(아래 빈 공간 누적)를 막는다.
+        // 실제 콘텐츠 높이는 body.scrollHeight 하나로 충분하다.
+        frame.style.height = '0px';
+        const h = Math.max(doc.body.scrollHeight, 600);
+        frame.style.height = (h + 24) + 'px';
         loading.style.display = 'none';
         frame.style.display = 'block';
       } catch(e) {
