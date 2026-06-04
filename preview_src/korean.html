@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="ko">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>고등 국어 내신 공부법  학습 방법 | 2022 개정 교육과정</title>
+ <meta name="description" content="2022 개정 교육과정 공통국어1·공통국어2·화법과 언어·독서와 작문·문학 내신 공부법 학생용 HTML 가이드" />
+ <style>
+  :root{
+   --bg:#f6f8fb; --paper:#ffffff; --ink:#172033; --muted:#647083; --line:#dfe6ee;
+   --brand:#1f5eff; --brand2:#7c2d12; --navy:#172554; --accent:#d97706; --green:#047857; --violet:#7c3aed; --red:#b42318;
+   --soft:#eaf2ff; --soft2:#fff4e7; --soft3:#f3e8ff; --ok:#ecfdf5; --warn:#fff8dc; --danger:#fff1f2;
+   --shadow:0 16px 44px rgba(16,35,80,.10); --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#e8f0ff 0%,var(--bg) 410px);line-height:1.72;word-break:keep-all}
+  a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  header.hero{padding:50px 0 30px;border-bottom:1px solid rgba(31,94,255,.14)}
+  .eyebrow{font-size:.86rem;font-weight:950;color:var(--brand2);letter-spacing:.08em;text-transform:uppercase}
+  h1{font-size:clamp(2.15rem,5.2vw,4.7rem);line-height:1.05;margin:.25em 0 .26em;letter-spacing:-.06em}
+  h2{font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.18;margin:.18em 0 .35em;letter-spacing:-.035em}
+  h3{font-size:1.34rem;line-height:1.28;margin:1.15em 0 .45em;letter-spacing:-.025em}
+  h4{font-size:1.08rem;margin:1em 0 .35em}
+  .subtitle{font-size:1.16rem;color:var(--muted);max-width:960px;margin:0 0 20px}
+  .maker{display:inline-flex;gap:8px;align-items:center;margin-top:6px;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.76);border:1px solid rgba(223,230,238,.88);font-size:.86rem;font-weight:850;color:#42506a;box-shadow:0 7px 18px rgba(15,35,80,.05)}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;margin-top:18px}
+  .hero-card,.card,.toc,.callout,.toolbox{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .hero-card,.card,.toolbox{padding:22px}.hero-card h2{font-size:1.22rem;margin:.1em 0 .4em}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-size:.88rem;font-weight:850;color:#34405a}.pill strong{color:var(--brand)}
+  .layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start;padding:26px 0 80px}
+  nav.toc{position:sticky;top:14px;padding:16px;max-height:calc(100vh - 28px);overflow:auto} nav.toc h2{font-size:1rem;margin:0 0 10px;color:var(--brand)} nav.toc a{display:block;padding:8px 10px;border-radius:10px;color:#293750;font-weight:850;font-size:.92rem} nav.toc a:hover{background:var(--soft);text-decoration:none}
+  main{min-width:0} section{margin:0 0 34px;scroll-margin-top:18px}.section-head{margin:0 0 16px}.kicker{font-weight:950;color:var(--brand2);font-size:.9rem;letter-spacing:.05em}.lead{font-size:1.05rem;color:var(--muted);margin:0;max-width:920px}.mini{font-size:.92rem;color:var(--muted)}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .tag{display:inline-block;font-size:.77rem;font-weight:950;color:#fff;background:var(--brand);padding:3px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}.tag.orange{background:#b45309}.tag.green{background:#047857}.tag.gray{background:#647086}.tag.red{background:#b42318}.tag.violet{background:#7c3aed}.tag.navy{background:var(--navy)}
+  .callout{padding:18px 20px;margin:16px 0;background:var(--soft)}.callout.orange{background:var(--soft2)}.callout.violet{background:var(--soft3)}.callout.ok{background:var(--ok)}.callout.warn{background:var(--warn)}.callout.danger{background:var(--danger)}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff} th,td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top} th{background:#eef4ff;text-align:left;font-size:.92rem;color:#1f3356} tr:last-child td{border-bottom:0}
+  code,pre{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace} pre{white-space:pre-wrap;background:#101827;color:#e8eefc;border-radius:14px;padding:16px;line-height:1.6;overflow:auto;font-size:.93rem}
+  .course-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:16px 0}.course-tab{border:1px solid var(--line);background:#fff;color:#24324b;border-radius:15px;padding:14px 10px;text-align:left;cursor:pointer;font-weight:950;box-shadow:0 8px 18px rgba(15,35,80,.05)}.course-tab small{display:block;color:var(--muted);font-weight:750;margin-top:2px}.course-tab[aria-selected="true"]{background:linear-gradient(135deg,#1f5eff,#1939a8);color:#fff;border-color:#1f5eff}.course-tab[aria-selected="true"] small{color:#dbeafe}
+  .course-panel{display:none}.course-panel.active{display:block}.course-panel .card{margin-top:0}
+  .checklist{display:grid;gap:8px;margin:10px 0}.check-item{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px}.check-item input{margin-top:6px;transform:scale(1.08)}.check-item span{display:block}.check-item small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+  button,.btn{border:0;background:var(--brand);color:#fff;border-radius:999px;padding:9px 13px;font-weight:950;cursor:pointer;font-size:.92rem;display:inline-flex;align-items:center;gap:8px}button.secondary,.btn.secondary{background:#eaf2ff;color:#1d4ed8;border:1px solid #c9dcff}button.ghost{background:#fff;color:#34405a;border:1px solid var(--line)}button.orange{background:#b45309}.button-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}button:hover,.btn:hover{filter:brightness(.96);text-decoration:none}
+  details{border:1px solid var(--line);border-radius:15px;background:#fff;margin:10px 0;overflow:hidden}summary{cursor:pointer;font-weight:950;padding:14px 16px;background:#fafbfd}details[open] summary{border-bottom:1px solid var(--line)}details .detail-body{padding:14px 16px}
+  textarea,input[type="text"],select{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-family:inherit;font-size:.95rem;background:#fff;line-height:1.55}textarea{min-height:118px;resize:vertical}.template{position:relative;margin:12px 0}.copy-btn{position:absolute;right:12px;top:12px;background:#263247}.phase{display:grid;grid-template-columns:110px 1fr;gap:14px;border-top:1px solid var(--line);padding:14px 0}.phase:first-child{border-top:0}.phase b{color:var(--brand)}
+  .scorebox{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:10px}.score{font-size:2rem;font-weight:950;color:var(--brand)}
+  .concept-map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;align-items:stretch;margin:14px 0}.concept-map div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;font-weight:950;min-height:80px;display:flex;align-items:center;justify-content:center;flex-direction:column}.concept-map .arrow{background:transparent;border:0;color:var(--brand);font-size:1.6rem;min-height:auto}.highlight{background:linear-gradient(transparent 62%,rgba(217,119,6,.24) 0)}
+  .cards-filter{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px}.filter-card{display:block;border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px}.filter-card h4{margin:.1em 0 .35em}
+  .mobile-toc{display:none;margin:12px 0}.mobile-toc select{font-weight:850}.footer{font-size:.86rem;color:#617084;text-align:center;border-top:1px solid var(--line);padding:24px 0 38px;margin-top:20px}
+  @media (max-width:980px){.hero-grid,.layout,.grid-2,.grid-3,.grid-4,.course-tabs,.cards-filter{grid-template-columns:1fr}nav.toc{display:none}.mobile-toc{display:block}.concept-map{grid-template-columns:1fr}.concept-map .arrow{transform:rotate(90deg)}}
+  @media print{body{background:#fff;color:#000;font-size:11pt}header.hero{padding:18px 0}.wrap{max-width:none;padding:0 12mm}.layout{display:block;padding:0}.toc,.mobile-toc,.button-row,.copy-btn,.course-tabs{display:none!important}.card,.hero-card,.callout,.toolbox{box-shadow:none;border-color:#bbb;break-inside:avoid}a{color:#000;text-decoration:none}.hero-grid{display:block}.course-panel{display:block!important}.maker{box-shadow:none}}
+   /* --- enrich-normalize (공통 콜아웃/태그 보강) --- */
+  .callout.ok{background:#ecfdf5}
+  .callout.danger{background:#fff1f2}
+  .callout.orange{background:#fff7ed}
+  .tag.orange{background:#b45309}
+  .tag.red{background:#b42318}
+  .tag.green{background:#047857}
+</style>
+</head>
+<body>
+ <header class="hero">
+  <div class="wrap">
+   <div class="eyebrow">2022 Revised Curriculum · Korean School Exam Guide</div>
+   <h1>고등 국어<br>내신 공부법</h1>
+   <p class="subtitle">공통국어1·공통국어2와 일반선택 <strong>화법과 언어, 독서와 작문, 문학</strong>을 바탕으로 만든 학생용 내신 대비 가이드입니다. 교과서, 필기, 프린트, 부교재, 수행평가, 서술형을 한 번에 관리하도록 구성했습니다.</p>
+   <div class="maker">제작 · 충청남도진로융합교육원 교육연구사 정재연</div>
+   <div class="hero-grid">
+    <div class="hero-card">
+     <h2>핵심 한 줄</h2>
+     <p><strong>국어 내신은 ‘작품을 아는 시험’이 아니라, 학교 수업이 어떤 방식으로 시험 문항과 서술형 조건으로 바뀌는지 예측하는 시험</strong>입니다.</p>
+     <div class="pill-row">
+      <span class="pill"><strong>출제 원본</strong> 교과서·필기·프린트</span>
+      <span class="pill"><strong>고득점</strong> 선지 근거·서술형 조건</span>
+      <span class="pill"><strong>수행</strong> 읽기·쓰기·발표 활동 기록</span>
+      <span class="pill"><strong>세특</strong> 수업 개념→질문→탐구</span>
+     </div>
+    </div>
+    <div class="hero-card">
+     <h2>학생용 사용법</h2>
+     <ol>
+      <li>먼저 진단 체크리스트로 내 약점을 확인한다.</li>
+      <li>과목 탭에서 현재 수강 과목을 선택해 공부 순서를 확인한다.</li>
+      <li>시험 3주 전부터 ‘21일 플랜’을 따라 자료를 정리한다.</li>
+      <li>오답노트·작품 분석표·서술형 조건표를 복사해 실제 노트에 붙여 쓴다.</li>
+     </ol>
+     <p class="mini">체크 상태와 메모는 브라우저에 자동 저장됩니다.</p>
+    </div>
+   </div>
+  </div>
+ </header>
+
+ <div class="wrap">
+  <div class="mobile-toc">
+   <select onchange="location.hash=this.value">
+    <option value="#diagnosis">0. 내신 진단</option>
+    <option value="#curriculum">1. 과목 체계</option>
+    <option value="#essence">2. 내신 국어의 본질</option>
+    <option value="#courses">3. 과목별 공부법</option>
+    <option value="#materials">4. 학교 자료 활용법</option>
+    <option value="#teacher-style">5. 출제 스타일별 전략</option>
+    <option value="#writing">6. 서술형·논술형</option>
+    <option value="#performance">7. 수행평가·세특</option>
+    <option value="#plan">8. 시험 21일 플랜</option>
+    <option value="#level">9. 수준별 전략</option>
+    <option value="#toolkit">10. 학생용 도구함</option>
+   </select>
+  </div>
+  <div class="layout">
+   <nav class="toc" aria-label="페이지 목차">
+    <h2>목차</h2>
+    <a href="#diagnosis">0. 내신 진단</a>
+    <a href="#curriculum">1. 과목 체계</a>
+    <a href="#essence">2. 내신 국어의 본질</a>
+    <a href="#courses">3. 과목별 공부법</a>
+    <a href="#materials">4. 학교 자료 활용법</a>
+    <a href="#teacher-style">5. 출제 스타일별 전략</a>
+    <a href="#writing">6. 서술형·논술형</a>
+    <a href="#performance">7. 수행평가·세특</a>
+    <a href="#plan">8. 시험 21일 플랜</a>
+    <a href="#level">9. 수준별 전략</a>
+    <a href="#toolkit">10. 학생용 도구함</a>
+    <a href="#sources">공식 참고자료</a>
+   </nav>
+
+   <main>
+    <section id="diagnosis">
+     <div class="section-head">
+      <div class="kicker">START</div>
+      <h2>나의 국어 내신 학습 진단</h2>
+      <p class="lead">점수보다 공부 절차를 먼저 확인합니다. 체크가 많을수록 ‘더 많이 읽기’보다 자료 정리, 선지 근거, 서술형 조건 분석을 먼저 고정해야 합니다.</p>
+     </div>
+     <div class="card">
+      <div class="grid-2">
+       <div>
+        <h3>체크리스트</h3>
+        <div class="checklist">
+         <label class="check-item"><input type="checkbox" data-save="diag1" data-score="1"><span>시험 범위 작품을 읽었지만 선생님 필기와 연결하지 못한다.<small>작품 자체 이해와 학교식 해석이 분리된 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag2" data-score="1"><span>서술형에서 조건 하나를 빠뜨려 감점된다.<small>요구 동사, 필수 개념어, 근거 조건을 먼저 분해하지 않음</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag3" data-score="1"><span>교과서 활동 문제와 프린트 표를 대충 넘긴다.<small>학교 시험의 직접 출제 원본을 놓치는 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag4" data-score="1"><span>문학 선지를 작품 근거보다 느낌으로 고른다.<small>화자·상황·정서·태도를 구절로 확인하지 않음</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag5" data-score="1"><span>독서 지문에서 문단별 역할을 표시하지 않는다.<small>정의, 비교, 예시, 주장, 결론이 섞임</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag6" data-score="1"><span>언어·문법은 정의를 외웠지만 예문 분석이 느리다.<small>개념의 조건과 예외를 사례에 적용하지 못함</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag7" data-score="1"><span>화법·작문 문제에서 담화 목적, 청중, 자료 활용 조건을 놓친다.<small>상황 조건 표시가 부족함</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag8" data-score="1"><span>수행평가 보고서나 발표가 세특으로 연결되지 않는다.<small>수업 개념과 탐구 질문의 연결이 약함</small></span></label>
+        </div>
+       </div>
+       <div>
+        <h3>진단 결과</h3>
+        <div class="scorebox"><div><strong id="diagnosisText">우선순위가 표시됩니다.</strong><p class="mini">체크 항목을 바꾸면 자동으로 업데이트됩니다.</p></div><div class="score" id="diagnosisScore">0</div></div>
+        <div class="callout orange"><strong>내신 국어 기본 원칙</strong><p>내신은 ‘읽은 양’보다 <span class="highlight">수업 자료를 시험 문제로 바꾸는 능력</span>이 중요합니다. 작품·지문을 교과서 원문, 선생님 필기, 프린트 표현, 예상 선지, 서술형 답안으로 변환해야 합니다.</p></div>
+        <textarea data-save-text="my-goal" placeholder="이번 국어 내신 목표를 적어 보세요. 예: 문학 작품 6개 분석표 완성, 프린트 빈칸 3회 복원, 서술형 예상 답안 15개 작성"></textarea>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <section id="curriculum">
+     <div class="section-head">
+      <div class="kicker">01 · CURRICULUM</div>
+      <h2>2022 개정 교육과정 국어 과목 체계</h2>
+      <p class="lead">국어 내신은 학교별 교과서와 수업 운영 방식이 다르지만, 공부의 큰 틀은 공통과목과 일반선택 과목의 성격을 기준으로 잡아야 합니다.</p>
+     </div>
+     <div class="card">
+      <table>
+       <thead><tr><th>구분</th><th>과목</th><th>내신에서 주로 평가되는 것</th><th>학생의 공부 방향</th></tr></thead>
+       <tbody>
+        <tr><td>공통과목</td><td><strong>공통국어1</strong></td><td>고등 국어의 기본 독해, 문학 감상, 표현, 언어 탐구, 교과서 활동</td><td>개념어·작품·지문 분석의 기본 틀을 만든다.</td></tr>
+        <tr><td>공통과목</td><td><strong>공통국어2</strong></td><td>읽기·쓰기·문학·언어 활동의 심화, 자료 활용, 비교·토론형 과제</td><td>지문·자료·작품 간 연결과 서술형 답안력을 강화한다.</td></tr>
+        <tr><td>일반선택</td><td><strong>화법과 언어</strong></td><td>담화 상황, 발표·토의·토론·협상, 언어 지식, 문법 요소, 언어생활 분석</td><td>화법 조건과 문법 예문 분석을 함께 훈련한다.</td></tr>
+        <tr><td>일반선택</td><td><strong>독서와 작문</strong></td><td>지문 구조 독해, 자료 해석, 작문 조건, 내용 생성·조직·표현·수정</td><td>읽고 끝내지 말고 글쓰기 조건으로 바꾸는 연습을 한다.</td></tr>
+        <tr><td>일반선택</td><td><strong>문학</strong></td><td>작품 수용·해석·비평, 문학사, 표현 효과, 외부 작품 비교</td><td>작품별 분석표와 비교표를 만들고 근거 중심 감상을 연습한다.</td></tr>
+       </tbody>
+      </table>
+      <div class="callout"><strong>공통국어를 2과목으로 보는 이유</strong><p>학교에서는 공통국어1·공통국어2가 학기별로 운영되는 경우가 많습니다. 이 페이지는 사용 편의를 위해 ‘공통국어’라는 큰 범주 아래에서 두 과목을 각각 탭으로 구분했습니다.</p></div>
+     </div>
+    </section>
+
+    <section id="essence">
+     <div class="section-head">
+      <div class="kicker">02 · ESSENCE</div>
+      <h2>내신 국어의 본질: 수업을 시험 문항으로 바꾸는 능력</h2>
+      <p class="lead">국어 내신은 교과서 작품과 지문을 얼마나 많이 읽었는가보다, 선생님이 수업에서 어떤 해석·개념·표현을 강조했는지 정확히 복원하는 능력이 중요합니다.</p>
+     </div>
+     <div class="concept-map" aria-label="내신 국어 공부 흐름">
+      <div>수업 듣기<br><span class="mini">필기·판서·강조</span></div><div class="arrow">→</div><div>자료 변환<br><span class="mini">분석표·비교표</span></div><div class="arrow">→</div><div>문제화<br><span class="mini">선지·서술형</span></div>
+     </div>
+     <div class="concept-map" aria-label="내신 국어 공부 흐름2">
+      <div>백지 복원<br><span class="mini">프린트·개념어</span></div><div class="arrow">→</div><div>조건 답안<br><span class="mini">개념+근거+해석</span></div><div class="arrow">→</div><div>시험 대비 점검<br><span class="mini">시간·감점 방지</span></div>
+     </div>
+     <div class="card">
+      <h3>출제 원본 우선순위</h3>
+      <table>
+       <thead><tr><th>우선순위</th><th>자료</th><th>왜 중요한가</th><th>공부 방법</th></tr></thead>
+       <tbody>
+        <tr><td>1순위</td><td>선생님 필기·판서·구두 강조</td><td>학교 시험의 해석 기준과 서술형 채점 기준이 된다.</td><td>필기 문장을 예상 선지와 서술형 답안으로 바꾼다.</td></tr>
+        <tr><td>2순위</td><td>학교 프린트·학습지</td><td>빈칸, 표, 정리 문장이 직접 출제될 가능성이 높다.</td><td>3회 이상 백지 복원하고 틀린 빈칸만 따로 모은다.</td></tr>
+        <tr><td>3순위</td><td>교과서 작품·지문·활동</td><td>작품, 지문, 활동 질문이 객관식·서술형의 원본이다.</td><td>본문보다 날개 질문, 활동, 자료, 그림도 함께 본다.</td></tr>
+        <tr><td>4순위</td><td>부교재·외부 연계 자료</td><td>상위권 변별 문항과 외부 지문 비교에 활용된다.</td><td>같은 주제·갈래·작가·표현법으로 연결표를 만든다.</td></tr>
+        <tr><td>5순위</td><td>수행평가 자료</td><td>서술형, 발표, 보고서, 세특 활동과 연결된다.</td><td>평가 기준표와 결과물을 시험 범위 개념과 연결한다.</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+
+    <section id="courses">
+     <div class="section-head">
+      <div class="kicker">03 · COURSE PLAYBOOK</div>
+      <h2>과목별 내신 공부법</h2>
+      <p class="lead">아래 과목을 선택하면 해당 과목의 출제 포인트, 공부 순서, 서술형 대비, 수행평가 연결법을 확인할 수 있습니다.</p>
+     </div>
+     <div class="course-tabs" role="tablist" aria-label="국어 과목 선택">
+      <button class="course-tab" role="tab" aria-selected="true" data-course="common1">공통국어1<small>기본 독해·문학·표현</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="common2">공통국어2<small>비교·자료·심화</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="speech">화법과 언어<small>담화+문법</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="readingwriting">독서와 작문<small>읽기+쓰기</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="literature">문학<small>작품·비평·문학사</small></button>
+     </div>
+
+     <div id="common1" class="course-panel active">
+      <div class="card">
+       <h3><span class="tag">공통국어1</span> 고등 국어의 기본 절차를 만드는 과목</h3>
+       <p>공통국어1은 고등 국어의 입구입니다. 작품과 지문을 많이 접하는 것보다, <strong>읽는 절차·근거 표시·답안 작성 방식</strong>을 몸에 익히는 것이 중요합니다.</p>
+       <table><thead><tr><th>출제 포인트</th><th>공부 행동</th><th>서술형 대비</th></tr></thead><tbody>
+        <tr><td>문학 작품의 화자·상황·정서·태도</td><td>작품마다 분석표를 작성하고 핵심 구절에 근거 표시</td><td>“화자의 태도 + 근거 구절 + 표현 효과” 구조로 답안 작성</td></tr>
+        <tr><td>독서 지문의 중심 내용과 문단 관계</td><td>문단 옆에 화제·정의·사례·비교·결론 표시</td><td>“개념 설명 + 지문 근거 + 적용” 구조로 답안 작성</td></tr>
+        <tr><td>언어 개념과 국어생활 사례</td><td>개념 정의, 조건, 예문, 예외를 4칸 표로 정리</td><td>개념명만 쓰지 말고 적용 과정을 문장으로 설명</td></tr>
+        <tr><td>교과서 활동과 토의·발표</td><td>활동 질문을 예상 서술형으로 변환</td><td>활동 결과를 수업 개념으로 다시 표현</td></tr>
+       </tbody></table>
+       <pre>[공통국어1 하루 루틴]
+1. 수업 작품/지문 1개를 10분 안에 다시 읽기
+2. 선생님 필기 중 시험 가능 문장 3개 표시
+3. 표시 문장을 선지 2개, 서술형 질문 1개로 바꾸기
+4. 프린트 빈칸 또는 개념어 5개 백지 복원
+5. 오답 1개는 틀린 단어까지 기록</pre>
+      </div>
+     </div>
+
+     <div id="common2" class="course-panel">
+      <div class="card">
+       <h3><span class="tag orange">공통국어2</span> 비교·자료·표현 활동이 강해지는 과목</h3>
+       <p>공통국어2는 공통국어1에서 익힌 기본 절차를 바탕으로 작품 간 비교, 자료 활용형 글쓰기, 토론·발표, 수행평가가 강화됩니다.</p>
+       <table><thead><tr><th>출제 포인트</th><th>공부 행동</th><th>수행·세특 연결</th></tr></thead><tbody>
+        <tr><td>두 작품 또는 두 지문의 공통점·차이점</td><td>비교표를 만들고 기준을 먼저 정한다.</td><td>같은 주제의 작품을 추가로 찾아 비교 감상</td></tr>
+        <tr><td>자료를 활용한 글쓰기와 발표</td><td>자료의 출처, 핵심 정보, 활용 목적을 표시한다.</td><td>자료 분석 결과를 발표·보고서로 확장</td></tr>
+        <tr><td>문학·독서·언어 활동의 통합</td><td>작품의 표현, 지문의 논지, 언어 표현을 연결한다.</td><td>수업 개념을 진로 관심 주제와 연결</td></tr>
+        <tr><td>서술형·조건형 답안</td><td>조건을 요구 행동, 개념어, 근거, 분량으로 나눈다.</td><td>과정이 드러나는 자기평가 기록 작성</td></tr>
+       </tbody></table>
+       <pre>[공통국어2 비교표]
+비교 대상 A:
+비교 대상 B:
+비교 기준 1:
+공통점:
+차이점:
+수업 필기 연결:
+예상 서술형 질문:
+내 답안 핵심 문장:</pre>
+      </div>
+     </div>
+
+     <div id="speech" class="course-panel">
+      <div class="card">
+       <h3><span class="tag green">화법과 언어</span> 담화 상황과 언어 지식을 함께 보는 과목</h3>
+       <p>화법과 언어는 발표·토의·토론·협상 같은 담화 상황과 단어·문장·담화·문법 요소를 함께 다룹니다. 내신에서는 <strong>상황 판단 + 문법 예문 적용</strong>이 핵심입니다.</p>
+       <table><thead><tr><th>영역</th><th>첫 행동</th><th>내신 변형</th></tr></thead><tbody>
+        <tr><td>발표·연설</td><td>화자, 청자, 목적, 자료, 반응을 표시</td><td>발표 전략, 청중 반응 반영, 자료 활용 적절성</td></tr>
+        <tr><td>토의·토론</td><td>쟁점, 입장, 근거, 반론, 합의 가능성 구분</td><td>발언의 역할, 대안의 타당성, 자료 기반 의견 생성</td></tr>
+        <tr><td>언어·문법</td><td>개념 정의와 예문의 구조를 함께 분석</td><td>품사, 문장 구조, 문법 요소, 담화 표현, 국어생활 사례</td></tr>
+        <tr><td>언어생활 탐구</td><td>표현의 적절성, 공공성, 맥락성을 판단</td><td>어휘 선택, 높임 표현, 확신 정도, 격식성 평가</td></tr>
+       </tbody></table>
+       <pre>[화법과 언어 예문 분석]
+문장/담화:
+상황 맥락:
+사용된 어휘·문법 요소:
+화자의 태도:
+청자에게 미치는 효과:
+적절성 판단:
+다른 표현으로 바꾸면:</pre>
+      </div>
+     </div>
+
+     <div id="readingwriting" class="course-panel">
+      <div class="card">
+       <h3><span class="tag violet">독서와 작문</span> 읽고 쓰는 과정을 연결하는 과목</h3>
+       <p>독서와 작문은 지문을 읽고 끝내는 과목이 아닙니다. 읽은 내용을 바탕으로 주장, 근거, 자료, 독자, 목적에 맞게 글을 구성하는 능력이 평가됩니다.</p>
+       <table><thead><tr><th>출제 포인트</th><th>공부 행동</th><th>서술형·수행 대비</th></tr></thead><tbody>
+        <tr><td>지문 구조와 필자의 관점</td><td>문단별 역할과 중심 주장을 표시</td><td>필자의 의도와 표현 방법을 근거로 설명</td></tr>
+        <tr><td>자료 통합</td><td>자료별 핵심 정보와 활용 목적을 구분</td><td>자료를 모두 활용하라는 조건을 체크</td></tr>
+        <tr><td>작문 상황</td><td>독자, 목적, 장르, 매체, 분량 조건을 표시</td><td>개요 작성, 문단 배열, 고쳐쓰기 연습</td></tr>
+        <tr><td>비평·논증 글쓰기</td><td>주장, 근거, 예상 반론, 재반박 구조화</td><td>조건에 맞춘 주장문·비평문 작성</td></tr>
+       </tbody></table>
+       <pre>[독서와 작문 지문-글쓰기 연결표]
+지문 주제:
+필자의 관점:
+핵심 개념:
+자료 1의 역할:
+자료 2의 역할:
+작문 목적:
+예상 독자:
+내 글의 주장:
+근거 1:
+근거 2:
+고쳐쓰기 기준:</pre>
+      </div>
+     </div>
+
+     <div id="literature" class="course-panel">
+      <div class="card">
+       <h3><span class="tag red">문학</span> 작품을 외우는 것이 아니라 근거로 감상하는 과목</h3>
+       <p>문학 내신은 교과서 작품의 수업 해석이 중요합니다. 다만 상위권 변별은 외부 작품 비교, 표현 효과, 문학사적 맥락, 비평 관점 적용에서 발생합니다.</p>
+       <table><thead><tr><th>갈래</th><th>분석 순서</th><th>서술형 대비</th></tr></thead><tbody>
+        <tr><td>현대시·고전시가</td><td>화자→대상→상황→정서→태도→표현→주제</td><td>시어의 기능, 표현 효과, 정서 변화 설명</td></tr>
+        <tr><td>현대소설·고전소설</td><td>인물→갈등→사건→시점→배경→주제</td><td>인물 심리, 갈등 양상, 서술 방식의 효과 설명</td></tr>
+        <tr><td>수필·극</td><td>경험/사건→깨달음/갈등→표현 방식→주제</td><td>글쓴이 태도, 대사 기능, 무대 지시문 효과 설명</td></tr>
+        <tr><td>문학사·비평</td><td>시대 배경→작품 경향→작가 의식→비평 관점</td><td>작품을 관점에 맞게 해석하고 근거 제시</td></tr>
+       </tbody></table>
+       <pre>[문학 작품 분석표]
+작품명:
+갈래:
+화자/서술자/주요 인물:
+상황 또는 사건:
+정서와 태도:
+핵심 소재/시어:
+표현상 특징:
+수업 필기 핵심:
+주제:
+외부 연계 가능 작품:
+예상 서술형 질문:</pre>
+      </div>
+     </div>
+    </section>
+
+    <section id="materials">
+     <div class="section-head">
+      <div class="kicker">04 · MATERIALS</div>
+      <h2>교과서·필기·프린트·부교재 활용법</h2>
+      <p class="lead">내신 국어의 핵심은 자료를 ‘읽는 것’에서 끝내지 않고 출제 가능한 형태로 바꾸는 것입니다.</p>
+     </div>
+     <div class="grid-2">
+      <div class="card">
+       <h3>필기를 시험 문제로 바꾸는 5단계</h3>
+       <ol>
+        <li>선생님이 반복한 표현, 판서한 비교표, 밑줄 친 문장을 표시한다.</li>
+        <li>필기 문장을 객관식 선지로 바꾼다.</li>
+        <li>틀릴 수 있는 단어를 일부러 바꿔 오답 선지를 만든다.</li>
+        <li>서술형으로 물을 수 있는 부분은 질문 형태로 바꾼다.</li>
+        <li>필수 개념어와 작품·지문 근거를 답안 문장으로 쓴다.</li>
+       </ol>
+       <pre>[필기 → 시험화 예시]
+필기: 이 시의 ‘눈’은 화자의 고독감을 심화하는 소재이다.
+예상 선지 O: ‘눈’은 화자의 고독감을 심화하는 소재로 기능한다.
+예상 선지 X: ‘눈’은 화자의 현실 극복 의지를 직접적으로 드러낸다.
+예상 서술형: 이 시에서 ‘눈’의 기능을 화자의 정서와 관련지어 설명하시오.
+답안 핵심: 소재 기능 + 정서 + 근거 표현</pre>
+      </div>
+      <div class="card">
+       <h3>프린트 백지 복원법</h3>
+       <ul>
+        <li>작품 제목만 보고 화자·상황·정서·태도·주제를 쓴다.</li>
+        <li>핵심 시어만 보고 상징 의미와 표현 효과를 쓴다.</li>
+        <li>지문 제목만 보고 문단별 역할을 쓴다.</li>
+        <li>문법 개념명만 보고 정의·조건·예문·예외를 쓴다.</li>
+        <li>표나 비교 항목을 가리고 직접 채운다.</li>
+       </ul>
+       <div class="callout warn"><strong>시험 전날 기준</strong><p>프린트를 보면서 이해하는 수준은 부족합니다. 시험 전날에는 프린트 제목과 작품명만 보고 핵심 내용을 복원할 수 있어야 합니다.</p></div>
+      </div>
+     </div>
+     <div class="card">
+      <h3>외부 연계 작품·지문 대비</h3>
+      <table><thead><tr><th>연계 방식</th><th>예시</th><th>대비법</th></tr></thead><tbody>
+       <tr><td>같은 작가</td><td>교과서 작품과 같은 작가의 다른 작품</td><td>작가의 반복 소재, 문제의식, 표현 경향 정리</td></tr>
+       <tr><td>같은 주제</td><td>이별, 자연, 현실 비판, 공동체, 성장</td><td>공통 정서와 태도의 차이 비교</td></tr>
+       <tr><td>같은 갈래</td><td>시조끼리, 현대시끼리, 수필끼리</td><td>갈래의 형식과 표현 방식 확인</td></tr>
+       <tr><td>같은 시대</td><td>조선 후기, 일제강점기, 산업화 시대</td><td>시대 배경과 문학적 경향 연결</td></tr>
+       <tr><td>같은 독서 제재</td><td>인문·사회·과학·기술 지문</td><td>핵심 개념과 글의 구조 비교</td></tr>
+      </tbody></table>
+     </div>
+     <div class="card">
+      <h3>내신 필수 개념어 미니사전</h3>
+      <p class="mini">서술형 채점 키워드이자 객관식 함정으로 자주 쓰이는 용어입니다. 정의보다 ‘구분 포인트’를 외우세요.</p>
+      <table><thead><tr><th>용어</th><th>한 줄 정의</th><th>시험 포인트</th></tr></thead><tbody>
+       <tr><td>객관적 상관물</td><td>화자의 정서를 대신 드러내는 외부 사물</td><td>감정이입과의 차이를 묻는다</td></tr>
+       <tr><td>반어 / 역설</td><td>반어=의도와 반대로 표현, 역설=모순된 진술 속 진리</td><td>둘을 바꿔 놓은 오답 선지 주의</td></tr>
+       <tr><td>설의법</td><td>의문 형식을 빌려 의미를 강조</td><td>단순 의문문과 구분</td></tr>
+       <tr><td>시상 전개</td><td>시 속 정서·상황의 변화 흐름</td><td>선경후정·시간·공간 등 전개 방식 묻기</td></tr>
+       <tr><td>환유 / 제유</td><td>인접성/부분-전체 관계로 대신 표현</td><td>은유·직유와 비유 종류 구분</td></tr>
+       <tr><td>통일성 / 응집성</td><td>통일성=내용 일관, 응집성=접속어 등 형식적 연결</td><td>작문 고쳐쓰기 단골</td></tr>
+       <tr><td>전제 / 함의</td><td>전제=문장에 깔린 가정, 함의=함축된 의미</td><td>독서 추론 문항의 핵심</td></tr>
+       <tr><td>담화 표지</td><td>글의 구조를 안내하는 표현(그러나·즉·한편)</td><td>문단 관계·중심 내용 파악</td></tr>
+       <tr><td>음운 변동</td><td>음운이 바뀌는 현상(교체·탈락·축약·첨가)</td><td>화법과 언어 빈출, 예시 분류</td></tr>
+       <tr><td>안긴문장 / 안은문장</td><td>문장 속에 절이 안겨 있는 구조</td><td>문장 성분·구조 분석 서술형</td></tr>
+      </tbody></table>
+     </div>
+    </section>
+
+    <section id="teacher-style">
+     <div class="section-head">
+      <div class="kicker">05 · TEACHER STYLE</div>
+      <h2>선생님 출제 스타일별 대비 전략</h2>
+     </div>
+     <div class="cards-filter">
+      <div class="filter-card"><h4><span class="tag">필기·프린트 중심형</span></h4><p>필기 표현, 프린트 빈칸, 교과서 활동을 정확히 복원해야 합니다.</p><ul><li>프린트 빈칸 3회 백지 복원</li><li>선생님 표현 그대로 서술형 답안 작성</li><li>표와 비교 항목을 가리고 다시 채우기</li></ul></div>
+      <div class="filter-card"><h4><span class="tag orange">외부 연계·수능형</span></h4><p>낯선 작품·지문을 교과서 작품과 비교하는 문항이 나옵니다.</p><ul><li>작품별 주제·표현 효과를 한 문장으로 압축</li><li>같은 주제·갈래 외부 작품 2개씩 연결</li><li>선지마다 작품 근거 표시</li></ul></div>
+      <div class="filter-card"><h4><span class="tag green">문법·언어 강화형</span></h4><p>정의 암기보다 예문 적용과 예외 판정이 중요합니다.</p><ul><li>개념→조건→예문→예외 순서로 정리</li><li>교과서 예문을 변형해 다시 분석</li><li>서술형은 개념명+적용 과정+결과 구조</li></ul></div>
+      <div class="filter-card"><h4><span class="tag violet">서술형·논술형 강화형</span></h4><p>조건을 분해하고 답안 구조를 고정해야 합니다.</p><ul><li>요구 동사 표시: 설명/비교/분석/평가</li><li>필수 개념어와 근거 구절 체크</li><li>답안은 개념→근거→해석→결론 순서</li></ul></div>
+     </div>
+    </section>
+
+    <section id="writing">
+     <div class="section-head"><div class="kicker">06 · WRITING</div><h2>서술형·논술형 답안 작성법</h2><p class="lead">국어 서술형은 내용을 아는 것보다 조건을 정확히 충족하는 것이 중요합니다.</p></div>
+     <div class="card">
+      <h3>서술형 답안 기본 구조</h3>
+      <pre>개념어 제시 → 작품/지문/자료 근거 → 해석 → 결론</pre>
+      <table><thead><tr><th>문항 유형</th><th>답안 구조</th><th>감점 방지</th></tr></thead><tbody>
+       <tr><td>문학 소재 기능</td><td>소재명 + 화자의 정서 + 작품 근거 + 효과</td><td>“중요하다”처럼 모호한 표현 금지</td></tr>
+       <tr><td>독서 개념 설명</td><td>개념 정의 + 지문 근거 + 사례 적용</td><td>지문 밖 배경지식만 쓰지 않기</td></tr>
+       <tr><td>화법 자료 활용</td><td>담화 목적 + 자료 근거 + 발화/대안 적절성</td><td>자료를 모두 활용하라는 조건 확인</td></tr>
+       <tr><td>언어 문법 분석</td><td>개념명 + 적용 과정 + 결과</td><td>개념명만 쓰고 과정 생략하지 않기</td></tr>
+       <tr><td>작문 고쳐쓰기</td><td>문제점 + 수정 방향 + 독자/목적 적합성</td><td>단순 문장 교체가 아니라 이유 제시</td></tr>
+      </tbody></table>
+     </div>
+     <div class="grid-2">
+      <div class="card"><h3>문학 서술형 예시</h3><pre>문항: 이 시에서 ‘강’의 기능을 화자의 정서와 관련지어 설명하시오.
+
+답안:
+이 시에서 ‘강’은 화자가 그리워하는 과거와 현재를 이어 주는 매개체이다. 화자는 강을 바라보며 잃어버린 시간과 대상을 회상하고 있으므로, ‘강’은 그리움과 상실감을 심화하는 소재로 기능한다.</pre></div>
+      <div class="card"><h3>언어 서술형 예시</h3><pre>문항: 다음 문장에 쓰인 높임 표현의 효과를 설명하시오.
+
+답안:
+이 문장에서는 상대 높임 표현을 사용하여 청자를 존중하는 태도를 드러낸다. 공식적인 발표 상황에서 높임 표현은 발화의 격식을 높이고, 청자가 화자를 신뢰할 수 있도록 돕는다.</pre></div>
+     </div>
+     <div class="card">
+      <h3>서술형 조건 분석표</h3>
+      <div class="template"><button class="copy-btn" onclick="copyTemplate('writing-template')">복사</button><pre id="writing-template">[국어 서술형 조건 분석표]
+문항:
+요구 동사: 설명 / 비교 / 분석 / 평가 / 근거 제시 / 조건에 맞춰 쓰기
+필수 포함 요소 1:
+필수 포함 요소 2:
+필수 포함 요소 3:
+작품·지문·자료 근거:
+필수 개념어:
+분량 조건:
+금지 조건:
+답안 구조:
+최종 답안:</pre></div>
+     </div>
+     <div class="card">
+      <h3>기출형 실전 예시 — 모범답안 vs 감점답안</h3>
+      <p class="mini">같은 문항이라도 ‘조건 충족·근거 표시·정확한 개념어’ 여부에서 점수가 갈립니다. 아래를 내 답안과 비교해 보세요.</p>
+      <div class="grid-2">
+       <div class="filter-card"><h4>예시 1 · 문학 <span class="tag">소재 기능</span></h4>
+        <p class="mini">문항: ⓐ‘강’이 화자의 정서에 어떤 역할을 하는지 표현 효과를 포함하여 두 문장으로 서술하시오.</p>
+        <div class="callout ok"><strong>✅ 모범답안</strong><p>‘강’은 화자와 떠난 임 사이를 가로막으면서도 이어 주는 매개물로, 흐르는 물의 이미지를 통해 그리움을 구체화한다. 이로써 화자의 상실감과 재회에 대한 소망이 함께 심화된다.</p></div>
+        <div class="callout danger"><strong>❌ 감점답안</strong><p>‘강’은 화자가 슬퍼하는 모습을 보여 준다.</p><p class="mini"><strong>감점 이유</strong> ① 조건인 ‘표현 효과’ 누락 ② 근거 구절 없음 ③ ‘슬프다’식 모호한 정서어로 정서 변화를 설명하지 못함</p></div>
+       </div>
+       <div class="filter-card"><h4>예시 2 · 독서 <span class="tag orange">개념 비교</span></h4>
+        <p class="mini">문항: 윗글을 바탕으로 ‘연역’과 ‘귀납’의 차이를 지문 근거를 들어 설명하시오.</p>
+        <div class="callout ok"><strong>✅ 모범답안</strong><p>연역은 일반 원리에서 개별 결론을 이끌어 전제가 참이면 결론도 반드시 참이지만(3문단), 귀납은 개별 사례에서 일반 명제를 도출하므로 결론이 개연적이다(4문단).</p></div>
+        <div class="callout danger"><strong>❌ 감점답안</strong><p>연역은 큰 것에서 작은 것으로 가고, 귀납은 작은 것에서 큰 것으로 간다.</p><p class="mini"><strong>감점 이유</strong> ① 지문 근거(문단) 미표시 ② 핵심 개념어(필연성·개연성) 누락 ③ 비유적 서술로 정확성 부족</p></div>
+       </div>
+      </div>
+     </div>
+     <div class="card">
+      <h3>서술형 오답 유형 분류</h3>
+      <p class="mini">국어 서술형 감점은 ‘몰라서’보다 ‘유형을 못 지켜서’ 생깁니다. 내 답안이 어디에 속하는지 확인하세요.</p>
+      <table><thead><tr><th>오답 유형</th><th>증상</th><th>교정 행동</th></tr></thead><tbody>
+       <tr><td><span class="tag red">조건 누락형</span></td><td>‘표현 효과 포함’, ‘2문장’ 같은 조건을 빼먹는다.</td><td>답안 작성 전 조건을 동그라미 치고 체크 후 시작</td></tr>
+       <tr><td><span class="tag red">근거 미표시형</span></td><td>해석은 맞지만 작품·지문 근거를 인용하지 않는다.</td><td>‘~라는 구절/문단에서’로 근거 위치를 먼저 쓴다</td></tr>
+       <tr><td><span class="tag red">개념어 누락형</span></td><td>필수 개념어 대신 일상어로 풀어 쓴다.</td><td>채점 키워드가 될 개념어를 답안에 그대로 노출</td></tr>
+       <tr><td><span class="tag red">모호 표현형</span></td><td>‘중요하다·잘 드러난다’로 끝낸다.</td><td>무엇이 어떻게 드러나는지 작동 방식으로 서술</td></tr>
+       <tr><td><span class="tag red">분량 위반형</span></td><td>한 문장 요구에 길게, 서술 요구에 단답으로 쓴다.</td><td>요구 분량·형식을 답안 첫머리에서 맞춘다</td></tr>
+      </tbody></table>
+     </div>
+    </section>
+
+    <section id="performance">
+     <div class="section-head"><div class="kicker">07 · PERFORMANCE & RECORD</div><h2>수행평가와 세특으로 연결되는 국어 공부</h2><p class="lead">국어 세특은 책 제목 나열이 아니라, 수업 개념을 바탕으로 질문을 만들고 텍스트를 분석한 과정에서 만들어집니다.</p></div>
+     <div class="card">
+      <h3>좋은 국어 수행평가의 공식</h3>
+      <pre>수업 개념 → 탐구 질문 → 텍스트 선택 → 분석 기준 → 근거 제시 → 발표/글쓰기 → 성찰</pre>
+      <table><thead><tr><th>수행 유형</th><th>고득점 행동</th><th>세특 연결 포인트</th></tr></thead><tbody>
+       <tr><td>문학 감상 발표</td><td>작품 근거와 해석 기준을 명확히 제시</td><td>문학적 감수성, 비교 분석, 비평적 사고</td></tr>
+       <tr><td>독서 보고서</td><td>요약보다 질문·비판·확장을 중심으로 작성</td><td>논리적 독해, 진로 연계 탐구, 자기주도성</td></tr>
+       <tr><td>토의·토론</td><td>입장, 근거, 반론, 재반박 구조를 갖춤</td><td>의사소통 역량, 공동체 문제 해결력</td></tr>
+       <tr><td>작문 과제</td><td>독자·목적·장르에 맞게 자료를 활용</td><td>표현력, 자료 통합, 글쓰기 과정 성찰</td></tr>
+       <tr><td>언어생활 탐구</td><td>실제 언어 자료를 수집하고 개념으로 분석</td><td>언어 인식, 국어생활 성찰, 탐구 역량</td></tr>
+      </tbody></table>
+     </div>
+     <div class="template"><button class="copy-btn" onclick="copyTemplate('setuk-template')">복사</button><pre id="setuk-template">[국어 수행평가·세특 기록 템플릿]
+수업 단원:
+수업에서 배운 개념:
+내가 만든 질문:
+분석한 작품/글/자료:
+핵심 근거:
+내 해석 또는 주장:
+비판적으로 생각한 점:
+발표/보고서에서 보여 준 역량:
+후속 탐구 질문:</pre></div>
+     <div class="card">
+      <h3>수행평가 채점 루브릭 (국어)</h3>
+      <p class="mini">대부분의 국어 수행평가는 아래 4가지 관점으로 채점됩니다. ‘상’ 칸의 행동을 목표로 결과물을 점검하세요.</p>
+      <table><thead><tr><th>평가 요소</th><th>상</th><th>중</th><th>하</th></tr></thead><tbody>
+       <tr><td>개념 이해</td><td>수업 개념을 정확히 적용하고 사례로 설명</td><td>개념은 알지만 적용이 부분적</td><td>개념을 단순 나열</td></tr>
+       <tr><td>텍스트 근거 활용</td><td>구절·문단·자료를 직접 인용해 주장 뒷받침</td><td>근거는 있으나 출처 표시가 약함</td><td>느낌·배경지식 위주</td></tr>
+       <tr><td>논리·구성</td><td>주장→근거→반론→결론이 유기적</td><td>흐름은 있으나 연결이 느슨</td><td>나열식, 결론 불명확</td></tr>
+       <tr><td>표현·성찰</td><td>목적·독자에 맞는 표현 + 배운 점 성찰</td><td>표현은 무난, 성찰이 형식적</td><td>맞춤법·어휘 오류, 성찰 없음</td></tr>
+      </tbody></table>
+     </div>
+     <div class="callout orange"><strong>완성형 세특 예시 문장</strong>
+      <p class="mini" style="margin-top:6px">아래는 ‘수업 개념 → 질문 → 분석 → 역량’이 드러나는 좋은 세특 문장의 예시입니다. 자신의 활동에 맞게 고쳐 쓰세요.</p>
+      <p>① 현대시 단원에서 ‘객관적 상관물’ 개념에 흥미를 느껴 같은 시인의 다른 작품 2편에서 자연물의 기능을 비교 분석함. 시어의 상징과 화자의 정서를 근거 구절과 함께 표로 정리하고 ‘시인은 왜 같은 소재를 다르게 활용하는가’라는 질문으로 발표하여 비평적 감상 능력을 보임.</p>
+      <p>② 논증 글쓰기 수행에서 자료 3종의 출처와 기준 연도를 점검해 신뢰도를 평가하고, 예상 반론과 재반박을 갖춘 개요를 설계함. 고쳐쓰기 단계에서 독자와 목적에 맞춰 문단 순서를 재배열하는 등 글쓰기 과정에 대한 성찰을 구체적으로 기록함.</p>
+     </div>
+    </section>
+
+    <section id="plan">
+     <div class="section-head"><div class="kicker">08 · 21 DAYS PLAN</div><h2>국어 내신 시험 21일 플랜</h2><p class="lead">시험 3주 전부터는 ‘자료 정리→분석표 완성→서술형→백지 복원’ 순서로 움직여야 합니다.</p></div>
+     <div class="card">
+      <div class="phase"><b>D-21~15</b><div><strong>출제 원본 확보</strong><br>시험 범위 교과서, 프린트, 필기, 부교재, 수행평가 자료를 한곳에 모은다. 선생님이 강조한 작품·지문·개념어를 표시한다.</div></div>
+      <div class="phase"><b>D-14~8</b><div><strong>분석표 완성</strong><br>문학 작품 분석표, 독서 지문 구조표, 화법 상황표, 언어 예문 분석표, 작문 조건표를 작성한다.</div></div>
+      <div class="phase"><b>D-7~3</b><div><strong>변형 문제와 서술형</strong><br>필기 문장을 선지로 만들고, 프린트 빈칸을 백지 복원한다. 서술형 예상 답안을 손으로 쓴다.</div></div>
+      <div class="phase"><b>D-2~1</b><div><strong>백지 복원과 감점 방지</strong><br>새 자료를 늘리지 말고 필기·프린트·분석표를 복원한다. 서술형 필수 개념어와 근거 표현을 확인한다.</div></div>
+     </div>
+    </section>
+
+    <section id="level">
+     <div class="section-head"><div class="kicker">09 · LEVEL STRATEGY</div><h2>수준별 추천 전략</h2></div>
+     <div class="grid-3">
+      <div class="card"><h3>상위권</h3><p>이미 아는 작품에서 감점과 실수를 줄이는 것이 핵심입니다.</p><ul><li>오답 선지의 틀린 단어 기록</li><li>외부 연계 작품 비교표 작성</li><li>서술형 채점 기준 예상</li><li>맞힌 문제 중 오래 걸린 문제 복기</li></ul></div>
+      <div class="card"><h3>중위권</h3><p>“이해한 것 같다”를 실제 근거 판정으로 바꿔야 합니다.</p><ul><li>문학은 상황·정서·태도 순서 고정</li><li>독서는 문단 역할 표시</li><li>프린트 빈칸 백지 복원</li><li>서술형 조건표로 답안 작성</li></ul></div>
+      <div class="card"><h3>기초권</h3><p>어려운 외부 지문보다 기본 개념어와 수업 자료 복원이 먼저입니다.</p><ul><li>필수 문학 개념어 15개 정리</li><li>작품별 주제 한 문장 암기</li><li>문법 개념 정의+예문 1개</li><li>교과서 활동 문제 다시 풀기</li></ul></div>
+     </div>
+    </section>
+
+    <section id="toolkit">
+     <div class="section-head"><div class="kicker">10 · TOOLKIT</div><h2>학생용 도구함</h2><p class="lead">아래 양식은 복사해서 노트, 문서, 학습지에 바로 붙여 사용할 수 있습니다.</p></div>
+     <div class="grid-2">
+      <div class="toolbox"><h3>출제 원본 맵</h3><div class="template"><button class="copy-btn" onclick="copyTemplate('source-map')">복사</button><pre id="source-map">[국어 내신 출제 원본 맵]
+과목:
+단원:
+시험 범위:
+교과서 핵심 작품/지문:
+학교 프린트 핵심:
+선생님 필기·강조:
+부교재/외부 연계:
+수행평가 연결:
+예상 객관식 유형:
+예상 서술형 질문:
+시험 전날 볼 1순위 자료:</pre></div></div>
+      <div class="toolbox"><h3>국어 오답노트</h3><div class="template"><button class="copy-btn" onclick="copyTemplate('wrong-note')">복사</button><pre id="wrong-note">[국어 오답노트]
+문항 번호:
+영역: 문학 / 독서 / 화법 / 언어 / 작문
+관련 작품·지문·개념:
+내가 고른 답:
+정답:
+정답 근거 위치:
+오답 선지의 틀린 단어:
+내 오답 원인:
+다음에 같은 유형을 보면 할 행동:
+서술형으로 바뀐다면 예상 질문:</pre></div></div>
+      <div class="toolbox"><h3>문학 작품 분석표</h3><div class="template"><button class="copy-btn" onclick="copyTemplate('literature-template')">복사</button><pre id="literature-template">[문학 작품 분석표]
+작품명:
+갈래:
+화자/서술자/주요 인물:
+상황 또는 사건:
+정서와 태도:
+핵심 소재/시어:
+표현상 특징:
+수업 필기 핵심:
+주제:
+외부 연계 가능 작품:
+예상 서술형 질문:
+답안 핵심 문장:</pre></div></div>
+      <div class="toolbox"><h3>독서·작문 분석표</h3><div class="template"><button class="copy-btn" onclick="copyTemplate('reading-template')">복사</button><pre id="reading-template">[독서와 작문 분석표]
+지문 제목:
+분야/제재:
+글의 화제:
+필자의 관점:
+문단별 역할:
+1문단:
+2문단:
+3문단:
+핵심 개념:
+자료 활용:
+작문 목적:
+예상 독자:
+고쳐쓰기 기준:
+예상 문제:</pre></div></div>
+      <div class="toolbox"><h3>화법과 언어 분석표</h3><div class="template"><button class="copy-btn" onclick="copyTemplate('speech-template')">복사</button><pre id="speech-template">[화법과 언어 분석표]
+담화/문장 자료:
+상황 맥락:
+화자/청자:
+목적:
+사용된 어휘·문법 요소:
+화자의 태도:
+표현의 적절성:
+언어생활 쟁점:
+예상 객관식 선지:
+예상 서술형 답안:</pre></div></div>
+      <div class="toolbox"><h3>오늘의 메모</h3><textarea data-save-text="daily-memo" placeholder="오늘 복원해야 할 프린트, 틀린 문항, 서술형 예상 질문을 적어 보세요."></textarea></div>
+     </div>
+    </section>
+
+    <section id="sources">
+     <div class="section-head"><div class="kicker">REFERENCE</div><h2>공식 참고자료</h2></div>
+     <div class="card footnotes">
+      <p>이 페이지는 2022 개정 교육과정의 고등 국어 과목 체계인 공통국어1, 공통국어2, 화법과 언어, 독서와 작문, 문학을 기준으로 구성했습니다. 학교별 교과서 단원명과 시험 범위는 다를 수 있으므로 실제 시험 대비에서는 학교 공지, 수업 필기, 프린트를 최우선으로 확인합니다.</p>
+     </div>
+    </section>
+   </main>
+  </div>
+ </div>
+ <footer class="footer">제작 · 충청남도진로융합교육원 교육연구사 정재연</footer>
+
+<script>
+(function(){
+ const prefix='kr-naesin-2022-';
+ function saveCheckbox(el){ localStorage.setItem(prefix+el.dataset.save, el.checked ? '1':'0'); }
+ document.querySelectorAll('input[type="checkbox"][data-save]').forEach(el=>{
+  el.checked = localStorage.getItem(prefix+el.dataset.save)==='1';
+  el.addEventListener('change',()=>{ saveCheckbox(el); updateDiagnosis(); });
+ });
+ document.querySelectorAll('textarea[data-save-text]').forEach(el=>{
+  const key=prefix+el.dataset.saveText;
+  el.value=localStorage.getItem(key)||'';
+  el.addEventListener('input',()=>localStorage.setItem(key,el.value));
+ });
+ window.copyTemplate=function(id){
+  const text=document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(()=>alert('양식을 복사했습니다.'));
+ }
+ window.updateDiagnosis=function(){
+  const checks=[...document.querySelectorAll('[data-score]')];
+  const score=checks.reduce((s,c)=>s+(c.checked?Number(c.dataset.score):0),0);
+  const scoreEl=document.getElementById('diagnosisScore');
+  const textEl=document.getElementById('diagnosisText');
+  if(!scoreEl || !textEl) return;
+  scoreEl.textContent=score;
+  if(score<=1) textEl.textContent='현재 절차가 안정적입니다. 서술형 감점과 외부 연계만 보강하세요.';
+  else if(score<=3) textEl.textContent='중간 수준입니다. 필기→선지화, 프린트 백지복원, 서술형 조건표를 고정하세요.';
+  else if(score<=5) textEl.textContent='우선순위 재정리가 필요합니다. 작품·지문 분석표와 오답노트를 먼저 만드세요.';
+  else textEl.textContent='기초 절차부터 다시 세워야 합니다. 교과서·프린트 복원과 기본 개념어 정리가 최우선입니다.';
+ }
+ updateDiagnosis();
+ const tabs=[...document.querySelectorAll('.course-tab')];
+ const panels=[...document.querySelectorAll('.course-panel')];
+ tabs.forEach(btn=>btn.addEventListener('click',()=>{
+  const target=btn.dataset.course;
+  tabs.forEach(b=>b.setAttribute('aria-selected', b===btn ? 'true':'false'));
+  panels.forEach(p=>p.classList.toggle('active', p.id===target));
+ }));
+})();
+</script>
+<script>
+/* plan-progress: 21일 플랜 진행률 체크 (자동저장) */
+(function(){
+  var plan=document.getElementById('plan');
+  if(!plan) return;
+  var phases=[].slice.call(plan.querySelectorAll('.phase'));
+  if(!phases.length) return;
+  var PFX='kr-plan-';
+  var head=plan.querySelector('.section-head');
+  var wrap=document.createElement('div');
+  wrap.className='plan-progress';
+  wrap.style.cssText='margin:0 0 16px';
+  wrap.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><strong>21일 플랜 진행률</strong><span class="pp-label" style="font-weight:900;color:#1f5eff"></span></div><div style="height:10px;background:#e7eef8;border-radius:999px;overflow:hidden"><div class="pp-bar" style="height:100%;width:0;background:linear-gradient(90deg,#1f5eff,#0f766e);transition:width .3s"></div></div><p style="margin:7px 0 0;font-size:.86rem;color:#76839a">각 단계 앞 체크박스를 누르면 진행률이 저장됩니다.</p>';
+  if(head){head.insertAdjacentElement('afterend',wrap);}else{plan.insertBefore(wrap,plan.firstChild);}
+  var bar=wrap.querySelector('.pp-bar'),label=wrap.querySelector('.pp-label');
+  function upd(){var done=0;phases.forEach(function(p){var b=p.querySelector('.plan-check');if(b&&b.checked)done++;});var pct=Math.round(done/phases.length*100);bar.style.width=pct+'%';label.textContent=done+' / '+phases.length+' 단계 ('+pct+'%)';}
+  phases.forEach(function(p,i){
+    var b=document.createElement('input');b.type='checkbox';b.className='plan-check';
+    b.style.cssText='transform:scale(1.3);margin-right:8px;vertical-align:middle;cursor:pointer';
+    var key=PFX+i;
+    b.checked=localStorage.getItem(key)==='1';
+    b.addEventListener('change',function(){localStorage.setItem(key,b.checked?'1':'0');upd();});
+    var lab=p.querySelector('b');
+    if(lab){lab.insertBefore(b,lab.firstChild);}else{p.insertBefore(b,p.firstChild);}
+  });
+  upd();
+})();
+</script>
+</body>
+</html>

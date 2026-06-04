@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="ko">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>2022 개정 교육과정 고등 영어 내신 공부법 | 공통영어1·공통영어2·영어Ⅰ·영어Ⅱ·영어 독해와 작문</title>
+ <meta name="description" content="2022 개정 교육과정의 공통영어1, 공통영어2, 영어Ⅰ, 영어Ⅱ, 영어 독해와 작문에 맞춘 고등학생용 영어 내신 공부법 HTML 가이드." />
+ <style>
+  :root{
+   --bg:#f6f8fc;
+   --paper:#ffffff;
+   --ink:#162033;
+   --muted:#637083;
+   --line:#dfe6f2;
+   --brand:#2563eb;
+   --brand-dark:#1e40af;
+   --brand2:#0f766e;
+   --accent:#d97706;
+   --red:#b42318;
+   --violet:#7c3aed;
+   --green:#047857;
+   --soft:#eef5ff;
+   --soft2:#e9fbf7;
+   --warn:#fff7df;
+   --danger:#fff1f2;
+   --ok:#ecfdf5;
+   --violetSoft:#f3efff;
+   --shadow:0 16px 40px rgba(25,45,90,.10);
+   --radius:20px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+   margin:0;
+   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+   color:var(--ink);
+   background:linear-gradient(180deg,#e7f0ff 0%,var(--bg) 430px);
+   line-height:1.72;
+   word-break:keep-all;
+  }
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+  header.hero{padding:56px 0 34px;border-bottom:1px solid rgba(37,99,235,.14)}
+  .eyebrow{font-size:.88rem;font-weight:950;color:var(--brand2);letter-spacing:.07em;text-transform:uppercase}
+  h1{font-size:clamp(2.15rem,5vw,4.6rem);line-height:1.05;margin:.25em 0 .28em;letter-spacing:-.058em}
+  h2{font-size:clamp(1.72rem,3vw,2.38rem);line-height:1.18;margin:.18em 0 .35em;letter-spacing:-.037em}
+  h3{font-size:1.34rem;line-height:1.28;margin:1.12em 0 .45em;letter-spacing:-.024em}
+  h4{font-size:1.08rem;margin:1em 0 .35em}
+  .subtitle{font-size:1.17rem;color:var(--muted);max-width:980px;margin:0 0 22px}
+  .credit{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid var(--line);font-size:.88rem;font-weight:800;color:#4b5563;box-shadow:0 8px 20px rgba(25,45,90,.05)}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;margin-top:18px}
+  .hero-card,.card,.toc,.callout,.toolbox{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .hero-card,.card,.toolbox{padding:22px}
+  .hero-card h2{font-size:1.22rem;margin:.1em 0 .4em}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+  .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-size:.88rem;font-weight:850;color:#34405a}
+  .pill strong{color:var(--brand)}
+  .top-actions{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+  .top-actions a,.top-actions button{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#293750;border:1px solid var(--line);box-shadow:none;border-radius:999px;padding:9px 12px;font-weight:900}
+  .layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start;padding:28px 0 88px}
+  nav.toc{position:sticky;top:14px;padding:16px;max-height:calc(100vh - 28px);overflow:auto}
+  nav.toc h2{font-size:1rem;margin:0 0 10px;color:var(--brand)}
+  nav.toc a{display:block;padding:8px 10px;border-radius:10px;color:#293750;font-weight:850;font-size:.92rem}
+  nav.toc a:hover{background:var(--soft);text-decoration:none}
+  main{min-width:0}
+  section{margin:0 0 34px;scroll-margin-top:18px}
+  .section-head{margin:0 0 16px}
+  .kicker{font-weight:950;color:var(--brand2);font-size:.88rem;letter-spacing:.05em;text-transform:uppercase}
+  .lead{font-size:1.05rem;color:var(--muted);margin:0;max-width:930px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .mini{font-size:.91rem;color:var(--muted)}
+  .tag{display:inline-block;font-size:.77rem;font-weight:950;color:#fff;background:var(--brand);padding:3px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}
+  .tag.green{background:var(--green)}.tag.orange{background:var(--accent)}.tag.red{background:var(--red)}.tag.gray{background:#647086}.tag.violet{background:var(--violet)}.tag.teal{background:var(--brand2)}
+  .callout{padding:18px 20px;margin:16px 0;background:var(--soft)}
+  .callout.green{background:var(--soft2)}.callout.warn{background:var(--warn)}.callout.danger{background:var(--danger)}.callout.ok{background:var(--ok)}.callout.violet{background:var(--violetSoft)}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  th,td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#eef5ff;text-align:left;font-size:.92rem;color:#1f3f7a}
+  tr:last-child td{border-bottom:0}
+  code,pre{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}
+  pre{white-space:pre-wrap;background:#101827;color:#e8eefc;border-radius:14px;padding:16px;line-height:1.6;overflow:auto}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}
+  .flow span{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-weight:900}
+  .flow span:not(:last-child)::after{content:"→";color:var(--brand);font-weight:950;margin-left:9px}
+  .checklist{display:grid;gap:9px;margin:12px 0}
+  .check-item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:13px;background:#fff}
+  .check-item input{margin-top:5px;transform:scale(1.12)}
+  .check-item span{display:block}.check-item small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+  textarea,input[type="text"],input[type="number"],select{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;font:inherit;background:#fbfdff;color:var(--ink)}
+  textarea{min-height:136px;resize:vertical;line-height:1.6}
+  .button-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+  button{border:0;border-radius:12px;background:var(--brand);color:#fff;font-weight:950;padding:10px 13px;cursor:pointer;font:inherit}
+  button.secondary{background:var(--brand2)}button.ghost{background:#edf0f6;color:#273247}button.orange{background:var(--accent)}button.danger{background:var(--red)}
+  .course-selector{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:16px 0 18px}
+  .course-tab{background:#fff;color:#22314d;border:1px solid var(--line);border-radius:18px;padding:16px 12px;text-align:left;box-shadow:0 10px 22px rgba(25,45,90,.06);min-height:112px;transition:.18s ease}
+  .course-tab strong{display:block;font-size:1.06rem;margin-bottom:5px;color:#162033}
+  .course-tab small{display:block;color:var(--muted);font-weight:750;line-height:1.45}
+  .course-tab[aria-pressed="true"]{background:linear-gradient(135deg,var(--brand),#0f766e);color:#fff;transform:translateY(-2px);border-color:transparent;box-shadow:0 18px 36px rgba(37,99,235,.22)}
+  .course-tab[aria-pressed="true"] strong,.course-tab[aria-pressed="true"] small{color:#fff}
+  .course-panel{display:none}.course-panel.active{display:block}
+  .copy-btn{float:right;margin:0 0 8px 12px;background:#25304a}
+  .template{position:relative;margin:12px 0}
+  .scorebox{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:12px}
+  .score{font-size:2rem;font-weight:950;color:var(--brand)}
+  .timer-panel{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+  .timer-display{font-size:2.3rem;font-weight:950;letter-spacing:.02em;color:var(--brand)}
+  .timer-controls{display:flex;gap:8px;flex-wrap:wrap}
+  details{border:1px solid var(--line);border-radius:15px;background:#fff;margin:10px 0;overflow:hidden}
+  summary{cursor:pointer;font-weight:950;padding:14px 16px;background:#fafbfd}
+  details[open] summary{border-bottom:1px solid var(--line)}details .detail-body{padding:14px 16px}
+  .phase{display:grid;grid-template-columns:112px 1fr;gap:14px;border-top:1px solid var(--line);padding:14px 0}.phase:first-child{border-top:0}.phase b{color:var(--brand)}
+  .small-list{margin:8px 0 0;padding-left:19px}.small-list li{margin:4px 0}
+  .footnotes{font-size:.9rem;color:#465061}.footnotes li{margin:7px 0}
+  footer{border-top:1px solid var(--line);padding:24px 0 42px;color:#6b7280;font-size:.88rem;text-align:center}
+  @media(max-width:1040px){.course-selector{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:920px){.hero-grid,.layout,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}nav.toc{position:relative;top:auto;max-height:none}.course-selector{grid-template-columns:1fr}h1{font-size:2.45rem}.flow span:not(:last-child)::after{display:none}}
+  @media print{body{background:#fff;color:#000}nav.toc,.top-actions,.copy-btn,button,.timer-panel{display:none!important}.layout{display:block;padding:0}.wrap{max-width:none;padding:0}.card,.callout,.toolbox,.hero-card{box-shadow:none;break-inside:avoid;border-color:#bbb}.course-panel{display:block!important}a{color:#000;text-decoration:none}section{break-inside:auto}.credit{box-shadow:none}}
+   /* --- enrich-normalize (공통 콜아웃/태그 보강) --- */
+  .callout.ok{background:#ecfdf5}
+  .callout.danger{background:#fff1f2}
+  .callout.orange{background:#fff7ed}
+  .tag.orange{background:#b45309}
+  .tag.red{background:#b42318}
+  .tag.green{background:#047857}
+</style>
+</head>
+<body>
+ <header class="hero">
+  <div class="wrap">
+   <div class="eyebrow">2022 Revised Curriculum · High School English Internal Exams</div>
+   <h1>고등 영어 내신<br>학습 방법</h1>
+   <p class="subtitle">2022 개정 교육과정의 <strong>공통영어1, 공통영어2, 영어Ⅰ, 영어Ⅱ, 영어 독해와 작문</strong>을 기준으로 만든 고등학생용 내신 영어 공부법입니다. 단순 본문 암기를 넘어, 지문 분석·어법 변형·영작 서술형·수행평가·세특까지 바로 활용할 수 있게 구성했습니다.</p>
+   <div class="credit">제작 · 충청남도진로융합교육원 교육연구사 정재연</div>
+   <div class="hero-grid">
+    <div class="hero-card">
+     <h2>핵심 메시지</h2>
+     <p>내신 영어는 “본문을 외웠는가”보다 <strong>학교에서 다룬 지문을 어휘·구문·논리·어법·영작으로 변형해도 처리할 수 있는가</strong>를 묻는 시험입니다.</p>
+     <div class="flow"><span>어휘</span><span>구문</span><span>논리</span><span>어법 변형</span><span>영작 복원</span><span>서술형 조건</span></div>
+     <div class="pill-row">
+      <span class="pill"><strong>본문</strong> 주제·흐름·핵심 문장</span>
+      <span class="pill"><strong>부교재</strong> 모의고사 지문 변형</span>
+      <span class="pill"><strong>어법</strong> 수일치·관계사·분사</span>
+      <span class="pill"><strong>영작</strong> 조건 충족·감점 방지</span>
+     </div>
+    </div>
+    <div class="hero-card">
+     <h2>학생용 활용법</h2>
+     <ul class="small-list">
+      <li>상단 과목 카드를 눌러 현재 배우는 과목의 전략을 먼저 확인합니다.</li>
+      <li>시험 3주 전에는 <strong>지문 중요도 A/B/C/D 분류</strong>부터 시작합니다.</li>
+      <li>어법·영작은 눈으로 보지 말고 반드시 손으로 쓰고 복원합니다.</li>
+      <li>체크리스트와 메모는 브라우저에 저장됩니다.</li>
+     </ul>
+     <div class="top-actions">
+      <a href="#tools">학생용 도구 바로가기</a>
+      <button class="ghost" onclick="window.print()">인쇄하기</button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </header>
+
+ <div class="wrap">
+  <div class="layout">
+   <nav class="toc" aria-label="목차">
+    <h2>목차</h2>
+    <a href="#diagnosis">0. 나의 내신 영어 진단</a>
+    <a href="#curriculum">1. 2022 개정 영어 과목 체계</a>
+    <a href="#essence">2. 내신 영어의 본질</a>
+    <a href="#courses">3. 5개 과목별 공부법</a>
+    <a href="#materials">4. 본문·부교재 분석법</a>
+    <a href="#grammar">5. 어법 변형 대비</a>
+    <a href="#writing">6. 영작·서술형 대비</a>
+    <a href="#memorize">7. 본문 암기 대체법</a>
+    <a href="#plan">8. 시험 21일 플랜</a>
+    <a href="#performance">9. 수행평가·세특</a>
+    <a href="#levels">10. 수준별 전략</a>
+    <a href="#tools">11. 학생용 도구</a>
+    <a href="#sources">공식 참고자료</a>
+   </nav>
+
+   <main>
+    <section id="diagnosis">
+     <div class="section-head">
+      <div class="kicker">Start</div>
+      <h2>나의 내신 영어 학습 진단</h2>
+      <p class="lead">체크가 많을수록 “본문을 더 외우기”보다 “분석 절차와 복원 루틴”을 먼저 고정해야 합니다.</p>
+     </div>
+     <div class="card">
+      <div class="grid-2">
+       <div>
+        <h3>체크리스트</h3>
+        <div class="checklist">
+         <label class="check-item"><input type="checkbox" data-save="diag-en-1" data-score="1"><span>본문을 외웠는데 어법 문제로 바뀌면 틀린다.<small>구문과 문법 포인트를 따로 표시하지 않은 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag-en-2" data-score="1"><span>부교재 지문이 많아지면 어떤 지문을 먼저 볼지 모른다.<small>지문 중요도 분류가 필요한 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag-en-3" data-score="1"><span>한글 해석을 보고 영어 문장을 쓰면 어순이 무너진다.<small>주어·동사·수식어 순서 복원 훈련이 부족한 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag-en-4" data-score="1"><span>단어를 외워도 지문에서는 다른 뜻으로 보여 헷갈린다.<small>문맥상 의미와 품사 구분이 부족한 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag-en-5" data-score="1"><span>순서·삽입 변형 문제에서 연결어와 대명사 근거를 찾지 않는다.<small>논리 흐름 분석이 부족한 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag-en-6" data-score="1"><span>서술형에서 철자, 시제, 수일치, 전치사로 자주 감점된다.<small>영작 검토 체크리스트가 필요한 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag-en-7" data-score="1"><span>수업 필기와 프린트를 문제 유형으로 바꾸지 못한다.<small>선생님 포인트를 시험화하는 과정이 부족한 경우</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag-en-8" data-score="1"><span>수행평가가 끝나도 세특으로 연결될 기록이 남지 않는다.<small>영어 텍스트 기반 탐구 기록이 필요한 경우</small></span></label>
+        </div>
+       </div>
+       <div>
+        <h3>진단 결과</h3>
+        <div class="scorebox"><div><strong id="diagnosisText">우선순위가 표시됩니다.</strong><p class="mini">체크 항목을 바꾸면 자동으로 업데이트됩니다.</p></div><div class="score" id="diagnosisScore">0</div></div>
+        <div class="callout warn"><strong>진단 후 첫 행동</strong><p>체크가 0~2개면 변형 문제와 서술형 완성도를 올립니다. 3~5개면 지문 분석표와 어법 오답노트를 고정합니다. 6개 이상이면 단어·구문·핵심 문장 복원부터 다시 잡아야 합니다.</p></div>
+        <textarea data-save-text="english-goal" placeholder="이번 영어 내신 목표를 적어 보세요. 예: A등급 지문 12개 핵심 문장 복원, 어법 변형 50문장, 영작 서술형 예상문장 30개"></textarea>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <section id="curriculum">
+     <div class="section-head">
+      <div class="kicker">1. Curriculum</div>
+      <h2>2022 개정 교육과정 영어 5개 과목 체계</h2>
+      <p class="lead">학교 내신은 과목명은 같아도 교과서, 부교재, 수행평가 방식에 따라 달라집니다. 그러나 과목별 핵심 역량은 분명히 구분됩니다.</p>
+     </div>
+     <div class="card">
+      <table>
+       <thead><tr><th>구분</th><th>과목</th><th>내신에서 주로 평가되는 것</th><th>공부의 핵심</th></tr></thead>
+       <tbody>
+        <tr><td>공통</td><td><strong>공통영어1</strong></td><td>기본 어휘, 문장 구조, 교과서 본문 이해, 대화문·발표·짧은 글쓰기</td><td>영어 문장 해석의 기초와 본문 정확도</td></tr>
+        <tr><td>공통</td><td><strong>공통영어2</strong></td><td>조금 긴 지문, 자료 기반 이해, 의견 표현, 연결어와 문단 흐름</td><td>구문 분석과 지문 흐름 복원</td></tr>
+        <tr><td>일반선택</td><td><strong>영어Ⅰ</strong></td><td>수능형 지문, 빈칸·순서·삽입 변형, 어법·어휘, 핵심 문장 영작</td><td>논리 흐름과 내신형 변형 대비</td></tr>
+        <tr><td>일반선택</td><td><strong>영어Ⅱ</strong></td><td>추상적 소재, 긴 문장, 고난도 구문, 패러프레이징, 비판적 읽기</td><td>어휘 수준·구문 밀도·논리 전개 관리</td></tr>
+        <tr><td>일반선택</td><td><strong>영어 독해와 작문</strong></td><td>독해와 쓰기의 연결, 요약, 의견문, 자료 활용 글쓰기, 고쳐쓰기</td><td>읽은 내용을 조건에 맞는 영어 표현으로 전환</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+
+    <section id="essence">
+     <div class="section-head">
+      <div class="kicker">2. Essence</div>
+      <h2>내신 영어의 본질: 아는 지문을 ‘출제 가능한 형태’로 바꾸는 능력</h2>
+      <p class="lead">내신 영어는 낯선 지문을 처음 읽는 수능 영어와 다릅니다. 이미 배운 지문을 얼마나 정밀하게 분석했고, 학교 선생님이 강조한 표현을 얼마나 정확히 복원할 수 있는지가 중요합니다.</p>
+     </div>
+     <div class="grid-3">
+      <div class="card"><h3>어휘</h3><p>뜻 하나가 아니라 품사, 문맥상 의미, 유의어·반의어, 철자, 파생어까지 본다.</p><pre>단어 = 뜻 + 품사 + 문맥 의미 + 유의어 + 철자</pre></div>
+      <div class="card"><h3>구문</h3><p>본문 암기를 대신하는 핵심이다. 주어·동사·목적어·보어를 찾고 수식어를 분리한다.</p><pre>문장 = 핵심 구조 + 수식어 + 문법 포인트</pre></div>
+      <div class="card"><h3>논리</h3><p>빈칸, 순서, 삽입, 요약 변형의 기준이다. 문장 기능과 연결어를 읽는다.</p><pre>지문 = 주제문 + 근거 + 예시 + 반박 + 결론</pre></div>
+     </div>
+     <div class="card">
+      <h3>내신 영어 출제 원본 우선순위</h3>
+      <table>
+       <thead><tr><th>우선순위</th><th>자료</th><th>확인할 것</th></tr></thead>
+       <tbody>
+        <tr><td>1순위</td><td>학교 프린트·선생님 필기</td><td>빈칸, 밑줄, 별표, 추가 문법 설명, 변형 예고</td></tr>
+        <tr><td>2순위</td><td>교과서 본문·대화문·활동 지문</td><td>주제, 핵심 문장, 어휘, 구문, 영작 가능 문장</td></tr>
+        <tr><td>3순위</td><td>부교재·모의고사 지문</td><td>논리 흐름, 빈칸 가능 문장, 순서·삽입 위치</td></tr>
+        <tr><td>4순위</td><td>어휘·어법 프린트</td><td>유의어, 반의어, 수일치, 관계사, 분사, 병렬</td></tr>
+        <tr><td>5순위</td><td>수행평가·발표·쓰기 활동</td><td>시험 서술형과 세특으로 연결될 표현과 주제</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+
+    <section id="courses">
+     <div class="section-head">
+      <div class="kicker">3. Course Strategy</div>
+      <h2>5개 과목별 내신 공부법</h2>
+      <p class="lead">아래 과목 카드를 선택하면 해당 과목의 내신 전략이 표시됩니다.</p>
+     </div>
+
+     <div class="course-selector" aria-label="영어 과목 선택">
+      <button class="course-tab" data-course="common1" aria-pressed="true"><strong>공통영어1</strong><small>기초 어휘·구문·본문 정확도</small></button>
+      <button class="course-tab" data-course="common2" aria-pressed="false"><strong>공통영어2</strong><small>문단 흐름·자료·의견 표현</small></button>
+      <button class="course-tab" data-course="eng1" aria-pressed="false"><strong>영어Ⅰ</strong><small>수능형 지문 변형·어법</small></button>
+      <button class="course-tab" data-course="eng2" aria-pressed="false"><strong>영어Ⅱ</strong><small>고난도 구문·추상 논리</small></button>
+      <button class="course-tab" data-course="readwrite" aria-pressed="false"><strong>영어 독해와 작문</strong><small>읽기와 쓰기의 연결</small></button>
+     </div>
+
+     <div class="course-panel active" id="panel-common1">
+      <div class="card">
+       <h3><span class="tag teal">공통영어1</span> 영어 내신의 기초 체력을 만드는 과목</h3>
+       <p>공통영어1은 고등학교 영어 내신의 첫 기준을 만드는 과목입니다. 본문을 무작정 외우기보다, 문장 구조를 정확히 읽고 기본 어휘와 표현을 안정적으로 복원하는 것이 핵심입니다.</p>
+       <table>
+        <thead><tr><th>출제 포인트</th><th>구체적 대비법</th></tr></thead>
+        <tbody>
+         <tr><td>본문 내용 이해</td><td>각 문단을 한국어 1문장으로 요약하고, 지문 전체 주제를 영어 핵심어 3개로 정리한다.</td></tr>
+         <tr><td>기초 구문</td><td>주어·동사·목적어·보어를 표시하고, 관계사절·전치사구·분사구를 괄호로 묶는다.</td></tr>
+         <tr><td>어휘</td><td>교과서 단어는 뜻, 품사, 예문, 철자를 함께 암기한다. 시험 전에는 철자 테스트를 반드시 한다.</td></tr>
+         <tr><td>대화문·발표문</td><td>화자, 상황, 목적, 핵심 표현을 정리한다. 빈칸·순서·역할 바꾸기 문제를 예상한다.</td></tr>
+         <tr><td>서술형</td><td>짧은 핵심 문장을 한글 해석만 보고 영어로 복원한다. 주어·동사 누락을 가장 먼저 점검한다.</td></tr>
+        </tbody>
+       </table>
+       <div class="callout ok"><strong>공통영어1 첫 행동</strong><br>본문을 읽을 때 “이 문장의 주어와 동사는 무엇인가?”를 먼저 표시하세요. 공통영어1에서 흔들리는 학생은 대부분 문장 구조가 아니라 한국어 해석으로만 공부합니다.</div>
+      </div>
+     </div>
+
+     <div class="course-panel" id="panel-common2">
+      <div class="card">
+       <h3><span class="tag teal">공통영어2</span> 문단 흐름과 자료 활용을 잡는 과목</h3>
+       <p>공통영어2는 공통영어1보다 지문이 길어지고, 문장 간 연결 관계와 자료 활용이 중요해집니다. 단어와 문장 해석에서 문단 구조 독해로 넘어가야 합니다.</p>
+       <table>
+        <thead><tr><th>출제 포인트</th><th>구체적 대비법</th></tr></thead>
+        <tbody>
+         <tr><td>문단 흐름</td><td>각 문단의 기능을 표시한다. 문제 제기, 이유, 예시, 해결, 결론 중 하나로 분류한다.</td></tr>
+         <tr><td>연결어</td><td>however, therefore, for example, in contrast, as a result 등 연결어 앞뒤 관계를 정리한다.</td></tr>
+         <tr><td>자료 기반 문제</td><td>그림·표·도표가 나오면 제목, 단위, 비교 대상, 자료가 지문에서 쓰인 목적을 확인한다.</td></tr>
+         <tr><td>의견 표현</td><td>자신의 의견을 쓰는 수행평가가 많으므로 주장, 근거, 예시, 결론 문장 틀을 준비한다.</td></tr>
+         <tr><td>본문 변형</td><td>주제문 빈칸, 연결어 빈칸, 요약문 빈칸, 순서 배열을 예상한다.</td></tr>
+        </tbody>
+       </table>
+       <div class="callout"><strong>공통영어2 첫 행동</strong><br>본문을 문장별로 외우기 전에 문단별 역할을 먼저 적으세요. 문단 구조가 보이면 순서·삽입·요약 변형에 강해집니다.</div>
+      </div>
+     </div>
+
+     <div class="course-panel" id="panel-eng1">
+      <div class="card">
+       <h3><span class="tag orange">영어Ⅰ</span> 수능형 지문이 내신형으로 변형되는 과목</h3>
+       <p>영어Ⅰ은 교과서 본문뿐 아니라 부교재와 모의고사 지문이 함께 들어오는 경우가 많습니다. 내신에서는 수능형 지문이 빈칸, 순서, 삽입, 어법, 영작으로 바뀝니다.</p>
+       <table>
+        <thead><tr><th>출제 포인트</th><th>구체적 대비법</th></tr></thead>
+        <tbody>
+         <tr><td>주제·요지</td><td>지문마다 주제문을 표시하고, 선지형 제목과 요지 문장으로 바꿔 본다.</td></tr>
+         <tr><td>빈칸 변형</td><td>핵심 주장, 반박 뒤 결론, 예시 앞 일반화 문장을 빈칸 후보로 표시한다.</td></tr>
+         <tr><td>순서·삽입</td><td>대명사, 지시어, 연결어, 반복 핵심어를 색으로 표시한다.</td></tr>
+         <tr><td>어법</td><td>수일치, 관계사, 분사, 병렬, 수동태, to부정사·동명사 변형 가능 문장을 모은다.</td></tr>
+         <tr><td>서술형</td><td>본문 핵심 문장을 한글 해석 → 영어 구조 → 완성 문장 순서로 복원한다.</td></tr>
+        </tbody>
+       </table>
+       <div class="callout warn"><strong>영어Ⅰ 주의점</strong><br>모의고사 지문을 내신 범위로 공부할 때는 수능처럼 한 번 풀고 끝내면 안 됩니다. 지문 하나를 빈칸·순서·어법·영작으로 네 번 변형해 봐야 합니다.</div>
+      </div>
+     </div>
+
+     <div class="course-panel" id="panel-eng2">
+      <div class="card">
+       <h3><span class="tag violet">영어Ⅱ</span> 고난도 구문과 추상적 논리를 다루는 과목</h3>
+       <p>영어Ⅱ는 지문의 추상도가 높아지고 한 문장 안에 수식어와 절이 겹치는 경우가 많습니다. 단어 뜻만 알아도 문장이 안 풀리는 이유는 구문 밀도가 높기 때문입니다.</p>
+       <table>
+        <thead><tr><th>출제 포인트</th><th>구체적 대비법</th></tr></thead>
+        <tbody>
+         <tr><td>추상 어휘</td><td>autonomy, perception, interaction, sustainability처럼 추상어는 쉬운 말로 바꿔 정리한다.</td></tr>
+         <tr><td>긴 문장</td><td>관계사절, 분사구문, 삽입구, 전치사구를 괄호 처리하고 핵심 문장만 먼저 해석한다.</td></tr>
+         <tr><td>패러프레이징</td><td>본문 표현이 다른 단어로 바뀐 선지를 예상한다. 유의어와 반의어를 함께 정리한다.</td></tr>
+         <tr><td>논리 전환</td><td>통념 제시 → 반박 → 새로운 관점 구조를 자주 확인한다.</td></tr>
+         <tr><td>고난도 서술형</td><td>단순 영작보다 요약, 조건문 변형, 관계사절 포함 문장 복원을 연습한다.</td></tr>
+        </tbody>
+       </table>
+       <div class="callout violet"><strong>영어Ⅱ 첫 행동</strong><br>긴 문장을 만나면 해석부터 하지 말고 핵심 구조를 먼저 찾으세요. “주어가 무엇을 한다”가 보이면 나머지는 수식어입니다.</div>
+      </div>
+     </div>
+
+     <div class="course-panel" id="panel-readwrite">
+      <div class="card">
+       <h3><span class="tag green">영어 독해와 작문</span> 읽은 내용을 조건에 맞게 쓰는 과목</h3>
+       <p>영어 독해와 작문은 독해와 쓰기가 분리되지 않습니다. 지문을 정확히 읽은 뒤, 주제·근거·자료를 사용해 조건에 맞는 영어 문장이나 글로 표현하는 능력이 중요합니다.</p>
+       <table>
+        <thead><tr><th>출제 포인트</th><th>구체적 대비법</th></tr></thead>
+        <tbody>
+         <tr><td>지문 구조</td><td>주장, 근거, 예시, 반론, 결론을 표시한다. 요약문 빈칸과 제목 문제를 예상한다.</td></tr>
+         <tr><td>자료 활용</td><td>도표, 사진, 인용 자료를 글의 어느 부분에서 어떻게 활용하는지 정리한다.</td></tr>
+         <tr><td>작문 조건</td><td>목적, 독자, 장르, 분량, 필수 표현, 금지 조건을 먼저 분해한다.</td></tr>
+         <tr><td>고쳐쓰기</td><td>문장 연결, 중복 표현, 어색한 어휘, 문단 순서, 근거 부족을 확인한다.</td></tr>
+         <tr><td>수행평가</td><td>읽은 영어 자료를 자신의 주장과 연결해 발표·보고서·에세이로 확장한다.</td></tr>
+        </tbody>
+       </table>
+       <div class="callout green"><strong>영어 독해와 작문 첫 행동</strong><br>쓰기 문제는 바로 영어로 쓰지 마세요. 먼저 “무엇을 읽었고, 누구에게, 어떤 목적으로, 어떤 조건을 지켜 써야 하는가”를 표시해야 감점이 줄어듭니다.</div>
+      </div>
+     </div>
+    </section>
+
+    <section id="materials">
+     <div class="section-head">
+      <div class="kicker">4. Text Analysis</div>
+      <h2>본문·부교재·모의고사 지문 분석법</h2>
+      <p class="lead">시험 범위가 많을수록 모든 지문을 같은 강도로 공부하면 실패합니다. 먼저 지문을 분류하고, 각 지문을 출제 가능한 형태로 압축해야 합니다.</p>
+     </div>
+     <div class="card">
+      <h3>지문 중요도 A/B/C/D 분류</h3>
+      <table>
+       <thead><tr><th>등급</th><th>지문 특징</th><th>공부 강도</th><th>반드시 남길 기록</th></tr></thead>
+       <tbody>
+        <tr><td><span class="tag red">A</span></td><td>선생님 강조, 프린트 분석 자세함, 서술형 가능</td><td>문장 단위 분석 + 영작 복원 + 어법 변형</td><td>핵심 문장, 어법 포인트, 예상 영작</td></tr>
+        <tr><td><span class="tag orange">B</span></td><td>부교재 핵심 지문, 수능형 변형 가능</td><td>주제·논리·빈칸·순서·삽입 정리</td><td>주제문, 연결어, 삽입 후보 위치</td></tr>
+        <tr><td><span class="tag">C</span></td><td>내용 확인·어휘 문제 가능</td><td>5줄 압축 요약 + 핵심 어휘</td><td>주제, 핵심어, 어려운 문장 1개</td></tr>
+        <tr><td><span class="tag gray">D</span></td><td>출제 가능성 낮은 보조 자료</td><td>주제와 필수 단어만 빠르게 확인</td><td>한 문장 요약</td></tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="card">
+      <h3>내신 지문 분석 8단계</h3>
+      <ol>
+       <li><strong>제목·소재 확인</strong>: 무엇에 관한 글인지 한 단어로 적는다.</li>
+       <li><strong>주제문 표시</strong>: 글쓴이의 핵심 주장 또는 결론 문장을 찾는다.</li>
+       <li><strong>문단 기능 표시</strong>: 문제 제기, 이유, 예시, 반박, 해결, 결론으로 구분한다.</li>
+       <li><strong>연결어 표시</strong>: however, therefore, for example, in contrast 등을 표시한다.</li>
+       <li><strong>구문 분석</strong>: 긴 문장의 주어·동사를 찾고 수식어를 괄호로 묶는다.</li>
+       <li><strong>어법 후보 표시</strong>: 수일치, 시제, 태, 관계사, 분사, 병렬 구조를 표시한다.</li>
+       <li><strong>어휘 변형 표시</strong>: 유의어, 반의어, 문맥상 의미, 철자 주의 단어를 적는다.</li>
+       <li><strong>영작 가능 문장 선정</strong>: 서술형으로 나올 만한 문장을 한글 해석과 함께 정리한다.</li>
+      </ol>
+      <div class="template">
+       <button class="copy-btn" onclick="copyTemplate('text-template')">복사</button>
+       <pre id="text-template">[내신 영어 지문 분석표]
+지문 번호 / 출처:
+중요도: A / B / C / D
+주제:
+한 문장 요약:
+문단별 기능:
+1문단:
+2문단:
+3문단:
+핵심 문장:
+어휘 포인트:
+유의어·반의어:
+구문 포인트:
+어법 변형 가능 문장:
+영작 서술형 예상 문장:
+순서·삽입 가능 위치:
+선생님 강조 내용:</pre>
+      </div>
+     </div>
+     <div class="grid-2">
+      <div class="card"><h3>교과서 본문은 ‘정확도’ 중심</h3><ul class="small-list"><li>본문 전체를 무작정 외우기보다 핵심 문장과 변형 포인트를 먼저 뽑는다.</li><li>선생님이 설명한 해석, 표현, 문법을 프린트 여백에 합친다.</li><li>대화문은 화자, 목적, 상황, 핵심 표현을 표로 정리한다.</li><li>시험 전날에는 한글 해석을 보고 핵심 문장만 복원한다.</li></ul></div>
+      <div class="card"><h3>부교재·모의고사는 ‘변형’ 중심</h3><ul class="small-list"><li>원래 유형이 무엇인지 확인한다. 빈칸, 순서, 삽입, 어법, 어휘, 요약 중 하나다.</li><li>수능형 지문을 내신형으로 바꾸면 빈칸·영작·어법 문제가 늘어난다.</li><li>지문별 5줄 압축을 남겨야 시험 직전 빠르게 복습할 수 있다.</li><li>부교재 오답은 정답보다 변형 가능성을 기록한다.</li></ul></div>
+     </div>
+     <div class="card">
+      <h3>선생님 출제 스타일별 대비 전략</h3>
+      <p class="mini">우리 학교 영어 시험이 어떤 유형에 무게를 두는지 파악하면 준비 행동이 분명해집니다.</p>
+      <div class="grid-2">
+       <div class="card"><h4><span class="tag">본문 정확도형</span></h4><p class="mini">교과서 본문 문장이 거의 그대로 빈칸·어법으로 출제.</p><ul class="small-list"><li>한글 해석 보고 핵심 문장 복원</li><li>고유명사·숫자·연결어 정확히</li><li>대화문 화자·목적 표로 정리</li></ul></div>
+       <div class="card"><h4><span class="tag green">어법 변형형</span></h4><p class="mini">능동↔수동, 관계사, 분사로 문장을 바꿔 출제.</p><ul class="small-list"><li>한 문장을 3가지로 변형 연습</li><li>어법 판단 순서 고정</li><li>밑줄형·박스형 모두 대비</li></ul></div>
+       <div class="card"><h4><span class="tag orange">외부 연계·수능형</span></h4><p class="mini">부교재·모의고사 지문을 내신형으로 변형.</p><ul class="small-list"><li>빈칸·순서·삽입 후보 위치 표시</li><li>지문 5줄 압축</li><li>주제·요지 1문장</li></ul></div>
+       <div class="card"><h4><span class="tag violet">영작·서술형 강조형</span></h4><p class="mini">조건 영작·문장 완성에서 변별.</p><ul class="small-list"><li>조건(시제·구문·단어) 먼저 분해</li><li>주어·동사부터 세우기</li><li>수일치·철자·구두점 최종 점검</li></ul></div>
+      </div>
+     </div>
+     <div class="card">
+      <h3>내신 빈출 어법·표현 미니사전</h3>
+      <p class="mini">밑줄 어법·영작 채점의 단골 포인트입니다. ‘함정’ 칸을 특히 주의하세요.</p>
+      <table><thead><tr><th>포인트</th><th>핵심</th><th>시험 함정</th></tr></thead><tbody>
+       <tr><td>주어-동사 수일치</td><td>주어의 핵심 명사에 동사를 맞춘다</td><td>중간 수식어구에 끌려 단·복수 오답</td></tr>
+       <tr><td>시제·시제 일치</td><td>주절 시제에 종속절을 맞춘다</td><td>과거 vs 현재완료(경험·계속) 혼동</td></tr>
+       <tr><td>관계대명사 / 관계부사</td><td>뒤 문장이 불완전→대명사, 완전→부사</td><td>which와 where, that 자리 혼동</td></tr>
+       <tr><td>분사 (−ing / p.p.)</td><td>능동=현재분사, 수동=과거분사</td><td>감정동사의 −ing/−ed, 분사구문 주어</td></tr>
+       <tr><td>to부정사 / 동명사</td><td>동사에 따라 목적어 형태가 결정</td><td>remember·stop·try의 의미 차이</td></tr>
+       <tr><td>가정법</td><td>if절·주절의 시제를 한 단계 후퇴</td><td>혼합가정법, were/had p.p.</td></tr>
+       <tr><td>도치</td><td>부정어·only가 문두면 (조)동사+주어</td><td>도치 누락, 조동사 선택</td></tr>
+       <tr><td>병렬구조</td><td>등위접속사 앞뒤 형태를 일치</td><td>동명사·to부정사 형태 불일치</td></tr>
+       <tr><td>대명사 일치</td><td>수·성·격을 선행어와 일치</td><td>지시 대상 모호, its/their</td></tr>
+       <tr><td>강조·it ~ that</td><td>강조 대상을 it is/was ~ that 사이에</td><td>가주어 it과 혼동</td></tr>
+      </tbody></table>
+     </div>
+    </section>
+
+    <section id="grammar">
+     <div class="section-head">
+      <div class="kicker">5. Grammar Transformation</div>
+      <h2>내신 변별력을 가르는 어법 변형 대비</h2>
+      <p class="lead">내신 영어 어법은 본문 문장을 그대로 묻기보다, 단어 하나를 바꾸거나 수식어를 추가해 학생의 문장 구조 이해를 흔듭니다.</p>
+     </div>
+     <div class="card">
+      <h3>어법 변형 출제 포인트</h3>
+      <table>
+       <thead><tr><th>어법 포인트</th><th>출제 방식</th><th>점검 질문</th></tr></thead>
+       <tbody>
+        <tr><td>수일치</td><td>긴 수식어를 넣어 주어와 동사를 헷갈리게 함</td><td> 주어는 무엇인가?</td></tr>
+        <tr><td>시제</td><td>과거·현재완료·과거완료·미래 표현 변형</td><td>글의 시간 기준은 어디인가?</td></tr>
+        <tr><td>능동·수동</td><td>분사나 동사를 능동/수동으로 바꿈</td><td>주어가 행위자인가, 대상인가?</td></tr>
+        <tr><td>관계사</td><td>who, which, that, what, whose를 바꿈</td><td>선행사가 있는가? 뒤 절은 완전한가?</td></tr>
+        <tr><td>분사</td><td>현재분사와 과거분사를 바꿈</td><td>수식받는 명사와의 관계가 능동인가 수동인가?</td></tr>
+        <tr><td>to부정사·동명사</td><td>목적어 자리나 의미 차이로 출제</td><td>동사가 어떤 형태를 목적어로 요구하는가?</td></tr>
+        <tr><td>병렬 구조</td><td>and, but, or 앞뒤 형태를 다르게 바꿈</td><td>앞뒤가 같은 품사·구조인가?</td></tr>
+        <tr><td>접속사·전치사</td><td>although/despite, because/because of 변형</td><td>뒤에 절이 오는가, 명사구가 오는가?</td></tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="card">
+      <h3>어법 문제 판단 순서</h3>
+      <pre>1. 문장의 주어와 동사를 찾는다.
+2. 수식어를 괄호로 묶고 핵심 문장만 남긴다.
+3. 밑줄 친 단어의 역할을 파악한다.
+4. 앞뒤 문법 단위를 확인한다.
+5. 의미상 능동/수동을 판단한다.
+6. 병렬 구조와 관계사절의 완전성을 확인한다.
+7. 정답 근거를 문법 용어로 한 문장 작성한다.</pre>
+      <div class="template">
+       <button class="copy-btn" onclick="copyTemplate('grammar-template')">복사</button>
+       <pre id="grammar-template">[어법 오답노트]
+문장:
+틀린 부분:
+관련 문법:
+내가 착각한 이유:
+정답 근거:
+비슷한 본문 문장:
+변형 가능성:
+다음에 볼 신호:</pre>
+      </div>
+     </div>
+    </section>
+
+    <section id="writing">
+     <div class="section-head">
+      <div class="kicker">6. Writing</div>
+      <h2>영작·서술형 감점 없는 답안 작성법</h2>
+      <p class="lead">내신 영어 서술형은 답을 아는 것보다 조건을 정확히 충족하는 것이 중요합니다. 특히 주어·동사, 수일치, 시제, 전치사, 철자에서 감점이 발생합니다.</p>
+     </div>
+     <div class="grid-2">
+      <div class="card">
+       <h3>영작 기본 절차</h3>
+       <ol>
+        <li>우리말 문장을 의미 단위로 나눈다.</li>
+        <li>주어와 동사를 먼저 정한다.</li>
+        <li>핵심 문장 구조를 만든다.</li>
+        <li>수식어, 접속사, 관계사절을 붙인다.</li>
+        <li>시제와 수일치를 확인한다.</li>
+        <li>전치사, 관사, 대소문자, 철자를 확인한다.</li>
+        <li>문제에서 요구한 조건을 모두 사용했는지 확인한다.</li>
+       </ol>
+      </div>
+      <div class="card">
+       <h3>서술형 감점 방지 체크</h3>
+       <div class="checklist">
+        <label class="check-item"><input type="checkbox" data-save="write-1"><span>문제에서 요구한 단어·표현을 모두 사용했다.</span></label>
+        <label class="check-item"><input type="checkbox" data-save="write-2"><span>주어와 동사가 모두 있다.</span></label>
+        <label class="check-item"><input type="checkbox" data-save="write-3"><span>시제와 수일치가 본문과 맞다.</span></label>
+        <label class="check-item"><input type="checkbox" data-save="write-4"><span>수동태, 관계사, 분사 구조가 정확하다.</span></label>
+        <label class="check-item"><input type="checkbox" data-save="write-5"><span>전치사, 관사, 대소문자, 철자를 확인했다.</span></label>
+        <label class="check-item"><input type="checkbox" data-save="write-6"><span>문장 끝에 마침표를 찍었다.</span></label>
+       </div>
+      </div>
+     </div>
+     <div class="card">
+      <h3>영작 답안 예시</h3>
+      <pre>우리말: 정보가 제시되는 방식은 사람들이 내리는 결정에 영향을 줄 수 있다.
+
+1단계 의미 단위:
+정보가 제시되는 방식 / 영향을 줄 수 있다 / 사람들이 내리는 결정에
+
+2단계 핵심 구조:
+The way + S + V / can influence / the decisions
+
+3단계 완성 문장:
+The way information is presented can influence the decisions people make.
+
+검토:
+The way = 주어
+information is presented = 수동태
+can influence = 조동사 뒤 동사원형
+the decisions people make = 목적격 관계대명사 생략</pre>
+     </div>
+     <div class="card">
+      <h3>기출형 실전 예시 — 모범답안 vs 감점답안</h3>
+      <p class="mini">영작 서술형은 문장이 ‘말이 되는가’보다 <strong>조건을 모두 지켰는가</strong>에서 점수가 갈립니다.</p>
+      <p class="mini">문항: 우리말과 같도록 〈조건〉에 맞게 영작하시오. 〈조건: 관계대명사 사용, 현재완료 시제, the/ever 포함〉 — “이것은 내가 지금까지 읽은 가장 흥미로운 책이다.” (interesting, read)</p>
+      <div class="grid-2">
+       <div class="card"><div class="callout ok"><strong>✅ 모범답안</strong><p>This is the most interesting book (that) I have ever read.</p></div></div>
+       <div class="card"><div class="callout danger"><strong>❌ 감점답안</strong><p>This is most interesting book which I read ever.</p><p class="mini"><strong>감점 이유</strong> ① 최상급 앞 the 누락 ② 조건인 현재완료(have read) 미충족(과거형 read) ③ ever 위치 오류, 최상급 선행사에는 관계대명사 that이 자연스러움</p></div></div>
+      </div>
+     </div>
+    </section>
+
+    <section id="memorize">
+     <div class="section-head">
+      <div class="kicker">7. Memorization Alternative</div>
+      <h2>맹목적 본문 암기를 대체하는 복원 훈련</h2>
+      <p class="lead">본문 전체 암기는 범위가 적을 때만 효과가 있습니다. 범위가 많아지면 지문 구조, 핵심 문장, 어법 포인트, 영작 가능 문장을 우선 복원해야 합니다.</p>
+     </div>
+     <div class="card">
+      <h3>본문 복원 5단계</h3>
+      <table>
+       <thead><tr><th>단계</th><th>훈련법</th><th>목표</th></tr></thead>
+       <tbody>
+        <tr><td>1단계 주제 복원</td><td>지문 제목만 보고 주제와 핵심어 3개를 말한다.</td><td>글 전체 방향 기억</td></tr>
+        <tr><td>2단계 흐름 복원</td><td>문단별 기능을 순서대로 말한다.</td><td>순서·삽입 변형 대비</td></tr>
+        <tr><td>3단계 구문 복원</td><td>긴 문장의 핵심 구조만 먼저 쓴다.</td><td>어순과 구조 안정화</td></tr>
+        <tr><td>4단계 핵심 문장 복원</td><td>한글 해석을 보고 영어로 쓴다.</td><td>서술형 대비</td></tr>
+        <tr><td>5단계 변형 복원</td><td>능동↔수동, 접속사↔전치사구, 관계사절↔분사구를 바꿔 본다.</td><td>어법 변형 대비</td></tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="callout danger"><strong>본문 암기만 한 학생의 위험</strong><br>본문 문장을 외웠더라도 단어 하나가 바뀌거나 문장 순서가 바뀌면 틀릴 수 있습니다. 내신 영어 고득점은 암기량이 아니라 <strong>변형 대응력</strong>에서 결정됩니다.</div>
+    </section>
+
+    <section id="plan">
+     <div class="section-head">
+      <div class="kicker">8. 21-Day Plan</div>
+      <h2>영어 내신 시험 21일 플랜</h2>
+      <p class="lead">시험 3주 전부터는 새 자료를 무작정 늘리기보다 지문 분류, 구문·어법 분석, 영작 복원, 오답 회귀를 단계별로 진행해야 합니다.</p>
+     </div>
+     <div class="card">
+      <div class="phase"><b>D-21~15</b><div><strong>범위 분류와 지문 압축</strong><br>시험 범위 지문 목록 작성, 교과서·부교재·모의고사 구분, A/B/C/D 중요도 분류, 선생님 강조 지문 표시, 지문별 주제와 핵심 문장 정리</div></div>
+      <div class="phase"><b>D-14~8</b><div><strong>구문·어법·어휘 정밀 분석</strong><br>A등급 지문 문장 단위 분석, 긴 문장 구문 분석, 어법 변형 가능 문장 표시, 유의어·반의어·철자 주의 단어 정리</div></div>
+      <div class="phase"><b>D-7~3</b><div><strong>변형 문제와 영작 대비</strong><br>본문 빈칸 만들기, 어법 변형 문제 직접 만들기, 한글 해석 보고 영어 복원, 순서·삽입 후보 위치 확인, 서술형 예상 문장 손으로 쓰기</div></div>
+      <div class="phase"><b>D-2~1</b><div><strong>암기보다 복원</strong><br>A등급 핵심 문장 복원, 어법 오답 포인트 재확인, 서술형 필수 문장 재작성, 지문별 주제 1문장 요약, 틀린 철자 확인</div></div>
+     </div>
+    </section>
+
+    <section id="performance">
+     <div class="section-head">
+      <div class="kicker">9. Performance & Records</div>
+      <h2>영어 수행평가와 세특 연계</h2>
+      <p class="lead">영어 세특은 “영어를 성실히 공부함”보다, 영어 텍스트를 읽고 주제를 탐구하며 자신의 관점을 영어로 표현한 과정이 드러날 때 강해집니다.</p>
+     </div>
+     <div class="card">
+      <h3>좋은 영어 세특의 공식</h3>
+      <pre>수업 지문 → 핵심 주제 → 추가 영어 자료 → 표현 분석 → 자신의 관점 → 발표/보고서/토론</pre>
+      <table>
+       <thead><tr><th>수행평가 유형</th><th>좋은 준비</th><th>세특에 남는 역량</th></tr></thead>
+       <tbody>
+        <tr><td>영어 발표</td><td>주장, 근거, 예시, 결론 구조와 핵심 표현 준비</td><td>의사소통 능력, 논리적 구성력</td></tr>
+        <tr><td>영어 에세이</td><td>주제문, supporting details, counterargument, conclusion 작성</td><td>작문 능력, 비판적 사고</td></tr>
+        <tr><td>기사 분석</td><td>영어 원문 기사에서 핵심어와 관점 추출</td><td>글로벌 이슈 이해, 정보 해석력</td></tr>
+        <tr><td>토론</td><td>찬성·반대 근거와 반박 표현 정리</td><td>논증 능력, 상호작용 능력</td></tr>
+        <tr><td>번역 비교</td><td>직역과 의역의 의미 차이를 설명</td><td>언어 감각, 표현 분석 능력</td></tr>
+       </tbody>
+      </table>
+      <div class="template">
+       <button class="copy-btn" onclick="copyTemplate('setuk-template')">복사</button>
+       <pre id="setuk-template">[영어 수행평가·세특 기록]
+수업 지문/단원:
+핵심 주제:
+내가 만든 질문:
+추가로 읽은 영어 자료:
+핵심 어휘·표현:
+글의 주장:
+내가 동의하거나 비판한 부분:
+수업 내용과 연결되는 지점:
+발표/보고서 결과:
+후속 탐구 질문:</pre>
+      </div>
+      <div class="card">
+       <h3>수행평가 채점 루브릭 (영어)</h3>
+       <p class="mini">영어 발표·에세이 수행은 보통 아래 4관점으로 채점됩니다.</p>
+       <table><thead><tr><th>평가 요소</th><th>상</th><th>중</th><th>하</th></tr></thead><tbody>
+        <tr><td>내용·과제 충실도</td><td>주제에 맞고 근거·예시가 충분</td><td>주제는 맞으나 근거가 부족</td><td>주제 이탈·분량 미달</td></tr>
+        <tr><td>구성·논리</td><td>서론-본론-결론, 연결어로 응집</td><td>흐름은 있으나 연결 약함</td><td>나열식, 결론 불명확</td></tr>
+        <tr><td>언어 사용</td><td>어휘·문법 정확, 표현이 다양</td><td>사소한 오류, 표현 단조</td><td>잦은 오류로 의미 전달 저해</td></tr>
+        <tr><td>전달·태도</td><td>명확한 발음·자신감, 성찰 포함</td><td>전달은 무난, 성찰 형식적</td><td>전달 미흡, 성찰 없음</td></tr>
+       </tbody></table>
+      </div>
+      <div class="callout orange"><strong>완성형 세특 예시 문장</strong>
+       <p class="mini" style="margin-top:6px">‘지문 주제 → 추가 자료 → 관점 → 영어 표현’이 드러나면 좋은 세특입니다.</p>
+       <p>① 환경 단원 지문을 학습한 뒤 plastic pollution을 주제로 영어 기사 2편을 추가로 읽고 핵심 어휘와 필자의 관점을 비교 분석함. 자신의 주장을 supporting details와 counterargument를 갖춘 영어 에세이로 작성해 논리적 작문 능력을 보임.</p>
+       <p>② 영어 토론 수행에서 AI 활용 찬반을 주제로 근거와 반박 표현을 정리하고, 상대 발언을 영어로 요약한 뒤 재반박함. 정확한 시제·연결어 사용으로 의사소통 역량과 상호작용 능력을 드러냄.</p>
+      </div>
+     </div>
+    </section>
+
+    <section id="levels">
+     <div class="section-head">
+      <div class="kicker">10. Level Strategy</div>
+      <h2>수준별 영어 내신 전략</h2>
+      <p class="lead">같은 시험 범위라도 현재 수준에 따라 우선순위가 달라져야 합니다.</p>
+     </div>
+     <div class="grid-3">
+      <div class="card"><h3>상위권</h3><p>목표는 실수 0개와 서술형 만점입니다.</p><ul class="small-list"><li>맞힌 문제 중 오래 걸린 지문 분석</li><li>어법 변형 문장 직접 제작</li><li>서술형 예상 문장 30개 이상 손쓰기</li><li>철자·전치사·관사 감점 체크</li><li>선생님 필기 표현 그대로 답안화</li></ul></div>
+      <div class="card"><h3>중위권</h3><p>목표는 본문 이해를 변형 대응력으로 바꾸는 것입니다.</p><ul class="small-list"><li>A/B 지문부터 우선순위 설정</li><li>긴 문장 주어·동사 찾기 반복</li><li>수일치·관계사·분사 오답노트</li><li>한글 해석 보고 핵심 문장 복원</li><li>부교재 지문 5줄 압축</li></ul></div>
+      <div class="card"><h3>기초권</h3><p>목표는 단어와 문장 단위 해석을 안정화하는 것입니다.</p><ul class="small-list"><li>교과서 필수 단어 매일 누적 테스트</li><li>문장마다 주어·동사 표시</li><li>A등급 지문 핵심 문장만 먼저 복원</li><li>영작은 짧은 문장부터 완성</li><li>쉬운 내용 일치·어휘 문제 확보</li></ul></div>
+     </div>
+    </section>
+
+    <section id="tools">
+     <div class="section-head">
+      <div class="kicker">11. Student Tools</div>
+      <h2>학생용 도구함</h2>
+      <p class="lead">아래 도구는 바로 복사하거나 작성할 수 있습니다.</p>
+     </div>
+     <div class="grid-2">
+      <div class="toolbox">
+       <h3>25분 집중 타이머</h3>
+       <div class="timer-panel"><div class="timer-display" id="timerDisplay">25:00</div><div class="timer-controls"><button onclick="startTimer()">시작</button><button class="ghost" onclick="pauseTimer()">정지</button><button class="secondary" onclick="resetTimer(25)">25분</button><button class="orange" onclick="resetTimer(10)">10분</button></div></div>
+       <p class="mini">A등급 지문 1개 정밀 분석 또는 영작 서술형 5문장 복원에 사용하세요.</p>
+      </div>
+      <div class="toolbox">
+       <h3>오늘의 복습 메모</h3>
+       <textarea data-save-text="daily-review" placeholder="오늘 분석한 지문, 틀린 어법, 외워야 할 문장, 내일 할 일을 적으세요."></textarea>
+      </div>
+     </div>
+     <div class="card">
+      <h3>필수 템플릿 모음</h3>
+      <details open><summary>단어장 템플릿</summary><div class="detail-body"><div class="template"><button class="copy-btn" onclick="copyTemplate('vocab-template')">복사</button><pre id="vocab-template">[단어장]
+단어:
+뜻:
+품사:
+본문 속 의미:
+예문:
+유의어:
+반의어:
+철자 주의:
+함께 쓰이는 표현:</pre></div></div></details>
+      <details><summary>영작 서술형 연습지</summary><div class="detail-body"><div class="template"><button class="copy-btn" onclick="copyTemplate('writing-template')">복사</button><pre id="writing-template">[영작 서술형 연습]
+우리말 문장:
+의미 단위 나누기:
+주어:
+동사:
+목적어/보어:
+수식어:
+사용해야 할 문법:
+완성 문장:
+검토: 시제 / 수일치 / 전치사 / 관사 / 철자 / 조건</pre></div></div></details>
+      <details><summary>순서·삽입 근거표</summary><div class="detail-body"><div class="template"><button class="copy-btn" onclick="copyTemplate('order-template')">복사</button><pre id="order-template">[순서·삽입 분석]
+지문 번호:
+주어진 문장/문단:
+핵심어:
+대명사·지시어:
+연결어:
+앞 문장과의 관계:
+뒤 문장과의 관계:
+정답 위치:
+오답 위치가 틀린 이유:</pre></div></div></details>
+      <details><summary>시험 직전 최종 점검표</summary><div class="detail-body"><div class="checklist">
+       <label class="check-item"><input type="checkbox" data-save="final-en-1"><span>A등급 지문 핵심 문장을 모두 복원했다.</span></label>
+       <label class="check-item"><input type="checkbox" data-save="final-en-2"><span>어법 오답노트의 수일치·관계사·분사 문장을 다시 풀었다.</span></label>
+       <label class="check-item"><input type="checkbox" data-save="final-en-3"><span>서술형 예상 문장을 손으로 써 봤다.</span></label>
+       <label class="check-item"><input type="checkbox" data-save="final-en-4"><span>틀린 철자와 전치사 표현을 따로 확인했다.</span></label>
+       <label class="check-item"><input type="checkbox" data-save="final-en-5"><span>선생님 프린트의 빈칸과 별표 내용을 모두 복원했다.</span></label>
+      </div></div></details>
+     </div>
+    </section>
+
+    <section id="sources">
+     <div class="section-head">
+      <div class="kicker">Sources</div>
+      <h2>공식 참고자료</h2>
+     </div>
+     <div class="card footnotes">
+      <ul>
+       <li>2022 개정 교육과정 고등학교 영어 과목 체계: 공통영어1·공통영어2, 영어Ⅰ·영어Ⅱ·영어 독해와 작문 등 과목 구분.</li>
+       <li>학교별 실제 시험 범위와 평가 방식은 교과서, 학교 프린트, 수행평가 계획, 교사 안내를 최우선으로 확인해야 합니다.</li>
+      </ul>
+     </div>
+    </section>
+   </main>
+  </div>
+ </div>
+
+ <footer>
+  제작 · 충청남도진로융합교육원 교육연구사 정재연
+ </footer>
+
+ <script>
+  const STORE_PREFIX = 'english_internal_2022_';
+
+  function saveCheckboxes(){
+   document.querySelectorAll('input[type="checkbox"][data-save]').forEach(cb=>{
+    const key = STORE_PREFIX + cb.dataset.save;
+    const saved = localStorage.getItem(key);
+    if(saved !== null) cb.checked = saved === 'true';
+    cb.addEventListener('change',()=>{
+     localStorage.setItem(key, cb.checked);
+     updateDiagnosis();
+    });
+   });
+  }
+
+  function saveTextareas(){
+   document.querySelectorAll('[data-save-text]').forEach(el=>{
+    const key = STORE_PREFIX + el.dataset.saveText;
+    const saved = localStorage.getItem(key);
+    if(saved !== null) el.value = saved;
+    el.addEventListener('input',()=>localStorage.setItem(key, el.value));
+   });
+  }
+
+  function updateDiagnosis(){
+   const boxes = document.querySelectorAll('input[type="checkbox"][data-score]');
+   let score = 0;
+   boxes.forEach(cb=>{ if(cb.checked) score += Number(cb.dataset.score || 0); });
+   const scoreEl = document.getElementById('diagnosisScore');
+   const textEl = document.getElementById('diagnosisText');
+   if(!scoreEl || !textEl) return;
+   scoreEl.textContent = score;
+   if(score <= 2){
+    textEl.textContent = '변형 문제와 서술형 완성도를 올릴 단계입니다.';
+   }else if(score <= 5){
+    textEl.textContent = '지문 분석표와 어법 오답노트를 고정해야 합니다.';
+   }else{
+    textEl.textContent = '단어·구문·핵심 문장 복원부터 다시 세워야 합니다.';
+   }
+  }
+
+  function copyTemplate(id){
+   const el = document.getElementById(id);
+   if(!el) return;
+   navigator.clipboard.writeText(el.innerText).then(()=>{
+    const original = el.innerText;
+    const notice = document.createElement('div');
+    notice.textContent = '복사되었습니다.';
+    notice.style.cssText = 'position:fixed;right:20px;bottom:20px;background:#162033;color:#fff;padding:10px 14px;border-radius:999px;z-index:9999;font-weight:900;';
+    document.body.appendChild(notice);
+    setTimeout(()=>notice.remove(),1300);
+   });
+  }
+
+  function setupCourses(){
+   const tabs = document.querySelectorAll('.course-tab');
+   const panels = document.querySelectorAll('.course-panel');
+   tabs.forEach(tab=>{
+    tab.addEventListener('click',()=>{
+     const course = tab.dataset.course;
+     tabs.forEach(t=>t.setAttribute('aria-pressed', String(t===tab)));
+     panels.forEach(p=>p.classList.remove('active'));
+     const panel = document.getElementById('panel-' + course);
+     if(panel) panel.classList.add('active');
+     localStorage.setItem(STORE_PREFIX+'course', course);
+    });
+   });
+   const saved = localStorage.getItem(STORE_PREFIX+'course');
+   if(saved){
+    const tab = document.querySelector(`.course-tab[data-course="${saved}"]`);
+    if(tab) tab.click();
+   }
+  }
+
+  let timerSeconds = 25 * 60;
+  let timerId = null;
+  function renderTimer(){
+   const min = String(Math.floor(timerSeconds/60)).padStart(2,'0');
+   const sec = String(timerSeconds%60).padStart(2,'0');
+   const display = document.getElementById('timerDisplay');
+   if(display) display.textContent = `${min}:${sec}`;
+  }
+  function startTimer(){
+   if(timerId) return;
+   timerId = setInterval(()=>{
+    if(timerSeconds > 0){ timerSeconds--; renderTimer(); }
+    else{ pauseTimer(); alert('타이머가 종료되었습니다.'); }
+   },1000);
+  }
+  function pauseTimer(){
+   clearInterval(timerId); timerId = null;
+  }
+  function resetTimer(min){
+   pauseTimer(); timerSeconds = min*60; renderTimer();
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+   saveCheckboxes();
+   saveTextareas();
+   updateDiagnosis();
+   setupCourses();
+   renderTimer();
+  });
+ </script>
+<script>
+/* plan-progress: 21일 플랜 진행률 체크 (자동저장) */
+(function(){
+  var plan=document.getElementById('plan');
+  if(!plan) return;
+  var phases=[].slice.call(plan.querySelectorAll('.phase'));
+  if(!phases.length) return;
+  var PFX='en-plan-';
+  var head=plan.querySelector('.section-head');
+  var wrap=document.createElement('div');
+  wrap.className='plan-progress';
+  wrap.style.cssText='margin:0 0 16px';
+  wrap.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><strong>21일 플랜 진행률</strong><span class="pp-label" style="font-weight:900;color:#1f5eff"></span></div><div style="height:10px;background:#e7eef8;border-radius:999px;overflow:hidden"><div class="pp-bar" style="height:100%;width:0;background:linear-gradient(90deg,#1f5eff,#0f766e);transition:width .3s"></div></div><p style="margin:7px 0 0;font-size:.86rem;color:#76839a">각 단계 앞 체크박스를 누르면 진행률이 저장됩니다.</p>';
+  if(head){head.insertAdjacentElement('afterend',wrap);}else{plan.insertBefore(wrap,plan.firstChild);}
+  var bar=wrap.querySelector('.pp-bar'),label=wrap.querySelector('.pp-label');
+  function upd(){var done=0;phases.forEach(function(p){var b=p.querySelector('.plan-check');if(b&&b.checked)done++;});var pct=Math.round(done/phases.length*100);bar.style.width=pct+'%';label.textContent=done+' / '+phases.length+' 단계 ('+pct+'%)';}
+  phases.forEach(function(p,i){
+    var b=document.createElement('input');b.type='checkbox';b.className='plan-check';
+    b.style.cssText='transform:scale(1.3);margin-right:8px;vertical-align:middle;cursor:pointer';
+    var key=PFX+i;
+    b.checked=localStorage.getItem(key)==='1';
+    b.addEventListener('change',function(){localStorage.setItem(key,b.checked?'1':'0');upd();});
+    var lab=p.querySelector('b');
+    if(lab){lab.insertBefore(b,lab.firstChild);}else{p.insertBefore(b,p.firstChild);}
+  });
+  upd();
+})();
+</script>
+</body>
+</html>

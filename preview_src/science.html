@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="ko">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>고등 과학 내신 공부법  학습 방법 | 2022 개정 교육과정</title>
+ <meta name="description" content="2022 개정 교육과정의 통합과학1·통합과학2·물리·화학·생명과학·지구과학에 맞춘 고등학생용 과학 내신 공부법 HTML 가이드." />
+ <style>
+  :root{
+   --bg:#f5f8fb; --paper:#ffffff; --ink:#152033; --muted:#647184; --line:#dfe7ef;
+   --brand:#0f766e; --brand2:#2563eb; --accent:#f59e0b; --red:#dc2626; --violet:#7c3aed;
+   --green:#047857; --blue:#1d4ed8; --orange:#b45309; --slate:#334155;
+   --soft:#e8f7f5; --soft2:#eef5ff; --warn:#fff7df; --danger:#fff1f2; --ok:#ecfdf5; --violetSoft:#f3e8ff;
+   --shadow:0 18px 45px rgba(15, 35, 80, .10); --shadow2:0 8px 22px rgba(15,35,80,.07);
+   --radius:20px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+   margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+   color:var(--ink);background:linear-gradient(180deg,#e8f7f5 0%,#eef5ff 300px,var(--bg) 620px);line-height:1.72;word-break:keep-all;
+  }
+  a{color:var(--brand2);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  header.hero{padding:54px 0 34px;border-bottom:1px solid rgba(15,118,110,.16)}
+  .eyebrow{font-size:.9rem;font-weight:950;color:var(--brand);letter-spacing:.08em;text-transform:uppercase}
+  h1{font-size:clamp(2.1rem,5vw,4.55rem);line-height:1.06;margin:.24em 0 .28em;letter-spacing:-.055em}
+  h2{font-size:clamp(1.65rem,3vw,2.32rem);line-height:1.18;margin:.18em 0 .35em;letter-spacing:-.035em}
+  h3{font-size:1.34rem;line-height:1.28;margin:1.15em 0 .45em;letter-spacing:-.025em} h4{font-size:1.08rem;margin:1em 0 .35em}
+  .subtitle{font-size:1.16rem;color:var(--muted);max-width:980px;margin:0 0 20px}
+  .credit{display:inline-flex;gap:8px;align-items:center;margin-top:8px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid var(--line);font-weight:850;color:#3a465b;box-shadow:var(--shadow2);font-size:.9rem}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;margin-top:20px}
+  .hero-card,.card,.toc,.callout,.toolbox,.tab-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .hero-card,.card,.toolbox{padding:22px}.hero-card h2{font-size:1.2rem;margin:.1em 0 .4em}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-size:.88rem;font-weight:850;color:#34405a}.pill strong{color:var(--brand)}
+  .layout{display:grid;grid-template-columns:278px minmax(0,1fr);gap:24px;align-items:start;padding:26px 0 80px}
+  nav.toc{position:sticky;top:14px;padding:16px;max-height:calc(100vh - 28px);overflow:auto} nav.toc h2{font-size:1rem;margin:0 0 10px;color:var(--brand)} nav.toc a{display:block;padding:8px 10px;border-radius:10px;color:#293750;font-weight:850;font-size:.92rem} nav.toc a:hover{background:var(--soft);text-decoration:none}
+  main{min-width:0} section{margin:0 0 34px;scroll-margin-top:18px}.section-head{margin:0 0 16px}.kicker{font-weight:950;color:var(--brand);font-size:.9rem;letter-spacing:.06em}.lead{font-size:1.05rem;color:var(--muted);margin:0;max-width:900px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .mini{font-size:.92rem;color:var(--muted)}.tag{display:inline-block;font-size:.78rem;font-weight:950;color:#fff;background:var(--brand);padding:3px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}.tag.blue{background:var(--blue)}.tag.orange{background:var(--orange)}.tag.green{background:var(--green)}.tag.red{background:#b42318}.tag.violet{background:var(--violet)}.tag.gray{background:#647086}.tag.slate{background:var(--slate)}
+  .callout{padding:18px 20px;margin:16px 0;background:var(--soft)}.callout.blue{background:var(--soft2)}.callout.warn{background:var(--warn)}.callout.danger{background:var(--danger)}.callout.ok{background:var(--ok)}.callout.violet{background:var(--violetSoft)}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff} th,td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top} th{background:#eef7f6;text-align:left;font-size:.92rem;color:#173d3a} tr:last-child td{border-bottom:0}
+  code,pre{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace} pre{white-space:pre-wrap;background:#101827;color:#e8eefc;border-radius:14px;padding:16px;line-height:1.6;overflow:auto}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}.flow span{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:900}.flow span:not(:last-child)::after{content:"→";color:var(--brand);font-weight:950;margin-left:9px}
+  .checklist{display:grid;gap:9px;margin:12px 0}.check-item{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:#fff}.check-item input{margin-top:5px;transform:scale(1.12)}.check-item span{display:block}.check-item small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+  button,.btn{border:0;border-radius:12px;background:var(--brand);color:#fff;font-weight:950;padding:10px 13px;cursor:pointer;font:inherit;display:inline-flex;align-items:center;gap:7px} button.secondary,.btn.secondary{background:var(--brand2)} button.ghost{background:#edf2f7;color:#263247;border:1px solid var(--line)} button.orange{background:var(--orange)} button.violet{background:var(--violet)} button:hover,.btn:hover{filter:brightness(.97);text-decoration:none}
+  .button-row{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}.copy-btn{float:right;margin:0 0 8px 12px;background:#263247}.template{position:relative;margin:12px 0}
+  textarea,input[type="text"],input[type="number"],select{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;font:inherit;background:#fbfdff;color:var(--ink);line-height:1.55} textarea{min-height:135px;resize:vertical}
+  .scorebox{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px;margin-top:12px}.score{font-size:2rem;font-weight:950;color:var(--brand)}
+  .tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:16px 0 18px}.tab-btn{justify-content:center;min-height:74px;border-radius:18px;background:#fff;color:#203047;border:1px solid var(--line);box-shadow:var(--shadow2);padding:10px;flex-direction:column;gap:2px}.tab-btn b{font-size:1rem}.tab-btn small{font-size:.78rem;color:var(--muted);font-weight:800}.tab-btn.active{background:linear-gradient(135deg,var(--brand),#0ea5a3);color:#fff;border-color:transparent}.tab-btn.active small{color:#dcfffb}.panel{display:none}.panel.active{display:block}.course-hero{border-left:7px solid var(--brand);background:linear-gradient(180deg,#fff,#fbffff)}
+  .phase{display:grid;grid-template-columns:112px 1fr;gap:14px;border-top:1px solid var(--line);padding:14px 0}.phase:first-child{border-top:0}.phase b{color:var(--brand)}
+  .timer-panel{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.timer-display{font-size:2.5rem;font-weight:950;letter-spacing:.02em;color:var(--brand)}.timer-controls{display:flex;gap:8px;flex-wrap:wrap}
+  .mobile-toc{display:none;margin:12px 0}.mobile-toc select{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;font-weight:850}.footnotes{font-size:.9rem;color:#465061}.footnotes li{margin:7px 0}.top-actions{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.top-actions a,.top-actions button{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#293750;border:1px solid var(--line);box-shadow:none;border-radius:999px;padding:9px 12px;font-weight:900}.highlight{background:linear-gradient(transparent 62%,rgba(245,158,11,.24) 0)}
+  details{border:1px solid var(--line);border-radius:15px;background:#fff;margin:10px 0;overflow:hidden}summary{cursor:pointer;font-weight:950;padding:14px 16px;background:#fafbfd}details[open] summary{border-bottom:1px solid var(--line)}details .detail-body{padding:14px 16px}
+  @media(max-width:1040px){.tabs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:920px){.hero-grid,.layout,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}nav.toc{display:none}.mobile-toc{display:block}h1{font-size:2.42rem}.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.timer-panel{grid-template-columns:1fr}.phase{grid-template-columns:1fr}}
+  @media print{body{background:#fff;color:#000}header.hero{padding:18px 0}.wrap{max-width:none;padding:0 12mm}.layout{display:block;padding:0}.toc,.mobile-toc,.top-actions,.copy-btn,button,.timer-panel{display:none!important}.card,.callout,.toolbox,.hero-card,.tab-card{box-shadow:none;border-color:#bbb;break-inside:avoid}a{color:#000;text-decoration:none}.hero-grid{display:block}.panel{display:block!important}}
+   /* --- enrich-normalize (공통 콜아웃/태그 보강) --- */
+  .callout.ok{background:#ecfdf5}
+  .callout.danger{background:#fff1f2}
+  .callout.orange{background:#fff7ed}
+  .tag.orange{background:#b45309}
+  .tag.red{background:#b42318}
+  .tag.green{background:#047857}
+</style>
+</head>
+<body>
+ <header class="hero">
+  <div class="wrap">
+   <div class="eyebrow">2022 Revised Curriculum · High School Science</div>
+   <h1>고등 과학 내신<br>학습 방법</h1>
+   <p class="subtitle">2022 개정 교육과정의 <strong>통합과학1·통합과학2·물리·화학·생명과학·지구과학</strong>을 기준으로, 학교 시험에서 실제 점수로 연결되는 공부 절차를 정리한 학생용 HTML 가이드입니다.</p>
+   <div class="credit">제작 · 충청남도진로융합교육원 교육연구사 정재연</div>
+   <div class="hero-grid">
+    <div class="hero-card">
+     <h2>핵심 메시지</h2>
+     <p>과학 내신은 개념을 많이 외운 학생이 아니라, <strong>학교 수업 자료를 출제 가능한 형태로 바꾸고, 자료·실험·서술형 조건을 정확히 처리하는 학생</strong>이 유리합니다.</p>
+     <div class="flow"><span>개념</span><span>자료</span><span>실험</span><span>조건</span><span>선지</span><span>답안</span></div>
+     <div class="pill-row">
+      <span class="pill"><strong>내신</strong> 교과서·프린트·부교재</span>
+      <span class="pill"><strong>서술형</strong> 개념+근거+결론</span>
+      <span class="pill"><strong>수행평가</strong> 변인·자료·오차</span>
+      <span class="pill"><strong>세특</strong> 질문·탐구·확장</span>
+     </div>
+    </div>
+    <div class="hero-card">
+     <h2>학생용 활용법</h2>
+     <ul>
+      <li>시험 범위가 나오면 먼저 <strong>출제 원본 맵</strong>을 작성합니다.</li>
+      <li>상단 과목 탭에서 현재 배우는 과목의 <strong>첫 행동 프로토콜</strong>을 확인합니다.</li>
+      <li>오답노트, 실험 보고서, 서술형 답안 템플릿을 복사해 노트에 붙여 씁니다.</li>
+      <li>시험 3주 전부터는 <strong>21일 플랜</strong>만 반복 실행합니다.</li>
+     </ul>
+     <div class="top-actions">
+      <a href="#tools">도구 바로가기</a>
+      <button class="ghost" onclick="window.print()">인쇄하기</button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </header>
+
+ <div class="wrap">
+  <div class="mobile-toc">
+   <select onchange="location.hash=this.value">
+    <option value="#diagnosis">0. 학습 진단</option>
+    <option value="#curriculum">1. 2022 과학 과목 체계</option>
+    <option value="#essence">2. 과학 내신의 본질</option>
+    <option value="#courses">3. 과목별 공부법</option>
+    <option value="#materials">4. 교과서·프린트·부교재</option>
+    <option value="#styles">5. 출제 스타일별 전략</option>
+    <option value="#writing">6. 서술형·계산·실험형</option>
+    <option value="#performance">7. 수행평가·세특</option>
+    <option value="#plan">8. 시험 21일 플랜</option>
+    <option value="#levels">9. 수준별 전략</option>
+    <option value="#tools">10. 학생용 도구</option>
+   </select>
+  </div>
+  <div class="layout">
+   <nav class="toc" aria-label="페이지 목차">
+    <h2>목차</h2>
+    <a href="#diagnosis">0. 학습 진단</a>
+    <a href="#curriculum">1. 2022 과학 과목 체계</a>
+    <a href="#essence">2. 과학 내신의 본질</a>
+    <a href="#courses">3. 과목별 공부법</a>
+    <a href="#materials">4. 교과서·프린트·부교재</a>
+    <a href="#styles">5. 출제 스타일별 전략</a>
+    <a href="#writing">6. 서술형·계산·실험형</a>
+    <a href="#performance">7. 수행평가·세특</a>
+    <a href="#plan">8. 시험 21일 플랜</a>
+    <a href="#levels">9. 수준별 전략</a>
+    <a href="#tools">10. 학생용 도구</a>
+    <a href="#sources">공식 참고자료</a>
+   </nav>
+
+   <main>
+    <section id="diagnosis">
+     <div class="section-head">
+      <div class="kicker">START</div>
+      <h2>나의 과학 내신 학습 진단</h2>
+      <p class="lead">문제를 많이 푸는 것보다 먼저, 어떤 이유로 틀리는지 확인해야 합니다. 아래 항목이 많이 체크될수록 ‘개념 회독’보다 공부 절차를 바꿔야 합니다.</p>
+     </div>
+     <div class="card">
+      <div class="grid-2">
+       <div>
+        <h3>체크리스트</h3>
+        <div class="checklist">
+         <label class="check-item"><input type="checkbox" data-save="diag1" data-score="1"><span>교과서 본문은 읽었지만 그림·표·탐구 활동은 다시 설명하지 못한다.<small>과학 내신은 그림과 탐구 활동이 자주 변형됩니다.</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag2" data-score="1"><span>학교 프린트 빈칸은 외웠지만 선생님이 왜 강조했는지 설명하지 못한다.<small>내신 변별은 빈칸 주변 설명과 예외 조건에서 납니다.</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag3" data-score="1"><span>그래프 문제에서 축·단위·범례를 표시하지 않고 바로 선지를 본다.<small>자료형 오답의 핵심 원인입니다.</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag4" data-score="1"><span>계산 문제를 풀 때 표나 그림을 만들지 않고 머릿속으로 처리한다.<small>화학 양적관계, 물리 운동, 유전·확률형 문제에서 위험합니다.</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag5" data-score="1"><span>서술형에서 답은 알지만 ‘이유’와 ‘근거’를 문장으로 쓰지 못한다.<small>감점은 대부분 핵심 개념어·자료 근거 누락에서 발생합니다.</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag6" data-score="1"><span>실험 보고서에서 오차 원인과 개선 방안을 구체적으로 쓰지 못한다.<small>수행평가와 세특의 핵심은 결과보다 탐구 과정입니다.</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag7" data-score="1"><span>틀린 문제의 원인을 ‘실수’라고만 적고 끝낸다.<small>실수도 조건 누락, 단위 오류, 축 오독, 계산 순서 오류로 분류해야 합니다.</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag8" data-score="1"><span>시험 전날 새 문제를 많이 풀다가 프린트 복원을 놓친다.<small>내신 막판에는 새 문제보다 학교 자료 복원이 우선입니다.</small></span></label>
+        </div>
+       </div>
+       <div>
+        <h3>진단 결과</h3>
+        <div class="scorebox"><div><strong id="diagnosisText">우선순위가 표시됩니다.</strong><p class="mini">체크 항목을 바꾸면 자동으로 업데이트됩니다.</p></div><div class="score" id="diagnosisScore">0</div></div>
+        <div class="callout ok"><strong>공부 방향</strong><p>과학 내신은 <span class="highlight">학교 자료 복원력 + 자료 해석력 + 서술형 표현력</span>을 동시에 만들어야 합니다. 문제풀이 양만 늘리기 전에 출제 원본, 오답 원인, 서술형 답안 구조를 먼저 고정하세요.</p></div>
+        <textarea data-save-text="goal" placeholder="이번 과학 내신 목표를 적어 보세요. 예: 프린트 백지복원 3회, 교과서 탐구 활동 10개 변인 정리, 서술형 예상 답안 15개 작성"></textarea>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <section id="curriculum">
+     <div class="section-head">
+      <div class="kicker">1. CURRICULUM</div>
+      <h2>2022 개정 교육과정 과학 과목 체계</h2>
+      <p class="lead">이 페이지는 고등학생 내신 대비를 위해 공통과목인 통합과학1·통합과학2와 일반선택 성격의 물리·화학·생명과학·지구과학을 중심으로 구성했습니다.</p>
+     </div>
+     <div class="grid-2">
+      <div class="card">
+       <h3><span class="tag">공통과목</span> 통합과학1 · 통합과학2</h3>
+       <p>통합과학은 고등 과학의 기본 언어입니다. 한 단원 안에 물리·화학·생명과학·지구과학 요소가 섞여 있으므로, 개념을 따로 외우기보다 <strong>현상 → 개념 영역 → 자료 근거 → 결론</strong>으로 연결해야 합니다.</p>
+       <pre>통합과학1: 과학의 기초 / 물질과 규칙성 / 시스템과 상호작용
+통합과학2: 변화와 다양성 / 환경과 에너지 / 과학과 미래 사회</pre>
+      </div>
+      <div class="card">
+       <h3><span class="tag blue">일반선택</span> 물리 · 화학 · 생명과학 · 지구과학</h3>
+       <p>일반선택 과학은 각 학문의 자료 읽기 방식이 뚜렷합니다. 물리는 상황도와 그래프, 화학은 입자와 양적 관계, 생명과학은 과정과 실험 조건, 지구과학은 시공간 자료 해석이 핵심입니다.</p>
+       <pre>물리: 힘·운동·에너지·전자기·파동 중심
+화학: 입자·결합·반응·양적 관계 중심
+생명과학: 세포·물질대사·항상성·유전·생태 중심
+지구과학: 지권·대기·해양·천체·기후 중심</pre>
+      </div>
+     </div>
+     <div class="callout blue"><strong>내신에서 과목 체계를 이해해야 하는 이유</strong><br>공통과학은 여러 영역이 섞인 자료형·탐구형 문제가 많고, 선택 과학은 각 영역의 계산·자료·서술형 변별이 강합니다. 같은 과학이라도 과목별 첫 행동이 달라야 합니다.</div>
+    </section>
+
+    <section id="essence">
+     <div class="section-head">
+      <div class="kicker">2. ESSENCE</div>
+      <h2>과학 내신의 본질: 수업 자료를 시험 문항으로 바꾸는 능력</h2>
+      <p class="lead">과학 내신은 전국 공통 시험이 아닙니다. 학교 선생님이 수업에서 다룬 자료, 강조한 표현, 부교재 문제, 수행평가 활동을 바탕으로 만들어집니다.</p>
+     </div>
+     <div class="card">
+      <h3>과학 내신에서 평가하는 6가지 능력</h3>
+      <table>
+       <thead><tr><th>능력</th><th>실제 의미</th><th>내신 문항에서의 모습</th><th>훈련 행동</th></tr></thead>
+       <tbody>
+        <tr><td><strong>개념 재현</strong></td><td>정의, 조건, 예외를 정확히 말할 수 있다.</td><td>빈칸, 용어 설명, 선지 판단</td><td>개념을 뜻·조건·예시·반례 4칸으로 정리</td></tr>
+        <tr><td><strong>자료 해석</strong></td><td>그래프·표·그림·지도·실험 결과를 읽는다.</td><td>축·단위·범례·변화량 해석</td><td>제목→축→단위→비교 대상 순서로 표시</td></tr>
+        <tr><td><strong>조건 적용</strong></td><td>조건이 바뀌면 결과가 어떻게 달라지는지 예측한다.</td><td>부교재 변형, 자료 변형, 서술형 이유 쓰기</td><td>“무엇이 변했고 무엇이 일정한가” 먼저 표시</td></tr>
+        <tr><td><strong>정량 추론</strong></td><td>비례, 보존, 계수비, 단위, 변화량을 계산한다.</td><td>물리 계산, 화학 양적관계, 유전·통계 자료</td><td>계산 전에 표·상황도·관계식을 만든다.</td></tr>
+        <tr><td><strong>탐구 설계</strong></td><td>가설, 변인, 대조군, 오차, 개선 방안을 설명한다.</td><td>실험 보고서, 탐구형 서술형, 수행평가</td><td>모든 실험을 목적·변인·결론·오차로 정리</td></tr>
+        <tr><td><strong>과학적 표현</strong></td><td>개념과 자료 근거를 문장으로 연결한다.</td><td>서술형, 논술형, 발표, 보고서</td><td>개념어→자료 근거→원리→결론 구조로 쓰기</td></tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="grid-2">
+      <div class="card">
+       <h3>과학 문제의 공통 첫 20초</h3>
+       <div class="checklist">
+        <label class="check-item"><input type="checkbox" data-save="first1"><span>질문에서 구해야 할 값을 먼저 표시한다.<small>정답을 구하는가, 이유를 설명하는가, 조건을 찾는가?</small></span></label>
+        <label class="check-item"><input type="checkbox" data-save="first2"><span>자료의 제목·축·단위·범례를 확인한다.<small>그래프형 문제의 가장 큰 함정입니다.</small></span></label>
+        <label class="check-item"><input type="checkbox" data-save="first3"><span>조작 변인·종속 변인·통제 변인을 구분한다.<small>실험형 문제는 변인부터 읽습니다.</small></span></label>
+        <label class="check-item"><input type="checkbox" data-save="first4"><span>계산 전에 표·그림·관계식을 만든다.<small>머릿속 계산을 줄이면 실수가 줄어듭니다.</small></span></label>
+        <label class="check-item"><input type="checkbox" data-save="first5"><span>선지의 ‘항상, 반드시, 모두, 증가, 감소’에 표시한다.<small>과학 선지는 표현으로 자주 흔듭니다.</small></span></label>
+       </div>
+      </div>
+      <div class="card">
+       <h3>오답을 ‘실수’로 끝내지 않는 법</h3>
+       <table>
+        <thead><tr><th>오답 유형</th><th>다음 행동</th></tr></thead>
+        <tbody>
+         <tr><td>개념 착각</td><td>정의와 조건을 다시 쓰고 반례를 1개 만든다.</td></tr>
+         <tr><td>자료 오독</td><td>축·단위·범례를 문제 옆에 다시 적는다.</td></tr>
+         <tr><td>계산 실수</td><td>단위, 부호, 비례식, 계수비 중 어디서 틀렸는지 표시한다.</td></tr>
+         <tr><td>조건 누락</td><td>문제 조건을 네모 표시하고, 풀이 첫 줄에 조건을 쓴다.</td></tr>
+         <tr><td>서술형 감점</td><td>빠진 개념어와 근거 문장을 보완해 다시 쓴다.</td></tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+    </section>
+
+    <section id="courses">
+     <div class="section-head">
+      <div class="kicker">3. COURSE PROTOCOLS</div>
+      <h2>6개 과목별 내신 공부법</h2>
+      <p class="lead">아래 과목 카드를 선택하면 해당 과목의 내신 첫 행동, 자료 해석법, 서술형 포인트, 수행평가·세특 연결 전략을 확인할 수 있습니다.</p>
+     </div>
+     <div class="tabs" role="tablist" aria-label="과학 과목 선택">
+      <button class="tab-btn active" data-tab="int1" role="tab" aria-selected="true"><b>통합과학1</b><small>기초·물질·시스템</small></button>
+      <button class="tab-btn" data-tab="int2" role="tab" aria-selected="false"><b>통합과학2</b><small>변화·환경·미래</small></button>
+      <button class="tab-btn" data-tab="physics" role="tab" aria-selected="false"><b>물리</b><small>상황도·그래프</small></button>
+      <button class="tab-btn" data-tab="chemistry" role="tab" aria-selected="false"><b>화학</b><small>입자·반응표</small></button>
+      <button class="tab-btn" data-tab="biology" role="tab" aria-selected="false"><b>생명과학</b><small>과정·실험조건</small></button>
+      <button class="tab-btn" data-tab="earth" role="tab" aria-selected="false"><b>지구과학</b><small>시공간 자료</small></button>
+     </div>
+
+     <div class="panel active" id="panel-int1">
+      <div class="card course-hero">
+       <h3>통합과학1: 과학의 기초, 물질과 규칙성, 시스템과 상호작용</h3>
+       <p>통합과학1은 고등 과학의 언어를 만드는 과목입니다. 단위, 측정, 물질의 규칙성, 생명 시스템, 지구 시스템, 힘과 에너지의 상호작용을 연결해 읽어야 합니다.</p>
+       <table>
+        <thead><tr><th>내신 첫 행동</th><th>시험 포인트</th><th>오답 방지</th></tr></thead>
+        <tbody>
+         <tr><td>제시된 현상을 물질·생명·지구·에너지 중 어느 영역인지 분류한다.</td><td>주기율, 화학 결합, 세포·생명 시스템, 지구 시스템, 힘·에너지 전환 자료</td><td>융합 소재에 끌려가지 말고, 실제로 묻는 개념을 하나로 좁힌다.</td></tr>
+        </tbody>
+       </table>
+       <div class="grid-2"><div><h4>공부 루틴</h4><ol><li>교과서 탐구 활동을 목적·변인·결론으로 정리한다.</li><li>주기율표, 원자 모형, 세포 구조, 지구 시스템 그림을 백지 복원한다.</li><li>프린트의 표를 가리고 직접 채운다.</li><li>서술형은 “개념 → 자료 근거 → 결과” 구조로 3문장 답안을 만든다.</li></ol></div><div><h4>서술형 예시</h4><pre>문항: 원자가전자 수가 원소의 화학적 성질과 관련되는 이유를 설명하시오.
+답안 구조:
+1. 원자가전자는 가장 바깥 전자껍질에 있는 전자이다.
+2. 화학 결합에는 주로 원자가전자가 관여한다.
+3. 따라서 같은 족 원소는 원자가전자 수가 같아 화학적 성질이 비슷하다.</pre></div></div>
+      </div>
+     </div>
+
+     <div class="panel" id="panel-int2">
+      <div class="card course-hero">
+       <h3>통합과학2: 변화와 다양성, 환경과 에너지, 과학과 미래 사회</h3>
+       <p>통합과학2는 변화의 원인과 지속가능성, 에너지 전환, 생물 다양성, 기후·환경 문제, 과학기술의 사회적 영향을 연결하는 과목입니다.</p>
+       <table>
+        <thead><tr><th>내신 첫 행동</th><th>시험 포인트</th><th>오답 방지</th></tr></thead>
+        <tbody><tr><td>자료가 말하는 변화가 물질 변화인지, 생태·환경 변화인지, 에너지 전환인지 먼저 구분한다.</td><td>산화·환원, 산·염기, 생물 다양성, 에너지 효율, 탄소 순환, 기후 자료, 감염병·AI·과학 윤리</td><td>시사 소재를 외우려 하지 말고 교과 개념과 자료 근거로 판단한다.</td></tr></tbody>
+       </table>
+       <div class="grid-2"><div><h4>공부 루틴</h4><ol><li>환경·에너지 자료는 단위와 기준 연도를 표시한다.</li><li>화학 변화는 반응 전후 물질과 에너지 출입을 구분한다.</li><li>생태계 자료는 생산자·소비자·분해자와 물질 순환을 표시한다.</li><li>과학기술 쟁점은 장점·한계·윤리적 쟁점을 함께 정리한다.</li></ol></div><div><h4>수행평가 연결</h4><pre>주제 예시:
+지역 전력 사용량과 재생에너지 비율 분석
+플라스틱 분해와 생태계 영향 탐구
+기후 자료를 활용한 폭염일수 변화 분석
+감염병 확산과 과학적 의사소통 사례 분석</pre></div></div>
+      </div>
+     </div>
+
+     <div class="panel" id="panel-physics">
+      <div class="card course-hero">
+       <h3>물리: 현상을 식·그래프·상황도로 번역하는 과목</h3>
+       <p>물리는 공식을 외우는 과목이 아니라, 물체의 상태와 상호작용을 힘, 에너지, 운동량, 전기장, 파동의 언어로 바꾸는 과목입니다.</p>
+       <table><thead><tr><th>내신 첫 행동</th><th>시험 포인트</th><th>오답 방지</th></tr></thead><tbody><tr><td>상황도를 그리고 방향, 힘, 속도, 가속도, 전류, 파동 진행 방향을 표시한다.</td><td>운동 그래프, 힘과 운동, 일과 에너지, 전기 회로, 전자기 유도, 파동</td><td>공식부터 대입하지 말고 그래프의 기울기·면적·방향을 먼저 확인한다.</td></tr></tbody></table>
+       <div class="grid-2"><div><h4>물리 내신 루틴</h4><ol><li>문제마다 힘 표시도 또는 상황도를 그린다.</li><li>위치-시간, 속도-시간, 힘-변위 그래프의 기울기와 면적 의미를 말한다.</li><li>단위를 이용해 식이 맞는지 검산한다.</li><li>부호와 방향은 계산 전 화살표로 고정한다.</li></ol></div><div><h4>오답 포인트</h4><pre>물리 오답 분류:
+□ 힘의 방향 오류
+□ 속도와 가속도 혼동
+□ 그래프 기울기·면적 해석 오류
+□ 단위 변환 오류
+□ 회로에서 전류·전압 역할 혼동
+□ 파동의 진행 방향과 진동 방향 혼동</pre></div></div>
+      </div>
+     </div>
+
+     <div class="panel" id="panel-chemistry">
+      <div class="card course-hero">
+       <h3>화학: 입자 수준 변화와 거시적 관찰을 연결하는 과목</h3>
+       <p>화학은 원자·분자·이온의 수준에서 일어나는 변화를 질량, 몰, 농도, 반응식, 에너지 변화와 연결해 해석하는 과목입니다.</p>
+       <table><thead><tr><th>내신 첫 행동</th><th>시험 포인트</th><th>오답 방지</th></tr></thead><tbody><tr><td>화학식과 반응식의 계수비를 쓰고, 반응 전·반응한 양·반응 후 표를 만든다.</td><td>원자 구조, 주기율, 화학 결합, 몰과 농도, 화학 반응식, 산·염기, 산화·환원</td><td>질량비와 몰수비를 혼동하지 말고, 남는 반응물 여부를 확인한다.</td></tr></tbody></table>
+       <div class="grid-2"><div><h4>화학 내신 루틴</h4><ol><li>모든 계산 문제에서 단위와 물질량을 표로 정리한다.</li><li>화학 반응식은 반드시 계수를 맞춘 뒤 시작한다.</li><li>주기율 문제는 전자 배치와 원자가전자 수를 연결한다.</li><li>산화·환원은 산화수 변화와 전자 이동을 표시한다.</li></ol></div><div><h4>양적관계 표</h4><pre>반응식:
+계수비:
+
+물질   A    B    C
+반응 전
+반응한 양
+반응 후
+
+확인:
+□ 한계 반응물
+□ 남는 반응물
+□ 몰수→질량 변환
+□ 단위</pre></div></div>
+      </div>
+     </div>
+
+     <div class="panel" id="panel-biology">
+      <div class="card course-hero">
+       <h3>생명과학: 구조·기능·과정·조절을 흐름으로 읽는 과목</h3>
+       <p>생명과학은 용어 암기량이 많지만, 실제 내신 변별은 과정의 순서, 조건 변화에 따른 결과 예측, 실험군과 대조군 해석에서 나옵니다.</p>
+       <table><thead><tr><th>내신 첫 행동</th><th>시험 포인트</th><th>오답 방지</th></tr></thead><tbody><tr><td>자료를 자극→조절→반응, 유전자형→표현형, 원인→결과 흐름으로 바꾼다.</td><td>세포 구조, 물질대사, 항상성, 신경·호르몬, 유전, 진화, 생태계</td><td>용어만 보고 판단하지 말고, 실험 조건과 대조군을 먼저 확인한다.</td></tr></tbody></table>
+       <div class="grid-2"><div><h4>생명과학 내신 루틴</h4><ol><li>과정도는 반드시 화살표로 다시 그린다.</li><li>실험 문제는 대조군, 조작 변인, 종속 변인을 먼저 찾는다.</li><li>유전 문제는 표현형보다 가능한 유전자형 표를 먼저 만든다.</li><li>항상성 문제는 기준값, 변화 방향, 되먹임 결과를 표시한다.</li></ol></div><div><h4>실험형 문제 첫 행동</h4><pre>탐구 문제:
+가설:
+조작 변인:
+종속 변인:
+통제 변인:
+대조군:
+실험군:
+결과 자료:
+결론:
+오차 또는 한계:</pre></div></div>
+      </div>
+     </div>
+
+     <div class="panel" id="panel-earth">
+      <div class="card course-hero">
+       <h3>지구과학: 공간과 시간의 자료를 해석하는 과목</h3>
+       <p>지구과학은 암기 과목처럼 보이지만 실제 점수는 지도, 단면도, 기상도, 해양 자료, 천체 위치 자료의 조건을 정확히 읽는 데서 갈립니다.</p>
+       <table><thead><tr><th>내신 첫 행동</th><th>시험 포인트</th><th>오답 방지</th></tr></thead><tbody><tr><td>자료에서 위치, 방향, 시간, 계절, 관측자를 표시한다.</td><td>판 구조, 암석과 지질 구조, 대기와 해양, 기후 변화, 별과 우주, 천체 관측</td><td>익숙한 그림이라고 바로 판단하지 말고, 조건이 이전 문제와 다른지 확인한다.</td></tr></tbody></table>
+       <div class="grid-2"><div><h4>지구과학 내신 루틴</h4><ol><li>지질 단면도는 사건 순서를 번호로 적는다.</li><li>기상도는 기압 배치, 바람 방향, 전선 위치를 표시한다.</li><li>해양 자료는 수온, 염분, 밀도, 해류 방향을 연결한다.</li><li>천체 문제는 관측자 위치, 계절, 시각, 고도 조건을 표시한다.</li></ol></div><div><h4>자료형 체크</h4><pre>자료 제목:
+위치:
+방향:
+시간/계절:
+단위:
+비교 대상:
+증가·감소:
+예외 조건:
+자료로 알 수 있는 결론:</pre></div></div>
+      </div>
+     </div>
+    </section>
+
+    <section id="materials">
+     <div class="section-head">
+      <div class="kicker">4. MATERIALS</div>
+      <h2>교과서·학교 프린트·부교재 활용법</h2>
+      <p class="lead">과학 내신에서 가장 중요한 자료는 ‘학교 수업에서 실제로 다룬 자료’입니다. 자료마다 역할을 다르게 잡아야 합니다.</p>
+     </div>
+     <div class="grid-3">
+      <div class="card"><h3>교과서</h3><p>교과서는 개념의 표준 표현과 그림·탐구 활동의 원본입니다.</p><ul><li>본문은 정의·조건·결과·주의점으로 쪼갠다.</li><li>그림과 표는 제목을 가리고 다시 설명한다.</li><li>탐구 활동은 목적·변인·결론·오차로 바꾼다.</li></ul></div>
+      <div class="card"><h3>학교 프린트</h3><p>프린트는 출제자의 언어가 들어 있는 핵심 자료입니다.</p><ul><li>빈칸, 굵은 글씨, 별표, 여백 필기를 표시한다.</li><li>선생님 표현을 서술형 답안 문장으로 바꾼다.</li><li>시험 전날에는 프린트 백지 복원을 최우선으로 한다.</li></ul></div>
+      <div class="card"><h3>부교재</h3><p>부교재는 출제 패턴 저장소입니다.</p><ul><li>문제를 개념형, 자료형, 계산형, 서술형으로 분류한다.</li><li>맞힌 문제도 변형 가능성이 높으면 표시한다.</li><li>오답은 “다음 첫 행동”까지 기록한다.</li></ul></div>
+     </div>
+     <div class="card">
+      <h3>부교재 문항 A/B/C/D 분류법</h3>
+      <table><thead><tr><th>등급</th><th>의미</th><th>처리법</th></tr></thead><tbody><tr><td>A</td><td>바로 풀리고 변형 가능성 낮음</td><td>시험 직전 빠르게 확인</td></tr><tr><td>B</td><td>기본 유형이지만 자주 출제 가능</td><td>시간 제한으로 2회 재풀이</td></tr><tr><td>C</td><td>자료·조건 변형 가능성이 큼</td><td>축·단위·조건을 바꾼 예상 문제 만들기</td></tr><tr><td>D</td><td>고난도·서술형 가능성이 큼</td><td>풀이 첫 행동과 답안 문장을 암기 수준으로 정리</td></tr></tbody></table>
+     </div>
+     <div class="template"><button class="copy-btn" onclick="copyTemplate('originMap')">복사</button><pre id="originMap">[과학 내신 출제 원본 맵]
+과목:
+단원:
+교과서 핵심 자료:
+학교 프린트 핵심 문장:
+선생님 판서·구두 강조:
+부교재 중요 문제:
+교과서 탐구 활동:
+수행평가 연결 내용:
+예상 객관식 유형:
+예상 서술형 질문:
+나의 약점:
+시험 전날 볼 자료:</pre></div>
+     <div class="card">
+      <h3>내신 핵심 개념·공식 미니사전</h3>
+      <p class="mini">물·화·생·지 공통으로 자주 출제되는 포인트입니다. ‘함정·주의’를 함께 외우세요.</p>
+      <table><thead><tr><th>개념·공식</th><th>핵심</th><th>함정·주의</th></tr></thead><tbody>
+       <tr><td>한정 요인 (생명)</td><td>가장 부족한 요인이 반응 속도를 결정</td><td>그래프 포화 구간의 원인 해석</td></tr>
+       <tr><td>변인 통제 (공통)</td><td>조작·종속·통제 변인을 구분</td><td>통제 변인 누락 시 결론 무효</td></tr>
+       <tr><td>몰(mol) (화학)</td><td>입자 수 = mol × 6.02×10²³</td><td>질량·부피·입자 수 단위 환산 실수</td></tr>
+       <tr><td>반응 속도 (화학)</td><td>농도·온도·촉매·표면적의 영향</td><td>촉매는 활성화 에너지를 낮춤(소모X)</td></tr>
+       <tr><td>등가속도 운동 (물리)</td><td>v=v₀+at, s=v₀t+½at²</td><td>방향(부호) 설정, 단위 통일</td></tr>
+       <tr><td>역학적 에너지 보존 (물리)</td><td>위치E ↔ 운동E, 손실은 마찰</td><td>‘마찰 무시’ 조건 확인</td></tr>
+       <tr><td>옴의 법칙 (물리)</td><td>V = I × R</td><td>직렬·병렬 합성저항 구분</td></tr>
+       <tr><td>판 경계 (지구)</td><td>발산·수렴·보존 경계</td><td>경계별 지형·화산·지진 양상</td></tr>
+       <tr><td>별의 등급 (지구)</td><td>겉보기등급 vs 절대등급</td><td>등급이 작을수록 밝다</td></tr>
+       <tr><td>주기율표 경향 (통합)</td><td>주기·족에 따른 성질 변화</td><td>전자 껍질·유효 핵전하로 설명</td></tr>
+      </tbody></table>
+     </div>
+    </section>
+
+    <section id="styles">
+     <div class="section-head"><div class="kicker">5. TEACHER STYLE</div><h2>선생님 출제 스타일별 대비 전략</h2><p class="lead">같은 과학 과목이라도 학교와 선생님에 따라 시험 성격이 완전히 달라집니다.</p></div>
+     <div class="card">
+      <table><thead><tr><th>출제 스타일</th><th>특징</th><th>대비 전략</th></tr></thead><tbody>
+       <tr><td><strong>프린트·암기 중심형</strong></td><td>빈칸, 정의, 표, 선생님 표현이 그대로 출제</td><td>프린트 3회 백지복원, 교과서 정의 원문 암기, 예외 조건 표시</td></tr>
+       <tr><td><strong>자료 해석형</strong></td><td>그래프, 표, 그림, 교과서 탐구 활동 변형</td><td>자료 제목·축·단위·변수·비교 대상 표시 훈련</td></tr>
+       <tr><td><strong>계산·시간 제한 풀이형</strong></td><td>물리, 화학, 유전·통계형 계산이 많음</td><td>관계표 작성, 단위 검산, 문항별 제한 시간 기록</td></tr>
+       <tr><td><strong>실험·탐구형</strong></td><td>변인 통제, 실험 설계, 오차 분석, 결론 해석</td><td>모든 실험을 탐구 문제·가설·변인·결론·오차로 정리</td></tr>
+       <tr><td><strong>서술형 강화형</strong></td><td>이유 설명, 과정 설명, 근거 제시 요구</td><td>개념어→자료 근거→원리→결론 구조로 답안 작성</td></tr>
+      </tbody></table>
+     </div>
+    </section>
+
+    <section id="writing">
+     <div class="section-head"><div class="kicker">6. WRITING</div><h2>서술형·계산형·실험형 문항 답안 작성법</h2><p class="lead">과학 서술형은 “대충 맞는 말”이 아니라, 채점자가 요구한 개념어와 자료 근거를 정확히 넣어야 점수가 됩니다.</p></div>
+     <div class="grid-2">
+      <div class="card"><h3>서술형 답안 구조</h3><pre>1. 개념어 제시
+2. 문제 조건 또는 자료 근거 제시
+3. 과학 원리 적용
+4. 결론 문장 작성</pre><p>예: “빛의 세기가 증가하면 광합성량이 증가한다”로 끝내지 말고, 자료에서 발생한 기체량 증가를 근거로 연결합니다.</p></div>
+      <div class="card"><h3>계산형 답안 구조</h3><pre>1. 주어진 값과 단위 정리
+2. 사용할 관계식 제시
+3. 대입 과정 쓰기
+4. 단위 포함 결과 제시
+5. 조건 만족 여부 확인</pre><p>계산 과정은 줄이더라도 단위와 관계식을 생략하면 감점될 수 있습니다.</p></div>
+     </div>
+     <div class="card">
+      <h3>실험형 서술형 필수 표현</h3>
+      <table><thead><tr><th>요구</th><th>답안에 반드시 들어갈 내용</th><th>문장 예시</th></tr></thead><tbody><tr><td>가설 쓰기</td><td>조작 변인과 종속 변인의 관계</td><td>빛의 세기가 증가하면 광합성량이 증가할 것이다.</td></tr><tr><td>변인 통제</td><td>조작·종속·통제 변인 구분</td><td>온도와 이산화탄소 농도는 통제하고 빛의 세기만 변화시킨다.</td></tr><tr><td>결론 도출</td><td>자료 근거 + 개념</td><td>기체 발생량이 증가했으므로 빛의 세기는 광합성량 증가에 영향을 준다.</td></tr><tr><td>오차 분석</td><td>측정·환경·기구·시료의 한계</td><td>광원의 거리 측정 오차로 실제 빛의 세기가 일정하지 않았을 수 있다.</td></tr></tbody></table>
+     </div>
+     <div class="template"><button class="copy-btn" onclick="copyTemplate('wrongNote')">복사</button><pre id="wrongNote">[과학 오답노트]
+문제 번호:
+과목/단원:
+문제 유형: 개념 / 자료 / 계산 / 실험 / 서술형
+출처: 교과서 / 프린트 / 부교재 / 시험지
+내가 틀린 이유:
+□ 개념 착각 □ 조건 누락 □ 축·단위 오독 □ 계산 실수 □ 선지 표현 오해 □ 시간 부족
+정답 근거:
+오답 선지가 틀린 단어:
+다시 풀 때 첫 행동:
+서술형으로 바뀌면 필요한 답안 문장:
+재출제 예상 방식:</pre></div>
+     <div class="card">
+      <h3>기출형 실전 예시 — 모범답안 vs 감점답안</h3>
+      <p class="mini">과학 서술형은 ‘개념어 + 자료 근거 + 원리’가 모두 있어야 만점입니다. 의인화·일상어는 감점입니다.</p>
+      <p class="mini">문항: 〈자료〉의 그래프에서 빛의 세기가 일정 값 이상일 때 광합성량이 더 이상 증가하지 않는 까닭을 서술하시오. (조건: ‘한정 요인’ 포함)</p>
+      <div class="grid-2">
+       <div class="card"><div class="callout ok"><strong>✅ 모범답안</strong><p>빛의 세기가 약할 때는 빛이 한정 요인이므로 세기가 커질수록 광합성량이 증가한다. 그러나 일정 세기 이상에서는 이산화탄소 농도나 온도가 한정 요인으로 작용하여, 빛을 더 늘려도 광합성량이 증가하지 않는다.</p></div></div>
+       <div class="card"><div class="callout danger"><strong>❌ 감점답안</strong><p>빛이 너무 세서 식물이 힘들어서 광합성을 그만한다.</p><p class="mini"><strong>감점 이유</strong> ① 조건인 ‘한정 요인’ 개념 미사용 ② 그래프 포화 구간이라는 자료 근거 미연결 ③ ‘힘들어서’ 같은 비과학적 의인화 표현</p></div></div>
+      </div>
+     </div>
+    </section>
+
+    <section id="performance">
+     <div class="section-head"><div class="kicker">7. PERFORMANCE & RECORD</div><h2>수행평가와 세특 연결 전략</h2><p class="lead">과학 수행평가는 점수만 받는 활동이 아닙니다. 탐구 질문, 자료 처리, 오차 분석, 후속 탐구가 드러나면 세특으로 연결됩니다.</p></div>
+     <div class="card">
+      <h3>좋은 과학 탐구의 공식</h3>
+      <div class="flow"><span>교과 개념</span><span>탐구 질문</span><span>변인 설정</span><span>자료 수집</span><span>분석</span><span>한계·후속 탐구</span></div>
+      <table><thead><tr><th>과목</th><th>탐구 주제 방향</th><th>세특에 남는 역량</th></tr></thead><tbody><tr><td>통합과학1</td><td>원소의 주기성과 물질 성질의 관계 분석</td><td>개념 연결, 자료 해석</td></tr><tr><td>통합과학2</td><td>지역 에너지 사용량과 탄소 배출 자료 분석</td><td>자료 기반 문제 해결, 과학·사회 연결</td></tr><tr><td>물리</td><td>경사면 각도에 따른 운동 에너지 변화 실험</td><td>정량 측정, 그래프 분석, 오차 분석</td></tr><tr><td>화학</td><td>농도 변화에 따른 반응 속도 비교</td><td>변인 통제, 몰·농도 개념 적용</td></tr><tr><td>생명과학</td><td>빛 조건에 따른 식물 생장 또는 광합성 자료 분석</td><td>생명 현상 관찰, 실험 설계</td></tr><tr><td>지구과학</td><td>기상 자료와 지역 강수량 변화 비교</td><td>공공 데이터 해석, 시공간 자료 분석</td></tr></tbody></table>
+     </div>
+     <div class="template"><button class="copy-btn" onclick="copyTemplate('labReport')">복사</button><pre id="labReport">[과학 탐구 보고서 템플릿]
+1. 탐구 주제:
+2. 탐구 동기:
+3. 관련 교과 개념:
+4. 탐구 질문:
+5. 가설:
+6. 변인 설정
+  - 조작 변인:
+  - 종속 변인:
+  - 통제 변인:
+7. 실험/조사 방법:
+8. 원자료:
+9. 자료 처리 방법:
+10. 그래프·표 해석:
+11. 결론:
+12. 오차 원인 또는 자료의 한계:
+13. 개선 방안:
+14. 후속 탐구 질문:
+15. 세특에 남길 나의 역할:</pre></div>
+     <div class="card">
+      <h3>수행평가 채점 루브릭 (과학)</h3>
+      <p class="mini">과학 탐구·실험 수행은 보통 아래 4관점으로 채점됩니다.</p>
+      <table><thead><tr><th>평가 요소</th><th>상</th><th>중</th><th>하</th></tr></thead><tbody>
+       <tr><td>개념 적용</td><td>탐구에 맞는 과학 개념을 정확히 적용</td><td>개념은 맞지만 연결이 약함</td><td>개념 오용·누락</td></tr>
+       <tr><td>탐구 설계</td><td>변인을 통제하고 가설이 검증 가능</td><td>변인 구분이 불완전</td><td>설계 결함으로 결론 불가</td></tr>
+       <tr><td>자료 처리</td><td>표·그래프로 정리, 정량 분석 정확</td><td>처리 일부 오류</td><td>원자료 나열에 그침</td></tr>
+       <tr><td>해석·성찰</td><td>자료 근거로 결론, 오차·한계 제시</td><td>해석 단순, 오차 형식적</td><td>해석·성찰 없음</td></tr>
+      </tbody></table>
+     </div>
+     <div class="callout orange"><strong>완성형 세특 예시 문장</strong>
+      <p class="mini" style="margin-top:6px">‘개념 → 탐구 설계 → 자료 분석 → 오차·후속 탐구’가 드러나면 좋은 세특입니다.</p>
+      <p>① 물리에서 경사면 각도를 바꿔 가며 물체의 도달 속도를 측정하고, 위치 에너지가 운동 에너지로 전환되는 비율을 그래프로 분석함. 마찰과 측정 오차를 한계로 제시하고 빗면 길이를 늘리는 개선안을 제안하여 정량적 탐구 역량을 보임.</p>
+      <p>② 생명과학에서 빛 조건에 따른 광합성량 변화를 기체 발생량으로 측정하고, 일정 세기 이상에서 포화되는 현상을 ‘한정 요인’ 개념으로 설명함. 통제 변인 관리와 자료 기반 결론 도출이 돋보임.</p>
+     </div>
+    </section>
+
+    <section id="plan">
+     <div class="section-head"><div class="kicker">8. 21-DAY PLAN</div><h2>과학 내신 21일 플랜</h2><p class="lead">시험 3주 전부터는 공부할 자료와 행동을 분명히 나누어야 합니다.</p></div>
+     <div class="card">
+      <div class="phase"><b>D-21~15</b><div><strong>출제 원본 확보</strong><br>시험 범위 교과서 페이지, 프린트, 부교재, 수행평가 자료, 선생님 강조 문제를 한곳에 모읍니다. 이 시기에는 문제 양보다 출제 가능 자료 목록화가 우선입니다.</div></div>
+      <div class="phase"><b>D-14~8</b><div><strong>개념·자료 1차 완성</strong><br>교과서 그림·표·탐구 활동을 다시 설명하고, 프린트 빈칸 1차 백지복원, 부교재 기본·중간 난도 문제를 풉니다.</div></div>
+      <div class="phase"><b>D-7~3</b><div><strong>변형·서술형 집중</strong><br>부교재 C/D 문제 재풀이, 자료형 문제 시간 제한 풀이, 서술형 예상 답안 작성, 실험형 문제 변인 정리를 반복합니다.</div></div>
+      <div class="phase"><b>D-2~1</b><div><strong>복원·실수 방지</strong><br>새로운 고난도 문제를 늘리지 말고 프린트 백지복원, 오답노트 첫 행동, 자주 틀리는 단위·축·조건을 확인합니다.</div></div>
+     </div>
+    </section>
+
+    <section id="levels">
+     <div class="section-head"><div class="kicker">9. LEVEL STRATEGY</div><h2>수준별 추천 전략</h2><p class="lead">같은 과학 내신이라도 현재 수준에 따라 가장 먼저 해야 할 일이 다릅니다.</p></div>
+     <div class="grid-3">
+      <div class="card"><h3>상위권</h3><p><span class="tag green">목표</span> 서술형 감점 0, 자료형·계산형 실수 제거</p><ul><li>맞힌 문제 중 오래 걸린 문제를 복기한다.</li><li>선지의 틀린 단어를 반드시 찾는다.</li><li>교과서 그림과 프린트 표를 완전히 백지복원한다.</li><li>어려운 문제보다 쉬운 문제 실수 방지 루틴을 만든다.</li></ul></div>
+      <div class="card"><h3>중위권</h3><p><span class="tag orange">목표</span> 맞힐 수 있는 문제를 빠르고 안정적으로 확보</p><ul><li>기본 개념을 정의·조건·예시·반례로 정리한다.</li><li>그래프는 축·단위·비교 대상부터 표시한다.</li><li>오답은 24시간 뒤 해설 없이 다시 푼다.</li><li>고난도보다 빈출 자료형과 서술형을 먼저 잡는다.</li></ul></div>
+      <div class="card"><h3>기초권</h3><p><span class="tag blue">목표</span> 교과서 기본 개념과 쉬운 자료형 안정화</p><ul><li>단원별 핵심 용어 20개씩 뜻과 예시를 쓴다.</li><li>교과서 그림을 보고 말로 설명한다.</li><li>부교재 기본 문제만 먼저 해설 없이 반복한다.</li><li>어려운 계산보다 단위와 관계식부터 익힌다.</li></ul></div>
+     </div>
+    </section>
+
+    <section id="tools">
+     <div class="section-head"><div class="kicker">10. TOOLKIT</div><h2>학생용 도구함</h2><p class="lead">아래 양식은 복사해서 노트, 문서, 수행평가 보고서에 바로 사용할 수 있습니다.</p></div>
+     <div class="grid-2">
+      <div class="toolbox"><h3>시험 시간 타이머</h3><div class="timer-panel"><div class="timer-display" id="timerDisplay">50:00</div><div class="timer-controls"><button onclick="setTimer(50)">50분</button><button onclick="setTimer(45)" class="secondary">45분</button><button onclick="setTimer(40)" class="orange">40분</button><button onclick="startTimer()">시작</button><button onclick="pauseTimer()" class="ghost">정지</button><button onclick="resetTimer()" class="ghost">초기화</button></div></div><p class="mini">내신 수업별 시험 시간이 다르므로 학교 시간에 맞춰 사용하세요.</p></div>
+      <div class="toolbox"><h3>내 메모</h3><textarea data-save-text="memo" placeholder="이번 과학 시험에서 반드시 지킬 행동을 적어 보세요. 예: 그래프 축 먼저 보기, 화학 계산은 몰수표 만들기, 서술형에 개념어 포함하기"></textarea></div>
+     </div>
+     <div class="template"><button class="copy-btn" onclick="copyTemplate('dailyRoutine')">복사</button><pre id="dailyRoutine">[과학 내신 하루 루틴]
+오늘 공부한 과목/단원:
+1. 핵심 개념 5개:
+2. 교과서 그림·표 복원:
+3. 프린트 빈칸 복원:
+4. 부교재 문제:
+5. 오답 원인:
+6. 서술형 예상 답안:
+7. 내일 다시 풀 문제:</pre></div>
+     <div class="template"><button class="copy-btn" onclick="copyTemplate('dataAnalysis')">복사</button><pre id="dataAnalysis">[과학 자료 해석표]
+자료 제목:
+자료 유형: 그래프 / 표 / 그림 / 실험 과정 / 지도 / 단면도
+x축 또는 기준:
+y축 또는 측정값:
+단위:
+변하는 조건:
+일정한 조건:
+비교 대상:
+자료에서 직접 알 수 있는 것:
+추론해야 하는 것:
+관련 개념:
+정답 근거 문장:</pre></div>
+    </section>
+
+    <section id="sources">
+     <div class="section-head"><div class="kicker">REFERENCE</div><h2>참고 기준</h2></div>
+     <div class="card footnotes">
+      <ul>
+       <li>2022 개정 교육과정의 과학 교과 체계와 학교 내신 대비 방향을 바탕으로 구성했습니다.</li>
+       <li>학교별 교과서, 프린트, 부교재, 수행평가 방식은 다를 수 있으므로 실제 시험 준비에서는 담당 교사의 수업 자료를 최우선으로 확인해야 합니다.</li>
+       <li>이 파일은 고등학생이 직접 체크하고 기록하며 활용하도록 제작된 단일 HTML 자료입니다.</li>
+      </ul>
+     </div>
+    </section>
+   </main>
+  </div>
+ </div>
+
+ <script>
+  const prefix='science_internal_2022_';
+  function saveState(){
+   document.querySelectorAll('input[type="checkbox"][data-save]').forEach(cb=>localStorage.setItem(prefix+cb.dataset.save, cb.checked?'1':'0'));
+   updateDiagnosis();
+  }
+  function restoreState(){
+   document.querySelectorAll('input[type="checkbox"][data-save]').forEach(cb=>{cb.checked=localStorage.getItem(prefix+cb.dataset.save)==='1'; cb.addEventListener('change', saveState);});
+   document.querySelectorAll('textarea[data-save-text]').forEach(t=>{const v=localStorage.getItem(prefix+t.dataset.saveText); if(v!==null)t.value=v; t.addEventListener('input',()=>localStorage.setItem(prefix+t.dataset.saveText,t.value));});
+   updateDiagnosis();
+  }
+  function updateDiagnosis(){
+   let score=0; document.querySelectorAll('input[data-score]:checked').forEach(cb=>score+=Number(cb.dataset.score||1));
+   const scoreEl=document.getElementById('diagnosisScore'); const textEl=document.getElementById('diagnosisText');
+   if(!scoreEl||!textEl)return; scoreEl.textContent=score;
+   if(score<=2) textEl.textContent='기본 루틴은 양호합니다. 과목별 약점과 서술형 감점 방지를 집중하세요.';
+   else if(score<=5) textEl.textContent='중간 점검이 필요합니다. 자료 해석, 프린트 복원, 오답 분류 루틴을 고정하세요.';
+   else textEl.textContent='공부 절차를 다시 세워야 합니다. 새 문제보다 개념·자료·서술형 기본 루틴부터 잡으세요.';
+  }
+  function copyTemplate(id){
+   const el=document.getElementById(id); if(!el)return; navigator.clipboard.writeText(el.innerText).then(()=>{alert('양식을 복사했습니다.');});
+  }
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+   btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');btn.setAttribute('aria-selected','true');
+    const panel=document.getElementById('panel-'+btn.dataset.tab); if(panel) panel.classList.add('active');
+   });
+  });
+  let timerSeconds=50*60, timerInitial=50*60, timerHandle=null;
+  function renderTimer(){const m=Math.floor(timerSeconds/60),s=timerSeconds%60;document.getElementById('timerDisplay').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+  function setTimer(min){timerInitial=min*60;timerSeconds=timerInitial;pauseTimer();renderTimer();}
+  function startTimer(){if(timerHandle)return;timerHandle=setInterval(()=>{if(timerSeconds>0){timerSeconds--;renderTimer();}else{pauseTimer();alert('시간이 끝났습니다.');}},1000);}
+  function pauseTimer(){if(timerHandle){clearInterval(timerHandle);timerHandle=null;}}
+  function resetTimer(){pauseTimer();timerSeconds=timerInitial;renderTimer();}
+  restoreState(); renderTimer();
+ </script>
+<script>
+/* plan-progress: 21일 플랜 진행률 체크 (자동저장) */
+(function(){
+  var plan=document.getElementById('plan');
+  if(!plan) return;
+  var phases=[].slice.call(plan.querySelectorAll('.phase'));
+  if(!phases.length) return;
+  var PFX='sci-plan-';
+  var head=plan.querySelector('.section-head');
+  var wrap=document.createElement('div');
+  wrap.className='plan-progress';
+  wrap.style.cssText='margin:0 0 16px';
+  wrap.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><strong>21일 플랜 진행률</strong><span class="pp-label" style="font-weight:900;color:#1f5eff"></span></div><div style="height:10px;background:#e7eef8;border-radius:999px;overflow:hidden"><div class="pp-bar" style="height:100%;width:0;background:linear-gradient(90deg,#1f5eff,#0f766e);transition:width .3s"></div></div><p style="margin:7px 0 0;font-size:.86rem;color:#76839a">각 단계 앞 체크박스를 누르면 진행률이 저장됩니다.</p>';
+  if(head){head.insertAdjacentElement('afterend',wrap);}else{plan.insertBefore(wrap,plan.firstChild);}
+  var bar=wrap.querySelector('.pp-bar'),label=wrap.querySelector('.pp-label');
+  function upd(){var done=0;phases.forEach(function(p){var b=p.querySelector('.plan-check');if(b&&b.checked)done++;});var pct=Math.round(done/phases.length*100);bar.style.width=pct+'%';label.textContent=done+' / '+phases.length+' 단계 ('+pct+'%)';}
+  phases.forEach(function(p,i){
+    var b=document.createElement('input');b.type='checkbox';b.className='plan-check';
+    b.style.cssText='transform:scale(1.3);margin-right:8px;vertical-align:middle;cursor:pointer';
+    var key=PFX+i;
+    b.checked=localStorage.getItem(key)==='1';
+    b.addEventListener('change',function(){localStorage.setItem(key,b.checked?'1':'0');upd();});
+    var lab=p.querySelector('b');
+    if(lab){lab.insertBefore(b,lab.firstChild);}else{p.insertBefore(b,p.firstChild);}
+  });
+  upd();
+})();
+</script>
+</body>
+</html>

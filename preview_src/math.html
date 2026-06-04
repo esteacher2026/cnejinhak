@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="ko">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>고등 수학 내신 공부법  학습 방법 | 2022 개정 교육과정</title>
+ <meta name="description" content="공통수학1, 공통수학2, 대수, 미적분Ⅰ, 확률과 통계에 맞춘 고등학생용 수학 내신 공부법. 시간 제한 풀이, 변형 출제, 서술형, 오답노트, 세특까지 활용 가능한 HTML 가이드." />
+ <style>
+  :root{
+   --bg:#f7f7fb;
+   --paper:#ffffff;
+   --ink:#172033;
+   --muted:#647086;
+   --line:#e1e5ee;
+   --brand:#5b21b6;
+   --brand2:#0f766e;
+   --accent:#b45309;
+   --red:#b42318;
+   --blue:#2563eb;
+   --green:#047857;
+   --violet:#7c3aed;
+   --soft:#f1ecff;
+   --soft2:#e8fff8;
+   --warn:#fff7df;
+   --danger:#fff1f2;
+   --ok:#ecfdf5;
+   --blue-soft:#eef6ff;
+   --shadow:0 14px 36px rgba(30,20,80,.10);
+   --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+   margin:0;
+   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+   color:var(--ink);
+   background:linear-gradient(180deg,#efe8ff 0%,var(--bg) 420px);
+   line-height:1.72;
+   word-break:keep-all;
+  }
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  header.hero{padding:52px 0 34px;border-bottom:1px solid rgba(91,33,182,.14)}
+  .eyebrow{font-size:.92rem;font-weight:950;color:var(--brand2);letter-spacing:.06em;text-transform:uppercase}
+  h1{font-size:clamp(2.0rem,5vw,4.35rem);line-height:1.06;margin:.25em 0 .3em;letter-spacing:-.055em}
+  h2{font-size:clamp(1.65rem,3vw,2.32rem);line-height:1.18;margin:.18em 0 .35em;letter-spacing:-.035em}
+  h3{font-size:1.34rem;line-height:1.28;margin:1.15em 0 .45em;letter-spacing:-.025em}
+  h4{font-size:1.08rem;margin:1em 0 .35em}
+  .subtitle{font-size:1.16rem;color:var(--muted);max-width:980px;margin:0 0 20px}
+  .maker{
+   display:inline-flex;gap:8px;align-items:center;margin-top:10px;
+   padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.76);border:1px solid rgba(225,229,238,.9);
+   font-size:.86rem;font-weight:850;color:#485168;box-shadow:0 8px 20px rgba(30,20,80,.045)
+  }
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;margin-top:18px}
+  .hero-card,.card,.toolbox,.toc,.callout{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .hero-card{padding:22px}.hero-card h2{font-size:1.22rem;margin:.1em 0 .4em}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+  .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-size:.88rem;font-weight:850;color:#34405a}
+  .pill strong{color:var(--brand)}
+  .layout{display:grid;grid-template-columns:278px minmax(0,1fr);gap:24px;align-items:start;padding:26px 0 80px}
+  nav.toc{position:sticky;top:14px;padding:16px;max-height:calc(100vh - 28px);overflow:auto}
+  nav.toc h2{font-size:1rem;margin:0 0 10px;color:var(--brand)}
+  nav.toc a{display:block;padding:8px 10px;border-radius:10px;color:#293750;font-weight:850;font-size:.92rem}
+  nav.toc a:hover{background:var(--soft);text-decoration:none}
+  main{min-width:0}
+  section{margin:0 0 34px;scroll-margin-top:18px}
+  .section-head{margin:0 0 16px}.kicker{font-weight:950;color:var(--brand2);font-size:.9rem;letter-spacing:.05em}.lead{font-size:1.05rem;color:var(--muted);margin:0;max-width:920px}.mini{font-size:.92rem;color:var(--muted)}
+  .card{padding:22px;margin:14px 0}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .tag{display:inline-block;font-size:.78rem;font-weight:950;color:#fff;background:var(--brand);padding:3px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}.tag.green{background:var(--green)}.tag.orange{background:var(--accent)}.tag.red{background:var(--red)}.tag.gray{background:#647086}.tag.blue{background:var(--blue)}.tag.teal{background:var(--brand2)}.tag.violet{background:var(--violet)}
+  .callout{padding:18px 20px;margin:16px 0;background:var(--soft)}.callout.green{background:var(--soft2)}.callout.warn{background:var(--warn)}.callout.danger{background:var(--danger)}.callout.ok{background:var(--ok)}.callout.blue{background:var(--blue-soft)}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  th,td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top} th{background:#f1ecff;text-align:left;font-size:.92rem;color:#312257} tr:last-child td{border-bottom:0}
+  code,pre{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace} pre{white-space:pre-wrap;background:#101827;color:#e8eefc;border-radius:14px;padding:16px;line-height:1.6;overflow:auto}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}.flow span{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:900}.flow span:not(:last-child)::after{content:"→";color:var(--brand);font-weight:950;margin-left:9px}
+  .course-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:18px 0}.course-tab{background:#fff;color:#26344f;border:1px solid var(--line);border-radius:16px;padding:14px 12px;text-align:left;font-weight:950;box-shadow:0 8px 18px rgba(30,20,80,.045);cursor:pointer}.course-tab small{display:block;color:var(--muted);font-weight:750;margin-top:3px}.course-tab[aria-selected="true"]{background:linear-gradient(135deg,var(--brand),#7c3aed);color:#fff;border-color:transparent}.course-tab[aria-selected="true"] small{color:#f1eaff}
+  .course-panel{display:none}.course-panel.active{display:block}
+  .checklist{display:grid;gap:10px;margin:12px 0}.check-item{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:#fff}.check-item input{margin-top:5px;transform:scale(1.12)}.check-item label{font-weight:760;cursor:pointer}.check-item small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+  .toolbox{padding:20px;margin:18px 0;background:#fff}.toolbox h3{margin-top:0} textarea,input[type="text"],input[type="number"],select{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;font:inherit;background:#fbfdff;color:var(--ink)} textarea{min-height:150px;resize:vertical;line-height:1.6}
+  .button-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px} button{border:0;border-radius:12px;background:var(--brand);color:#fff;font-weight:950;padding:10px 13px;cursor:pointer;font:inherit} button.secondary{background:var(--brand2)} button.ghost{background:#edf0f6;color:#273247} button.orange{background:var(--accent)} button.red{background:var(--red)}
+  .copy-btn{float:right;margin:0 0 8px 12px;background:#25304a}.template{position:relative}.scorebox{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px;margin-top:12px}.score{font-size:2rem;font-weight:950;color:var(--brand)}
+  .small-list{margin:8px 0 0;padding-left:19px}.small-list li{margin:4px 0}.phase{display:grid;grid-template-columns:108px 1fr;gap:14px;border-top:1px solid var(--line);padding:14px 0}.phase:first-child{border-top:0}.phase b{color:var(--brand)}
+  .timer-panel{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.timer-display{font-size:2.5rem;font-weight:950;letter-spacing:.02em;color:var(--brand)}.timer-controls{display:flex;gap:8px;flex-wrap:wrap}.footnotes{font-size:.92rem;color:#465061}.footnotes li{margin:7px 0}.top-actions{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.top-actions a,.top-actions button{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#293750;border:1px solid var(--line);box-shadow:none;border-radius:999px;padding:9px 12px;font-weight:900}
+  .mobile-toc{display:none;margin:12px 0}.mobile-toc select{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;font-weight:850}.footer{padding:24px 0 38px;color:#667085;font-size:.88rem;text-align:center;border-top:1px solid var(--line)}
+  @media(max-width:980px){.hero-grid,.layout,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.course-tabs{grid-template-columns:1fr}nav.toc{display:none}.mobile-toc{display:block}h1{font-size:2.45rem}.timer-panel{grid-template-columns:1fr}}
+  @media print{body{background:#fff;color:#000}nav.toc,.mobile-toc,.top-actions,.copy-btn,button,.timer-panel{display:none!important}.layout{display:block;padding:0}.wrap{max-width:none;padding:0 10mm}.card,.callout,.toolbox,.hero-card{box-shadow:none;break-inside:avoid;border-color:#bbb}a{color:#000;text-decoration:none}section{break-inside:auto}.maker{box-shadow:none}}
+   /* --- enrich-normalize (공통 콜아웃/태그 보강) --- */
+  .callout.ok{background:#ecfdf5}
+  .callout.danger{background:#fff1f2}
+  .callout.orange{background:#fff7ed}
+  .tag.orange{background:#b45309}
+  .tag.red{background:#b42318}
+  .tag.green{background:#047857}
+</style>
+</head>
+<body>
+ <header class="hero">
+  <div class="wrap">
+   <div class="eyebrow">2022 Revised Curriculum · Mathematics Internal Exam Guide</div>
+   <h1>고등학생을 위한<br>수학 내신 공부법</h1>
+   <p class="subtitle">2022 개정 교육과정의 <strong>공통수학1, 공통수학2, 대수, 미적분Ⅰ, 확률과 통계</strong>를 기준으로 만든 학생용 내신 대비 페이지입니다. 학교 교과서·부교재·프린트 변형, 시간 제한 풀이, 서술형 감점 방지, 수행평가와 세특 연결까지 바로 실행할 수 있게 구성했습니다.</p>
+   <div class="maker">제작 · 충청남도진로융합교육원 교육연구사 정재연</div>
+   <div class="hero-grid">
+    <div class="hero-card">
+     <h2>핵심 한 줄</h2>
+     <p>수학 내신은 “어려운 문제를 많이 푼 학생”보다 <strong>학교 자료의 출제 원본을 정확히 파악하고, 변형 문제를 제한 시간 안에 실수 없이 처리하는 학생</strong>이 유리합니다.</p>
+     <div class="flow"><span>출제 원본</span><span>개념 조건</span><span>유형 분류</span><span>변형 예상</span><span>시간 제한 풀이</span><span>서술형 검토</span></div>
+     <div class="pill-row">
+      <span class="pill"><strong>내신</strong> 교과서·프린트·부교재</span>
+      <span class="pill"><strong>속도</strong> 1회전·2회전·검토</span>
+      <span class="pill"><strong>서술형</strong> 조건·과정·결론</span>
+      <span class="pill"><strong>세특</strong> 모델링·그래프·한계</span>
+     </div>
+    </div>
+    <div class="hero-card">
+     <h2>학생용 활용법</h2>
+     <ol>
+      <li>먼저 학습 진단을 체크해 현재 약점을 확인합니다.</li>
+      <li>과목 탭에서 현재 배우는 과목의 첫 행동과 변형 포인트를 봅니다.</li>
+      <li>시험 21일 전부터는 21일 플랜과 시간 제한 풀이 루틴만 반복합니다.</li>
+      <li>오답노트, 서술형 답안표, 수행평가 보고서 양식을 복사해 사용합니다.</li>
+     </ol>
+     <p class="mini">체크 상태와 메모는 브라우저에 저장됩니다. 학교 홈페이지나 학급 LMS에 올려도 단일 HTML 파일로 작동합니다.</p>
+     <div class="top-actions">
+      <a href="#toolkit">도구 바로가기</a>
+      <button class="ghost" onclick="window.print()">인쇄하기</button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </header>
+
+ <div class="wrap">
+  <div class="mobile-toc">
+   <select onchange="location.hash=this.value">
+    <option value="#diagnosis">0. 나의 수학 내신 진단</option>
+    <option value="#curriculum">1. 과목 체계</option>
+    <option value="#core">2. 수학 내신의 본질</option>
+    <option value="#courses">3. 과목별 공부법</option>
+    <option value="#routine">4. 21일 내신 플랜</option>
+    <option value="#timeattack">5. 시간 제한 풀이 훈련</option>
+    <option value="#materials">6. 학교 자료 변형 대비</option>
+    <option value="#writing">7. 서술형·논술형</option>
+    <option value="#wrong">8. 오답노트</option>
+    <option value="#setuk">9. 수행평가·세특</option>
+    <option value="#level">10. 수준별 전략</option>
+    <option value="#toolkit">11. 학생용 도구함</option>
+   </select>
+  </div>
+  <div class="layout">
+   <nav class="toc" aria-label="페이지 목차">
+    <h2>목차</h2>
+    <a href="#diagnosis">0. 나의 수학 내신 진단</a>
+    <a href="#curriculum">1. 2022 개정 수학 과목 체계</a>
+    <a href="#core">2. 수학 내신의 본질</a>
+    <a href="#courses">3. 과목별 공부법</a>
+    <a href="#routine">4. 시험 21일 플랜</a>
+    <a href="#timeattack">5. 시간 제한 풀이 훈련</a>
+    <a href="#materials">6. 교과서·부교재·프린트 변형</a>
+    <a href="#writing">7. 서술형·논술형 답안</a>
+    <a href="#wrong">8. 오답노트</a>
+    <a href="#setuk">9. 수행평가·세특</a>
+    <a href="#level">10. 수준별 전략</a>
+    <a href="#toolkit">11. 학생용 도구함</a>
+   </nav>
+
+   <main>
+    <section id="diagnosis">
+     <div class="section-head">
+      <div class="kicker">START</div>
+      <h2>나의 수학 내신 학습 진단</h2>
+      <p class="lead">점수보다 먼저 공부 절차를 점검합니다. 체크가 많을수록 새 문제를 더 풀기보다 개념 조건, 풀이 첫 줄, 시간 운영, 서술형 표현을 정리해야 합니다.</p>
+     </div>
+     <div class="card">
+      <div class="grid-2">
+       <div>
+        <h3>체크리스트</h3>
+        <div class="checklist">
+         <label class="check-item"><input type="checkbox" data-save="diag1" data-score="1"><span>해설을 보면 이해되지만 혼자 풀 때 첫 줄이 안 나온다.<small>개념의 사용 조건과 문제의 신호를 연결하지 못한 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag2" data-score="1"><span>교과서·프린트 문제는 풀었지만 숫자나 조건이 바뀌면 막힌다.<small>변형 출제 대비가 부족한 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag3" data-score="1"><span>시험에서 시간이 부족해 마지막 문제를 제대로 못 본다.<small>시간 제한 풀이과 문항 보류 기준이 없는 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag4" data-score="1"><span>계산 실수를 “다음엔 조심”으로만 넘긴다.<small>실수 유형과 검산 루틴이 없는 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag5" data-score="1"><span>서술형에서 답은 맞았는데 과정 감점을 받는다.<small>조건, 경우 나누기, 결론 문장이 부족한 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag6" data-score="1"><span>부교재를 많이 풀었지만 어떤 문제가 시험에 변형될지 모른다.<small>문항 등급화와 출제 원본 분석이 부족한 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag7" data-score="1"><span>수행평가나 탐구 보고서를 수학 개념과 연결하지 못한다.<small>세특용 모델링·자료 해석 구조가 부족한 상태</small></span></label>
+         <label class="check-item"><input type="checkbox" data-save="diag8" data-score="1"><span>오답노트에 해설을 베끼고 끝낸다.<small>다음 문제에서 할 행동이 기록되지 않은 상태</small></span></label>
+        </div>
+       </div>
+       <div>
+        <h3>진단 결과</h3>
+        <div class="scorebox"><div><strong id="diagnosisText">우선순위가 표시됩니다.</strong><p class="mini">체크 항목을 바꾸면 자동으로 업데이트됩니다.</p></div><div class="score" id="diagnosisScore">0</div></div>
+        <div class="callout warn"><strong>내신 수학의 기본 원칙</strong><p>내신은 “풀 수 있다”가 아니라 “제한 시간 안에, 학교식 풀이로, 감점 없이 풀 수 있다”가 기준입니다.</p></div>
+        <textarea data-save-text="goal" placeholder="이번 수학 내신 목표를 적어 보세요. 예: 부교재 C등급 문항 2회독, 서술형 조건 누락 0개, 30문항 세트 5분 검토 남기기"></textarea>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <section id="curriculum">
+     <div class="section-head">
+      <div class="kicker">01 · Curriculum</div>
+      <h2>2022 개정 교육과정 기준 수학 과목 체계</h2>
+      <p class="lead">학교 내신은 학교별 교과서와 진도 운영에 따라 달라지지만, 학습의 큰 틀은 공통과목과 일반선택 과목의 역할을 구분하는 데서 시작합니다.</p>
+     </div>
+     <div class="card">
+      <table>
+       <thead><tr><th>구분</th><th>과목</th><th>내신 공부의 중심</th><th>자주 나오는 출제 방식</th></tr></thead>
+       <tbody>
+        <tr><td>공통과목</td><td><strong>공통수학1</strong></td><td>식 조작, 방정식·부등식, 경우의 수, 행렬의 기본 언어</td><td>계산형, 조건형, 경우 나누기, 행렬 연산, 서술형 풀이 과정</td></tr>
+        <tr><td>공통과목</td><td><strong>공통수학2</strong></td><td>도형의 방정식, 집합과 명제, 함수와 그래프의 해석</td><td>좌표·그래프 변형, 필요충분조건, 함수 조건, 개념 서술형</td></tr>
+        <tr><td>일반선택</td><td><strong>대수</strong></td><td>지수·로그, 삼각함수, 수열의 패턴과 구조</td><td>정의역·진수 조건, 그래프, 주기, 수열 규칙, 점화식 변형</td></tr>
+        <tr><td>일반선택</td><td><strong>미적분Ⅰ</strong></td><td>극한·연속, 미분, 적분을 통한 함수 변화 해석</td><td>연속 조건, 접선, 증가·감소, 극값, 정적분과 넓이, 그래프 개형</td></tr>
+        <tr><td>일반선택</td><td><strong>확률과 통계</strong></td><td>세는 기준, 표본공간, 조건부확률, 확률분포, 통계적 해석</td><td>순열·조합 변형, 조건부확률, 독립·배반, 이항분포, 평균·분산</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+
+    <section id="core">
+     <div class="section-head">
+      <div class="kicker">02 · Essence</div>
+      <h2>수학 내신의 본질: 학교 자료를 시험지로 바꾸는 능력</h2>
+      <p class="lead">수학 내신은 전국 공통 시험이 아닙니다. 학교 선생님의 수업 흐름, 프린트 구성, 부교재 선정, 서술형 채점 기준이 시험의 핵심 단서가 됩니다.</p>
+     </div>
+
+     <div class="grid-2">
+      <div class="card">
+       <h3>내신 수학 출제 원본 우선순위</h3>
+       <ol>
+        <li><strong>학교 프린트·수업 예제</strong>: 선생님이 풀이한 첫 줄과 강조한 변형</li>
+        <li><strong>부교재·워크북·학습지</strong>: 숙제 표시, 별표 문제, 유사 유형</li>
+        <li><strong>교과서 예제·유제·연습문제</strong>: 개념의 표준형과 기본 서술형</li>
+        <li><strong>수행평가·탐구 활동</strong>: 보고서·발표·논술형 문제와 연결</li>
+        <li><strong>이전 시험지</strong>: 문항 수, 계산량, 서술형 비중, 시간 압박</li>
+       </ol>
+      </div>
+      <div class="card">
+       <h3>수학 내신 6단계 루틴</h3>
+       <div class="flow"><span>원본 수집</span><span>개념 조건</span><span>유형 분류</span><span>변형 예상</span><span>시간 제한</span><span>서술형 검토</span></div>
+       <p>수학 내신은 같은 문제를 세 번 푸는 것이 아니라, 한 문제를 세 가지 시선으로 보는 것입니다. 첫 번째는 풀이, 두 번째는 변형, 세 번째는 시간입니다.</p>
+      </div>
+     </div>
+
+     <div class="card">
+      <h3>개념을 내신 점수로 바꾸는 7단계</h3>
+      <table>
+       <thead><tr><th>단계</th><th>질문</th><th>시험 대비 예시</th></tr></thead>
+       <tbody>
+        <tr><td>정의</td><td>이 개념은 무엇인가?</td><td>함수의 정의역, 로그의 진수 조건, 조건부확률의 표본공간</td></tr>
+        <tr><td>조건</td><td>언제 사용할 수 있는가?</td><td>연속 조건, 미분 가능 조건, 독립 조건, 행렬 연산 조건</td></tr>
+        <tr><td>첫 행동</td><td>문제를 보자마자 무엇을 해야 하는가?</td><td>그래프 그리기, 경우 나누기, 표 만들기, 도함수 구하기</td></tr>
+        <tr><td>대표 유형</td><td>학교 자료에서 어떤 유형으로 나왔는가?</td><td>교과서 예제, 프린트 4번, 부교재 고난도 12번</td></tr>
+        <tr><td>변형</td><td>숫자·조건·질문이 바뀌면 어떻게 되는가?</td><td>값 구하기 → 매개변수 조건 구하기, 객관식 → 서술형</td></tr>
+        <tr><td>시간</td><td>시험장에서는 몇 분 안에 끝내야 하는가?</td><td>기본 1분, 중간 3분, 고난도 6분, 서술형 8분</td></tr>
+        <tr><td>검토</td><td>마지막에 무엇을 확인해야 하는가?</td><td>정의역, 부호, 경우 누락, 답안 단위, 조건 만족 여부</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+
+    <section id="courses">
+     <div class="section-head">
+      <div class="kicker">03 · Course Strategy</div>
+      <h2>과목별 내신 공부법</h2>
+      <p class="lead">과목별로 문제를 처음 읽는 행동이 달라야 합니다. 탭을 눌러 현재 배우는 과목의 내신 전략을 확인하세요.</p>
+     </div>
+
+     <div class="course-tabs" role="tablist" aria-label="수학 과목 선택">
+      <button class="course-tab" role="tab" aria-selected="true" data-course="common1">공통수학1<small>식·경우·행렬</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="common2">공통수학2<small>도형·명제·함수</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="algebra">대수<small>지수로그·삼각·수열</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="calculus">미적분Ⅰ<small>극한·미분·적분</small></button>
+      <button class="course-tab" role="tab" aria-selected="false" data-course="probability">확률과 통계<small>경우·확률·통계</small></button>
+     </div>
+
+     <div id="common1" class="course-panel active">
+      <div class="card">
+       <h3><span class="tag teal">공통수학1</span> 식을 다루는 힘이 내신 점수를 결정한다</h3>
+       <p>공통수학1은 이후 모든 수학의 계산 언어입니다. 내신에서는 기본 계산형을 빠르게 처리하는 능력과, 식의 조건이 조금 바뀌었을 때 풀이 방향을 유지하는 능력이 중요합니다.</p>
+       <table>
+        <thead><tr><th>단원 축</th><th>내신 첫 행동</th><th>변형 출제 포인트</th><th>서술형 포인트</th></tr></thead>
+        <tbody>
+         <tr><td>다항식</td><td>인수분해 가능성, 나머지정리 조건, 항의 구조 확인</td><td>계수 비교, 항등식 조건, 나머지 조건을 문자로 변형</td><td>나머지정리 적용 이유와 대입 과정을 명확히 쓰기</td></tr>
+         <tr><td>방정식과 부등식</td><td>해의 개수, 판별식, 범위 조건 확인</td><td>실근 조건, 중근 조건, 부등식 해집합의 포함 관계</td><td>판별식 조건, 해의 범위, 필요충분성 검토</td></tr>
+         <tr><td>경우의 수</td><td>순서가 중요한지, 중복 허용인지, 제한 조건이 있는지 확인</td><td>전체-제외, 자리 배치, 조건 추가, 같은 것 포함</td><td>경우 나누기 기준과 각 경우의 계산 근거 쓰기</td></tr>
+         <tr><td>행렬</td><td>행과 열의 위치, 연산 가능 조건, 원소의 의미 확인</td><td>행렬 방정식, 연산 성질, 원소 비교, 실생활 자료 배열</td><td>행렬 연산 순서와 원소 비교 과정을 빠뜨리지 않기</td></tr>
+        </tbody>
+       </table>
+       <div class="callout ok"><strong>공통수학1 내신 루틴</strong><br>계산 문제는 속도, 조건 문제는 판별식·범위, 경우의 수는 세는 기준, 행렬은 원소 위치를 반드시 먼저 표시합니다.</div>
+      </div>
+     </div>
+
+     <div id="common2" class="course-panel">
+      <div class="card">
+       <h3><span class="tag teal">공통수학2</span> 식·그래프·논리를 연결하는 과목</h3>
+       <p>공통수학2는 “문제를 그림으로 바꾸는 능력”과 “조건을 논리로 해석하는 능력”이 핵심입니다. 내신에서는 그래프 변형과 명제 조건 서술형이 자주 변별 포인트가 됩니다.</p>
+       <table>
+        <thead><tr><th>단원 축</th><th>내신 첫 행동</th><th>변형 출제 포인트</th><th>서술형 포인트</th></tr></thead>
+        <tbody>
+         <tr><td>도형의 방정식</td><td>좌표, 거리, 중점, 기울기, 직선·원의 조건 표시</td><td>점의 위치 조건, 접선, 두 도형의 교점, 영역 문제</td><td>도형 조건을 식으로 바꾸는 과정을 설명</td></tr>
+         <tr><td>집합과 명제</td><td>전체집합, 조건, 포함 관계, 반례 가능성 확인</td><td>필요조건·충분조건, 진리집합 포함, 명제의 역·이·대우</td><td>조건 관계를 말로 쓰고 반례가 없는지 확인</td></tr>
+         <tr><td>함수와 그래프</td><td>정의역, 치역, 그래프 이동, 합성·역함수 가능성 확인</td><td>그래프 변환, 교점 개수, 함수 조건으로 매개변수 구하기</td><td>정의역과 대응 관계를 명확히 제시</td></tr>
+        </tbody>
+       </table>
+       <div class="callout blue"><strong>공통수학2 내신 루틴</strong><br>문제를 풀기 전 작은 그래프나 좌표 그림을 먼저 그립니다. 함수 문제에서 정의역을 안 쓰면 서술형 감점이 발생하기 쉽습니다.</div>
+      </div>
+     </div>
+
+     <div id="algebra" class="course-panel">
+      <div class="card">
+       <h3><span class="tag orange">대수</span> 패턴을 식과 그래프로 읽는 과목</h3>
+       <p>대수는 지수·로그, 삼각함수, 수열의 패턴을 읽는 과목입니다. 공식을 외우는 것보다 조건을 보고 그래프, 주기, 규칙으로 바꾸는 능력이 중요합니다.</p>
+       <table>
+        <thead><tr><th>단원 축</th><th>내신 첫 행동</th><th>변형 출제 포인트</th><th>서술형 포인트</th></tr></thead>
+        <tbody>
+         <tr><td>지수·로그</td><td>밑 조건, 진수 조건, 정의역, 증가·감소 확인</td><td>로그방정식, 로그부등식, 그래프 교점, 매개변수 조건</td><td>진수 조건을 먼저 쓰고, 해가 조건을 만족하는지 확인</td></tr>
+         <tr><td>삼각함수</td><td>각의 범위, 주기, 대칭, 그래프 개형 확인</td><td>그래프 이동, 방정식 해의 개수, 최대·최소, 주기 변형</td><td>범위 안에서 해를 모두 찾았는지 설명</td></tr>
+         <tr><td>수열</td><td>첫째항, 공차·공비, 일반항, 합, 점화식 구조 확인</td><td>규칙 추론, 부분합, 귀납적 정의, 매개변수 조건</td><td>일반항 도출 과정과 n의 범위 명시</td></tr>
+        </tbody>
+       </table>
+       <div class="callout warn"><strong>대수에서 가장 흔한 감점</strong><br>로그 진수 조건 누락, 삼각함수 범위 누락, 수열의 n 시작값 착각입니다. 답을 낸 뒤 원래 조건에 다시 대입합니다.</div>
+      </div>
+     </div>
+
+     <div id="calculus" class="course-panel">
+      <div class="card">
+       <h3><span class="tag red">미적분Ⅰ</span> 함수의 움직임을 읽는 과목</h3>
+       <p>미적분Ⅰ은 계산만 하는 과목이 아니라 함수의 변화, 접선, 극값, 넓이를 해석하는 과목입니다. 내신에서는 계산 과정뿐 아니라 조건 해석과 그래프 개형이 자주 출제됩니다.</p>
+       <table>
+        <thead><tr><th>단원 축</th><th>내신 첫 행동</th><th>변형 출제 포인트</th><th>서술형 포인트</th></tr></thead>
+        <tbody>
+         <tr><td>극한과 연속</td><td>좌극한·우극한, 함수값, 분모 0, 약분 가능성 확인</td><td>매개변수로 연속 조건 만들기, 그래프에서 극한 판단</td><td>극한값과 함수값이 일치함을 명시</td></tr>
+         <tr><td>미분</td><td>도함수, 접선 기울기, 증가·감소, 극값 조건 확인</td><td>접선 조건, 그래프 개형, 근의 개수, 최댓값·최솟값</td><td>도함수 부호 변화와 극값 판단 근거 쓰기</td></tr>
+         <tr><td>적분</td><td>정적분을 넓이로 볼 수 있는지, 부호가 바뀌는 구간 확인</td><td>정적분 함수, 넓이, 대칭, 구간 분할, 그래프 해석</td><td>부호 변화 구간을 나누고 넓이 해석을 명확히 쓰기</td></tr>
+        </tbody>
+       </table>
+       <div class="callout danger"><strong>미적분Ⅰ 내신 핵심</strong><br>식 계산 전에 그래프 개형을 먼저 봅니다. 미분 문제는 도함수 부호표, 적분 문제는 구간 분할이 감점 방지의 핵심입니다.</div>
+      </div>
+     </div>
+
+     <div id="probability" class="course-panel">
+      <div class="card">
+       <h3><span class="tag green">확률과 통계</span> 세는 기준과 자료 해석이 핵심</h3>
+       <p>확률과 통계는 계산이 쉬워 보여도 조건 해석에서 많이 틀립니다. 특히 “분모가 무엇인가”, “중복해서 세지 않았는가”, “조건이 적용되는 순서가 맞는가”가 내신 점수를 가릅니다.</p>
+       <table>
+        <thead><tr><th>단원 축</th><th>내신 첫 행동</th><th>변형 출제 포인트</th><th>서술형 포인트</th></tr></thead>
+        <tbody>
+         <tr><td>경우의 수</td><td>순서, 중복, 제한 조건, 같은 것 포함 여부 확인</td><td>전체-제외, 자리 배치, 분할, 중복조합형 조건</td><td>경우 나누기 기준과 누락·중복 없음 설명</td></tr>
+         <tr><td>확률</td><td>표본공간을 먼저 정하고 조건이 무엇을 제한하는지 확인</td><td>조건부확률, 독립·배반, 사건의 합·곱</td><td>분모와 분자를 어떤 사건으로 잡았는지 쓰기</td></tr>
+         <tr><td>통계</td><td>자료의 단위, 평균, 분산, 표준편차, 분포 조건 확인</td><td>자료 변환, 이항분포, 정규분포, 신뢰구간 해석</td><td>통계량의 의미와 해석을 문장으로 마무리</td></tr>
+        </tbody>
+       </table>
+       <div class="callout green"><strong>확률과 통계 내신 루틴</strong><br>확률 문제는 반드시 분모부터 씁니다. 통계 문제는 계산값이 아니라 “그 값이 무엇을 의미하는가”까지 써야 서술형 감점을 줄일 수 있습니다.</div>
+      </div>
+     </div>
+    </section>
+
+    <section id="routine">
+     <div class="section-head">
+      <div class="kicker">04 · 21-Day Plan</div>
+      <h2>수학 내신 21일 플랜</h2>
+      <p class="lead">수학은 시험 직전 암기로 해결되지 않습니다. 3주 동안 출제 원본, 유형 완성, 시간 제한, 서술형 검토를 단계별로 진행해야 합니다.</p>
+     </div>
+     <div class="card">
+      <div class="phase"><b>D-21~15</b><div><strong>출제 원본 확보</strong><br>시험 범위 교과서 페이지, 학교 프린트, 부교재 범위, 선생님 강조 문제, 이전 시험지 스타일을 정리합니다. 이 시기에는 어려운 새 문제보다 “무엇이 시험에 나올 수 있는가”를 먼저 파악합니다.</div></div>
+      <div class="phase"><b>D-14~10</b><div><strong>개념 조건과 대표 유형 완성</strong><br>교과서 예제·유제, 프린트 기본 문제, 부교재 기본·중간 난도를 해설 없이 풉니다. 오답은 개념 부족, 첫 줄 실패, 계산 실수, 조건 누락으로 분류합니다.</div></div>
+      <div class="phase"><b>D-9~6</b><div><strong>변형 가능 문제 집중</strong><br>부교재 C·D등급 문제, 선생님 별표 문제, 프린트 유사 유형을 숫자·조건·질문 방식으로 바꿔 봅니다. 객관식 문제도 서술형으로 바뀔 수 있다고 보고 풀이 과정을 씁니다.</div></div>
+      <div class="phase"><b>D-5~3</b><div><strong>시간 제한 풀이 세트 훈련</strong><br>문항별 목표 시간을 정하고 세트 풀이를 합니다. 60초 안에 방향이 안 보이는 문제는 표시하고 넘기는 보류 기준을 훈련합니다.</div></div>
+      <div class="phase"><b>D-2~1</b><div><strong>실수 방지와 서술형 점검</strong><br>새로운 고난도 문제는 줄이고, 오답노트의 첫 행동, 자주 틀리는 계산, 서술형 필수 조건, 정의역·범위·경우 나누기를 확인합니다.</div></div>
+     </div>
+    </section>
+
+    <section id="timeattack">
+     <div class="section-head">
+      <div class="kicker">05 · Time Attack</div>
+      <h2>시간 제한 풀이 훈련: 빠르게 풀되 풀이를 무너뜨리지 않는다</h2>
+      <p class="lead">내신 수학은 제한 시간 안에서 정확도를 유지하는 시험입니다. 속도는 손을 빨리 움직여서가 아니라 풀이 경로를 짧게 만들 때 생깁니다.</p>
+     </div>
+     <div class="grid-2">
+      <div class="card">
+       <h3>문항별 목표 시간</h3>
+       <table>
+        <thead><tr><th>문항 유형</th><th>권장 시간</th><th>훈련 기준</th></tr></thead>
+        <tbody>
+         <tr><td>기본 계산형</td><td>30초~1분</td><td>식 전개, 대입, 공식 적용이 즉시 가능해야 함</td></tr>
+         <tr><td>교과서 예제 변형</td><td>1~2분</td><td>첫 줄과 풀이 경로가 바로 떠올라야 함</td></tr>
+         <tr><td>부교재 중간 난도</td><td>2~4분</td><td>조건 표시 후 계산까지 안정적으로 진행</td></tr>
+         <tr><td>내신 고난도</td><td>5~8분</td><td>첫 60초에 진입 가능성 판단</td></tr>
+         <tr><td>서술형</td><td>풀이+정리 시간</td><td>답안 정리 시간을 별도로 확보</td></tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="card">
+       <h3>시험지 3회전 운영</h3>
+       <ol>
+        <li><strong>1회전</strong>: 확실한 기본·중간 문제를 빠르게 확보합니다.</li>
+        <li><strong>2회전</strong>: 시간이 필요한 변형·서술형 문제를 풉니다.</li>
+        <li><strong>3회전</strong>: 고난도 문제에 진입하거나 보류 문제를 재검토합니다.</li>
+        <li><strong>마지막</strong>: 단답, 부호, 정의역, 경우 누락, 서술형 결론을 확인합니다.</li>
+       </ol>
+       <div class="callout warn"><strong>보류 기준</strong><br>풀이 방향이 60초 안에 보이지 않거나 계산이 지나치게 길어지면 표시하고 넘깁니다. 내신에서 한 문제 때문에 전체 시험 운영이 무너지면 등급 손실이 큽니다.</div>
+      </div>
+     </div>
+     <div class="card">
+      <h3>풀이 시간 단축 체크리스트</h3>
+      <div class="checklist">
+       <label class="check-item"><input type="checkbox" data-save="speed1"><span>그래프로 보면 더 빨랐는가?</span></label>
+       <label class="check-item"><input type="checkbox" data-save="speed2"><span>대입이나 특수값 확인으로 범위를 줄일 수 있었는가?</span></label>
+       <label class="check-item"><input type="checkbox" data-save="speed3"><span>식 변형 전에 정의역·부호·범위를 먼저 확인했는가?</span></label>
+       <label class="check-item"><input type="checkbox" data-save="speed4"><span>경우 나누기 기준을 처음에 잡았는가?</span></label>
+       <label class="check-item"><input type="checkbox" data-save="speed5"><span>맞은 문제 중 오래 걸린 문제도 오답처럼 복기했는가?</span></label>
+      </div>
+     </div>
+    </section>
+
+    <section id="materials">
+     <div class="section-head">
+      <div class="kicker">06 · Materials</div>
+      <h2>교과서·부교재·프린트 문항 변형 대비</h2>
+      <p class="lead">내신 수학은 학교 자료가 시험지로 변형되는 과정입니다. 원문항을 풀고 끝내지 말고, 조건을 바꿔 보는 훈련을 해야 합니다.</p>
+     </div>
+     <div class="grid-3">
+      <div class="card">
+       <h3>교과서</h3>
+       <p>교과서는 개념의 표준형입니다. 예제·유제·연습문제에서 개념이 처음 어떤 형태로 쓰이는지 확인합니다.</p>
+       <ul class="small-list"><li>공식의 성립 조건 표시</li><li>예제의 첫 줄 암기 수준으로 복원</li><li>유제의 숫자 바꾸기</li><li>연습문제를 서술형으로 바꾸기</li></ul>
+      </div>
+      <div class="card">
+       <h3>부교재</h3>
+       <p>부교재는 출제 패턴 저장소입니다. 맞힌 문제도 변형 가능성이 크면 반드시 표시합니다.</p>
+       <ul class="small-list"><li>A: 바로 풀림</li><li>B: 자주 나올 기본</li><li>C: 변형 가능 높음</li><li>D: 고난도·서술형 후보</li></ul>
+      </div>
+      <div class="card">
+       <h3>학교 프린트</h3>
+       <p>프린트는 선생님의 풀이 언어가 들어 있는 핵심 자료입니다. 선생님이 칠판에 쓴 첫 줄을 보존합니다.</p>
+       <ul class="small-list"><li>첫 줄 복원</li><li>경우 나누기 기준 표시</li><li>생략된 계산 보완</li><li>서술형 문장 정리</li></ul>
+      </div>
+     </div>
+     <div class="card">
+      <h3>한 문제를 6가지로 변형하는 법</h3>
+      <table>
+       <thead><tr><th>변형 방식</th><th>예시</th><th>대비 행동</th></tr></thead>
+       <tbody>
+        <tr><td>숫자 변형</td><td>계수, 상수, 구간을 바꿈</td><td>풀이 구조가 유지되는지 확인</td></tr>
+        <tr><td>문자 조건 추가</td><td>값을 구하는 문제를 매개변수 조건 문제로 바꿈</td><td>판별식, 범위, 그래프 조건 활용</td></tr>
+        <tr><td>질문 방향 변경</td><td>최댓값 구하기 → 최댓값이 되게 하는 조건 구하기</td><td>답에서 조건으로 역추적</td></tr>
+        <tr><td>그래프 제시</td><td>식 대신 그래프를 주고 함수 조건 판단</td><td>좌표, 교점, 증가·감소, 대칭성 표시</td></tr>
+        <tr><td>서술형 전환</td><td>객관식 풀이를 과정형 답안으로 요구</td><td>정의역, 경우 나누기, 결론 문장 포함</td></tr>
+        <tr><td>단원 융합</td><td>함수 조건 + 방정식 해의 개수 + 그래프</td><td>어떤 개념이 먼저인지 우선순위 결정</td></tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="card">
+      <h3>선생님 출제 스타일별 대비 전략</h3>
+      <p class="mini">같은 단원이라도 출제 스타일에 따라 준비 행동이 달라집니다. 우리 학교 기출의 비중을 확인해 우선순위를 정하세요.</p>
+      <div class="grid-2">
+       <div class="card"><h4><span class="tag">교과서·유제 중심형</span></h4><p class="mini">교과서 예제·유제의 숫자·조건만 바꿔 출제.</p><ul class="small-list"><li>교과서 전 문항 손으로 재풀이</li><li>예제 첫 줄(설정식) 복원</li><li>유제 숫자 바꿔 자가 출제</li></ul></div>
+       <div class="card"><h4><span class="tag orange">부교재·고난도형</span></h4><p class="mini">B/C/D 변별 문항과 킬러 1~2문항으로 등급 가름.</p><ul class="small-list"><li>C·D 문항 풀이 경로 단축</li><li>킬러 문항 시간 배분 전략</li><li>틀린 문항 첫 줄 신호 기록</li></ul></div>
+       <div class="card"><h4><span class="tag green">서술형·과정 강조형</span></h4><p class="mini">답보다 과정·조건·경우 나누기에서 점수.</p><ul class="small-list"><li>7문장 답안 구조 고정</li><li>정의역·조건 첫 줄에 명시</li><li>결론 문장 “따라서 …” 습관화</li></ul></div>
+       <div class="card"><h4><span class="tag violet">융합·실생활 모델형</span></h4><p class="mini">그래프·자료를 수학으로 번역하는 능력 평가.</p><ul class="small-list"><li>상황→식→그래프 3단 번역 연습</li><li>단위·축·변수 의미 표시</li><li>계산 결과를 문장으로 해석</li></ul></div>
+      </div>
+     </div>
+     <div class="card">
+      <h3>내신 핵심 공식·조건 미니사전</h3>
+      <p class="mini">공식 자체보다 ‘성립 조건과 시험 함정’을 함께 외워야 서술형 감점을 막습니다.</p>
+      <table><thead><tr><th>개념·공식</th><th>핵심</th><th>시험 함정</th></tr></thead><tbody>
+       <tr><td>판별식 D=b²-4ac</td><td>이차방정식 실근 개수 판정</td><td>최고차항 계수 a≠0 확인, 중근 D=0</td></tr>
+       <tr><td>근과 계수의 관계</td><td>α+β=−b/a, αβ=c/a</td><td>a로 나누는 것·부호 누락</td></tr>
+       <tr><td>이차함수 최대·최소</td><td>꼭짓점 또는 구간 끝값에서 발생</td><td>꼭짓점이 구간 밖이면 끝값으로 경우 나누기</td></tr>
+       <tr><td>절댓값 방정식·부등식</td><td>0이 되는 점으로 구간 분할</td><td>구한 해가 해당 구간을 만족하는지 확인</td></tr>
+       <tr><td>로그의 정의역</td><td>진수&gt;0, 밑&gt;0이고 ≠1</td><td>진수·밑 조건 누락이 단골</td></tr>
+       <tr><td>등비수열의 합</td><td>Sₙ=a(rⁿ−1)/(r−1)</td><td>공비 r=1인 경우 별도 처리</td></tr>
+       <tr><td>미분계수 f′(a)</td><td>순간변화율·접선의 기울기</td><td>미분가능성(연속+좌우 일치) 확인</td></tr>
+       <tr><td>정적분과 넓이</td><td>넓이는 |피적분함수|의 적분</td><td>x축 아래 구간의 부호 처리</td></tr>
+       <tr><td>확률 덧셈·곱셈</td><td>배반이면 더하고, 독립이면 곱함</td><td>배반·독립 조건 혼동</td></tr>
+       <tr><td>분산</td><td>V(X)=E(X²)−{E(X)}²</td><td>제곱의 평균과 평균의 제곱 혼동</td></tr>
+      </tbody></table>
+     </div>
+    </section>
+
+    <section id="writing">
+     <div class="section-head">
+      <div class="kicker">07 · Written Response</div>
+      <h2>서술형·논술형 감점 없는 답안 작성법</h2>
+      <p class="lead">수학 서술형은 답만 맞는다고 끝나지 않습니다. 조건을 세우고, 왜 그렇게 풀었는지 드러내고, 마지막에 원래 조건을 확인해야 합니다.</p>
+     </div>
+     <div class="card">
+      <h3>서술형 답안 7문장 구조</h3>
+      <pre>1. 문제에서 주어진 조건을 정리한다.
+2. 사용할 개념 또는 관계식을 제시한다.
+3. 식 변형, 그래프 해석, 표 작성 중 하나로 풀이를 시작한다.
+4. 필요한 경우를 나누고, 왜 나누는지 쓴다.
+5. 계산 과정을 핵심 줄 중심으로 남긴다.
+6. 구한 값이 원래 조건을 만족하는지 확인한다.
+7. “따라서 …이다.”로 문제에서 요구한 값을 명확히 답한다.</pre>
+     </div>
+     <div class="grid-2">
+      <div class="card">
+       <h3>감점이 자주 발생하는 부분</h3>
+       <table>
+        <thead><tr><th>감점 원인</th><th>방지 행동</th></tr></thead>
+        <tbody>
+         <tr><td>정의역·진수 조건 누락</td><td>풀이 첫 줄에 조건 쓰기</td></tr>
+         <tr><td>경우 나누기 기준 불명확</td><td>절댓값, 부호, 범위 기준을 먼저 제시</td></tr>
+         <tr><td>계산 과정 과도한 생략</td><td>핵심 변형식은 최소 2~3줄 남기기</td></tr>
+         <tr><td>필요조건만 확인</td><td>원래 조건에 대입해 충분성 확인</td></tr>
+         <tr><td>결론 불명확</td><td>구한 값이 무엇인지 마지막 줄에 명시</td></tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="card">
+       <h3>서술형 답안 예시: 절댓값</h3>
+       <pre>|x-2|+|x+1|=5를 푸는 경우,
+절댓값 안의 식이 0이 되는 값은 x=-1, x=2이므로
+x<-1, -1≤x<2, x≥2의 세 구간으로 나눈다.
+각 구간에서 절댓값을 풀어 방정식을 세운 뒤,
+구한 해가 해당 구간 조건을 만족하는지 확인한다.
+따라서 해는 x=-2, 3이다.</pre>
+      </div>
+     </div>
+     <div class="card">
+      <h3>기출형 실전 예시 — 모범답안 vs 감점답안</h3>
+      <p class="mini">답이 같아도 ‘경우 나누기·조건 확인·결론 명시’가 빠지면 과정 점수에서 깎입니다.</p>
+      <p class="mini">문항: 함수 f(x)=x²−2ax+1 이 구간 [0, 2]에서 최솟값 −3을 가질 때, 상수 a의 값을 구하는 과정을 서술하시오.</p>
+      <div class="grid-2">
+       <div class="card">
+        <div class="callout ok"><strong>✅ 모범답안</strong><p>꼭짓점은 x=a. (i) a&lt;0이면 [0,2]에서 증가하여 최소 f(0)=1≠−3 (부적합). (ii) 0≤a≤2이면 최소 f(a)=1−a²=−3 → a²=4 → a=2 (범위 만족). (iii) a&gt;2이면 최소 f(2)=5−4a=−3 → a=2 (a&gt;2 불만족, 부적합). 따라서 a=2.</p></div>
+       </div>
+       <div class="card">
+        <div class="callout danger"><strong>❌ 감점답안</strong><p>f(a)=1−a²=−3 이므로 a=±2, 따라서 a=2.</p><p class="mini"><strong>감점 이유</strong> ① 꼭짓점이 구간 [0,2]에 포함되는지 경우 나누기 누락 ② a=−2가 제외되는 근거 미설명 ③ 정의구간에서의 최소 발생 위치 확인 생략</p></div>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <section id="wrong">
+     <div class="section-head">
+      <div class="kicker">08 · Error Log</div>
+      <h2>수학 오답노트: 해설 베끼기 대신 행동을 기록한다</h2>
+      <p class="lead">수학 오답노트의 목적은 예쁜 정리가 아니라 다음 시험에서 같은 구조를 보았을 때 첫 행동을 바꾸는 것입니다.</p>
+     </div>
+     <div class="card">
+      <table>
+       <thead><tr><th>오답 원인</th><th>잘못된 복습</th><th>올바른 복습</th></tr></thead>
+       <tbody>
+        <tr><td>개념 부족</td><td>해설 읽고 넘어감</td><td>정의와 성립 조건을 다시 쓰고 대표 예제 재풀이</td></tr>
+        <tr><td>첫 줄 실패</td><td>풀이 전체 암기</td><td>왜 그 첫 줄이 나왔는지 조건 신호 기록</td></tr>
+        <tr><td>계산 실수</td><td>“조심하자”라고 씀</td><td>부호, 항 누락, 분수, 대입 등 실수 위치 표시</td></tr>
+        <tr><td>시간 부족</td><td>더 많이 풀기</td><td>오래 걸린 단계를 찾아 풀이 경로 단축</td></tr>
+        <tr><td>서술형 감점</td><td>답만 다시 봄</td><td>조건·경우 나누기·결론 문장을 보완</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+
+    <section id="setuk">
+     <div class="section-head">
+      <div class="kicker">09 · Performance & Record</div>
+      <h2>수학 수행평가와 세특 연결</h2>
+      <p class="lead">수학 세특은 어려운 주제를 선택하는 것이 아니라, 교과 개념을 이용해 문제를 모델링하고 계산 결과를 해석한 과정이 드러날 때 강해집니다.</p>
+     </div>
+     <div class="card">
+      <h3>좋은 수학 탐구 보고서 공식</h3>
+      <pre>교과 개념 + 실제 또는 수학적 문제 상황 + 가정 설정 + 수학적 모델 + 계산·그래프 분석 + 해석 + 한계와 후속 질문</pre>
+      <table>
+       <thead><tr><th>과목</th><th>탐구 주제 방향</th><th>세특에 남는 역량</th></tr></thead>
+       <tbody>
+        <tr><td>공통수학1</td><td>경우의 수로 학교 행사 조 편성 방식 분석</td><td>조건 설정, 경우 나누기, 중복 검토</td></tr>
+        <tr><td>공통수학2</td><td>좌표평면을 이용한 학교 공간 동선 최적화</td><td>좌표화, 거리 계산, 그래프 해석</td></tr>
+        <tr><td>대수</td><td>수열로 반복 저축 또는 성장 패턴 분석</td><td>규칙 발견, 일반항, 장기 변화 해석</td></tr>
+        <tr><td>미적분Ⅰ</td><td>속도 변화 자료를 미분·적분 관점으로 해석</td><td>변화율, 누적량, 그래프 해석</td></tr>
+        <tr><td>확률과 통계</td><td>설문 자료를 활용한 평균·분산·분포 비교</td><td>자료 수집, 통계량 해석, 한계 제시</td></tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="card">
+      <h3>수행평가 채점 루브릭 (수학)</h3>
+      <p class="mini">수학 탐구·수행은 ‘정답’이 아니라 아래 4관점의 과정으로 채점됩니다.</p>
+      <table><thead><tr><th>평가 요소</th><th>상</th><th>중</th><th>하</th></tr></thead><tbody>
+       <tr><td>개념 적용</td><td>상황에 맞는 개념을 정확히 선택·적용</td><td>개념은 맞지만 적용이 부분적</td><td>개념과 상황이 어긋남</td></tr>
+       <tr><td>풀이 논리</td><td>가정·경우 나누기·근거가 명확</td><td>흐름은 있으나 비약 존재</td><td>과정 생략, 결과만 제시</td></tr>
+       <tr><td>계산·표현</td><td>계산 정확, 식·그래프·표로 표현</td><td>사소한 계산 오류</td><td>핵심 계산 오류·표현 부족</td></tr>
+       <tr><td>해석·성찰</td><td>결과를 상황 언어로 해석, 한계 제시</td><td>해석이 단순</td><td>해석·성찰 없음</td></tr>
+      </tbody></table>
+     </div>
+     <div class="callout orange"><strong>완성형 세특 예시 문장</strong>
+      <p class="mini" style="margin-top:6px">‘개념 → 모델링 → 계산 → 해석 → 한계’가 드러나는 문장이 좋은 세특입니다.</p>
+      <p>① 미적분Ⅰ에서 속도−시간 그래프 자료를 정적분으로 처리해 이동 거리를 추정하고, 구간을 좁힐수록 근삿값 오차가 줄어듦을 확인함. 이를 정적분의 정의와 연결해 극한 개념의 필요성을 스스로 설명함.</p>
+      <p>② 확률과 통계 수행에서 학급 설문 자료의 평균과 분산을 계산하고, 표본 크기가 작을 때 통계량이 불안정함을 지적함. 자료 해석의 한계를 명시하고 추가 표본 수집을 후속 과제로 제안하여 비판적 자료 해석 태도를 보임.</p>
+     </div>
+    </section>
+
+    <section id="level">
+     <div class="section-head">
+      <div class="kicker">10 · Level Strategy</div>
+      <h2>수준별 내신 전략</h2>
+      <p class="lead">수학 내신은 현재 수준에 따라 공부 우선순위가 완전히 달라져야 합니다.</p>
+     </div>
+     <div class="grid-3">
+      <div class="card">
+       <h3>상위권</h3>
+       <p>상위권은 어려운 문제보다 실수와 시간 운영에서 등급을 잃습니다.</p>
+       <ul class="small-list"><li>맞힌 문제 중 오래 걸린 문제 복기</li><li>부교재 C·D등급 변형 직접 제작</li><li>서술형 감점 기준 점검</li><li>마지막 5분 검토 루틴 고정</li></ul>
+      </div>
+      <div class="card">
+       <h3>중위권</h3>
+       <p>중위권은 개념을 안다고 느끼지만 변형 문제의 첫 줄이 약한 경우가 많습니다.</p>
+       <ul class="small-list"><li>대표 유형별 첫 행동 기록</li><li>부교재 B·C등급 2회독</li><li>오답은 24시간 뒤 재풀이</li><li>준고난도보다 중간 난도 정확도 확보</li></ul>
+      </div>
+      <div class="card">
+       <h3>기초권</h3>
+       <p>기초권은 어려운 문제집보다 교과서 예제와 기본 계산을 안정화해야 합니다.</p>
+       <ul class="small-list"><li>공식의 뜻과 사용 조건 암기</li><li>교과서 예제 해설 없이 재풀이</li><li>기본 계산 실수 유형 기록</li><li>서술형은 첫 줄과 결론부터 연습</li></ul>
+      </div>
+     </div>
+    </section>
+
+    <section id="toolkit">
+     <div class="section-head">
+      <div class="kicker">11 · Toolkit</div>
+      <h2>학생용 도구함</h2>
+      <p class="lead">아래 양식은 복사해서 노트, 문서, 학습 플래너에 붙여 사용할 수 있습니다.</p>
+     </div>
+
+     <div class="toolbox">
+      <h3>내신 타이머</h3>
+      <div class="timer-panel">
+       <div>
+        <div class="timer-display" id="timerDisplay">30:00</div>
+        <p class="mini">기본값은 30분입니다. 내신 세트 풀이 시간에 맞게 조정하세요.</p>
+       </div>
+       <div class="timer-controls">
+        <button onclick="setTimer(10)">10분</button>
+        <button onclick="setTimer(30)">30분</button>
+        <button onclick="setTimer(50)">50분</button>
+        <button onclick="setTimer(100)">100분</button>
+        <button class="secondary" onclick="startTimer()">시작</button>
+        <button class="ghost" onclick="pauseTimer()">정지</button>
+        <button class="orange" onclick="resetTimer()">초기화</button>
+       </div>
+      </div>
+     </div>
+
+     <div class="grid-2">
+      <div class="toolbox template">
+       <button class="copy-btn" onclick="copyTemplate('tpl-origin')">복사</button>
+       <h3>출제 원본 맵</h3>
+       <pre id="tpl-origin">[수학 내신 출제 원본 맵]
+과목/단원:
+시험 범위:
+교과서 핵심 예제:
+학교 프린트 핵심 문제:
+선생님이 강조한 풀이 첫 줄:
+부교재 B등급 문제:
+부교재 C·D등급 문제:
+서술형 예상 문제:
+내가 가장 약한 조건:
+시험 전날 볼 자료:</pre>
+      </div>
+      <div class="toolbox template">
+       <button class="copy-btn" onclick="copyTemplate('tpl-wrong')">복사</button>
+       <h3>오답노트</h3>
+       <pre id="tpl-wrong">[수학 오답노트]
+문제 번호:
+단원:
+관련 개념:
+내가 막힌 지점:
+□ 개념 조건 □ 첫 줄 □ 식 변형 □ 그래프 □ 경우 나누기 □ 계산 □ 시간 □ 서술형
+정답 풀이의 첫 행동:
+내 풀이와 다른 점:
+다음에 같은 유형을 보면 할 행동:
+변형 가능성:
+24시간 뒤 재풀이 결과:</pre>
+      </div>
+      <div class="toolbox template">
+       <button class="copy-btn" onclick="copyTemplate('tpl-writing')">복사</button>
+       <h3>서술형 답안 점검표</h3>
+       <pre id="tpl-writing">[수학 서술형 답안 점검]
+문항:
+주어진 조건:
+사용할 개념:
+풀이 첫 줄:
+경우 나누기 기준:
+핵심 계산 과정:
+원래 조건 만족 여부:
+최종 결론 문장:
+감점 가능 부분:</pre>
+      </div>
+      <div class="toolbox template">
+       <button class="copy-btn" onclick="copyTemplate('tpl-report')">복사</button>
+       <h3>수학 탐구 보고서</h3>
+       <pre id="tpl-report">[수학 탐구 보고서]
+탐구 주제:
+관련 과목/단원:
+탐구 질문:
+가정 설정:
+수학적 모델:
+계산 또는 그래프 분석:
+결과 해석:
+모델의 한계:
+개선 방향:
+후속 탐구 질문:</pre>
+      </div>
+     </div>
+
+     <div class="toolbox">
+      <h3>나의 시험 전 최종 메모</h3>
+      <textarea data-save-text="finalMemo" placeholder="시험 전날 볼 나만의 메모를 적으세요. 예: 로그 진수 조건 먼저 쓰기, 확통 분모 먼저 정하기, 미분 문제는 도함수 부호표부터..."></textarea>
+     </div>
+    </section>
+   </main>
+  </div>
+ </div>
+
+ <footer class="footer">
+  제작 · 충청남도진로융합교육원 교육연구사 정재연<br>
+  2022 개정 교육과정 기반 고등 수학 내신 공부법 학생용 자료
+ </footer>
+
+ <script>
+  const savePrefix = 'math_internal_2022_';
+  document.querySelectorAll('input[type="checkbox"][data-save]').forEach(cb=>{
+   const key = savePrefix + cb.dataset.save;
+   cb.checked = localStorage.getItem(key) === 'true';
+   cb.addEventListener('change',()=>{localStorage.setItem(key, cb.checked); updateDiagnosis();});
+  });
+  document.querySelectorAll('textarea[data-save-text]').forEach(t=>{
+   const key = savePrefix + t.dataset.saveText;
+   t.value = localStorage.getItem(key) || '';
+   t.addEventListener('input',()=>localStorage.setItem(key,t.value));
+  });
+  function updateDiagnosis(){
+   let score = 0;
+   document.querySelectorAll('#diagnosis input[data-score]').forEach(cb=>{ if(cb.checked) score += Number(cb.dataset.score || 0); });
+   const scoreEl = document.getElementById('diagnosisScore');
+   const textEl = document.getElementById('diagnosisText');
+   if(!scoreEl || !textEl) return;
+   scoreEl.textContent = score;
+   if(score <= 2) textEl.textContent = '상태 양호: 변형 문제와 시간 제한 풀이 훈련을 강화하세요.';
+   else if(score <= 5) textEl.textContent = '절차 보완 필요: 첫 줄·오답·서술형 루틴을 고정하세요.';
+   else textEl.textContent = '기초 재정비 우선: 교과서 예제, 개념 조건, 기본 계산부터 복원하세요.';
+  }
+  updateDiagnosis();
+
+  document.querySelectorAll('.course-tab').forEach(btn=>{
+   btn.addEventListener('click',()=>{
+    const id = btn.dataset.course;
+    document.querySelectorAll('.course-tab').forEach(b=>b.setAttribute('aria-selected','false'));
+    btn.setAttribute('aria-selected','true');
+    document.querySelectorAll('.course-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById(id)?.classList.add('active');
+   });
+  });
+
+  function copyTemplate(id){
+   const text = document.getElementById(id)?.innerText || '';
+   navigator.clipboard.writeText(text).then(()=>{
+    alert('양식을 복사했습니다.');
+   }).catch(()=>{
+    const ta=document.createElement('textarea');
+    ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+    alert('양식을 복사했습니다.');
+   });
+  }
+
+  let timerSeconds = 30*60;
+  let timerInitial = timerSeconds;
+  let timerId = null;
+  function renderTimer(){
+   const m = String(Math.floor(timerSeconds/60)).padStart(2,'0');
+   const s = String(timerSeconds%60).padStart(2,'0');
+   document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+  }
+  function setTimer(min){
+   pauseTimer(); timerSeconds = min*60; timerInitial = timerSeconds; renderTimer();
+  }
+  function startTimer(){
+   if(timerId) return;
+   timerId = setInterval(()=>{
+    if(timerSeconds > 0){ timerSeconds--; renderTimer(); }
+    else { pauseTimer(); alert('시간이 끝났습니다. 풀이를 멈추고 복기를 시작하세요.'); }
+   },1000);
+  }
+  function pauseTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
+  function resetTimer(){ pauseTimer(); timerSeconds = timerInitial; renderTimer(); }
+  renderTimer();
+ </script>
+<script>
+/* plan-progress: 21일 플랜 진행률 체크 (자동저장) */
+(function(){
+  var plan=document.getElementById('routine');
+  if(!plan) return;
+  var phases=[].slice.call(plan.querySelectorAll('.phase'));
+  if(!phases.length) return;
+  var PFX='math-plan-';
+  var head=plan.querySelector('.section-head');
+  var wrap=document.createElement('div');
+  wrap.className='plan-progress';
+  wrap.style.cssText='margin:0 0 16px';
+  wrap.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><strong>21일 플랜 진행률</strong><span class="pp-label" style="font-weight:900;color:#1f5eff"></span></div><div style="height:10px;background:#e7eef8;border-radius:999px;overflow:hidden"><div class="pp-bar" style="height:100%;width:0;background:linear-gradient(90deg,#1f5eff,#0f766e);transition:width .3s"></div></div><p style="margin:7px 0 0;font-size:.86rem;color:#76839a">각 단계 앞 체크박스를 누르면 진행률이 저장됩니다.</p>';
+  if(head){head.insertAdjacentElement('afterend',wrap);}else{plan.insertBefore(wrap,plan.firstChild);}
+  var bar=wrap.querySelector('.pp-bar'),label=wrap.querySelector('.pp-label');
+  function upd(){var done=0;phases.forEach(function(p){var b=p.querySelector('.plan-check');if(b&&b.checked)done++;});var pct=Math.round(done/phases.length*100);bar.style.width=pct+'%';label.textContent=done+' / '+phases.length+' 단계 ('+pct+'%)';}
+  phases.forEach(function(p,i){
+    var b=document.createElement('input');b.type='checkbox';b.className='plan-check';
+    b.style.cssText='transform:scale(1.3);margin-right:8px;vertical-align:middle;cursor:pointer';
+    var key=PFX+i;
+    b.checked=localStorage.getItem(key)==='1';
+    b.addEventListener('change',function(){localStorage.setItem(key,b.checked?'1':'0');upd();});
+    var lab=p.querySelector('b');
+    if(lab){lab.insertBefore(b,lab.firstChild);}else{p.insertBefore(b,p.firstChild);}
+  });
+  upd();
+})();
+</script>
+</body>
+</html>
