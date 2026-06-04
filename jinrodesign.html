@@ -70,8 +70,18 @@
   .nav-links a.active{color:var(--blue);background:var(--blue-soft)}
   .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:9px;width:42px;height:42px;cursor:pointer;color:var(--ink)}
   .nav-toggle svg{width:22px;height:22px}
+  .nav-right{display:flex;align-items:center;gap:10px}
+  .btn-home{
+    display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;white-space:nowrap;
+    color:var(--blue);background:var(--blue-soft);border:1px solid var(--blue-mid);
+    padding:8px 14px;border-radius:10px;transition:.18s
+  }
+  .btn-home:hover{background:linear-gradient(135deg,var(--blue),var(--blue-600));color:#fff;border-color:transparent;box-shadow:0 8px 18px -6px rgba(37,99,235,.5);transform:translateY(-1px)}
+  .btn-home svg{width:16px;height:16px}
+  /* 읽기 진행바 */
+  .progress-bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:101;background:linear-gradient(90deg,var(--blue),var(--teal),var(--green));border-radius:0 3px 3px 0;transition:width .08s linear}
 
-  @media(max-width:920px){
+  @media(max-width:1000px){
     .nav-links{
       position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;
       background:#fff;border-bottom:1px solid var(--line);padding:12px;
@@ -448,8 +458,13 @@
   .term b{display:block;font-size:13.5px;font-weight:800;color:var(--blue);margin-bottom:4px}
   .term span{font-size:12.5px;color:var(--gray);line-height:1.5}
 
+  /* 푸터 제작 크레딧 */
+  footer .ft-credit{font-size:13.5px;color:#cbd5e1;margin-bottom:14px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  footer .ft-credit .pen{font-size:15px}
+  footer .ft-credit b{color:#fff;font-weight:800}
+
   @media print{
-    header.nav,.top-btn,.hero-cta,.nav-toggle,.hero .blob{display:none!important}
+    header.nav,.top-btn,.hero-cta,.nav-toggle,.hero .blob,.progress-bar{display:none!important}
     body{background:#fff}
     section{padding:30px 0;page-break-inside:avoid}
     .reveal{opacity:1!important;transform:none!important}
@@ -460,6 +475,8 @@
 </head>
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
+
 <!-- ===== 내비게이션 ===== -->
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -467,20 +484,26 @@
       <span class="logo">🎓</span>
       <span>진로·학업 설계</span>
     </a>
-    <nav class="nav-links" id="navlinks">
-      <a href="#self">자기 이해</a>
-      <a href="#explore">직업·학과</a>
-      <a href="#credit">고교학점제</a>
-      <a href="#subject">과목 선택</a>
-      <a href="#admission">대입 한눈에</a>
-      <a href="#roadmap">로드맵</a>
-      <a href="#guide">학기별 가이드</a>
-      <a href="#check">셀프 체크</a>
-      <a href="#sites">더 알아보기</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-    </button>
+    <div class="nav-right">
+      <nav class="nav-links" id="navlinks">
+        <a href="#self">자기 이해</a>
+        <a href="#explore">직업·학과</a>
+        <a href="#credit">고교학점제</a>
+        <a href="#subject">과목 선택</a>
+        <a href="#admission">대입 한눈에</a>
+        <a href="#roadmap">로드맵</a>
+        <a href="#guide">학기별 가이드</a>
+        <a href="#check">셀프 체크</a>
+        <a href="#sites">더 알아보기</a>
+      </nav>
+      <a href="index.html" class="btn-home" aria-label="메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
+        메인
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -1131,6 +1154,7 @@
       </div>
     </div>
     <div class="ft-bottom">
+      <div class="ft-credit"><span class="pen">✍️</span> 제작 · <b>충청남도교육청진로융합교육원</b> 교육연구사 <b>정재연</b></div>
       <div class="disc">📎 교육과정과 대입 제도는 해마다 조금씩 달라질 수 있어요. 이 페이지는 전체 흐름을 쉽게 이해하기 위한 안내이니, 구체적이고 최신의 내용은 <b>소속 학교와 담임 선생님</b>, 그리고 <b>커리어넷·어디가</b> 같은 공식 사이트에서 꼭 확인하세요.</div>
     </div>
   </div>
@@ -1302,10 +1326,13 @@ document.getElementById('navToggle').addEventListener('click',()=>navLinks.class
 navLinks.addEventListener('click',e=>{ if(e.target.tagName==='A') navLinks.classList.remove('open'); });
 
 const topBtn = document.getElementById('topBtn');
+const progressBar = document.getElementById('progressBar');
 window.addEventListener('scroll',()=>{
   const y = window.scrollY;
   nav.classList.toggle('scrolled', y>10);
   topBtn.classList.toggle('show', y>600);
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (h>0 ? Math.min(100, y/h*100) : 0) + '%';
 },{passive:true});
 topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
