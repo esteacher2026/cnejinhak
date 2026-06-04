@@ -2280,14 +2280,61 @@ function scienceListHtml(list, fallback){
     return '<li>' + esc(item) + '</li>';
   }).join("") + '</ul>';
 }
+function scienceCourseGuide(x){
+  var code = x.code || "";
+  if(code.indexOf("12물리") >= 0){
+    return {
+      course:"물리학",
+      areas:"힘과 에너지, 전기와 자기, 빛과 물질",
+      focus:"물리 법칙과 모형을 현상, 기술, 안전, 지속가능성 맥락에 적용하고 설명하는 정도",
+      process:"측정, 동영상 분석, 실험 설계, 공학적 제작, 자료 해석, 정량·정성 논증",
+      value:"안전한 사회, 지속가능성, 과학기술의 가치와 사회적 영향 인식"
+    };
+  }
+  if(code.indexOf("12화학") >= 0){
+    return {
+      course:"화학",
+      areas:"화학의 언어, 물질의 구조와 성질, 화학 평형, 역동적인 화학 반응",
+      focus:"물질의 양, 구조, 반응, 평형 개념을 계산·모형·실험 자료와 연결하는 정도",
+      process:"몰 계산, 화학 반응식 해석, 분자 모형화, 농도·pH 자료 처리, 실험 안전과 오차 분석",
+      value:"화학의 유용성, 안전, 지속가능성, 일상생활 문제 해결 가능성 인식"
+    };
+  }
+  if(code.indexOf("12생과") >= 0){
+    return {
+      course:"생명과학",
+      areas:"생명 시스템의 구성, 항상성과 몸의 조절, 생명의 연속성과 다양성",
+      focus:"생명 시스템, 항상성, 면역, 유전, 진화와 분류 개념을 관찰·자료·모형 근거로 설명하는 정도",
+      process:"관찰, 비교·분류, 자료 해석, 모형 제작, CER 논증, 윤리적 쟁점 검토",
+      value:"생명윤리, 안전, 생태 감수성, 건강·의생명·환경 문제에 대한 책임 있는 태도"
+    };
+  }
+  if(code.indexOf("12지구") >= 0){
+    return {
+      course:"지구과학",
+      areas:"해수와 대기의 상호작용, 한반도의 암석, 별과 우주의 진화",
+      focus:"해양·대기·지질·천문 현상을 자료 출처, 시공간 규모, 불확실성을 고려해 해석하는 정도",
+      process:"관측 자료 수집, 지도화, 그래프화, 단면도·스펙트럼 해석, 모형화, 예측·추론",
+      value:"재해 대응, 기후·환경 지속가능성, 지질유산, 우주관과 과학의 사회적 의미 인식"
+    };
+  }
+  return {
+    course:"과학 선택과목",
+    areas:"성취기준별 영역",
+    focus:"핵심 개념을 자료·모형·현상과 연결해 설명하고 전이하는 정도",
+    process:"탐구 설계, 자료 처리, 모형화, 논증, 한계 분석",
+    value:"과학의 유용성, 안전, 윤리, 지속가능성에 대한 태도"
+  };
+}
 function scienceLevelGuide(x){
   var concept = esc(x.concept || "핵심 개념");
+  var guide = scienceCourseGuide(x);
   var rows = [
-    ["A","깊은 개념 이해와 매우 높은 전이","복잡하고 낯선 맥락에서 " + concept + "을/를 자료·모형·논증 근거와 연결하고, 한계와 개선 방향까지 자율적으로 제시한다."],
-    ["B","높은 이해와 안정적인 적용","주요 원리를 정확히 설명하고 다양한 자료나 사례에 " + concept + "을/를 적용하며, 탐구 기능을 대체로 능숙하게 수행한다."],
-    ["C","기본 이해와 안내된 전이","안내된 절차에 따라 자료를 처리하고 " + concept + "의 의미를 자신의 언어로 설명하며, 익숙한 사례에 적용한다."],
-    ["D","부분적 이해와 제한된 수행","핵심 용어와 현상의 관련성을 말하고, 제시된 자료·절차·모형의 일부를 활용하여 기초 과제를 수행한다."],
-    ["E","기초 인식과 참여","관련 현상이나 사례를 인식하고 학습 활동에 참여하며, 도움을 받아 기본적인 관련성을 말한다."]
+    ["A","성취기준을 넘어 복잡한 맥락으로 전이",concept + "을/를 깊이 이해하고, " + guide.process + " 등 탐구 수행을 종합하여 낯선 현상이나 실제 문제에 적용하며, 한계와 개선 방향까지 제안한다."],
+    ["B","핵심 원리의 안정적 설명과 다양한 적용","주요 원리를 정확히 설명하고 자료·모형·사례에 " + concept + "을/를 적용하며, 탐구 기능을 비교적 능숙하게 수행한다."],
+    ["C","안내된 탐구 수행과 기본 개념 적용","안내된 절차에 따라 자료를 처리하고 " + concept + "의 의미를 자신의 언어로 설명하며, 익숙한 사례에 적용한다."],
+    ["D","제한된 맥락에서의 기초 수행","핵심 용어와 현상의 관련성을 말하고, 제시된 자료·절차·모형의 일부를 활용하여 기본 과제를 수행한다."],
+    ["E","기초 인식과 학습 활동 참여","관련 현상이나 사례를 인식하고 학습 활동에 참여하며, 도움을 받아 기본적인 관련성을 말한다."]
   ];
   return '<div class="science-level-guide">' + rows.map(function(r){
     return '<div class="science-level-row">' +
@@ -2296,6 +2343,7 @@ function scienceLevelGuide(x){
     '</div>';
   }).join("") + '</div>';
 }
+
 function scienceCbiBridge(x){
   var qs = scienceArray(x.questions);
   return block("개념기반탐구학습 심화 체크포인트",
@@ -2357,22 +2405,24 @@ function scienceWorksheetBridge(x){
   );
 }
 function scienceAssessmentBridge(x){
-  return block("성취수준 해석 가이드 — 11. 과학과 성취수준 PDF 반영",
+  var guide = scienceCourseGuide(x);
+  return block("성취수준 해석 가이드 — 7. 과학과 선택과목 성취수준 현장 보급본 반영",
     '<div class="science-upgrade-grid two">' +
       '<div class="science-upgrade-card">' +
-        '<div class="science-kicker">PDF 반영 범위</div>' +
-        '<h4>공통과목 5수준 일반 특성을 선택과목 수행평가에 맞게 해석</h4>' +
-        '<p>이 PDF는 물리학·화학·생명과학·지구과학 일반선택 과목별 성취수준표가 아니라 공통과목 자료이므로, 여기서는 <b>개념 이해 깊이, 지식 전이, 탐구 기능, 가치·태도 적용 범위</b>를 평가 해석 기준으로 사용한다.</p>' +
+        '<div class="science-kicker">선택과목 보급본 반영 범위</div>' +
+        '<h4>성취기준별 성취수준과 영역별 성취수준을 함께 본다</h4>' +
+        '<p>현장 보급본은 <b>' + esc(guide.course) + '</b>의 성취기준별 A-E 성취수준과 영역별 성취수준을 제시한다. 이 수업에서는 성취기준 원문에 도달한 정도를 <b>지식·이해, 과정·기능, 가치·태도</b> 세 범주로 나누어 판단한다.</p>' +
+        '<p><b>관련 영역:</b> ' + esc(guide.areas) + '</p>' +
       '</div>' +
       '<div class="science-upgrade-card">' +
         '<div class="science-kicker">채점 초점</div>' +
         '<h4>산출물보다 사고 과정의 질을 함께 본다</h4>' +
         '<p><b>중심 산출물:</b> ' + esc(scienceFirst(x.products, "탐구 산출물")) + '</p>' +
-        '<p><b>핵심 판단:</b> ' + esc(x.concept) + '을/를 자료·모형·전이 질문과 연결하는 정도</p>' +
+        '<p><b>핵심 판단:</b> ' + esc(guide.focus) + '</p>' +
       '</div>' +
     '</div>' +
     scienceLevelGuide(x),
-    "공통과목 성취수준의 A-E 일반 특성을 교과별 수업 장면에 맞게 재구성"
+    "선택과목 보급본의 성취기준별·영역별 성취수준을 수업 장면에 맞게 요약"
   ) +
   block("평가 증거 확장 — 지식·이해 / 과정·기능 / 가치·태도",
     '<div class="science-upgrade-grid">' +
@@ -2383,19 +2433,22 @@ function scienceAssessmentBridge(x){
       '</div>' +
       '<div class="science-upgrade-card">' +
         '<div class="science-kicker">과정·기능</div>' +
-        '<h4>자료 처리와 CER 논증</h4>' +
-        '<p>' + esc(x.data || "관찰·측정·모형·자료 해석") + '</p>' +
+        '<h4>탐구 기능과 증거 기반 논증</h4>' +
+        '<p>' + esc(guide.process) + '</p>' +
         scienceListHtml(x.evidence, "주장-증거-추론 구조의 결론") +
       '</div>' +
       '<div class="science-upgrade-card">' +
         '<div class="science-kicker">가치·태도</div>' +
         '<h4>과학적 태도와 전이 가능성</h4>' +
-        '<p>한계, 안전·윤리, 지속가능성, 진로·사회적 의미를 명시하고 ' + esc(x.lens) + ' 관점에서 새로운 맥락에 적용한다.</p>' +
+        '<p>' + esc(guide.value) + '</p>' +
+        '<p><b>전이:</b> ' + esc(x.lens) + ' 관점에서 새로운 맥락에 적용한다.</p>' +
       '</div>' +
     '</div>'
   );
 }
+
 function scienceRecordBridge(x){
+  var guide = scienceCourseGuide(x);
   return block("학생부 기록 확장 프레임 — 증거·개념·전이",
     '<div class="science-upgrade-grid">' +
       '<div class="science-upgrade-card">' +
@@ -2407,6 +2460,7 @@ function scienceRecordBridge(x){
         '<div class="science-kicker">Concept</div>' +
         '<h4>기록에 남길 개념 언어</h4>' +
         '<p><b>' + esc(x.concept) + '</b>을/를 ' + esc(x.related || "관련 개념") + '와 연결하여 설명한 장면을 기록한다.</p>' +
+        '<p><b>보급본 기준:</b> ' + esc(guide.course) + ' 성취수준의 지식·이해 범주와 연결한다.</p>' +
       '</div>' +
       '<div class="science-upgrade-card">' +
         '<div class="science-kicker">Transfer</div>' +
@@ -2415,9 +2469,10 @@ function scienceRecordBridge(x){
         '<p><b>진로 연결:</b> ' + esc(x.career || "교과 기반 진로·사회 맥락") + '</p>' +
       '</div>' +
     '</div>',
-    "산출물 이름만 쓰지 않고 수행 근거와 개념 전이를 함께 기록"
+    "산출물 이름만 쓰지 않고 선택과목 성취수준의 수행 근거와 개념 전이를 함께 기록"
   );
 }
+
 
 function panel(x){
   const qs=x.questions;
