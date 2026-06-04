@@ -1,0 +1,2700 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 현대사회와 윤리 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 현대사회와 윤리 17개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 윤리 쟁점 분석, 가치 충돌 구조화, 윤리 이론 적용, 정당화 논증, 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#0f6980;
+  --atmo-bg:#e1f0f3;
+  --geo:#8a5a1f;
+  --geo-bg:#f1e6d6;
+  --astro:#4c4f93;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(15,105,128,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(76,79,147,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:-.025em;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:4.35rem;
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.15em;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">倫</div>
+      <div class="b-text">
+        <strong>일반선택 현대사회와 윤리 수업설계 워크북</strong>
+        <span>개념기반탐구 · 17개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective Modern Society and Ethics</div>
+        <h1 class="cover-title">현대사회와 윤리<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1>
+        <p class="lead">
+          일반선택 현대사회와 윤리 17개 성취기준을 원문, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 윤리 쟁점 분석, 가치 충돌 구조화,
+          윤리 이론 적용, 학생부종합전형형 산출물, 평가·피드백까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button>
+          <button class="btn" onclick="openView('matrix')">17개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 현대사회와 윤리 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책 6] 도덕과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>윤리 쟁점 분석 · 가치 충돌 구조화 · 윤리 이론 적용 · 정당화 논증 · 실천 전이 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">6<small>영역</small></span>
+      <span class="label">현대 생활 · 생명/생태 · 디지털 · 민주시민 · 문화/경제 · 평화/공존</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">17<small>기준</small></span>
+      <span class="label">성취기준 원문·성취수준 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 쟁점, 가치 충돌, 이론 적용, 실천 전이의 통합</h2>
+    <p>
+      현대사회와 윤리는 찬반을 나누는 과목이 아니라 현대사회의 복잡한 윤리 문제를 발견하고,
+      충돌하는 가치와 권리, 책임을 분석하며, 윤리 이론을 적용해 자신의 판단을 정당화하고 실천으로 옮기는 과목입니다.
+      본 워크북은 학생이 윤리적 민감성, 근거 기반 판단, 반론 수용, 판단 수정, 실천적 책임을 수업 안에서 드러내도록 설계했습니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>쟁점에서 가치 충돌로</h3>
+      <p>AI, 생명윤리, 소비, 시민불복종, 다문화, 국제 원조 같은 사례에서 자유·책임·권리·공정·존엄의 충돌을 분리합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>이론에서 정당화로</h3>
+      <p>공리주의, 의무론, 덕 윤리, 동양 윤리, 자유주의, 공동체주의, 롤스와 싱어를 암기가 아니라 판단 도구로 사용합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>판단에서 실천으로</h3>
+      <p>토론 결과를 개인 실천, 공동체 규범, 제도 개선, 세계시민 책임으로 전이하여 수업과 학생부 기록을 연결합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 현대사회와 윤리 수업의 공통 뼈대</h2>
+    <p>학생이 실제 윤리 쟁점에서 출발해 가치 충돌을 구조화하고, 윤리 이론으로 판단을 정당화하며, 삶의 실천으로 전이하도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>현대사회 쟁점 사례를 통해 도덕적 불편함과 윤리 질문을 드러낸다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>자유, 책임, 존엄, 공정, 평화, 공존 중 하나를 개념 렌즈로 삼는다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>탐구</strong><p>사실 정보, 행위자, 피해 가능성, 가치 충돌, 책임 주체를 분석한다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>가치 충돌표, 이론 적용표, 책임 분배표, CER 논증으로 판단을 구조화한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>윤리 이론과 사례 판단을 연결해 자기 언어로 정당화 원리를 진술한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>개인·공동체·제도 차원의 실천 방안과 새로운 윤리 쟁점으로 확장한다.</p></div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 읽고 싶은 것은 윤리 이론 암기량이 아니라 <b>복잡한 쟁점에서 가치 충돌을 발견하고, 윤리 이론을 근거로 판단을 정당화하며, 반론을 반영해 생각을 수정하고, 실천 가능한 기준으로 확장하는 과정</b>입니다.</p>
+    <p>각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 가치 충돌 분석표, 이론 적용표, 책임 분배표, 토론 후 판단 수정, 개인·공동체·제도 차원의 실천 기준이 함께 제시되어 세특 근거를 수업 안에서 확보할 수 있습니다.</p>
+    <div class="admission-proof-grid">
+      <div class="admission-proof-card">
+        <span class="tag">Sensitivity</span>
+        <h4>윤리적 민감성</h4>
+        <p>일상과 사회 쟁점에서 권리 침해, 책임 공백, 피해 가능성을 발견하는 과정이 기록됩니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Reasoning</span>
+        <h4>근거 기반 정당화</h4>
+        <p>윤리 이론과 가치 기준을 적용해 자신의 판단을 논리적으로 정당화하고 반론을 검토합니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Practice</span>
+        <h4>책임 있는 실천 전이</h4>
+        <p>판단을 개인 실천, 공동체 규범, 제도 개선, 세계시민 책임으로 구체화합니다.</p>
+      </div>
+    </div>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          
+          
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>현대 생활과 윤리</option>
+            <option>생명윤리와 생태윤리</option>
+            <option>과학과 디지털 학습 환경 윤리</option>
+            <option>민주시민과 윤리</option>
+            <option>문화와 경제생활의 윤리</option>
+            <option>평화와 공존의 윤리</option>
+          </select>
+          
+          
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>토론</option>
+            <option>논증</option>
+            <option>서·논술</option>
+            <option>프로젝트</option>
+            <option>사례</option>
+            <option>비교</option>
+            <option>쟁점</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>현대사회와 윤리 17개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 윤리 쟁점, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>현대사회와 윤리 수업은 찬반 토론에서 멈추지 않고, 윤리적 쟁점의 가치 충돌을 분석하고 이론으로 정당화한 뒤 책임 있는 실천으로 확장하도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>민감한 생명, 성, 가족, 종교, 통일, 난민, 혐오 사례는 개인 경험을 노출하지 않도록 가상 사례와 공신력 있는 자료를 준비합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 가치 충돌표, 윤리 이론 적용표, 책임 분배표, 입장 바꾸기 기록, 피드백 후 판단 수정본을 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>결과물보다 쟁점 발견, 근거 선택, 반론 반영, 판단 수정, 개인·공동체·제도 차원의 실천 기준을 학생부 기록 근거로 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 현대사회와 윤리 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+  {
+    "code": "[12현윤01-01]",
+    "domain": "현대 생활과 윤리",
+    "title": "인간은 왜 윤리적 존재인가?",
+    "type": "윤리학 개념 적용 토론형",
+    "period": "2차시",
+    "lens": "당위와 성찰",
+    "concept": "윤리학과 윤리적 인간",
+    "related": "규범윤리학, 기술윤리학, 메타윤리학, 당위, 도덕성, 인간 본성, 윤리적 민감성, 실천윤리",
+    "phenomenon": "자율주행차 사고, 교실 속 방관, 온라인 혐오 댓글, 시험 부정행위처럼 사실 판단만으로 해결되지 않는 사례를 제시하고 ‘무엇이 옳은가’를 묻는 이유를 탐구한다.",
+    "conflict": "학생은 윤리를 착하게 살자는 생활 규칙이나 개인 감정으로 이해할 수 있다. 그러나 윤리학은 사실을 넘어서 행위의 정당화 근거, 가치 충돌, 책임의 범위를 비판적으로 따지는 탐구이다.",
+    "general": "인간은 자신의 행위를 성찰하고 타인의 고통과 공동체의 규범을 고려하여 마땅히 해야 할 바를 탐구하는 윤리적 존재이며, 윤리학은 현대사회의 복잡한 쟁점을 정당화 가능한 판단으로 이끈다.",
+    "studentGeneral": "윤리는 느낌이나 규칙 암기가 아니라, 왜 그렇게 해야 하는지 근거를 따져 보는 과정이다.",
+    "questions": [
+      "윤리학의 주요 분야와 특징은 무엇인가?",
+      "사실 판단과 윤리 판단은 어떻게 다른가?",
+      "인간은 본성적으로 도덕적 삶을 지향한다고 볼 수 있는가?",
+      "내가 겪는 일상 문제를 윤리적 탐구 문제로 바꾸면 어떤 질문이 생기는가?"
+    ],
+    "products": [
+      "윤리 문제 발견 카드",
+      "사실 판단-가치 판단 구분표",
+      "윤리적 정당화 CER"
+    ],
+    "evidence": [
+      "윤리학의 분야를 실제 사례에 적용함",
+      "사실 판단과 가치 판단을 구분함",
+      "도덕성에 대한 인간 본성 논의를 비교함",
+      "일상 문제를 윤리적 탐구 질문으로 전환함"
+    ],
+    "data": "사례에서 사실 정보, 관련 행위자, 침해되거나 충돌하는 가치, 판단에 필요한 윤리 개념을 분리해 기록한다.",
+    "modeling": "사실-가치-행위자-책임-실천 가능성의 윤리 탐구 도식과 CER 구조로 판단 과정을 표현한다.",
+    "source": "학교생활 사례, 뉴스 기사, 윤리학 분야 설명 자료, 인간 본성 관련 동서양 사상 자료, 도덕심리학 기초 자료",
+    "scale": "범위: 개인 행위-교실 공동체-사회 규범 / 맥락: 일상 경험과 현대 윤리 쟁점",
+    "uncertainty": "윤리 문제는 사실 확인만으로 결론이 나지 않으며, 가치 우선순위와 책임 범위에 따라 판단이 달라질 수 있다.",
+    "misconception": "윤리는 개인 양심이나 착한 마음의 문제이므로 토론해도 정답이 없다.",
+    "correction": "정답을 강요하지 않되, 근거 없는 취향과 윤리적으로 정당화된 판단을 구분하게 한다.",
+    "failure": "학생이 느낌 중심으로 말하면 사실 근거, 가치 기준, 행위자의 책임, 반론 가능성을 순서대로 쓰게 한다.",
+    "safe": "개인 경험을 다룰 때 학생이 민감한 사생활을 공개하지 않도록 가상 사례와 익명 사례를 우선 활용한다.",
+    "deepDive": "도덕과학의 뇌과학·심리학 설명이 인간의 윤리적 책임을 약화하는지, 더 깊이 이해하게 하는지 탐구한다.",
+    "career": "윤리교육, 철학, 심리학, 법학, 상담, 공공정책",
+    "sample": "자율주행차 사고와 교실 방관 사례에서 사실 판단, 가치 판단, 행위자의 책임을 구분하고 윤리학이 단순 생활 규칙이 아니라 정당화 가능한 판단을 구성하는 탐구임을 설명함. 처음에는 ‘각자 양심에 따르면 된다’는 입장에 머물렀으나, 규범윤리학과 기술윤리학의 질문 차이를 적용하며 타당한 윤리 판단에는 사실 확인, 가치 기준, 반론 검토가 함께 필요하다는 점을 구체화함.",
+    "official": [
+      "현대사회와 윤리-1 / 선다형 / 이론 윤리학, 실천 윤리학, 메타 윤리학 이해"
+    ],
+    "tool": "현대사회와 윤리-1 / 선다형 / 윤리학의 성격과 현대 윤리 문제 탐구",
+    "standard": "윤리학의 성격과 특징을 바탕으로 윤리적 존재로서의 인간 본성을 이해하고, 현대사회의 다양한 윤리 문제를 탐구 및 토론할 수 있다.",
+    "levels": {
+      "A": "다양한 윤리학의 분야를 구분하여 설명할 수 있고, 당위의 학문으로서 윤리학이 갖는 성격과 특징을 논리적으로 설명할 수 있으며, 인간의 본성에 대한 다양한 이론을 바탕으로 인간이 본성적으로 도덕적 삶을 지향하는 윤리적 존재임을 설명할 수 있고, 현대사회의 다양한 윤리 문제를 해결하기 위한 탐구 의지를 가지고 토론에 참여할 수 있으며, 이를 바탕으로 실천 방안을 제시할 수 있다.",
+      "B": "다양한 윤리학의 분야를 구분할 수 있고, 당위의 학문으로서 윤리학이 갖는 성격과 특징을 설명할 수 있으며, 인간의 본성에 대한 이론을 바탕으로 인간이 본성적으로 도덕적 삶을 지향하는 윤리적 존재임을 이해하고, 현대사회의 다양한 윤리 문제를 해결하기 위한 탐구 의지를 가지고 토론에 참여할 수 있다.",
+      "C": "다양한 윤리학의 분야가 있음을 설명할 수 있고, 윤리학의 성격과 특징을 설명할 수 있으며, 인간이 본성적으로 도덕적 삶을 지향하는 윤리적 존재임을 이해할 수 있고, 현대사회의 다양한 윤리 문제를 탐구할 수 있으며, 토론에 참여하려는 태도를 지닌다.",
+      "D": "윤리학의 성격과 특징을 이해하고, 인간이 본성적으로 도덕적 삶을 지향하는 윤리적 존재임을 인식하며, 현대사회의 다양한 윤리 문제를 탐구하려는 태도를 지닌다.",
+      "E": "윤리학의 성격을 이해하고, 인간이 본성적으로 도덕적 행위를 할 수 있는 존재임을 이해하며, 현대사회의 다양한 윤리 문제에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤01-02]",
+    "domain": "현대 생활과 윤리",
+    "title": "하나의 윤리 이론으로 현대 문제를 해결할 수 있는가?",
+    "type": "동서양 윤리사상 적용 비교형",
+    "period": "3차시",
+    "lens": "이론과 정당화",
+    "concept": "윤리사상과 사회사상의 적용",
+    "related": "공리주의, 의무론, 덕 윤리, 유교, 불교, 도가, 자유주의, 공동체주의, 사회사상, 도덕과학",
+    "phenomenon": "AI 감시, 기후위기 책임, 청소년 노동, 혐오 표현 같은 쟁점을 제시하고 윤리 이론에 따라 판단이 어떻게 달라지는지 비교한다.",
+    "conflict": "학생은 특정 이론을 정답처럼 적용하거나, 모든 이론이 결국 비슷한 결론을 낸다고 생각할 수 있다. 실제 윤리 이론은 인간관, 선의 기준, 책임 범위가 달라 같은 문제에 다른 판단을 제시한다.",
+    "general": "동서양 윤리사상과 사회사상은 현대 윤리 문제를 해석하는 서로 다른 렌즈이며, 윤리적 해결 방안은 이론의 장점과 한계를 비교하고 구체적 맥락에 맞게 정당화될 때 설득력을 가진다.",
+    "studentGeneral": "윤리 이론은 외우는 이름이 아니라, 같은 문제를 다르게 보게 해 주는 판단 도구이다.",
+    "questions": [
+      "동양 및 서양의 윤리사상과 사회사상의 주요 접근은 무엇인가?",
+      "같은 윤리 문제에 서로 다른 이론을 적용하면 판단 기준은 어떻게 달라지는가?",
+      "현대 윤리 문제를 해결할 때 어떤 이론이 가장 설득력 있는가?",
+      "내가 선택한 현대 쟁점에 두 가지 이상 윤리 이론을 적용하면 어떤 해결 방안이 정교해지는가?"
+    ],
+    "products": [
+      "윤리 이론 적용 매트릭스",
+      "가치 충돌 분석표",
+      "이론 비교 기반 해결 방안"
+    ],
+    "evidence": [
+      "동서양 윤리사상의 핵심 전제를 비교함",
+      "현대 쟁점에 윤리 이론을 적용함",
+      "이론별 장점과 한계를 구분함",
+      "자신의 해결 방안을 근거로 정당화함"
+    ],
+    "data": "하나의 현대 윤리 쟁점을 선택해 관련 사실, 충돌 가치, 적용 가능한 윤리 이론, 이론별 판단 기준과 예상 반론을 표로 정리한다.",
+    "modeling": "공리주의-의무론-덕 윤리-동양 윤리 관점을 축으로 한 적용 매트릭스와 최종 판단의 정당화 구조로 표현한다.",
+    "source": "윤리사상 요약 자료, 현대 윤리 쟁점 기사, 사회사상 자료, 도덕과학 접근 관련 해설 자료",
+    "scale": "범위: 개인 선택-공동체 규범-제도 설계 / 맥락: 현대사회 쟁점과 윤리 이론의 적용 가능성",
+    "uncertainty": "윤리 이론은 현실의 모든 변수를 완전히 설명하지 못하므로 사례의 맥락과 피해 당사자 관점을 함께 고려해야 한다.",
+    "misconception": "공리주의는 결과만, 의무론은 규칙만 보므로 현실 문제에 그대로 적용하면 된다.",
+    "correction": "각 이론의 핵심 전제, 판단 강점, 적용 한계를 실제 사례 안에서 비교하게 한다.",
+    "failure": "학생이 이론 이름을 나열하면 동일 사례에 대한 이론별 결론, 근거, 한계를 한 줄씩 작성하게 한다.",
+    "safe": "민감한 윤리 쟁점을 다룰 때 특정 입장을 조롱하거나 학생 개인의 신념을 평가 대상으로 삼지 않는다.",
+    "deepDive": "AI 감시 기술 문제를 공리주의, 의무론, 유교의 관계 윤리, 자유주의 관점에서 비교하고 제도 설계 기준을 제안한다.",
+    "career": "철학, 윤리교육, 법학, 공공정책, 기술윤리, 사회과학",
+    "sample": "AI 감시 기술 사례에서 안전, 사생활, 공공성, 자율성의 가치 충돌을 분리하고 공리주의, 의무론, 자유주의 관점이 서로 다른 판단 기준을 제시하는 이유를 비교함. 특정 이론 하나로 해결책을 확정하던 초안을 수정해 각 이론의 장점과 한계를 실제 사례의 행위자와 피해 가능성에 연결했으며, 투명성·비례성·감독 책임을 포함한 윤리적 해결 기준을 정당화함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 동서양 윤리사상 현대 쟁점 적용",
+    "standard": "동양 및 서양의 윤리사상, 사회사상의 접근들을 비교 분석하고, 이를 현대사회의 다양한 윤리 문제와 쟁점에 적용하여 윤리적 해결 방안을 도출할 수 있다.",
+    "levels": {
+      "A": "동양 및 서양의 윤리사상, 사회사상의 접근들을 비교, 분석할 수 있고, 이를 현대사회의 다양한 윤리 문제와 쟁점에 적용하여 윤리적 해결 방안을 구체적으로 도출할 수 있으며, 윤리적 실천을 위한 덕성을 함양할 수 있다.",
+      "B": "동양 및 서양의 윤리사상, 사회사상의 접근들을 비교할 수 있고, 이를 현대사회의 다양한 윤리 문제와 쟁점에 적용하여 윤리적 해결 방안을 제시할 수 있으며, 윤리적 실천을 위한 덕성을 함양하려는 태도를 지닌다.",
+      "C": "동양 및 서양의 윤리사상, 사회사상의 접근들을 설명할 수 있고, 이를 현대사회의 윤리 문제와 쟁점에 적용하여 윤리적 해결 방안을 제시할 수 있다.",
+      "D": "동양 및 서양의 윤리사상, 사회사상의 접근들을 이해하고, 이를 현대사회의 윤리 문제와 쟁점에 적용할 수 있다.",
+      "E": "다양한 윤리적 접근이 존재함을 이해하고, 현대사회의 윤리 문제를 인식할 수 있다."
+    }
+  },
+  {
+    "code": "[12현윤02-01]",
+    "domain": "생명윤리와 생태윤리",
+    "title": "삶과 죽음의 경계에서 무엇을 존중해야 하는가?",
+    "type": "생명윤리 쟁점 서·논술형",
+    "period": "3차시",
+    "lens": "생명 존엄과 자기 결정",
+    "concept": "삶과 죽음의 윤리",
+    "related": "생명 존엄성, 자기 결정권, 안락사, 뇌사, 자살 예방, 인공임신중절, 유전자 치료, 의무론, 공리주의",
+    "phenomenon": "안락사, 뇌사와 장기이식, 자살 예방, 유전자 치료 사례를 제시하고 생명 존엄성과 자기 결정권이 충돌하는 지점을 탐구한다.",
+    "conflict": "학생은 생명윤리 문제를 찬반으로 단순화할 수 있다. 그러나 생명윤리 판단은 생명 존엄, 고통 완화, 자기 결정, 가족과 의료진의 책임, 제도적 오남용 가능성을 함께 고려해야 한다.",
+    "general": "삶과 죽음의 윤리 문제는 생명 존엄성과 자기 결정권, 고통 완화와 사회적 책임이 충돌하는 영역이며, 다양한 윤리 이론을 적용해 인간다운 삶과 책임 있는 돌봄의 기준을 성찰해야 한다.",
+    "studentGeneral": "생명을 존중한다는 말은 단순히 오래 살게 하는 것만이 아니라, 인간다운 삶과 책임 있는 돌봄을 함께 생각하는 것이다.",
+    "questions": [
+      "삶과 죽음에 대한 동서양 윤리 입장에는 무엇이 있는가?",
+      "생명윤리 문제에서 생명 존엄과 자기 결정은 어떻게 충돌하는가?",
+      "안락사나 유전자 치료는 어떤 조건에서 정당화될 수 있는가?",
+      "의료기술이 발전할수록 우리는 어떤 생명윤리 기준을 더 분명히 해야 하는가?"
+    ],
+    "products": [
+      "생명윤리 가치 충돌표",
+      "윤리 이론별 입장 비교",
+      "조건부 정당화 논술문"
+    ],
+    "evidence": [
+      "삶과 죽음에 대한 윤리 이론을 비교함",
+      "생명윤리 쟁점의 가치 충돌을 분석함",
+      "찬반을 넘어 정당화 조건을 제시함",
+      "생명 존중과 돌봄 책임으로 판단을 확장함"
+    ],
+    "data": "생명윤리 사례에서 당사자, 가족, 의료진, 사회 제도의 책임과 생명 존엄·자기 결정·피해 예방의 가치를 분리한다.",
+    "modeling": "가치 충돌표와 윤리 이론별 정당화 조건표를 만들고, 최종 입장의 근거와 한계를 CER 구조로 표현한다.",
+    "source": "생명윤리 사례 기사, 의료윤리 원칙 자료, 동서양 생사관 자료, 안락사·뇌사·유전자 치료 관련 공공 자료",
+    "scale": "범위: 개인의 삶-가족과 의료 현장-법과 제도 / 맥락: 생명 의료 기술의 발전과 윤리적 책임",
+    "uncertainty": "생명윤리 사례는 당사자 고통, 가족 관계, 제도적 안전장치에 따라 판단이 달라질 수 있으므로 단일 사례를 일반화하지 않는다.",
+    "misconception": "생명윤리 문제는 생명 존중 입장과 개인 선택 입장 중 하나를 고르는 문제이다.",
+    "correction": "각 입장이 보호하려는 가치와 우려하는 피해를 분리한 뒤, 정당화 조건과 한계를 함께 검토하게 한다.",
+    "failure": "학생이 감정적 찬반에 머물면 행위자별 책임, 이론별 근거, 오남용 방지 조건을 추가로 쓰게 한다.",
+    "safe": "자살, 임신중절, 질병 경험 등 민감한 주제를 다룰 때 개인 경험 공개를 요구하지 않고, 생명 존중과 피해 예방 언어를 사용한다.",
+    "deepDive": "연명의료 중단과 적극적 안락사의 차이를 자기 결정권, 의료진 책임, 제도적 안전장치 기준으로 비교한다.",
+    "career": "의료윤리, 간호, 생명과학, 법학, 상담, 사회복지",
+    "sample": "연명의료 중단 사례에서 생명 존엄성, 자기 결정권, 고통 완화, 의료진 책임의 가치 충돌을 분리하고 의무론과 공리주의 관점에서 정당화 기준이 달라지는 이유를 비교함. 초기에는 찬반 입장에 머물렀으나, 피드백 후 당사자의 의사 확인, 가족의 부담, 제도적 안전장치, 오남용 가능성을 추가로 검토하며 인간다운 삶과 책임 있는 돌봄의 조건을 윤리적으로 구체화함.",
+    "official": [
+      "현대사회와 윤리-2 / 서·논술형 / 삶과 죽음에 대한 윤리 이론 비교·분석"
+    ],
+    "tool": "현대사회와 윤리-2 / 서·논술형 / 삶과 죽음 및 생명윤리 쟁점",
+    "standard": "삶과 죽음을 동·서양 윤리의 입장에서 성찰하고, 현대사회에서 발생하는 생명윤리 문제를 다양한 윤리적 관점에서 설명할 수 있다.",
+    "levels": {
+      "A": "삶과 죽음에 대한 동·서양의 다양한 윤리 이론을 비교, 분석할 수 있고, 이를 바탕으로 삶과 죽음에 대해 성찰할 수 있으며, 현대사회에서 발생하는 생명윤리 문제를 다양한 윤리적 관점에서 설명할 수 있고, 생명의 존엄성을 존중하는 태도를 지닌다.",
+      "B": "삶과 죽음에 대한 동·서양의 다양한 윤리 이론을 설명할 수 있고, 이를 바탕으로 삶과 죽음에 대해 성찰할 수 있으며, 현대사회에서 발생하는 생명윤리 문제를 윤리적 관점에서 설명할 수 있고, 생명을 소중히 하는 태도를 지닌다.",
+      "C": "삶과 죽음에 대한 동·서양의 다양한 윤리 이론을 제시할 수 있고, 삶과 죽음에 대해 성찰할 수 있으며, 현대사회에서 발생하는 생명윤리 문제를 설명할 수 있고, 생명을 소중히 하는 태도를 지닌다.",
+      "D": "삶과 죽음에 대한 윤리 이론을 제시할 수 있고, 삶과 죽음에 대해 성찰할 수 있으며, 현대사회에서 발생하는 생명윤리 문제를 인식하고, 생명을 소중히 하는 태도의 필요성을 인정한다.",
+      "E": "삶과 죽음에 대한 윤리적 입장을 인식하고, 삶과 죽음을 성찰하려는 태도를 지니며, 생명윤리 문제에 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤02-02]",
+    "domain": "생명윤리와 생태윤리",
+    "title": "사랑과 가족은 개인 선택인가, 사회적 책임인가?",
+    "type": "성·가족 윤리 관점 비교형",
+    "period": "2차시",
+    "lens": "자유와 책임",
+    "concept": "사랑·성·가족의 윤리",
+    "related": "사랑, 성, 결혼, 가족, 성차별, 보수주의, 자유주의, 책임, 존중, 평등, 돌봄",
+    "phenomenon": "연애와 성, 결혼과 가족 형태, 성차별, 돌봄 책임, 디지털 성문화 문제를 제시하고 개인 선택과 사회적 책임의 경계를 탐구한다.",
+    "conflict": "학생은 성과 가족 문제를 사적인 선택으로만 보거나 전통 규범으로만 판단할 수 있다. 그러나 사랑과 성, 가족은 자유, 책임, 존중, 평등, 돌봄의 가치가 함께 작동하는 윤리 영역이다.",
+    "general": "사랑과 성, 결혼과 가족의 윤리 문제는 개인의 자유와 자기 결정뿐 아니라 상호 존중, 책임, 성평등, 돌봄의 정의를 함께 요구하며, 윤리적 판단은 관계 속 타자의 존엄을 고려해야 한다.",
+    "studentGeneral": "사랑과 가족의 문제는 내 선택만이 아니라 상대방의 존엄과 책임을 함께 생각해야 하는 문제이다.",
+    "questions": [
+      "사랑과 성에 관한 다양한 윤리적 입장에는 무엇이 있는가?",
+      "현대사회의 결혼과 가족 문제에서 자유와 책임은 어떻게 충돌하는가?",
+      "성차별 문제를 개인 태도와 사회 구조 중 어디에서 보아야 하는가?",
+      "존중과 평등의 관점에서 건강한 관계를 만들려면 어떤 기준이 필요한가?"
+    ],
+    "products": [
+      "성·가족 윤리 쟁점 분석표",
+      "보수주의·자유주의 입장 비교",
+      "관계 윤리 기준안"
+    ],
+    "evidence": [
+      "성과 가족에 관한 윤리적 입장을 비교함",
+      "자유·책임·존중·평등의 가치 충돌을 분석함",
+      "성차별의 윤리 문제를 구체화함",
+      "건강한 관계의 실천 기준을 제시함"
+    ],
+    "data": "사례 속 개인 선택, 상대방의 권리, 사회 규범, 성차별 구조, 돌봄 책임을 구분하고 각 입장의 윤리적 근거를 표시한다.",
+    "modeling": "자유-책임-존중-평등 가치 좌표와 보수주의·자유주의·관계 윤리 관점 비교표로 표현한다.",
+    "source": "성·가족 윤리 교재 자료, 성평등 관련 공공 자료, 가족 형태 변화 통계, 디지털 성문화 사례 자료",
+    "scale": "범위: 개인 관계-가족-학교·사회 규범-법과 제도 / 맥락: 변화하는 가족과 성평등 의식",
+    "uncertainty": "성과 가족 문제는 문화, 세대, 종교, 개인 경험에 따라 민감하게 받아들여질 수 있어 특정 삶의 방식을 낙인찍지 않는다.",
+    "misconception": "성·결혼·가족 문제는 개인의 자유이므로 윤리적으로 평가할 수 없다.",
+    "correction": "개인의 자유가 상대방의 존엄, 동의, 평등, 돌봄 책임과 만나는 지점을 사례로 분석하게 한다.",
+    "failure": "학생이 전통 또는 자유 중 한 입장만 반복하면 그 입장이 보호하는 가치와 놓치는 피해를 각각 쓰게 한다.",
+    "safe": "학생 개인의 연애, 가족 형태, 성 정체성 경험을 공개하도록 요구하지 않고, 혐오와 낙인 표현을 금지한다.",
+    "deepDive": "디지털 성문화에서 동의, 사생활, 피해 회복, 플랫폼 책임이 어떻게 연결되는지 윤리적 기준을 설계한다.",
+    "career": "윤리교육, 상담, 사회복지, 젠더 연구, 법학, 가족정책",
+    "sample": "디지털 성문화 사례에서 자기 결정, 동의, 사생활 보호, 피해 회복, 플랫폼 책임의 가치를 분리하고 보수주의와 자유주의 관점이 각각 보호하려는 가치와 한계를 비교함. 처음에는 개인의 선택 문제로만 판단했으나, 성차별 구조와 관계 속 권력 차이를 추가로 검토하며 건강한 관계에는 자유뿐 아니라 상호 존중, 책임, 평등의 조건이 필요함을 윤리적으로 정당화함.",
+    "official": [
+      "현대사회와 윤리-3 / 선다형 / 성 관련 보수주의와 자유주의 입장 비교"
+    ],
+    "tool": "현대사회와 윤리-3 / 선다형 / 사랑·성·가족 윤리",
+    "standard": "사랑과 성에 관한 다양한 입장과 성차별의 윤리적 문제를 이해하고, 현대사회의 결혼 및 가족 문제를 윤리적 관점에서 탐구할 수 있다.",
+    "levels": {
+      "A": "사랑과 성에 관한 다양한 윤리적 입장에 대해 비교, 분석할 수 있고, 성차별의 윤리적 문제를 근거와 사례를 들어 설명할 수 있으며, 현대사회의 결혼 및 가족 문제를 다양한 윤리적 관점에서 탐구할 수 있고, 사랑과 성에 대한 책임의 자세를 가진다.",
+      "B": "사랑과 성에 관한 다양한 윤리적 입장을 설명할 수 있고, 성차별의 윤리적 문제를 설명할 수 있으며, 현대사회의 결혼 및 가족 문제를 윤리적 관점에서 탐구할 수 있고, 사랑과 성에 대한 책임의 자세를 가진다.",
+      "C": "사랑과 성에 관한 다양한 윤리적 입장을 제시할 수 있고, 성차별의 윤리적 문제를 제시할 수 있으며, 현대사회의 결혼 및 가족 문제를 이해하고, 사랑과 성에 대한 책임의 자세를 가진다.",
+      "D": "사랑과 성에 관한 윤리적 입장을 이해하고, 성차별의 윤리적 문제를 인식하며, 현대사회의 결혼 및 가족 문제를 이해하고, 사랑과 성에 대한 책임의 자세가 필요함을 인정한다.",
+      "E": "사랑과 성에 관한 윤리적 입장을 인식하고, 성차별의 윤리적 문제와 현대사회의 결혼 및 가족 문제에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤02-03]",
+    "domain": "생명윤리와 생태윤리",
+    "title": "자연은 자원인가, 함께 살아갈 존재인가?",
+    "type": "환경윤리 관점 적용 서·논술형",
+    "period": "3차시",
+    "lens": "생태 감수성과 책임",
+    "concept": "생태윤리와 환경 문제",
+    "related": "인간중심주의, 동물중심주의, 생명중심주의, 생태중심주의, 동양 자연관, 동물권, 기후위기, 지속가능성",
+    "phenomenon": "동물 학대, 기후위기, 산림 훼손, 개발과 보전 갈등, 플라스틱 오염 사례를 제시하고 자연을 바라보는 관점에 따라 해결 방안이 어떻게 달라지는지 탐구한다.",
+    "conflict": "학생은 환경 문제를 보호해야 한다는 당위로만 이해할 수 있다. 그러나 환경윤리는 인간의 이익, 동물의 고통, 생명의 고유 가치, 생태계 전체의 안정성 사이에서 판단 기준을 세우는 문제이다.",
+    "general": "환경 문제의 윤리적 해결은 인간중심주의, 동물중심주의, 생명중심주의, 생태중심주의와 동양 자연관을 비교하여 인간과 자연의 관계를 재정립하고 책임 있는 실천을 구체화하는 과정이다.",
+    "studentGeneral": "자연을 어떻게 바라보느냐에 따라 보호해야 할 대상과 책임의 범위가 달라진다.",
+    "questions": [
+      "자연을 바라보는 동서양의 주요 관점에는 무엇이 있는가?",
+      "환경 문제에서 인간의 이익과 자연의 가치는 어떻게 충돌하는가?",
+      "동물 학대나 개발 문제를 어떤 환경윤리 관점이 가장 설득력 있게 설명하는가?",
+      "학교와 지역의 환경 문제를 해결하기 위해 어떤 윤리적 책임 기준이 필요한가?"
+    ],
+    "products": [
+      "환경윤리 관점 비교표",
+      "환경 쟁점 가치 충돌 분석",
+      "생태 책임 실천 기준"
+    ],
+    "evidence": [
+      "자연관과 환경윤리 입장을 비교함",
+      "환경 문제의 가치 충돌을 분석함",
+      "관점별 장점과 한계를 설명함",
+      "구체적 생태 실천 기준을 제시함"
+    ],
+    "data": "환경 사례에서 인간 이익, 동물 고통, 생명 가치, 생태계 안정성, 미래 세대 영향을 구분하고 관점별 판단 기준을 적용한다.",
+    "modeling": "환경윤리 스펙트럼과 행위자·피해 대상·책임 범위 매트릭스로 표현한다.",
+    "source": "환경 문제 기사, 동물권 자료, 기후위기 통계, 인간중심주의·동물중심주의·생태중심주의 설명 자료, 동양 자연관 자료",
+    "scale": "범위: 개인 소비-지역 환경-국가 정책-지구 생태계 / 맥락: 개발, 보전, 지속가능성",
+    "uncertainty": "환경 문제는 단기 경제 효과와 장기 생태 피해의 측정 기준이 다를 수 있어 판단 기준을 명확히 해야 한다.",
+    "misconception": "환경윤리는 자연을 보호해야 한다는 하나의 입장이다.",
+    "correction": "무엇을 보호 대상으로 보는지, 책임 범위를 어디까지 넓히는지에 따라 환경윤리 입장이 다름을 비교하게 한다.",
+    "failure": "학생이 환경 보호 구호에 머물면 관점별 근거, 피해 대상, 실행 주체, 예상 한계를 추가하게 한다.",
+    "safe": "동물 학대와 생태 피해 사례를 다룰 때 자극적 이미지보다 윤리적 쟁점과 책임 구조를 중심으로 다룬다.",
+    "deepDive": "학교 급식, 반려동물, 패스트패션 중 하나를 선택해 동물중심주의와 생태중심주의 관점의 판단 차이를 분석한다.",
+    "career": "환경윤리, 생명과학, 수의학, 환경정책, 지속가능경영, 생태교육",
+    "sample": "동물 학대 사례를 인간중심주의, 동물중심주의, 생명중심주의, 생태중심주의 관점으로 비교하고 각 관점이 보호하려는 대상과 책임 범위가 어떻게 달라지는지 분석함. 환경 보호를 막연한 당위로 제시하던 초안을 수정해 동물의 고통, 생명 가치, 생태계 안정성, 인간의 필요를 구분했으며, 학교와 지역에서 실천 가능한 생태 책임 기준을 구체화함.",
+    "official": [
+      "현대사회와 윤리-4 / 서·논술형 / 인간중심주의와 동물중심주의 이해"
+    ],
+    "tool": "현대사회와 윤리-4 / 서·논술형 / 환경윤리 관점과 동물 학대 문제",
+    "standard": "자연을 바라보는 동·서양의 관점을 비교ㆍ설명할 수 있으며 오늘날 환경 문제의 사례와 심각성을 조사하고, 이에 대한 윤리적 해결 방안을 제시할 수 있다.",
+    "levels": {
+      "A": "자연을 바라보는 동·서양의 관점을 비교, 분석할 수 있고, 오늘날 환경 문제의 사례와 심각성을 조사할 수 있으며, 환경 문제의 윤리적 쟁점을 도출하고, 윤리적 해결 방안을 근거와 사례를 들어 제시할 수 있으며, 생태 감수성을 함양할 수 있다.",
+      "B": "자연을 바라보는 동·서양의 관점을 비교할 수 있고, 오늘날 환경 문제의 사례와 심각성을 조사할 수 있으며, 윤리적 해결 방안을 구체적으로 제시할 수 있고, 생태 감수성을 함양하려는 태도를 지닌다.",
+      "C": "자연을 바라보는 동·서양의 관점을 설명할 수 있고, 오늘날 환경 문제의 사례와 심각성을 조사할 수 있으며, 윤리적 해결 방안을 제시할 수 있고, 환경을 보호하려는 태도를 지닌다.",
+      "D": "자연을 바라보는 다양한 관점이 있음을 이해하고, 오늘날 환경 문제의 사례를 조사할 수 있으며, 환경 문제에 대해 관심을 가진다.",
+      "E": "자연을 바라보는 관점이 있음을 인식하고, 환경 문제에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤03-01]",
+    "domain": "과학과 디지털 학습 환경 윤리",
+    "title": "과학기술 연구의 자유는 어디까지 허용되어야 하는가?",
+    "type": "과학기술 책임 논증형",
+    "period": "2차시",
+    "lens": "자유와 책임",
+    "concept": "과학기술 연구 윤리",
+    "related": "연구 자유, 사회적 책임, 위험 예측, 이중용도 기술, 생명공학, 핵기술, 연구윤리, 과학자 책임",
+    "phenomenon": "유전자 편집, 핵기술, 감염병 연구, 감시 기술처럼 연구 성과가 사회적 위험을 만들 수 있는 사례를 제시한다.",
+    "conflict": "학생은 과학기술 연구를 진보를 위한 자유로운 탐구로만 보거나 위험 때문에 제한해야 한다고 단순 판단할 수 있다. 연구 자유와 사회적 책임은 서로 배제되지 않으며 위험 예측과 공적 검토가 필요하다.",
+    "general": "과학기술 연구는 지식 확장과 삶의 개선을 가능하게 하지만, 사회적 위험과 불평등한 피해를 낳을 수 있으므로 연구 자유는 책임, 투명성, 위험 평가, 공적 숙의와 함께 정당화되어야 한다.",
+    "studentGeneral": "과학기술은 할 수 있다고 해서 바로 해도 되는 것이 아니라, 누가 어떤 위험을 감당하는지 따져야 한다.",
+    "questions": [
+      "과학기술 연구에 대한 다양한 관점에는 무엇이 있는가?",
+      "연구 자유와 사회적 책임은 어떤 지점에서 충돌하는가?",
+      "위험한 가능성이 있는 연구를 제한하는 것은 과학 발전을 막는가?",
+      "새로운 기술을 개발할 때 어떤 윤리적 검토 절차가 필요할까?"
+    ],
+    "products": [
+      "과학기술 위험-책임 분석표",
+      "연구 자유 정당화 조건",
+      "기술윤리 CER 논증"
+    ],
+    "evidence": [
+      "과학기술 연구 관점을 비교함",
+      "연구 자유와 사회적 책임의 충돌을 분석함",
+      "비판 또는 정당화 근거를 제시함",
+      "윤리적 검토 절차를 구체화함"
+    ],
+    "data": "기술 사례의 기대 효과, 잠재 위험, 피해 가능 집단, 책임 주체, 규제와 자율의 기준을 구분해 분석한다.",
+    "modeling": "기대 효과-위험-책임 주체-규제 수준-공적 숙의 절차의 기술윤리 의사결정표로 표현한다.",
+    "source": "과학기술 윤리 사례 기사, 연구윤리 가이드라인, 유전자 편집·감염병 연구·핵기술 관련 공공 자료",
+    "scale": "범위: 연구자-기관-기업-국가-시민 / 맥락: 기술 개발과 사회적 위험의 분배",
+    "uncertainty": "신기술 위험은 완전히 예측하기 어렵기 때문에 사전주의 원칙과 혁신의 필요성을 균형 있게 검토해야 한다.",
+    "misconception": "과학은 객관적이므로 윤리 판단과 별개이다.",
+    "correction": "연구 주제 선정, 실험 대상, 위험 감수, 기술 활용 단계마다 윤리 판단이 개입됨을 사례로 확인하게 한다.",
+    "failure": "학생이 기술의 장단점 나열에 머물면 책임 주체와 규제 기준을 명확히 구분하게 한다.",
+    "safe": "과학기술 위험 사례가 특정 연구자나 집단 비난으로 흐르지 않도록 제도, 책임, 절차 중심으로 다룬다.",
+    "deepDive": "유전자 편집 아기 논쟁을 연구 자유, 인간 존엄, 미래 세대, 불평등, 국제 규제 기준으로 분석한다.",
+    "career": "과학기술윤리, 생명공학, 공학, 의학, 법학, 정책연구",
+    "sample": "유전자 편집 기술 사례에서 치료 가능성, 인간 존엄, 미래 세대의 동의, 사회적 불평등, 연구자의 책임을 분리하고 연구 자유가 어떤 조건에서 정당화될 수 있는지 분석함. 처음에는 기술의 장점과 위험을 병렬적으로 제시했으나, 피드백 후 피해 가능 집단과 책임 주체를 구분하며 사전 검토, 투명성, 공적 숙의가 과학기술 연구의 윤리적 조건임을 정당화함.",
+    "official": [
+      "현대사회와 윤리-5 / 서·논술형 / 과학기술의 사회적 책임 분석"
+    ],
+    "tool": "현대사회와 윤리-5 / 서·논술형 / 과학기술 연구 자유와 책임",
+    "standard": "과학기술 연구에 대한 다양한 관점을 조사하여 비교·설명할 수 있으며 이를 과학기술의 사회적 책임 문제에 적용하여 비판 또는 정당화할 수 있다.",
+    "levels": {
+      "A": "과학기술 연구에 대한 다양한 관점을 조사하여 비교, 분석할 수 있고, 다양한 관점이 갖는 장점과 단점을 제시할 수 있으며, 다양한 관점을 과학기술의 사회적 책임 문제에 적용하여 비판 또는 정당화할 수 있고, 과학기술 연구의 자유와 이에 대한 책임 의식을 균형 있게 중시하는 태도를 지닌다.",
+      "B": "과학기술 연구에 대한 다양한 관점을 조사하여 설명할 수 있고, 이를 과학기술의 사회적 책임 문제에 적용하여 평가할 수 있으며, 과학기술 연구의 자유와 이에 대한 책임 의식을 균형 있게 중시하는 태도를 지닌다.",
+      "C": "과학기술 연구에 대한 다양한 관점을 조사할 수 있고, 이를 과학기술의 사회적 책임 문제에 적용하여 평가할 수 있으며, 과학기술 연구에 대한 책임 의식을 중시하는 태도를 지닌다.",
+      "D": "과학기술 연구에 대한 다양한 관점이 있음을 이해하고, 과학기술의 사회적 책임 문제를 조사할 수 있으며, 과학기술 연구에 대한 책임 의식이 필요함을 인정한다.",
+      "E": "과학기술 연구에 대한 다양한 관점이 존재함을 인식하고, 과학기술의 사회적 책임 문제에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤03-02]",
+    "domain": "과학과 디지털 학습 환경 윤리",
+    "title": "디지털 공간에서 나는 어떤 윤리적 행위자인가?",
+    "type": "정보·미디어 윤리 사례 분석형",
+    "period": "2차시",
+    "lens": "디지털 책임",
+    "concept": "정보윤리와 미디어 윤리",
+    "related": "정보통신 기술, 뉴미디어, 가짜뉴스, 저작권, 사이버 혐오, 개인정보, 알고리즘 추천, 디지털 학습 윤리",
+    "phenomenon": "가짜뉴스 공유, 생성형 AI 과제 활용, 댓글 혐오, 저작권 침해, 개인정보 노출, 알고리즘 추천 사례를 제시하고 디지털 행위자의 책임을 탐구한다.",
+    "conflict": "학생은 디지털 공간을 자유로운 표현과 편리한 정보 활용의 공간으로만 볼 수 있다. 그러나 디지털 행위는 타인의 권리, 정보 신뢰성, 공동체 안전, 학습의 공정성에 영향을 준다.",
+    "general": "정보통신 기술과 뉴미디어 환경에서 개인은 소비자이자 생산자이며, 디지털 행위의 윤리성은 정보의 진실성, 권리 존중, 책임 있는 표현, 공정한 학습, 플랫폼 구조에 대한 비판적 이해를 요구한다.",
+    "studentGeneral": "온라인에서 한 행동도 실제 사람과 공동체에 영향을 주기 때문에 책임 있는 판단이 필요하다.",
+    "questions": [
+      "정보통신 기술과 뉴미디어가 만든 윤리 문제에는 무엇이 있는가?",
+      "디지털 공간에서 표현의 자유와 타인의 권리는 어떻게 충돌하는가?",
+      "생성형 AI와 알고리즘 추천은 학습과 정보 판단을 더 공정하게 만드는가?",
+      "책임 있는 디지털 행위자가 되기 위한 기준은 무엇인가?"
+    ],
+    "products": [
+      "디지털 윤리 사례 분석표",
+      "정보 신뢰도·권리 점검표",
+      "디지털 학습 윤리 기준"
+    ],
+    "evidence": [
+      "정보·미디어 윤리 문제를 구체적으로 제시함",
+      "표현의 자유와 권리 침해를 비교함",
+      "알고리즘과 AI 활용의 윤리 쟁점을 분석함",
+      "책임 있는 디지털 실천 기준을 마련함"
+    ],
+    "data": "디지털 사례에서 정보 출처, 피해 가능성, 권리 침해, 플랫폼 구조, 이용자의 책임, 학습 공정성 문제를 구분한다.",
+    "modeling": "정보 신뢰도 평가표와 디지털 행위 책임 분배표를 작성하고 개인·플랫폼·학교 차원의 기준으로 조직한다.",
+    "source": "디지털 시민성 자료, 개인정보 보호 자료, 저작권·미디어 리터러시 자료, AI 활용 가이드, 뉴스 검증 사례",
+    "scale": "범위: 개인 이용자-학급 공동체-플랫폼-사회 여론 / 맥락: 디지털 학습 환경과 뉴미디어 생태계",
+    "uncertainty": "온라인 정보의 의도와 영향은 즉시 확인하기 어렵고, 알고리즘 구조는 불투명할 수 있어 출처 검증과 책임 범위 판단이 필요하다.",
+    "misconception": "온라인에서 공유한 정보는 내가 만든 것이 아니므로 책임이 작다.",
+    "correction": "공유와 댓글, 캡처, AI 활용도 정보 확산과 권리 침해에 영향을 주는 행위임을 사례로 확인하게 한다.",
+    "failure": "학생이 네티켓 수준의 규칙에 머물면 정보 검증, 권리 보호, 알고리즘 비판, 학습 공정성 기준으로 확장하게 한다.",
+    "safe": "혐오 표현 사례를 재현하거나 확산하지 않고, 피해자의 존엄과 안전한 토론 규칙을 우선한다.",
+    "deepDive": "생성형 AI 과제 활용에서 도움받기와 부정행위의 경계를 투명성, 자기 학습, 출처 표시, 교사 안내 기준으로 분석한다.",
+    "career": "미디어학, 정보보안, 교육공학, AI 윤리, 법학, 플랫폼 정책",
+    "sample": "생성형 AI 과제 활용 사례에서 학습 효율, 자기 학습, 출처 투명성, 저작권, 평가 공정성의 가치 충돌을 분리하고 디지털 행위자의 책임을 개인·학교·플랫폼 차원으로 구분함. 단순히 AI 사용 허용 여부를 묻던 초안을 수정해 어떤 활용은 학습을 돕고 어떤 활용은 공정성을 해치는지 판단 기준을 세웠으며, 정보윤리와 미디어 윤리 관점에서 책임 있는 디지털 학습 기준을 구체화함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 정보·미디어 윤리와 디지털 학습 책임",
+    "standard": "정보통신 기술과 뉴미디어의 발달에 따른 윤리 문제들을 제시할 수 있으며 이에 대한 해결 방안을 정보윤리와 미디어 윤리의 관점에서 제시할 수 있다.",
+    "levels": {
+      "A": "정보통신 기술 발달의 동향과 뉴미디어의 특징을 설명할 수 있고, 정보통신 기술과 뉴미디어의 발달에 따라 새롭게 등장하는 윤리 문제들의 윤리적 쟁점을 도출하여 정보윤리와 미디어 윤리의 관점에서 해결 방안을 구체적으로 제시할 수 있으며, 정보통신 기술과 뉴미디어를 윤리적으로 활용할 수 있다.",
+      "B": "정보통신 기술 발달의 동향과 뉴미디어의 특징을 이해하고, 정보통신 기술과 뉴미디어의 발달에 따라 새롭게 등장하는 윤리 문제들을 제시할 수 있으며, 이에 대한 해결 방안을 정보윤리와 미디어 윤리의 관점에서 제시할 수 있고, 정보통신 기술과 뉴미디어를 윤리적으로 활용하려는 태도를 가진다.",
+      "C": "정보통신 기술과 뉴미디어의 발달에 따라 새롭게 등장하는 윤리 문제를 제시할 수 있고, 이에 대한 해결 방안을 제시할 수 있으며, 정보통신 기술과 뉴미디어의 활용에 대한 책임 의식을 가진다.",
+      "D": "정보통신 기술과 뉴미디어의 발달에 따라 새롭게 등장하는 윤리 문제를 인식할 수 있고, 이를 해결하려는 태도를 지닌다.",
+      "E": "정보통신 기술과 뉴미디어의 발달에 따라 새롭게 등장하는 윤리 문제를 인식할 수 있다."
+    }
+  },
+  {
+    "code": "[12현윤03-03]",
+    "domain": "과학과 디지털 학습 환경 윤리",
+    "title": "AI가 판단할 때 책임은 누구에게 있는가?",
+    "type": "AI 윤리 프로젝트형",
+    "period": "3차시",
+    "lens": "책임과 투명성",
+    "concept": "인공지능 윤리",
+    "related": "인공지능, 도구주의, 자율성, 책임성, 투명성, 편향성, 설명 가능성, 개인정보, 인간 감독",
+    "phenomenon": "AI 채용, 얼굴인식, 추천 알고리즘, 의료 진단 AI, 생성형 AI 오류 사례를 제시하고 인간과 인공지능의 관계 및 책임 문제를 탐구한다.",
+    "conflict": "학생은 AI를 편리한 도구 또는 인간을 대체할 존재로만 이해할 수 있다. AI 판단에는 데이터 편향, 설명 가능성, 책임 소재, 인간 감독, 피해 구제의 문제가 결합되어 있다.",
+    "general": "윤리적인 인공지능 활용은 인간과 AI의 관계를 성찰하고 책임성, 투명성, 공정성, 설명 가능성, 개인정보 보호를 확보하는 제도와 실천을 요구한다.",
+    "studentGeneral": "AI가 결정하더라도 그 결과에 대한 책임은 사라지지 않으며, 사람이 책임 구조를 설계해야 한다.",
+    "questions": [
+      "인간과 인공지능의 관계를 설명하는 주요 입장에는 무엇이 있는가?",
+      "AI로 인해 발생하는 윤리 문제에는 어떤 가치 충돌이 있는가?",
+      "AI 판단의 오류나 차별에 대한 책임은 누구에게 있는가?",
+      "윤리적인 AI 활용을 위해 어떤 원칙과 절차가 필요할까?"
+    ],
+    "products": [
+      "AI 윤리 쟁점 지도",
+      "책임성·투명성 점검표",
+      "AI 윤리 원칙 설계안"
+    ],
+    "evidence": [
+      "인간과 AI 관계 입장을 비교함",
+      "AI 윤리 문제의 가치 충돌을 분석함",
+      "책임 주체와 피해 구제 절차를 구분함",
+      "AI 윤리 원칙을 사례에 맞게 설계함"
+    ],
+    "data": "AI 사례에서 데이터, 개발자, 기업, 이용자, 피해자, 규제 기관의 역할을 구분하고 편향성·투명성·책임성을 점검한다.",
+    "modeling": "AI 의사결정 흐름도와 책임 분배 매트릭스, 윤리 원칙 우선순위표로 표현한다.",
+    "source": "국내외 AI 윤리 가이드라인, AI 채용·얼굴인식·추천 알고리즘 사례, 개인정보 보호 자료, 설명가능 AI 해설 자료",
+    "scale": "범위: 개인 이용자-기업-공공기관-사회 제도 / 맥락: 자동화된 판단과 인간 감독",
+    "uncertainty": "AI 시스템은 내부 판단 과정이 불투명할 수 있고, 편향의 원인이 데이터·설계·활용 단계에 걸쳐 분산될 수 있다.",
+    "misconception": "AI가 판단하면 인간보다 객관적이고 공정하다.",
+    "correction": "데이터 편향과 설계자의 선택, 활용 맥락이 결과에 영향을 준다는 점을 사례로 검증하게 한다.",
+    "failure": "학생이 AI 장단점 나열에 머물면 오류 발생 단계와 책임 주체, 피해 구제 방법을 구체적으로 연결하게 한다.",
+    "safe": "AI 차별 사례를 다룰 때 특정 집단에 대한 편견이 재생산되지 않도록 표현과 자료 선택을 점검한다.",
+    "deepDive": "AI 채용 알고리즘의 편향 문제를 데이터 수집, 모델 설계, 기업 활용, 지원자 권리, 제도 감독 기준으로 분석한다.",
+    "career": "AI 윤리, 컴퓨터공학, 데이터과학, 법학, 인사관리, 공공정책",
+    "sample": "AI 채용 알고리즘 사례에서 효율성, 공정성, 투명성, 개인정보 보호의 가치 충돌을 분리하고 편향 데이터와 설명 가능성 문제가 지원자의 권리에 어떤 영향을 주는지 분석함. 초기에는 알고리즘 정확도를 중심으로 판단했으나, 피드백 후 개발자, 기업, 이용자, 제도 설계자의 책임을 단계별로 구분하며 인간 감독과 피해 구제 절차가 윤리적 AI 활용의 핵심 조건임을 구체화함.",
+    "official": [
+      "현대사회와 윤리-6 / 프로젝트 / 인공지능 윤리 문제와 해결 방안 탐구"
+    ],
+    "tool": "현대사회와 윤리-6 / 프로젝트 / AI 윤리 원칙 수립",
+    "standard": "윤리적인 인공지능을 위하여 인간과 인공지능의 관계를 설명하고, 인공지능으로 인해 발생하는 윤리 문제의 해결 방안을 인공지능 윤리의 관점에서 제시할 수 있다.",
+    "levels": {
+      "A": "인간과 인공지능의 다양한 관계 설정에 대한 논의들을 비교, 분석할 수 있고, 인공지능으로 인해 발생하는 윤리 문제에 대한 윤리적 쟁점을 도출할 수 있으며, 이에 대한 해결 방안을 인공지능 윤리의 관점에서 구체적으로 제시할 수 있고, 인공지능을 윤리적으로 활용할 수 있다.",
+      "B": "인간과 인공지능의 다양한 관계 설정에 대한 논의들을 비교할 수 있고, 인공지능으로 인해 발생하는 윤리 문제를 설명할 수 있으며, 이에 대한 해결 방안을 인공지능 윤리의 관점에서 제시할 수 있고, 인공지능을 윤리적으로 활용하려는 태도를 가진다.",
+      "C": "인간과 인공지능의 다양한 관계 설정에 대한 논의들을 설명할 수 있고, 인공지능으로 인해 발생하는 윤리 문제를 제시할 수 있으며, 이에 대한 해결 방안을 제시할 수 있다.",
+      "D": "인간과 인공지능의 관계에 대한 논의를 제시할 수 있고, 인공지능으로 인해 발생하는 윤리 문제를 제시할 수 있으며, 이를 해결하려는 태도를 지닌다.",
+      "E": "인공지능으로 인해 발생하는 윤리 문제를 인식할 수 있고, 해결 방안에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤04-01]",
+    "domain": "민주시민과 윤리",
+    "title": "직업은 돈을 버는 일인가, 공동체에 기여하는 일인가?",
+    "type": "직업윤리 서·논술형",
+    "period": "2차시",
+    "lens": "노동과 공동체",
+    "concept": "직업윤리와 청렴",
+    "related": "직업의 의의, 직업윤리, 청렴, 노동의 가치, 기업 윤리, 플랫폼 노동, 사회적 책임, 정약용",
+    "phenomenon": "공무원 청렴, 기업 내부고발, 플랫폼 노동, 직업별 이해충돌, 노동 존중 사례를 제시하고 직업의 의미와 공동체 책임을 탐구한다.",
+    "conflict": "학생은 직업을 생계와 개인 성공의 수단으로만 이해할 수 있다. 직업은 개인의 자아실현과 공동체 기여, 청렴, 노동 존중, 사회적 책임이 만나는 윤리 영역이다.",
+    "general": "직업은 개인의 행복과 자아실현을 가능하게 하는 동시에 공동체에 기여하는 사회적 역할이며, 직업윤리는 청렴, 책임, 공정성, 노동 존중을 통해 공동체 신뢰를 형성한다.",
+    "studentGeneral": "직업은 나를 위한 일인 동시에 다른 사람에게 영향을 주는 책임 있는 활동이다.",
+    "questions": [
+      "직업의 의의와 직업윤리의 필요성은 무엇인가?",
+      "청렴한 삶과 노동 존중은 공동체 발전과 어떻게 연결되는가?",
+      "기업과 근로자는 이윤, 생계, 책임 사이에서 무엇을 우선해야 하는가?",
+      "내가 관심 있는 직업에서 예상되는 윤리 딜레마는 무엇이며 어떻게 판단할 수 있는가?"
+    ],
+    "products": [
+      "진로 직업윤리 분석표",
+      "청렴·이해충돌 사례 판단",
+      "직업윤리 실천 기준"
+    ],
+    "evidence": [
+      "직업의 의의를 다양한 관점에서 설명함",
+      "직업군별 윤리 문제를 분석함",
+      "청렴과 노동 존중의 필요성을 근거로 설명함",
+      "진로와 연결된 실천 기준을 제시함"
+    ],
+    "data": "관심 직업을 선택해 주요 업무, 영향을 받는 사람, 발생 가능한 윤리 딜레마, 필요한 덕목, 제도적 책임을 조사한다.",
+    "modeling": "직업-이해관계자-윤리 딜레마-책임 기준-실천 방안의 직업윤리 맵으로 표현한다.",
+    "source": "직업윤리 자료, 청렴 사례, 노동 관련 기사, 기업 사회적 책임 자료, 정약용 청렴 관련 자료",
+    "scale": "범위: 개인 진로-직장 공동체-기업·기관-사회 신뢰 / 맥락: 직업 선택과 공동체 책임",
+    "uncertainty": "직업윤리 딜레마는 직무 권한, 조직 문화, 법적 기준, 개인 가치에 따라 판단이 달라질 수 있다.",
+    "misconception": "직업윤리는 직장에서 지켜야 할 예절이나 규칙이다.",
+    "correction": "직업 활동이 타인의 권리, 안전, 신뢰, 공정성에 영향을 미치는 사례를 통해 윤리적 책임을 분석하게 한다.",
+    "failure": "학생이 희망 직업 소개에 머물면 해당 직업의 이해관계자와 윤리 딜레마를 반드시 연결하게 한다.",
+    "safe": "특정 직업군을 비하하거나 청렴 문제를 개인 도덕성만으로 환원하지 않고 조직과 제도 책임도 함께 다룬다.",
+    "deepDive": "플랫폼 노동의 알고리즘 관리 문제를 노동 존중, 공정한 보상, 기업 책임, 소비자 책임의 관점에서 탐구한다.",
+    "career": "진로교육, 행정, 경영, 노동법, 기업윤리, 인사관리",
+    "sample": "관심 직업의 업무와 이해관계자를 분석해 직업 활동이 개인의 생계뿐 아니라 타인의 안전, 권리, 사회적 신뢰에 영향을 준다는 점을 파악함. 청렴을 개인의 정직함으로만 보던 초안을 수정해 이해충돌, 조직 문화, 제도적 감시, 노동 존중의 기준을 함께 검토했으며, 자신의 진로 분야에서 필요한 직업윤리와 공동체 책임을 구체화함.",
+    "official": [
+      "현대사회와 윤리-7 / 서·논술형 / 청렴한 삶과 직업윤리"
+    ],
+    "tool": "현대사회와 윤리-7 / 서·논술형 / 직업윤리와 청렴",
+    "standard": "직업의 의의와 다양한 직업군에 따른 직업윤리를 제시할 수 있으며 공동체 발전을 위한 청렴한 삶과 노동의 가치에 대한 사회적 존중의 필요성을 설명할 수 있다.",
+    "levels": {
+      "A": "직업의 의의를 다양한 관점에서 설명할 수 있고, 다양한 직업군을 탐색하여 직업군에 따른 직업윤리를 제시할 수 있으며, 공동체 발전을 위한 청렴한 삶의 필요성과 노동의 가치에 대한 사회적 존중의 필요성을 사례를 들어 설명할 수 있다.",
+      "B": "직업의 의의를 설명할 수 있고, 다양한 직업군에 따른 직업윤리를 제시할 수 있으며, 공동체 발전을 위한 청렴한 삶의 필요성과 노동의 가치에 대한 사회적 존중의 필요성을 설명할 수 있다.",
+      "C": "직업의 의의를 설명할 수 있고, 다양한 직업군에 따른 직업윤리를 조사할 수 있으며, 공동체 발전을 위한 청렴한 삶의 필요성과 노동의 가치에 대한 사회적 존중의 필요성을 이해할 수 있다.",
+      "D": "직업의 의의를 이해하고, 직업윤리의 필요성에 대해 설명할 수 있으며, 청렴한 삶의 사례를 제시할 수 있고, 노동의 가치를 존중하는 태도를 지닌다.",
+      "E": "직업의 의의를 이해하고, 노동과 관련한 윤리 문제에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤04-02]",
+    "domain": "민주시민과 윤리",
+    "title": "시민불복종은 법 위반인가, 정의 실현인가?",
+    "type": "민주시민 프로젝트형",
+    "period": "3차시",
+    "lens": "개인선과 공동선",
+    "concept": "정치참여와 시민불복종",
+    "related": "개인선, 공동선, 시민성, 정치참여, 국가 권위, 시민불복종, 정당화 조건, 민주주의, 법치",
+    "phenomenon": "기후 시위, 인권 운동, 역사적 시민불복종 사례를 제시하고 법을 어기는 행위가 언제 민주주의를 훼손하지 않고 정의를 촉구하는 실천이 되는지 탐구한다.",
+    "conflict": "학생은 시민불복종을 불법 행위 또는 용기 있는 저항으로 단순 판단할 수 있다. 시민불복종은 공공성, 비폭력성, 최후수단성, 처벌 감수, 정의로운 목적 등 엄격한 정당화 조건을 요구한다.",
+    "general": "민주주의에서 개인선과 공동선의 조화는 정치참여를 통해 이루어지며, 시민불복종은 부당한 법과 국가 권위에 맞서되 공공성과 비폭력성, 책임성을 갖출 때 정당화될 수 있다.",
+    "studentGeneral": "법을 어긴다고 모두 시민불복종은 아니며, 공동체의 정의를 위해 책임 있게 행동하는 조건이 필요하다.",
+    "questions": [
+      "개인선과 공동선의 조화가 필요한 이유는 무엇인가?",
+      "시민의 정치참여는 민주주의 발전과 어떻게 연결되는가?",
+      "시민불복종은 어떤 조건에서 정당화될 수 있는가?",
+      "우리 사회의 쟁점에서 책임 있는 시민 참여는 어떤 모습이어야 하는가?"
+    ],
+    "products": [
+      "시민불복종 정당화 조건표",
+      "정치참여 사례 분석",
+      "공동선 실천 프로젝트"
+    ],
+    "evidence": [
+      "개인선과 공동선의 관계를 사례로 설명함",
+      "정치참여의 필요성을 민주주의와 연결함",
+      "시민불복종의 조건과 정당성을 분석함",
+      "책임 있는 시민 실천 방안을 제시함"
+    ],
+    "data": "시민참여 사례의 목적, 방법, 법 위반 여부, 비폭력성, 공공성, 피해 가능성, 처벌 감수 여부를 기준으로 분석한다.",
+    "modeling": "시민불복종 정당화 체크리스트와 개인선-공동선 조화 의사결정표로 표현한다.",
+    "source": "시민불복종 이론 자료, 역사적 시민운동 사례, 헌법·민주주의 자료, 현대 사회운동 기사",
+    "scale": "범위: 개인 시민-공동체-국가 권위-민주주의 제도 / 맥락: 합법적 참여와 저항의 경계",
+    "uncertainty": "시민불복종의 정당성은 목적의 정의로움뿐 아니라 방법, 피해, 대안 절차, 사회적 맥락에 따라 달라진다.",
+    "misconception": "정의로운 목적이면 법을 어겨도 정당하다.",
+    "correction": "시민불복종의 정당화 조건을 사례에 적용해 목적과 방법, 책임을 함께 따지게 한다.",
+    "failure": "학생이 찬반 구호에 머물면 공공성, 비폭력성, 최후수단성, 처벌 감수, 피해 최소화 조건을 각각 검토하게 한다.",
+    "safe": "현대 정치 쟁점이 특정 정당 지지나 비난으로 흐르지 않도록 윤리적 조건과 시민성 중심으로 토론한다.",
+    "deepDive": "기후위기 직접행동 사례를 시민불복종의 정당화 조건과 민주적 숙의의 관점에서 평가한다.",
+    "career": "정치학, 법학, 시민교육, 공공정책, NGO, 사회운동 연구",
+    "sample": "기후 시위 사례에서 개인선, 공동선, 법치, 공공성, 피해 최소화의 가치 충돌을 분리하고 시민불복종의 정당화 조건을 적용함. 처음에는 정의로운 목적이면 정당하다는 입장에 가까웠으나, 피드백 후 비폭력성, 최후수단성, 처벌 감수, 대안적 참여 절차의 검토 여부를 추가하며 책임 있는 시민 참여의 기준을 민주주의 발전과 연결해 설명함.",
+    "official": [
+      "현대사회와 윤리-8 / 프로젝트 / 개인선과 공동선, 정치참여와 시민불복종"
+    ],
+    "tool": "현대사회와 윤리-8 / 프로젝트 / 민주시민과 시민불복종",
+    "standard": "개인선과 공동선의 조화가 필요한 이유를 설명할 수 있으며, 시민의 정치참여 필요성과 시민 불복종의 조건 및 정당성을 제시할 수 있다.",
+    "levels": {
+      "A": "개인선과 공동선의 조화가 필요한 이유를 구체적인 사례를 통해 설명할 수 있고, 시민의 정치참여가 필요한 이유를 민주주의의 발전과 연결하여 구체적으로 설명할 수 있으며, 시민 불복종의 조건과 정당성을 근거와 함께 제시할 수 있다.",
+      "B": "개인선과 공동선의 조화가 필요한 이유를 설명할 수 있고, 시민의 정치참여가 필요한 이유를 구체적으로 설명할 수 있으며, 시민 불복종의 조건과 정당성을 제시할 수 있다.",
+      "C": "개인선과 공동선의 조화가 필요함을 이해하고, 시민의 정치참여가 필요한 이유를 설명할 수 있으며, 시민 불복종의 조건을 제시할 수 있다.",
+      "D": "개인선과 공동선의 조화가 필요함을 인식하고, 시민의 정치참여가 필요함을 인정하며, 시민 불복종의 사례를 제시할 수 있다.",
+      "E": "개인선과 공동선 조화가 필요함을 인식하고, 시민의 정치참여에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤04-03]",
+    "domain": "민주시민과 윤리",
+    "title": "공정한 분배와 정당한 처벌은 무엇인가?",
+    "type": "정의론 쟁점 서·논술형",
+    "period": "3차시",
+    "lens": "정의와 정당화",
+    "concept": "분배 정의와 교정적 정의",
+    "related": "롤스, 노직, 공리주의, 분배 정의, 적극적 평등 조치, 차별, 형벌, 사형제, 응보, 예방, 교정",
+    "phenomenon": "기본소득, 대학 입학 기회, 적극적 평등 조치, 사형제, 소년범 처벌 사례를 제시하고 공정함과 정당함의 기준을 탐구한다.",
+    "conflict": "학생은 공정함을 모두에게 똑같이 주는 것 또는 노력한 만큼 받는 것으로 단순화할 수 있다. 분배와 처벌의 정의는 자유, 평등, 효용, 권리, 책임, 회복 가능성의 충돌을 포함한다.",
+    "general": "공정한 분배와 정당한 처벌은 단일 기준으로 결정되지 않으며, 분배 정의와 교정적 정의의 이론을 적용해 권리, 자유, 평등, 사회적 약자 보호, 책임과 회복의 균형을 정당화해야 한다.",
+    "studentGeneral": "공정하다는 말은 모두 똑같다는 뜻만이 아니라, 어떤 기준으로 다르게 대우할 수 있는지 설명하는 것이다.",
+    "questions": [
+      "분배 정의와 교정적 정의의 주요 관점에는 무엇이 있는가?",
+      "공정한 분배를 판단할 때 자유와 평등은 어떻게 충돌하는가?",
+      "사형 제도와 형벌은 응보, 예방, 교정 중 무엇을 우선해야 하는가?",
+      "우리 사회의 정책을 정의 이론으로 평가하면 어떤 판단이 달라지는가?"
+    ],
+    "products": [
+      "정의론 적용 비교표",
+      "분배·처벌 쟁점 분석",
+      "정책 비판 또는 정당화 논술"
+    ],
+    "evidence": [
+      "분배 정의 이론을 정책에 적용함",
+      "형벌을 교정적 정의 관점에서 평가함",
+      "자유·평등·효용·권리의 충돌을 분석함",
+      "정책 판단을 근거로 비판 또는 정당화함"
+    ],
+    "data": "하나의 분배 정책 또는 처벌 제도를 선택해 보호하려는 가치, 피해 가능성, 이익을 얻는 집단, 제한되는 권리, 대안 정책을 분석한다.",
+    "modeling": "롤스-노직-공리주의 판단 비교표와 응보·예방·교정 관점의 형벌 평가표로 표현한다.",
+    "source": "정의론 자료, 분배 정책 사례, 적극적 평등 조치 자료, 사형제 찬반 자료, 형벌 목적 관련 법·윤리 자료",
+    "scale": "범위: 개인 권리-사회 제도-국가 정책 / 맥락: 불평등, 범죄, 회복, 공공선",
+    "uncertainty": "정책 평가는 어떤 정의 기준을 우선하느냐에 따라 달라지므로 이론별 전제와 한계를 분명히 해야 한다.",
+    "misconception": "공정한 분배는 모두에게 똑같이 주거나 노력한 만큼 주는 것이다.",
+    "correction": "필요, 자격, 기여, 최소 수혜자 보호, 자유권 보장 등 여러 기준이 있음을 정책 사례로 비교하게 한다.",
+    "failure": "학생이 찬반 입장만 말하면 적용한 정의 이론, 보호 가치, 반론, 대안 기준을 명시하게 한다.",
+    "safe": "범죄 피해와 처벌 사례를 다룰 때 피해자와 가해자를 희화화하지 않고 인권과 정의의 관점에서 신중히 다룬다.",
+    "deepDive": "사형제를 응보, 범죄 예방, 오판 가능성, 피해자 권리, 국가 폭력의 한계 기준으로 평가한다.",
+    "career": "법학, 정치철학, 사회정책, 형사정책, 행정, 인권",
+    "sample": "사형제 쟁점에서 응보, 예방, 교정, 피해자 권리, 오판 가능성, 국가 권력의 한계를 구분하고 형벌의 목적에 따라 정당화 근거가 달라지는 이유를 분석함. 초기에는 강한 처벌의 필요성을 중심으로 판단했으나, 피드백 후 교정적 정의와 인권 관점을 추가로 검토하며 정당한 처벌은 감정적 보복이 아니라 책임, 회복, 피해 예방, 권리 보장의 균형 속에서 판단되어야 함을 논증함.",
+    "official": [
+      "현대사회와 윤리-9 / 서·논술형 / 형벌과 사형 제도의 교정적 정의 평가"
+    ],
+    "tool": "현대사회와 윤리-9 / 서·논술형 / 분배 정의와 교정적 정의",
+    "standard": "공정한 분배를 이루기 위한 정책을 분배 정의 이론을 통해 비판 또는 정당화할 수 있으며, 사형 제도와 형벌을 교정적 정의의 관점에서 비판 또는 정당화할 수 있다.",
+    "levels": {
+      "A": "분배 정의의 윤리적 쟁점을 설명할 수 있고, 공정한 분배를 이루기 위한 정책을 분배 정의 이론을 근거로 비판 또는 정당화할 수 있으며, 사형 제도와 형벌을 교정적 정의의 관점에서 비판 또는 정당화할 수 있고, 정의를 추구하는 태도를 내면화하여 이를 생활 속에서 실천할 수 있다.",
+      "B": "분배 정의의 윤리적 쟁점을 이해하고, 공정한 분배를 이루기 위한 정책을 분배 정의의 관점에서 비판 또는 정당화할 수 있으며, 사형 제도와 형벌을 교정적 정의의 관점에서 비판 또는 정당화할 수 있고, 정의를 추구하는 태도를 지닌다.",
+      "C": "분배 정의의 윤리적 쟁점이 존재함을 인식하고, 공정한 분배를 이루기 위한 정책에 대한 다양한 입장을 제시할 수 있으며, 사형 제도와 형벌에 대한 다양한 입장을 제시할 수 있고, 정의를 중시하는 태도를 지닌다.",
+      "D": "공정한 분배를 이루기 위한 정책과 사형 제도와 형벌에 대한 입장을 제시할 수 있고, 정의의 필요성을 인정한다.",
+      "E": "공정한 분배를 이루기 위한 정책과 사형 제도와 형벌에 대한 입장을 인식할 수 있다."
+    }
+  },
+  {
+    "code": "[12현윤05-01]",
+    "domain": "문화와 경제생활의 윤리",
+    "title": "예술과 대중문화는 도덕적 책임에서 자유로운가?",
+    "type": "예술·대중문화 윤리 토의형",
+    "period": "2차시",
+    "lens": "표현과 책임",
+    "concept": "예술과 도덕",
+    "related": "미적 가치, 윤리적 가치, 표현의 자유, 대중문화, 혐오 표현, 선정성, 문화산업, 창작자 책임, 감상자 책임",
+    "phenomenon": "논란이 된 대중문화 콘텐츠, 혐오 표현, 폭력적 이미지, 역사 왜곡, 팬덤 문화, 예술 검열 사례를 제시하고 예술과 도덕의 관계를 탐구한다.",
+    "conflict": "학생은 예술은 표현의 자유 영역이므로 도덕 판단에서 자유롭다고 보거나, 도덕적으로 불편한 표현은 금지해야 한다고 단순 판단할 수 있다. 예술과 대중문화는 표현의 자유, 해석의 다양성, 피해 가능성, 창작자 책임이 충돌하는 영역이다.",
+    "general": "예술과 대중문화는 미적 가치와 윤리적 가치가 만나는 영역이며, 표현의 자유는 중요하지만 타인의 존엄, 혐오와 차별의 재생산, 사회적 영향에 대한 책임과 함께 성찰되어야 한다.",
+    "studentGeneral": "좋은 작품인지 묻는 것과 옳은 표현인지 묻는 것은 다르지만, 둘은 완전히 분리될 수 없다.",
+    "questions": [
+      "예술과 도덕의 관계에 대한 주요 입장은 무엇인가?",
+      "대중문화의 순기능과 역기능은 윤리적으로 어떻게 평가할 수 있는가?",
+      "표현의 자유는 혐오 표현이나 역사 왜곡까지 보호해야 하는가?",
+      "문화 콘텐츠를 만들고 소비할 때 필요한 윤리적 기준은 무엇인가?"
+    ],
+    "products": [
+      "예술-도덕 관계 입장 비교",
+      "대중문화 윤리 쟁점 분석",
+      "콘텐츠 윤리 감상문"
+    ],
+    "evidence": [
+      "미적 가치와 윤리적 가치를 구분함",
+      "대중문화의 순기능과 역기능을 분석함",
+      "표현의 자유와 피해 가능성을 비교함",
+      "창작자와 소비자의 책임을 성찰함"
+    ],
+    "data": "문화 콘텐츠 사례에서 표현 의도, 미적 가치, 윤리적 문제, 피해 가능 집단, 사회적 맥락, 대안 표현 방식을 분석한다.",
+    "modeling": "표현의 자유-존엄 침해-사회적 영향-대안 표현의 균형 판단표로 표현한다.",
+    "source": "대중문화 사례, 표현의 자유 자료, 혐오 표현과 차별 자료, 예술과 도덕 관계 이론 자료, 콘텐츠 등급 자료",
+    "scale": "범위: 창작자-감상자-팬덤-플랫폼-사회문화 / 맥락: 표현의 자유와 문화적 책임",
+    "uncertainty": "예술 표현의 의미는 수용자와 맥락에 따라 달라지므로 불편함, 피해, 검열의 기준을 구분해야 한다.",
+    "misconception": "예술은 자유로운 표현이므로 윤리적 비판을 받지 않아야 한다.",
+    "correction": "윤리적 비판이 곧 검열은 아니며, 표현의 사회적 영향과 책임을 따지는 과정임을 사례로 구분하게 한다.",
+    "failure": "학생이 호불호 감상에 머물면 표현 의도, 피해 가능성, 대안 표현, 창작자·소비자 책임을 구조화하게 한다.",
+    "safe": "혐오 표현과 선정적 콘텐츠를 재현하지 않고, 피해 집단의 존엄과 안전한 토론 규칙을 우선한다.",
+    "deepDive": "역사 왜곡 콘텐츠를 표현의 자유, 대중의 역사 인식, 피해자 존엄, 플랫폼 책임 기준으로 분석한다.",
+    "career": "문화콘텐츠, 미디어학, 예술교육, 윤리교육, 법학, 플랫폼 정책",
+    "sample": "논란이 된 대중문화 콘텐츠를 표현의 자유, 미적 가치, 피해 가능성, 혐오 재생산, 창작자 책임 기준으로 분석함. 처음에는 작품의 재미와 완성도를 중심으로 평가했으나, 피드백 후 윤리적 비판과 검열의 차이, 감상자의 해석 책임, 대안 표현 가능성을 추가로 검토하며 예술과 도덕이 완전히 분리될 수 없다는 점을 근거 있게 설명함.",
+    "official": [
+      "현대사회와 윤리-10 / 토의·토론 / 예술과 도덕 및 대중문화 윤리"
+    ],
+    "tool": "현대사회와 윤리-10 / 토의·토론 / 예술과 대중문화 윤리",
+    "standard": "미적 가치와 윤리적 가치를 예술과 도덕의 관계 차원에서 설명할 수 있으며 현대의 대중문화의 순기능과 역기능을 윤리적 관점에서 이해하고 성찰할 수 있다.",
+    "levels": {
+      "A": "예술과 도덕의 관계에 대한 다양한 입장을 비교, 분석할 수 있고, 미적 가치와 윤리적 가치를 설명할 수 있으며, 윤리적 관점에서 현대의 대중문화의 순기능과 역기능을 사례를 들어 설명하고 성찰할 수 있다.",
+      "B": "예술과 도덕의 관계에 대한 다양한 입장을 설명할 수 있고, 미적 가치와 윤리적 가치를 설명할 수 있으며, 현대의 대중문화의 순기능과 역기능을 윤리적 관점에서 이해하고 성찰할 수 있다.",
+      "C": "예술과 도덕의 관계에 대한 입장을 제시할 수 있고, 미적 가치와 윤리적 가치를 설명할 수 있으며, 현대의 대중문화의 특징을 윤리적 관점에서 이해할 수 있다.",
+      "D": "예술과 도덕의 관계에 대한 입장을 제시할 수 있고, 현대의 대중문화의 특징을 제시할 수 있다.",
+      "E": "예술과 도덕의 관계에 대한 입장을 인식하고, 현대의 대중문화의 특징에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤05-02]",
+    "domain": "문화와 경제생활의 윤리",
+    "title": "소비는 개인 취향인가, 윤리적 선택인가?",
+    "type": "소비문화 윤리 서·논술형",
+    "period": "2차시",
+    "lens": "욕망과 책임",
+    "concept": "의식주·경제생활의 윤리",
+    "related": "의식주 생활, 도덕적 선, 이윤 추구, 과시 소비, 기호 소비, 베블런, 윤리적 소비, 사회적 자본, 기업 책임",
+    "phenomenon": "명품 소비, 패스트패션, 배달 플랫폼, 친환경 소비, 기업의 이윤 추구와 노동·환경 문제를 제시하고 소비가 개인 취향을 넘어 어떤 윤리적 책임을 갖는지 탐구한다.",
+    "conflict": "학생은 소비를 개인의 취향과 자유로만 이해할 수 있다. 그러나 소비는 노동, 환경, 사회적 지위 경쟁, 기업의 이윤 추구, 공동체 신뢰와 연결되는 윤리적 행위이다.",
+    "general": "의식주와 경제생활의 윤리 문제는 개인 욕망과 사회적 책임, 도덕적 선과 이윤 추구, 소비의 자유와 공동체 영향이 충돌하는 영역이며, 윤리적 소비는 정보 탐색과 책임 있는 선택을 요구한다.",
+    "studentGeneral": "내가 사는 물건은 내 취향만 보여 주는 것이 아니라, 누가 어떤 조건에서 만들었는지도 함께 드러낸다.",
+    "questions": [
+      "의식주 생활과 경제생활에서 발생하는 윤리 문제에는 무엇이 있는가?",
+      "도덕적 선과 이윤 추구는 어떤 상황에서 충돌하는가?",
+      "과시 소비와 기호 소비는 왜 윤리적 비판의 대상이 될 수 있는가?",
+      "내 소비를 더 책임 있게 바꾸려면 어떤 정보와 기준이 필요한가?"
+    ],
+    "products": [
+      "소비 가치 충돌 분석",
+      "베블런 과시 소비 적용표",
+      "윤리적 소비 기준 설계"
+    ],
+    "evidence": [
+      "경제생활의 윤리 문제를 사례로 분석함",
+      "도덕적 선과 이윤 추구의 갈등을 설명함",
+      "소비문화 문제를 윤리적 관점에서 비판함",
+      "책임 있는 소비 기준을 구체화함"
+    ],
+    "data": "소비 사례에서 가격, 욕망, 사회적 지위 표현, 생산 노동, 환경 영향, 기업 책임, 소비자의 정보 접근성을 분석한다.",
+    "modeling": "소비 선택-생산 과정-노동·환경 영향-사회적 의미-책임 기준의 가치사슬로 표현한다.",
+    "source": "소비문화 기사, 베블런 과시 소비 자료, 기업 윤리·ESG 자료, 노동·환경 관련 공공 자료, 의식주 윤리 자료",
+    "scale": "범위: 개인 소비-기업 생산-노동자-환경-사회적 자본 / 맥락: 물질적 풍요와 책임 있는 경제생활",
+    "uncertainty": "윤리적 소비 정보는 기업 홍보와 실제 생산 조건이 다를 수 있어 복수 출처와 검증 기준이 필요하다.",
+    "misconception": "소비는 내가 번 돈으로 내가 선택하는 사적 자유이다.",
+    "correction": "소비가 노동, 환경, 사회적 인정 욕구, 기업의 이윤 전략과 연결됨을 가치사슬로 확인하게 한다.",
+    "failure": "학생이 착한 소비 캠페인 수준에 머물면 정보 확인 방법, 비용 부담, 기업 책임, 제도 개선 조건을 함께 쓰게 한다.",
+    "safe": "특정 브랜드나 소비 수준을 조롱하지 않고 소비 구조와 책임 기준을 중심으로 분석한다.",
+    "deepDive": "패스트패션 소비를 과시 소비, 노동권, 환경 피해, 기업 책임, 소비자 선택 기준으로 분석한다.",
+    "career": "경제윤리, 경영, 소비자학, 패션·디자인, 환경정책, 지속가능경영",
+    "sample": "패스트패션 소비 사례를 가격, 유행 욕망, 노동 조건, 환경 피해, 기업의 이윤 추구, 소비자 정보 접근성 기준으로 분석함. 소비를 개인 취향으로만 보던 초안을 수정해 베블런의 과시 소비 관점과 윤리적 소비 기준을 함께 적용했으며, 개인의 구매 선택뿐 아니라 기업의 투명성, 노동권 보장, 제도적 규제가 함께 필요하다는 판단으로 확장함.",
+    "official": [
+      "현대사회와 윤리-11 / 서·논술형 / 베블런과 현대 소비문화 비판"
+    ],
+    "tool": "현대사회와 윤리-11 / 서·논술형 / 소비문화와 경제생활 윤리",
+    "standard": "의식주 생활과 관련된 윤리 문제와 경제생활에서 발생하는 도덕적 선과 이윤 추구 사이의 갈등 및 소비문화의 문제점을 윤리적 관점에서 비판할 수 있다.",
+    "levels": {
+      "A": "의식주 생활과 관련된 다양한 사상적 입장을 비교, 분석할 수 있고, 이를 의식주 생활과 관련된 윤리 문제에 적용하여 비판할 수 있으며, 경제생활에서 발생하는 도덕적 선과 이윤 추구 사이의 갈등에 대한 윤리적 쟁점을 설명할 수 있고, 현대 소비문화의 문제점을 윤리적 관점에서 근거와 사례를 들어 비판할 수 있으며, 윤리적 소비를 실천하려는 태도를 지닌다.",
+      "B": "의식주 생활과 관련된 다양한 사상적 입장을 설명할 수 있고, 이를 의식주 생활과 관련된 윤리 문제에 적용하여 비판할 수 있으며, 경제생활에서 발생하는 도덕적 선과 이윤 추구 사이의 갈등을 설명할 수 있고, 현대 소비문화의 문제점을 윤리적 관점에서 비판할 수 있다.",
+      "C": "의식주 생활과 관련된 윤리 문제를 설명할 수 있고, 경제생활에서 발생하는 도덕적 선과 이윤 추구 사이의 갈등을 설명할 수 있으며, 현대 소비문화의 문제점을 윤리적 관점에서 비판할 수 있다.",
+      "D": "의식주 생활과 관련된 윤리 문제를 제시할 수 있고, 경제생활에서 발생하는 도덕적 선과 이윤 추구 사이의 갈등을 이해하며, 현대 소비문화의 문제점을 이해할 수 있다.",
+      "E": "의식주와 관련한 윤리 문제가 존재함을 인식하고, 현대 소비문화의 문제점이 존재함을 인식한다."
+    }
+  },
+  {
+    "code": "[12현윤05-03]",
+    "domain": "문화와 경제생활의 윤리",
+    "title": "문화 다양성과 보편 윤리는 어떻게 조화될 수 있는가?",
+    "type": "다문화 윤리 쟁점 탐구형",
+    "period": "2차시",
+    "lens": "다양성과 보편성",
+    "concept": "다문화 윤리",
+    "related": "문화 다양성, 문화상대주의, 보편 윤리, 관용, 상호 존중, 종교 갈등, 이주민 차별, 혐오 표현",
+    "phenomenon": "이주민 차별, 종교 복장 논쟁, 문화 관습과 인권 충돌, 다문화 학교 사례를 제시하고 다양성 존중과 보편 윤리의 경계를 탐구한다.",
+    "conflict": "학생은 문화 다양성을 모든 문화를 그대로 인정하는 태도로 이해하거나, 보편 윤리를 기준으로 다른 문화를 쉽게 평가할 수 있다. 다문화 윤리는 차이 존중과 인간 존엄의 보편 기준을 함께 요구한다.",
+    "general": "다문화 사회의 윤리 문제는 문화 다양성 존중과 보편 윤리의 조화를 요구하며, 관용은 무비판적 수용이 아니라 타자의 존엄을 인정하면서 차별과 인권 침해를 비판적으로 해결하려는 태도이다.",
+    "studentGeneral": "다름을 존중한다는 것은 아무 판단도 하지 않는 것이 아니라, 사람의 존엄을 해치지 않는 기준을 함께 세우는 것이다.",
+    "questions": [
+      "다문화 이론과 문화 다양성 존중의 근거는 무엇인가?",
+      "종교 갈등과 이주민 차별은 어떤 윤리적 문제를 드러내는가?",
+      "문화상대주의는 인권 침해 관습까지 인정해야 하는가?",
+      "다문화 사회에서 관용과 보편 윤리를 함께 실천하려면 어떤 기준이 필요한가?"
+    ],
+    "products": [
+      "다문화 쟁점 관점 비교표",
+      "다양성-보편성 균형 기준",
+      "차별 해결 윤리 실천안"
+    ],
+    "evidence": [
+      "다문화 이론을 사례에 적용함",
+      "문화 다양성과 보편 윤리의 충돌을 분석함",
+      "종교 갈등·이주민 차별 해결 방안을 제시함",
+      "관용과 상호 존중의 기준을 구체화함"
+    ],
+    "data": "다문화 사례에서 문화적 의미, 차별 구조, 인권 침해 가능성, 당사자 관점, 공동체 규범을 구분한다.",
+    "modeling": "문화 다양성 존중-보편 윤리-차별 방지-상호 존중의 균형 판단표로 표현한다.",
+    "source": "다문화 이론 자료, 이주민 차별 사례, 종교 갈등 기사, 인권 자료, 문화 다양성 교육 자료",
+    "scale": "범위: 개인 정체성-학교 공동체-지역사회-국가 제도 / 맥락: 이주와 다문화 사회",
+    "uncertainty": "문화 쟁점은 외부 관찰자의 오해와 당사자 내부의 다양한 목소리가 존재하므로 단일 문화 이미지로 일반화하지 않는다.",
+    "misconception": "문화 다양성을 존중한다는 것은 모든 문화 관습을 비판하지 않는 것이다.",
+    "correction": "문화의 의미를 이해하되 인간 존엄과 차별 금지의 기준으로 비판적 판단을 할 수 있음을 사례로 확인하게 한다.",
+    "failure": "학생이 관용을 막연히 강조하면 어떤 표현과 제도가 차별을 줄이는지 구체적 기준을 세우게 한다.",
+    "safe": "종교, 이주 배경, 민족 관련 사례에서 학생 개인 정체성이 노출되거나 낙인찍히지 않도록 공개 자료와 가상 사례를 사용한다.",
+    "deepDive": "종교 복장 논쟁을 개인의 자유, 공공성, 성평등, 문화 정체성, 차별 방지 기준으로 비교한다.",
+    "career": "다문화교육, 국제관계, 인권, 사회복지, 문화정책, 법학",
+    "sample": "이주민 차별 사례에서 문화 다양성, 보편 윤리, 차별 금지, 공동체 통합의 가치 충돌을 분리하고 다문화주의와 문화상대주의의 장점과 한계를 비교함. 처음에는 관용을 강조하는 수준에 머물렀으나, 피드백 후 당사자 관점과 인권 기준을 함께 검토하며 문화 존중이 차별이나 인권 침해를 방치하는 태도가 아니라 상호 존중과 제도 개선을 요구하는 윤리적 실천임을 구체화함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 다문화 윤리와 문화 다양성",
+    "standard": "다문화 이론을 통해 문화의 다양성을 존중해야 할 필요성을 인식하고 종교 갈등, 이주민 차별 등과 같은 다문화 관련 문제의 해결 방안을 제시할 수 있다.",
+    "levels": {
+      "A": "다문화에 관한 여러 윤리 이론을 비교, 분석하고, 문화의 다양성을 존중해야 할 필요성을 근거와 사례를 들어 설명할 수 있으며, 다문화 관련 문제의 윤리적 쟁점을 도출하고, 이에 대한 해결 방안을 근거와 함께 제시할 수 있으며, 관용과 상호 존중의 태도를 지닌다.",
+      "B": "다문화에 관한 여러 윤리 이론을 이해하고, 문화의 다양성을 존중해야 할 필요성을 설명할 수 있으며, 다문화 관련 문제를 설명할 수 있고, 이에 대한 해결 방안을 근거와 함께 제시할 수 있으며, 상호 존중의 태도를 지닌다.",
+      "C": "다문화에 관한 윤리 이론을 이해하고, 이를 바탕으로 문화의 다양성을 존중해야 할 필요성을 인식할 수 있으며, 다문화 관련 문제와 해결 방안을 제시할 수 있다.",
+      "D": "다문화 사회에서 문화의 다양성을 존중해야 함을 이해하고, 다문화 관련 문제를 제시할 수 있다.",
+      "E": "다문화 관련 문제가 존재함을 인식하고, 다문화 관련 문제에 대해 관심을 가진다."
+    }
+  },
+  {
+    "code": "[12현윤06-01]",
+    "domain": "평화와 공존의 윤리",
+    "title": "갈등 사회에서 윤리적 소통은 무엇을 요구하는가?",
+    "type": "갈등 해결 담론 윤리형",
+    "period": "2차시",
+    "lens": "소통과 공존",
+    "concept": "사회통합과 윤리적 담론",
+    "related": "사회 갈등, 혐오, 세대 갈등, 젠더 갈등, 지역 갈등, 담론 윤리, 공감, 경청, 사회통합",
+    "phenomenon": "세대 갈등, 젠더 갈등, 지역 갈등, 온라인 혐오 표현, 공공정책 갈등 사례를 제시하고 사회통합을 위한 윤리적 소통 조건을 탐구한다.",
+    "conflict": "학생은 갈등 해결을 서로 양보하거나 예의 있게 말하는 문제로만 이해할 수 있다. 윤리적 소통은 권력 차이, 피해 경험, 사실 확인, 동등한 발언 기회, 합리적 근거, 상호 존중을 요구한다.",
+    "general": "사회갈등 해결은 단순한 의견 조정이 아니라 갈등의 윤리적 쟁점을 드러내고, 동서양 윤리 이론을 바탕으로 타자의 존엄을 존중하며 합리적 담론과 실천 가능한 통합 방안을 모색하는 과정이다.",
+    "studentGeneral": "갈등을 해결하려면 조용히 넘어가는 것이 아니라, 서로의 근거와 피해를 안전하게 말할 수 있어야 한다.",
+    "questions": [
+      "다양한 사회적 갈등의 양상과 원인은 무엇인가?",
+      "사회통합을 위해 필요한 윤리적 소통과 담론의 조건은 무엇인가?",
+      "갈등 해결에서 공감은 충분한가, 제도 변화도 필요한가?",
+      "우리 학교나 지역의 갈등을 윤리적으로 해결하려면 어떤 대화 규칙과 실천이 필요한가?"
+    ],
+    "products": [
+      "사회갈등 윤리 쟁점 분석",
+      "담론 윤리 대화 규칙",
+      "사회통합 실천 방안"
+    ],
+    "evidence": [
+      "사회적 갈등의 양상을 구체적으로 제시함",
+      "갈등의 윤리적 쟁점을 도출함",
+      "윤리 이론을 바탕으로 통합 방안을 제시함",
+      "윤리적 소통과 담론 태도를 실천함"
+    ],
+    "data": "갈등 사례에서 이해관계자, 피해 경험, 사실 쟁점, 가치 충돌, 소통 장애, 제도적 원인을 구분한다.",
+    "modeling": "갈등 행위자 맵과 담론 윤리 체크리스트, 합의 가능 지점과 남은 쟁점 표로 표현한다.",
+    "source": "사회갈등 기사, 담론 윤리 자료, 혐오 표현과 차별 자료, 공공갈등 조정 사례, 동서양 윤리 이론 자료",
+    "scale": "범위: 개인 의견-집단 정체성-온라인 공간-제도와 정책 / 맥락: 갈등의 심화와 사회통합",
+    "uncertainty": "갈등 자료는 특정 집단의 목소리만 부각될 수 있으므로 피해 당사자와 소수 의견의 안전한 표현 조건을 고려해야 한다.",
+    "misconception": "갈등 해결은 서로 조금씩 양보하면 된다.",
+    "correction": "갈등의 구조적 원인과 권력 차이를 분석하고, 공정한 대화 조건이 먼저 필요함을 사례로 확인하게 한다.",
+    "failure": "학생이 좋은 말하기 규칙에 머물면 사실 확인, 피해 인정, 발언 기회, 책임 있는 실천까지 포함하게 한다.",
+    "safe": "혐오와 차별 사례를 다룰 때 혐오 표현을 반복하지 않고, 안전한 토론 규칙과 피해자 보호를 우선한다.",
+    "deepDive": "온라인 혐오 갈등을 표현의 자유, 피해 예방, 플랫폼 책임, 담론 윤리의 관점에서 분석한다.",
+    "career": "갈등조정, 시민교육, 상담, 사회복지, 공공정책, 미디어 정책",
+    "sample": "온라인 혐오 갈등 사례에서 표현의 자유, 피해 예방, 집단 낙인, 플랫폼 책임, 공정한 발언 기회의 가치 충돌을 분석함. 처음에는 서로 예의를 지키면 갈등이 줄어든다는 수준으로 접근했으나, 피드백 후 사실 확인, 피해 인정, 권력 차이, 안전한 대화 조건을 추가로 검토하며 사회통합을 위한 윤리적 소통은 태도와 제도적 장치가 함께 필요함을 구체화함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 사회갈등과 윤리적 담론",
+    "standard": "다양한 사회적 갈등의 양상을 제시하고 동·서양의 윤리 이론을 바탕으로 사회통합을 위한 방안을 제안할 수 있으며, 바람직한 소통과 담론을 실천할 수 있다.",
+    "levels": {
+      "A": "다양한 사회적 갈등의 양상을 제시할 수 있고, 사회적 갈등의 윤리적 쟁점을 도출할 수 있으며, 동·서양의 윤리 이론을 바탕으로 사회통합을 위한 여러 방안을 근거와 사례를 들어 제안할 수 있고, 사회적 갈등 해결을 위해 구성원 간 윤리적 소통과 담론을 실천할 수 있다.",
+      "B": "다양한 사회적 갈등의 양상을 제시할 수 있고, 사회적 갈등의 원인을 도출할 수 있으며, 동·서양의 윤리 이론을 바탕으로 사회통합을 위한 방안을 제안할 수 있고, 사회적 갈등 해결을 위해 소통하려는 태도를 지닌다.",
+      "C": "다양한 사회적 갈등의 양상을 제시할 수 있고, 사회통합을 위한 방안을 윤리적 관점에서 제시할 수 있으며, 사회적 갈등 해결을 위해 소통하려는 태도를 지닌다.",
+      "D": "다양한 사회적 갈등이 존재함을 인식하고, 사회통합의 필요성을 이해하며, 사회적 갈등 해결을 위해 소통의 자세가 필요함을 인정한다.",
+      "E": "사회적 갈등이 존재함을 인식하고, 사회적 갈등을 해결하려는 태도를 지닌다."
+    }
+  },
+  {
+    "code": "[12현윤06-02]",
+    "domain": "평화와 공존의 윤리",
+    "title": "한반도 평화는 어떤 윤리적 가치 위에서 논의되어야 하는가?",
+    "type": "평화·통일 윤리 쟁점 분석형",
+    "period": "2차시",
+    "lens": "평화와 화해",
+    "concept": "한반도 통일과 평화 윤리",
+    "related": "한반도 평화, 통일, 화해, 안보, 인권, 보편 윤리, 책임, 평화 감수성, 개인적 노력, 국가적 노력",
+    "phenomenon": "남북 교류, 이산가족, 북한 인권, 안보 갈등, 통일 비용, 세대별 통일 인식 자료를 제시하고 평화와 통일을 윤리적으로 탐구한다.",
+    "conflict": "학생은 통일을 당위적 목표 또는 현실적 부담으로 단순화할 수 있다. 한반도 평화는 안보, 인권, 화해, 책임, 공동체 회복, 세대 인식 차이가 얽힌 윤리 문제이다.",
+    "general": "한반도의 통일과 평화는 객관적 쟁점 이해와 보편적 윤리 가치에 근거해야 하며, 남북한의 화해를 위한 노력은 개인적 실천과 국가적 제도, 국제적 협력을 함께 요구한다.",
+    "studentGeneral": "평화는 막연히 사이좋게 지내자는 말이 아니라, 안전과 인권과 화해를 함께 고민하는 책임 있는 과정이다.",
+    "questions": [
+      "한반도 통일과 평화에 관한 주요 쟁점은 무엇인가?",
+      "안보, 인권, 화해, 책임의 가치는 어떻게 충돌하거나 보완되는가?",
+      "평화를 위해 개인과 국가는 각각 무엇을 할 수 있는가?",
+      "세대별 통일 인식 차이를 고려할 때 평화교육은 어떤 방향으로 가야 하는가?"
+    ],
+    "products": [
+      "한반도 평화 가치 충돌표",
+      "개인·국가 노력 비교",
+      "평화 윤리 실천 기준"
+    ],
+    "evidence": [
+      "통일과 평화 쟁점을 객관적으로 이해함",
+      "보편 윤리 가치로 쟁점을 분석함",
+      "개인적·국가적 노력을 구분함",
+      "평화를 지향하는 태도와 실천 기준을 제시함"
+    ],
+    "data": "통일·평화 사례에서 안보, 인권, 화해, 경제, 세대 인식, 국제 관계 요소를 분리하고 개인·국가 차원의 노력을 구분한다.",
+    "modeling": "한반도 평화 쟁점 맵과 개인-국가-국제사회 역할 분담표로 표현한다.",
+    "source": "통일 인식 조사, 이산가족 자료, 남북 교류 사례, 북한 인권 자료, 평화교육 자료, 한반도 정세 기사",
+    "scale": "범위: 개인 시민-남북한 사회-국가 정책-국제사회 / 맥락: 분단, 안보, 인권, 화해",
+    "uncertainty": "한반도 쟁점은 정치적 입장과 안보 상황에 따라 해석이 달라질 수 있어 객관 자료와 윤리적 가치 기준을 구분해야 한다.",
+    "misconception": "통일은 무조건 해야 하거나 현실적으로 부담스러워 피해야 하는 문제이다.",
+    "correction": "통일과 평화를 구분하고, 안보·인권·화해·책임의 가치가 어떻게 조화를 이룰 수 있는지 분석하게 한다.",
+    "failure": "학생이 통일 찬반에 머물면 평화를 위한 개인적·국가적 노력과 윤리적 근거를 나누어 쓰게 한다.",
+    "safe": "남북한 주민이나 특정 세대를 비하하지 않고, 정치적 선호보다 평화와 인권의 보편 가치 중심으로 다룬다.",
+    "deepDive": "북한 인권과 한반도 평화 협력의 긴장을 보편 윤리, 안보, 화해, 국제 책임의 관점에서 분석한다.",
+    "career": "통일교육, 국제관계, 평화학, 인권, 공공정책, 외교",
+    "sample": "한반도 평화 쟁점에서 안보, 인권, 화해, 세대 인식, 국제 협력의 가치를 분리하고 통일을 단순 찬반이 아니라 평화로운 공존과 공동체 회복의 윤리 문제로 분석함. 처음에는 통일 비용이나 당위성 중심으로 판단했으나, 피드백 후 북한 인권, 이산가족, 남북 교류, 시민의 평화 감수성을 함께 검토하며 개인적 노력과 국가적 제도의 역할을 구체화함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 한반도 평화와 통일 윤리",
+    "standard": "한반도의 통일과 평화에 관한 쟁점을 객관적으로 이해하고, 보편적인 윤리적 가치를 바탕으로 남북한의 화해를 위한 개인적·국가적 노력을 구체적으로 제시할 수 있다.",
+    "levels": {
+      "A": "한반도의 통일과 평화에 관한 다양한 쟁점을 객관적으로 이해하고, 보편적인 윤리적 가치를 바탕으로 남북한의 화해를 위한 노력을 개인적, 국가적 차원으로 구분하여 구체적으로 설명할 수 있으며, 평화를 지향하는 태도를 지닌다.",
+      "B": "한반도의 통일과 평화에 관한 다양한 쟁점을 이해하고, 보편적인 윤리적 가치를 바탕으로 남북한의 화해를 위한 노력을 구체적으로 제시할 수 있으며, 평화를 지향하는 태도를 지닌다.",
+      "C": "한반도의 통일과 평화에 관한 다양한 쟁점을 이해하고, 보편적인 윤리적 가치를 바탕으로 남북한의 화해를 위한 노력을 제시할 수 있다.",
+      "D": "한반도의 통일과 평화에 관한 쟁점을 이해하고, 남북한의 화해를 위한 노력을 제시할 수 있다.",
+      "E": "한반도의 통일과 평화에 관한 쟁점이 있음을 인식하고, 남북한의 화해를 위한 노력을 인식할 수 있다."
+    }
+  },
+  {
+    "code": "[12현윤06-03]",
+    "domain": "평화와 공존의 윤리",
+    "title": "국제 원조는 선택인가, 세계시민의 의무인가?",
+    "type": "국제정의 토의·토론형",
+    "period": "3차시",
+    "lens": "국제 정의와 책임",
+    "concept": "국제 사회의 윤리와 세계시민 책임",
+    "related": "국제 정의, 롤스의 만민법, 싱어, 세계시민주의, 해외 원조, 난민, 빈곤, 분쟁, 책임과 기여",
+    "phenomenon": "해외 원조, 난민 수용, 국제 빈곤, 기후 난민, 분쟁 지역 지원 사례를 제시하고 국제 사회에 대한 책임의 범위를 탐구한다.",
+    "conflict": "학생은 국제 원조를 선의의 기부나 국가 이익의 문제로만 이해할 수 있다. 국제 정의는 인간의 기본권, 국가의 자율성, 세계시민의 책임, 자원의 한계, 원조의 효과와 부작용을 함께 고려해야 한다.",
+    "general": "국제 사회의 윤리 문제는 국경을 넘어선 인간 존엄과 정의의 문제이며, 국제 사회에 대한 책임과 기여는 롤스와 싱어 등 다양한 관점을 비교하여 정당화되고 실천 가능한 방식으로 구체화되어야 한다.",
+    "studentGeneral": "멀리 있는 사람의 고통도 윤리적으로 무관하지 않지만, 어떻게 도와야 하는지는 근거와 책임을 따져야 한다.",
+    "questions": [
+      "국제 사회의 윤리 문제에는 어떤 사례가 있는가?",
+      "롤스와 싱어는 해외 원조와 국제 책임을 어떻게 다르게 정당화하는가?",
+      "국제 원조는 도덕적 의무인가, 선택적 선행인가?",
+      "세계시민으로서 국제 문제에 책임 있게 참여하려면 어떤 기준이 필요한가?"
+    ],
+    "products": [
+      "국제정의 관점 비교표",
+      "해외 원조 정당화 논증",
+      "세계시민 실천 기준"
+    ],
+    "evidence": [
+      "국제 윤리 문제를 국제 정의 관점에서 설명함",
+      "롤스와 싱어의 입장을 비교함",
+      "책임과 기여를 윤리적으로 정당화함",
+      "실천 가능한 세계시민 기준을 제시함"
+    ],
+    "data": "국제 문제 사례에서 피해 집단, 원인 구조, 지원 주체, 책임 근거, 원조 효과와 부작용, 지속 가능한 실천 조건을 분석한다.",
+    "modeling": "롤스-싱어-세계시민주의 관점 비교표와 개인·국가·국제기구 역할 분담표로 표현한다.",
+    "source": "국제기구 보고서, 해외 원조 통계, 난민·빈곤 자료, 롤스 만민법과 싱어 원조론 자료, NGO 활동 사례",
+    "scale": "범위: 개인 기부-국가 정책-국제기구-세계시민사회 / 맥락: 빈곤, 난민, 분쟁, 기후위기",
+    "uncertainty": "원조는 선한 의도만으로 충분하지 않으며 의존성, 부패, 지역 맥락 무시, 지원 효과의 검증 문제가 존재한다.",
+    "misconception": "해외 원조는 여유 있는 사람이 선의로 베푸는 일이다.",
+    "correction": "국제 정의 관점에서 원조가 권리, 의무, 책임, 구조적 불평등의 문제와 연결됨을 비교하게 한다.",
+    "failure": "학생이 기부 캠페인 제안에 머물면 원조의 정당화 근거, 효과 검증, 현지 주체성, 장기적 제도 개선을 포함하게 한다.",
+    "safe": "빈곤·난민 사례를 동정 대상으로 소비하지 않고 당사자의 권리, 존엄, 구조적 원인을 중심으로 다룬다.",
+    "deepDive": "기후난민 지원 문제를 역사적 책임, 현재 배출량, 피해 취약성, 국제 정의, 개인 실천 기준으로 분석한다.",
+    "career": "국제개발, 국제기구, NGO, 인권, 외교, 평화학, 환경정책",
+    "sample": "해외 원조 사례에서 인간 존엄, 국가 자율성, 세계시민 책임, 원조 효과, 현지 주체성의 가치 충돌을 분리하고 롤스의 만민법과 싱어의 세계시민주의가 국제 책임을 다르게 정당화하는 이유를 비교함. 처음에는 기부와 봉사 중심으로 해결을 제시했으나, 피드백 후 구조적 빈곤, 원조 의존성, 효과 검증, 국제기구와 시민의 역할을 추가로 검토하며 책임 있는 국제 기여의 기준을 구체화함.",
+    "official": [
+      "현대사회와 윤리-12 / 토의·토론 / 해외 원조에 대한 롤스와 싱어 입장"
+    ],
+    "tool": "현대사회와 윤리-12 / 토의·토론 / 국제 정의와 세계시민 책임",
+    "standard": "국제 사회의 윤리 문제를 국제 정의의 관점에서 비판적으로 설명하고, 국제 사회에 대한 책임과 기여를 윤리적 관점에서 정당화하고 실천 방안을 제시할 수 있다.",
+    "levels": {
+      "A": "국제 사회의 다양한 윤리 문제를 국제 정의의 관점에서 비판적으로 설명할 수 있고, 국제 사회에 대한 책임과 기여를 윤리적 관점에서 정당화할 수 있으며, 구체적인 실천 방안을 근거와 사례를 들어 제시할 수 있고, 지구촌의 평화와 공존을 지향하며 도덕적 공동체 의식을 지닌다.",
+      "B": "국제 사회의 다양한 윤리 문제를 국제 정의의 관점에서 설명할 수 있고, 국제 사회에 대한 책임과 기여를 윤리적 관점에서 정당화할 수 있으며, 이에 대한 실천 방안을 제시할 수 있고, 지구촌의 평화와 공존을 지향하는 태도를 지닌다.",
+      "C": "국제 사회의 다양한 윤리 문제를 국제 정의의 관점에서 이해하고, 국제 사회에 대한 책임과 기여의 필요성을 이해하며, 이에 대한 실천 방안을 제시할 수 있고, 평화를 지향하는 태도를 지닌다.",
+      "D": "국제 사회의 윤리 문제를 이해하고, 국제 사회에 대한 책임과 기여의 필요성을 이해하며, 이에 대한 실천 방안을 제시할 수 있고, 평화를 지향하는 태도를 지닌다.",
+      "E": "국제 사회의 윤리 문제를 인식하고, 평화를 지향하는 태도를 지닌다."
+    }
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "현대 생활과 윤리":"atmo",
+  "생명윤리와 생태윤리":"green",
+  "과학과 디지털 학습 환경 윤리":"geo",
+  "민주시민과 윤리":"astro",
+  "문화와 경제생활의 윤리":"gold",
+  "평화와 공존의 윤리":"red"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "atmo");}
+function accent(d){return "accent-" + (DOMAIN_KEY[d] || "atmo");}
+function openView(id){
+  var views=document.querySelectorAll(".view");
+  for(var i=0;i<views.length;i++) views[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle("on", btns[j].dataset.view===id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+(function bindNav(){
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var i=0;i<btns.length;i++){
+    (function(b){ b.onclick=function(){ openView(b.dataset.view); }; })(btns[i]);
+  }
+})();
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill' + (solid?' solid':'') + '">' + esc(x) + '</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">' +
+    '<div class="blk-h"><span>' + esc(title) + '</span>' + (hint?'<span class="hint">' + esc(hint) + '</span>':"") + '</div>' +
+    body +
+  '</div>';
+}
+function recordCompetencyGuide(x){
+  var evidence = Array.isArray(x.evidence) ? x.evidence.slice(0,3) : [];
+  var product = Array.isArray(x.products) && x.products.length ? x.products[0] : "윤리 탐구 산출물";
+  var transfer = Array.isArray(x.questions) && x.questions.length > 3 ? x.questions[3] : "새로운 윤리 쟁점에 적용할 수 있는가?";
+  return block("대학이 읽는 탐구력 포인트 — 세특 문장화 안내",
+    '<div class="cards3">' +
+      '<div class="card accent-atmo">' +
+        '<h4>윤리 쟁점과 이론 선택</h4>' +
+        '<p><b>' + esc(product) + '</b>을(를) 만들었다고 쓰는 대신, 학생이 어떤 윤리 쟁점을 발견하고 어떤 가치가 충돌한다고 보았는지 기록합니다. 자료 근거: ' + esc(x.source || "윤리 쟁점 사례·이론 자료") + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4>가치 충돌과 이론 적용</h4>' +
+        '<p>' + esc(x.data || "") + '</p>' +
+        '<p><b>관찰 단서:</b> ' + esc(evidence.join(" / ")) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro">' +
+        '<h4>반론 검토와 실천 전이</h4>' +
+        '<p>' + esc(x.uncertainty || "쟁점의 맥락, 반론, 피해 가능성, 책임 범위를 점검합니다.") + '</p>' +
+        '<p><b>전이 질문:</b> ' + esc(transfer) + '</p>' +
+      '</div>' +
+    '</div>',
+    "예시 문장에는 가치 충돌, 이론 적용, 판단 수정, 실천 전이 과정을 함께 남깁니다"
+  );
+}
+function filtered(){
+  var s=document.getElementById("search");
+  var d=document.getElementById("domain");
+  var t=document.getElementById("type");
+  var q=(s && s.value ? s.value : "").toLowerCase();
+  var domainVal=d && d.value ? d.value : "전체 영역";
+  var typeVal=t && t.value ? t.value : "전체 수업 유형";
+  return DATA.filter(function(x){
+    return (domainVal==="전체 영역" || x.domain===domainVal) &&
+      (typeVal==="전체 수업 유형" || x.type.indexOf(typeVal)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  var inArr=false;
+  for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ inArr=true; break; } }
+  if(!inArr && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '' +
+      '<button class="std-item ' + (i===current ? "on" : "") + '" onclick="select(' + i + ')">' +
+        '<div>' +
+          '<span class="code">' + esc(x.code) + '</span>' +
+          '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+          (x.official.length ? '<span class="chip">공식탐구</span>' : '') +
+        '</div>' +
+        '<span class="std-title">' + esc(x.title) + '</span>' +
+        '<span class="std-text">' + esc(x.standard) + '</span>' +
+      '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+
+
+function tableRows(x){
+  return '' +
+    '<div class="lesson-hd">' +
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 01</span>도입<br>쟁점 발견</div>' +
+      '<div>교사는 <b>' + esc(x.phenomenon) + '</b>을(를) 제시하고 학생이 도덕적으로 불편한 지점과 판단이 갈리는 이유를 말하게 한다.</div>' +
+      '<div>학생은 사례의 사실 정보, 행위자, 피해 가능성, 처음 떠오른 판단을 분리해 기록한다.</div>' +
+      '<div>쟁점 발견 카드<br>초기 판단지</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 02</span>가치 충돌</div>' +
+      '<div>교사는 개념 렌즈, 충돌 가치, 권리와 책임, 민감 쟁점 토론 규칙을 안내한다.</div>' +
+      '<div>학생은 사례에서 충돌하는 가치와 보호해야 할 권리, 책임 주체를 구분한다.</div>' +
+      '<div>가치 충돌표<br>책임 분배표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 03</span>이론 적용</div>' +
+      '<div>교사는 학생의 윤리 이론 적용이 단순 암기가 아니라 사례 판단의 근거로 작동하는지 점검한다.</div>' +
+      '<div>학생은 ' + esc(x.data) + '</div>' +
+      '<div>' + esc(x.products[0]) + '</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 04</span>정당화·반론</div>' +
+      '<div>교사는 각 입장이 보호하는 가치와 놓치는 피해, 예상 반론을 비교하도록 질문한다.</div>' +
+      '<div>학생은 ' + esc(x.modeling) + '</div>' +
+      '<div>이론 비교표<br>CER 논증</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 05</span>성찰·전이</div>' +
+      '<div>교사는 피드백 후 판단 수정과 개인·공동체·제도 차원의 실천 기준을 연결하게 한다.</div>' +
+      '<div>학생은 최종 판단의 조건과 한계를 설명하고, 새로운 윤리 쟁점에 적용할 수 있는 실천 기준을 제시한다.</div>' +
+      '<div>판단 수정 메모<br>실천 전이표</div>' +
+    '</div>';
+}
+
+function rubric(x){
+  var levels=x.levels || {};
+  function row(k){
+    var txt=levels[k] || "성취수준 자료를 확인해 보완한다.";
+    return '<div class="lv-row"><div class="lv ' + k + '">' + k + '</div><div class="lv-text">' + esc(txt) + '</div></div>';
+  }
+  return '<div class="rubric">' + row("A") + row("B") + row("C") + row("D") + row("E") + '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">' + arr.map(function(x){
+    return '<div class="step"><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={};
+
+  panels.overview =
+    block("성취기준 원문", '<div class="std-full"><b>' + esc(x.code) + '</b>' + esc(x.standard) + '</div>') +
+    '<div class="cards">' +
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4><span class="icon">i</span>수업 개요</h4>' +
+        '<p><b>제목 :</b> ' + esc(x.title) + '</p>' +
+        '<p><b>유형 :</b> ' + esc(x.type) + '</p>' +
+        '<p><b>권장 차시 :</b> ' + esc(x.period) + '</p>' +
+        '<p><b>탐구 설계 :</b> ' + (x.official.length ? esc(x.official.join(", ")) : "성취기준 기반 CBI 탐구") + '</p>' +
+        '<p><b>핵심 개념 :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈 :</b> ' + esc(x.lens) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4><span class="icon">▲</span>핵심 산출물</h4>' +
+        pills(x.products) +
+      '</div>' +
+    '</div>' +
+    block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+    block("예시 평가도구 연결", '<div class="card"><p>' + esc(x.tool) + '</p></div>', "성취기준·성취수준 기반 평가");
+
+  panels.cbi =
+    block("개념 형성의 흐름",
+      '<div class="cards">' +
+        '<div class="card accent-gold">' +
+          '<h4><span class="icon">F</span>현상(Phenomenon)</h4>' +
+          '<p>' + esc(x.phenomenon) + '</p>' +
+        '</div>' +
+        '<div class="card ' + accent(x.domain) + '">' +
+          '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>' +
+          '<p>' + esc(x.conflict) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="general" style="margin-top:.9rem">' +
+        '<div class="gen-row">' +
+          '<b>교사용 일반화 진술 (Generalization)</b>' +
+          '<p>' + esc(x.general) + '</p>' +
+        '</div>' +
+        '<div class="gen-row">' +
+          '<b>학생용 일반화 진술 (Student-Friendly)</b>' +
+          '<p>' + esc(x.studentGeneral) + '</p>' +
+        '</div>' +
+      '</div>',
+      "Erickson & Lanning CBI 모형"
+    ) +
+    block("탐구 질문 4종 — 사실에서 전이까지",
+      '<div class="q-grid">' +
+        '<div class="q fact"><b>Factual · 사실적 질문</b><p>' + esc(qs[0]) + '</p></div>' +
+        '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>' + esc(qs[1]) + '</p></div>' +
+        '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>' + esc(qs[2]) + '</p></div>' +
+        '<div class="q transfer"><b>Transfer · 전이 질문</b><p>' + esc(qs[3]) + '</p></div>' +
+      '</div>',
+      "수업 도입·전개·마무리 3구간에 배치"
+    ) +
+    block("핵심 개념과 관련 개념",
+      '<div class="card">' +
+        '<p><b>핵심 개념(Macro Concept) :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈(Conceptual Lens) :</b> ' + esc(x.lens) + '</p>' +
+        '<p><b>관련 개념(Related Concepts) :</b> ' + esc(x.related) + '</p>' +
+      '</div>'
+    );
+
+  panels.lesson =
+    block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+    block("교사 발문 세트 — 즉시 사용 가능",
+      '<div class="cards">' +
+        '<div class="card accent-atmo">' +
+          '<h4>탐구 전 발문</h4>' +
+          '<ul>' +
+            '<li>이 쟁점에서 충돌하는 가치는 무엇이며, 누가 어떤 책임을 지는가?</li>' +
+            '<li>우리는 어떤 사실 자료와 윤리 이론을 근거로 판단해야 하는가?</li>' +
+            '<li>한 입장만으로 판단할 때 놓치는 피해자, 반론, 책임 주체는 누구인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>탐구 중 발문</h4>' +
+          '<ul>' +
+            '<li>쟁점을 어떤 가치 충돌표, 이론 적용표, 책임 분배표로 바꾸면 판단 근거가 더 잘 보이는가?</li>' +
+            '<li>판단의 차이는 사실 이해, 가치 우선순위, 윤리 이론, 책임 범위 중 무엇에서 생기는가?</li>' +
+            '<li>우리 판단이 충분히 반영하지 못한 피해 가능성, 반론, 소수자 관점은 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>탐구 후 발문</h4>' +
+          '<ul>' +
+            '<li>오늘 만든 윤리 판단 기준을 새로운 쟁점과 생활 실천에 적용해 보자.</li>' +
+            '<li>학생부 기록 근거로 남길 수 있는 가치 충돌 분석, 이론 적용, 판단 수정 장면은 무엇인가?</li>' +
+            '<li>다음 탐구에서 사실 자료, 윤리 이론, 반론 검토, 실천 기준을 어떻게 개선할 수 있는가?</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("오개념·실패 상황 대처·안전",
+      '<div class="cards3">' +
+        '<div class="card accent-red">' +
+          '<h4>예상 오개념</h4>' +
+          '<p>' + esc(x.misconception) + '</p>' +
+          '<p><b>피드백 :</b> ' + esc(x.correction) + '</p>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>실패 상황 대처</h4>' +
+          '<p>' + esc(x.failure) + '</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>안전·윤리</h4>' +
+          '<p>' + esc(x.safe) + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+
+  panels.worksheet =
+    block("학생 활동지 문항 — 실제 기록용",
+      steps([
+        "오늘의 사례에서 가장 설명이 필요한 윤리 개념 또는 가치 충돌을 쓰시오.",
+        qs[1],
+        "탐구에서 사용할 사실 자료, 윤리 이론, 판단 기준, 민감 쟁점 토론 원칙을 쓰시오.",
+        x.data,
+        x.modeling,
+        "자료에서 찾은 규칙성 또는 관계를 한 문장으로 쓰시오.",
+        "주장-증거-추론 구조로 결론을 작성하시오.",
+        "판단의 한계, 반론, 피해 가능성, 책임 범위의 불확실성을 2가지 이상 쓰시오.",
+        qs[3]
+      ])
+    ) +
+    block("자료 처리 안내 — 출처·연구 방법·윤리",
+      '<div class="card accent-atmo">' +
+        '<h4>자료 출처</h4>' +
+        '<p>' + esc(x.source) + '</p>' +
+      '</div>' +
+      '<div class="card accent-geo" style="margin-top:.8rem">' +
+        '<h4>분석 범위</h4>' +
+        '<p>' + esc(x.scale) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green" style="margin-top:.8rem">' +
+        '<h4>자료 처리</h4>' +
+        '<p>' + esc(x.data) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro" style="margin-top:.8rem">' +
+        '<h4>모형화</h4>' +
+        '<p>' + esc(x.modeling) + '</p>' +
+      '</div>' +
+      '<div class="card accent-gold" style="margin-top:.8rem">' +
+        '<h4>자료·윤리·관점 한계</h4>' +
+        '<p>' + esc(x.uncertainty) + '</p>' +
+        '<p><b>판단 문장 틀 :</b> “이 사례의 핵심 가치 충돌은 <b>' + esc(x.concept) + '</b> 개념으로 설명할 수 있으며, 나의 판단은 <b>' + esc(x.lens) + '</b> 관점에서 개인·공동체·제도 차원의 실천 기준으로 확장될 수 있다.”</p>' +
+      '</div>'
+    );
+
+  panels.assessment =
+    block("수행평가 과제",
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4>' + esc(x.title) + '</h4>' +
+        '<p>' + esc(x.products[0]) + '을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 쟁점·가치 충돌·윤리 이론 적용 근거로 설명한다.</p>' +
+      '</div>'
+    ) +
+    block("평가 요소",
+      '<div class="cards3">' +
+        '<div class="card accent-atmo">' +
+          '<h4>지식·이해</h4>' +
+          '<p>' + esc(x.concept) + '와 관련 개념의 정확한 설명</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>과정·기능</h4>' +
+          '<p>윤리 쟁점 분석, 가치 충돌 구조화, 윤리 이론 적용, 입장 비교, 정당화 논증, 실천 전이</p>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>가치·태도</h4>' +
+          '<p>윤리적 민감성, 인권, 책임, 공정성, 존중, 실천 의지</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+    block("피드백 방향",
+      '<div class="card">' +
+        '<p><b>보충 :</b> 용어 나열에 머물지 말고 사례 분석, 자료 수집, 관점 비교, 윤리 점검 중 하나로 근거를 표현하게 한다.</p>' +
+        '<p><b>심화 :</b> 자료 출처 비교, 연구 방법 보완, 다른 관점 적용, 개인·공동체·제도 차원의 실천 전이 과제를 추가하게 한다.</p>' +
+      '</div>'
+    );
+
+  panels.record =
+    '<div class="record">' +
+      '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>' +
+      '<p>' + esc(x.evidence.join(" / ")) + '</p>' +
+    '</div>' +
+    block("관찰 가능한 수행 증거 정리",
+      '<div class="cards">' +
+        '<div class="card accent-green">' +
+          '<h4>기록 가능한 산출물</h4>' +
+          pills(x.products) +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>권장 기록 소재</h4>' +
+          '<p>「' + esc(x.title) + '」 수업에서 윤리 쟁점 발견, 가치 충돌 분석, 윤리 이론 적용 과정을 통해 <b>' + esc(x.concept) + '</b> 개념을 설명하고, 반론과 판단 한계를 반영해 개인·공동체·제도 차원의 실천 기준으로 사고를 확장함.</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("세부능력 및 특기사항 기록 예시",
+      '<div class="sample-record">' + esc(x.sample) + '</div>',
+      "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+    ) +
+    recordCompetencyGuide(x) +
+    block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+      '<div class="card accent-astro">' +
+        '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
+        '<p>' + esc(x.deepDive) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>전이 질문</h4>' +
+        '<p style="font-family:\'Fraunces\',serif">' + esc(x.questions[3]) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>연계 진로 분야</h4>' +
+        pills(x.career.split(", ")) +
+      '</div>'
+    );
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="' + (tab===id?'on':'') + '" onclick="setTab(\'' + id + '\')">' +
+      '<span class="t-n">' + n + '</span>' + label +
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML =
+    '<div class="detail-hd">' +
+      '<div class="chip-row">' +
+        '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+        '<span class="chip">' + esc(x.code) + '</span>' +
+        (x.official.length ? '<span class="chip">성취기준 기반 설계</span>' : '<span class="chip">CBI 탐구</span>') +
+        '<span class="chip">' + esc(x.period) + '</span>' +
+      '</div>' +
+      '<h2>' + esc(x.title) + '</h2>' +
+      '<div class="std-full"><b>성취기준 원문</b>' + esc(x.standard) + '</div>' +
+    '</div>' +
+    '<div class="tabbar">' + tabbar + '</div>' +
+    '<div class="panel">' + panel(x) + '</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML = DATA.map(function(x,i){
+    return '<tr>' +
+      '<td><span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span></td>' +
+      '<td class="mcode" onclick="openStandard(' + i + ')">' + esc(x.code) + '</td>' +
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">' + esc(x.title) + '</b></td>' +
+      '<td>' + esc(x.type) + '</td>' +
+      '<td>' + esc(x.concept) + '</td>' +
+      '<td>' + esc(x.products.join(", ")) + '</td>' +
+      '<td>' + esc(x.evidence.join(" / ")) + '</td>' +
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","자료출처","분석범위","자료·반론·판단한계","심화탐구","연계진로"]
+  ];
+  for(var i=0;i<DATA.length;i++){
+    var x=DATA[i];
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.source, x.scale, x.uncertainty, x.deepDive, x.career
+    ]);
+  }
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="현대사회와윤리_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>=0 && idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>
