@@ -1,0 +1,2598 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 독서와 작문 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 독서와 작문 15개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 자료 탐색·선별, 사실적·추론적·비판적 독해, 주제 통합 읽기, 정보 전달·논증·성찰 글쓰기, 고쳐쓰기와 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#0f6980;
+  --atmo-bg:#e1f0f3;
+  --geo:#8a5a1f;
+  --geo-bg:#f1e6d6;
+  --astro:#4c4f93;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(15,105,128,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(76,79,147,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:-.025em;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:4.35rem;
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.15em;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">讀</div>
+      <div class="b-text">
+        <strong>일반선택 독서와 작문 수업설계 워크북</strong>
+        <span>개념기반탐구 · 15개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective Reading and Writing</div>
+        <h1 class="cover-title">독서와 작문<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1>
+        <p class="lead">
+          일반선택 독서와 작문 15개 성취기준을 원문, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 자료 탐색·선별, 사실적·추론적·비판적 독해,
+          관점 통합, 작문 설계와 고쳐쓰기, 학생부종합전형형 산출물, 평가·기록까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button>
+          <button class="btn" onclick="openView('matrix')">15개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 독서와 작문 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책 5] 국어과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>자료 탐색·선별 · 사실적·추론적·비판적 독해 · 관점 통합 · 정보 전달·논증·성찰 글쓰기 · 고쳐쓰기 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">6<small>모듈</small></span>
+      <span class="label">자료 탐색 · 사실/추론/비판 읽기 · 고쳐쓰기 · 분야별 글쓰기 · 논증/성찰 · 매체/담론</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">15<small>기준</small></span>
+      <span class="label">성취기준 원문·성취수준 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 읽기 자료, 관점 재구성, 작문 설계, 고쳐쓰기의 통합</h2>
+    <p>
+      독서와 작문은 읽기와 쓰기를 따로 익히는 과목이 아니라 글과 자료를 목적에 맞게 읽고,
+      자료의 가치와 관점을 판단하며, 읽은 내용을 자신의 글로 조직하고 고쳐 쓰는 문어 의사소통 과목입니다.
+      본 워크북은 학생이 자료 선별력, 사실·추론·비판적 독해력, 관점 통합력, 작문 설계력, 고쳐쓰기와 성찰 능력을 수업 안에서 드러내도록 설계했습니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>자료에서 읽기 문제로</h3>
+      <p>글과 자료에서 핵심 정보, 관점, 근거, 읽기·쓰기 전략을 찾아 독서 목적과 작문 맥락에 연결합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>읽기에서 작문 설계로</h3>
+      <p>자료 선별, 관점 비교, 정보 조직, 근거 평가를 자기 글의 개요와 초안 설계로 전환합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>초안에서 고쳐쓰기 전이로</h3>
+      <p>초안, 피드백, 수정 이유, 최종본을 남기며 학습 글쓰기와 공동체 담론 참여로 확장합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 독서와 작문 수업의 공통 뼈대</h2>
+    <p>학생이 실제 읽기·쓰기 문제에서 출발해 자료를 선별하고, 관점을 재구성하며, 글쓰기와 고쳐쓰기, 공동체 소통으로 전이하도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>읽고 써야 하는 실제 문제 상황을 제시해 독서 목적과 작문 맥락을 세운다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>목적, 관점, 근거, 조직, 독자, 담론 중 하나를 개념 렌즈로 삼는다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>탐구</strong><p>글, 자료, 매체, 초안을 수집하고 핵심 정보와 관점, 근거를 표시한다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>자료 평가표, 관점 비교표, 개요, 논증 구조도로 읽기 근거를 정리한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>읽기 전략과 작문 선택의 관계를 자기 언어로 일반화한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>새 학습 글, 정보 전달 글, 논증 글, 매체 글에 읽기·쓰기 기준을 적용한다.</p></div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 읽고 싶은 것은 독서·작문 개념의 암기량이 아니라 <b>글과 자료를 목적에 맞게 선별하고, 사실·추론·비판적 독해로 관점을 재구성하며, 초안을 쓰고 피드백 후 고쳐 쓰는 과정</b>입니다.</p>
+    <p>각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 자료 선별표, 사실·추론 독해표, 관점 비교표, 작문 개요, 논증 구조도, 초안·수정본, 매체 글쓰기 설계안이 함께 제시되어 세특 근거를 수업 안에서 확보할 수 있습니다.</p>
+    <div class="admission-proof-grid">
+      <div class="admission-proof-card">
+        <span class="tag">Evidence</span>
+        <h4>자료 기반 독해</h4>
+        <p>글과 자료에서 핵심 정보, 생략된 전제, 관점, 근거, 읽기·쓰기 전략을 찾아 표시하는 과정이 기록됩니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Strategy</span>
+        <h4>작문 설계와 고쳐쓰기</h4>
+        <p>독자와 목적을 고려해 내용 조직, 근거 배치, 읽기·쓰기 전략을 설계하고 피드백으로 초안을 개선합니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Reflection</span>
+        <h4>문어 생활 성찰과 담론 참여</h4>
+        <p>자신의 읽기·쓰기 습관을 성찰하고 공동체의 문어 소통 문화와 담론 형성에 책임 있게 참여합니다.</p>
+      </div>
+    </div>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>모듈, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          
+          
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>문어 의사소통과 자료 탐색</option>
+            <option>사실·추론·비판적 읽기</option>
+            <option>읽기 전략과 고쳐쓰기</option>
+            <option>분야별 읽기와 쓰기</option>
+            <option>정보 전달·논증·성찰 글쓰기</option>
+            <option>주제 통합·매체·담론 참여</option>
+          </select>
+          
+          
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>자료 탐색</option>
+            <option>독해</option>
+            <option>비판적 읽기</option>
+            <option>전이</option>
+            <option>고쳐쓰기</option>
+            <option>글쓰기</option>
+            <option>논증</option>
+            <option>프로젝트</option>
+            <option>성찰</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>독서와 작문 15개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 읽기·쓰기 과제, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>모듈</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>독서와 작문 수업은 개념 설명에서 멈추지 않고, 실제 글과 자료를 분석하고 초안을 피드백으로 고쳐 쓰며 문어 생활과 공동체 담론 참여로 전이하도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>온라인 자료, 학생 초안, 인터뷰, 개인 성찰 글을 활용할 때 개인정보·저작권·인용 윤리를 먼저 안내합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 자료 선별표, 독해 주석, 관점 비교표, 개요, 초안, 피드백, 고쳐쓰기 이력표를 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>결과물보다 자료 탐색, 근거 표시, 관점 재구성, 초안 설계, 피드백 반영, 고쳐쓰기와 성찰 과정을 학생부 기록 근거로 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 독서와 작문 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+  {
+    "code": "[12독작01-01]",
+    "domain": "문어 의사소통과 자료 탐색",
+    "title": "읽고 쓰는 생활은 어떻게 자기주도적 소통이 되는가?",
+    "type": "문어 의사소통 성찰형",
+    "period": "2차시",
+    "lens": "주도성과 성찰",
+    "concept": "문어 의사소통 생활",
+    "related": "독서 목적, 작문 맥락, 독자와 필자, 문어 의사소통, 읽기·쓰기 습관, 성찰, 자기조절",
+    "phenomenon": "학생의 최근 독서·작문 경험, 온라인 글쓰기 이력, 학습 기록, 독서 포트폴리오 예시을 자료로 제시해 문어 의사소통 생활이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "독서와 작문은 수행평가 산출물을 제출하는 활동이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 문어 의사소통 생활을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "문어 의사소통 생활과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "주도성과 성찰 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "읽고 쓰는 생활은 어떻게 자기주도적 소통이 되는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "읽고 쓰는 생활은 어떻게 자기주도적 소통이 되는가 탐구표",
+      "문어 의사소통 생활 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "자신의 독서 목적, 글쓰기 맥락, 자료 선택 방식, 글을 고쳐 쓴 경험, 읽고 쓴 결과가 실제 소통에 미친 영향을 시간순으로 정리한다.",
+    "modeling": "독서-작문 생활 지도와 자기조절 루프로 문어 의사소통 습관을 분석하고 개선 계획을 세운다.",
+    "source": "학생의 최근 독서·작문 경험, 온라인 글쓰기 이력, 학습 기록, 독서 포트폴리오 예시, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 문어 의사소통과 자료 탐색",
+    "uncertainty": "자기 기록은 기억과 선택 편향이 있을 수 있으므로 실제 산출물, 수정 흔적, 피드백 기록을 근거로 삼는다.",
+    "misconception": "독서와 작문은 수행평가 산출물을 제출하는 활동이다.",
+    "correction": "읽기와 쓰기를 생활 속 문제 해결, 관계 형성, 지식 구성, 자기 성찰의 문어 의사소통 과정으로 보게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "한 달간 자신의 읽기·쓰기 로그를 분석해 목적, 자료 선택, 초안 수정, 독자 반응이 어떻게 달라졌는지 추적한다.",
+    "career": "국어교육, 문헌정보, 출판, 콘텐츠 기획, 교육공학, 자기주도학습 코칭",
+    "sample": "자신의 독서·작문 생활을 목적, 맥락, 자료 선택, 수정 경험으로 나누어 분석하고 읽기와 쓰기가 분리된 과제가 아니라 문어 의사소통을 주도적으로 조절하는 과정임을 설명함. 초반에는 책 읽은 양과 글 제출 여부를 중심으로 정리했으나, 피드백 후 어떤 자료를 왜 선택했는지와 초안 수정이 독자 이해에 미친 영향을 근거로 제시하며 문어 의사소통 생활 개선 계획을 구체화함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 읽기 자료 분석과 작문 수행 기반 성취기준 도달 평가",
+    "standard": "독서와 작문의 의사소통 방법과 특성을 이해하고 문어 의사소통 생활을 주도적으로 실천하고 성찰한다.",
+    "levels": {
+      "A": "독서와 작문의 다양한 의사소통 방법과 의미 구성 행위로서의 특성을 폭넓게 이해하고, 의사소통 맥락을 고려하여 문어 의사소통 생활을 주도적으로 실천하고 지속적으로 성찰할 수 있다.",
+      "B": "독서와 작문의 다양한 의사소통 방법과 의미 구성 행위로서의 특성을 이해하고, 의사소통 맥락을 고려하여 문어 의사소통 생활을 주도적으로 실천하고 성찰할 수 있다.",
+      "C": "독서와 작문의 의사소통 방법과 의미 구성 행위로서의 특성을 이해하고, 문어 의사소통 생활을 주도적으로 실천하고 성찰할 수 있다.",
+      "D": "독서와 작문의 의사소통 방법이나 의미 구성 행위로서의 특성을 일부 이해하고, 문어 의사소통 생활을 실천하고 성찰할 수 있다.",
+      "E": "독서와 작문의 의사소통 방법이나 의미 구성 행위로서의 특성을 제한적인 수준에서 이해하고, 문어 의사소통 생활을 하고 제한적인 수준에서 성찰한다."
+    }
+  },
+  {
+    "code": "[12독작01-02]",
+    "domain": "문어 의사소통과 자료 탐색",
+    "title": "가치 있는 자료는 어떻게 선별되는가?",
+    "type": "자료 탐색·선별 서술형",
+    "period": "3차시",
+    "lens": "목적과 신뢰도",
+    "concept": "자료 탐색과 선별",
+    "related": "독서 목적, 작문 맥락, 검색 전략, 출처, 신뢰도, 최신성, 관련성, 편향, 인용 윤리",
+    "phenomenon": "인터넷 검색 결과, 도서관 자료, 통계·기사·블로그·전문기관 자료 비교을 자료로 제시해 자료 탐색과 선별이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "검색 결과 상단에 있거나 내용이 많은 자료가 좋은 자료이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 자료 탐색과 선별을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "자료 탐색과 선별과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "목적과 신뢰도 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "가치 있는 자료는 어떻게 선별되는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "가치 있는 자료는 어떻게 선별되는가 탐구표",
+      "자료 탐색과 선별 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "독서 목적과 작문 맥락을 먼저 정하고 검색어, 출처 유형, 신뢰도, 최신성, 관련성, 편향 가능성, 인용 가능성을 기준으로 자료를 평가한다.",
+    "modeling": "자료 평가 루브릭과 출처-근거-활용 목적 매트릭스로 선별 이유를 구조화한다.",
+    "source": "인터넷 검색 결과, 도서관 자료, 통계·기사·블로그·전문기관 자료 비교, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 문어 의사소통과 자료 탐색",
+    "uncertainty": "온라인 자료는 최신성이 높아도 검증되지 않았거나 상업적 목적이 개입될 수 있으므로 출처와 작성 의도를 함께 확인해야 한다.",
+    "misconception": "검색 결과 상단에 있거나 내용이 많은 자료가 좋은 자료이다.",
+    "correction": "목적 적합성, 출처 신뢰도, 자료 생성 맥락, 근거의 검증 가능성, 작문 활용 가능성을 기준으로 비교하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "같은 주제의 정부 자료, 언론 기사, 블로그 글, 논문 초록을 비교하여 자료 선별 기준의 우선순위를 설계한다.",
+    "career": "문헌정보학, 언론, 연구자, 데이터 분석, 정책, 콘텐츠 큐레이션",
+    "sample": "청소년 수면 문제를 주제로 인터넷 자료를 수집하며 검색 순위보다 작성 기관, 자료 생성 시점, 통계 출처, 작문 목적과의 관련성을 기준으로 선별함. 처음에는 흥미로운 사례 중심으로 자료를 고르던 방식을 수정해 전문기관 자료와 학생 설문 자료의 역할을 구분했고, 각 자료가 글의 배경 설명, 원인 분석, 대안 제시에 어떻게 쓰일 수 있는지 선별 근거를 명확히 제시함.",
+    "official": [
+      "독서와 작문-3 / 서술형 / 독서 목적과 작문 맥락을 고려하여 인터넷 자료 선별 근거 제시하기"
+    ],
+    "tool": "독서와 작문-3 / 서술형 / 독서 목적과 작문 맥락을 고려하여 인터넷 자료 선별 근거 제시하기",
+    "standard": "독서의 목적과 작문의 맥락을 고려하여 가치 있는 글이나 자료를 탐색하고 선별한다.",
+    "levels": {
+      "A": "자신의 독서 목적을 정확하게 파악하고 작문의 상황 맥락을 고려하여 가치 있는 글이나 자료를 탐색하고 자료가 독서 목적과 작문의 상황 맥락에 부합하는지, 타당성과 신뢰성, 공정성을 갖추었는지를 종합적으로 평가하여 선별할 수 있다.",
+      "B": "자신의 독서 목적과 작문의 상황 맥락을 고려하여 가치 있는 글이나 자료를 탐색하고 자료가 독서 목적과 작문의 상황 맥락에 부합하는지, 타당성과 신뢰성을 갖추었는지를 평가하여 선별할 수 있다.",
+      "C": "자신의 독서 목적과 작문의 상황 맥락을 고려하여 가치 있는 글이나 자료를 탐색하고 자료가 독서 목적과 작문의 상황 맥락에 부합하는지 평가하여 선별할 수 있다.",
+      "D": "자신의 독서 목적이나 작문의 상황 맥락을 일부 고려하여 이와 관련 있는 글이나 자료를 탐색하고 수집할 수 있다.",
+      "E": "자신의 독서 목적이나 작문의 상황 맥락을 제한적인 수준에서 고려하여 부분적으로 관련 있는 글이나 자료를 수집한다."
+    }
+  },
+  {
+    "code": "[12독작01-03]",
+    "domain": "사실·추론·비판적 읽기",
+    "title": "글에 없는 의미는 어떻게 추론되는가?",
+    "type": "사실·추론 독해형",
+    "period": "3차시",
+    "lens": "명시와 추론",
+    "concept": "사실적·추론적 독해",
+    "related": "중심 내용, 세부 정보, 문단 관계, 글 구조, 생략된 내용, 필자의 의도, 배경지식, 문맥 단서",
+    "phenomenon": "설명문, 칼럼, 기사, 교과서 글에서 명시 정보와 생략 정보가 함께 나타나는 자료을 자료로 제시해 사실적·추론적 독해이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "추론은 글에 없는 내용을 자유롭게 상상하는 것이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 사실적·추론적 독해을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "사실적·추론적 독해과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "명시와 추론 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "글에 없는 의미는 어떻게 추론되는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "글에 없는 의미는 어떻게 추론되는가 탐구표",
+      "사실적·추론적 독해 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "단어·문장·문단의 명시 정보를 표시하고 문단 관계, 글의 전개 방식, 필자의 의도, 생략된 전제를 문맥 단서와 배경지식으로 추론한다.",
+    "modeling": "명시 정보-문맥 단서-배경지식-추론 결과의 근거 사슬 도식으로 독해 과정을 표현한다.",
+    "source": "설명문, 칼럼, 기사, 교과서 글에서 명시 정보와 생략 정보가 함께 나타나는 자료, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 사실·추론·비판적 읽기",
+    "uncertainty": "배경지식이 서로 다르면 추론이 달라질 수 있으므로 글 안의 단서와 외부 지식의 경계를 구분해야 한다.",
+    "misconception": "추론은 글에 없는 내용을 자유롭게 상상하는 것이다.",
+    "correction": "추론은 문맥 단서와 배경지식에 근거해야 하며, 추론 결과 옆에 사용한 단서를 반드시 붙이게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "동일 기사에 대한 독자 댓글의 추론 차이를 비교하여 어떤 문맥 단서와 배경지식이 해석 차이를 만드는지 분석한다.",
+    "career": "국어교육, 언론, 법학, 연구, 데이터 해석, 비평",
+    "sample": "과학기술 기사에서 명시 정보와 생략된 전제를 구분하고 문단 연결어와 사례 배열을 근거로 필자의 의도를 추론함. 처음에는 배경지식에 기대어 결론을 빠르게 판단했으나, 글 안의 단서와 외부 지식을 색으로 구분해 추론 근거 사슬을 만들면서 사실적 독해가 추론적 독해의 토대가 된다는 점을 설명함.",
+    "official": [
+      "독서와 작문-1 / 선다형 / 글에 드러난 정보와 생략된 내용을 바탕으로 필자의 의도 추론하기"
+    ],
+    "tool": "독서와 작문-1 / 선다형 / 글에 드러난 정보와 생략된 내용을 바탕으로 필자의 의도 추론하기",
+    "standard": "글에 드러난 정보를 바탕으로 글의 내용을 파악하고 글에 드러나지 않은 정보를 추론하며 읽는다.",
+    "levels": {
+      "A": "글에 드러난 정보를 바탕으로 글의 구조와 내용을 정확하게 파악하고 글의 주제에 부합하는 자신의 배경지식과 문맥을 통합적으로 활용하여 필자의 의도나 목적, 글에 드러나지 않은 정보를 추론하며 읽을 수 있다.",
+      "B": "글에 드러난 정보를 바탕으로 글의 구조와 내용을 파악하고 글의 주제에 부합하는 자신의 배경지식과 문맥을 활용하여 필자의 의도나 목적, 글에 드러나지 않은 정보를 추론하며 읽을 수 있다.",
+      "C": "글에 드러난 정보를 바탕으로 글의 내용을 파악하고 글의 주제에 부합하는 자신의 배경지식이나 문맥을 활용하여 글에 드러나지 않은 정보를 추론하며 읽을 수 있다.",
+      "D": "글에 드러난 정보를 바탕으로 글의 내용을 파악하고 자신의 배경지식을 부분적으로 활용하거나 문맥의 일부를 고려하여 글에 드러나지 않은 정보를 추론하며 읽을 수 있다.",
+      "E": "글에 드러난 정보를 바탕으로 글의 내용을 부분적으로 파악하고 자신의 배경지식을 부분적으로 활용하거나 문맥의 일부를 고려하여 글에 드러나지 않은 정보를 제한적인 수준에서 추론하며 읽는다."
+    }
+  },
+  {
+    "code": "[12독작01-04]",
+    "domain": "사실·추론·비판적 읽기",
+    "title": "비판적 독자는 무엇을 근거로 평가하는가?",
+    "type": "비판적 읽기 서술형",
+    "period": "3차시",
+    "lens": "관점과 이념",
+    "concept": "비판적 독해와 평가",
+    "related": "글의 내용, 관점, 표현 방법, 필자의 의도, 사회·문화적 이념, 편향, 타당성, 공정성",
+    "phenomenon": "사회 쟁점 칼럼, 광고성 기사, 역사 해석 글, 문화 비평문을 자료로 제시해 비판적 독해와 평가이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "비판적 읽기는 글의 잘못을 찾아내는 것이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 비판적 독해와 평가을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "비판적 독해와 평가과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "관점과 이념 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "비판적 독자는 무엇을 근거로 평가하는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "비판적 독자는 무엇을 근거로 평가하는가 탐구표",
+      "비판적 독해와 평가 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "글의 주장, 근거, 표현 전략, 전제, 누락된 관점, 사회·문화적 이념을 표시하고 평가 기준을 세워 글의 의미와 한계를 판단한다.",
+    "modeling": "주장-근거-표현-의도-이념 평가표와 반론 가능성 지도로 비판적 읽기 결과를 구조화한다.",
+    "source": "사회 쟁점 칼럼, 광고성 기사, 역사 해석 글, 문화 비평문, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 사실·추론·비판적 읽기",
+    "uncertainty": "필자의 의도와 이념은 직접 드러나지 않을 수 있으므로 표현과 자료 선택, 누락된 관점 등 여러 단서를 종합해야 한다.",
+    "misconception": "비판적 읽기는 글의 잘못을 찾아내는 것이다.",
+    "correction": "비판은 반대가 아니라 내용, 관점, 표현, 의도, 이념의 타당성을 기준으로 평가하는 과정임을 사례로 확인하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "같은 사회 쟁점을 다룬 보수·진보 성향 칼럼의 제목, 근거, 가치어를 비교하여 관점 형성 방식을 분석한다.",
+    "career": "언론, 법학, 사회과학, 비평, 정책 분석, 국어교육",
+    "sample": "사회 쟁점 칼럼에서 주장과 근거뿐 아니라 제목의 가치어, 사례 선택, 누락된 이해관계자를 표시하며 필자의 관점과 사회·문화적 이념을 평가함. 초반에는 자신의 입장과 다른 글을 부정적으로 판단했으나, 평가 기준을 타당성, 공정성, 표현 효과로 나누어 적용하면서 비판적 읽기가 반대가 아니라 근거 있는 평가임을 보여 줌.",
+    "official": [
+      "독서와 작문-4 / 서술형 / 글의 내용, 관점, 표현 방법, 필자의 의도 평가하기"
+    ],
+    "tool": "독서와 작문-4 / 서술형 / 글의 내용, 관점, 표현 방법, 필자의 의도 평가하기",
+    "standard": "글의 내용이나 관점, 표현 방법, 필자의 의도나 사회･문화적 이념을 평가하며 읽는다.",
+    "levels": {
+      "A": "글의 내용이나 관점의 적절성, 표현 방법의 효과성을 평가하고, 필자의 의도나 사회･문화적 이념의 타당성을 다양한 관점에서 분석하여 비판적으로 평가하며 읽을 수 있다.",
+      "B": "글의 내용이나 관점의 적절성, 표현 방법의 효과성을 평가하고, 필자의 의도나 사회･문화적 이념의 타당성을 비판적으로 평가하며 읽을 수 있다.",
+      "C": "글의 내용이나 관점의 적절성, 표현 방법의 효과성을 평가하고, 필자의 의도나 사회･문화적 이념의 타당성을 평가하며 읽을 수 있다.",
+      "D": "글의 내용이나 관점의 적절성, 표현 방법의 효과성, 필자의 의도를 부분적으로 평가하며 읽을 수 있다.",
+      "E": "글의 내용이나 관점의 적절성, 표현 방법의 효과성을 제한적인 수준에서 평가하고, 필자의 의도를 제한적인 수준에서 파악하며 읽는다."
+    }
+  },
+  {
+    "code": "[12독작01-05]",
+    "domain": "읽기 전략과 고쳐쓰기",
+    "title": "읽은 글의 조직과 표현은 내 글에 어떻게 옮겨지는가?",
+    "type": "읽기-쓰기 전략 전이형",
+    "period": "3차시",
+    "lens": "구조와 전이",
+    "concept": "내용 조직과 표현 전략",
+    "related": "문제-해결, 원인-결과, 비교-대조, 서사, 예시, 비유, 질문, 반복, 독자 반응, 작문 맥락",
+    "phenomenon": "설명문·칼럼·에세이의 내용 조직 방법과 표현 전략, 학생 글 초안을 자료로 제시해 내용 조직과 표현 전략이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "좋은 글의 표현을 가져오면 내 글도 좋아진다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 내용 조직과 표현 전략을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "내용 조직과 표현 전략과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "구조와 전이 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "읽은 글의 조직과 표현은 내 글에 어떻게 옮겨지는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "읽은 글의 조직과 표현은 내 글에 어떻게 옮겨지는가 탐구표",
+      "내용 조직과 표현 전략 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "읽은 글에서 내용 조직 방법, 문단 배열, 도입 방식, 예시와 비유, 독자 호명, 제목 전략을 찾아 자신의 글쓰기 목적과 독자에 맞게 변형한다.",
+    "modeling": "읽기 자료 분석표-작문 설계표-초안 적용표로 읽기에서 쓰기로의 전이 과정을 시각화한다.",
+    "source": "설명문·칼럼·에세이의 내용 조직 방법과 표현 전략, 학생 글 초안, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 읽기 전략과 고쳐쓰기",
+    "uncertainty": "읽은 글의 전략은 장르와 독자에 따라 효과가 다르므로 자신의 글에 적용할 때 맥락을 다시 점검해야 한다.",
+    "misconception": "좋은 글의 표현을 가져오면 내 글도 좋아진다.",
+    "correction": "조직 방법과 표현 전략을 그대로 모방하지 않고 작문 목적, 독자, 글 유형에 맞게 변형하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "같은 주제 글의 도입 전략 세 가지를 비교하고 독자 반응 설문을 통해 어떤 전략이 자신의 글 목적에 맞는지 검토한다.",
+    "career": "작가, 기자, 카피라이터, 콘텐츠 기획, 국어교육, 편집",
+    "sample": "칼럼과 설명문의 도입 방식, 문단 배열, 예시 사용을 비교하고 자신의 환경 글 초안에 어떤 조직 전략을 적용할지 판단함. 처음에는 인상적인 문장을 옮겨 쓰려 했으나, 피드백 후 독자와 목적을 기준으로 문제-원인-대안 구조를 선택하고 사례 제시 순서를 재배열하여 읽기 분석이 실제 작문 설계로 전이되는 과정을 보여 줌.",
+    "official": [
+      "독서와 작문-2 / 선다형 / 글의 내용 조직 방법과 표현 전략 파악하기"
+    ],
+    "tool": "독서와 작문-2 / 선다형 / 글의 내용 조직 방법과 표현 전략 파악하기",
+    "standard": "글을 읽으며 다양한 내용 조직 방법과 표현 전략을 찾고 이를 글쓰기에 활용한다.",
+    "levels": {
+      "A": "쓰기 맥락에 따라 적합한 내용 조직 방법과 표현 전략이 달라질 수 있다는 인식을 토대로 글에 사용된 다양한 내용 조직 방법과 표현 전략을 찾아 분석하고 쓰기 맥락에 맞게 효과적이고 실제적으로 활용하며 글을 쓸 수 있다.",
+      "B": "글에 사용된 다양한 내용 조직 방법과 표현 전략을 찾아 분석하고 쓰기 맥락에 맞게 실제적으로 활용하며 글을 쓸 수 있다.",
+      "C": "글에 사용된 다양한 내용 조직 방법과 표현 전략을 찾고 쓰기 맥락에 맞게 활용하며 글을 쓸 수 있다.",
+      "D": "글에 사용된 내용 조직 방법이나 표현 전략을 찾고 이를 일부 차용하여 글을 쓸 수 있다.",
+      "E": "글에 주로 사용된 내용 조직 방법이나 두드러지게 나타나는 표현 전략을 찾고 일부를 제한적인 수준에서 차용하여 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-06]",
+    "domain": "읽기 전략과 고쳐쓰기",
+    "title": "좋은 글은 초안 이후에 어떻게 만들어지는가?",
+    "type": "고쳐쓰기 워크숍형",
+    "period": "3차시",
+    "lens": "수정과 독자",
+    "concept": "분석적·비판적 고쳐쓰기",
+    "related": "초안, 내용 적절성, 조직, 표현, 문단, 독자 반응, 자기 평가, 동료 피드백, 고쳐쓰기 이력",
+    "phenomenon": "학생 글 초안과 수정본, 동료 피드백, 평가 기준표을 자료로 제시해 분석적·비판적 고쳐쓰기이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "고쳐쓰기는 맞춤법과 어색한 문장을 고치는 마무리 작업이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 분석적·비판적 고쳐쓰기을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "분석적·비판적 고쳐쓰기과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "수정과 독자 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "좋은 글은 초안 이후에 어떻게 만들어지는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "좋은 글은 초안 이후에 어떻게 만들어지는가 탐구표",
+      "분석적·비판적 고쳐쓰기 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "자신의 글을 목적, 독자, 내용 타당성, 조직, 표현, 문장, 자료 활용 기준으로 분석하고 피드백을 반영해 수정 지점을 근거와 함께 기록한다.",
+    "modeling": "초안-피드백-수정 이유-최종본의 고쳐쓰기 이력표로 글의 변화 과정을 설명한다.",
+    "source": "학생 글 초안과 수정본, 동료 피드백, 평가 기준표, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 읽기 전략과 고쳐쓰기",
+    "uncertainty": "동료 피드백은 독자의 한 관점이므로 모든 의견을 반영하기보다 글의 목적과 평가 기준에 따라 선택적으로 수용해야 한다.",
+    "misconception": "고쳐쓰기는 맞춤법과 어색한 문장을 고치는 마무리 작업이다.",
+    "correction": "내용의 타당성, 조직, 근거, 독자 이해, 표현 전략까지 고쳐쓰기의 대상임을 수정 전후 비교로 확인하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "같은 초안을 여러 독자 집단에게 보여 주고 피드백 유형이 어떻게 달라지는지 비교해 수정 우선순위를 설계한다.",
+    "career": "작가, 편집자, 국어교육, 출판, UX 라이팅, 법률·행정 문서",
+    "sample": "자신의 주장 글 초안을 내용 타당성, 근거 배치, 문단 연결, 독자 이해 가능성 기준으로 분석하고 동료 피드백을 선택적으로 반영함. 단순한 맞춤법 수정에서 벗어나 핵심 근거의 위치를 바꾸고 반론 문단을 추가한 이유를 고쳐쓰기 이력표에 남기며, 최종본에서 글의 설득 구조가 어떻게 개선되었는지 설명함.",
+    "official": [
+      "독서와 작문-5 / 서술형 / 분석적·비판적 관점으로 자신의 글 고쳐 쓰기"
+    ],
+    "tool": "독서와 작문-5 / 서술형 / 분석적·비판적 관점으로 자신의 글 고쳐 쓰기",
+    "standard": "자신의 글을 분석적･비판적 관점으로 읽고, 내용과 형식을 효과적으로 고쳐 쓴다.",
+    "levels": {
+      "A": "자신의 글을 분석적･비판적 관점으로 평가하고 타인의 관점에서 해석하며 읽고, 쓰기 맥락과 표현 의도를 고려하여 글의 내용과 형식을 효과적으로 고쳐 쓸 수 있다.",
+      "B": "자신의 글을 분석적･비판적 관점으로 평가하며 읽고, 쓰기 맥락과 표현 의도를 고려하여 글의 내용과 형식을 효과적으로 고쳐 쓸 수 있다.",
+      "C": "자신의 글을 분석적･비판적 관점으로 읽고, 쓰기 맥락을 고려하여 글의 내용과 형식을 효과적으로 고쳐 쓸 수 있다.",
+      "D": "자신의 글을 쓰기 맥락을 고려하여 읽고, 글의 내용이나 형식을 고쳐 쓸 수 있다.",
+      "E": "자신의 글을 읽고, 글의 내용이나 형식을 제한적인 수준에서 고쳐 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-07]",
+    "domain": "분야별 읽기와 쓰기",
+    "title": "인문·예술 글은 나의 삶을 어떻게 다시 보게 하는가?",
+    "type": "인문·예술 감상·성찰 글쓰기형",
+    "period": "3차시",
+    "lens": "세계관과 경험",
+    "concept": "인문·예술 읽기와 표현",
+    "related": "인문학적 세계관, 예술 경험, 삶의 문제, 윤리적·심미적 판단, 필자의 관점, 자기 경험, 감상문",
+    "phenomenon": "인문 에세이, 예술 비평, 작가 인터뷰, 전시·공연 감상 자료을 자료로 제시해 인문·예술 읽기와 표현이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "감상 글은 느낀 점을 자유롭게 쓰면 된다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 인문·예술 읽기와 표현을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "인문·예술 읽기와 표현과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "세계관과 경험 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "인문·예술 글은 나의 삶을 어떻게 다시 보게 하는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "인문·예술 글은 나의 삶을 어떻게 다시 보게 하는가 탐구표",
+      "인문·예술 읽기와 표현 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "인문·예술 분야 글에서 필자의 세계관, 삶과 예술에 대한 관점, 핵심 개념과 표현 방식을 파악하고 자신의 경험과 가치관을 연결한다.",
+    "modeling": "필자 관점-작품 또는 사례-나의 경험-성찰 문장의 네 단계 글쓰기 구조로 표현한다.",
+    "source": "인문 에세이, 예술 비평, 작가 인터뷰, 전시·공연 감상 자료, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 분야별 읽기와 쓰기",
+    "uncertainty": "예술 경험은 개인차가 크므로 자신의 감상을 일반화하지 않고 작품과 글의 근거를 함께 제시해야 한다.",
+    "misconception": "감상 글은 느낀 점을 자유롭게 쓰면 된다.",
+    "correction": "느낌을 쓰되 글에서 확인한 필자의 관점, 작품의 특징, 자신의 경험이 어떻게 연결되는지 근거를 갖추게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "하나의 예술 작품에 대한 두 비평문을 비교하고 자신의 감상 글에서 어떤 관점을 수용·변형했는지 분석한다.",
+    "career": "인문학, 예술경영, 문화기획, 비평, 국어교육, 상담",
+    "sample": "예술 비평문에서 필자가 예술을 삶의 질문을 드러내는 방식으로 본다는 관점을 파악하고 자신의 전시 관람 경험과 연결해 글을 구성함. 처음에는 감상 위주의 서술에 머물렀으나, 글 속 핵심 개념과 작품 사례를 자기 경험의 변화와 연결하며 인문·예술 분야 읽기가 삶에 대한 성찰적 글쓰기로 확장되는 과정을 보여 줌.",
+    "official": [
+      "독서와 작문-6 / 서술형 / 인문·예술 분야 글을 읽고 자신의 경험과 관점으로 글쓰기"
+    ],
+    "tool": "독서와 작문-6 / 서술형 / 인문·예술 분야 글을 읽고 자신의 경험과 관점으로 글쓰기",
+    "standard": "인간과 예술을 다룬 인문･예술 분야의 글을 읽고 삶과 예술에 대한 자신의 생각을 담은 글을 쓴다.",
+    "levels": {
+      "A": "인간과 예술을 다룬 인문･예술 분야의 글을 읽고 심층적인 통찰을 통해 인문학적 세계관을 이해하며 삶과 예술에 대한 인식적･윤리적･심미적 경험을 바탕으로 자신의 가치관을 개성 있게 담은 글을 쓸 수 있다.",
+      "B": "인간과 예술을 다룬 인문･예술 분야의 글을 읽고 인문학적 세계관을 이해하며 삶과 예술에 대한 인식적･심미적 경험을 바탕으로 자신의 가치관을 담은 글을 쓸 수 있다.",
+      "C": "인간과 예술을 다룬 인문･예술 분야의 글을 읽고 인문학적 세계관을 이해하며 삶과 예술에 대한 경험을 바탕으로 자신의 생각을 담은 글을 쓸 수 있다.",
+      "D": "인간과 예술을 다룬 인문･예술 분야의 글을 읽고 내용을 대략적으로 파악하고 삶이나 예술에 대한 자신의 경험이나 생각을 담은 글을 쓸 수 있다.",
+      "E": "인간과 예술을 다룬 인문･예술 분야의 글을 읽으며 내용의 일부를 파악하고 삶이나 예술에 대한 자신의 경험이나 생각을 제한적인 수준에서 담은 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-08]",
+    "domain": "분야별 읽기와 쓰기",
+    "title": "사회·문화 쟁점 글은 관점을 어떻게 형성하게 하는가?",
+    "type": "사회·문화 논술형",
+    "period": "4차시",
+    "lens": "관점과 책임",
+    "concept": "사회·문화 읽기와 관점 글쓰기",
+    "related": "사회 현상, 역사적 인물, 쟁점, 관점, 근거, 반론, 사회·문화적 맥락, 책임, 공정성",
+    "phenomenon": "사회 현상 기사, 역사 인물 평가 글, 정책 칼럼, 통계 자료을 자료로 제시해 사회·문화 읽기와 관점 글쓰기이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "사회 쟁점 글쓰기는 자신의 찬반 입장을 분명히 밝히면 된다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 사회·문화 읽기와 관점 글쓰기을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "사회·문화 읽기와 관점 글쓰기과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "관점과 책임 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "사회·문화 쟁점 글은 관점을 어떻게 형성하게 하는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "사회·문화 쟁점 글은 관점을 어떻게 형성하게 하는가 탐구표",
+      "사회·문화 읽기와 관점 글쓰기 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "사회·문화 분야 글에서 현상 설명 방식, 역사적 맥락, 이해관계자, 필자의 관점, 근거와 반론 가능성을 표시하고 자신의 관점을 세운다.",
+    "modeling": "쟁점-관점-근거-반론-나의 판단 구조로 사회·문화 관점 글을 설계한다.",
+    "source": "사회 현상 기사, 역사 인물 평가 글, 정책 칼럼, 통계 자료, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 분야별 읽기와 쓰기",
+    "uncertainty": "사회·문화 자료는 작성 시점과 가치관에 따라 해석이 달라질 수 있으므로 다른 관점의 글을 함께 읽어야 한다.",
+    "misconception": "사회 쟁점 글쓰기는 자신의 찬반 입장을 분명히 밝히면 된다.",
+    "correction": "입장보다 현상 분석, 역사적 맥락, 근거의 타당성, 반론 검토, 사회적 책임을 함께 고려하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "동일 역사 인물에 대한 시대별 평가 글을 비교해 평가 기준과 사회적 가치가 어떻게 변했는지 분석한다.",
+    "career": "사회과학, 역사학, 언론, 법학, 정책, 시민교육",
+    "sample": "지역 재개발 쟁점에 관한 기사와 칼럼을 읽고 이해관계자, 역사적 맥락, 통계 근거, 필자의 관점을 분리해 분석함. 처음에는 찬반 중 하나를 선택하는 방식으로 접근했으나, 반대 관점의 문제 제기도 함께 검토하며 주거권, 지역 경제, 공동체 기억을 균형 있게 다루는 관점 글로 발전시킴.",
+    "official": [
+      "독서와 작문-9 / 논술형 / 사회·문화 현상이나 쟁점에 대한 관점 정립과 비판적 글쓰기"
+    ],
+    "tool": "독서와 작문-9 / 논술형 / 사회·문화 현상이나 쟁점에 대한 관점 정립과 비판적 글쓰기",
+    "standard": "사회적･역사적 현상이나 쟁점 등을 다룬 사회･문화 분야의 글을 읽고 사회･문화적 사건이나 역사적 인물에 대한 관점을 담은 글을 쓴다.",
+    "levels": {
+      "A": "사회적･역사적 현상이나 쟁점 등을 다룬 사회･문화 분야의 글을 읽으며 해당 현상이나 쟁점에 대해 자신의 관점을 세움으로써 판단의 근거를 체계적으로 마련하고, 사회･문화적 사건이나 역사적 인물에 대한 깊이 있는 해석을 바탕으로 자신의 관점을 담은 글을 쓸 수 있다.",
+      "B": "사회적･역사적 현상이나 쟁점 등을 다룬 사회･문화 분야의 글을 읽으며 해당 현상이나 쟁점에 대해 자신의 관점을 세우고, 사회･문화적 사건이나 역사적 인물에 대한 해석을 바탕으로 자신의 관점을 담은 글을 쓸 수 있다.",
+      "C": "사회적･역사적 현상이나 쟁점 등을 다룬 사회･문화 분야의 글을 읽으며 해당 현상이나 쟁점에 대한 자신의 생각을 정리하고, 사회･문화적 사건이나 역사적 인물에 대한 자신의 관점을 담은 글을 쓸 수 있다.",
+      "D": "사회적･역사적 현상이나 쟁점 등을 다룬 사회･문화 분야의 글을 읽으며 해당 현상이나 쟁점을 대략적으로 파악하고, 읽은 내용을 바탕으로 사회･문화적 사건이나 역사적 인물에 대한 자신의 생각을 담은 글을 쓸 수 있다.",
+      "E": "사회적･역사적 현상을 다룬 사회･문화 분야의 글을 읽으며 내용을 일부 파악하고, 읽은 글에서 다루고 있는 현상이나 인물에 대한 자신의 생각을 제한적인 수준에서 담은 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-09]",
+    "domain": "분야별 읽기와 쓰기",
+    "title": "과학·기술 글은 복잡한 원리를 어떻게 이해시키는가?",
+    "type": "과학·기술 설명 글쓰기형",
+    "period": "3차시",
+    "lens": "원리와 설명",
+    "concept": "과학·기술 읽기와 설명",
+    "related": "개념, 원리, 현상, 절차, 인과 관계, 비유, 도표, 객관성, 자료 신뢰도, 설명 구조",
+    "phenomenon": "과학·기술 설명문, 실험 기사, 기술 소개 글, 도표와 인포그래픽을 자료로 제시해 과학·기술 읽기와 설명이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "과학·기술 글은 어려운 용어를 많이 설명하면 전문적이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 과학·기술 읽기와 설명을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "과학·기술 읽기와 설명과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "원리와 설명 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "과학·기술 글은 복잡한 원리를 어떻게 이해시키는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "과학·기술 글은 복잡한 원리를 어떻게 이해시키는가 탐구표",
+      "과학·기술 읽기와 설명 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "과학·기술 글에서 핵심 개념, 원리, 절차, 인과 관계, 도표 정보, 설명 전략을 파악하고 추가 자료의 객관성과 정확성을 검토한다.",
+    "modeling": "개념 정의-원리 설명-사례-도표 해석-오개념 교정의 설명 글 구조로 글을 설계한다.",
+    "source": "과학·기술 설명문, 실험 기사, 기술 소개 글, 도표와 인포그래픽, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 분야별 읽기와 쓰기",
+    "uncertainty": "과학 정보는 최신 자료일수록 불확실성이 남아 있을 수 있으므로 연구 조건, 자료 출처, 한계를 함께 확인해야 한다.",
+    "misconception": "과학·기술 글은 어려운 용어를 많이 설명하면 전문적이다.",
+    "correction": "전문 용어보다 개념 관계, 절차, 인과 구조, 독자 수준에 맞는 비유와 도표 해석이 중요함을 비교하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "AI 추천 알고리즘을 설명하는 글에서 비유와 도표가 독자의 이해도에 미치는 영향을 비교한다.",
+    "career": "과학커뮤니케이션, 공학, 의학, 데이터 분석, 기술기획, 국어교육",
+    "sample": "인공지능 추천 알고리즘 설명문을 읽고 핵심 개념, 절차, 인과 관계, 도표 정보를 분리해 정리함. 어려운 용어를 나열하던 초안을 수정하여 독자 수준에 맞는 비유와 단계적 설명 구조를 적용했고, 자료 출처와 기술의 한계를 함께 제시하며 과학·기술 설명 글의 객관성과 이해 가능성을 높임.",
+    "official": [
+      "독서와 작문-7 / 서술형 / 과학·기술 분야 글을 사실적·추론적으로 이해하기"
+    ],
+    "tool": "독서와 작문-7 / 서술형 / 과학·기술 분야 글을 사실적·추론적으로 이해하기",
+    "standard": "과학･기술의 원리나 지식을 다룬 과학･기술 분야의 글을 읽고 과학･기술의 개념이나 현상을 설명하는 글을 쓴다.",
+    "levels": {
+      "A": "과학･기술의 원리나 지식을 다룬 과학･기술 분야의 글을 읽으며 다양한 정보와 자료를 체계적으로 분석 및 평가하여 글을 쓸 때 필요한 자료를 선별하고, 선별한 자료를 활용하여 과학･기술의 개념이나 현상을 체계적이고 명료하게 설명하는 글을 쓸 수 있다.",
+      "B": "과학･기술의 원리나 지식을 다룬 과학･기술 분야의 글을 읽으며 다양한 정보와 자료를 분석하여 글을 쓸 때 필요한 자료를 선별하고, 선별한 자료를 활용하여 과학･기술의 개념이나 현상을 명료하게 설명하는 글을 쓸 수 있다.",
+      "C": "과학･기술의 원리나 지식을 다룬 과학･기술 분야의 글을 읽으며 글에 제시된 정보와 자료를 파악하고, 글을 쓸 때 필요한 자료를 수집하여 과학･기술의 개념이나 현상을 설명하는 글을 쓸 수 있다.",
+      "D": "과학･기술의 원리나 지식을 다룬 과학･기술 분야의 글을 읽으며 글에 제시된 정보와 자료를 대략적으로 파악하고, 읽은 자료를 바탕으로 과학･기술의 개념이나 현상을 부분적으로 설명하는 글을 쓸 수 있다.",
+      "E": "과학･기술의 원리나 지식을 다룬 과학･기술 분야의 글을 읽으며 글에 나타난 정보와 자료를 제한적인 수준에서 파악하고, 읽은 자료의 일부를 활용하여 과학･기술의 개념이나 현상을 제한적인 수준에서 설명하는 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-10]",
+    "domain": "정보 전달·논증·성찰 글쓰기",
+    "title": "정보 전달 글은 어떤 기준으로 자료를 조직해야 하는가?",
+    "type": "정보 전달 글쓰기 프로젝트형",
+    "period": "4차시",
+    "lens": "선별과 조직",
+    "concept": "정보 수집과 조직",
+    "related": "정보 가치, 주제, 독자, 출처, 분류, 비교, 배열, 기사문, 설명문, 시각 자료, 객관성",
+    "phenomenon": "관심 분야 현안 기사, 통계 자료, 인터뷰, 공공 데이터, 시각 자료을 자료로 제시해 정보 수집과 조직이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "정보 전달 글은 많이 조사한 내용을 빠짐없이 정리하면 된다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 정보 수집과 조직을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "정보 수집과 조직과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "선별과 조직 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "정보 전달 글은 어떤 기준으로 자료를 조직해야 하는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "정보 전달 글은 어떤 기준으로 자료를 조직해야 하는가 탐구표",
+      "정보 수집과 조직 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "주제와 독자를 고려해 가치 있는 정보를 수집하고 정보의 중요도, 관련성, 신뢰도, 배열 원리를 기준으로 분류·조직한다.",
+    "modeling": "자료 카드-분류 기준-문단 배열-시각 자료 배치의 정보 전달 글 설계도로 글을 구성한다.",
+    "source": "관심 분야 현안 기사, 통계 자료, 인터뷰, 공공 데이터, 시각 자료, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 정보 전달·논증·성찰 글쓰기",
+    "uncertainty": "수집 자료가 많을수록 선택 편향과 중복이 생길 수 있으므로 정보의 역할과 출처를 점검해야 한다.",
+    "misconception": "정보 전달 글은 많이 조사한 내용을 빠짐없이 정리하면 된다.",
+    "correction": "독자의 필요와 글의 목적에 맞게 자료를 선별하고 중요도와 관계에 따라 조직해야 함을 사례로 확인하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "학교 주변 안전 문제를 공공 데이터, 인터뷰, 현장 관찰로 조사하고 독자별 정보 배열 방식을 비교한다.",
+    "career": "언론, 데이터 저널리즘, 정책 홍보, 기획, 문헌정보, 국어교육",
+    "sample": "학교 주변 보행 안전을 주제로 공공 데이터, 현장 관찰, 학생 인터뷰를 수집하고 독자인 학생과 학부모에게 필요한 정보를 구분해 기사문을 설계함. 자료를 모두 넣으려던 초안을 수정하여 핵심 통계, 위험 지점 사례, 개선 안내 순서로 재조직했고, 시각 자료의 위치까지 조정하며 정보 전달 글의 목적성과 가독성을 높임.",
+    "official": [
+      "독서와 작문-11 / 프로젝트 / 관심 분야 현안의 정보를 선별·조직하여 기사문 작성하기"
+    ],
+    "tool": "독서와 작문-11 / 프로젝트 / 관심 분야 현안의 정보를 선별·조직하여 기사문 작성하기",
+    "standard": "글이나 자료에서 가치 있는 정보를 수집하고 효과적으로 조직하면서 정보를 전달하는 글을 쓴다.",
+    "levels": {
+      "A": "자신의 작문 맥락을 종합적으로 고려하여 자신이 글을 쓸 때에 필요한 가치 있는 정보를 타당하고 신뢰할 만한 글이나 자료에서 수집하고, 수집한 정보를 효과적으로 재구성하여 조직하면서 독자의 이해를 돕는 내용과 표현으로 정보를 전달하는 글을 쓸 수 있다.",
+      "B": "자신의 작문 맥락을 고려하여 자신이 글을 쓸 때에 필요한 가치 있는 정보를 신뢰할 만한 글이나 자료에서 수집하고, 수집한 정보를 효과적으로 조직하면서 독자의 이해를 돕는 내용으로 정보를 전달하는 글을 쓸 수 있다.",
+      "C": "자신의 작문 맥락을 고려하여 자신이 글을 쓸 때에 필요한 가치 있는 정보를 글이나 자료에서 수집하고, 수집한 정보를 효과적으로 조직하면서 정보를 전달하는 글을 쓸 수 있다.",
+      "D": "자신이 작성하고자 하는 글의 내용과 관련된 정보를 글이나 자료에서 일부 수집하고, 수집한 정보를 활용하여 정보를 전달하는 글을 쓸 수 있다.",
+      "E": "자신이 작성하고자 하는 글의 내용과 관련된 정보를 글이나 자료에서 제한적인 수준에서 찾고, 찾은 정보를 제한적인 수준에서 활용하여 정보를 전달하는 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-11]",
+    "domain": "정보 전달·논증·성찰 글쓰기",
+    "title": "논증하는 글의 힘은 어디에서 오는가?",
+    "type": "근거 평가·논증 글쓰기 프로젝트형",
+    "period": "4차시",
+    "lens": "근거와 설득",
+    "concept": "논증 글쓰기",
+    "related": "논제, 쟁점, 주장, 이유, 근거, 자료 신뢰도, 설득 전략, 반론, 재반박, 독자 고려",
+    "phenomenon": "논쟁적 주제의 기사·통계·전문가 의견·연구 자료, 학생 주장 글 초안을 자료로 제시해 논증 글쓰기이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "논증 글은 강한 주장과 많은 근거가 있으면 설득력 있다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 논증 글쓰기을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "논증 글쓰기과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "근거와 설득 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "논증하는 글의 힘은 어디에서 오는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "논증하는 글의 힘은 어디에서 오는가 탐구표",
+      "논증 글쓰기 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "논제와 쟁점을 정리하고 다양한 글과 자료에서 타당한 근거를 수집·평가하여 주장, 이유, 근거, 반론, 설득 전략을 조직한다.",
+    "modeling": "쟁점 지도-근거 평가표-논증 구조도-반론 처리표로 논증하는 글을 설계한다.",
+    "source": "논쟁적 주제의 기사·통계·전문가 의견·연구 자료, 학생 주장 글 초안, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 정보 전달·논증·성찰 글쓰기",
+    "uncertainty": "통계와 전문가 의견도 수집 방식, 해석 관점, 이해관계에 따라 설득력이 달라질 수 있으므로 출처와 맥락을 검토한다.",
+    "misconception": "논증 글은 강한 주장과 많은 근거가 있으면 설득력 있다.",
+    "correction": "근거의 양보다 타당성, 신뢰성, 관련성, 반론 처리, 독자에게 맞는 설득 전략이 중요함을 비교하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "청소년 스마트폰 제한 논제를 두고 통계, 심리 연구, 학생 인터뷰를 근거 평가 기준으로 비교한다.",
+    "career": "법학, 언론, 정책, 광고홍보, 연구, 국어교육",
+    "sample": "청소년 스마트폰 사용 제한 논제를 정하고 통계 자료, 전문가 의견, 학생 인터뷰를 타당성, 신뢰성, 관련성 기준으로 평가함. 처음에는 찬성 근거만 모아 글을 구성했으나, 반대 근거의 합리성을 검토한 뒤 반론과 재반박 구조를 추가하고 독자에게 적합한 설득 전략을 선택하며 논증 글의 설득력을 높임.",
+    "official": [
+      "독서와 작문-12 / 프로젝트 / 다양한 글과 자료에서 타당한 근거를 수집하여 논증하는 글 쓰기"
+    ],
+    "tool": "독서와 작문-12 / 프로젝트 / 다양한 글과 자료에서 타당한 근거를 수집하여 논증하는 글 쓰기",
+    "standard": "글이나 자료에서 타당한 근거를 수집하고 효과적인 설득 전략을 활용하여 논증하는 글을 쓴다.",
+    "levels": {
+      "A": "자신의 작문 맥락을 고려하여 글이나 자료에서 타당한 근거를 수집･분석･평가함으로써 수준 높은 논증을 구성하고 효과적인 설득 전략을 다양하게 활용하여 높은 설득력을 갖춘 논증하는 글을 쓸 수 있다.",
+      "B": "자신의 작문 맥락을 고려하여 글이나 자료에서 타당한 근거를 수집하여 논증을 구성하고 효과적인 설득 전략을 활용하여 높은 설득력을 갖춘 논증하는 글을 쓸 수 있다.",
+      "C": "자신의 작문 맥락을 고려하여 글이나 자료에서 타당한 근거를 수집하여 논증을 구성하고 효과적인 설득 전략을 활용하여 논증하는 글을 쓸 수 있다.",
+      "D": "글이나 자료에서 타당한 근거를 일부 수집하고 설득 전략을 부분적으로 활용하여 논증하는 글을 쓸 수 있다.",
+      "E": "글이나 자료에서 근거를 일부 수집하고 이를 활용하여 제한적인 수준에서 논증하는 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-12]",
+    "domain": "정보 전달·논증·성찰 글쓰기",
+    "title": "자기 성찰의 글은 어떻게 진정성을 얻는가?",
+    "type": "정서 표현·자기 성찰 글쓰기형",
+    "period": "3차시",
+    "lens": "정서와 성찰",
+    "concept": "정서 표현과 자기 성찰",
+    "related": "체험, 정서, 가치관, 성찰, 진정성, 서사, 장면화, 자기 이해, 삶의 전환, 독자와 공유",
+    "phenomenon": "수필, 일기, 에세이, 회고문, 학생 자기 성찰 글을 자료로 제시해 정서 표현과 자기 성찰이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "자기 성찰 글은 솔직하게 마음을 털어놓으면 충분하다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 정서 표현과 자기 성찰을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "정서 표현과 자기 성찰과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "정서와 성찰 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "자기 성찰의 글은 어떻게 진정성을 얻는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "자기 성찰의 글은 어떻게 진정성을 얻는가 탐구표",
+      "정서 표현과 자기 성찰 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "정서 표현과 자기 성찰 글에서 필자의 체험, 감정 변화, 깨달음, 가치관을 파악하고 자신의 경험을 과장이나 왜곡 없이 장면과 성찰로 구성한다.",
+    "modeling": "체험 장면-정서 변화-해석-성찰 질문-삶의 적용의 글쓰기 구조로 자기 성찰 글을 설계한다.",
+    "source": "수필, 일기, 에세이, 회고문, 학생 자기 성찰 글, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 정보 전달·논증·성찰 글쓰기",
+    "uncertainty": "개인 경험을 다룰 때 공개 범위와 심리적 안전을 고려하고 타인의 사생활이 드러나지 않게 해야 한다.",
+    "misconception": "자기 성찰 글은 솔직하게 마음을 털어놓으면 충분하다.",
+    "correction": "진정성은 감정의 노출이 아니라 구체적 장면, 자기 이해의 변화, 삶의 적용 가능성에서 생김을 확인하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "같은 경험을 기록한 일기와 수필을 비교해 사적 기록이 독자와 공유 가능한 성찰 글로 바뀌는 조건을 탐구한다.",
+    "career": "상담, 교육, 문예창작, 심리학, 문화예술, 국어교육",
+    "sample": "자기 성찰 수필을 읽고 필자의 체험, 정서 변화, 깨달음이 어떤 장면을 통해 드러나는지 분석함. 자신의 글에서는 감정을 직접 설명하던 초안을 고쳐 구체적 장면과 선택의 순간을 중심으로 구성했고, 그 경험이 이후 관계 맺기 방식에 어떤 질문을 남겼는지 성찰하며 진정성 있는 글쓰기의 조건을 보여 줌.",
+    "official": [
+      "독서와 작문-10 / 논술형 / 자기 성찰의 글을 읽고 자신의 삶을 성찰하는 글 쓰기"
+    ],
+    "tool": "독서와 작문-10 / 논술형 / 자기 성찰의 글을 읽고 자신의 삶을 성찰하는 글 쓰기",
+    "standard": "정서 표현과 자기 성찰의 글을 읽고 자신의 정서를 진솔하게 표현하거나 자신의 삶을 성찰하는 글을 쓴다.",
+    "levels": {
+      "A": "정서 표현과 자기 성찰의 글을 읽으며 필자의 가치관을 분석하고 자신의 가치관과 비교함으로써 삶에 대한 교훈과 깨달음을 얻고, 자신의 가치관을 담아 정서를 섬세하고 진솔하게 표현하거나 자신의 삶을 깊이 있게 성찰하는 글을 쓸 수 있다.",
+      "B": "정서 표현과 자기 성찰의 글을 읽으며 필자의 가치관을 분석하여 삶에 대한 교훈과 깨달음을 얻고, 자신의 삶을 되돌아보며 정서를 진솔하게 표현하거나 자신의 삶을 깊이 있게 성찰하는 글을 쓸 수 있다.",
+      "C": "정서 표현과 자기 성찰의 글을 읽으며 삶에 대한 교훈이나 깨달음을 얻고, 자신의 경험을 토대로 정서를 진솔하게 표현하거나 자신의 삶을 성찰하는 글을 쓸 수 있다.",
+      "D": "정서 표현과 자기 성찰의 글에 나타난 필자의 생각을 파악하고, 자신의 정서를 표현하거나 자신의 삶을 성찰하는 글을 쓸 수 있다.",
+      "E": "정서 표현이나 자기 성찰의 글에 나타난 필자의 생각을 대략적으로 파악하고, 제한적인 수준에서 자신의 정서를 표현하거나 자신의 삶에 대한 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-13]",
+    "domain": "주제 통합·매체·담론 참여",
+    "title": "여러 글을 함께 읽으면 생각은 어떻게 달라지는가?",
+    "type": "주제 통합 읽기·학습 글쓰기형",
+    "period": "4차시",
+    "lens": "통합과 재구성",
+    "concept": "주제 통합 읽기와 학습 글쓰기",
+    "related": "다중 텍스트, 관점 비교, 형식 비교, 요약, 개요, 교과 특성, 학습 목적, 지식 재구성",
+    "phenomenon": "하나의 주제를 다룬 교과서 글, 기사, 칼럼, 통계 자료, 인터뷰 자료을 자료로 제시해 주제 통합 읽기와 학습 글쓰기이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "여러 글을 읽는 것은 자료를 많이 모아 요약하는 것이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 주제 통합 읽기와 학습 글쓰기을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "주제 통합 읽기와 학습 글쓰기과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "통합과 재구성 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "여러 글을 함께 읽으면 생각은 어떻게 달라지는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "여러 글을 함께 읽으면 생각은 어떻게 달라지는가 탐구표",
+      "주제 통합 읽기와 학습 글쓰기 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "동일 주제의 여러 글을 관점, 형식, 핵심 정보, 근거, 용어 사용, 교과적 설명 방식으로 비교하고 학습 목적에 맞게 요약·개요화한다.",
+    "modeling": "텍스트 비교표-공통점·차이점 지도-통합 개요-학습 글 초안의 단계로 지식을 재구성한다.",
+    "source": "하나의 주제를 다룬 교과서 글, 기사, 칼럼, 통계 자료, 인터뷰 자료, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 주제 통합·매체·담론 참여",
+    "uncertainty": "서로 다른 글은 용어와 전제가 달라 직접 비교가 어려울 수 있으므로 비교 기준을 먼저 세워야 한다.",
+    "misconception": "여러 글을 읽는 것은 자료를 많이 모아 요약하는 것이다.",
+    "correction": "관점과 형식의 차이를 비교하고 학습 목적에 맞게 정보를 재배열해야 주제 통합 읽기가 된다는 점을 강조한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "기후위기를 과학, 사회, 윤리, 경제 글로 읽고 교과별 설명 방식이 어떻게 다른지 통합 개요로 정리한다.",
+    "career": "연구, 대학 학습, 국어교육, 융합교육, 정책, 콘텐츠 기획",
+    "sample": "기후위기를 다룬 과학 설명문, 경제 기사, 사회 칼럼을 비교하여 각 글의 핵심 정보, 관점, 근거 형식을 표로 정리함. 단순 요약문을 나열하던 초안을 수정해 공통 개념과 차이를 기준으로 통합 개요를 만들었고, 학습 목적에 맞게 원인, 영향, 대응의 구조로 재구성하며 주제 통합 읽기의 깊이를 보여 줌.",
+    "official": [
+      "독서와 작문-8 / 서술형 / 관점과 형식이 다른 글을 주제 통합적으로 읽고 학습 글 개요 작성하기"
+    ],
+    "tool": "독서와 작문-8 / 서술형 / 관점과 형식이 다른 글을 주제 통합적으로 읽고 학습 글 개요 작성하기",
+    "standard": "다양한 글을 주제 통합적으로 읽고 학습의 목적과 교과의 특성을 고려하여 학습을 위한 글을 쓴다.",
+    "levels": {
+      "A": "다양한 관점과 형식을 가진 여러 편의 글에 나타난 정보를 비판적으로 재구성하며 주제 통합적으로 읽고, 학습의 목적과 교과의 특성을 고려하여 특정 주제나 화제에 대해 학습한 내용을 체계적으로 구조화하고 쓰기 윤리를 준수하며 학습을 위한 글을 쓸 수 있다.",
+      "B": "다양한 관점과 형식을 가진 여러 편의 글에 나타난 정보를 재구성하며 주제 통합적으로 읽고, 학습의 목적과 교과의 특성을 고려하여 특정 주제나 화제에 대해 학습한 내용을 구조화하고 쓰기 윤리를 준수하며 학습을 위한 글을 쓸 수 있다.",
+      "C": "다양한 관점과 형식을 가진 여러 편의 글을 주제 통합적으로 읽고, 학습의 목적과 교과의 특성을 고려하여 특정 주제나 화제에 대해 학습한 내용을 구조화하고 쓰기 윤리를 인식하며 학습을 위한 글을 쓸 수 있다.",
+      "D": "관점이나 형식이 다른 여러 편의 글을 비교하며 읽고, 읽은 내용을 일부 활용하며 학습의 목적을 고려하여 학습을 위한 글을 쓸 수 있다.",
+      "E": "관점이나 형식이 다른 두 편의 글을 부분적으로 비교하며 읽고, 읽은 내용을 제한적인 수준에서 활용하여 학습을 위한 글을 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-14]",
+    "domain": "주제 통합·매체·담론 참여",
+    "title": "매체가 달라지면 읽기와 쓰기는 어떻게 달라지는가?",
+    "type": "매체 읽기·쓰기 프로젝트형",
+    "period": "4차시",
+    "lens": "매체와 설계",
+    "concept": "매체 특성과 읽기·쓰기",
+    "related": "매체 유형, 복합양식, 하이퍼텍스트, 이미지, 영상, 댓글, 플랫폼, 기사문, 카드뉴스, 정보 배열",
+    "phenomenon": "웹 기사, 카드뉴스, 영상 자막, SNS 게시글, 인포그래픽, 댓글 흐름을 자료로 제시해 매체 특성과 읽기·쓰기이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "매체 글쓰기는 글을 짧게 줄이고 이미지를 넣으면 된다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 매체 특성과 읽기·쓰기을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "매체 특성과 읽기·쓰기과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "매체와 설계 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "매체가 달라지면 읽기와 쓰기는 어떻게 달라지는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "매체가 달라지면 읽기와 쓰기는 어떻게 달라지는가 탐구표",
+      "매체 특성과 읽기·쓰기 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "매체 유형별 정보 배열, 이미지와 글의 관계, 링크 구조, 댓글 반응, 독자 참여 방식, 신뢰도 단서를 분석하고 매체에 맞게 글을 재구성한다.",
+    "modeling": "매체 특성 분석표-독자 경로 지도-콘텐츠 구성안-게시 전 점검표로 매체 글쓰기를 설계한다.",
+    "source": "웹 기사, 카드뉴스, 영상 자막, SNS 게시글, 인포그래픽, 댓글 흐름, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 주제 통합·매체·담론 참여",
+    "uncertainty": "온라인 매체는 빠르게 확산되므로 저작권, 개인정보, 출처, 댓글 상호작용의 윤리를 함께 점검해야 한다.",
+    "misconception": "매체 글쓰기는 글을 짧게 줄이고 이미지를 넣으면 된다.",
+    "correction": "매체별 독자 경로, 정보 신뢰도 단서, 복합양식의 역할, 상호작용 방식을 고려하게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "같은 정보를 기사문, 카드뉴스, 숏폼 대본으로 바꾸며 매체별 정보 손실과 설득 효과를 비교한다.",
+    "career": "미디어커뮤니케이션, 콘텐츠 제작, 디자인, 언론, 홍보, 국어교육",
+    "sample": "지역 환경 현안을 웹 기사와 카드뉴스 형식으로 각각 재구성하며 매체별 독자 경로와 정보 배열 차이를 분석함. 단순히 문장을 줄이는 방식에서 벗어나 이미지가 근거를 보완하는 부분과 링크가 추가 정보를 제공하는 부분을 구분했고, 출처 표기와 댓글 반응까지 고려한 매체 글쓰기 설계안을 완성함.",
+    "official": [
+      "독서와 작문-11 / 프로젝트 / 매체 특성을 고려하여 관심 분야 현안 기사문 작성하기"
+    ],
+    "tool": "독서와 작문-11 / 프로젝트 / 매체 특성을 고려하여 관심 분야 현안 기사문 작성하기",
+    "standard": "매체의 유형과 특성을 고려하며 글이나 자료를 읽고 쓴다.",
+    "levels": {
+      "A": "매체의 유형과 특성을 정확하게 이해하고 의사소통 목적을 효율적으로 달성하기 위해 매체의 유형과 특성을 고려하며 글이나 자료를 효과적으로 읽고 쓸 수 있다.",
+      "B": "매체의 유형과 특성을 이해하고 의사소통 목적을 달성하기 위해 매체의 유형과 특성을 고려하며 글이나 자료를 읽고 쓸 수 있다.",
+      "C": "의사소통 목적을 달성하기 위해 매체의 유형과 특성을 고려하며 글이나 자료를 읽고 쓸 수 있다.",
+      "D": "매체의 유형이나 특성을 부분적으로 고려하며 글이나 자료를 읽고 쓸 수 있다.",
+      "E": "매체의 유형이나 특성을 부분적으로 고려하며 글이나 자료를 제한적인 수준에서 읽고 쓴다."
+    }
+  },
+  {
+    "code": "[12독작01-15]",
+    "domain": "주제 통합·매체·담론 참여",
+    "title": "읽고 쓰는 공동체는 어떤 담론을 만들어 내는가?",
+    "type": "공동체 담론 참여형",
+    "period": "3차시",
+    "lens": "관습과 책임",
+    "concept": "독서·작문 문화와 담론 참여",
+    "related": "독서 관습, 작문 관습, 소통 문화, 공동체, 담론, 책임, 인용, 댓글, 공론장, 참여 윤리",
+    "phenomenon": "학교 독서 토론, 온라인 서평, 지역 의제 글, 댓글 토론, 공동 문서 작성 사례을 자료로 제시해 독서·작문 문화와 담론 참여이 실제 읽기와 쓰기 과정에서 어떻게 작동하는지 관찰한다.",
+    "conflict": "공동체 담론 참여는 자기 의견을 적극적으로 표현하는 것이다. 그러나 이 성취기준의 핵심은 활동 결과물이 아니라 글과 자료를 읽고 해석한 근거를 바탕으로 내용을 조직하고 글을 조정하는 탐구 과정이다.",
+    "general": "핵심 개념인 독서·작문 문화와 담론 참여을 중심으로 독서 목적, 작문 맥락, 자료의 가치, 독자 반응을 연결하면 읽은 내용을 자기 글로 재구성하고 책임 있는 문어 의사소통에 참여할 수 있다.",
+    "studentGeneral": "읽기와 쓰기는 결과물을 내는 일이 아니라 자료를 근거로 생각을 조직하고 더 정확한 글로 고쳐 가는 과정이다.",
+    "questions": [
+      "독서·작문 문화와 담론 참여과 관련해 글이나 자료에서 확인해야 할 핵심 정보는 무엇인가?",
+      "관습과 책임 관점에서 읽기 자료의 구조와 작문 맥락은 어떻게 연결되는가?",
+      "읽고 쓰는 공동체는 어떤 담론을 만들어 내는가라는 질문에 서로 다른 답이 나오는 이유는 무엇인가?",
+      "이 읽기·쓰기 전략을 나의 학습, 진로 탐구, 공동체 소통 글쓰기에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "읽고 쓰는 공동체는 어떤 담론을 만들어 내는가 탐구표",
+      "독서·작문 문화와 담론 참여 작문 설계안",
+      "피드백 반영 고쳐쓰기 기록"
+    ],
+    "evidence": [
+      "글이나 자료에서 핵심 정보와 근거를 표시함",
+      "핵심 개념을 읽기 목적과 작문 맥락에 연결함",
+      "자료 선별·조직·표현 전략을 근거로 설명함",
+      "피드백 후 초안이나 관점을 수정함"
+    ],
+    "data": "공동체 안에서 글을 읽고 쓰는 방식, 인용과 반응의 관습, 의견이 모여 담론을 형성하는 과정, 책임 있는 참여 조건을 분석한다.",
+    "modeling": "공동체-관습-담론 형성-책임 있는 참여 기준의 분석 지도로 소통 문화를 평가한다.",
+    "source": "학교 독서 토론, 온라인 서평, 지역 의제 글, 댓글 토론, 공동 문서 작성 사례, 국립국어원·공공기관 자료, 도서관·인터넷 자료, 학생 초안과 수정본",
+    "scale": "범위: 글·자료-독서 전략-작문 맥락-공동체 소통 / 맥락: 주제 통합·매체·담론 참여",
+    "uncertainty": "온라인과 오프라인 공동체는 참여 규칙과 권력 관계가 다르므로 침묵하는 구성원과 소수 의견의 위치도 살펴야 한다.",
+    "misconception": "공동체 담론 참여는 자기 의견을 적극적으로 표현하는 것이다.",
+    "correction": "의견 표현뿐 아니라 다른 글을 읽는 방식, 근거를 인용하는 방식, 반응과 수정의 책임이 담론을 만든다는 점을 보게 한다.",
+    "failure": "학생이 내용 요약이나 글 제출 결과에 머물면 어떤 자료를 왜 선택했고 어떤 근거로 조직·수정했는지 과정 증거를 표시하게 한다.",
+    "safe": "개인 경험, 온라인 자료, 인터뷰 자료를 활용할 때 개인정보와 저작권을 보호하고 출처와 인용 방식을 분명히 한다.",
+    "deepDive": "학교 독서 토론 게시판의 댓글 흐름을 분석해 어떤 반응 방식이 담론을 깊게 하거나 얕게 만드는지 탐구한다.",
+    "career": "국어교육, 시민교육, 언론, 커뮤니티 운영, 출판, 공공정책",
+    "sample": "학교 독서 토론 게시판의 글과 댓글을 분석해 인용 방식, 반응 표현, 질문의 깊이가 공동체 담론 형성에 미치는 영향을 설명함. 처음에는 자신의 의견 제시를 참여로 이해했으나, 다른 글을 정확히 읽고 근거를 존중하며 질문으로 논의를 확장하는 방식이 책임 있는 참여임을 깨닫고 공동체 소통 규칙을 제안함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 읽기 자료 분석과 작문 수행 기반 성취기준 도달 평가",
+    "standard": "독서와 작문의 관습과 소통 문화를 이해하고 공동체의 소통 문화 및 담론 형성에 책임감 있게 참여한다.",
+    "levels": {
+      "A": "독서와 작문의 관습과 소통 문화의 특성을 깊이 있게 이해하고 공동체의 소통 문화를 주도적으로 구성하며 담론을 형성하는 데에 적극적이고 능동적인 태도로 책임감 있게 참여할 수 있다.",
+      "B": "독서와 작문의 관습과 소통 문화의 특성을 이해하고 공동체의 소통 문화를 구성하며 담론을 형성하는 데에 적극적인 태도로 책임감 있게 참여할 수 있다.",
+      "C": "독서와 작문의 관습과 소통 문화의 특성을 이해하고 공동체의 소통 문화를 구성하며 담론을 형성하는 데에 책임감 있게 참여할 수 있다.",
+      "D": "독서와 작문의 관습이나 소통 문화의 특성을 이해하고 공동체의 소통 문화나 담론 형성에 참여할 수 있다.",
+      "E": "독서와 작문의 관습이나 소통 문화의 특성을 부분적으로 이해하고 공동체의 소통 문화나 담론 형성에 제한적인 수준에서 참여한다."
+    }
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "문어 의사소통과 자료 탐색":"atmo",
+  "사실·추론·비판적 읽기":"green",
+  "읽기 전략과 고쳐쓰기":"geo",
+  "분야별 읽기와 쓰기":"astro",
+  "정보 전달·논증·성찰 글쓰기":"gold",
+  "주제 통합·매체·담론 참여":"red"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "atmo");}
+function accent(d){return "accent-" + (DOMAIN_KEY[d] || "atmo");}
+function openView(id){
+  var views=document.querySelectorAll(".view");
+  for(var i=0;i<views.length;i++) views[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle("on", btns[j].dataset.view===id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+(function bindNav(){
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var i=0;i<btns.length;i++){
+    (function(b){ b.onclick=function(){ openView(b.dataset.view); }; })(btns[i]);
+  }
+})();
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill' + (solid?' solid':'') + '">' + esc(x) + '</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">' +
+    '<div class="blk-h"><span>' + esc(title) + '</span>' + (hint?'<span class="hint">' + esc(hint) + '</span>':"") + '</div>' +
+    body +
+  '</div>';
+}
+function recordCompetencyGuide(x){
+  var evidence = Array.isArray(x.evidence) ? x.evidence.slice(0,3) : [];
+  var product = Array.isArray(x.products) && x.products.length ? x.products[0] : "독서와 작문 탐구 산출물";
+  var transfer = Array.isArray(x.questions) && x.questions.length > 3 ? x.questions[3] : "새로운 읽기·쓰기 상황에 적용할 수 있는가?";
+  return block("대학이 읽는 탐구력 포인트 — 세특 문장화 안내",
+    '<div class="cards3">' +
+      '<div class="card accent-atmo">' +
+        '<h4>글·자료 선정과 독해 기준</h4>' +
+        '<p>산출물명(<b>' + esc(product) + '</b>)만 쓰는 대신, 학생이 어떤 글·자료를 고르고 어떤 독해 기준과 작문 목적을 적용했는지 기록합니다. 자료 근거: ' + esc(x.source || "글·자료") + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4>관점 재구성과 작문 전략 수정</h4>' +
+        '<p>' + esc(x.data || "") + '</p>' +
+        '<p><b>관찰 단서:</b> ' + esc(evidence.join(" / ")) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro">' +
+        '<h4>고쳐쓰기와 새로운 문어 소통 전이</h4>' +
+        '<p>' + esc(x.uncertainty || "자료 범위, 관점 차이, 독자 반응, 작문 맥락 변화에 따른 한계를 점검합니다.") + '</p>' +
+        '<p><b>전이 질문:</b> ' + esc(transfer) + '</p>' +
+      '</div>' +
+    '</div>',
+    "예시 문장에는 자료 선별, 독해 기준, 관점 재구성, 고쳐쓰기 과정을 함께 남깁니다"
+  );
+}
+function filtered(){
+  var s=document.getElementById("search");
+  var d=document.getElementById("domain");
+  var t=document.getElementById("type");
+  var q=(s && s.value ? s.value : "").toLowerCase();
+  var domainVal=d && d.value ? d.value : "전체 영역";
+  var typeVal=t && t.value ? t.value : "전체 수업 유형";
+  return DATA.filter(function(x){
+    return (domainVal==="전체 영역" || x.domain===domainVal) &&
+      (typeVal==="전체 수업 유형" || x.type.indexOf(typeVal)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  var inArr=false;
+  for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ inArr=true; break; } }
+  if(!inArr && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '' +
+      '<button class="std-item ' + (i===current ? "on" : "") + '" onclick="select(' + i + ')">' +
+        '<div>' +
+          '<span class="code">' + esc(x.code) + '</span>' +
+          '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+          (x.official.length ? '<span class="chip">평가도구</span>' : '') +
+        '</div>' +
+        '<span class="std-title">' + esc(x.title) + '</span>' +
+        '<span class="std-text">' + esc(x.standard) + '</span>' +
+      '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+
+
+function tableRows(x){
+  return '' +
+    '<div class="lesson-hd">' +
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 01</span>도입<br>읽기·쓰기 과제 발견</div>' +
+      '<div>교사는 다음 자료를 제시하고 학생이 설명이 필요한 읽기·쓰기 문제와 작문 선택의 이유를 말하게 한다.<br><b>' + esc(x.phenomenon) + '</b></div>' +
+      '<div>학생은 자료의 발화자, 독자, 목적, 글 유형, 매체 조건, 처음 떠오른 해석을 분리해 기록한다.</div>' +
+      '<div>읽기·쓰기 과제 발견 카드<br>초기 해석지</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 02</span>맥락 설정</div>' +
+      '<div>교사는 개념 렌즈, 독서 목적, 작문 맥락, 자료 사용 윤리와 인용 원칙을 안내한다.</div>' +
+      '<div>학생은 글과 자료에서 확인할 핵심 정보, 관점, 근거, 조직, 표현 전략을 선택하고 맥락을 정리한다.</div>' +
+      '<div>맥락 탐구표<br>자료 사용 점검표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 03</span>자료 분석</div>' +
+      '<div>교사는 학생의 독서·작문 개념 적용이 단순 용어 확인이 아니라 표현 효과 분석으로 이어지는지 점검한다.</div>' +
+      '<div>학생은 ' + esc(x.data) + '</div>' +
+      '<div>' + esc(x.products[0]) + '</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 04</span>구조화·수정</div>' +
+      '<div>교사는 작문 선택의 효과, 대안 표현, 독자 반응, 자료 해석의 한계를 비교하도록 질문한다.</div>' +
+      '<div>학생은 ' + esc(x.modeling) + '</div>' +
+      '<div>분석 구조도<br>고쳐쓰기 근거표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 05</span>성찰·전이</div>' +
+      '<div>교사는 피드백 후 초안 수정과 새로운 읽기·쓰기 상황으로의 적용을 연결하게 한다.</div>' +
+      '<div>학생은 최종 분석의 조건과 한계를 설명하고, 자신의 문어 생활 또는 새로운 글쓰기 수행에 적용할 기준을 제시한다.</div>' +
+      '<div>초안·수정본<br>성찰 전이표</div>' +
+    '</div>';
+}
+
+function rubric(x){
+  var levels=x.levels || {};
+  function row(k){
+    var txt=levels[k] || "성취수준 자료를 확인해 보완한다.";
+    return '<div class="lv-row"><div class="lv ' + k + '">' + k + '</div><div class="lv-text">' + esc(txt) + '</div></div>';
+  }
+  return '<div class="rubric">' + row("A") + row("B") + row("C") + row("D") + row("E") + '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">' + arr.map(function(x){
+    return '<div class="step"><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={};
+
+  panels.overview =
+    block("성취기준 원문", '<div class="std-full"><b>' + esc(x.code) + '</b>' + esc(x.standard) + '</div>') +
+    '<div class="cards">' +
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4><span class="icon">i</span>수업 개요</h4>' +
+        '<p><b>제목 :</b> ' + esc(x.title) + '</p>' +
+        '<p><b>유형 :</b> ' + esc(x.type) + '</p>' +
+        '<p><b>권장 차시 :</b> ' + esc(x.period) + '</p>' +
+        '<p><b>탐구 설계 :</b> ' + (x.official.length ? esc(x.official.join(", ")) : "성취기준 기반 CBI 탐구") + '</p>' +
+        '<p><b>핵심 개념 :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈 :</b> ' + esc(x.lens) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4><span class="icon">▲</span>핵심 산출물</h4>' +
+        pills(x.products) +
+      '</div>' +
+    '</div>' +
+    block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+    block("예시 평가도구 연결", '<div class="card"><p>' + esc(x.tool) + '</p></div>', "성취기준·성취수준 기반 평가");
+
+  panels.cbi =
+    block("개념 형성의 흐름",
+      '<div class="cards">' +
+        '<div class="card accent-gold">' +
+          '<h4><span class="icon">F</span>현상(Phenomenon)</h4>' +
+          '<p>' + esc(x.phenomenon) + '</p>' +
+        '</div>' +
+        '<div class="card ' + accent(x.domain) + '">' +
+          '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>' +
+          '<p>' + esc(x.conflict) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="general" style="margin-top:.9rem">' +
+        '<div class="gen-row">' +
+          '<b>교사용 일반화 진술 (Generalization)</b>' +
+          '<p>' + esc(x.general) + '</p>' +
+        '</div>' +
+        '<div class="gen-row">' +
+          '<b>학생용 일반화 진술 (Student-Friendly)</b>' +
+          '<p>' + esc(x.studentGeneral) + '</p>' +
+        '</div>' +
+      '</div>',
+      "Erickson & Lanning CBI 모형"
+    ) +
+    block("탐구 질문 4종 — 사실에서 전이까지",
+      '<div class="q-grid">' +
+        '<div class="q fact"><b>Factual · 사실적 질문</b><p>' + esc(qs[0]) + '</p></div>' +
+        '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>' + esc(qs[1]) + '</p></div>' +
+        '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>' + esc(qs[2]) + '</p></div>' +
+        '<div class="q transfer"><b>Transfer · 전이 질문</b><p>' + esc(qs[3]) + '</p></div>' +
+      '</div>',
+      "수업 도입·전개·마무리 3구간에 배치"
+    ) +
+    block("핵심 개념과 관련 개념",
+      '<div class="card">' +
+        '<p><b>핵심 개념(Macro Concept) :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈(Conceptual Lens) :</b> ' + esc(x.lens) + '</p>' +
+        '<p><b>관련 개념(Related Concepts) :</b> ' + esc(x.related) + '</p>' +
+      '</div>'
+    );
+
+  panels.lesson =
+    block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+    block("교사 발문 세트 — 즉시 사용 가능",
+      '<div class="cards">' +
+        '<div class="card accent-atmo">' +
+          '<h4>탐구 전 발문</h4>' +
+          '<ul>' +
+            '<li>이 글이나 자료에서 독서 목적, 작문 맥락, 예상 독자는 무엇인가?</li>' +
+            '<li>우리는 어떤 글·자료와 독서·작문 개념을 근거로 읽고 써야 하는가?</li>' +
+            '<li>한 자료만 읽고 판단할 때 놓치는 다른 관점, 근거, 매체 조건은 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>탐구 중 발문</h4>' +
+          '<ul>' +
+            '<li>읽기 자료를 어떤 자료 평가표, 관점 비교표, 개요, 논증 구조도로 바꾸면 작문 근거가 더 잘 보이는가?</li>' +
+            '<li>해석과 글쓰기 선택의 차이는 자료 범위, 관점, 근거의 신뢰도, 독자 설정 중 무엇에서 생기는가?</li>' +
+            '<li>우리 분석이 충분히 반영하지 못한 독자 반응, 대안 표현, 공동체 독자 관점은 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>탐구 후 발문</h4>' +
+          '<ul>' +
+            '<li>오늘 만든 읽기·쓰기 기준을 새로운 학습 글, 정보 전달 글, 논증 글, 매체 글쓰기에 적용해 보자.</li>' +
+            '<li>학생부 기록 근거로 남길 수 있는 자료 선별, 관점 비교, 초안 설계, 피드백 후 고쳐쓰기 장면은 무엇인가?</li>' +
+            '<li>다음 탐구에서 자료 탐색, 독해 기준, 개요 설계, 고쳐쓰기 피드백을 어떻게 개선할 수 있는가?</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("오개념·실패 상황 대처·안전",
+      '<div class="cards3">' +
+        '<div class="card accent-red">' +
+          '<h4>예상 오개념</h4>' +
+          '<p>' + esc(x.misconception) + '</p>' +
+          '<p><b>피드백 :</b> ' + esc(x.correction) + '</p>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>실패 상황 대처</h4>' +
+          '<p>' + esc(x.failure) + '</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>안전·자료·인용 윤리</h4>' +
+          '<p>' + esc(x.safe) + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+
+  panels.worksheet =
+    block("학생 활동지 문항 — 실제 기록용",
+      steps([
+        "오늘의 글이나 자료에서 가장 설명이 필요한 읽기·쓰기 문제를 쓰시오.",
+        qs[1],
+        "탐구에서 사용할 글·자료, 독서·작문 개념, 자료 선별 기준, 인용 윤리 원칙을 쓰시오.",
+        x.data,
+        x.modeling,
+        "읽기 자료에서 찾은 관점·근거·조직의 관계를 한 문장으로 쓰시오.",
+        "독해-근거-작문 선택 구조로 결론을 작성하시오.",
+        "분석의 한계, 대안 표현, 독자 반응, 자료 범위의 불확실성을 2가지 이상 쓰시오.",
+        qs[3]
+      ])
+    ) +
+    block("자료 처리 안내 — 출처·분석 방법·자료·인용 윤리",
+      '<div class="card accent-atmo">' +
+        '<h4>자료 출처</h4>' +
+        '<p>' + esc(x.source) + '</p>' +
+      '</div>' +
+      '<div class="card accent-geo" style="margin-top:.8rem">' +
+        '<h4>분석 범위</h4>' +
+        '<p>' + esc(x.scale) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green" style="margin-top:.8rem">' +
+        '<h4>자료 처리</h4>' +
+        '<p>' + esc(x.data) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro" style="margin-top:.8rem">' +
+        '<h4>모형화</h4>' +
+        '<p>' + esc(x.modeling) + '</p>' +
+      '</div>' +
+      '<div class="card accent-gold" style="margin-top:.8rem">' +
+        '<h4>자료·관점·작문 한계</h4>' +
+        '<p>' + esc(x.uncertainty) + '</p>' +
+        '<p><b>독해·작문 문장 틀 :</b> “이 글과 자료의 핵심 읽기·쓰기 과제는 <b>' + esc(x.concept) + '</b> 개념으로 설명할 수 있으며, 나의 독해와 작문 선택은 <b>' + esc(x.lens) + '</b> 관점에서 더 타당한 자료 활용과 글쓰기 개선 기준으로 확장될 수 있다.”</p>' +
+      '</div>'
+    );
+
+  panels.assessment =
+    block("수행평가 과제",
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4>' + esc(x.title) + '</h4>' +
+        '<p>핵심 산출물(<b>' + esc(x.products[0]) + '</b>)을 제출하고, 성취기준 원문에 도달했음을 글·자료 분석, 관점 재구성, 작문 전략 적용, 고쳐쓰기 근거로 설명한다.</p>' +
+      '</div>'
+    ) +
+    block("평가 요소",
+      '<div class="cards3">' +
+        '<div class="card accent-atmo">' +
+          '<h4>지식·이해</h4>' +
+          '<p>' + esc(x.concept) + '와 관련 개념의 정확한 설명</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>과정·기능</h4>' +
+          '<p>글·자료 수집, 사실·추론·비판적 독해, 관점 비교, 개요 설계, 근거 조직, 고쳐쓰기와 성찰 전이</p>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>가치·태도</h4>' +
+          '<p>자료 기반 독해, 인권, 책임, 공정성, 존중, 실천 의지</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+    block("피드백 방향",
+      '<div class="card">' +
+        '<p><b>보충 :</b> 용어 나열에 머물지 말고 사례 분석, 자료 수집, 관점 비교, 윤리 점검 중 하나로 근거를 표현하게 한다.</p>' +
+        '<p><b>심화 :</b> 자료 출처 비교, 연구 방법 보완, 다른 관점 적용, 개인·공동체·제도 차원의 실천 전이 과제를 추가하게 한다.</p>' +
+      '</div>'
+    );
+
+  panels.record =
+    '<div class="record">' +
+      '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>' +
+      '<p>' + esc(x.evidence.join(" / ")) + '</p>' +
+    '</div>' +
+    block("관찰 가능한 수행 증거 정리",
+      '<div class="cards">' +
+        '<div class="card accent-green">' +
+          '<h4>기록 가능한 산출물</h4>' +
+          pills(x.products) +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>권장 기록 소재</h4>' +
+          '<p>「' + esc(x.title) + '」 수업에서 글·자료 선정, 관점 분석, 작문 전략 적용 과정을 통해 <b>' + esc(x.concept) + '</b> 개념을 설명하고, 피드백과 독자 반응을 반영해 더 타당한 초안 수정과 문어 소통 기준으로 사고를 확장함.</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("세부능력 및 특기사항 기록 예시",
+      '<div class="sample-record">' + esc(x.sample) + '</div>',
+      "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+    ) +
+    recordCompetencyGuide(x) +
+    block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+      '<div class="card accent-astro">' +
+        '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
+        '<p>' + esc(x.deepDive) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>전이 질문</h4>' +
+        '<p style="font-family:\'Fraunces\',serif">' + esc(x.questions[3]) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>연계 진로 분야</h4>' +
+        pills(x.career.split(", ")) +
+      '</div>'
+    );
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="' + (tab===id?'on':'') + '" onclick="setTab(\'' + id + '\')">' +
+      '<span class="t-n">' + n + '</span>' + label +
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML =
+    '<div class="detail-hd">' +
+      '<div class="chip-row">' +
+        '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+        '<span class="chip">' + esc(x.code) + '</span>' +
+        (x.official.length ? '<span class="chip">성취기준 기반 설계</span>' : '<span class="chip">CBI 탐구</span>') +
+        '<span class="chip">' + esc(x.period) + '</span>' +
+      '</div>' +
+      '<h2>' + esc(x.title) + '</h2>' +
+      '<div class="std-full"><b>성취기준 원문</b>' + esc(x.standard) + '</div>' +
+    '</div>' +
+    '<div class="tabbar">' + tabbar + '</div>' +
+    '<div class="panel">' + panel(x) + '</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML = DATA.map(function(x,i){
+    return '<tr>' +
+      '<td><span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span></td>' +
+      '<td class="mcode" onclick="openStandard(' + i + ')">' + esc(x.code) + '</td>' +
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">' + esc(x.title) + '</b></td>' +
+      '<td>' + esc(x.type) + '</td>' +
+      '<td>' + esc(x.concept) + '</td>' +
+      '<td>' + esc(x.products.join(", ")) + '</td>' +
+      '<td>' + esc(x.evidence.join(" / ")) + '</td>' +
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","자료출처","분석범위","자료·맥락·해석한계","심화탐구","연계진로"]
+  ];
+  for(var i=0;i<DATA.length;i++){
+    var x=DATA[i];
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.source, x.scale, x.uncertainty, x.deepDive, x.career
+    ]);
+  }
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="독서와작문_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>=0 && idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>
