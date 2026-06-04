@@ -276,7 +276,7 @@
           ? `<a class="watch" href="${directUrl(v)}" target="_blank" rel="noopener">YouTube에서 보기</a>`
           : `<a class="watch" href="${searchUrl(v)}" target="_blank" rel="noopener">영상 검색으로 보기</a>`;
         const secondary = v.id
-          ? `<a class="searchlink" href="${searchUrl(v)}" target="_blank" rel="noopener">제목으로 검색</a>`
+          ? ''
           : `<a class="searchlink" href="https://www.youtube.com/playlist?list=${playlist}" target="_blank" rel="noopener">재생목록 열기</a>`;
         return `
           <article class="card" data-title="${escapeHtml(v.title)}" data-tags="${escapeHtml((v.tags||[]).join(' '))}">
