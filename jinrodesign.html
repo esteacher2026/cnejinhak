@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="고1·고2를 위한 진로·학업 설계 가이드 — 자기 이해부터 고교학점제 과목 선택, 월별 로드맵, 셀프 체크리스트까지 한 번에." />
+<title>고1·고2를 위한 진로·학업 설계</title>
+<style>
+  /* ============ 디자인 토큰 ============ */
+  :root{
+    --blue:#2563eb; --blue-600:#3b82f6; --blue-soft:#eff6ff; --blue-mid:#dbeafe;
+    --teal:#0ea5e9; --green:#10b981; --green-soft:#ecfdf5; --green-mid:#d1fae5;
+    --amber:#f59e0b; --amber-soft:#fffbeb; --amber-mid:#fef3c7;
+    --purple:#8b5cf6; --purple-soft:#f5f3ff; --purple-mid:#ede9fe;
+    --pink:#ec4899; --pink-soft:#fdf2f8;
+    --rose:#f43f5e;
+    --ink:#0f172a; --ink-2:#1e293b; --gray:#64748b; --gray-2:#94a3b8;
+    --line:#e2e8f0; --line-2:#f1f5f9;
+    --bg:#f8fafc; --card:#ffffff;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.08);
+    --shadow:0 4px 6px -1px rgba(15,23,42,.07), 0 10px 24px -6px rgba(15,23,42,.10);
+    --shadow-lg:0 20px 50px -12px rgba(37,99,235,.28);
+    --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+    --max:1120px;
+    --font:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',-apple-system,BlinkMacSystemFont,system-ui,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    font-family:var(--font); color:var(--ink-2); background:var(--bg);
+    line-height:1.7; -webkit-font-smoothing:antialiased; letter-spacing:-.01em;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  ::selection{background:var(--blue-mid);color:var(--blue)}
+
+  /* ============ 레이아웃 ============ */
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:84px 0;position:relative}
+  .section-head{max-width:760px;margin:0 0 44px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;
+    letter-spacing:.04em;color:var(--blue);background:var(--blue-soft);
+    padding:7px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.15)}
+  h2.title{font-size:clamp(28px,4.2vw,42px);line-height:1.2;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+  .section-head p.lead{margin-top:16px;font-size:17px;color:var(--gray);line-height:1.75}
+  .step-no{font-variant-numeric:tabular-nums}
+
+  /* ============ 상단 내비 ============ */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid transparent;transition:.3s;
+  }
+  header.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 4px 24px -12px rgba(15,23,42,.18)}
+  .nav-inner{max-width:var(--max);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);font-size:16px}
+  .brand .logo{
+    width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#fff;font-size:17px;
+    background:linear-gradient(135deg,var(--blue),var(--teal));box-shadow:0 6px 16px -4px rgba(37,99,235,.5)
+  }
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .nav-links a{
+    font-size:14px;font-weight:600;color:var(--gray);padding:8px 13px;border-radius:9px;transition:.18s;white-space:nowrap
+  }
+  .nav-links a:hover{color:var(--blue);background:var(--blue-soft)}
+  .nav-links a.active{color:var(--blue);background:var(--blue-soft)}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:9px;width:42px;height:42px;cursor:pointer;color:var(--ink)}
+  .nav-toggle svg{width:22px;height:22px}
+
+  @media(max-width:920px){
+    .nav-links{
+      position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;
+      background:#fff;border-bottom:1px solid var(--line);padding:12px;
+      transform:translateY(-12px);opacity:0;pointer-events:none;transition:.22s;box-shadow:var(--shadow)
+    }
+    .nav-links.open{transform:none;opacity:1;pointer-events:auto}
+    .nav-links a{padding:12px 14px;font-size:15px}
+    .nav-toggle{display:grid;place-items:center}
+  }
+
+  /* ============ 히어로 ============ */
+  .hero{
+    padding:140px 0 90px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(1100px 520px at 78% -8%,rgba(14,165,233,.16),transparent 60%),
+      radial-gradient(900px 480px at 12% 8%,rgba(16,185,129,.14),transparent 58%),
+      linear-gradient(180deg,#ffffff,var(--bg));
+  }
+  .hero .blob{position:absolute;border-radius:50%;filter:blur(8px);opacity:.5;z-index:0}
+  .hero .b1{width:140px;height:140px;background:radial-gradient(circle at 30% 30%,#bae6fd,#7dd3fc);top:120px;right:8%;animation:float 7s ease-in-out infinite}
+  .hero .b2{width:90px;height:90px;background:radial-gradient(circle at 30% 30%,#a7f3d0,#6ee7b7);bottom:120px;left:6%;animation:float 9s ease-in-out infinite reverse}
+  .hero .b3{width:60px;height:60px;background:radial-gradient(circle at 30% 30%,#fde68a,#fcd34d);top:200px;left:18%;animation:float 6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(8deg)}}
+  .hero-inner{position:relative;z-index:1;max-width:820px}
+  .hero .tag{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    padding:8px 16px;border-radius:999px;font-size:13.5px;font-weight:700;color:var(--ink-2);box-shadow:var(--shadow-sm);margin-bottom:26px
+  }
+  .hero .tag b{color:var(--blue)}
+  .hero h1{font-size:clamp(34px,6.2vw,62px);line-height:1.12;font-weight:800;color:var(--ink);letter-spacing:-.04em}
+  .hero h1 .grad{
+    background:linear-gradient(120deg,var(--blue),var(--teal) 55%,var(--green));
+    -webkit-background-clip:text;background-clip:text;color:transparent
+  }
+  .hero p.sub{margin-top:24px;font-size:clamp(16px,2.4vw,20px);color:var(--gray);max-width:640px;line-height:1.75}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15.5px;
+    padding:15px 26px;border-radius:14px;cursor:pointer;border:1px solid transparent;transition:.2s;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-600));color:#fff;box-shadow:var(--shadow-lg)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 26px 50px -12px rgba(37,99,235,.45)}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-2);box-shadow:var(--shadow-sm)}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+  .btn svg{width:19px;height:19px}
+
+  /* 4단계 순환 */
+  .cycle{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;z-index:1}
+  .cycle .step{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:var(--shadow-sm);
+    position:relative;overflow:hidden;transition:.25s
+  }
+  .cycle .step:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .cycle .step::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--c)}
+  .cycle .step .ic{
+    width:48px;height:48px;border-radius:13px;display:grid;place-items:center;font-size:23px;margin-bottom:16px;
+    background:var(--cs);color:var(--c)
+  }
+  .cycle .step .num{font-size:12px;font-weight:800;color:var(--c);letter-spacing:.08em}
+  .cycle .step h3{font-size:17px;font-weight:800;color:var(--ink);margin:5px 0 7px}
+  .cycle .step p{font-size:13.5px;color:var(--gray);line-height:1.6}
+  .cycle .step:nth-child(1){--c:var(--blue);--cs:var(--blue-soft)}
+  .cycle .step:nth-child(2){--c:var(--teal);--cs:#e0f2fe}
+  .cycle .step:nth-child(3){--c:var(--green);--cs:var(--green-soft)}
+  .cycle .step:nth-child(4){--c:var(--amber);--cs:var(--amber-soft)}
+
+  @media(max-width:820px){.cycle{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.cycle{grid-template-columns:1fr}}
+
+  /* ============ 공통 카드 ============ */
+  .grid{display:grid;gap:20px}
+  .g-3{grid-template-columns:repeat(3,1fr)}
+  .g-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:880px){.g-3{grid-template-columns:1fr}.g-2{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--shadow-sm);transition:.25s}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+
+  /* 검사 카드 */
+  .test-card{position:relative;overflow:hidden}
+  .test-card .badge{
+    width:54px;height:54px;border-radius:15px;display:grid;place-items:center;font-size:26px;margin-bottom:18px;color:#fff
+  }
+  .test-card h3{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px}
+  .test-card .q{font-size:14.5px;color:var(--gray);margin-bottom:18px;min-height:44px}
+  .test-meta{display:flex;flex-direction:column;gap:9px;border-top:1px dashed var(--line);padding-top:16px}
+  .test-meta .row{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink-2)}
+  .test-meta .row .k{color:var(--gray-2);font-weight:600;min-width:58px}
+  .test-meta .row b{font-weight:700}
+  .t1 .badge{background:linear-gradient(135deg,#3b82f6,#06b6d4)}
+  .t2 .badge{background:linear-gradient(135deg,#10b981,#22c55e)}
+  .t3 .badge{background:linear-gradient(135deg,#f59e0b,#f43f5e)}
+
+  /* 팁 박스 */
+  .tip{
+    margin-top:28px;display:flex;gap:16px;background:var(--amber-soft);border:1px solid var(--amber-mid);
+    border-radius:var(--r);padding:22px 24px
+  }
+  .tip .ic{flex:none;width:42px;height:42px;border-radius:12px;background:#fff;display:grid;place-items:center;font-size:22px;box-shadow:var(--shadow-sm)}
+  .tip p{font-size:14.5px;color:var(--ink-2)}
+  .tip b{color:var(--amber);font-weight:800}
+
+  /* RIASEC */
+  .riasec-wrap{margin-top:40px}
+  .riasec-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  @media(max-width:880px){.riasec-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:480px){.riasec-grid{grid-template-columns:repeat(2,1fr)}}
+  .rtype{
+    background:#fff;border:2px solid var(--line);border-radius:var(--r);padding:18px 12px;text-align:center;cursor:pointer;transition:.2s;position:relative
+  }
+  .rtype:hover{transform:translateY(-4px);border-color:var(--rc);box-shadow:var(--shadow)}
+  .rtype.active{border-color:var(--rc);background:var(--rcs);box-shadow:var(--shadow)}
+  .rtype .letter{
+    width:46px;height:46px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;
+    font-size:20px;font-weight:800;color:#fff;background:var(--rc)
+  }
+  .rtype .nm{font-size:14px;font-weight:800;color:var(--ink)}
+  .rtype .en{font-size:11px;color:var(--gray-2);font-weight:600;letter-spacing:.04em}
+  .rtype:nth-child(1){--rc:#ef4444;--rcs:#fef2f2}
+  .rtype:nth-child(2){--rc:#3b82f6;--rcs:#eff6ff}
+  .rtype:nth-child(3){--rc:#8b5cf6;--rcs:#f5f3ff}
+  .rtype:nth-child(4){--rc:#10b981;--rcs:#ecfdf5}
+  .rtype:nth-child(5){--rc:#f59e0b;--rcs:#fffbeb}
+  .rtype:nth-child(6){--rc:#0ea5e9;--rcs:#f0f9ff}
+  .rdetail{
+    margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 28px;box-shadow:var(--shadow-sm);
+    display:flex;gap:20px;align-items:flex-start
+  }
+  .rdetail .big{
+    flex:none;width:64px;height:64px;border-radius:18px;display:grid;place-items:center;font-size:28px;font-weight:800;color:#fff;transition:.3s
+  }
+  .rdetail h4{font-size:19px;font-weight:800;color:var(--ink);margin-bottom:6px}
+  .rdetail .keys{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .rdetail .keys span{font-size:12.5px;font-weight:600;background:var(--line-2);color:var(--ink-2);padding:5px 11px;border-radius:999px}
+  .rdetail p{font-size:14.5px;color:var(--gray)}
+  @media(max-width:560px){.rdetail{flex-direction:column;gap:14px}}
+
+  /* ============ 숫자 강조 ============ */
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:34px}
+  @media(max-width:680px){.stat-row{grid-template-columns:1fr}}
+  .stat{
+    border-radius:var(--r);padding:26px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow)
+  }
+  .stat:nth-child(1){background:linear-gradient(135deg,#2563eb,#3b82f6)}
+  .stat:nth-child(2){background:linear-gradient(135deg,#0ea5e9,#06b6d4)}
+  .stat:nth-child(3){background:linear-gradient(135deg,#10b981,#22c55e)}
+  .stat .n{font-size:40px;font-weight:800;line-height:1;letter-spacing:-.03em}
+  .stat .n small{font-size:18px;font-weight:700}
+  .stat .l{margin-top:10px;font-size:14.5px;font-weight:600;opacity:.95}
+  .stat .deco{position:absolute;right:-18px;bottom:-22px;font-size:90px;opacity:.16}
+
+  /* 표 */
+  .table-card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);background:#fff}
+  .table-scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+  thead th{background:#f1f5f9;color:var(--ink);font-weight:800;text-align:left;padding:14px 18px;white-space:nowrap;border-bottom:2px solid var(--line)}
+  tbody td{padding:13px 18px;border-bottom:1px solid var(--line-2);color:var(--ink-2)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--blue-soft)}
+  tr.sum td{background:var(--blue-soft);font-weight:800;color:var(--blue)}
+  td.center,th.center{text-align:center}
+  .pill{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .pill.b{background:var(--blue-mid);color:var(--blue)}
+  .pill.g{background:var(--green-mid);color:#047857}
+  .pill.a{background:var(--amber-mid);color:#b45309}
+
+  .note-list{margin-top:22px;display:grid;gap:10px}
+  .note-list .ni{display:flex;gap:12px;font-size:14.5px;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px}
+  .note-list .ni .k{flex:none;color:var(--blue);font-weight:800}
+
+  /* 2028 수능 */
+  .exam-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  @media(max-width:780px){.exam-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.exam-grid{grid-template-columns:1fr}}
+  .exam-item{border:1px solid var(--line);border-radius:var(--r);padding:20px;background:#fff;transition:.2s}
+  .exam-item:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .exam-item .eh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .exam-item .eh b{font-size:16px;font-weight:800;color:var(--ink)}
+  .exam-item .st{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px}
+  .st.keep{background:var(--line-2);color:var(--gray)}
+  .st.change{background:var(--rose);color:#fff}
+  .exam-item p{font-size:13.5px;color:var(--gray)}
+
+  /* ============ 과목 선택 탭 ============ */
+  .subj-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+  .subj-tab{
+    border:1.5px solid var(--line);background:#fff;color:var(--gray);font-weight:700;font-size:14.5px;
+    padding:10px 20px;border-radius:999px;cursor:pointer;transition:.18s
+  }
+  .subj-tab:hover{border-color:var(--blue);color:var(--blue)}
+  .subj-tab.active{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 8px 18px -6px rgba(37,99,235,.5)}
+  .subj-panel{display:none;animation:fade .35s ease}
+  .subj-panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .subj-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:780px){.subj-cols{grid-template-columns:1fr}}
+  .subj-col{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+  .subj-col .ch{padding:13px 18px;font-weight:800;font-size:14.5px;color:#fff;display:flex;align-items:center;gap:8px}
+  .subj-col.gen .ch{background:linear-gradient(135deg,#3b82f6,#0ea5e9)}
+  .subj-col.car .ch{background:linear-gradient(135deg,#10b981,#22c55e)}
+  .subj-col.fus .ch{background:linear-gradient(135deg,#8b5cf6,#ec4899)}
+  .subj-col .cb{padding:16px 18px;display:flex;flex-wrap:wrap;gap:7px}
+  .subj-col .cb span{font-size:13px;font-weight:600;background:var(--line-2);color:var(--ink-2);padding:6px 12px;border-radius:8px}
+
+  /* 유의사항 */
+  .caution-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+  @media(max-width:980px){.caution-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.caution-grid{grid-template-columns:1fr}}
+  .caution{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;text-align:center;transition:.2s;position:relative}
+  .caution:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--amber)}
+  .caution .ic{font-size:30px;margin-bottom:12px}
+  .caution h4{font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:6px}
+  .caution p{font-size:12.5px;color:var(--gray);line-height:1.55}
+
+  .change-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  @media(max-width:780px){.change-grid{grid-template-columns:1fr}}
+  .change-card{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:#fff}
+  .change-card .ct{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;color:var(--ink);margin-bottom:14px}
+  .change-card .ct .e{font-size:22px}
+  .change-card ul{list-style:none;display:grid;gap:10px}
+  .change-card li{display:flex;gap:10px;font-size:14px;color:var(--ink-2)}
+  .change-card li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--green);margin-top:9px}
+
+  /* ============ 로드맵 ============ */
+  .grade-tabs{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;gap:4px;margin-bottom:36px;box-shadow:var(--shadow-sm)}
+  .grade-tab{border:none;background:none;font-weight:800;font-size:15px;color:var(--gray);padding:11px 30px;border-radius:999px;cursor:pointer;transition:.2s}
+  .grade-tab.active{color:#fff;box-shadow:0 8px 18px -6px rgba(37,99,235,.45)}
+  .grade-tab[data-grade="1"].active{background:linear-gradient(135deg,#2563eb,#3b82f6)}
+  .grade-tab[data-grade="2"].active{background:linear-gradient(135deg,#0ea5e9,#06b6d4)}
+  .road{display:none}
+  .road.active{display:block;animation:fade .4s ease}
+  .timeline{display:grid;gap:14px}
+  .tl-item{
+    display:grid;grid-template-columns:96px 1fr;gap:20px;background:#fff;border:1px solid var(--line);
+    border-radius:var(--r);padding:20px 22px;transition:.22s;position:relative;overflow:hidden
+  }
+  .tl-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--tc,#3b82f6)}
+  .tl-item:hover{transform:translateX(4px);box-shadow:var(--shadow)}
+  .tl-month{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+  .tl-month .m{font-size:21px;font-weight:800;color:var(--tc,#3b82f6);letter-spacing:-.02em}
+  .tl-month .badge2{margin-top:6px;font-size:11px;font-weight:700;background:var(--tcs,#eff6ff);color:var(--tc,#3b82f6);padding:4px 9px;border-radius:999px}
+  .tl-body h4{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tl-body h4 .theme{font-size:12px;font-weight:700;color:var(--gray-2);background:var(--line-2);padding:3px 10px;border-radius:999px}
+  .tl-body p{font-size:14px;color:var(--gray);line-height:1.6}
+  @media(max-width:560px){.tl-item{grid-template-columns:1fr;gap:10px}.tl-month{flex-direction:row;align-items:center;gap:10px}}
+
+  /* ============ 아코디언 ============ */
+  .acc{display:grid;gap:14px}
+  .acc-item{border:1px solid var(--line);border-radius:var(--r);background:#fff;overflow:hidden;transition:.2s}
+  .acc-item.open{box-shadow:var(--shadow);border-color:transparent}
+  .acc-head{display:flex;align-items:center;gap:16px;padding:22px 24px;cursor:pointer;user-select:none}
+  .acc-head .tagn{
+    flex:none;font-size:12.5px;font-weight:800;padding:6px 13px;border-radius:999px;color:#fff;white-space:nowrap
+  }
+  .acc-item:nth-child(1) .tagn{background:#2563eb}
+  .acc-item:nth-child(2) .tagn{background:#0ea5e9}
+  .acc-item:nth-child(3) .tagn{background:#10b981}
+  .acc-item:nth-child(4) .tagn{background:#f59e0b}
+  .acc-head h3{flex:1;font-size:16.5px;font-weight:800;color:var(--ink)}
+  .acc-head .chev{flex:none;width:30px;height:30px;border-radius:50%;background:var(--line-2);display:grid;place-items:center;transition:.3s;color:var(--gray)}
+  .acc-item.open .chev{transform:rotate(180deg);background:var(--blue);color:#fff}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .acc-inner{padding:0 24px 26px 24px}
+  .acc-block{margin-top:6px}
+  .acc-block .bt{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.02em;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+  .acc-block.warn .bt{color:var(--amber)}
+  .acc-block ul{list-style:none;display:grid;gap:9px;margin-bottom:18px}
+  .acc-block li{display:flex;gap:11px;font-size:14.5px;color:var(--ink-2);line-height:1.55}
+  .acc-block li .ck{flex:none;color:var(--green);font-weight:800}
+  .acc-block.warn li .ck{color:var(--amber)}
+
+  /* ============ 체크리스트 ============ */
+  .check-section{background:linear-gradient(180deg,#fff,var(--blue-soft))}
+  .check-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow);margin-bottom:24px}
+  .check-card > .hd{display:flex;align-items:center;gap:13px;margin-bottom:8px}
+  .check-card > .hd .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:23px;color:#fff}
+  .cc1 .hd .ic{background:linear-gradient(135deg,#2563eb,#3b82f6)}
+  .cc2 .hd .ic{background:linear-gradient(135deg,#10b981,#22c55e)}
+  .check-card > .hd h3{font-size:19px;font-weight:800;color:var(--ink)}
+  .check-card > .desc{font-size:14px;color:var(--gray);margin-bottom:22px}
+  .check-cat{font-size:12.5px;font-weight:800;color:var(--gray-2);letter-spacing:.06em;margin:18px 0 10px;text-transform:uppercase}
+  .check-item{
+    display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r-sm);
+    margin-bottom:9px;transition:.18s;background:#fff
+  }
+  .check-item.yes{border-color:var(--green);background:var(--green-soft)}
+  .check-item .q{flex:1;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+  .toggle{display:flex;gap:6px;flex:none}
+  .toggle button{
+    border:1.5px solid var(--line);background:#fff;color:var(--gray);font-weight:800;font-size:12.5px;
+    width:48px;height:34px;border-radius:9px;cursor:pointer;transition:.15s
+  }
+  .toggle button.on-yes{background:var(--green);border-color:var(--green);color:#fff}
+  .toggle button.on-no{background:#94a3b8;border-color:#94a3b8;color:#fff}
+  .check-result{
+    margin-top:24px;border-radius:var(--r);padding:22px 24px;display:flex;align-items:center;gap:18px;
+    background:var(--blue-soft);border:1px solid var(--blue-mid)
+  }
+  .ring{flex:none;width:74px;height:74px;border-radius:50%;display:grid;place-items:center;position:relative;
+    background:conic-gradient(var(--blue) var(--deg,0deg),#e2e8f0 0)}
+  .ring::after{content:"";position:absolute;inset:7px;background:#fff;border-radius:50%}
+  .ring span{position:relative;z-index:1;font-weight:800;font-size:18px;color:var(--blue)}
+  .check-result .msg b{display:block;font-size:16px;font-weight:800;color:var(--ink);margin-bottom:3px}
+  .check-result .msg p{font-size:13.5px;color:var(--gray)}
+
+  /* ============ 사이트 ============ */
+  .site-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:780px){.site-grid{grid-template-columns:1fr}}
+  .site{
+    display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r);
+    padding:24px;transition:.22s;position:relative
+  }
+  .site:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue)}
+  .site .ic{flex:none;width:56px;height:56px;border-radius:15px;display:grid;place-items:center;font-size:26px;color:#fff}
+  .site:nth-child(1) .ic{background:linear-gradient(135deg,#2563eb,#3b82f6)}
+  .site:nth-child(2) .ic{background:linear-gradient(135deg,#10b981,#22c55e)}
+  .site:nth-child(3) .ic{background:linear-gradient(135deg,#f59e0b,#f97316)}
+  .site:nth-child(4) .ic{background:linear-gradient(135deg,#8b5cf6,#ec4899)}
+  .site h4{font-size:17px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .site h4 .url{font-size:12px;font-weight:700;color:var(--blue);background:var(--blue-soft);padding:3px 9px;border-radius:6px}
+  .site p{font-size:13.5px;color:var(--gray);margin-top:6px}
+  .site .arrow{position:absolute;top:24px;right:24px;color:var(--gray-2);transition:.2s}
+  .site:hover .arrow{color:var(--blue);transform:translate(3px,-3px)}
+
+  /* ============ 푸터 ============ */
+  footer{background:var(--ink);color:#cbd5e1;padding:60px 0 36px}
+  footer .ft-top{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer .brand .logo{box-shadow:none}
+  footer .brand{color:#fff;margin-bottom:14px}
+  footer .ft-desc{font-size:13.5px;max-width:520px;line-height:1.7;color:#94a3b8}
+  footer .ft-steps{display:flex;flex-wrap:wrap;gap:8px}
+  footer .ft-steps span{font-size:12.5px;font-weight:600;background:rgba(255,255,255,.07);padding:7px 13px;border-radius:999px;color:#cbd5e1}
+  footer .ft-bottom{padding-top:24px;font-size:12.5px;color:#64748b;line-height:1.7}
+  footer .disc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px 20px;margin-top:20px;font-size:12.5px;color:#94a3b8;line-height:1.7}
+
+  /* 맨 위로 */
+  .top-btn{
+    position:fixed;right:24px;bottom:24px;width:50px;height:50px;border-radius:14px;border:none;cursor:pointer;
+    background:linear-gradient(135deg,var(--blue),var(--blue-600));color:#fff;display:grid;place-items:center;
+    box-shadow:var(--shadow-lg);opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:.28s;z-index:90
+  }
+  .top-btn.show{opacity:1;transform:none;pointer-events:auto}
+  .top-btn:hover{transform:translateY(-3px)}
+  .top-btn svg{width:22px;height:22px}
+
+  /* 스크롤 등장 */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* 칩 유틸 */
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips span{font-size:12.5px;font-weight:600;background:var(--line-2);color:var(--ink-2);padding:6px 12px;border-radius:8px}
+  /* 계열별 */
+  .field-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:780px){.field-grid{grid-template-columns:1fr}}
+  .field{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:#fff;transition:.2s}
+  .field:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .field .fh{display:flex;align-items:center;gap:9px;font-weight:800;font-size:15.5px;color:var(--ink);margin-bottom:14px}
+  .field .fh .e{font-size:20px}
+  /* 대입 전형 카드 */
+  .adm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:880px){.adm-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.adm-grid{grid-template-columns:1fr}}
+  .adm{border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;background:#fff;position:relative;overflow:hidden;transition:.2s}
+  .adm:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+  .adm::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ac)}
+  .adm .atag{font-size:11px;font-weight:800;color:var(--ac);background:var(--acs);padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:10px}
+  .adm .at{font-weight:800;font-size:16px;color:var(--ink);margin-bottom:7px}
+  .adm p{font-size:13px;color:var(--gray);line-height:1.55}
+  /* 용어 */
+  .term-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:880px){.term-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.term-grid{grid-template-columns:1fr}}
+  .term{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:15px 16px}
+  .term b{display:block;font-size:13.5px;font-weight:800;color:var(--blue);margin-bottom:4px}
+  .term span{font-size:12.5px;color:var(--gray);line-height:1.5}
+
+  @media print{
+    header.nav,.top-btn,.hero-cta,.nav-toggle,.hero .blob{display:none!important}
+    body{background:#fff}
+    section{padding:30px 0;page-break-inside:avoid}
+    .reveal{opacity:1!important;transform:none!important}
+    .road{display:block!important}
+    .subj-panel{display:block!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 내비게이션 ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="logo">🎓</span>
+      <span>진로·학업 설계</span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#self">자기 이해</a>
+      <a href="#explore">직업·학과</a>
+      <a href="#credit">고교학점제</a>
+      <a href="#subject">과목 선택</a>
+      <a href="#admission">대입 한눈에</a>
+      <a href="#roadmap">로드맵</a>
+      <a href="#guide">학기별 가이드</a>
+      <a href="#check">셀프 체크</a>
+      <a href="#sites">더 알아보기</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== 히어로 ===== -->
+<a id="top"></a>
+<section class="hero">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="wrap hero-inner">
+    <span class="tag">📘 2022 개정 교육과정 · <b>고교학점제 세대</b>를 위한 안내서</span>
+    <h1>고1·고2를 위한<br><span class="grad">진로·학업 설계</span></h1>
+    <p class="sub">막막하게 느껴지는 진로, 혼자 고민하지 마세요. <b>나를 이해하는 것</b>에서 시작해 과목 선택, 그리고 달마다 무엇을 하면 좋을지까지 — 한 걸음씩 함께 설계해요.</p>
+    <div class="hero-cta">
+      <a href="#roadmap" class="btn btn-primary">
+        나의 월별 로드맵 보기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#check" class="btn btn-ghost">✅ 셀프 체크하기</a>
+    </div>
+
+    <div class="cycle">
+      <div class="step">
+        <div class="ic">🔍</div>
+        <div class="num">STEP 01</div>
+        <h3>나를 이해하기</h3>
+        <p>흥미·적성·가치관을 들여다보며 '나'를 알아가기</p>
+      </div>
+      <div class="step">
+        <div class="ic">🧭</div>
+        <div class="num">STEP 02</div>
+        <h3>진로·진학 방향 잡기</h3>
+        <p>직업과 학과를 탐색하며 큰 방향 세우기</p>
+      </div>
+      <div class="step">
+        <div class="ic">📚</div>
+        <div class="num">STEP 03</div>
+        <h3>과목 선택·학업 설계</h3>
+        <p>진로에 맞는 과목을 고르고 계획 세우기</p>
+      </div>
+      <div class="step">
+        <div class="ic">🔄</div>
+        <div class="num">STEP 04</div>
+        <h3>점검하고 피드백</h3>
+        <p>잘 가고 있는지 돌아보고 다시 설계하기</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 1. 자기 이해 ===== -->
+<section id="self">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>STEP 01 · 자기 이해</span>
+      <h2 class="title">진로 설계의 출발점, <br>'나는 누구인가'</h2>
+      <p class="lead">지금 여러분의 자기 이해는 앞으로 <b>30~40년의 삶</b>에 영향을 줄 진로 결정의 첫걸음이에요. 정답을 빨리 정하기보다, 흥미·적성·가치관·성격을 차분히 들여다보며 <b>'나에 대한 데이터'</b>를 모으는 시기랍니다.</p>
+    </div>
+
+    <div class="grid g-3">
+      <div class="card test-card t1 reveal">
+        <div class="badge">🎯</div>
+        <h3>직업흥미검사 (H)</h3>
+        <p class="q">"나는 어떤 활동에 흥미를 느낄까?" — 즐겁고 관심 가는 분야를 찾아요.</p>
+        <div class="test-meta">
+          <div class="row"><span class="k">문항</span> <b>126문항</b></div>
+          <div class="row"><span class="k">소요</span> <b>약 20분</b></div>
+          <div class="row"><span class="k">결과</span> <b>6가지 흥미유형 (RIASEC)</b></div>
+        </div>
+      </div>
+      <div class="card test-card t2 reveal">
+        <div class="badge">💪</div>
+        <h3>직업적성검사</h3>
+        <p class="q">"나는 어떤 분야를 잘할 수 있을까?" — 나의 강점과 가능성을 확인해요.</p>
+        <div class="test-meta">
+          <div class="row"><span class="k">문항</span> <b>88문항</b></div>
+          <div class="row"><span class="k">소요</span> <b>약 30분</b></div>
+          <div class="row"><span class="k">결과</span> <b>11개 직업적성영역</b></div>
+        </div>
+      </div>
+      <div class="card test-card t3 reveal">
+        <div class="badge">💎</div>
+        <h3>직업가치관검사</h3>
+        <p class="q">"나는 직업에서 무엇을 중요하게 여길까?" — 나만의 기준을 찾아요.</p>
+        <div class="test-meta">
+          <div class="row"><span class="k">문항</span> <b>49문항</b></div>
+          <div class="row"><span class="k">소요</span> <b>약 15~20분</b></div>
+          <div class="row"><span class="k">결과</span> <b>12개 직업가치</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:20px">
+      <div class="grid g-2" style="gap:26px">
+        <div>
+          <div style="font-size:13px;font-weight:800;color:var(--green);margin-bottom:11px">💪 직업적성검사가 보는 11가지 능력</div>
+          <div class="chips"><span>신체·운동</span><span>손재능</span><span>공간지각</span><span>음악</span><span>창의력</span><span>언어</span><span>수리·논리</span><span>자기성찰</span><span>대인관계</span><span>자연친화</span><span>예술시각</span></div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:800;color:var(--amber);margin-bottom:11px">💎 직업가치관검사가 보는 12가지 가치</div>
+          <div class="chips"><span>안정성</span><span>보수</span><span>일과 삶의 균형</span><span>즐거움</span><span>소속감</span><span>자기계발</span><span>도전성</span><span>영향력</span><span>사회적 기여</span><span>성취</span><span>사회적 인정</span><span>자율성</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip reveal">
+      <div class="ic">💡</div>
+      <p><b>기억하세요!</b> 적성은 고정된 게 아니라 <b>경험과 노력으로 자라요.</b> 가치관에는 옳고 그름이 없으니, 결과에 너무 얽매이지 말고 나에게 솔직하게 답해 보세요. 검사 결과가 평소 생각과 비슷한지, 다르다면 왜 그런지 스스로에게 질문해 보는 것이 진짜 자기 이해의 시작이에요.</p>
+    </div>
+
+    <div class="riasec-wrap reveal">
+      <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:6px">흥미유형 6가지 (RIASEC) — 카드를 눌러보세요</h3>
+      <p style="font-size:14px;color:var(--gray);margin-bottom:18px">서로 가까이 있는 유형은 특성이 비슷하고, 대각선에 있는 유형은 특성이 달라요.</p>
+      <div class="riasec-grid" id="riasecGrid">
+        <div class="rtype active" data-t="0"><div class="letter">R</div><div class="nm">현실형</div><div class="en">Realistic</div></div>
+        <div class="rtype" data-t="1"><div class="letter">I</div><div class="nm">탐구형</div><div class="en">Investigative</div></div>
+        <div class="rtype" data-t="2"><div class="letter">A</div><div class="nm">예술형</div><div class="en">Artistic</div></div>
+        <div class="rtype" data-t="3"><div class="letter">S</div><div class="nm">사회형</div><div class="en">Social</div></div>
+        <div class="rtype" data-t="4"><div class="letter">E</div><div class="nm">기업형</div><div class="en">Enterprising</div></div>
+        <div class="rtype" data-t="5"><div class="letter">C</div><div class="nm">관습형</div><div class="en">Conventional</div></div>
+      </div>
+      <div class="rdetail" id="rdetail"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. 직업·학과 탐색 ===== -->
+<section id="explore" style="background:linear-gradient(180deg,var(--bg),#fff)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--teal);background:#e0f2fe"><span class="dot" style="background:var(--teal);box-shadow:0 0 0 4px rgba(14,165,233,.15)"></span>STEP 02 · 직업·학과 탐색</span>
+      <h2 class="title">막연한 꿈을 <br>현실적인 목표로</h2>
+      <p class="lead">직업과 학과 정보를 알면, 막연했던 꿈이 <b>구체적인 목표</b>로 바뀌어요. 불필요한 불안과 혼란이 줄고, 자신감을 가지고 미래를 준비할 수 있답니다.</p>
+    </div>
+
+    <div class="grid g-2">
+      <div class="card reveal">
+        <div style="font-size:30px;margin-bottom:12px">🧑‍💼</div>
+        <h3 style="font-size:19px;font-weight:800;color:var(--ink);margin-bottom:10px">직업 정보란?</h3>
+        <p style="font-size:14.5px;color:var(--gray)">그 직업이 <b>무슨 일</b>을 하고, <b>어떤 능력·적성</b>이 필요하고, <b>어떤 환경</b>에서 일하는지 알려줘요. 빠르게 변하는 직업 세계의 전망까지 파악하면 지속 가능한 진로 설계가 가능해요.</p>
+      </div>
+      <div class="card reveal">
+        <div style="font-size:30px;margin-bottom:12px">🏛️</div>
+        <h3 style="font-size:19px;font-weight:800;color:var(--ink);margin-bottom:10px">학과 정보란?</h3>
+        <p style="font-size:14.5px;color:var(--gray)">그 학과에서 <b>무엇을 배우고</b>, <b>졸업 후 어디로</b> 가는지 알려줘요. 직업 이름만 아는 것과 달리, 배우는 내용을 알면 나에게 맞는지 더 정확히 판단할 수 있어요.</p>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:20px;background:linear-gradient(135deg,#eff6ff,#ecfdf5);border-color:var(--blue-mid)">
+      <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:9px">🔎 커리어넷으로 탐색하기</h3>
+      <div class="grid g-3" style="gap:14px">
+        <div style="background:#fff;border-radius:var(--r-sm);padding:16px"><b style="color:var(--blue)">직업백과</b><p style="font-size:13.5px;color:var(--gray);margin-top:6px">테마별·적성별·조건별로 직업을 검색하고, '관심직업'으로 등록해 비교해 보세요.</p></div>
+        <div style="background:#fff;border-radius:var(--r-sm);padding:16px"><b style="color:var(--green)">학과정보</b><p style="font-size:13.5px;color:var(--gray);margin-top:6px">전공 계열·취업률 등으로 검색해 교육과정과 졸업 후 진로를 확인해요.</p></div>
+        <div style="background:#fff;border-radius:var(--r-sm);padding:16px"><b style="color:var(--amber)">검사 결과 연계</b><p style="font-size:13.5px;color:var(--gray);margin-top:6px">흥미·적성·가치관 검사 결과를 직업·학과와 연결해 나에게 맞는 길을 찾아요.</p></div>
+      </div>
+      <div class="tip" style="margin-top:18px;background:#fff;border-color:var(--line)">
+        <div class="ic">📌</div>
+        <p><b>가장 정확한 정보는?</b> 관심 있는 대학 <b>학과 홈페이지</b>의 '학과 소개·교육과정·졸업 후 진로·주요 연구 분야'를 직접 살펴보는 거예요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. 고교학점제 ===== -->
+<section id="credit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--green);background:var(--green-soft)"><span class="dot" style="background:var(--green);box-shadow:0 0 0 4px rgba(16,185,129,.15)"></span>STEP 03 · 고교학점제</span>
+      <h2 class="title">내가 만드는 시간표,<br>고교학점제 이해하기</h2>
+      <p class="lead">고교학점제는 <b>내 진로·적성에 따라 과목을 직접 고르고</b>, 기준을 채운 과목의 학점을 모아 졸업하는 제도예요. 과목 선택에서 시작해, 책임 있게 이수하며 완성됩니다.</p>
+    </div>
+
+    <div class="stat-row reveal">
+      <div class="stat"><div class="n">192<small>학점</small></div><div class="l">3년간 이수하면 졸업!</div><div class="deco">🎓</div></div>
+      <div class="stat"><div class="n">174<small>학점</small></div><div class="l">교과(군) 이수 학점</div><div class="deco">📚</div></div>
+      <div class="stat"><div class="n">18<small>학점</small></div><div class="l">창의적 체험활동 (288시간)</div><div class="deco">🎨</div></div>
+    </div>
+
+    <div class="grid g-2" style="align-items:start">
+      <div class="reveal">
+        <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:14px">✅ 과목 이수 기준</h3>
+        <div class="note-list" style="margin-top:0">
+          <div class="ni"><span class="k">①</span><div><b>과목 출석률</b> — 수업량(1학점당 16회)의 <b>2/3 이상</b> 출석</div></div>
+          <div class="ni"><span class="k">②</span><div><b>학업 성취율</b> — <b>40% 이상</b> (공통 과목에 해당)</div></div>
+          <div class="ni"><span class="k">👉</span><div><b>선택 과목</b>은 출석률을, <b>공통 과목</b>은 출석률과 성취율을 모두 충족해야 학점을 받아요.</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:14px">🗂️ 교과 편제 한눈에</h3>
+        <div class="card" style="padding:20px">
+          <p style="font-size:13px;font-weight:800;color:var(--blue);margin-bottom:8px">보통 교과</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px">
+            <span class="pill b">공통 과목</span><span class="pill g">일반 선택</span><span class="pill g">진로 선택</span><span class="pill g">융합 선택</span>
+          </div>
+          <p style="font-size:13px;font-weight:800;color:var(--purple);margin-bottom:8px">창의적 체험활동</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span class="pill" style="background:var(--purple-mid);color:var(--purple)">자율·자치 활동</span>
+            <span class="pill" style="background:var(--purple-mid);color:var(--purple)">동아리 활동</span>
+            <span class="pill" style="background:var(--purple-mid);color:var(--purple)">진로 활동</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="font-size:18px;font-weight:800;color:var(--ink);margin:36px 0 16px">📋 공통 과목과 필수 이수 학점 <span style="font-size:13px;font-weight:600;color:var(--gray-2)">(일반계 고등학교 기준)</span></h3>
+    <div class="table-card reveal">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>교과(군)</th><th>공통 과목</th><th class="center">필수 이수 학점</th></tr></thead>
+          <tbody>
+            <tr><td>국어</td><td>공통국어1·2</td><td class="center">8</td></tr>
+            <tr><td>수학</td><td>공통수학1·2</td><td class="center">8</td></tr>
+            <tr><td>영어</td><td>공통영어1·2</td><td class="center">8</td></tr>
+            <tr><td>사회(역사/도덕 포함)</td><td>통합사회1·2</td><td class="center">8</td></tr>
+            <tr><td>한국사</td><td>한국사1·2</td><td class="center">6</td></tr>
+            <tr><td>과학</td><td>통합과학1·2, 과학탐구실험1·2</td><td class="center">10</td></tr>
+            <tr><td>체육</td><td>—</td><td class="center">10</td></tr>
+            <tr><td>예술</td><td>—</td><td class="center">10</td></tr>
+            <tr><td>기술·가정/정보/제2외국어/한문/교양</td><td>—</td><td class="center">16</td></tr>
+            <tr class="sum"><td>교과 필수 이수 학점</td><td>+ 자율 이수 90학점</td><td class="center">84</td></tr>
+            <tr><td>창의적 체험활동</td><td>—</td><td class="center">18</td></tr>
+            <tr class="sum"><td>총 이수 학점</td><td>졸업 기준</td><td class="center">192</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tip reveal" style="background:var(--green-soft);border-color:var(--green-mid)">
+      <div class="ic">🧩</div>
+      <p>1학년 때 <b>사회·과학 교과의 필수 이수 학점</b>을 다 채우지 못하면, 2·3학년 선택 과목에서 보충해야 해요. 3년간 누적 학점을 꾸준히 관리하는 것이 중요합니다.</p>
+    </div>
+
+    <div class="grid g-2" style="margin-top:36px;align-items:start">
+      <div class="reveal">
+        <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:14px">📊 내신 성적은 어떻게?</h3>
+        <div class="card" style="padding:22px">
+          <p style="font-size:14.5px;color:var(--ink-2);margin-bottom:14px">대부분의 보통 교과 과목은 <b>5등급 상대평가(석차등급)</b>와 <b>5단계 성취평가(A~E)</b>가 <b>함께</b> 산출되어 대학에 제공돼요.</p>
+          <div class="table-card">
+            <div class="table-scroll">
+              <table style="min-width:auto;font-size:13.5px">
+                <thead><tr><th class="center">등급</th><th class="center">1</th><th class="center">2</th><th class="center">3</th><th class="center">4</th><th class="center">5</th></tr></thead>
+                <tbody>
+                  <tr><td class="center" style="font-weight:700">비율</td><td class="center">10%</td><td class="center">24%</td><td class="center">32%</td><td class="center">24%</td><td class="center">10%</td></tr>
+                  <tr><td class="center" style="font-weight:700">누적</td><td class="center">10</td><td class="center">34</td><td class="center">66</td><td class="center">90</td><td class="center">100</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--gray);margin-top:12px">단, <b>사회·과학 융합선택 9과목</b>, <b>과학탐구실험</b>, <b>체육·예술</b> 과목은 석차등급 없이 <b>절대평가(성취평가)</b>만 적용해요. 교양 과목은 P/F!</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:14px">🎯 2028 수능, 이렇게 바뀌어요</h3>
+        <div class="exam-grid">
+          <div class="exam-item"><div class="eh"><b>국어</b><span class="st change">변경</span></div><p>선택과목 없이 <b>공통 출제</b><br>(화법과 언어·독서와 작문·문학)</p></div>
+          <div class="exam-item"><div class="eh"><b>수학</b><span class="st change">변경</span></div><p>선택과목 없이 <b>공통 출제</b><br>(대수·미적분Ⅰ·확률과 통계)</p></div>
+          <div class="exam-item"><div class="eh"><b>탐구</b><span class="st change">변경</span></div><p><b>통합사회 + 통합과학</b><br>모두 응시 (문항·시간 증가)</p></div>
+          <div class="exam-item"><div class="eh"><b>영어</b><span class="st keep">유지</span></div><p>영어Ⅰ·Ⅱ (절대평가)</p></div>
+          <div class="exam-item"><div class="eh"><b>한국사</b><span class="st keep">유지</span></div><p>필수 응시</p></div>
+          <div class="exam-item"><div class="eh"><b>제2외/한문</b><span class="st keep">유지</span></div><p>9개 과목 중 택 1</p></div>
+        </div>
+        <div class="tip" style="margin-top:14px;background:var(--amber-soft);border-color:var(--amber-mid);padding:16px 18px">
+          <div class="ic" style="width:36px;height:36px;font-size:18px">⭐</div>
+          <p style="font-size:13.5px"><b>핵심!</b> 1학년 때 배우는 <b>통합사회·통합과학</b>이 수능 탐구 범위예요. <b>1학년 공통 과목</b>을 탄탄히 다져두세요.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. 과목 선택 ===== -->
+<section id="subject" style="background:linear-gradient(180deg,#fff,var(--purple-soft))">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--purple);background:var(--purple-soft)"><span class="dot" style="background:var(--purple);box-shadow:0 0 0 4px rgba(139,92,246,.15)"></span>STEP 03 · 과목 선택</span>
+      <h2 class="title">진로에 맞는 <br>과목 고르기</h2>
+      <p class="lead">과목 선택은 내 적성과 진로에 따라 미래를 설계하는 과정의 시작이에요. 선택에는 책임이 따르니, <b>스스로 계획하고 실천하고 성찰</b>하는 자세가 중요해요. 교과별로 어떤 과목이 있는지 살펴볼까요?</p>
+    </div>
+
+    <div class="subj-tabs reveal" id="subjTabs">
+      <button class="subj-tab active" data-s="kor">국어</button>
+      <button class="subj-tab" data-s="math">수학</button>
+      <button class="subj-tab" data-s="eng">영어</button>
+      <button class="subj-tab" data-s="soc">사회</button>
+      <button class="subj-tab" data-s="sci">과학</button>
+    </div>
+
+    <div class="reveal">
+      <!-- 국어 -->
+      <div class="subj-panel active" data-s="kor">
+        <div class="subj-cols">
+          <div class="subj-col gen"><div class="ch">📘 일반 선택</div><div class="cb"><span>화법과 언어</span><span>독서와 작문</span><span>문학</span></div></div>
+          <div class="subj-col car"><div class="ch">🎯 진로 선택</div><div class="cb"><span>주제 탐구 독서</span><span>문학과 영상</span><span>직무 의사소통</span></div></div>
+          <div class="subj-col fus"><div class="ch">🔗 융합 선택</div><div class="cb"><span>독서 토론과 글쓰기</span><span>매체 의사소통</span><span>언어생활 탐구</span></div></div>
+        </div>
+      </div>
+      <!-- 수학 -->
+      <div class="subj-panel" data-s="math">
+        <div class="subj-cols">
+          <div class="subj-col gen"><div class="ch">📘 일반 선택</div><div class="cb"><span>대수</span><span>미적분Ⅰ</span><span>확률과 통계</span></div></div>
+          <div class="subj-col car"><div class="ch">🎯 진로 선택</div><div class="cb"><span>기하</span><span>미적분Ⅱ</span><span>경제 수학</span><span>인공지능 수학</span><span>직무 수학</span></div></div>
+          <div class="subj-col fus"><div class="ch">🔗 융합 선택</div><div class="cb"><span>수학과 문화</span><span>실용 통계</span><span>수학과제 탐구</span></div></div>
+        </div>
+      </div>
+      <!-- 영어 -->
+      <div class="subj-panel" data-s="eng">
+        <div class="subj-cols">
+          <div class="subj-col gen"><div class="ch">📘 일반 선택</div><div class="cb"><span>영어Ⅰ</span><span>영어Ⅱ</span><span>영어 독해와 작문</span></div></div>
+          <div class="subj-col car"><div class="ch">🎯 진로 선택</div><div class="cb"><span>영미 문학 읽기</span><span>영어 발표와 토론</span><span>심화 영어</span><span>심화 영어 독해와 작문</span><span>직무 영어</span></div></div>
+          <div class="subj-col fus"><div class="ch">🔗 융합 선택</div><div class="cb"><span>실생활 영어 회화</span><span>미디어 영어</span><span>세계 문화와 영어</span></div></div>
+        </div>
+      </div>
+      <!-- 사회 -->
+      <div class="subj-panel" data-s="soc">
+        <div class="subj-cols">
+          <div class="subj-col gen"><div class="ch">📘 일반 선택</div><div class="cb"><span>세계시민과 지리</span><span>세계사</span><span>사회와 문화</span><span>현대사회와 윤리</span></div></div>
+          <div class="subj-col car"><div class="ch">🎯 진로 선택</div><div class="cb"><span>한국지리 탐구</span><span>도시의 미래 탐구</span><span>동아시아 역사 기행</span><span>정치</span><span>법과 사회</span><span>경제</span><span>윤리와 사상</span><span>인문학과 윤리</span><span>국제 관계의 이해</span></div></div>
+          <div class="subj-col fus"><div class="ch">🔗 융합 선택</div><div class="cb"><span>여행지리</span><span>역사로 탐구하는 현대 세계</span><span>사회문제 탐구</span><span>금융과 경제생활</span><span>윤리문제 탐구</span><span>기후변화와 지속가능한 세계</span></div></div>
+        </div>
+      </div>
+      <!-- 과학 -->
+      <div class="subj-panel" data-s="sci">
+        <div class="subj-cols">
+          <div class="subj-col gen"><div class="ch">📘 일반 선택</div><div class="cb"><span>물리학</span><span>화학</span><span>생명과학</span><span>지구과학</span></div></div>
+          <div class="subj-col car"><div class="ch">🎯 진로 선택</div><div class="cb"><span>역학과 에너지</span><span>전자기와 양자</span><span>물질과 에너지</span><span>화학 반응의 세계</span><span>세포와 물질대사</span><span>생물의 유전</span><span>지구시스템과학</span><span>행성우주과학</span></div></div>
+          <div class="subj-col fus"><div class="ch">🔗 융합 선택</div><div class="cb"><span>과학의 역사와 문화</span><span>기후변화와 환경생태</span><span>융합과학 탐구</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="font-size:18px;font-weight:800;color:var(--ink);margin:40px 0 6px">🧭 계열별 과목 선택 맛보기</h3>
+    <p class="reveal" style="font-size:14px;color:var(--gray);margin-bottom:18px">관심 계열에 따라 이런 과목을 눈여겨보면 좋아요. <b>어디까지나 예시</b>이니, 내 진로와 우리 학교에 개설된 과목에 맞게 선택하세요.</p>
+    <div class="field-grid reveal">
+      <div class="field">
+        <div class="fh"><span class="e">📖</span> 인문·사회 계열</div>
+        <div class="chips"><span>화법과 언어</span><span>독서와 작문</span><span>주제 탐구 독서</span><span>사회와 문화</span><span>정치</span><span>법과 사회</span><span>윤리와 사상</span><span>경제</span><span>세계사</span></div>
+      </div>
+      <div class="field">
+        <div class="fh"><span class="e">⚙️</span> 자연·공학 계열</div>
+        <div class="chips"><span>대수</span><span>미적분Ⅰ·Ⅱ</span><span>기하</span><span>물리학</span><span>화학</span><span>역학과 에너지</span><span>전자기와 양자</span><span>화학 반응의 세계</span><span>인공지능 수학</span></div>
+      </div>
+      <div class="field">
+        <div class="fh"><span class="e">🧬</span> 의학·생명 계열</div>
+        <div class="chips"><span>미적분Ⅰ·Ⅱ</span><span>확률과 통계</span><span>생명과학</span><span>화학</span><span>세포와 물질대사</span><span>생물의 유전</span><span>물질과 에너지</span></div>
+      </div>
+      <div class="field">
+        <div class="fh"><span class="e">🎨</span> 예술·체육 계열</div>
+        <div class="chips"><span>음악·미술·연극</span><span>음악 연주와 창작</span><span>미술 창작</span><span>음악 감상과 비평</span><span>미술 감상과 비평</span><span>운동과 건강</span><span>스포츠 과학</span></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="font-size:18px;font-weight:800;color:var(--ink);margin:40px 0 16px">⚠️ 과목 선택, 이것만은 기억해요</h3>
+    <div class="caution-grid reveal">
+      <div class="caution"><div class="ic">🙅</div><h4>친구 따라 X</h4><p>내 진로를 기준으로 선택해요</p></div>
+      <div class="caution"><div class="ic">🛟</div><h4>쉬운 과목 도피 X</h4><p>내신 따기 쉽다고 고르지 않기</p></div>
+      <div class="caution"><div class="ic">🧭</div><h4>계열 적합성</h4><p>진로와 연결된 과목이 핵심</p></div>
+      <div class="caution"><div class="ic">🪜</div><h4>위계 지키기</h4><p>기초 과목 먼저, 그다음 심화</p></div>
+      <div class="caution"><div class="ic">📈</div><h4>배움의 필요성</h4><p>점수보다 학업적 필요 우선</p></div>
+    </div>
+
+    <div class="card reveal" style="margin-top:28px">
+      <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:12px">🏫 대학이 권장하는 이수 과목</h3>
+      <div class="note-list" style="margin-top:0">
+        <div class="ni"><span class="k">자연계열</span><div>대부분 <b>수학·과학</b> 과목을 권장 이수 과목으로 제시해요.</div></div>
+        <div class="ni"><span class="k">인문·사회</span><div>권장 과목을 따로 제시하지 않는 경우가 많아요 → <b>진로·적성에 따라 선택</b>하고 책임 있게 학습!</div></div>
+        <div class="ni"><span class="k">주의</span><div>같은 학과여도 <b>대학마다 제시 과목이 달라요.</b> 희망 대학 자료를 참고하되, <b>우리 학교에서 들을 수 있는 과목</b>을 충실히 이수하는 것이 우선이에요. (대입정보포털 '어디가'에서 대학별 반영·권장 과목 확인 가능)</div></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="font-size:18px;font-weight:800;color:var(--ink);margin:40px 0 0">🔄 진로가 바뀌면 어떡하죠?</h3>
+    <p class="reveal" style="font-size:14.5px;color:var(--gray);margin-top:8px">진로가 바뀌는 건 <b>아주 자연스러운 성장의 과정</b>이에요. 걱정하지 말고 상황에 맞게 대처해요.</p>
+    <div class="change-grid reveal">
+      <div class="change-card">
+        <div class="ct"><span class="e">🟢</span> 과목 변경이 가능할 때</div>
+        <p style="font-size:13.5px;color:var(--gray);margin-bottom:14px">주로 1학년이거나 학기 단위로 변경이 가능한 경우</p>
+        <ul>
+          <li>변경 가능 여부·신청 시기·절차를 먼저 확인해요</li>
+          <li>학부모님과 함께 충분히 이야기하고 결정해요</li>
+          <li>바뀐 진로와 연계된 과목으로 다시 설계해요</li>
+        </ul>
+      </div>
+      <div class="change-card">
+        <div class="ct"><span class="e">🟡</span> 변경이 어려울 때</div>
+        <p style="font-size:13.5px;color:var(--gray);margin-bottom:14px">이미 한 학기 이상 이수했거나 변경이 불가능한 경우</p>
+        <ul>
+          <li>대학은 진로 변경을 <b>'성장과 탐색'</b>으로 봐요</li>
+          <li>일관성보다 변경 과정의 <b>호기심·탐구역량·융합적 사고</b>를 평가</li>
+          <li>변경 계기가 드러나는 활동(수업·독서·세특)으로 이야기를 만들어요</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 대입 한눈에 ===== -->
+<section id="admission" style="background:linear-gradient(180deg,var(--purple-soft),#fff)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>대입 한눈에</span>
+      <h2 class="title">미리 알아두는<br>대입의 큰 그림</h2>
+      <p class="lead">고1·고2 때 대입 전형을 <b>큰 틀</b>에서 이해해 두면, 지금 무엇을 준비해야 할지 보이기 시작해요. 세세한 전략은 3학년 때 세우면 되니, 지금은 <b>흐름만</b> 잡아도 충분해요!</p>
+    </div>
+
+    <div class="grid g-2 reveal" style="margin-bottom:30px">
+      <div class="card" style="border-top:4px solid var(--blue)">
+        <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:5px">🌱 수시모집</h3>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:12px">3학년 2학기, 수능 전에 지원 · 최대 6번</p>
+        <p style="font-size:14.5px;color:var(--ink-2)">고등학교 <b>3년간의 학교생활(내신·학생부)</b>이 핵심이에요. 그래서 <b>1·2학년 때부터의 성실한 학교생활</b>이 가장 중요하답니다.</p>
+      </div>
+      <div class="card" style="border-top:4px solid var(--teal)">
+        <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:5px">🎯 정시모집</h3>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:12px">수능 이후에 지원 · 군별 최대 3번</p>
+        <p style="font-size:14.5px;color:var(--ink-2)"><b>수능 성적</b>이 핵심이에요. 1학년 통합사회·통합과학부터 차근차근 쌓은 기초 실력이 큰 힘이 돼요.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="font-size:18px;font-weight:800;color:var(--ink);margin:0 0 16px">📑 주요 전형 4가지</h3>
+    <div class="adm-grid reveal">
+      <div class="adm" style="--ac:#2563eb;--acs:#eff6ff"><span class="atag">수시</span><div class="at">학생부교과</div><p>내신 <b>교과 성적</b>이 중심. 주로 정량적으로 평가해요.</p></div>
+      <div class="adm" style="--ac:#10b981;--acs:#ecfdf5"><span class="atag">수시</span><div class="at">학생부종합(학종)</div><p>내신과 함께 <b>학생부 전체(세특·창체 등)</b>를 종합적으로 봐요.</p></div>
+      <div class="adm" style="--ac:#f59e0b;--acs:#fffbeb"><span class="atag">수시</span><div class="at">논술</div><p>대학별 <b>논술고사</b>로 평가. 수능 최저 기준이 있는 경우가 많아요.</p></div>
+      <div class="adm" style="--ac:#8b5cf6;--acs:#f5f3ff"><span class="atag">정시</span><div class="at">수능위주</div><p><b>수능 성적</b>으로 선발하는 대표 정시 전형이에요.</p></div>
+    </div>
+
+    <h3 class="reveal" style="font-size:18px;font-weight:800;color:var(--ink);margin:38px 0 16px">📖 알아두면 좋은 입시 용어</h3>
+    <div class="term-grid reveal">
+      <div class="term"><b>내신</b><span>학교 시험으로 받는 과목별 성적. 5등급 상대평가 + 성취평가(A~E)로 기록돼요.</span></div>
+      <div class="term"><b>학생부 (학교생활기록부)</b><span>출결·교과·창체·세특 등 3년간의 학교생활이 담기는 공식 기록이에요.</span></div>
+      <div class="term"><b>세특 (세부능력 및 특기사항)</b><span>수업 중 보여준 탐구·태도를 과목 선생님이 학생부에 적어주는 기록이에요.</span></div>
+      <div class="term"><b>창체 (창의적 체험활동)</b><span>자율·자치 활동, 동아리 활동, 진로 활동을 묶어 부르는 말이에요.</span></div>
+      <div class="term"><b>수능 최저학력기준</b><span>일부 수시 전형에서 요구하는 최소한의 수능 등급 조건이에요.</span></div>
+      <div class="term"><b>전형요소</b><span>내신·수능·학생부·면접·논술 등 대학이 학생을 평가하는 기준들이에요.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 로드맵 ===== -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal" style="max-width:820px">
+      <span class="eyebrow"><span class="dot"></span>STEP 04 · 월별 로드맵</span>
+      <h2 class="title">달마다 무엇을 할까?<br>나의 학년별 로드맵</h2>
+      <p class="lead">3월부터 다음 해 2월까지, 이 시기에 무엇을 하면 좋을지 정리했어요. 학년 탭을 눌러 <b>나에게 맞는 로드맵</b>을 확인하고, 한 달에 하나씩 실천해 보세요. 🖨️ 인쇄해서 책상에 붙여두는 것도 추천!</p>
+    </div>
+
+    <div class="grade-tabs reveal" id="gradeTabs">
+      <button class="grade-tab active" data-grade="1">1학년</button>
+      <button class="grade-tab" data-grade="2">2학년</button>
+    </div>
+
+    <!-- 1학년 -->
+    <div class="road active" data-grade="1">
+      <div class="timeline" id="road1"></div>
+    </div>
+    <!-- 2학년 -->
+    <div class="road" data-grade="2">
+      <div class="timeline" id="road2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. 학기별 가이드 ===== -->
+<section id="guide" style="background:linear-gradient(180deg,var(--bg),#fff)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--amber);background:var(--amber-soft)"><span class="dot" style="background:var(--amber);box-shadow:0 0 0 4px rgba(245,158,11,.15)"></span>학기별 가이드</span>
+      <h2 class="title">학기마다 챙길 일과<br>주의할 점</h2>
+      <p class="lead">각 학기에 무엇을 해야 하고, 어떤 점을 조심해야 하는지 정리했어요. 제목을 눌러 펼쳐보세요.</p>
+    </div>
+
+    <div class="acc" id="acc">
+      <div class="acc-item open">
+        <div class="acc-head">
+          <span class="tagn">1학년 1학기</span>
+          <h3>자기 이해와 교육과정 이해하기</h3>
+          <span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="acc-block"><div class="bt">✅ 이 학기에 할 일</div><ul>
+            <li><span class="ck">›</span>자기 이해 검사로 흥미·적성·가치관을 확인하기</li>
+            <li><span class="ck">›</span>중학교와 달라진 평가 체제(상대평가 5등급)와 고교학점제 이해하기</li>
+            <li><span class="ck">›</span><b>6~7월은 학업 설계 골든타임!</b> 2학년 선택 과목을 진로와 연결해 고르기</li>
+          </ul></div>
+          <div class="acc-block warn"><div class="bt">⚠️ 이런 점 조심해요</div><ul>
+            <li><span class="ck">!</span>첫 중간고사 충격에 좌절하지 않기 — 취약 과목을 분석해 공부법을 수정해요</li>
+            <li><span class="ck">!</span>친구 따라, 혹은 내신 쉬운 과목으로 도피하지 않기</li>
+            <li><span class="ck">!</span>'계열 적합성'과 과목 '위계(기초→심화)'를 꼭 고려하기</li>
+          </ul></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="tagn">1학년 2학기</span>
+          <h3>진로 구체화와 활동 기록하기</h3>
+          <span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="acc-block"><div class="bt">✅ 이 학기에 할 일</div><ul>
+            <li><span class="ck">›</span>여름방학에 경험한 진로 체험·독서를 2학기 수업·수행평가로 연결하기</li>
+            <li><span class="ck">›</span>수업 속 발표·토론·프로젝트가 <b>세특(세부능력 및 특기사항)</b>으로 기록됨을 기억하기</li>
+            <li><span class="ck">›</span>1년 활동을 모아 <b>'진로·학업 포트폴리오'</b> 완성하기</li>
+          </ul></div>
+          <div class="acc-block warn"><div class="bt">⚠️ 이런 점 조심해요</div><ul>
+            <li><span class="ck">!</span>의미 없는 일회성 행사보다 <b>깊이 있는 탐구 하나</b>가 더 중요해요</li>
+            <li><span class="ck">!</span>진로가 바뀌었다면, 2학년 과목 변경 기회를 놓치지 않기</li>
+          </ul></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="tagn">2학년 1학기</span>
+          <h3>선택 과목 몰입·심화, 대입 전략 기초</h3>
+          <span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="acc-block"><div class="bt">✅ 이 학기에 할 일</div><ul>
+            <li><span class="ck">›</span>내가 고른 선택 과목에 몰입하고, 흥미·적성이 세특에 잘 드러나게 하기</li>
+            <li><span class="ck">›</span>성적 추이를 보며 나에게 유리한 대입 전형을 1차로 판단해 보기</li>
+            <li><span class="ck">›</span>희망 대학의 전형 가이드북을 찾아 읽으며 입시 문해력 높이기</li>
+          </ul></div>
+          <div class="acc-block warn"><div class="bt">⚠️ 이런 점 조심해요</div><ul>
+            <li><span class="ck">!</span><b>내신 포기 금지!</b> 수시의 기회를 스스로 닫지 않기</li>
+            <li><span class="ck">!</span>특정 과목을 포기하면 '학업 충실도'가 낮게 평가될 수 있어요</li>
+          </ul></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="tagn">2학년 2학기</span>
+          <h3>융합 활동과 예비 수험생 준비</h3>
+          <span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="acc-block"><div class="bt">✅ 이 학기에 할 일</div><ul>
+            <li><span class="ck">›</span>교과 심화·교과 간 융합 탐구로 학생부 경쟁력 높이기</li>
+            <li><span class="ck">›</span>10월 학력평가로 정시 지원 가능 라인을 가늠해 보기</li>
+            <li><span class="ck">›</span>3학년 선택 과목을 최종 확정하고, 겨울방학 학습 로드맵 세우기</li>
+          </ul></div>
+          <div class="acc-block warn"><div class="bt">⚠️ 이런 점 조심해요</div><ul>
+            <li><span class="ck">!</span>2학년까지의 학생부 기록을 꼼꼼히 점검하기 (누락된 활동 확인)</li>
+            <li><span class="ck">!</span>학습량이 늘며 번아웃이 올 수 있어요 — <b>멘탈 관리</b>도 챙기기</li>
+          </ul></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. 셀프 체크 ===== -->
+<section id="check" class="check-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>셀프 체크리스트</span>
+      <h2 class="title">나는 잘 가고 있을까?<br>스스로 점검하기</h2>
+      <p class="lead">각 문항에 <b>YES / NO</b>로 답해 보세요. 점수가 자동으로 계산돼요. 솔직하게 답하고, NO가 나온 부분은 무엇을 보완하면 좋을지 생각해 보세요!</p>
+    </div>
+
+    <!-- A. 과목 선택 후 체크 -->
+    <div class="check-card cc1 reveal">
+      <div class="hd"><div class="ic">📝</div><h3>과목 선택 후 체크리스트</h3></div>
+      <p class="desc">과목을 다 골랐다면, 아래 5가지를 확인해 보세요.</p>
+      <div class="check-list" data-check="A">
+        <div class="check-item"><div class="q">진로·흥미·진학을 충분히 고민하고 과목 선택 계획을 세웠나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">모든 학기 29학점씩 고르게 선택해 총 174학점을 채웠나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">교과(군)별 필수 이수 학점을 모두 충족했나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">국어·수학·영어 교과의 총 이수 학점이 81학점 이하인가요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">수학처럼 위계(순서)가 있는 과목의 이수 순서를 지켰나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+      </div>
+      <div class="check-result" data-result="A"><div class="ring"><span>0/5</span></div><div class="msg"><b>체크를 시작해 보세요</b><p>YES를 누른 만큼 점수가 올라가요.</p></div></div>
+    </div>
+
+    <!-- B. 학교생활 자가 점검 -->
+    <div class="check-card cc2 reveal">
+      <div class="hd"><div class="ic">🌱</div><h3>학교생활 자가 점검</h3></div>
+      <p class="desc">학습 태도부터 진학까지, 내 학교생활을 폭넓게 돌아봐요.</p>
+      <div class="check-list" data-check="B">
+        <div class="check-cat">📖 학습 태도</div>
+        <div class="check-item"><div class="q">과목을 선택한 동기·목적에 맞는 학습 계획으로 수업에 참여했나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">수업의 핵심 아이디어와 성취수준을 이해하고 있나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">새로운 지식을 얻기 위해 자기주도적인 학습 태도를 가졌나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-cat">🔬 교육 활동</div>
+        <div class="check-item"><div class="q">학습 중 생긴 호기심을 해결하려고 노력했나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">배운 내용을 나의 흥미·진로와 연결해 학습했나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">호기심이 독서·토론 등 추가 활동으로 이어졌나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-cat">📊 평가·성찰</div>
+        <div class="check-item"><div class="q">계획한 내용을 실행으로 옮겨 만족스러운 결과를 얻었나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">결과의 원인을 분석해 다음 계획에 반영했나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-cat">🧭 진로</div>
+        <div class="check-item"><div class="q">나의 흥미·관심 분야를 구체적으로 알고 있나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">진로 목표를 위한 구체적인 계획을 세우고 실천했나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-cat">🎓 진학</div>
+        <div class="check-item"><div class="q">대입의 모집 시기·전형을 이해하고 있나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">내신·수능·대학별고사 등 전형 요소를 알고 있나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+        <div class="check-item"><div class="q">나에게 맞는 전형을 정하고 그에 맞는 계획을 세웠나요?</div><div class="toggle"><button data-v="yes">YES</button><button data-v="no">NO</button></div></div>
+      </div>
+      <div class="check-result" data-result="B"><div class="ring"><span>0/13</span></div><div class="msg"><b>체크를 시작해 보세요</b><p>나의 학교생활을 솔직하게 돌아봐요.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. 더 알아보기 ===== -->
+<section id="sites">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--teal);background:#e0f2fe"><span class="dot" style="background:var(--teal);box-shadow:0 0 0 4px rgba(14,165,233,.15)"></span>더 알아보기</span>
+      <h2 class="title">도움이 되는 <br>전국 사이트</h2>
+      <p class="lead">진로 탐색부터 대입 정보까지, 누구나 이용할 수 있는 공식 사이트들이에요. 직접 들어가 차근차근 살펴보세요.</p>
+    </div>
+
+    <div class="site-grid reveal">
+      <a class="site" href="https://www.career.go.kr" target="_blank" rel="noopener">
+        <div class="ic">🧭</div>
+        <div><h4>커리어넷 <span class="url">career.go.kr</span></h4><p>진로심리검사(흥미·적성·가치관), 직업백과, 학과정보를 한곳에서. 진로 탐색의 출발점!</p></div>
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="site" href="https://www.adiga.kr" target="_blank" rel="noopener">
+        <div class="ic">🎓</div>
+        <div><h4>대입정보포털 어디가 <span class="url">adiga.kr</span></h4><p>대학·학과, 전형·모집요강, 합격자 성적·경쟁률, 입시 일정까지 신뢰도 높은 대입 정보.</p></div>
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="site" href="https://www.edunet.net" target="_blank" rel="noopener">
+        <div class="ic">📚</div>
+        <div><h4>에듀넷·티클리어 <span class="url">edunet.net</span></h4><p>교육과정 총론, 교육감 승인 과목 등 교육과정 관련 공식 자료를 확인할 수 있어요.</p></div>
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="site" href="https://www.ebsi.co.kr" target="_blank" rel="noopener">
+        <div class="ic">🖥️</div>
+        <div><h4>EBSi <span class="url">ebsi.co.kr</span></h4><p>수능·내신 대비 강의와 학습 자료. 자기주도 학습에 든든한 도우미.</p></div>
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 푸터 ===== -->
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="brand"><span class="logo">🎓</span><span>고1·고2를 위한 진로·학업 설계</span></div>
+        <p class="ft-desc">나를 이해하는 것에서 시작해 진로 방향을 잡고, 고교학점제 과목을 선택하고, 달마다 실천하며 점검하기까지. 여러분의 3년이 막막함이 아닌 <b style="color:#fff">주체적인 선택</b>으로 채워지길 응원해요.</p>
+      </div>
+      <div class="ft-steps">
+        <span>① 나를 이해하기</span>
+        <span>② 진로·진학 방향</span>
+        <span>③ 과목 선택·학업 설계</span>
+        <span>④ 점검·피드백</span>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="disc">📎 교육과정과 대입 제도는 해마다 조금씩 달라질 수 있어요. 이 페이지는 전체 흐름을 쉽게 이해하기 위한 안내이니, 구체적이고 최신의 내용은 <b>소속 학교와 담임 선생님</b>, 그리고 <b>커리어넷·어디가</b> 같은 공식 사이트에서 꼭 확인하세요.</div>
+    </div>
+  </div>
+</footer>
+
+<button class="top-btn" id="topBtn" aria-label="맨 위로">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+/* ============ 데이터 ============ */
+const RIASEC = [
+  {l:'R',nm:'현실형',en:'Realistic',c:'#ef4444',cs:'#fef2f2',desc:'손으로 만들고 몸을 움직이는 활동, 기계·도구·자연을 다루는 일을 좋아해요. 실용적이고 현실적인 성향이 강해요.',keys:['엔지니어','기술자','운동선수','파일럿','농업 전문가']},
+  {l:'I',nm:'탐구형',en:'Investigative',c:'#3b82f6',cs:'#eff6ff',desc:'관찰·분석·탐구를 즐기고 지적 호기심이 많아요. 원리를 파고들고 논리적으로 사고하는 일에 흥미를 느껴요.',keys:['과학자','연구원','의사','데이터 분석가','프로그래머']},
+  {l:'A',nm:'예술형',en:'Artistic',c:'#8b5cf6',cs:'#f5f3ff',desc:'창의적이고 자유로운 표현을 좋아해요. 틀에 얽매이지 않고 상상력을 발휘하는 활동에서 즐거움을 느껴요.',keys:['디자이너','작가','예술가','영상 크리에이터','건축가']},
+  {l:'S',nm:'사회형',en:'Social',c:'#10b981',cs:'#ecfdf5',desc:'사람을 돕고 가르치고 소통하는 일을 좋아해요. 공감 능력이 뛰어나고 함께하는 활동에서 보람을 느껴요.',keys:['교사','상담가','사회복지사','간호사','코치']},
+  {l:'E',nm:'기업형',en:'Enterprising',c:'#f59e0b',cs:'#fffbeb',desc:'설득·리더십·목표 달성에 강해요. 사람들을 이끌고 새로운 일을 기획·추진하는 활동에 흥미를 느껴요.',keys:['경영자','마케터','변호사','기획자','정치인']},
+  {l:'C',nm:'관습형',en:'Conventional',c:'#0ea5e9',cs:'#f0f9ff',desc:'체계적이고 정확하며 꼼꼼하게 자료를 다루는 일을 좋아해요. 규칙과 질서가 있는 환경에서 능력을 발휘해요.',keys:['회계사','행정가','금융 전문가','데이터 관리자','세무사']},
+];
+
+const ROAD1 = [
+  {m:'3월',th:'적응·진단',c:'#2563eb',cs:'#eff6ff',h:'달라진 환경에 적응하기',p:'상대평가 5등급과 고교학점제를 이해하고, 커리어넷 흥미·적성검사로 나를 알아가요.'},
+  {m:'4월',th:'학습 습관',c:'#3b82f6',cs:'#eff6ff',h:'나만의 공부법 찾기',p:'고등학교 학습 리듬에 적응하며 학습 동기를 만들고 습관을 잡아요.'},
+  {m:'5월',th:'계열 탐색',c:'#0ea5e9',cs:'#f0f9ff',h:'계열 둘러보기',p:'첫 중간고사 결과로 취약 과목을 점검하고, 인문·사회·자연·공학 등 계열을 탐색해요.'},
+  {m:'6월',th:'위치 점검',c:'#06b6d4',cs:'#ecfeff',h:'객관적 위치 확인',p:'학력평가로 내 위치를 확인하고 진로 목표를 점검해요.'},
+  {m:'7월',th:'골든타임',c:'#10b981',cs:'#ecfdf5',h:'2학년 과목 설계',p:'⭐ 학업 설계 골든타임! 2학년 선택 과목을 진로와 연결해 신중히 골라요.'},
+  {m:'8월',th:'진로 심화',c:'#22c55e',cs:'#ecfdf5',h:'관심 분야 깊이 알기',p:'여름방학 동안 진로 체험·독서로 관심 분야를 깊이 탐색해요.'},
+  {m:'9월',th:'목표 재설정',c:'#10b981',cs:'#ecfdf5',h:'2학기 목표 세우기',p:'1학기를 돌아보고, 수정된 진로 희망을 반영해 2학기 목표를 다시 세워요.'},
+  {m:'10월',th:'교과 연계',c:'#f59e0b',cs:'#fffbeb',h:'수업에 내 관심 담기',p:'수업 속 탐구·수행평가에 내 관심사를 담아 세특으로 이어지게 해요.'},
+  {m:'11월',th:'설계 점검',c:'#f59e0b',cs:'#fffbeb',h:'1학년 설계 점검',p:'학력평가 누적 데이터를 분석하고, 활동이 세특에 잘 드러났는지 점검해요.'},
+  {m:'12월',th:'결산·성찰',c:'#f97316',cs:'#fff7ed',h:'한 해 정리하기',p:'진로·학업 포트폴리오를 정리하고, 진로가 바뀌었다면 과목 변경을 최종 확인해요.'},
+  {m:'1~2월',th:'진급 준비',c:'#ef4444',cs:'#fef2f2',h:'2학년 준비하기',p:'겨울방학에 2학년 주요 과목의 기초를 다지고 학습 계획을 세워요.'},
+];
+
+const ROAD2 = [
+  {m:'3월',th:'진로 재설계',c:'#2563eb',cs:'#eff6ff',h:'내신 전략 세우기',p:'5등급·성취평가에 맞춘 내신 관리 전략을 세우고, 진로성숙도·학습유형을 점검해요.'},
+  {m:'4월',th:'과목 집중',c:'#3b82f6',cs:'#eff6ff',h:'선택 과목 몰입',p:'내가 고른 과목에 몰입하고, 대입 전형의 기본 구조를 이해해요.'},
+  {m:'5월',th:'역량 점검',c:'#0ea5e9',cs:'#f0f9ff',h:'학업 역량 점검',p:'중간고사 피드백으로 심화 선택 과목의 학습법을 보완해요.'},
+  {m:'6월',th:'대입 기초',c:'#06b6d4',cs:'#ecfeff',h:'대입 전략 기초',p:'학력평가로 기준점을 잡고, 희망 대학 입학처의 전형 요강을 살펴봐요.'},
+  {m:'7월',th:'3학년 설계',c:'#10b981',cs:'#ecfdf5',h:'3학년 과목 설계',p:'수능 응시 과목과 진로 심화 과목 사이의 균형을 맞춰요.'},
+  {m:'8월',th:'역량 강화',c:'#22c55e',cs:'#ecfdf5',h:'진로 역량 강화',p:'전공과 관련된 창의적 체험활동·탐구 활동의 깊이를 더해요.'},
+  {m:'9월',th:'수시/정시',c:'#10b981',cs:'#ecfdf5',h:'전형 균형 잡기',p:'3학년 선택 과목을 대입과 연계해 최종 확정하고, 학생부를 중간 점검해요.'},
+  {m:'10월',th:'융합 사고',c:'#f59e0b',cs:'#fffbeb',h:'융합적 사고 확장',p:'교과 간 융합 프로젝트에 참여하고, 대학 전공 체험·캠프를 경험해요.'},
+  {m:'11월',th:'예비 고3',c:'#f59e0b',cs:'#fffbeb',h:'예비 고3 준비',p:'내신과 수능 학습 비중을 정하고, 수능 영역별 기초를 다져요.'},
+  {m:'12월',th:'학생부 점검',c:'#f97316',cs:'#fff7ed',h:'2년 기록 마무리',p:'2년간의 학생부를 최종 점검하고, 나의 강점을 분석해요.'},
+  {m:'1~2월',th:'실전 진입',c:'#ef4444',cs:'#fef2f2',h:'수능 학습 진입',p:'겨울방학 수능 커리큘럼을 세우고, 목표 대학·학과 목록을 상향/적정/안정으로 작성해요.'},
+];
+
+/* ============ RIASEC ============ */
+const rGrid = document.getElementById('riasecGrid');
+const rDetail = document.getElementById('rdetail');
+function renderR(i){
+  const d = RIASEC[i];
+  rDetail.innerHTML = `
+    <div class="big" style="background:${d.c}">${d.l}</div>
+    <div>
+      <h4>${d.nm} <span style="font-size:13px;color:${d.c};font-weight:700">${d.en}</span></h4>
+      <p>${d.desc}</p>
+      <div class="keys">${d.keys.map(k=>`<span>${k}</span>`).join('')}</div>
+    </div>`;
+  [...rGrid.children].forEach((el,idx)=>el.classList.toggle('active',idx===i));
+}
+rGrid.addEventListener('click',e=>{
+  const t = e.target.closest('.rtype'); if(!t) return;
+  renderR(+t.dataset.t);
+});
+renderR(0);
+
+/* ============ 로드맵 렌더 ============ */
+function renderRoad(arr,el){
+  el.innerHTML = arr.map(x=>`
+    <div class="tl-item" style="--tc:${x.c};--tcs:${x.cs}">
+      <div class="tl-month"><span class="m">${x.m}</span><span class="badge2">${x.th}</span></div>
+      <div class="tl-body"><h4>${x.h}</h4><p>${x.p}</p></div>
+    </div>`).join('');
+}
+renderRoad(ROAD1,document.getElementById('road1'));
+renderRoad(ROAD2,document.getElementById('road2'));
+
+/* 학년 탭 */
+document.getElementById('gradeTabs').addEventListener('click',e=>{
+  const b = e.target.closest('.grade-tab'); if(!b) return;
+  document.querySelectorAll('.grade-tab').forEach(t=>t.classList.toggle('active',t===b));
+  document.querySelectorAll('.road').forEach(r=>r.classList.toggle('active',r.dataset.grade===b.dataset.grade));
+});
+
+/* ============ 과목 탭 ============ */
+document.getElementById('subjTabs').addEventListener('click',e=>{
+  const b = e.target.closest('.subj-tab'); if(!b) return;
+  document.querySelectorAll('.subj-tab').forEach(t=>t.classList.toggle('active',t===b));
+  document.querySelectorAll('.subj-panel').forEach(p=>p.classList.toggle('active',p.dataset.s===b.dataset.s));
+});
+
+/* ============ 아코디언 ============ */
+document.getElementById('acc').addEventListener('click',e=>{
+  const head = e.target.closest('.acc-head'); if(!head) return;
+  const item = head.parentElement;
+  const body = item.querySelector('.acc-body');
+  const open = item.classList.contains('open');
+  // 다른 항목 닫기(한 번에 하나만 강조하되, 토글 허용)
+  if(open){ item.classList.remove('open'); body.style.maxHeight=null; return; }
+  item.classList.add('open');
+  body.style.maxHeight = body.scrollHeight + 'px';
+});
+// 초기 열림 항목 높이 세팅
+window.addEventListener('load',()=>{
+  const first = document.querySelector('.acc-item.open .acc-body');
+  if(first) first.style.maxHeight = first.scrollHeight + 'px';
+});
+
+/* ============ 체크리스트 ============ */
+document.querySelectorAll('.check-list').forEach(list=>{
+  const key = list.dataset.check;
+  const items = list.querySelectorAll('.check-item');
+  const total = items.length;
+  const resultBox = document.querySelector(`.check-result[data-result="${key}"]`);
+  const ring = resultBox.querySelector('.ring');
+  const ringSpan = ring.querySelector('span');
+  const msgB = resultBox.querySelector('.msg b');
+  const msgP = resultBox.querySelector('.msg p');
+
+  function update(){
+    let yes=0, answered=0;
+    items.forEach(it=>{
+      if(it.dataset.val) answered++;
+      if(it.dataset.val==='yes') yes++;
+    });
+    const deg = Math.round((yes/total)*360);
+    ring.style.setProperty('--deg',deg+'deg');
+    ringSpan.textContent = `${yes}/${total}`;
+    const ratio = yes/total;
+    let title, desc, col;
+    if(answered===0){ title='체크를 시작해 보세요'; desc='YES를 누른 만큼 점수가 올라가요.'; col='#2563eb'; }
+    else if(ratio>=0.8){ title='아주 잘하고 있어요! 🎉'; desc='탄탄하게 설계하고 있네요. 지금처럼 꾸준히 이어가요.'; col='#10b981'; }
+    else if(ratio>=0.5){ title='좋은 흐름이에요! 👍'; desc='NO로 답한 부분을 어떻게 보완할지 계획을 세워봐요.'; col='#0ea5e9'; }
+    else if(ratio>=0.2){ title='조금씩 채워가요 🌱'; desc='아직 보완할 게 있어요. 하나씩 차근차근 시작해 봐요.'; col='#f59e0b'; }
+    else { title='지금부터 시작! 💪'; desc='막막해도 괜찮아요. 가장 쉬운 항목 하나부터 도전해 보세요.'; col='#f43f5e'; }
+    ring.style.background = `conic-gradient(${col} ${deg}deg,#e2e8f0 0)`;
+    ringSpan.style.color = col;
+    resultBox.style.background = answered? (col+'14') : 'var(--blue-soft)';
+    resultBox.style.borderColor = answered? (col+'40') : 'var(--blue-mid)';
+    msgB.textContent = title; msgP.textContent = desc;
+  }
+
+  items.forEach(it=>{
+    const btns = it.querySelectorAll('.toggle button');
+    btns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const v = btn.dataset.v;
+        if(it.dataset.val===v){ // 같은 거 다시 누르면 해제
+          delete it.dataset.val; it.classList.remove('yes');
+          btns.forEach(b=>b.classList.remove('on-yes','on-no'));
+        } else {
+          it.dataset.val=v; it.classList.toggle('yes',v==='yes');
+          btns.forEach(b=>{b.classList.remove('on-yes','on-no');});
+          btn.classList.add(v==='yes'?'on-yes':'on-no');
+        }
+        update();
+      });
+    });
+  });
+  update();
+});
+
+/* ============ 내비: 스크롤/모바일/활성 ============ */
+const nav = document.getElementById('nav');
+const navLinks = document.getElementById('navlinks');
+document.getElementById('navToggle').addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.addEventListener('click',e=>{ if(e.target.tagName==='A') navLinks.classList.remove('open'); });
+
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y>10);
+  topBtn.classList.toggle('show', y>600);
+},{passive:true});
+topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* 활성 섹션 하이라이트 */
+const sections = [...document.querySelectorAll('section[id]')];
+const linkMap = {};
+document.querySelectorAll('.nav-links a').forEach(a=>{ linkMap[a.getAttribute('href').slice(1)] = a; });
+const navObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      Object.values(linkMap).forEach(a=>a.classList.remove('active'));
+      const link = linkMap[en.target.id];
+      if(link) link.classList.add('active');
+    }
+  });
+},{rootMargin:'-45% 0px -50% 0px'});
+sections.forEach(s=>navObserver.observe(s));
+
+/* ============ 스크롤 등장 ============ */
+const revObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); revObserver.unobserve(en.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revObserver.observe(el));
+</script>
+</body>
+</html>
