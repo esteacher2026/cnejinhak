@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2028 수능 영어 대비 전략 | 학생용 학습 가이드</title>
+  <meta name="description" content="2028학년도 수능 영어 대비 학생용 HTML 가이드. 영어Ⅰ·영어Ⅱ, 45문항 70분, 듣기 17문항, 절대평가, EBS 간접연계, 빈칸·순서·삽입·듣기·어휘·구문·논리 학습법." />
+  <style>
+    :root{
+      --bg:#f6f8fc; --paper:#ffffff; --ink:#172033; --muted:#607087; --line:#dfe6f1;
+      --brand:#2563eb; --brand-dark:#1d4ed8; --brand2:#0f766e; --accent:#b45309; --red:#b42318;
+      --green:#047857; --violet:#7c3aed; --soft:#eef5ff; --soft2:#e8fff8; --warn:#fff7df;
+      --danger:#fff1f2; --ok:#ecfdf5; --violet-soft:#f3efff; --shadow:0 14px 36px rgba(24,45,85,.10);
+      --radius:18px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#e7f0ff 0%,var(--bg) 430px);line-height:1.72;word-break:keep-all}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+    header.hero{padding:54px 0 32px;border-bottom:1px solid rgba(37,99,235,.14)}
+    .eyebrow{font-size:.92rem;font-weight:950;color:var(--brand2);letter-spacing:.06em;text-transform:uppercase}
+    h1{font-size:clamp(2.05rem,5vw,4.55rem);line-height:1.06;margin:.25em 0 .3em;letter-spacing:-.055em}
+    h2{font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.18;margin:.18em 0 .35em;letter-spacing:-.035em}
+    h3{font-size:1.32rem;line-height:1.28;margin:1.15em 0 .45em;letter-spacing:-.025em}
+    h4{font-size:1.08rem;margin:1em 0 .35em}.subtitle{font-size:1.17rem;color:var(--muted);max-width:980px;margin:0 0 22px}
+    .maker{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-weight:900;color:#35405a;box-shadow:0 8px 20px rgba(24,45,85,.06)}
+    .hero-grid{display:grid;grid-template-columns:1.14fr .86fr;gap:22px;align-items:stretch;margin-top:18px}
+    .hero-card,.card,.toolbox,.toc,.callout{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero-card{padding:22px}.hero-card h2{font-size:1.22rem;margin:.1em 0 .4em}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-size:.88rem;font-weight:850;color:#34405a}.pill strong{color:var(--brand)}
+    .layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start;padding:26px 0 80px}
+    nav.toc{position:sticky;top:14px;padding:16px;max-height:calc(100vh - 28px);overflow:auto} nav.toc h2{font-size:1rem;margin:0 0 10px;color:var(--brand)} nav.toc a{display:block;padding:8px 10px;border-radius:10px;color:#293750;font-weight:850;font-size:.92rem} nav.toc a:hover{background:var(--soft);text-decoration:none}
+    main{min-width:0} section{margin:0 0 34px;scroll-margin-top:18px}.section-head{margin:0 0 16px}.kicker{font-weight:950;color:var(--brand2);font-size:.9rem;letter-spacing:.05em}.lead{font-size:1.06rem;color:var(--muted);margin:0;max-width:930px}.mini{font-size:.92rem;color:var(--muted)}
+    .card{padding:22px;margin:14px 0}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .tag{display:inline-block;font-size:.78rem;font-weight:950;color:#fff;background:var(--brand);padding:3px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}.tag.green{background:var(--green)}.tag.orange{background:var(--accent)}.tag.red{background:var(--red)}.tag.gray{background:#647086}.tag.teal{background:var(--brand2)}.tag.violet{background:var(--violet)}
+    .callout{padding:18px 20px;margin:16px 0;background:var(--soft)}.callout.green{background:var(--soft2)}.callout.warn{background:var(--warn)}.callout.danger{background:var(--danger)}.callout.ok{background:var(--ok)}.callout.violet{background:var(--violet-soft)}
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff} th,td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top} th{background:#eef5ff;text-align:left;font-size:.92rem;color:#1f3f7a} tr:last-child td{border-bottom:0}
+    code,pre{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace} pre{white-space:pre-wrap;background:#101827;color:#e8eefc;border-radius:14px;padding:16px;line-height:1.6;overflow:auto}
+    .flow{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}.flow span{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:900}.flow span:not(:last-child)::after{content:"→";color:var(--brand);font-weight:950;margin-left:9px}
+    .checklist{display:grid;gap:10px;margin:12px 0}.check-item{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:#fff}.check-item input{margin-top:5px;transform:scale(1.12)}.check-item label,.check-item span{font-weight:760;cursor:pointer}.check-item small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+    .toolbox{padding:20px;margin:18px 0;background:#fff}.toolbox h3{margin-top:0} textarea,input[type="text"],input[type="number"],select{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;font:inherit;background:#fbfdff;color:var(--ink)} textarea{min-height:150px;resize:vertical;line-height:1.6}
+    .button-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px} button{border:0;border-radius:12px;background:var(--brand);color:#fff;font-weight:950;padding:10px 13px;cursor:pointer;font:inherit} button.secondary{background:var(--brand2)} button.ghost{background:#edf0f6;color:#273247} button.orange{background:var(--accent)}
+    .copy-btn{float:right;margin:0 0 8px 12px;background:#25304a}.template{position:relative}.scorebox{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px;margin-top:12px}.score{font-size:2rem;font-weight:950;color:var(--brand)}
+    .filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}.filter-btn{background:#fff;color:#30384c;border:1px solid var(--line);box-shadow:none}.filter-btn[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}.filter-card.hide{display:none}.small-list{margin:8px 0 0;padding-left:19px}.small-list li{margin:4px 0}.note{border-left:5px solid var(--brand);padding:12px 14px;background:#fff;border-radius:12px;margin:12px 0}
+    .timer-panel{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.timer-display{font-size:2.5rem;font-weight:950;letter-spacing:.02em;color:var(--brand)}.timer-controls{display:flex;gap:8px;flex-wrap:wrap}.footnotes{font-size:.92rem;color:#465061}.footnotes li{margin:7px 0}.top-actions{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.top-actions a,.top-actions button{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#293750;border:1px solid var(--line);box-shadow:none;border-radius:999px;padding:9px 12px;font-weight:900}
+    .phase{display:grid;grid-template-columns:112px 1fr;gap:14px;border-top:1px solid var(--line);padding:14px 0}.phase:first-child{border-top:0}.phase b{color:var(--brand)}.highlight{background:linear-gradient(transparent 62%,rgba(37,99,235,.18) 0)}
+    @media(max-width:920px){.hero-grid,.layout,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}nav.toc{position:relative;top:auto;max-height:none}h1{font-size:2.45rem}.phase{grid-template-columns:1fr}}
+    @media(max-width:560px){html{-webkit-text-size-adjust:100%}body{line-height:1.68}.wrap{padding:0 15px}header.hero{padding:34px 0 24px}.layout{padding:18px 0 60px;gap:18px}.card{padding:16px;margin:12px 0;border-radius:14px}.hero-card{padding:16px}.section-head{margin-bottom:12px}h1{font-size:2.05rem;letter-spacing:-.04em}h2{font-size:1.5rem}h3{font-size:1.16rem}h4{font-size:1.02rem}.subtitle{font-size:1.04rem}.lead{font-size:.99rem}.pill{padding:8px 12px;font-size:.86rem}.top-actions a,.top-actions button{padding:11px 14px;font-size:.95rem}button,.copy-btn,summary{min-height:44px}summary{padding:13px 14px}.copy-btn{min-height:0;padding:9px 13px;font-size:.86rem}nav.toc a{padding:11px 12px;font-size:.95rem}table{font-size:.9rem}details .detail-body{padding:13px 14px}}
+    @media print{body{background:#fff;color:#000}nav.toc,.top-actions,.copy-btn,button,.timer-panel{display:none!important}.layout{display:block;padding:0}.wrap{max-width:none;padding:0}.card,.callout,.toolbox,.hero-card{box-shadow:none;break-inside:avoid;border-color:#bbb}a{color:#000;text-decoration:none}section{break-inside:auto}.maker{box-shadow:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">2028 CSAT English Strategy</div>
+      <h1>2028 수능 영어<br>진짜 공부법</h1>
+      <p class="subtitle">2028학년도 수능 영어는 현행과 같이 <strong>영어Ⅰ·영어Ⅱ를 바탕으로 45문항, 70분, 듣기 17문항 포함, 절대평가</strong>로 운영됩니다. 이 페이지는 학생이 바로 실행할 수 있도록 단어·구문·논리·듣기·EBS 간접연계·70분 운영을 하나의 수능 전용 전략으로 정리했습니다.</p>
+      <div class="maker">제작자: 충청남도진로융합교육원 교육연구사 정재연</div>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h2>핵심 메시지</h2>
+          <p>수능 영어는 절대평가이지만 “대충 90점”을 노리는 시험이 아닙니다. 듣기와 쉬운 독해를 안정적으로 확보하고, 빈칸·순서·삽입에서 글의 논리 흐름을 근거로 판단해야 1등급이 유지됩니다.</p>
+          <div class="flow"><span>단어</span><span>구문</span><span>문단 기능</span><span>주제문</span><span>패러프레이징</span><span>70분 운영</span></div>
+          <div class="pill-row">
+            <span class="pill"><strong>2028</strong> 영어Ⅰ·영어Ⅱ</span>
+            <span class="pill"><strong>45문항</strong> 듣기 17문항</span>
+            <span class="pill"><strong>70분</strong> 절대평가</span>
+            <span class="pill"><strong>EBS</strong> 50% 간접연계</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>학생용 사용법</h2>
+          <ul class="small-list">
+            <li>먼저 진단 체크리스트로 나의 등급 하락 원인을 찾습니다.</li>
+            <li>유형별 첫 행동 프로토콜을 외운 뒤 기출에 적용합니다.</li>
+            <li>실모를 푼 뒤 점수보다 듣기·쉬운 독해·고난도 유형별 시간을 기록합니다.</li>
+            <li>체크리스트, 메모, 타이머, 복기표는 브라우저에 저장됩니다.</li>
+          </ul>
+          <div class="top-actions">
+            <a href="#toolkit">도구 바로가기</a>
+            <button class="ghost" onclick="window.print()">인쇄하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="layout">
+      <nav class="toc" aria-label="목차">
+        <h2>목차</h2>
+        <a href="#structure">1. 2028 수능 영어 구조</a>
+        <a href="#diagnosis">2. 나의 영어 진단</a>
+        <a href="#essence">3. 영어의 본질</a>
+        <a href="#vocab-syntax">4. 단어·구문 루틴</a>
+        <a href="#logic">5. 논리 독해·패러프레이징</a>
+        <a href="#types">6. 유형별 출제 코드</a>
+        <a href="#listening">7. 듣기 만점 전략</a>
+        <a href="#ebs">8. EBS 간접연계 활용법</a>
+        <a href="#time">9. 70분 실전 운영</a>
+        <a href="#roadmap">10. 시기별 로드맵</a>
+        <a href="#grades">11. 등급별 전략</a>
+        <a href="#toolkit">12. 학생용 도구</a>
+        <a href="#sources">공식 참고자료</a>
+      </nav>
+
+      <main>
+        <section id="structure">
+          <div class="section-head">
+            <div class="kicker">1. 2028 STRUCTURE</div>
+            <h2>2028 수능 영어 구조 한눈에 보기</h2>
+            <p class="lead">2028 수능에서 영어는 국어·수학·탐구처럼 선택과목 폐지의 직접 영향을 받지 않습니다. 핵심은 현행 영어 수능의 논리 독해와 듣기 안정성을 그대로 더 정교하게 준비하는 것입니다.</p>
+          </div>
+          <div class="card">
+            <table>
+              <thead><tr><th>항목</th><th>2028 수능 영어</th><th>학생이 알아야 할 의미</th></tr></thead>
+              <tbody>
+                <tr><td><strong>출제 범위</strong></td><td>영어Ⅰ, 영어Ⅱ를 바탕으로 다양한 소재의 지문과 자료 활용</td><td>교과서 문장 암기가 아니라, 고등 영어의 읽기·듣기·어휘·구문·담화 이해 능력이 핵심이다.</td></tr>
+                <tr><td><strong>문항 수</strong></td><td>45문항</td><td>듣기 17문항 + 읽기·간접쓰기 중심 독해 28문항을 70분 안에 처리해야 한다.</td></tr>
+                <tr><td><strong>듣기</strong></td><td>17문항 포함</td><td>듣기는 1등급의 안전장치다. 1문항이라도 틀리면 독해 고난도 부담이 커진다.</td></tr>
+                <tr><td><strong>시험 시간</strong></td><td>70분</td><td>듣기 중 독해 병행 여부는 학생별로 다르지만, 기본 원칙은 듣기 실수 0개다.</td></tr>
+                <tr><td><strong>문항 유형</strong></td><td>5지선다형, 2·3점 배점</td><td>3점 문항은 보통 논리 흐름과 선지 패러프레이징에서 변별된다.</td></tr>
+                <tr><td><strong>성적 표기</strong></td><td>절대평가 등급</td><td>표준점수·백분위가 아니라 등급이 제공된다. 목표 점수대별 전략이 달라야 한다.</td></tr>
+                <tr><td><strong>EBS 연계</strong></td><td>문항 수 기준 50%, 간접 방식</td><td>지문 암기가 아니라 소재·주제·상황·요지·표현의 재구성을 대비해야 한다.</td></tr>
+              </tbody>
+            </table>
+            <div class="callout warn"><strong>중요 · 영어는 예시문항이 별도로 발표되지 않았습니다</strong><br>2028 예시문항이 공개된 과목은 <strong>국어·수학·통합사회·통합과학</strong>입니다. 영어는 절대평가로 현행 체제(영어Ⅰ·Ⅱ, 45문항 70분, 듣기 17문항, EBS 50% 간접연계)가 그대로 유지되므로 별도 예시문항이 없습니다. 따라서 이 페이지의 유형·번호 운영은 <span class="highlight">현행 평가원 영어 수능의 출제 기조와 공식 체제</span>에 근거한 훈련용 전략이며, 세부 배열은 추후 시행계획과 모의평가에서 확정적으로 확인하세요.</div>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <h3>절대평가 영어의 등급 전략</h3>
+              <table>
+                <thead><tr><th>목표</th><th>원점수 기준</th><th>전략</th></tr></thead>
+                <tbody>
+                  <tr><td>1등급</td><td>90점 이상</td><td>듣기 만점 + 쉬운 독해 무실수 + 빈칸·순서·삽입 중 2~3문항 이내 손실</td></tr>
+                  <tr><td>2등급</td><td>80점 이상</td><td>듣기 안정 + 쉬운 독해 확보 + 고난도 유형 일부 선택적 공략</td></tr>
+                  <tr><td>3등급</td><td>70점 이상</td><td>단어·구문 기반으로 주제·제목·내용일치·장문 쉬운 문항 우선 확보</td></tr>
+                  <tr><td>4등급 이하</td><td>69점 이하</td><td>듣기와 문장 단위 해석을 먼저 세워 기본 점수를 만든다.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <h3>영어Ⅰ·영어Ⅱ 기반 학습의 의미</h3>
+              <p>영어Ⅰ·영어Ⅱ는 수능 영어의 소재와 읽기·듣기 활동 기반입니다. 시험에서는 교과서 특정 본문보다, 다양한 소재의 글을 읽으며 <strong>중심 내용, 세부 정보, 함축 의미, 논리 전개, 어휘·구문</strong>을 처리하는 능력이 드러납니다.</p>
+              <pre>교과 기반 학습의 방향
+영어Ⅰ·영어Ⅱ 지문 읽기
+→ 핵심 어휘와 구문 분석
+→ 문단 기능 파악
+→ 주제문과 근거 찾기
+→ 선지 표현과 패러프레이징 비교</pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="diagnosis">
+          <div class="section-head">
+            <div class="kicker">2. SELF CHECK</div>
+            <h2>나의 수능 영어 학습 진단</h2>
+            <p class="lead">수능 영어는 등급별로 필요한 공부가 다릅니다. 아래 체크가 많을수록 단어·구문·듣기·논리 중 어느 축이 무너지는지 먼저 잡아야 합니다.</p>
+          </div>
+          <div class="card">
+            <div class="grid-2">
+              <div>
+                <h3>체크리스트</h3>
+                <div class="checklist">
+                  <label class="check-item"><input type="checkbox" data-save="engdiag1" data-score="1"><span>듣기를 가끔 틀리지만 복습은 거의 하지 않는다.<small>대본 분석과 쉐도잉 없이 “다음엔 집중”으로 끝나는 경우</small></span></label>
+                  <label class="check-item"><input type="checkbox" data-save="engdiag2" data-score="1"><span>긴 문장에서 주어와 동사를 바로 찾지 못한다.<small>관계사절·분사구문·삽입구가 나오면 해석이 무너지는 경우</small></span></label>
+                  <label class="check-item"><input type="checkbox" data-save="engdiag3" data-score="1"><span>빈칸을 풀 때 정답을 보기 전에 한국어 예측을 하지 않는다.<small>선지를 먼저 보고 그럴듯한 표현을 고르는 경우</small></span></label>
+                  <label class="check-item"><input type="checkbox" data-save="engdiag4" data-score="1"><span>순서·삽입에서 대명사와 연결어를 근거로 쓰지 않는다.<small>자연스러운 느낌만으로 배열하는 경우</small></span></label>
+                  <label class="check-item"><input type="checkbox" data-save="engdiag5" data-score="1"><span>선지 표현이 지문과 다르게 바뀌면 정답인지 판단하기 어렵다.<small>패러프레이징 훈련이 부족한 경우</small></span></label>
+                  <label class="check-item"><input type="checkbox" data-save="engdiag6" data-score="1"><span>EBS를 지문 암기와 해석 암기로만 공부한다.<small>소재·주제·상황·요지의 변형을 보지 않는 경우</small></span></label>
+                  <label class="check-item"><input type="checkbox" data-save="engdiag7" data-score="1"><span>실모를 풀고 유형별 시간과 오답 원인을 기록하지 않는다.<small>점수 확인용 실모에 머무는 경우</small></span></label>
+                  <label class="check-item"><input type="checkbox" data-save="engdiag8" data-score="1"><span>단어를 뜻 하나만 외우고 문맥상 의미를 따로 정리하지 않는다.<small>다의어·품사·유의어·반의어가 약한 경우</small></span></label>
+                </div>
+              </div>
+              <div>
+                <h3>진단 결과</h3>
+                <div class="scorebox"><div><strong id="diagnosisText">체크하면 우선순위가 표시됩니다.</strong><p class="mini">체크 항목은 브라우저에 저장됩니다.</p></div><div class="score" id="diagnosisScore">0</div></div>
+                <div class="callout ok"><strong>공부 우선순위</strong><br>4개 이상 체크되면 고난도 문제집보다 <span class="highlight">단어-구문-듣기-기출 유형 절차</span>를 먼저 고정하세요. 2개 이하라면 실모 운영과 고난도 유형의 오답 코드 관리가 핵심입니다.</div>
+                <textarea data-save-text="english_goal" placeholder="이번 달 영어 목표를 적어 보세요. 예: 듣기 주 3회, 빈칸 60문항 예측문 작성, 순서·삽입 지시어 근거 표시 100%, 어휘 900개 누적 복습"></textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="essence">
+          <div class="section-head">
+            <div class="kicker">3. ESSENCE</div>
+            <h2>수능 영어의 본질: 단어·구문·논리</h2>
+            <p class="lead">수능 영어는 문장을 한국어로 바꾸는 시험이 아니라, 글의 논리 흐름을 읽고 정답 선지가 지문의 핵심을 어떻게 바꾸어 말했는지 판단하는 시험입니다.</p>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <h3>단어</h3>
+              <p>단어는 뜻 하나가 아니라 문맥 속 기능입니다. 품사, 다의어, 유의어, 반의어, 자주 결합하는 표현까지 알아야 선지 패러프레이징이 됩니다.</p>
+              <pre>단어 학습 = 뜻 + 품사 + 문맥 방향 + 유의어/반의어 + 예문</pre>
+            </div>
+            <div class="card">
+              <h3>구문</h3>
+              <p>구문은 긴 문장을 핵심 구조로 줄이는 능력입니다. 주어·동사·목적어·보어를 먼저 찾고, 수식어는 괄호로 분리해야 합니다.</p>
+              <pre>구문 학습 = 핵심문장 찾기 + 수식어 제거 + 절/구 기능 확인</pre>
+            </div>
+            <div class="card">
+              <h3>논리</h3>
+              <p>논리는 고난도 유형의 핵심입니다. 문장이 주제, 이유, 예시, 반박, 결론 중 어떤 역할인지 판단해야 빈칸·순서·삽입이 풀립니다.</p>
+              <pre>논리 학습 = 문장 기능 + 연결어 + 반복 핵심어 + 패러프레이징</pre>
+            </div>
+          </div>
+          <div class="card">
+            <h3>수능 영어에서 글을 읽는 순서</h3>
+            <div class="flow"><span>제목·첫 문장</span><span>반복 핵심어</span><span>연결어</span><span>주제문</span><span>문장 기능</span><span>선지 변환</span></div>
+            <table>
+              <thead><tr><th>읽는 대상</th><th>확인 질문</th><th>표시법</th></tr></thead>
+              <tbody>
+                <tr><td>첫 문장</td><td>화제인가, 문제 제기인가, 통념인가?</td><td>Topic / Problem / Common belief</td></tr>
+                <tr><td>연결어</td><td>글의 방향이 유지되는가, 전환되는가?</td><td>however, therefore, for example, in other words 표시</td></tr>
+                <tr><td>예시</td><td>무엇을 설명하기 위한 예시인가?</td><td>Example → principle 화살표</td></tr>
+                <tr><td>마지막 문장</td><td>결론인가, 한계인가, 전망인가?</td><td>Conclusion / Limitation / Implication</td></tr>
+                <tr><td>선지</td><td>지문의 핵심을 과장·축소·반대로 바꾸었는가?</td><td>틀린 단어 표시</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="vocab-syntax">
+          <div class="section-head">
+            <div class="kicker">4. VOCABULARY & SYNTAX</div>
+            <h2>단어와 구문: 점수의 하한선을 만든다</h2>
+            <p class="lead">단어와 구문이 약하면 고난도 유형 전략이 작동하지 않습니다. 2028 영어 대비에서도 기본기는 “많이 외우기”가 아니라 “문맥에서 꺼내 쓰기”입니다.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <h3>단어 암기 루틴</h3>
+              <table>
+                <thead><tr><th>시점</th><th>행동</th><th>목표</th></tr></thead>
+                <tbody>
+                  <tr><td>아침</td><td>새 단어 30~50개 1차 암기</td><td>뜻과 품사 확인</td></tr>
+                  <tr><td>점심</td><td>뜻 가리고 빠르게 테스트</td><td>즉시 회상</td></tr>
+                  <tr><td>저녁</td><td>예문 속 의미 확인</td><td>문맥상 의미</td></tr>
+                  <tr><td>다음 날</td><td>전날 단어 누적 테스트</td><td>망각 방지</td></tr>
+                  <tr><td>주말</td><td>틀린 단어만 재분류</td><td>다의어·혼동어 정리</td></tr>
+                </tbody>
+              </table>
+              <div class="note"><strong>단어장에 반드시 쓸 것</strong><br>뜻 하나만 쓰지 말고 품사, 예문, 유의어, 반의어, 문맥상 의미, 헷갈리는 단어를 함께 씁니다.</div>
+            </div>
+            <div class="card">
+              <h3>구문 독해 5단계</h3>
+              <pre>1. 주어에 밑줄을 긋는다.
+2. 동사에 동그라미를 친다.
+3. 목적어·보어를 표시한다.
+4. 관계사절·분사구문·전치사구 등 수식어를 괄호 처리한다.
+5. 핵심 문장을 먼저 해석한 뒤 수식어를 붙인다.</pre>
+              <div class="callout green"><strong>예시</strong><br>People who are exposed to too much information often find it difficult to make decisions.<br><br>핵심 구조: People find it difficult.<br>수식·보충: who are exposed to too much information / to make decisions</div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>고난도 구문 체크리스트</h3>
+            <div class="grid-3">
+              <ul class="small-list"><li>관계사절이 여러 개 겹친 문장</li><li>분사구문과 삽입구가 있는 문장</li><li>not A but B 구조</li></ul>
+              <ul class="small-list"><li>as가 여러 의미로 쓰인 문장</li><li>가주어·진주어 it-that 구조</li><li>가정법과 조건문</li></ul>
+              <ul class="small-list"><li>비교급·최상급 구문</li><li>명사절·형용사절·부사절 혼합</li><li>수동태와 능동태가 섞인 문장</li></ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="logic">
+          <div class="section-head">
+            <div class="kicker">5. LOGIC</div>
+            <h2>논리 독해와 패러프레이징</h2>
+            <p class="lead">정답 선지는 지문의 문장을 그대로 복사하지 않습니다. 같은 의미를 다른 말로 바꾸는 방식을 읽어야 합니다.</p>
+          </div>
+          <div class="card">
+            <h3>패러프레이징 훈련표</h3>
+            <table>
+              <thead><tr><th>지문 표현</th><th>선지 표현</th><th>판단 포인트</th></tr></thead>
+              <tbody>
+                <tr><td>people tend to avoid uncertainty</td><td>people prefer predictable situations</td><td>uncertainty 회피 = 예측 가능성 선호</td></tr>
+                <tr><td>information is selectively presented</td><td>data is not neutrally delivered</td><td>선택적 제시 = 중립적 전달 아님</td></tr>
+                <tr><td>social pressure affects individual choices</td><td>group norms influence personal decisions</td><td>사회적 압력 = 집단 규범의 영향</td></tr>
+                <tr><td>immediate rewards are overvalued</td><td>short-term benefits receive excessive weight</td><td>즉각 보상 = 단기 이익 과대평가</td></tr>
+                <tr><td>the author questions the assumption</td><td>the passage challenges a common belief</td><td>전제 의문 제기 = 통념 반박</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <h3>주제문 찾기 질문</h3>
+              <pre>이 글은 무엇에 대해 말하는가?
+글쓴이는 그것에 대해 어떤 입장인가?
+반복되는 핵심어는 무엇인가?
+예시는 무엇을 설명하기 위해 나왔는가?
+마지막 문장이 앞 내용을 어떻게 정리하는가?
+선지는 이 주제를 더 넓히거나 좁히지 않았는가?</pre>
+            </div>
+            <div class="card">
+              <h3>오답 선지의 대표 코드</h3>
+              <table>
+                <tbody>
+                  <tr><td>범위 과장</td><td>일부 내용을 전체 주장으로 확대</td></tr>
+                  <tr><td>지엽</td><td>예시 하나를 글 전체 주제로 착각</td></tr>
+                  <tr><td>반대</td><td>글쓴이의 긍정·부정 방향 반전</td></tr>
+                  <tr><td>논리 방향 오류</td><td>원인과 결과, 문제와 해결을 뒤바꿈</td></tr>
+                  <tr><td>너무 일반적</td><td>지문의 구체적 핵심을 담지 못함</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="types">
+          <div class="section-head">
+            <div class="kicker">6. ITEM TYPES</div>
+            <h2>유형별 출제 코드와 첫 행동</h2>
+            <p class="lead">수능 영어 유형은 각각 묻는 능력이 다릅니다. 유형별 첫 행동을 고정하면 실전에서 흔들림이 줄어듭니다.</p>
+          </div>
+          <div class="filter-bar" aria-label="유형 필터">
+            <button class="filter-btn" data-filter="all" aria-pressed="true">전체</button>
+            <button class="filter-btn" data-filter="basic">기본 독해</button>
+            <button class="filter-btn" data-filter="hard">고난도</button>
+            <button class="filter-btn" data-filter="grammar">어법·어휘</button>
+            <button class="filter-btn" data-filter="long">장문</button>
+          </div>
+          <div class="grid-2">
+            <div class="card filter-card" data-tags="basic"><h3><span class="tag green">주제·요지·제목</span></h3><p>글 전체의 중심 내용을 압축하는 유형입니다. 예시와 세부 정보를 주제로 착각하지 않는 것이 핵심입니다.</p><pre>첫 행동
+1. 첫 문장과 마지막 문장 확인
+2. 반복 핵심어 표시
+3. 예시가 설명하는 일반 원리 찾기
+4. 선지가 너무 넓거나 좁은지 확인</pre></div>
+            <div class="card filter-card" data-tags="basic"><h3><span class="tag green">내용일치·도표·실용문</span></h3><p>정확성과 속도를 동시에 요구합니다. 지문 전체를 깊이 해석하기보다 조건·수치·대상·예외를 빠르게 대조합니다.</p><pre>첫 행동
+1. 선지의 고유명사·수치·조건 표시
+2. 지문에서 해당 정보 위치 찾기
+3. 단위·시간·대상·예외 확인
+4. 근거가 직접 있으면 판단</pre></div>
+            <div class="card filter-card" data-tags="grammar"><h3><span class="tag orange">어법</span></h3><p>수능 어법은 핵심 문법의 실제 적용입니다. 주어와 동사, 능동·수동, 병렬, 관계사 구조를 확인합니다.</p><pre>첫 행동
+1. 주어와 동사 찾기
+2. 수식어 걷어내기
+3. 수일치 확인
+4. 능동·수동 판단
+5. 병렬·관계사 구조 확인</pre></div>
+            <div class="card filter-card" data-tags="grammar"><h3><span class="tag orange">어휘</span></h3><p>어휘는 뜻 암기가 아니라 문맥의 방향 판단입니다. 긍정·부정 흐름, 대조, 원인·결과를 기준으로 선택합니다.</p><pre>첫 행동
+1. 해당 문장의 긍정/부정 방향 확인
+2. 앞뒤 문장 논리 확인
+3. 대조 연결어 확인
+4. 반의어가 자연스러운지 검토</pre></div>
+            <div class="card filter-card" data-tags="hard"><h3><span class="tag red">빈칸 추론</span></h3><p>빈칸은 글의 핵심 논리를 복원하는 유형입니다. 선지를 보기 전에 빈칸 내용을 한국어로 먼저 예측합니다.</p><pre>첫 행동
+1. 빈칸 문장의 역할 확인
+2. 앞뒤 연결어 확인
+3. 글 전체 주제 파악
+4. 한국어로 먼저 예측
+5. 예측과 가장 가까운 선지 선택
+6. 과장·지엽 선지 제거</pre></div>
+            <div class="card filter-card" data-tags="hard"><h3><span class="tag red">순서 맞추기</span></h3><p>순서는 문장 간 연결 고리를 묻습니다. 대명사, 지시어, 접속사, 일반 진술과 구체 예시의 순서를 근거로 삼습니다.</p><pre>강력한 단서
+this / that / it → 앞에 대상 필요
+however → 앞 문장과 대조
+therefore → 앞에 이유 필요
+for example → 앞에 일반 진술 필요
+another → 앞에 첫 항목 필요</pre></div>
+            <div class="card filter-card" data-tags="hard"><h3><span class="tag red">문장 삽입</span></h3><p>삽입은 앞 문장과 뒤 문장이 모두 자연스럽게 이어지는 위치를 찾는 유형입니다. 앞만 맞고 뒤가 끊기면 오답입니다.</p><pre>첫 행동
+1. 삽입문 핵심어 표시
+2. 대명사·지시어 확인
+3. 삽입문이 앞 문장과 맺어야 할 관계 판단
+4. 후보 위치의 앞뒤 문장을 모두 읽기
+5. 3문장 연결 검증</pre></div>
+            <div class="card filter-card" data-tags="hard"><h3><span class="tag red">무관한 문장</span></h3><p>지문에 나온 단어가 있어도 주제 흐름에서 벗어나면 무관합니다. 문장의 소재가 아니라 기능을 봐야 합니다.</p><pre>첫 행동
+1. 각 문장의 역할을 한 단어로 표시
+2. 반복 핵심어와 논리 흐름 확인
+3. 갑자기 다른 관점·대상·초점이 들어오는 문장 찾기
+4. 앞뒤 연결이 복원되는지 확인</pre></div>
+            <div class="card filter-card" data-tags="long"><h3><span class="tag violet">요약문</span></h3><p>요약문은 글 전체를 두 핵심어로 압축하는 유형입니다. 빈칸 단어는 보통 핵심 개념과 결론 방향을 담습니다.</p><pre>첫 행동
+1. 글의 주제와 결론 찾기
+2. 반복 핵심어 2개 표시
+3. 요약문의 문장 구조 확인
+4. 원문과 의미 방향 일치 확인</pre></div>
+            <div class="card filter-card" data-tags="long"><h3><span class="tag violet">장문 독해</span></h3><p>장문은 정보량이 많지만 문제는 보통 순서, 주제, 내용일치, 지칭 대상 중심입니다. 문단별 기능을 잡으면 빠르게 풀 수 있습니다.</p><pre>첫 행동
+1. 각 문단 중심 사건 또는 주장 표시
+2. 인물·대상·시점 변화 확인
+3. 문제 선지의 정보 위치 찾기
+4. 세부 정보는 필요한 부분만 재독</pre></div>
+          </div>
+        </section>
+
+        <section id="listening">
+          <div class="section-head">
+            <div class="kicker">7. LISTENING</div>
+            <h2>듣기 평가 만점 전략</h2>
+            <p class="lead">듣기 17문항은 수능 영어 등급의 기반입니다. 듣기를 안정적으로 맞히지 못하면 독해 고난도에서 회복해야 할 부담이 커집니다.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <h3>듣기 유형별 들어야 할 것</h3>
+              <table>
+                <thead><tr><th>유형</th><th>핵심 신호</th></tr></thead>
+                <tbody>
+                  <tr><td>목적</td><td>why, to inform, to invite, to apologize</td></tr>
+                  <tr><td>의견</td><td>I think, I believe, in my opinion</td></tr>
+                  <tr><td>관계·장소</td><td>역할 단서, 직업 단서, 공간 단서</td></tr>
+                  <tr><td>그림·도표</td><td>위치, 방향, 개수, 모양, 순서</td></tr>
+                  <tr><td>할 일·부탁</td><td>who will do what</td></tr>
+                  <tr><td>이유</td><td>because, due to, I can't because</td></tr>
+                  <tr><td>금액</td><td>가격, 할인, 개수, 배송비</td></tr>
+                  <tr><td>내용 일치</td><td>시간, 장소, 대상, 조건, 예외</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <h3>듣기 복습 5단계</h3>
+              <pre>1. 실전 속도로 한 번 푼다.
+2. 틀린 문항의 대본을 확인한다.
+3. 못 들은 표현과 연음·축약을 표시한다.
+4. 대본을 보며 따라 읽는다.
+5. 대본 없이 다시 듣고, 정답 근거 표현을 받아쓴다.</pre>
+              <div class="callout danger"><strong>금지</strong><br>듣기를 틀리고 “집중을 못 해서”라고만 기록하지 마세요. 실제 원인은 보통 숫자, 부정 표현, 제안 표현, 대명사 지칭, 빠른 연음 중 하나입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="ebs">
+          <div class="section-head">
+            <div class="kicker">8. EBS INDIRECT LINKAGE</div>
+            <h2>EBS 간접연계 활용법</h2>
+            <p class="lead">2028 수능에서도 EBS는 간접 방식으로 연계됩니다. 영어에서 간접연계는 “같은 지문이 그대로 나온다”가 아니라, 소재·주제·상황·요지가 비슷한 새 지문으로 재구성되는 방식에 가깝습니다.</p>
+          </div>
+          <div class="card">
+            <table>
+              <thead><tr><th>잘못된 EBS 공부</th><th>2028 대비에 맞는 EBS 공부</th></tr></thead>
+              <tbody>
+                <tr><td>해석본을 외운다.</td><td>지문의 소재, 주제, 글의 구조, 핵심 어휘를 정리한다.</td></tr>
+                <tr><td>문장을 그대로 암기한다.</td><td>핵심 문장을 다른 표현으로 바꾸어 본다.</td></tr>
+                <tr><td>정답만 외운다.</td><td>오답 선지가 왜 지엽·과장·반대인지 분석한다.</td></tr>
+                <tr><td>연계교재만 반복한다.</td><td>연계 소재와 유사·반대·확장 개념의 신규 지문을 함께 읽는다.</td></tr>
+              </tbody>
+            </table>
+            <div class="template">
+              <button class="copy-btn" onclick="copyTemplate('tplEbs')">복사</button>
+              <pre id="tplEbs">EBS 간접연계 분석표
+교재/지문 번호:
+소재:
+주제:
+글의 구조: 문제-해결 / 통념-반박 / 비교-대조 / 원인-결과 / 개념-사례
+핵심 어휘 5개:
+핵심 문장:
+패러프레이징 표현:
+유사 소재로 출제될 수 있는 방향:
+반대 관점으로 출제될 수 있는 방향:
+빈칸 가능 문장:
+순서·삽입 단서:</pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="time">
+          <div class="section-head">
+            <div class="kicker">9. 70-MINUTE OPERATION</div>
+            <h2>70분 실전 운영 전략</h2>
+            <p class="lead">수능 영어의 실전 운영은 듣기를 지키고, 쉬운 문제를 빠르게 확보하고, 고난도 문항에 들어갈 시간을 남기는 방식으로 설계해야 합니다.</p>
+          </div>
+          <div class="card">
+            <h3>기본 시간 배분</h3>
+            <table>
+              <thead><tr><th>구간</th><th>권장 시간</th><th>행동</th></tr></thead>
+              <tbody>
+                <tr><td>듣기</td><td>약 25분</td><td>듣기 만점 우선. 듣기 안정권만 쉬운 독해 일부 병행.</td></tr>
+                <tr><td>쉬운 독해</td><td>10~12분</td><td>목적·심경·주제·제목·도표·내용일치·실용문 빠르게 확보.</td></tr>
+                <tr><td>어법·어휘</td><td>5~7분</td><td>주어·동사, 문맥 방향, 긍정·부정 흐름 확인.</td></tr>
+                <tr><td>고난도</td><td>18~22분</td><td>빈칸, 순서, 삽입, 무관한 문장 집중.</td></tr>
+                <tr><td>장문·검토</td><td>8~10분</td><td>장문 정보 대조, 표시 문제 재검토, 마킹 확인.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid-3">
+            <div class="card"><h3>안정형</h3><pre>듣기 집중
+→ 쉬운 독해
+→ 어법·어휘
+→ 빈칸
+→ 순서·삽입
+→ 장문</pre><p>듣기 실수가 있거나 2~4등급 학생에게 적합합니다.</p></div>
+            <div class="card"><h3>상위권형</h3><pre>듣기 중 쉬운 독해 일부
+→ 빈칸
+→ 순서·삽입
+→ 나머지 독해
+→ 장문·검토</pre><p>듣기 만점이 안정적인 1등급 목표 학생에게 적합합니다.</p></div>
+            <div class="card"><h3>점수 확보형</h3><pre>듣기
+→ 목적·심경·주제
+→ 도표·내용일치
+→ 장문 쉬운 문항
+→ 어법·어휘
+→ 고난도 일부</pre><p>4등급 이하 학생은 고난도보다 맞힐 수 있는 문항을 먼저 확보합니다.</p></div>
+          </div>
+          <div class="callout warn"><strong>고난도 보류 기준</strong><br>빈칸 한 문항에 3분 이상, 순서·삽입 한 세트에 4분 이상 걸리면 표시하고 넘어갑니다. 영어는 절대평가라 한 문제 집착보다 전체 점수 확보가 우선입니다.</div>
+        </section>
+
+        <section id="roadmap">
+          <div class="section-head">
+            <div class="kicker">10. ROADMAP</div>
+            <h2>시기별 2028 수능 영어 로드맵</h2>
+            <p class="lead">영어는 단기간에 극적으로 오르기 어렵지만, 듣기·단어·구문·논리 절차를 꾸준히 쌓으면 점수 하한선이 안정됩니다.</p>
+          </div>
+          <div class="card">
+            <h3>12주 완성 루틴</h3>
+            <div class="phase"><b>1~3주</b><div><strong>단어·구문 재건</strong><br>필수 단어 900~1200개 누적, 하루 10문장 구문 분석, 듣기 주 3회. 주제·제목 유형으로 문단 중심 잡기.</div></div>
+            <div class="phase"><b>4~6주</b><div><strong>논리 독해</strong><br>하루 2지문 문단 기능 표시. 빈칸은 정답 보기 전 한국어 예측문 작성. 순서·삽입은 지시어와 연결어 근거 기록.</div></div>
+            <div class="phase"><b>7~9주</b><div><strong>고난도 유형 집중</strong><br>빈칸·순서·삽입·어휘를 유형별로 묶어 풀고, 오답 선지의 함정 코드를 분류. EBS 소재의 유사·반대·확장 지문 읽기.</div></div>
+            <div class="phase"><b>10~12주</b><div><strong>70분 실전 운영</strong><br>주 1~2회 실모. 듣기 병행 여부, 고난도 보류 기준, 장문 처리 순서, 검토 시간을 고정. 실모 복기표 작성.</div></div>
+          </div>
+          <div class="card">
+            <h3>주간 루틴 예시</h3>
+            <table>
+              <thead><tr><th>요일</th><th>핵심 학습</th><th>분량</th></tr></thead>
+              <tbody>
+                <tr><td>월</td><td>단어 + 구문</td><td>단어 50개, 구문 10문장</td></tr>
+                <tr><td>화</td><td>주제·제목·요지</td><td>기출 6~8문항, 선지 패러프레이징 기록</td></tr>
+                <tr><td>수</td><td>듣기 + 어법·어휘</td><td>듣기 17문항, 어법·어휘 6문항</td></tr>
+                <tr><td>목</td><td>빈칸</td><td>빈칸 5~8문항, 예측문 작성</td></tr>
+                <tr><td>금</td><td>순서·삽입</td><td>각 4~6문항, 지시어·연결어 근거 표시</td></tr>
+                <tr><td>토</td><td>실전 세트</td><td>하프 모의고사 또는 70분 실모</td></tr>
+                <tr><td>일</td><td>복기</td><td>오답·오래 걸린 문항·단어 누적 정리</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="grades">
+          <div class="section-head">
+            <div class="kicker">11. LEVEL STRATEGY</div>
+            <h2>등급별 추천 전략</h2>
+            <p class="lead">절대평가 영어는 현재 등급에 따라 공부의 우선순위가 완전히 다릅니다. 자신의 목표 등급에 맞는 문항을 먼저 확보해야 합니다.</p>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <h3>1등급 목표·유지</h3>
+              <p>목표는 “공부량을 많이 늘리기”가 아니라 감각 유지와 고난도 손실 최소화입니다.</p>
+              <ul class="small-list">
+                <li>듣기 실수 0개를 유지한다.</li>
+                <li>주 2~3회 고난도 독해를 푼다.</li>
+                <li>빈칸·순서·삽입 오답만 따로 복기한다.</li>
+                <li>선지의 과장·지엽·반대 표현을 표시한다.</li>
+                <li>실모 후 오래 걸린 문항을 줄인다.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>2~3등급</h3>
+              <p>핵심은 빈칸·순서·삽입 중 가장 약한 유형을 집중적으로 줄이는 것입니다.</p>
+              <ul class="small-list">
+                <li>듣기 만점부터 고정한다.</li>
+                <li>쉬운 독해에서 실수를 없앤다.</li>
+                <li>빈칸은 한국어 예측문을 먼저 쓴다.</li>
+                <li>순서·삽입은 지시어와 연결어 근거를 표시한다.</li>
+                <li>70분 실모로 시간 부족 유형을 찾는다.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>4등급 이하</h3>
+              <p>고난도보다 단어·구문·듣기·쉬운 독해를 먼저 세워야 합니다.</p>
+              <ul class="small-list">
+                <li>하루 단어 30개, 누적 복습을 시작한다.</li>
+                <li>문장마다 주어·동사를 표시한다.</li>
+                <li>듣기 대본 복습과 따라 읽기를 한다.</li>
+                <li>목적·심경·주제·제목·내용일치부터 맞힌다.</li>
+                <li>빈칸·순서·삽입은 기본 문항만 선별한다.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <h3>등급별 4주 플랜</h3>
+            <table>
+              <thead><tr><th>등급</th><th>1주차</th><th>2주차</th><th>3주차</th><th>4주차</th></tr></thead>
+              <tbody>
+                <tr><td>1등급</td><td>실모 1회 진단</td><td>빈칸·순서·삽입 오답 코드</td><td>EBS 간접연계 소재 확장</td><td>70분 운영 고정</td></tr>
+                <tr><td>2~3등급</td><td>유형별 오답 분류</td><td>빈칸 집중</td><td>순서·삽입 집중</td><td>하프 실모+복기</td></tr>
+                <tr><td>4등급 이하</td><td>단어·듣기 루틴</td><td>구문 10문장/일</td><td>쉬운 독해 유형</td><td>미니 실전</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="toolkit">
+          <div class="section-head">
+            <div class="kicker">12. TOOLKIT</div>
+            <h2>학생용 도구</h2>
+            <p class="lead">아래 양식은 복사해서 노트, 문서, 학습지에 붙여 사용할 수 있습니다.</p>
+          </div>
+          <div class="toolbox">
+            <h3>70분 / 45분 / 25분 타이머</h3>
+            <div class="timer-panel">
+              <div>
+                <div class="timer-display" id="timerDisplay">70:00</div>
+                <p class="mini">70분 전체 실모, 듣기 후 독해 45분, 듣기 25분 훈련에 사용합니다.</p>
+              </div>
+              <div class="timer-controls">
+                <button onclick="setTimer(70)">70분</button>
+                <button onclick="setTimer(45)" class="secondary">45분</button>
+                <button onclick="setTimer(25)" class="orange">25분</button>
+                <button onclick="startTimer()">시작</button>
+                <button onclick="pauseTimer()" class="ghost">일시정지</button>
+                <button onclick="resetTimer()" class="ghost">초기화</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="toolbox">
+              <h3>영어 등급 계산기</h3>
+              <input type="number" id="engScore" min="0" max="100" placeholder="원점수 입력 예: 87" />
+              <div class="button-row"><button onclick="calcGrade()">등급 확인</button><button class="ghost" onclick="document.getElementById('engScore').value='';document.getElementById('gradeResult').textContent='';">초기화</button></div>
+              <div class="scorebox"><div><strong id="gradeResult">점수를 입력하세요.</strong><p class="mini">영어 절대평가 9등급 기준입니다.</p></div><div class="score" id="gradeNum">-</div></div>
+            </div>
+            <div class="toolbox">
+              <h3>나의 메모</h3>
+              <textarea data-save-text="eng_memo" placeholder="예: 빈칸은 예측문을 쓰면 정답률이 오른다. 순서 문제에서 another 단서를 자주 놓친다."></textarea>
+            </div>
+          </div>
+
+          <div class="toolbox template">
+            <button class="copy-btn" onclick="copyTemplate('tplVocab')">복사</button>
+            <h3>단어 카드 템플릿</h3>
+            <pre id="tplVocab">단어:
+품사:
+기본 뜻:
+문맥상 의미:
+예문:
+유의어:
+반의어:
+함께 쓰이는 표현:
+헷갈리는 단어:
+다음 복습일:</pre>
+          </div>
+
+          <div class="toolbox template">
+            <button class="copy-btn" onclick="copyTemplate('tplSyntax')">복사</button>
+            <h3>구문 분석 템플릿</h3>
+            <pre id="tplSyntax">문장:
+주어:
+동사:
+목적어/보어:
+수식어:
+관계사절/분사구문/전치사구:
+핵심 문장:
+자연스러운 해석:
+헷갈린 이유:
+비슷한 구문:</pre>
+          </div>
+
+          <div class="toolbox template">
+            <button class="copy-btn" onclick="copyTemplate('tplType')">복사</button>
+            <h3>유형별 기출 분석표</h3>
+            <pre id="tplType">문항 번호:
+유형: 빈칸 / 순서 / 삽입 / 어법 / 어휘 / 주제 / 장문
+지문 주제:
+문단별 기능:
+정답 근거 문장:
+정답 선지의 패러프레이징:
+오답 선지의 문제점:
+- 과장 / 지엽 / 반대 / 논리 방향 오류 / 너무 일반적
+내가 헷갈린 이유:
+다음에 같은 유형을 보면 할 행동:</pre>
+          </div>
+
+          <div class="toolbox template">
+            <button class="copy-btn" onclick="copyTemplate('tplListen')">복사</button>
+            <h3>듣기 오답 분석표</h3>
+            <pre id="tplListen">문항 번호:
+유형:
+틀린 이유:
+- 숫자 / 날짜 / 장소 / 이유 / 요청 / 부정 표현 / 연음 / 대명사 / 집중력
+못 들은 표현:
+대본 속 정답 근거:
+따라 읽기 횟수:
+다시 들었을 때 정답 여부:
+다음 듣기에서 주의할 신호:</pre>
+          </div>
+
+          <div class="toolbox template">
+            <button class="copy-btn" onclick="copyTemplate('tplMock')">복사</button>
+            <h3>실모 복기표</h3>
+            <pre id="tplMock">시험지:
+점수/등급:
+풀이 순서:
+듣기 틀린 문항:
+쉬운 독해 틀린 문항:
+고난도 틀린 문항:
+오래 걸린 문항:
+유형별 사용 시간:
+- 듣기:
+- 쉬운 독해:
+- 어법/어휘:
+- 빈칸:
+- 순서/삽입:
+- 장문:
+오답 원인:
+다음 실모에서 바꿀 행동 1가지:</pre>
+          </div>
+        </section>
+
+        <section id="sources">
+          <div class="section-head">
+            <div class="kicker">SOURCES</div>
+            <h2>공식 참고자료</h2>
+          </div>
+          <div class="card">
+            <ul class="footnotes">
+              <li>한국교육과정평가원, 「2028학년도 대학수학능력시험 예시문항 안내」: 2028 수능 체제, 영어 영역 문항 수·시간·출제 범위, EBS 연계율 50% 간접연계, 절대평가 성적 표기 기준.</li>
+              <li>교육부·한국교육과정평가원 2028학년도 수능 시험 및 점수 체제 발표: 영어 영역은 현행과 동일하게 45문항, 70분, 듣기 17문항 포함.</li>
+              <li>EBSi 「수능 영어 간접연계 서치라이트」: 간접연계는 연계교재의 지문과 소재, 주제, 상황, 요지가 비슷한 지문이 출제되는 방식으로 설명됨.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const saveInputs = document.querySelectorAll('[data-save]');
+    saveInputs.forEach(el=>{
+      const key = el.dataset.save;
+      const saved = localStorage.getItem(key);
+      if(saved === 'true') el.checked = true;
+      el.addEventListener('change',()=>{localStorage.setItem(key, el.checked); updateDiagnosis();});
+    });
+    const textInputs = document.querySelectorAll('[data-save-text]');
+    textInputs.forEach(el=>{
+      const key = el.dataset.saveText;
+      const saved = localStorage.getItem(key);
+      if(saved) el.value = saved;
+      el.addEventListener('input',()=>localStorage.setItem(key, el.value));
+    });
+    function updateDiagnosis(){
+      let score=0; document.querySelectorAll('[data-score]').forEach(el=>{ if(el.checked) score += Number(el.dataset.score||0); });
+      const scoreEl=document.getElementById('diagnosisScore'); const textEl=document.getElementById('diagnosisText');
+      if(scoreEl) scoreEl.textContent=score;
+      if(textEl){
+        if(score<=1) textEl.textContent='실전 감각 유지와 고난도 오답 코드 관리가 우선입니다.';
+        else if(score<=3) textEl.textContent='유형별 약점을 좁히고 실모 운영을 고정하세요.';
+        else if(score<=5) textEl.textContent='단어·구문·듣기·논리 절차를 다시 세워야 합니다.';
+        else textEl.textContent='문장 단위 해석과 듣기, 쉬운 독해 확보부터 시작하세요.';
+      }
+    }
+    updateDiagnosis();
+
+    document.querySelectorAll('.filter-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const filter=btn.dataset.filter;
+        document.querySelectorAll('.filter-btn').forEach(b=>b.setAttribute('aria-pressed','false'));
+        btn.setAttribute('aria-pressed','true');
+        document.querySelectorAll('.filter-card').forEach(card=>{
+          if(filter==='all'||(card.dataset.tags||'').includes(filter)) card.classList.remove('hide');
+          else card.classList.add('hide');
+        });
+      });
+    });
+
+    function copyTemplate(id){
+      const el=document.getElementById(id); if(!el) return;
+      navigator.clipboard.writeText(el.innerText).then(()=>{
+        const old=event.target.textContent; event.target.textContent='복사됨'; setTimeout(()=>event.target.textContent=old,1200);
+      });
+    }
+
+    let baseSeconds=70*60, remaining=baseSeconds, timer=null;
+    function formatTime(sec){ const m=Math.floor(sec/60).toString().padStart(2,'0'); const s=(sec%60).toString().padStart(2,'0'); return `${m}:${s}`; }
+    function renderTimer(){ const d=document.getElementById('timerDisplay'); if(d) d.textContent=formatTime(remaining); }
+    function setTimer(min){ pauseTimer(); baseSeconds=min*60; remaining=baseSeconds; renderTimer(); }
+    function startTimer(){ if(timer) return; timer=setInterval(()=>{ if(remaining>0){ remaining--; renderTimer(); } else { pauseTimer(); alert('타이머 종료'); } },1000); }
+    function pauseTimer(){ if(timer){ clearInterval(timer); timer=null; } }
+    function resetTimer(){ pauseTimer(); remaining=baseSeconds; renderTimer(); }
+    renderTimer();
+
+    function calcGrade(){
+      const val=Number(document.getElementById('engScore').value);
+      const result=document.getElementById('gradeResult'); const num=document.getElementById('gradeNum');
+      if(Number.isNaN(val)||val<0||val>100){ result.textContent='0~100 사이의 점수를 입력하세요.'; num.textContent='-'; return; }
+      let grade=9;
+      if(val>=90) grade=1; else if(val>=80) grade=2; else if(val>=70) grade=3; else if(val>=60) grade=4; else if(val>=50) grade=5; else if(val>=40) grade=6; else if(val>=30) grade=7; else if(val>=20) grade=8; else grade=9;
+      num.textContent=grade;
+      result.textContent=`${val}점은 영어 ${grade}등급 기준입니다.`;
+    }
+  </script>
+</body>
+</html>
