@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 문학 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 문학 12개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 작품 근거 해석, 갈래·맥락 분석, 한국 문학사 탐구, 비교문학, 비평·창작, 매체 문학, 문학 생활화와 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#0f6980;
+  --atmo-bg:#e1f0f3;
+  --geo:#8a5a1f;
+  --geo-bg:#f1e6d6;
+  --astro:#4c4f93;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:0;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(15,105,128,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(76,79,147,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:0;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:0;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:4.35rem;
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:0;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:0;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:2.1rem;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:0;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:0;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:0}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">文</div>
+      <div class="b-text">
+        <strong>일반선택 문학 수업설계 워크북</strong>
+        <span>개념기반탐구 · 12개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective Literature</div>
+        <h1 class="cover-title">문학<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1>
+        <p class="lead">
+          일반선택 문학 12개 성취기준을 원문, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 작품 근거 주석, 갈래·맥락 분석,
+          내용과 형식의 유기성, 비교문학, 비평·창작, 매체 문학, 학생부종합전형형 산출물, 평가·기록까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button>
+          <button class="btn" onclick="openView('matrix')">12개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 문학 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책 5] 국어과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>작품 근거 해석 · 갈래와 맥락 분석 · 한국 문학사 탐구 · 비교문학 · 내용과 형식 · 비평과 창작 · 매체 문학 · 문학 생활화 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">6<small>모듈</small></span>
+      <span class="label">문학의 본질 · 갈래/맥락/문학사 · 비교문학 · 내용/형식 · 비평/창작 · 매체/소통/생활화</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">12<small>기준</small></span>
+      <span class="label">성취기준 원문·성취수준 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 작품 근거, 맥락 해석, 비평·창작 전이의 통합</h2>
+    <p>
+      문학 수업은 줄거리 확인이나 감상 발표에서 멈추지 않고, 작품 속 구절·장면·화자·시점·상징·이미지·갈래 특성을 근거로
+      인간과 세계를 해석하는 수업이어야 합니다. 본 워크북은 학생이 작품 근거를 표시하고, 맥락과 형식을 연결하며,
+      해석을 수정하고 비평·창작·문학 생활로 전이하는 과정을 수업 안에서 드러내도록 설계했습니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>작품에서 해석 문제로</h3>
+      <p>구절, 장면, 인물의 선택, 화자와 서술 방식, 이미지와 상징을 표시해 설명이 필요한 문학적 문제를 세웁니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>근거에서 맥락과 형식으로</h3>
+      <p>갈래, 문학사, 시대 상황, 비교 작품, 매체 특성을 연결해 작품의 의미가 만들어지는 조건을 분석합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>해석에서 비평·창작 전이로</h3>
+      <p>공감적·비판적·창의적 감상을 바탕으로 비평, 재구성, 창작, 매체 변환, 문학 생활화까지 확장합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 문학 수업의 공통 뼈대</h2>
+    <p>학생이 작품의 첫 인상에서 출발해 근거를 표시하고, 갈래·맥락·형식을 조직하며, 해석 일반화와 비평·창작 전이로 나아가도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>작품의 핵심 구절, 장면, 독자 반응을 제시해 해석이 필요한 문학적 긴장을 발견한다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>인간 이해, 갈래, 맥락, 형식, 비평, 매체, 공동체 중 하나를 개념 렌즈로 삼는다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>탐구</strong><p>작품 속 구절·장면·표현과 필요한 맥락 자료를 수집하고 주석으로 근거를 남긴다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>작품 근거표, 맥락 지도, 내용·형식 연결망, 비평 구조도, 창작 설계도로 해석을 정리한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>작품 근거와 문학 개념의 관계를 자기 언어로 일반화한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>새 작품 읽기, 비평, 재구성, 창작, 매체 구현, 문학 생활 계획에 해석 기준을 적용한다.</p></div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 읽고 싶은 것은 작품명이나 감상문의 양이 아니라 <b>학생이 작품 속 근거를 어떻게 찾고, 갈래·맥락·형식을 어떻게 연결하며, 해석을 어떻게 수정·확장했는가</b>입니다.</p>
+    <p>각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 작품 주석, 맥락 비교표, 내용·형식 분석, 비평 기준, 창작 의도, 매체 구현 분석이 함께 제시되어 세특 근거를 수업 안에서 확보할 수 있습니다.</p>
+    <div class="admission-proof-grid">
+      <div class="admission-proof-card">
+        <span class="tag">Evidence</span>
+        <h4>작품 근거 기반 해석</h4>
+        <p>구절, 장면, 화자·시점, 상징, 이미지, 갈래 특성을 표시하고 해석의 근거로 사용하는 과정이 기록됩니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Interpretation</span>
+        <h4>맥락·형식 연결</h4>
+        <p>작품 내부 근거와 작가·독자·사회문화·문학사 맥락, 내용과 형식의 관계를 연결해 해석을 정교화합니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Transfer</span>
+        <h4>비평·창작·문학 생활</h4>
+        <p>공감적·비판적·창의적 감상을 비평, 재구성, 매체 변환, 자아 성찰, 공동체 소통, 지속적 문학 향유로 확장합니다.</p>
+      </div>
+    </div>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>모듈, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>문학의 본질과 삶의 의미</option>
+            <option>갈래·맥락과 한국 문학사</option>
+            <option>비교문학과 보편성·특수성</option>
+            <option>내용·형식과 작품 수용</option>
+            <option>감상·비평·창작</option>
+            <option>매체·소통·문학 생활</option>
+          </select>
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>해석</option>
+            <option>갈래</option>
+            <option>문학사</option>
+            <option>역사</option>
+            <option>비교</option>
+            <option>형식</option>
+            <option>비평</option>
+            <option>창작</option>
+            <option>매체</option>
+            <option>성찰</option>
+            <option>공동체</option>
+            <option>포트폴리오</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>문학 12개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 작품 읽기 과제, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>모듈</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>문학 수업은 작품 소개와 감상 공유에서 멈추지 않고, 작품 근거 표시, 맥락·형식 분석, 해석 수정, 비평·창작·문학 생활 전이까지 이어지도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>작품 전문 또는 발췌문, 작가·시대 맥락 자료, 매체 구현 자료를 준비하고 작품 인용, 저작권, 민감한 경험 공유 원칙을 먼저 안내합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 구절 주석, 장면 분석, 갈래·맥락 지도, 내용·형식 연결표, 비평 기준, 창작 의도, 해석 수정 이력을 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>결과물보다 작품 근거 선정, 해석 관점 비교, 맥락 자료 활용, 피드백 반영, 비평·창작 전이 과정을 학생부 기록 근거로 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 문학 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+  {
+    "code": "[12문학01-01]",
+    "domain": "문학의 본질과 삶의 의미",
+    "title": "문학은 어떻게 인간과 세계를 다시 보게 하는가?",
+    "type": "작품 근거 해석형",
+    "period": "3차시",
+    "lens": "인간 이해와 미적 고양",
+    "concept": "문학의 본질과 삶의 의미",
+    "related": "인간 이해, 세계 인식, 삶의 의미, 정서적 고양, 미적 경험, 독자 반응, 작품 근거",
+    "phenomenon": "시와 소설의 핵심 구절, 인물의 선택 장면, 화자의 정서 변화, 독자의 첫 반응을 함께 제시해 문학이 인간과 세계를 이해하게 하는 방식을 관찰한다.",
+    "conflict": "문학 감상은 느낀 점을 자유롭게 말하는 활동이라고 보기 쉽다. 그러나 문학의 본질 탐구는 작품 속 구절, 장면, 정서의 흐름을 근거로 인간과 세계에 대한 이해가 어떻게 달라지는지 설명하는 과정이다.",
+    "general": "문학은 언어로 형상화된 인간 경험을 통해 독자가 세계를 새롭게 인식하고 삶의 의미를 성찰하게 하며, 미적 경험은 감정을 넘어서 해석과 가치 판단을 확장한다.",
+    "studentGeneral": "문학은 단순한 이야기나 감정 표현이 아니라, 작품 속 근거를 통해 사람과 세상을 다르게 보게 하는 힘이다.",
+    "questions": [
+      "작품에서 인간과 세계에 대한 이해를 바꾸는 구절이나 장면은 무엇인가?",
+      "작품의 정서적·미적 표현은 삶의 의미에 대한 해석과 어떻게 연결되는가?",
+      "같은 작품을 읽고도 독자마다 삶의 의미를 다르게 이해하는 이유는 무엇인가?",
+      "이 작품에서 발견한 인간 이해를 나의 삶, 관계, 진로 탐구의 질문으로 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "작품 근거 기반 삶의 의미 해석표",
+      "구절-정서-세계 인식 연결 주석",
+      "해석 수정 성찰 카드"
+    ],
+    "evidence": [
+      "핵심 구절과 장면을 정확히 표시함",
+      "정서 변화와 미적 표현을 삶의 의미와 연결함",
+      "첫 해석과 수정 해석의 차이를 근거로 설명함",
+      "작품의 인간 이해를 자기 질문으로 전이함"
+    ],
+    "data": "작품의 핵심 구절, 인물의 선택, 화자의 태도, 이미지와 상징을 표시하고 그것이 인간 이해, 세계 인식, 삶의 의미와 연결되는 지점을 근거 문장으로 정리한다.",
+    "modeling": "구절-정서-인간 이해-삶의 의미로 이어지는 해석 사슬을 만들고, 첫 감상과 근거 기반 해석이 어떻게 달라졌는지 비교한다.",
+    "source": "교과서 수록 시·소설·수필, 학생의 주석본, 작가·시대 관련 짧은 맥락 자료, 독자 반응 메모",
+    "scale": "범위: 구절-장면-정서-인간 이해-삶의 의미 / 맥락: 문학의 본질과 미적 경험",
+    "uncertainty": "독자의 경험에 따라 해석은 달라질 수 있으므로 개인적 감상을 작품 근거와 구분하고, 근거가 약한 해석은 수정 가능성으로 남긴다.",
+    "misconception": "문학은 줄거리와 느낀 점을 말하면 충분하다.",
+    "correction": "느낌을 말하기 전에 그 느낌을 만든 구절, 이미지, 장면, 화자의 태도 변화를 표시하게 한다.",
+    "failure": "학생이 추상적 감상에 머물면 한 문장을 고르게 하고, 그 문장이 인간 이해나 삶의 의미를 어떻게 바꾸었는지 짧은 근거 사슬로 설명하게 한다.",
+    "safe": "개인 경험을 연결할 때 공개하고 싶지 않은 사적 경험을 강요하지 않으며, 학생은 작품 속 상황과 자신의 삶을 적절한 거리에서 성찰하도록 안내한다.",
+    "deepDive": "서로 다른 시대의 작품 두 편을 골라 인간의 고통, 사랑, 상실, 성장에 대한 인식이 어떻게 달라지는지 구절 근거로 비교한다.",
+    "career": "국어교육, 문예창작, 심리상담, 인문학, 문화기획, 독서교육",
+    "sample": "작품 속 인물의 선택 장면과 반복되는 이미지를 표시하고, 그 표현이 인간의 상실감과 회복 의지를 어떻게 드러내는지 근거 사슬로 해석함. 처음에는 “슬픈 작품”이라는 반응에 머물렀으나 화자의 시선 변화와 결말부 어조를 다시 주석하며 문학이 삶의 고통을 단순히 재현하는 것이 아니라 의미를 재구성하게 한다는 관점으로 해석을 확장함.",
+    "official": [
+      "문학-3 / 서술형 / 문학 작품 속에 담긴 사회의 모습을 고려하여 작품 해석하기. 문학 작품 속에 담긴 인간의 모습과 삶의 의미를 고려하여 작품 해석하기."
+    ],
+    "tool": "문학-3 / 서술형 / 문학 작품 속에 담긴 사회의 모습을 고려하여 작품 해석하기. 문학 작품 속에 담긴 인간의 모습과 삶의 의미를 고려하여 작품 해석하기.",
+    "standard": "문학이 인간과 세계에 대한 이해를 돕고, 삶의 의미를 깨닫게 하며, 정서적⋅미적으로 삶을 고양함을 이해한다.",
+    "levels": {
+      "A": "문학이 인간과 세계에 대한 이해와 삶의 의미에 대한 깨달음을 돕고, 정서적･미적으로 고양된 삶을 이끈다는 점을 종합적으로 고려하여 문학 작품을 감상하고 다양한 사례를 들어가며 이를 구체적으로 설명할 수 있다.",
+      "B": "문학이 인간과 세계에 대한 이해와 삶의 의미에 대한 깨달음을 돕고, 정서적･미적으로 고양된 삶을 이끈다는 점을 고려하여 문학 작품을 감상하고 사례를 들어가며 이를 설명할 수 있다.",
+      "C": "문학이 인간과 세계에 대한 이해와 삶의 의미에 대한 깨달음을 돕고, 정서적･미적으로 고양된 삶을 이끈다는 점을 고려하여 문학 작품을 이해할 수 있다.",
+      "D": "문학이 인간과 세계에 대한 이해와 삶의 의미에 대한 깨달음을 돕고, 정서적･미적으로 고양된 삶을 이끈다는 점을 부분적으로 고려하여 문학 작품을 이해할 수 있다.",
+      "E": "문학이 인간과 세계에 대한 이해와 삶의 의미에 대한 깨달음을 돕고, 정서적･미적으로 고양된 삶을 이끈다는 점을 제한적으로 이해한다."
+    }
+  },
+  {
+    "code": "[12문학01-02]",
+    "domain": "갈래·맥락과 한국 문학사",
+    "title": "갈래와 맥락은 작품 해석을 어떻게 바꾸는가?",
+    "type": "갈래·맥락 분석형",
+    "period": "3차시",
+    "lens": "형상화와 맥락",
+    "concept": "문학 갈래와 문학 맥락",
+    "related": "서정·서사·극·교술, 화자, 서술자, 장면, 운율, 작가 맥락, 독자 맥락, 사회·문화적 맥락, 문학사적 맥락",
+    "phenomenon": "같은 주제의 시, 소설, 희곡, 수필 일부를 제시하고 갈래별 화자·서술자·장면 구성·문체가 작품의 의미를 어떻게 다르게 형상화하는지 관찰한다.",
+    "conflict": "갈래는 작품을 분류하기 위한 이름이라고 보기 쉽다. 그러나 갈래와 맥락은 작품이 세계를 인식하고 표현하는 방식을 결정하며, 독자가 어떤 근거로 해석해야 하는지를 바꾸는 개념 렌즈이다.",
+    "general": "문학 갈래는 세계를 형상화하는 방식이고 문학 맥락은 작품의 의미가 생성되는 조건이므로, 두 요소를 함께 고려할 때 작품 해석은 더 정교해진다.",
+    "studentGeneral": "갈래와 맥락을 알면 작품을 “무슨 내용인가”가 아니라 “어떻게 의미를 만들었는가”로 읽을 수 있다.",
+    "questions": [
+      "이 작품의 갈래적 특징을 보여 주는 표현, 구조, 서술 방식은 무엇인가?",
+      "작가·독자·사회문화·문학사 맥락은 작품의 의미 형성에 어떻게 관여하는가?",
+      "작품 해석에서 갈래 근거와 맥락 근거 중 어느 쪽이 더 설득력 있게 작동하는가?",
+      "새로운 작품을 읽을 때 갈래와 맥락 분석 절차를 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "갈래 특성-해석 근거 비교표",
+      "작품 맥락 지도",
+      "해석 관점 수정 메모"
+    ],
+    "evidence": [
+      "갈래별 형상화 방식을 작품 근거로 구분함",
+      "작가·독자·사회문화·문학사 맥락을 해석에 연결함",
+      "맥락 자료와 작품 내부 근거의 관계를 설명함",
+      "다른 갈래로 바뀔 때 의미 변화 가능성을 추론함"
+    ],
+    "data": "작품에서 화자, 서술자, 인물, 장면 전환, 운율, 문체, 시점, 대화 방식 등을 표시하고 작가·독자·사회문화·문학사 맥락 자료와 연결한다.",
+    "modeling": "갈래 요소-맥락 조건-해석 효과 매트릭스를 만들어 작품 내부 근거와 외부 맥락 근거의 역할을 나누어 설명한다.",
+    "source": "시·소설·희곡·수필 발췌문, 작가 소개, 발표 시기, 독자 반응 자료, 문학사 개관 자료",
+    "scale": "범위: 갈래 요소-작품 내부 근거-외부 맥락-해석 효과 / 맥락: 갈래·맥락과 한국 문학사",
+    "uncertainty": "외부 맥락이 작품 해석을 풍부하게 하지만 작품 내부 근거 없이 맥락만으로 의미를 단정하면 과잉 해석이 될 수 있다.",
+    "misconception": "갈래는 시, 소설, 수필 같은 분류명을 외우는 지식이다.",
+    "correction": "갈래 명칭보다 갈래가 의미를 만드는 방식, 즉 화자·서술·장면·운율·문체의 기능을 먼저 표시하게 한다.",
+    "failure": "학생이 작가 생애나 시대 설명만 나열하면 그 정보가 작품의 어떤 표현을 새롭게 보게 하는지 근거 문장과 연결하게 한다.",
+    "safe": "작가 개인사나 역사적 사건을 단정적으로 소비하지 않도록 자료 출처를 확인하고, 작품과 작가를 단순 동일시하지 않게 지도한다.",
+    "deepDive": "동일한 사건이나 정서를 시와 소설이 각각 어떻게 형상화하는지 비교하고, 갈래가 독자의 공감 방식에 미치는 영향을 분석한다.",
+    "career": "국어교육, 문학연구, 출판편집, 공연기획, 문화콘텐츠, 비평",
+    "sample": "시와 소설 발췌문을 화자, 시점, 장면 구성, 문체 항목으로 분해해 같은 상실의 정서가 갈래에 따라 다르게 형상화됨을 설명함. 처음에는 작가의 생애 정보를 작품 의미와 직접 연결했으나, 피드백 후 작품 내부의 어조 변화와 서술 거리감을 우선 근거로 삼고 시대 맥락을 보조 근거로 배치하여 해석의 타당성을 높임.",
+    "official": [
+      "문학-4 / 서술형 / 문학의 갈래를 고려하여 작품 해석하기. 문학의 맥락을 고려하여 작품 해석하기."
+    ],
+    "tool": "문학-4 / 서술형 / 문학의 갈래를 고려하여 작품 해석하기. 문학의 맥락을 고려하여 작품 해석하기.",
+    "standard": "문학의 여러 갈래들의 특성과 문학의 맥락에 대해 이해한다.",
+    "levels": {
+      "A": "문학의 갈래에 따른 세계 인식과 형상화의 특성을 심층적으로 파악하고, 작가 맥락, 독자 맥락, 사회･문화적 맥락, 문학사적 맥락 등을 종합적으로 고려하여 작품을 비평할 수 있다.",
+      "B": "문학의 갈래에 따른 세계 인식과 형상화의 특성을 파악하고, 작가 맥락, 독자 맥락, 사회･문화적 맥락, 문학사적 맥락 등을 고려하여 작품을 비평할 수 있다.",
+      "C": "문학의 갈래에 따른 형상화의 특성을 파악하고, 작가 맥락, 독자 맥락, 사회･문화적 맥락, 문학사적 맥락을 고려하여 작품을 해석하고 감상할 수 있다.",
+      "D": "문학의 갈래에 따른 형상화의 특성을 이해하고 작가 맥락, 독자 맥락, 사회･문화적 맥락, 문학사적 맥락을 부분적으로 고려하여 작품을 해석하고 감상할 수 있다.",
+      "E": "문학의 갈래에 따른 형상화의 특성을 일부 이해하고 작가 맥락, 독자 맥락, 사회･문화적 맥락, 문학사적 맥락을 제한적으로 고려하여 작품을 이해한다."
+    }
+  },
+  {
+    "code": "[12문학01-03]",
+    "domain": "갈래·맥락과 한국 문학사",
+    "title": "한국 문학의 범위와 갈래는 어떻게 변화해 왔는가?",
+    "type": "문학사 탐구형",
+    "period": "4차시",
+    "lens": "연속성과 변화",
+    "concept": "한국 문학의 범위와 갈래 변화",
+    "related": "창작 주체, 표현 언어, 내용, 향가, 시조, 가사, 고전소설, 현대시, 현대소설, 문학사, 비교·대조",
+    "phenomenon": "고전 시가, 고전 산문, 근현대시, 현대소설의 일부를 시대순으로 놓고 표현 언어, 창작 주체, 독자층, 갈래 관습의 변화를 관찰한다.",
+    "conflict": "문학사는 작품과 작가를 시대순으로 외우는 내용이라고 보기 쉽다. 그러나 한국 문학의 범위와 갈래 변화 탐구는 작품의 언어, 창작 주체, 독자, 형식 관습이 사회 변화와 함께 어떻게 이동했는지 근거로 밝히는 활동이다.",
+    "general": "한국 문학의 범위와 갈래는 고정된 목록이 아니라 창작 주체, 표현 언어, 독자층, 사회적 조건에 따라 확장되고 변화해 온 문화적 체계이다.",
+    "studentGeneral": "문학사는 외울 연표가 아니라 작품의 형식과 독자가 바뀌며 문학의 세계가 넓어지는 과정이다.",
+    "questions": [
+      "각 시대 작품에서 한국 문학의 범위와 갈래를 판단하게 하는 근거는 무엇인가?",
+      "창작 주체, 표현 언어, 독자층의 변화는 갈래의 변화와 어떻게 연결되는가?",
+      "한국 문학의 범위를 정할 때 언어, 작가, 독자, 주제 중 무엇을 더 중요하게 보아야 하는가?",
+      "오늘날 웹소설, 노래 가사, 디지털 서사가 한국 문학의 범위 논의에 던지는 질문은 무엇인가?"
+    ],
+    "products": [
+      "한국 문학 갈래 변화 타임라인",
+      "작품 비교·대조 주석표",
+      "문학 범위 판단 근거 카드"
+    ],
+    "evidence": [
+      "주요 작품의 갈래 특성과 변화 지점을 비교함",
+      "창작 주체·표현 언어·독자층을 근거로 범위를 설명함",
+      "작품 간 공통점과 차이를 문학사 흐름에 연결함",
+      "현대 문학 현상으로 문학 범위 질문을 확장함"
+    ],
+    "data": "작품별 창작 시기, 표현 언어, 작가·창작 주체, 독자층, 갈래 관습, 주제 의식을 표로 정리하고 변화 지점에 작품 근거를 붙인다.",
+    "modeling": "시대-갈래-언어-독자-사회 조건을 연결한 문학사 변화 지도를 만들고, 두 작품의 비교·대조 결과를 일반화 문장으로 정리한다.",
+    "source": "향가·시조·가사·고전소설·현대시·현대소설 발췌문, 문학사 개관 자료, 디지털 문학 사례",
+    "scale": "범위: 주요 작품-갈래 관습-문학사 흐름-현대적 확장 / 맥락: 한국 문학사 탐구",
+    "uncertainty": "문학의 범위 판단은 기준에 따라 달라질 수 있으므로 언어, 창작 주체, 독자, 문화적 맥락 중 어떤 기준을 적용했는지 밝혀야 한다.",
+    "misconception": "한국 문학사는 시대별 대표 작품과 작가를 외우는 것이다.",
+    "correction": "작품을 시대순으로 배열한 뒤 각 작품의 형식과 독자, 표현 언어가 어떻게 달라졌는지 비교 근거를 표시하게 한다.",
+    "failure": "학생이 연표 정리에만 머물면 한 갈래를 선택해 전후 시기의 작품 두 편을 비교하고 변화의 원인을 작품 근거로 설명하게 한다.",
+    "safe": "고전 작품의 성·계층·지역 표현을 다룰 때 오늘의 기준으로 단순 비난하거나 미화하지 않고 당시 맥락과 현재적 의미를 분리해 검토한다.",
+    "deepDive": "시조와 현대시, 고전소설과 웹소설을 비교해 갈래 관습의 지속과 변형을 분석하고 한국 문학의 범위 기준을 제안한다.",
+    "career": "국어교육, 문학연구, 출판, 디지털콘텐츠, 문화유산, 기록학",
+    "sample": "시조와 현대시를 표현 언어, 화자 위치, 독자층, 형식 관습으로 비교하여 한국 문학의 갈래가 고정된 틀이 아니라 시대별 소통 조건 속에서 변화해 왔음을 설명함. 단순 연표 정리에서 벗어나 고전 작품의 정형성과 현대 작품의 자유로운 행 배열이 정서 표현 방식에 미치는 차이를 근거로 제시하고, 웹 기반 서사의 등장을 한국 문학 범위 확장의 사례로 연결함.",
+    "official": [
+      "문학-5 / 서술형 / 역사적 갈래의 특징과 변화 양상을 파악하기. 문학 작품을 비교 및 대조하여 능동적으로 감상하기."
+    ],
+    "tool": "문학-5 / 서술형 / 역사적 갈래의 특징과 변화 양상을 파악하기. 문학 작품을 비교 및 대조하여 능동적으로 감상하기.",
+    "standard": "주요 작품을 중심으로 한국 문학의 범위와 갈래, 변화 양상을 탐구한다.",
+    "levels": {
+      "A": "주요 작품을 중심으로 창작 주체, 표현 언어, 내용 등을 종합적으로 고려하여 한국 문학의 범위를 설명할 수 있으며 작품을 비교하고 대조하며 한국 문학의 갈래가 지니는 특징과 변화 양상을 탐구할 수 있다.",
+      "B": "주요 작품을 중심으로 창작 주체, 표현 언어, 내용 등을 고려하여 한국 문학의 범위를 이해할 수 있으며 작품을 비교하고 대조하며 한국 문학의 갈래가 지니는 특징과 변화 양상을 탐구할 수 있다.",
+      "C": "주요 작품을 중심으로 창작 주체, 표현 언어, 내용 등을 고려하여 한국 문학의 범위를 이해할 수 있으며 한국 문학의 갈래가 지니는 특징과 변화 양상을 탐구할 수 있다.",
+      "D": "주요 작품을 중심으로 창작 주체, 표현 언어, 내용 등을 부분적으로 고려하여 한국 문학의 범위를 이해할 수 있으며 한국 문학의 갈래가 지니는 특징과 변화 양상을 탐구할 수 있다.",
+      "E": "주요 작품을 중심으로 창작 주체, 표현 언어, 내용 등을 부분적으로 고려하여 한국 문학의 범위 및 갈래와 변화 양상을 제한적으로 이해한다."
+    }
+  },
+  {
+    "code": "[12문학01-04]",
+    "domain": "갈래·맥락과 한국 문학사",
+    "title": "문학은 시대를 반영하는가, 시대를 움직이는가?",
+    "type": "역사 맥락 탐구형",
+    "period": "4차시",
+    "lens": "역사성과 상호 영향",
+    "concept": "문학과 역사의 상호 영향",
+    "related": "시대 상황, 역사적 맥락, 인물의 삶, 사회 구조, 이념, 전쟁, 산업화, 민주화, 기억, 증언",
+    "phenomenon": "분단, 산업화, 민주화, 생태 위기 등 시대 상황이 반영된 작품의 핵심 장면과 당시 사회 자료를 함께 제시해 문학과 역사의 관계를 관찰한다.",
+    "conflict": "작품의 시대 배경은 줄거리 이해를 돕는 배경지식이라고 보기 쉽다. 그러나 문학과 역사 탐구는 시대 상황이 인물의 삶과 표현 방식에 어떻게 스며들고, 작품이 다시 시대 인식에 어떤 질문을 던지는지 밝히는 과정이다.",
+    "general": "문학은 시대 상황의 단순한 반영물이 아니라 역사적 경험을 형상화하고 기억하게 하며, 독자가 현재의 문제를 다시 질문하도록 만드는 문화적 행위이다.",
+    "studentGeneral": "작품 속 시대는 배경이 아니라 인물의 선택과 독자의 질문을 움직이는 힘이다.",
+    "questions": [
+      "작품 속 어느 장면과 표현이 특정 시대 상황을 드러내는가?",
+      "시대 상황은 인물의 선택, 갈등, 서술 방식, 정서 표현에 어떻게 영향을 주는가?",
+      "문학 작품은 역사를 있는 그대로 반영하는가, 아니면 새로운 관점으로 재구성하는가?",
+      "이 작품이 오늘의 사회 문제를 이해하거나 질문하게 하는 방식은 무엇인가?"
+    ],
+    "products": [
+      "작품 장면-시대 상황 연결표",
+      "문학과 역사 상호 영향 지도",
+      "현재적 의미 전이 질문 카드"
+    ],
+    "evidence": [
+      "시대 상황이 드러나는 장면과 표현을 표시함",
+      "역사 자료와 작품 내부 근거를 구분해 연결함",
+      "문학이 역사 인식에 던지는 질문을 설명함",
+      "현재 사회 문제와 작품의 의미를 조심스럽게 연결함"
+    ],
+    "data": "작품의 사건, 인물의 선택, 공간, 어휘, 상징, 갈등 구조를 표시하고, 해당 시대의 사회적 조건과 역사 자료를 작품 내부 근거와 나란히 배치한다.",
+    "modeling": "작품 근거-역사 맥락-인물의 삶-현재적 질문의 네 칸 구조로 문학과 역사의 상호 영향 관계를 설명한다.",
+    "source": "시대 상황이 반영된 한국 문학 작품, 역사 연표, 신문·사진·구술 자료, 문학사 해설, 공공기관 역사 자료",
+    "scale": "범위: 작품 장면-시대 상황-역사 인식-현재적 의미 / 맥락: 문학과 역사",
+    "uncertainty": "역사 자료와 문학 작품은 사실성과 형상화 방식이 다르므로 작품을 사료처럼 단정하거나 역사 자료를 작품 해석의 전부로 삼지 않는다.",
+    "misconception": "시대 배경을 알면 작품 해석은 끝난다.",
+    "correction": "시대 정보가 작품의 어떤 장면, 인물, 표현을 다르게 읽게 하는지 연결 문장을 쓰게 한다.",
+    "failure": "학생이 시대 설명을 길게 정리하면 작품 속 인물의 말, 행동, 갈등 장면 하나를 골라 역사 맥락과 1:1로 연결하게 한다.",
+    "safe": "전쟁, 폭력, 차별 등 민감한 역사 경험을 다룰 때 피해 경험을 자극적으로 소비하지 않고 자료 출처와 표현 윤리를 점검한다.",
+    "deepDive": "동일한 역사 사건을 다룬 문학 작품과 역사 서술을 비교해 문학적 형상화가 역사 인식에 추가하는 정서와 질문을 분석한다.",
+    "career": "역사학, 국어교육, 사회학, 기록학, 언론, 문화기획, 평화교육",
+    "sample": "분단을 다룬 작품에서 인물의 침묵, 가족 관계의 단절, 공간 이동 장면을 표시하고 이를 전쟁과 이념 대립의 역사 맥락과 연결해 분석함. 시대 배경 설명을 나열하던 초안을 수정하여 작품 속 상징적 사물과 대화의 공백이 개인의 삶에 남은 역사적 상처를 드러낸다는 해석으로 발전시켰고, 문학이 역사를 기억하는 방식과 현재의 갈등 이해에 주는 질문을 제시함.",
+    "official": [
+      "문학-1 / 선다형 / 문학 작품에 반영된 시대 상황을 이해하기.",
+      "문학-6 / 서술형 / 등장인물의 삶을 시대 상황에 비추어 분석하기. 문학 작품 속에 담긴 시대 상황 파악하기."
+    ],
+    "tool": "문학-1 / 선다형 / 문학 작품에 반영된 시대 상황을 이해하기. / 문학-6 / 서술형 / 등장인물의 삶을 시대 상황에 비추어 분석하기. 문학 작품 속에 담긴 시대 상황 파악하기.",
+    "standard": "한국 문학에 반영된 시대 상황을 이해하고 문학과 역사의 상호 영향 관계를 탐구한다.",
+    "levels": {
+      "A": "시대 상황이 반영된 한국 문학을 다양하게 찾아 읽으며 시대적 상황을 작품 이해에 효과적으로 활용하고, 문학과 역사의 상호 영향 관계를 심층적으로 탐구할 수 있다.",
+      "B": "시대 상황이 반영된 한국 문학을 다양하게 찾아 읽으며 시대적 상황을 작품의 이해에 활용하고, 문학과 역사의 상호 영향 관계를 탐구할 수 있다.",
+      "C": "시대 상황이 반영된 한국 문학을 찾아 읽으며 시대적 상황을 작품 이해에 활용하고, 문학과 역사의 상호 영향 관계를 탐구할 수 있다.",
+      "D": "시대 상황이 반영된 한국 문학을 찾아 읽으며 시대 상황을 작품 이해에 부분적으로 활용하고, 문학이 역사의 영향을 받고 있음을 탐구할 수 있다.",
+      "E": "시대 상황이 반영된 한국 문학을 읽으며 시대 상황을 작품 이해에 제한적으로 활용한다."
+    }
+  },
+  {
+    "code": "[12문학01-05]",
+    "domain": "비교문학과 보편성·특수성",
+    "title": "한국 문학의 보편성과 특수성은 비교 속에서 어떻게 드러나는가?",
+    "type": "비교문학 탐구형",
+    "period": "3차시",
+    "lens": "보편성과 특수성",
+    "concept": "한국 문학의 보편성과 특수성",
+    "related": "비교 읽기, 주제, 표현 방식, 문화 맥락, 역사적 발전, 번역, 독자 반응, 세계문학",
+    "phenomenon": "사랑, 성장, 상실, 저항, 가족, 자연 등을 다룬 한국 작품과 외국 작품을 함께 읽고 주제와 표현 방식의 공통점·차이점을 관찰한다.",
+    "conflict": "한국 작품과 외국 작품 비교는 비슷한 점과 다른 점을 찾는 활동으로 끝나기 쉽다. 그러나 비교문학 탐구는 공통된 인간 경험과 특정 역사·문화에서 형성된 표현 방식의 차이를 함께 설명하는 과정이다.",
+    "general": "문학의 보편성은 인간 경험의 공통 질문에서, 특수성은 언어·역사·문화적 형상화 방식에서 드러나며 비교 읽기는 두 층위를 동시에 보게 한다.",
+    "studentGeneral": "다른 나라 작품과 비교하면 한국 문학이 함께 나누는 인간 질문과 한국 문학만의 표현 방식이 더 또렷하게 보인다.",
+    "questions": [
+      "두 작품이 공통으로 다루는 인간 경험이나 삶의 질문은 무엇인가?",
+      "언어, 상징, 정서, 관계, 역사 맥락의 차이는 작품 의미를 어떻게 다르게 만드는가?",
+      "보편성과 특수성 중 어느 관점이 작품의 가치를 더 잘 설명하는가?",
+      "한국 문학을 세계문학의 독자에게 소개한다면 어떤 근거와 맥락을 함께 제시해야 하는가?"
+    ],
+    "products": [
+      "한국·외국 작품 비교 읽기표",
+      "보편성·특수성 근거 지도",
+      "세계 독자 대상 작품 소개문 설계안"
+    ],
+    "evidence": [
+      "두 작품의 주제와 표현 방식을 구체적 근거로 비교함",
+      "공통 인간 경험과 문화적 차이를 구분함",
+      "번역·문화 맥락이 해석에 미치는 영향을 설명함",
+      "한국 문학의 가치를 사례 중심으로 제시함"
+    ],
+    "data": "두 작품의 핵심 장면, 상징, 인물 관계, 정서 표현, 문화적 배경을 같은 기준으로 표시하고 공통점과 차이점을 작품 근거로 정리한다.",
+    "modeling": "보편 질문-한국 작품 근거-외국 작품 근거-문화적 특수성-세계 독자 설명의 비교 구조를 만든다.",
+    "source": "한국 현대시·소설과 외국 시·소설 번역본, 작가·문화 맥락 자료, 번역어 비교 자료, 독자 반응 자료",
+    "scale": "범위: 작품 쌍-주제-표현 방식-문화 맥락-세계 독자 / 맥락: 비교문학",
+    "uncertainty": "번역 작품은 번역자의 선택과 문화적 배경 설명에 따라 의미가 달라질 수 있으므로 원문 정보, 번역어, 맥락 자료의 한계를 함께 점검한다.",
+    "misconception": "비교 읽기는 공통점과 차이점을 많이 찾는 활동이다.",
+    "correction": "비교 항목을 작품 가치 판단과 연결하게 하고, 단순 차이보다 그 차이가 의미를 어떻게 바꾸는지 설명하게 한다.",
+    "failure": "학생이 문화 차이를 일반화하면 작품 속 구체적 장면과 표현으로 돌아가 차이가 실제로 드러나는 근거를 확인하게 한다.",
+    "safe": "다른 문화의 작품을 비교할 때 문화적 고정관념이나 우열 판단으로 흐르지 않도록 작품 근거와 맥락 자료를 균형 있게 활용한다.",
+    "deepDive": "한국의 가족 서사와 외국의 성장 서사를 비교해 가족, 개인, 공동체에 대한 가치관이 어떻게 다르게 형상화되는지 분석한다.",
+    "career": "비교문학, 번역, 국제문화교류, 한국어교육, 출판, 콘텐츠 기획",
+    "sample": "한국 시와 외국 시를 상실의 정서, 자연 이미지, 화자의 거리감 항목으로 비교하고 두 작품이 인간의 상실 경험이라는 보편적 질문을 공유하면서도 한국 작품은 계절 이미지와 여백의 정서를 통해 감정을 절제하는 특수성을 보인다고 설명함. 번역어 선택이 정서의 강도를 바꿀 수 있음을 점검하며 세계 독자에게 작품을 소개할 때 필요한 문화 맥락을 근거 중심으로 제안함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 작품 근거 해석과 문학 활동 기반 성취기준 도달 평가",
+    "standard": "한국 작품과 외국 작품을 비교하며 읽고 한국 문학의 보편성과 특수성을 파악한다.",
+    "levels": {
+      "A": "한국 작품과 외국 작품을 비교하며 읽고, 주제나 표현 방식 등에서 보이는 한국 문학의 보편성과 고유한 역사적 발전에 따라 형성된 한국 문학의 특수성을 다양한 사례를 들어 설명할 수 있다.",
+      "B": "한국 작품과 외국 작품을 비교하며 읽고, 주제나 표현 방식 등에서 보이는 한국 문학의 보편성과 고유한 역사적 발전에 따라 형성된 한국 문학의 특수성을 사례를 들어 설명할 수 있다.",
+      "C": "한국 작품과 외국 작품을 비교하며 읽고, 주제나 표현 방식 등에서 보이는 한국 문학의 보편성과 고유한 역사적 발전에 따라 형성된 한국 문학의 특수성을 파악할 수 있다.",
+      "D": "한국 작품과 외국 작품을 비교하며 읽고, 주제나 표현 방식 등에서 보이는 한국 문학의 보편성과 고유한 역사적 발전에 따라 형성된 한국 문학의 특수성을 부분적으로 파악할 수 있다.",
+      "E": "한국 작품과 외국 작품을 비교하며 읽고, 주제나 표현 방식 등에서 보이는 공통점과 차이점을 파악한다."
+    }
+  },
+  {
+    "code": "[12문학01-06]",
+    "domain": "내용·형식과 작품 수용",
+    "title": "작품의 내용은 왜 특정한 형식을 필요로 하는가?",
+    "type": "형식·내용 분석형",
+    "period": "3차시",
+    "lens": "내용과 형식의 유기성",
+    "concept": "내용과 형식의 관계",
+    "related": "주제 의식, 운율, 이미지, 상징, 시점, 구성, 문체, 갈래 관습, 표현 효과, 수용",
+    "phenomenon": "동일한 주제를 다른 형식으로 표현한 시와 산문, 또는 시점·구성·상징이 두드러진 작품을 제시해 내용과 형식의 결합 방식을 관찰한다.",
+    "conflict": "작품의 내용과 형식은 따로 분석한 뒤 합치면 된다고 보기 쉽다. 그러나 문학 작품에서 형식은 주제를 담는 겉모양이 아니라 내용이 의미를 얻는 방식 자체이다.",
+    "general": "문학 작품의 주제 의식은 운율, 이미지, 시점, 구성, 문체 같은 형식적 선택을 통해 구현되며, 내용과 형식의 관계를 파악할 때 작품 수용은 더 깊어진다.",
+    "studentGeneral": "작품의 형식은 꾸밈이 아니라, 작품이 말하고자 하는 내용을 가능하게 하는 방식이다.",
+    "questions": [
+      "작품의 주제 의식을 드러내는 형식적 요소는 무엇인가?",
+      "운율, 이미지, 시점, 구성, 문체는 내용의 의미를 어떻게 강화하거나 변형하는가?",
+      "작품의 형식이 바뀐다면 주제나 독자 반응은 어떻게 달라질까?",
+      "새로운 작품을 읽을 때 내용과 형식의 관계를 분석하는 절차를 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "내용-형식 유기성 분석표",
+      "형식 요소별 표현 효과 주석",
+      "형식 변형 가정 실험 카드"
+    ],
+    "evidence": [
+      "형식적 요소를 작품 속 표현 근거로 표시함",
+      "형식 요소가 주제 의식과 연결되는 방식을 설명함",
+      "형식 변화가 의미 변화로 이어지는 가능성을 추론함",
+      "작품 수용 과정에서 내용과 형식을 함께 고려함"
+    ],
+    "data": "작품의 운율, 반복, 이미지, 상징, 시점, 구성, 문체, 행갈이, 장면 배열을 표시하고 각각이 주제 의식과 독자 반응에 미치는 효과를 연결한다.",
+    "modeling": "형식 요소-작품 근거-내용 효과-독자 수용의 연결망을 만들고, 형식을 바꿨을 때 의미가 어떻게 달라지는지 가정 실험을 실시한다.",
+    "source": "형식적 특징이 뚜렷한 시·소설·희곡·수필, 같은 주제의 다른 형식 작품, 학생의 형식 변형 초안",
+    "scale": "범위: 형식 요소-주제 의식-표현 효과-작품 수용 / 맥락: 내용·형식과 작품 수용",
+    "uncertainty": "형식 효과는 독자에 따라 다르게 수용될 수 있으므로 해석은 작품 근거, 갈래 관습, 독자 반응을 함께 고려해야 한다.",
+    "misconception": "형식은 운율이나 시점 같은 문학 용어를 찾는 활동이다.",
+    "correction": "용어를 표시한 뒤 반드시 “이 형식 때문에 내용이 어떻게 다르게 느껴지는가”라는 효과 문장을 쓰게 한다.",
+    "failure": "학생이 형식 요소 목록만 만들면 가장 중요한 형식 요소 하나를 골라 주제 의식과 연결하는 세 문장 해석을 작성하게 한다.",
+    "safe": "학생 창작물을 예시로 다룰 때 표현의 우열보다 의도와 효과를 중심으로 피드백하고, 공개 범위를 학생이 선택하게 한다.",
+    "deepDive": "한 작품의 시점이나 화자를 바꾸어 짧게 재구성한 뒤, 원작의 형식 선택이 주제 의식에 왜 필요한지 비교 분석한다.",
+    "career": "문예창작, 국어교육, 영화·드라마 기획, 편집, 비평, 스토리텔링",
+    "sample": "작품의 반복 이미지와 시점 전환을 표시하고, 이 형식적 선택이 인물의 불안과 주제 의식을 독자에게 점진적으로 체감하게 하는 방식임을 분석함. 처음에는 주제를 요약하는 데 그쳤으나, 행 배열과 반복 표현을 바꾸어 보는 형식 변형 실험 뒤 원작의 압축적 표현이 정서의 긴장을 유지한다는 점을 작품 근거로 설명하며 내용과 형식의 유기성을 명확히 파악함.",
+    "official": [
+      "문학-2 / 선다형 / 내용과 형식의 연관성을 고려하여 작품을 수용하기."
+    ],
+    "tool": "문학-2 / 선다형 / 내용과 형식의 연관성을 고려하여 작품을 수용하기.",
+    "standard": "문학 작품에서는 내용과 형식이 긴밀하게 연관됨을 이해하며 작품을 수용한다.",
+    "levels": {
+      "A": "작품의 내용으로 구현된 주제 의식은 문화적, 관습적으로 형성된 문학 고유의 언어 형식으로 표현됨을 파악하고, 작품의 내용과 작품의 형식적 요소가 어떻게 어울리는지를 다양한 사례를 통해 구체적으로 파악하면서 작품을 주체적으로 수용할 수 있다.",
+      "B": "작품의 내용으로 구현된 주제 의식은 문화적, 관습적으로 형성된 문학 고유의 언어 형식으로 표현됨을 파악하고, 작품의 내용과 작품의 형식적 요소가 어떻게 어울리는지를 사례를 통해 파악하면서 작품을 수용할 수 있다.",
+      "C": "작품의 내용으로 구현된 주제 의식은 문화적, 관습적으로 형성된 문학 고유의 언어 형식으로 표현됨을 이해하고, 작품의 내용과 작품의 형식적 요소 간의 유기적 관계를 고려하여 작품을 수용할 수 있다.",
+      "D": "작품의 내용으로 구현된 주제 의식은 문화적, 관습적으로 형성된 문학 고유의 언어 형식으로 표현됨을 부분적으로 이해하고, 작품의 내용과 작품의 형식적 요소 간의 관계를 부분적으로 고려하여 작품을 수용할 수 있다.",
+      "E": "작품의 내용과 작품의 형식적 요소가 관련이 있음을 알고 작품을 읽는다."
+    }
+  },
+  {
+    "code": "[12문학01-07]",
+    "domain": "감상·비평·창작",
+    "title": "좋은 비평은 공감과 비판, 창의적 해석을 어떻게 함께 담는가?",
+    "type": "비평 워크숍형",
+    "period": "4차시",
+    "lens": "관점과 비평",
+    "concept": "공감적·비판적·창의적 감상",
+    "related": "공감, 비판, 창의적 해석, 비평 기준, 독자 관점, 인물 이해, 현실 인식, 근거 제시, 대안 해석",
+    "phenomenon": "논쟁적 인물이나 현실 문제가 담긴 작품을 읽고, 서로 다른 독자 반응과 짧은 비평문을 비교해 감상 관점의 차이를 관찰한다.",
+    "conflict": "비평은 작품의 장단점을 평가하는 글이라고 보기 쉽다. 그러나 문학 비평은 작품 근거를 바탕으로 공감, 비판, 창의적 해석을 조정하며 자신의 관점을 책임 있게 세우는 탐구 과정이다.",
+    "general": "공감적 감상은 인물과 세계에 접근하게 하고, 비판적 감상은 가치와 관점을 점검하게 하며, 창의적 감상은 새로운 의미와 표현 가능성을 열어 비평을 심화한다.",
+    "studentGeneral": "좋은 비평은 좋다·싫다의 판단이 아니라, 작품 근거로 공감하고 따져 보고 새롭게 읽는 과정이다.",
+    "questions": [
+      "작품 속 인물이나 현실에 공감하게 하는 근거와 비판하게 하는 근거는 각각 무엇인가?",
+      "독자의 관점과 처지는 작품 감상과 비평 기준을 어떻게 바꾸는가?",
+      "공감적 읽기와 비판적 읽기가 충돌할 때 비평은 어떤 기준을 따라야 하는가?",
+      "이 비평 관점을 다른 작품, 사회 현상, 창작 활동에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "공감·비판·창의 감상 삼각표",
+      "근거 기반 비평 관점 카드",
+      "동료 피드백 반영 비평문"
+    ],
+    "evidence": [
+      "공감과 비판의 근거를 작품 속 장면으로 구분함",
+      "자신의 관점과 다른 독자 반응을 비교함",
+      "비평 기준을 명시하고 작품 근거로 판단함",
+      "피드백 후 관점이나 표현을 수정함"
+    ],
+    "data": "작품 속 인물의 행동, 현실의 문제, 서술자의 태도, 결말의 의미를 표시하고 공감 근거, 비판 근거, 창의적 재해석 가능성을 나누어 정리한다.",
+    "modeling": "공감-비판-창의 해석의 삼각 구조에 작품 근거를 배치하고, 동료 비평과 비교해 자신의 비평 기준을 수정한다.",
+    "source": "공감과 비판이 모두 가능한 문학 작품, 독자 반응 사례, 짧은 문학 비평문, 학생 초안과 동료 피드백",
+    "scale": "범위: 작품 장면-독자 관점-비평 기준-표현 방식 / 맥락: 감상과 비평",
+    "uncertainty": "비평은 독자 관점의 영향을 받지만 작품 근거와 비평 기준이 분명해야 설득력을 얻는다.",
+    "misconception": "비평은 작품의 좋은 점과 아쉬운 점을 쓰는 것이다.",
+    "correction": "작품 근거, 비평 기준, 자신의 관점, 다른 해석 가능성을 네 요소로 나누어 비평 문장을 구성하게 한다.",
+    "failure": "학생이 감상평에 머물면 한 장면을 두고 공감 근거와 비판 근거를 동시에 찾게 한 뒤 어느 쪽 해석이 더 설득력 있는지 판단하게 한다.",
+    "safe": "차별, 폭력, 혐오 표현을 다루는 작품 비평에서는 피해자 관점과 표현 윤리를 고려하고, 학생 개인을 비난하는 토론으로 흐르지 않게 한다.",
+    "deepDive": "하나의 작품에 대해 생태주의, 젠더, 계급, 세대, 심리주의 중 두 관점을 적용해 해석 차이와 비평의 한계를 비교한다.",
+    "career": "문학비평, 국어교육, 언론, 문화평론, 출판, 영화·드라마 리뷰, 콘텐츠 기획",
+    "sample": "인물의 선택 장면을 공감 근거와 비판 근거로 나누어 주석하고, 동료의 해석과 비교하며 자신의 비평 기준을 조정함. 처음에는 인물의 행동을 단정적으로 평가했으나 서술자의 거리감과 시대적 조건을 함께 고려하면서 공감은 인물의 처지를 이해하는 과정이고 비판은 작품이 드러내는 가치의 한계를 점검하는 과정임을 구분해 비평 관점을 정교화함.",
+    "official": [
+      "문학-7 / 서술형 / 문학 작품을 공감적, 비판적, 창의적으로 감상하기. 문학 작품에 대해 다양한 방식으로 비평하기.",
+      "문학-11 / 프로젝트 / 적극적이고 주체적인 태도로 작품에 공감하거나 비판적 입장을 취하며 창의적으로 감상하기. - 문학 작품을 공감적, 비판적, 창의적으로 감상한다. - 문학 작품에 대해 다양한 방식으로 비평한다."
+    ],
+    "tool": "문학-7 / 서술형 / 문학 작품을 공감적, 비판적, 창의적으로 감상하기. 문학 작품에 대해 다양한 방식으로 비평하기. / 문학-11 / 프로젝트 / 적극적이고 주체적인 태도로 작품에 공감하거나 비판적 입장을 취하며 창의적으로 감상하기. - 문학 작품을 공감적, 비판적, 창의적으로 감상한다. - 문학 작품에 대해 다양한 방식으로 비평한다.",
+    "standard": "작품을 공감적, 비판적, 창의적으로 감상하며, 다양한 방식으로 작품에 대해 비평한다.",
+    "levels": {
+      "A": "자신의 처지와 관점에 따라 작품 속 인물의 행동이나 작품 속 현실에 공감하거나 비판적인 입장을 취하고 작품을 매개로 창의적인 생각을 펼침으로써 적극적이고 주체적 태도로 작품을 감상하며, 여러 근거를 들어 작품에 대해 설명하고 다양한 방식으로 작품을 비평할 수 있다.",
+      "B": "자신의 처지와 관점에 따라 작품 속 인물의 행동이나 작품 속 현실에 공감하거나 비판적인 입장을 취하고 작품을 매개로 창의적인 생각을 펼침으로써 작품을 감상하며, 근거를 들어 작품에 대해 설명하고 다양한 방식으로 작품을 비평할 수 있다.",
+      "C": "자신의 처지와 관점에 따라 작품 속 인물의 행동이나 작품 속 현실에 공감하거나 비판적인 입장을 취하고 작품을 매개로 창의적인 생각을 펼침으로써 작품을 감상하며, 다양한 방식으로 작품을 비평할 수 있다.",
+      "D": "작품 속 인물의 행동이나 작품 속 현실에 공감하거나 비판적인 입장을 취하고 작품을 매개로 창의적인 생각을 펼침으로써 작품을 감상하고 비평할 수 있다.",
+      "E": "작품 속 인물의 행동이나 작품 속 현실에 공감하거나 비판적인 입장을 취하고 작품을 매개로 창의적인 생각을 펼치며 감상한 작품의 내용에 대해 설명한다."
+    }
+  },
+  {
+    "code": "[12문학01-08]",
+    "domain": "감상·비평·창작",
+    "title": "재구성과 창작은 원작을 어떻게 새롭게 읽게 하는가?",
+    "type": "재구성·창작형",
+    "period": "4차시",
+    "lens": "재구성과 주체성",
+    "concept": "문학 재구성 및 창작",
+    "related": "가치관, 인식, 관점 전환, 화자·시점 변형, 결말 바꾸기, 갈래 변환, 창작 의도, 형식적 특징",
+    "phenomenon": "작품의 결말, 시점, 화자, 장면 배열을 바꾼 재구성 사례와 학생 창작 초안을 비교해 원작 해석과 창작 선택의 관계를 관찰한다.",
+    "conflict": "창작은 상상력을 발휘해 새롭게 쓰는 활동이라고 보기 쉽다. 그러나 문학 재구성과 창작은 원작의 가치관과 형식적 특징을 근거로 파악한 뒤, 주체적 관점에 따라 의도적으로 바꾸는 해석 행위이다.",
+    "general": "재구성과 창작은 작품에 담긴 가치관과 형식적 특징을 비판적으로 수용하고, 독자가 자신의 관점과 표현 의도를 문학적 형식으로 전환하는 과정이다.",
+    "studentGeneral": "새롭게 쓰기는 마음대로 바꾸는 일이 아니라, 원작을 깊이 읽고 내가 바꾸려는 의미를 형식으로 보여 주는 일이다.",
+    "questions": [
+      "원작에서 재구성하고 싶은 가치관, 인물 관계, 장면, 형식적 특징은 무엇인가?",
+      "화자, 시점, 결말, 갈래, 매체를 바꾸면 작품의 의미와 독자 반응은 어떻게 달라지는가?",
+      "원작의 의미를 존중하면서도 주체적 관점을 드러내는 창작의 기준은 무엇인가?",
+      "이 창작 전략을 나의 경험, 사회 문제, 다른 매체의 서사 창작에 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "원작 해석-재구성 의도 설계표",
+      "시점·결말·갈래 변형 초안",
+      "창작 의도와 효과 설명 카드"
+    ],
+    "evidence": [
+      "원작의 가치관과 형식적 특징을 근거로 파악함",
+      "재구성 선택의 이유와 효과를 설명함",
+      "창작물의 표현 방식이 의도와 연결됨",
+      "피드백 후 장면, 시점, 표현을 수정함"
+    ],
+    "data": "원작의 핵심 장면, 인물의 가치관, 서술 방식, 상징, 결말의 의미를 표시하고 어떤 요소를 왜 바꿀지 창작 의도와 연결한다.",
+    "modeling": "원작 근거-비판적 인식-재구성 선택-표현 효과의 창작 설계도를 만들고 초안과 수정본의 변화 이유를 기록한다.",
+    "source": "재구성 가능한 문학 작품, 각색·패러디·시점 전환 사례, 학생 창작 초안, 동료 피드백 기록",
+    "scale": "범위: 원작 해석-관점 전환-형식 선택-창작 효과 / 맥락: 감상·비평·창작",
+    "uncertainty": "재구성은 원작의 의미를 확장할 수도 왜곡할 수도 있으므로 어떤 원작 근거를 유지하고 어떤 관점을 바꾸었는지 밝혀야 한다.",
+    "misconception": "창작은 독창적이면 충분하고 원작 분석은 부차적이다.",
+    "correction": "창작 전 원작에서 반드시 유지할 요소와 의도적으로 바꿀 요소를 나누어 쓰게 한다.",
+    "failure": "학생이 줄거리 바꾸기에만 몰리면 시점, 어조, 상징, 문체 중 하나를 선택해 그 형식 변화가 의미를 어떻게 바꾸는지 설명하게 한다.",
+    "safe": "동료 작품을 피드백할 때 개인 경험을 평가하지 않고 표현 의도, 작품 근거, 독자 효과를 중심으로 말하도록 규칙을 세운다.",
+    "deepDive": "원작의 주변 인물 관점에서 한 장면을 다시 쓰고, 시점 전환이 권력 관계와 독자 공감 구조를 어떻게 바꾸는지 분석한다.",
+    "career": "문예창작, 극작, 웹소설, 게임시나리오, 영화·드라마 각색, 광고 카피, 국어교육",
+    "sample": "원작의 결말과 서술 시점을 분석한 뒤 주변 인물의 관점으로 핵심 장면을 재구성하고, 시점 변화가 책임과 공감의 방향을 어떻게 바꾸는지 설명함. 창작 초안에서는 사건 추가에 집중했으나 피드백 후 원작의 반복 이미지와 말투를 선택적으로 유지하면서 새로운 화자의 침묵을 강조해, 재구성이 원작 해석을 확장하는 방식임을 창작 의도와 표현 효과로 제시함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 작품 근거 해석과 문학 활동 기반 성취기준 도달 평가",
+    "standard": "작품을 읽고 새로운 시각으로 재구성하거나 주체적인 관점에서 작품을 창작한다.",
+    "levels": {
+      "A": "작품을 읽고 작품에 담긴 가치관과 인식을 비판적으로 파악하여 주제나 내용을 종합적으로 재구성하는 과정에서 문학의 갈래적 특성이나 형식적 특징을 이해할 수 있고 자신의 생각이나 감정을 풍부하게 담은 창의적이고 개성적인 작품을 창작할 수 있다.",
+      "B": "작품을 읽고 작품에 담긴 가치관과 인식을 비판적으로 파악하여 주제나 내용을 재구성하는 과정에서 문학의 갈래적 특성이나 형식적 특징을 이해할 수 있고 자신의 생각이나 감정을 담은 작품을 창작할 수 있다.",
+      "C": "작품을 읽고 작품에 담긴 가치관과 인식을 비판적으로 파악하여 주제나 내용을 재구성하거나 자신의 생각이나 감정을 담은 작품을 창작할 수 있다.",
+      "D": "작품을 읽고 작품에 담긴 가치관과 인식을 파악하여 주제나 내용을 재구성하거나 자신의 생각이나 감정을 담은 작품을 창작할 수 있다.",
+      "E": "작품을 읽고 작품에 담긴 가치관과 인식을 파악하여 주제나 내용의 일부를 재구성한다."
+    }
+  },
+  {
+    "code": "[12문학01-09]",
+    "domain": "매체·소통·문학 생활",
+    "title": "매체가 바뀌면 문학의 표현과 아름다움은 어떻게 달라지는가?",
+    "type": "매체 변환 비평형",
+    "period": "3차시",
+    "lens": "매체성과 심미성",
+    "concept": "매체 구현과 문학적 소통",
+    "related": "매체 특성, 영상, 음성, 이미지, 웹툰, 공연, 낭독, 편집, 창의적 표현, 심미적 가치, 수용과 소통",
+    "phenomenon": "시 낭독 영상, 소설의 영화 장면, 웹툰화된 서사, 오디오북, 공연 장면을 원작과 비교해 매체 특성이 표현 방식과 심미적 가치에 미치는 영향을 관찰한다.",
+    "conflict": "매체 변환은 원작을 보기 쉽게 바꾸는 활동이라고 보기 쉽다. 그러나 매체 문학 탐구는 매체의 소리, 이미지, 시간, 편집, 화면 구성 등이 문학적 의미와 아름다움을 어떻게 새롭게 만드는지 비평하는 과정이다.",
+    "general": "문학 작품은 매체의 특성에 따라 표현 방법과 심미적 가치가 달라지며, 독자는 원작의 문학적 요소와 매체 구현 방식의 관계를 비평적으로 수용하고 소통해야 한다.",
+    "studentGeneral": "같은 작품도 매체가 바뀌면 의미를 느끼는 방식이 달라지므로, 무엇이 어떻게 바뀌었는지 문학적으로 따져 보아야 한다.",
+    "questions": [
+      "원작의 어떤 문학적 요소가 매체 구현에서 강조되거나 약화되었는가?",
+      "소리, 화면, 편집, 연기, 이미지 같은 매체 요소는 작품의 의미와 심미성을 어떻게 바꾸는가?",
+      "매체 구현 작품은 원작에 충실해야 하는가, 새로운 해석을 제시해야 하는가?",
+      "내가 작품을 다른 매체로 구현한다면 어떤 문학적 요소를 중심에 둘 것인가?"
+    ],
+    "products": [
+      "원작-매체 구현 비교표",
+      "매체 표현 효과 분석 카드",
+      "문학적 관점의 매체 비평문"
+    ],
+    "evidence": [
+      "원작의 문학적 요소와 매체 요소를 구분함",
+      "매체 특성이 의미와 심미성에 미치는 효과를 분석함",
+      "원작 충실성과 창의적 변형의 균형을 판단함",
+      "수용자와 소통 방식의 변화를 설명함"
+    ],
+    "data": "원작의 화자, 서술, 이미지, 상징, 장면을 표시하고 매체 구현물의 소리, 색채, 화면 구성, 편집, 배우의 표현, 플랫폼 특성을 대응시킨다.",
+    "modeling": "원작 요소-매체 요소-표현 변화-심미적 가치-수용자 반응의 비교 모델로 매체 구현 작품을 비평한다.",
+    "source": "문학 작품 원문, 낭독·영상·웹툰·공연·오디오북 구현물, 제작 인터뷰, 독자·관객 반응 자료",
+    "scale": "범위: 원작-매체 요소-표현 변화-심미적 가치-소통 / 맥락: 매체 문학",
+    "uncertainty": "매체 구현의 가치는 원작 충실성만으로 판단할 수 없으며, 매체 특성과 수용자의 경험에 따라 평가 기준이 달라질 수 있다.",
+    "misconception": "좋은 매체 변환은 원작 내용을 빠뜨리지 않는 것이다.",
+    "correction": "원작의 모든 내용을 옮겼는지보다 어떤 문학적 요소를 매체 특성으로 새롭게 구현했는지 판단하게 한다.",
+    "failure": "학생이 줄거리 차이만 비교하면 소리, 화면, 편집, 이미지 중 하나를 선택해 그 매체 요소가 작품의 정서나 의미를 어떻게 바꾸었는지 분석하게 한다.",
+    "safe": "영상·이미지 자료를 활용할 때 저작권과 초상권을 확인하고, 공개 플랫폼에 올리는 활동은 학교 지침과 개인정보 보호 기준을 따른다.",
+    "deepDive": "한 편의 시를 낭독, 영상, 이미지 카드 세 방식으로 구현하고 매체별로 정서와 의미 전달 방식이 어떻게 달라지는지 비교 비평한다.",
+    "career": "영화·영상, 웹툰, 공연예술, 콘텐츠 기획, 미디어커뮤니케이션, 출판, 국어교육",
+    "sample": "소설 원작의 서술 거리와 상징적 장면을 표시한 뒤 영화화 장면의 화면 구도, 조명, 침묵 처리와 대응시켜 매체 구현의 효과를 분석함. 줄거리 생략 여부를 평가하던 초안을 수정하여 원작의 내면 서술이 영상에서는 배우의 시선과 장면 편집으로 전환된다는 점을 설명하고, 매체 변환이 원작 훼손이 아니라 새로운 문학적 소통 방식이 될 수 있음을 비평적으로 제시함.",
+    "official": [
+      "문학-8 / 서술형 / 다양한 매체의 특성을 파악하고 작품 감상하기. 다양한 매체로 구현된 작품의 창의적 표현 방법과 심미적 가치를 파악하고 비평하기."
+    ],
+    "tool": "문학-8 / 서술형 / 다양한 매체의 특성을 파악하고 작품 감상하기. 다양한 매체로 구현된 작품의 창의적 표현 방법과 심미적 가치를 파악하고 비평하기.",
+    "standard": "다양한 매체로 구현된 작품의 창의적 표현 방법과 심미적 가치를 문학적 관점에서 수용하고 소통한다.",
+    "levels": {
+      "A": "작품이 구현된 다양한 매체의 특성을 이해하여 구현 매체에 따른 작품의 창의적 표현 방법과 심미적 가치를 문학적 관점에서 비평적으로 수용하고 능동적인 태도로 소통할 수 있다.",
+      "B": "작품이 구현된 다양한 매체의 특성을 이해하여 구현 매체에 따른 작품의 창의적 표현 방법과 심미적 가치를 문학적 관점에서 수용하고 능동적인 태도로 소통할 수 있다.",
+      "C": "작품이 구현된 다양한 매체의 특성을 이해하여 구현 매체에 따른 작품의 창의적 표현 방법과 심미적 가치를 문학적 관점에서 수용하고 소통할 수 있다.",
+      "D": "다양한 매체로 구현된 작품의 창의적 표현 방법과 심미적 가치를 문학적 관점에서 수용하고 소통할 수 있다.",
+      "E": "다양한 매체로 구현된 작품의 창의적 표현 방법과 심미적 가치를 이해한다."
+    }
+  },
+  {
+    "code": "[12문학01-10]",
+    "domain": "매체·소통·문학 생활",
+    "title": "문학은 자아 성찰과 타자 이해를 어떻게 가능하게 하는가?",
+    "type": "자아·타자 성찰형",
+    "period": "3차시",
+    "lens": "성찰과 공감",
+    "concept": "자아 성찰과 타자 이해",
+    "related": "작가 가치관, 인물·화자 태도, 자기 경험, 타자성, 공감, 상호 소통, 치유, 독자 반응",
+    "phenomenon": "인물의 고통, 선택, 관계 갈등이 두드러진 작품을 읽고 자신의 경험과 타자의 처지를 연결한 독자 반응을 비교한다.",
+    "conflict": "문학을 통한 성찰은 내 경험을 떠올리는 활동이라고 보기 쉽다. 그러나 자아 성찰과 타자 이해는 작품 속 인물과 화자의 태도를 근거로 자신의 가치와 타자의 삶을 조심스럽게 비교하며 소통하는 과정이다.",
+    "general": "문학은 독자가 자신의 경험과 가치를 대상화하고, 작품 속 타자의 목소리와 삶을 해석하게 하며, 상호 소통을 통해 자아와 세계의 관계를 다시 구성하게 한다.",
+    "studentGeneral": "문학을 읽는 성찰은 내 이야기를 쓰는 것에서 끝나지 않고, 작품 속 타자를 근거 있게 이해하며 나를 다시 보는 과정이다.",
+    "questions": [
+      "작품 속 인물이나 화자의 성격, 태도, 가치관을 보여 주는 근거는 무엇인가?",
+      "작품의 타자 경험은 나의 경험과 비슷한 점과 다른 점을 통해 어떤 성찰을 이끄는가?",
+      "자기 경험을 작품 해석에 연결할 때 공감과 투사의 경계는 어디에 있는가?",
+      "문학을 통한 성찰을 관계 회복, 상담, 공동체 소통의 언어로 어떻게 확장할 수 있는가?"
+    ],
+    "products": [
+      "인물·화자 태도 근거표",
+      "자아-타자 성찰 대화 카드",
+      "작품 기반 치유·소통 글쓰기 설계안"
+    ],
+    "evidence": [
+      "인물·화자의 태도를 작품 근거로 파악함",
+      "자기 경험과 타자 경험을 구분해 연결함",
+      "공감과 비판의 균형을 유지함",
+      "소통을 위한 표현 방식과 윤리를 성찰함"
+    ],
+    "data": "인물의 말과 행동, 화자의 어조, 관계 변화, 고통과 선택의 장면을 표시하고 자신의 경험과 연결되는 지점, 낯설게 느껴지는 지점, 더 알아야 할 지점을 나눈다.",
+    "modeling": "작품 근거-타자 이해-자기 성찰-상호 소통의 반성적 읽기 모델을 만들고, 개인 경험을 작품 해석의 보조 근거로만 사용한다.",
+    "source": "자아 성찰과 타자 이해가 가능한 문학 작품, 독자 반응 메모, 대화형 활동지, 치유 글쓰기 사례",
+    "scale": "범위: 인물·화자-자기 경험-타자 이해-상호 소통 / 맥락: 문학과 삶",
+    "uncertainty": "자기 경험을 작품에 과도하게 투사하면 타자의 삶을 단순화할 수 있으므로 작품 근거와 개인 경험의 경계를 분명히 한다.",
+    "misconception": "문학 성찰은 작품을 읽고 내 경험을 솔직하게 쓰는 것이다.",
+    "correction": "자기 경험을 쓰기 전에 작품 속 인물과 화자의 태도를 보여 주는 근거를 먼저 정리하게 한다.",
+    "failure": "학생이 사적 경험 고백에 치우치면 작품 속 장면으로 돌아가 타자를 이해하기 위해 필요한 질문을 만들게 한다.",
+    "safe": "개인적 상처나 가족 경험을 공개하도록 요구하지 않으며, 성찰 글은 비공개 선택권과 교사의 민감한 피드백 원칙을 보장한다.",
+    "deepDive": "같은 작품에 대한 세 독자의 반응을 비교해 공감, 투사, 거리두기가 타자 이해에 미치는 영향을 분석한다.",
+    "career": "상담심리, 국어교육, 사회복지, 인문치료, 독서치료, 문화예술교육",
+    "sample": "작품 속 화자의 어조 변화와 인물의 선택 장면을 근거로 타자의 고통을 단순 동정이 아니라 삶의 조건 속에서 이해해야 함을 설명함. 자신의 경험을 바로 연결하던 초안을 수정하여 작품 근거, 타자 이해, 자기 성찰을 구분했고, 동료와의 대화에서 서로 다른 독자 반응이 작품의 의미를 넓힌다는 점을 확인하며 문학을 통한 상호 소통의 태도를 구체화함.",
+    "official": [
+      "문학-9 / 논술형 / 문학 작품을 통해 자아 성찰하기. 문학 작품을 통해 타자 이해하기.",
+      "문학-12 / 프로젝트 / 문학을 통해 자아를 성찰하고 타인에게 공감하면서 상호 소통하기. - 문학 작품이 현대인의 삶에 제공하는 시사점을 파악한다. - 문학 작품의 주제 의식을 고려하여 자신의 삶을 성찰하고, 타인의 아픔에 공감하며 치유하는 글을 쓴다."
+    ],
+    "tool": "문학-9 / 논술형 / 문학 작품을 통해 자아 성찰하기. 문학 작품을 통해 타자 이해하기. / 문학-12 / 프로젝트 / 문학을 통해 자아를 성찰하고 타인에게 공감하면서 상호 소통하기. - 문학 작품이 현대인의 삶에 제공하는 시사점을 파악한다. - 문학 작품의 주제 의식을 고려하여 자신의 삶을 성찰하고, 타인의 아픔에 공감하며 치유하는 글을 쓴다.",
+    "standard": "문학을 통하여 자아를 성찰하고, 타자를 이해하며 상호 소통한다.",
+    "levels": {
+      "A": "작품에 반영된 작가의 가치관, 작품 속 인물 및 화자의 성격과 태도 등을 자신의 다양한 경험이나 가치와 연계하여 파악할 수 있으며, 이를 통해 자아를 깊이 있게 성찰하고 타자를 다층적으로 이해하며 삶과 작품에 대해 상호 소통할 수 있다.",
+      "B": "작품에 반영된 작가의 가치관, 작품 속 인물 및 화자의 성격과 태도 등을 자신의 경험이나 가치와 연계하여 파악할 수 있으며, 이를 통해 자아를 성찰하고 타자를 이해하며 삶과 작품에 대해 상호 소통할 수 있다.",
+      "C": "작품에 반영된 작가의 가치관, 작품 속 인물 및 화자의 성격과 태도 등에 대한 이해를 통해 자아를 성찰하고 타자를 이해하며 삶과 작품에 대해 상호 소통할 수 있다.",
+      "D": "작품 속 인물 및 화자의 성격과 태도 등에 대한 인식을 통해 자아를 성찰하고 타자를 이해하며 작품에 대해 상호 소통할 수 있다.",
+      "E": "작품 속 인물 및 화자의 성격과 태도 등을 자신과 비교하며 감상한다."
+    }
+  },
+  {
+    "code": "[12문학01-11]",
+    "domain": "매체·소통·문학 생활",
+    "title": "문학은 공동체 문제 해결에 어떤 방식으로 참여하게 하는가?",
+    "type": "공동체 문제 탐구형",
+    "period": "4차시",
+    "lens": "공동체와 실천",
+    "concept": "문학과 공동체 문제 해결",
+    "related": "생태 위기, 불평등, 차별, 다양성 존중, 사회적 상상력, 문제 해결, 참여, 책임, 소통",
+    "phenomenon": "생태 위기, 불평등, 차별, 노동, 이주, 세대 갈등을 다룬 작품과 현실 자료를 함께 읽고 작품이 공동체 문제를 형상화하는 방식을 관찰한다.",
+    "conflict": "문학은 사회 문제를 알리는 수단이라고 보기 쉽다. 그러나 공동체 문제 탐구로서의 문학은 문제의 구조와 타자의 목소리를 형상화하고, 독자가 존중과 책임의 태도로 해결 과정에 참여하도록 질문을 만든다.",
+    "general": "문학은 공동체 문제를 정서와 서사로 경험하게 하며, 다양성 존중과 비판적 상상력을 바탕으로 문제 해결을 위한 소통과 참여를 가능하게 한다.",
+    "studentGeneral": "문학은 사회 문제를 설명하는 자료가 아니라, 그 문제 속 사람의 목소리를 듣고 우리가 무엇을 할 수 있는지 묻게 하는 통로이다.",
+    "questions": [
+      "작품은 공동체가 처한 문제를 어떤 인물, 공간, 사건, 상징으로 드러내는가?",
+      "문학적 형상화는 현실 자료만으로는 보이지 않는 감정, 관계, 책임을 어떻게 보여 주는가?",
+      "문학을 읽은 뒤 문제 해결에 참여한다는 것은 감상, 비판, 실천 중 어디까지를 포함하는가?",
+      "작품에서 발견한 공동체 문제 인식을 학교나 지역의 소통 활동으로 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "작품 속 공동체 문제 구조도",
+      "타자 목소리 근거 주석표",
+      "문학 기반 문제 해결 소통 제안서"
+    ],
+    "evidence": [
+      "공동체 문제가 드러나는 장면과 표현을 표시함",
+      "현실 자료와 문학적 형상화의 차이를 설명함",
+      "다양성 존중과 문제 해결 관점을 균형 있게 제시함",
+      "학교·지역 차원의 소통 방안을 작품 근거와 연결함"
+    ],
+    "data": "작품 속 문제 상황, 피해와 책임의 구조, 침묵하거나 배제된 목소리, 상징적 공간, 결말의 질문을 표시하고 현실 자료와 비교한다.",
+    "modeling": "작품 근거-문제 구조-타자 목소리-해결 소통-참여 태도의 실천 연결도를 만든다.",
+    "source": "생태·불평등·차별·이주·노동·평화 관련 문학 작품, 공공기관 자료, 신문 기사, 지역 문제 자료, 독자 토론 기록",
+    "scale": "범위: 작품 장면-공동체 문제-현실 자료-소통과 참여 / 맥락: 문학과 공동체",
+    "uncertainty": "현실 문제를 문학 작품 하나로 단순화하면 문제 구조를 왜곡할 수 있으므로 작품의 정서적 통찰과 현실 자료의 사실 정보를 함께 사용한다.",
+    "misconception": "사회 문제를 다룬 작품은 교훈이나 주장만 찾으면 된다.",
+    "correction": "교훈을 말하기 전에 작품이 문제를 어떤 인물, 장면, 상징으로 체험하게 하는지 근거를 표시하게 한다.",
+    "failure": "학생이 실천 방안만 나열하면 그 방안이 작품의 어떤 문제 인식과 연결되는지 근거 장면을 붙이게 한다.",
+    "safe": "차별과 혐오를 다룰 때 특정 학생이나 집단을 사례화하지 않고, 피해 경험을 존중하는 토론 규칙과 표현 윤리를 적용한다.",
+    "deepDive": "생태 위기를 다룬 시와 현실 통계 자료를 함께 분석해 문학적 상상력과 과학적 자료가 문제 해결 담론에서 맡는 역할을 비교한다.",
+    "career": "사회학, 환경교육, 인권교육, 국어교육, 정책, 시민단체, 문화예술교육",
+    "sample": "생태 위기를 다룬 작품에서 훼손된 공간 이미지와 화자의 거리감을 표시하고, 현실 자료와 비교해 문학이 문제를 통계가 아닌 감각과 책임의 언어로 경험하게 한다는 점을 분석함. 해결 방안을 단순 제안하던 초안을 수정하여 작품 속 배제된 목소리와 지역의 실제 문제를 연결하고, 다양성 존중을 전제로 한 학교 내 소통 활동의 절차와 한계를 함께 제시함.",
+    "official": [
+      "문학-10 / 논술형 / 문학 작품에 담긴 견해를 자신의 관점으로 평가하기. 다른 견해 예측하고 반박하기. 문제 해결 방안 제시하기."
+    ],
+    "tool": "문학-10 / 논술형 / 문학 작품에 담긴 견해를 자신의 관점으로 평가하기. 다른 견해 예측하고 반박하기. 문제 해결 방안 제시하기.",
+    "standard": "문학을 통해 공동체가 처한 여러 문제들을 이해하고 문제 해결에 참여하는 태도를 지닌다.",
+    "levels": {
+      "A": "생태적 위기, 사회적 불평등 및 차별의 문제 등을 다루는 문학 작품을 통해 공동체의 여러 문제를 이해하여 분석하고 다양성에 대한 존중을 바탕으로 문제를 해결하기 위한 소통의 과정에 적극적으로 참여한다.",
+      "B": "생태적 위기, 사회적 불평등 및 차별의 문제 등을 다루는 문학 작품을 통해 공동체의 여러 문제를 이해하고 다양성에 대한 존중을 바탕으로 문제를 해결하기 위한 소통의 과정에 참여한다.",
+      "C": "생태적 위기, 사회적 불평등 및 차별의 문제 등을 다루는 문학 작품을 통해 공동체의 여러 문제를 이해하고 문제를 해결하기 위한 소통의 과정에 참여한다.",
+      "D": "생태적 위기, 사회적 불평등 및 차별의 문제 등을 다루는 문학 작품에 나타난 공동체의 문제를 이해하고 문제를 해결하는 데 관심을 가진다.",
+      "E": "생태적 위기, 사회적 불평등 및 차별의 문제 등을 다루는 문학 작품에 나타난 공동체의 문제를 이해한다."
+    }
+  },
+  {
+    "code": "[12문학01-12]",
+    "domain": "매체·소통·문학 생활",
+    "title": "문학을 즐기는 생활은 어떻게 지속 가능한 배움이 되는가?",
+    "type": "문학 생활 포트폴리오형",
+    "period": "3차시",
+    "lens": "향유와 지속성",
+    "concept": "주체적 문학 생활화",
+    "related": "문학 향유, 독서 공동체, 창작 습관, 관심사, 작품 선택, 경험 확장, 포트폴리오, 지속적 참여",
+    "phenomenon": "학생의 작품 선택 기록, 독서 모임 사례, 온라인 문학 플랫폼, 학교 문집, 낭독회·북토크 활동을 비교해 문학 활동이 생활 속에서 지속되는 조건을 관찰한다.",
+    "conflict": "문학 생활화는 책을 많이 읽거나 감상 활동에 참여하는 태도라고 보기 쉽다. 그러나 주체적 문학 생활은 자신의 관심사에 맞게 작품을 선택하고 읽기·쓰기 경험을 확장하며 지속 가능한 참여 방식을 설계하는 과정이다.",
+    "general": "문학 향유는 개인의 흥미, 작품 선택 기준, 공동체와의 소통, 창작과 공유 경험이 연결될 때 지속 가능한 삶의 문화가 된다.",
+    "studentGeneral": "문학을 즐긴다는 것은 많이 읽었다는 기록보다, 내가 왜 이 작품을 선택했고 어떻게 내 경험을 넓혔는지 설명할 수 있는 것이다.",
+    "questions": [
+      "나는 어떤 관심사와 질문을 기준으로 문학 작품을 선택하는가?",
+      "읽기, 쓰기, 낭독, 토론, 공유 활동은 문학 경험을 어떻게 확장하는가?",
+      "문학을 즐기는 활동을 평가하거나 기록할 때 양보다 과정과 지속성을 어떻게 확인할 수 있는가?",
+      "나의 진로, 삶의 문제, 공동체 활동과 연결되는 문학 생활 계획을 어떻게 설계할 수 있는가?"
+    ],
+    "products": [
+      "개인 문학 향유 포트폴리오",
+      "작품 선택 기준과 경험 확장 지도",
+      "30일 문학 생활 실천 설계표"
+    ],
+    "evidence": [
+      "관심사에 맞는 작품 선택 기준을 제시함",
+      "읽기·쓰기·공유 활동의 경험 확장 과정을 기록함",
+      "문학 활동의 지속 가능 조건을 분석함",
+      "자기 삶과 진로에 맞는 문학 생활 계획을 설계함"
+    ],
+    "data": "자신의 관심사, 선택한 작품, 읽거나 쓴 방식, 공유 경험, 새롭게 생긴 질문, 다음 작품 선택 이유를 시간순으로 기록한다.",
+    "modeling": "관심사-작품 선택-문학 활동-경험 확장-다음 질문의 순환 모델을 만들어 지속 가능한 문학 생활 계획을 세운다.",
+    "source": "학생 독서·창작 기록, 학교 문집, 도서관 추천 목록, 온라인 문학 플랫폼, 낭독회·북토크 사례, 독자 공동체 자료",
+    "scale": "범위: 관심사-작품 선택-활동 참여-경험 확장-지속 계획 / 맥락: 문학 생활화",
+    "uncertainty": "문학 생활의 가치는 작품 수나 활동 횟수만으로 판단하기 어렵기 때문에 선택 이유, 해석 변화, 경험 확장, 지속 계획을 함께 보아야 한다.",
+    "misconception": "문학을 생활화한다는 것은 책을 많이 읽는 것이다.",
+    "correction": "읽은 양보다 작품 선택 기준, 읽고 난 뒤 생긴 질문, 공유나 창작으로 확장한 과정을 기록하게 한다.",
+    "failure": "학생이 독서 목록만 제출하면 한 작품을 골라 선택 이유, 인상 깊은 근거, 새로 생긴 질문, 다음 활동 계획을 연결하게 한다.",
+    "safe": "온라인 문학 플랫폼과 공유 활동을 할 때 저작권, 댓글 예절, 개인정보 보호, 창작물 공개 범위를 확인한다.",
+    "deepDive": "관심 분야와 연결된 작품 3편을 선택해 30일 문학 생활 프로젝트를 운영하고, 작품 선택 기준과 해석 변화가 어떻게 달라졌는지 포트폴리오로 분석한다.",
+    "career": "국어교육, 사서, 출판, 문예창작, 문화예술교육, 콘텐츠 커뮤니티 운영, 평생교육",
+    "sample": "자신의 관심사인 관계와 성장 문제를 기준으로 작품을 선택하고, 읽기 주석·짧은 창작·동료 추천 활동을 연결해 문학 경험이 어떻게 확장되는지 포트폴리오로 구조화함. 단순 독서 목록에서 출발했으나 작품 선택 이유, 인상 깊은 구절, 새로 생긴 질문, 다음 작품 선택 기준을 순환적으로 기록하며 문학 활동을 진로 탐구와 일상적 성찰의 지속 가능한 습관으로 설계함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 작품 근거 해석과 문학 활동 기반 성취기준 도달 평가",
+    "standard": "주체적인 문학 활동을 생활화하여 지속적으로 문학을 즐기는 태도를 지닌다.",
+    "levels": {
+      "A": "자신의 흥미와 관심사에 따라 주체적으로 다양한 문학 작품을 찾아 읽거나 쓰는 과정에서 경험의 영역을 확장할 수 있고 일상생활에서 지속적으로 다양한 문학 활동에 참여하며 문학을 향유할 수 있다.",
+      "B": "자신의 흥미와 관심사에 따라 문학 작품을 찾아 읽거나 쓰는 과정에서 경험의 영역을 확장할 수 있고 일상생활에서 지속적으로 다양한 문학 활동에 참여하며 문학을 향유할 수 있다.",
+      "C": "자신의 흥미와 관심사에 따라 문학 작품을 찾아 읽거나 쓰는 과정에서 경험의 영역을 확장할 수 있고 일상생활에서 문학 활동에 참여하며 문학을 향유할 수 있다.",
+      "D": "자신의 흥미와 관심사에 따라 문학 작품을 찾아 읽으며 의미를 발견할 수 있고 일상생활에서 문학 활동에 참여할 수 있다.",
+      "E": "문학 작품을 읽으며 의미를 발견할 수 있고 문학에 관심을 가진다."
+    }
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·작품근거","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "문학의 본질과 삶의 의미":"atmo",
+  "갈래·맥락과 한국 문학사":"green",
+  "비교문학과 보편성·특수성":"geo",
+  "내용·형식과 작품 수용":"astro",
+  "감상·비평·창작":"gold",
+  "매체·소통·문학 생활":"red"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "atmo");}
+function accent(d){return "accent-" + (DOMAIN_KEY[d] || "atmo");}
+function openView(id){
+  var views=document.querySelectorAll(".view");
+  for(var i=0;i<views.length;i++) views[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle("on", btns[j].dataset.view===id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+(function bindNav(){
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var i=0;i<btns.length;i++){
+    (function(b){ b.onclick=function(){ openView(b.dataset.view); }; })(btns[i]);
+  }
+})();
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill' + (solid?' solid':'') + '">' + esc(x) + '</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">' +
+    '<div class="blk-h"><span>' + esc(title) + '</span>' + (hint?'<span class="hint">' + esc(hint) + '</span>':"") + '</div>' +
+    body +
+  '</div>';
+}
+function recordCompetencyGuide(x){
+  var evidence = Array.isArray(x.evidence) ? x.evidence.slice(0,3) : [];
+  var product = Array.isArray(x.products) && x.products.length ? x.products[0] : "문학 탐구 산출물";
+  var transfer = Array.isArray(x.questions) && x.questions.length > 3 ? x.questions[3] : "새로운 작품 읽기·해석 상황에 적용할 수 있는가?";
+  return block("대학이 읽는 탐구력 포인트 — 세특 문장화 안내",
+    '<div class="cards3">' +
+      '<div class="card accent-atmo">' +
+        '<h4>작품·맥락 자료 선정과 해석 렌즈</h4>' +
+        '<p>산출물명(<b>' + esc(product) + '</b>)만 쓰는 대신, 학생이 어떤 작품·맥락 자료를 고르고 어떤 해석 렌즈과 해석 목적을 적용했는지 기록합니다. 자료 근거: ' + esc(x.source || "작품·맥락 자료") + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4>해석 수정과 비평 관점 확장</h4>' +
+        '<p>' + esc(x.data || "") + '</p>' +
+        '<p><b>관찰 단서:</b> ' + esc(evidence.join(" / ")) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro">' +
+        '<h4>비평·창작과 삶의 문제 전이</h4>' +
+        '<p>' + esc(x.uncertainty || "자료 범위, 관점 차이, 독자 반응, 작품 감상 맥락 변화에 따른 한계를 점검합니다.") + '</p>' +
+        '<p><b>전이 질문:</b> ' + esc(transfer) + '</p>' +
+      '</div>' +
+    '</div>',
+    "예시 문장에는 작품 근거 선정, 해석 렌즈, 관점 수정, 비평·창작 전이 과정을 함께 남깁니다"
+  );
+}
+function filtered(){
+  var s=document.getElementById("search");
+  var d=document.getElementById("domain");
+  var t=document.getElementById("type");
+  var q=(s && s.value ? s.value : "").toLowerCase();
+  var domainVal=d && d.value ? d.value : "전체 영역";
+  var typeVal=t && t.value ? t.value : "전체 수업 유형";
+  return DATA.filter(function(x){
+    return (domainVal==="전체 영역" || x.domain===domainVal) &&
+      (typeVal==="전체 수업 유형" || x.type.indexOf(typeVal)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  var inArr=false;
+  for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ inArr=true; break; } }
+  if(!inArr && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '' +
+      '<button class="std-item ' + (i===current ? "on" : "") + '" onclick="select(' + i + ')">' +
+        '<div>' +
+          '<span class="code">' + esc(x.code) + '</span>' +
+          '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+          (x.official.length ? '<span class="chip">평가도구</span>' : '') +
+        '</div>' +
+        '<span class="std-title">' + esc(x.title) + '</span>' +
+        '<span class="std-text">' + esc(x.standard) + '</span>' +
+      '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+
+
+function tableRows(x){
+  return '' +
+    '<div class="lesson-hd">' +
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 01</span>도입<br>작품 읽기·해석 과제 발견</div>' +
+      '<div>교사는 다음 작품·맥락 자료를 제시하고 학생이 설명이 필요한 구절, 장면, 표현, 갈래적 특징과 첫 해석의 이유를 말하게 한다.<br><b>' + esc(x.phenomenon) + '</b></div>' +
+      '<div>학생은 화자·서술자, 인물, 장면, 표현, 갈래, 맥락, 처음 떠오른 해석을 분리해 기록한다.</div>' +
+      '<div>작품 읽기 쟁점 카드<br>초기 해석지</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 02</span>맥락 설정</div>' +
+      '<div>교사는 개념 렌즈, 감상 목적, 작품 감상 맥락, 작품 인용·비평 윤리 원칙을 안내한다.</div>' +
+      '<div>학생은 작품에서 확인할 구절, 장면, 형식 요소, 맥락 자료, 해석 렌즈를 선택하고 근거를 정리한다.</div>' +
+      '<div>맥락 탐구표<br>작품 인용 점검표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 03</span>작품 근거 분석</div>' +
+      '<div>교사는 학생의 문학 개념 적용이 단순 용어 확인이 아니라 작품 근거와 표현 효과 분석으로 이어지는지 점검한다.</div>' +
+      '<div>학생은 ' + esc(x.data) + '</div>' +
+      '<div>' + esc(x.products[0]) + '</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 04</span>구조화·수정</div>' +
+      '<div>교사는 해석 선택의 효과, 다른 독자 반응, 대안 해석, 맥락 자료 활용의 한계를 비교하도록 질문한다.</div>' +
+      '<div>학생은 ' + esc(x.modeling) + '</div>' +
+      '<div>해석 구조도<br>관점 수정 근거표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 05</span>성찰·전이</div>' +
+      '<div>교사는 피드백 후 해석 관점 수정과 새로운 작품 읽기·비평·창작 상황으로의 적용을 연결하게 한다.</div>' +
+      '<div>학생은 최종 해석의 조건과 한계를 설명하고, 자신의 문학 생활 또는 새로운 비평·창작 수행에 적용할 기준을 제시한다.</div>' +
+      '<div>해석 초안·수정본<br>문학 전이표</div>' +
+    '</div>';
+}
+
+function rubric(x){
+  var levels=x.levels || {};
+  function row(k){
+    var txt=levels[k] || "성취수준 자료를 확인해 보완한다.";
+    return '<div class="lv-row"><div class="lv ' + k + '">' + k + '</div><div class="lv-text">' + esc(txt) + '</div></div>';
+  }
+  return '<div class="rubric">' + row("A") + row("B") + row("C") + row("D") + row("E") + '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">' + arr.map(function(x){
+    return '<div class="step"><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={};
+
+  panels.overview =
+    block("성취기준 원문", '<div class="std-full"><b>' + esc(x.code) + '</b>' + esc(x.standard) + '</div>') +
+    '<div class="cards">' +
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4><span class="icon">i</span>수업 비평 개요</h4>' +
+        '<p><b>제목 :</b> ' + esc(x.title) + '</p>' +
+        '<p><b>유형 :</b> ' + esc(x.type) + '</p>' +
+        '<p><b>권장 차시 :</b> ' + esc(x.period) + '</p>' +
+        '<p><b>탐구 설계 :</b> ' + (x.official.length ? esc(x.official.join(", ")) : "성취기준 기반 CBI 탐구") + '</p>' +
+        '<p><b>핵심 개념 :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈 :</b> ' + esc(x.lens) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4><span class="icon">▲</span>핵심 산출물</h4>' +
+        pills(x.products) +
+      '</div>' +
+    '</div>' +
+    block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+    block("예시 평가도구 연결", '<div class="card"><p>' + esc(x.tool) + '</p></div>', "성취기준·성취수준 기반 평가");
+
+  panels.cbi =
+    block("개념 형성의 흐름",
+      '<div class="cards">' +
+        '<div class="card accent-gold">' +
+          '<h4><span class="icon">F</span>현상(Phenomenon)</h4>' +
+          '<p>' + esc(x.phenomenon) + '</p>' +
+        '</div>' +
+        '<div class="card ' + accent(x.domain) + '">' +
+          '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>' +
+          '<p>' + esc(x.conflict) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="general" style="margin-top:.9rem">' +
+        '<div class="gen-row">' +
+          '<b>교사용 일반화 진술 (Generalization)</b>' +
+          '<p>' + esc(x.general) + '</p>' +
+        '</div>' +
+        '<div class="gen-row">' +
+          '<b>학생용 일반화 진술 (Student-Friendly)</b>' +
+          '<p>' + esc(x.studentGeneral) + '</p>' +
+        '</div>' +
+      '</div>',
+      "Erickson & Lanning CBI 모형"
+    ) +
+    block("탐구 질문 4종 — 사실에서 전이까지",
+      '<div class="q-grid">' +
+        '<div class="q fact"><b>Factual · 사실적 질문</b><p>' + esc(qs[0]) + '</p></div>' +
+        '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>' + esc(qs[1]) + '</p></div>' +
+        '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>' + esc(qs[2]) + '</p></div>' +
+        '<div class="q transfer"><b>Transfer · 전이 질문</b><p>' + esc(qs[3]) + '</p></div>' +
+      '</div>',
+      "수업 도입·전개·마무리 3구간에 배치"
+    ) +
+    block("핵심 개념과 관련 개념",
+      '<div class="card">' +
+        '<p><b>핵심 개념(Macro Concept) :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈(Conceptual Lens) :</b> ' + esc(x.lens) + '</p>' +
+        '<p><b>관련 개념(Related Concepts) :</b> ' + esc(x.related) + '</p>' +
+      '</div>'
+    );
+
+  panels.lesson =
+    block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+    block("교사 발문 세트 — 즉시 사용 가능",
+      '<div class="cards">' +
+        '<div class="card accent-atmo">' +
+          '<h4>탐구 전 발문</h4>' +
+          '<ul>' +
+            '<li>이 작품에서 화자·서술자, 인물, 갈래, 맥락은 무엇인가?</li>' +
+            '<li>우리는 어떤 구절·장면·형식 요소와 문학 개념을 근거로 해석해야 하는가?</li>' +
+            '<li>첫 감상만으로 판단할 때 놓치는 다른 장면, 맥락, 독자 관점은 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>탐구 중 발문</h4>' +
+          '<ul>' +
+            '<li>작품 근거를 어떤 주석표, 맥락 비교표, 비평 구조도, 창작 설계도로 바꾸면 해석이 더 선명해지는가?</li>' +
+            '<li>해석 차이는 작품 근거, 맥락 자료, 독자 관점, 갈래 이해 중 무엇에서 생기는가?</li>' +
+            '<li>우리 해석이 충분히 반영하지 못한 다른 장면, 타자 관점, 대안 비평 기준은 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>탐구 후 발문</h4>' +
+          '<ul>' +
+            '<li>오늘 만든 해석 기준을 새로운 작품 읽기, 문학 비평, 창작, 매체 변환 활동에 적용해 보자.</li>' +
+            '<li>학생부 기록 근거로 남길 수 있는 작품 주석, 해석 관점 비교, 비평·창작 설계, 피드백 후 해석 수정 장면은 무엇인가?</li>' +
+            '<li>다음 탐구에서 작품 근거 선정, 맥락 자료 활용, 비평 기준, 창작 의도 설명을 어떻게 개선할 수 있는가?</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("오개념·실패 상황 대처·안전",
+      '<div class="cards3">' +
+        '<div class="card accent-red">' +
+          '<h4>예상 오개념</h4>' +
+          '<p>' + esc(x.misconception) + '</p>' +
+          '<p><b>피드백 :</b> ' + esc(x.correction) + '</p>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>실패 상황 대처</h4>' +
+          '<p>' + esc(x.failure) + '</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>안전·자료·작품 인용·비평 윤리</h4>' +
+          '<p>' + esc(x.safe) + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+
+  panels.worksheet =
+    block("학생 활동지 문항 — 실제 기록용",
+      steps([
+        "오늘 읽은 작품에서 가장 설명이 필요한 구절·장면·표현을 쓰시오.",
+        qs[1],
+        "탐구에서 사용할 작품 구절, 장면, 문학 개념, 맥락 자료, 작품 인용·비평 윤리 원칙을 쓰시오.",
+        x.data,
+        x.modeling,
+        "작품에서 찾은 구절·장면·형식 요소와 해석의 관계를 한 문장으로 쓰시오.",
+        "작품 근거-맥락-해석 구조로 결론을 쓰시오.",
+        "해석의 한계, 대안 해석, 다른 독자 반응, 맥락 자료의 불확실성을 2가지 이상 쓰시오.",
+        qs[3]
+      ])
+    ) +
+    block("작품 근거 처리 안내 — 출처·분석 방법·자료·작품 인용·비평 윤리",
+      '<div class="card accent-atmo">' +
+        '<h4>작품·맥락 자료</h4>' +
+        '<p>' + esc(x.source) + '</p>' +
+      '</div>' +
+      '<div class="card accent-geo" style="margin-top:.8rem">' +
+        '<h4>분석 범위</h4>' +
+        '<p>' + esc(x.scale) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green" style="margin-top:.8rem">' +
+        '<h4>작품 근거 처리</h4>' +
+        '<p>' + esc(x.data) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro" style="margin-top:.8rem">' +
+        '<h4>모형화</h4>' +
+        '<p>' + esc(x.modeling) + '</p>' +
+      '</div>' +
+      '<div class="card accent-gold" style="margin-top:.8rem">' +
+        '<h4>작품·맥락·해석 한계</h4>' +
+        '<p>' + esc(x.uncertainty) + '</p>' +
+        '<p><b>작품 해석 문장 틀 :</b> “이 작품의 핵심 해석 과제는 <b>' + esc(x.concept) + '</b> 개념으로 설명할 수 있으며, 나의 작품 해석과 비평·창작 선택은 <b>' + esc(x.lens) + '</b> 관점에서 더 타당한 근거 해석과 문학적 전이 기준으로 확장될 수 있다.”</p>' +
+      '</div>'
+    );
+
+  panels.assessment =
+    block("수행평가 과제",
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4>' + esc(x.title) + '</h4>' +
+        '<p>핵심 산출물(<b>' + esc(x.products[0]) + '</b>)을 제출하고, 성취기준 원문에 도달했음을 작품 근거 분석, 맥락 연결, 해석 관점 수정, 비평·창작 전략 적용 근거로 설명한다.</p>' +
+      '</div>'
+    ) +
+    block("평가 요소",
+      '<div class="cards3">' +
+        '<div class="card accent-atmo">' +
+          '<h4>지식·이해</h4>' +
+          '<p>' + esc(x.concept) + '와 관련 개념의 정확한 설명</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>과정·기능</h4>' +
+          '<p>작품 근거 표시, 갈래·맥락 분석, 해석 관점 비교, 비평·창작 설계, 표현 효과 분석, 피드백 반영 성찰</p>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>가치·태도</h4>' +
+          '<p>작품 근거 기반 해석, 공감, 비판, 창의성, 존중, 문학 향유 태도</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+    block("피드백 방향",
+      '<div class="card">' +
+        '<p><b>보충 :</b> 문학 용어 나열에 머물지 말고 구절·장면·형식 요소·맥락 자료 중 하나를 근거로 해석을 표현하게 한다.</p>' +
+        '<p><b>심화 :</b> 다른 해석 관점 적용, 원작과 재구성 비교, 매체 구현 비평, 개인·공동체 차원의 문학적 전이 과제를 추가하게 한다.</p>' +
+      '</div>'
+    );
+
+  panels.record =
+    '<div class="record">' +
+      '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>' +
+      '<p>' + esc(x.evidence.join(" / ")) + '</p>' +
+    '</div>' +
+    block("관찰 가능한 수행 증거 정리",
+      '<div class="cards">' +
+        '<div class="card accent-green">' +
+          '<h4>기록 가능한 산출물</h4>' +
+          pills(x.products) +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>권장 기록 소재</h4>' +
+          '<p>「' + esc(x.title) + '」 수업에서 작품·맥락 자료 선정, 관점 분석, 비평·창작 전략 적용 과정을 통해 <b>' + esc(x.concept) + '</b> 개념을 설명하고, 피드백과 독자 반응을 반영해 더 타당한 초안 수정과 문학적 소통 기준으로 사고를 확장함.</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("세부능력 및 특기사항 기록 예시",
+      '<div class="sample-record">' + esc(x.sample) + '</div>',
+      "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+    ) +
+    recordCompetencyGuide(x) +
+    block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+      '<div class="card accent-astro">' +
+        '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
+        '<p>' + esc(x.deepDive) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>전이 질문</h4>' +
+        '<p style="font-family:\'Fraunces\',serif">' + esc(x.questions[3]) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>연계 진로 분야</h4>' +
+        pills(x.career.split(", ")) +
+      '</div>'
+    );
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="' + (tab===id?'on':'') + '" onclick="setTab(\'' + id + '\')">' +
+      '<span class="t-n">' + n + '</span>' + label +
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML =
+    '<div class="detail-hd">' +
+      '<div class="chip-row">' +
+        '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+        '<span class="chip">' + esc(x.code) + '</span>' +
+        (x.official.length ? '<span class="chip">성취기준 기반 설계</span>' : '<span class="chip">CBI 탐구</span>') +
+        '<span class="chip">' + esc(x.period) + '</span>' +
+      '</div>' +
+      '<h2>' + esc(x.title) + '</h2>' +
+      '<div class="std-full"><b>성취기준 원문</b>' + esc(x.standard) + '</div>' +
+    '</div>' +
+    '<div class="tabbar">' + tabbar + '</div>' +
+    '<div class="panel">' + panel(x) + '</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML = DATA.map(function(x,i){
+    return '<tr>' +
+      '<td><span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span></td>' +
+      '<td class="mcode" onclick="openStandard(' + i + ')">' + esc(x.code) + '</td>' +
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">' + esc(x.title) + '</b></td>' +
+      '<td>' + esc(x.type) + '</td>' +
+      '<td>' + esc(x.concept) + '</td>' +
+      '<td>' + esc(x.products.join(", ")) + '</td>' +
+      '<td>' + esc(x.evidence.join(" / ")) + '</td>' +
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","자료출처","분석범위","작품·맥락·해석한계","심화탐구","연계진로"]
+  ];
+  for(var i=0;i<DATA.length;i++){
+    var x=DATA[i];
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.source, x.scale, x.uncertainty, x.deepDive, x.career
+    ]);
+  }
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="문학_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>=0 && idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>
