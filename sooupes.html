@@ -2221,6 +2221,36 @@ function scienceRecordBridge(x){
   );
 }
 
+function scienceRecordCompetencyGuide(x){
+  var guide = scienceCourseGuide(x);
+  var evidence = Array.isArray(x.evidence) ? x.evidence.slice(0,3) : [];
+  var product = Array.isArray(x.products) && x.products.length ? x.products[0] : "탐구 산출물";
+  var method = x.data || x.calculation || x.modeling || "";
+  var transfer = Array.isArray(x.questions) && x.questions.length > 3 ? x.questions[3] : "새로운 맥락으로 전이할 수 있는가?";
+  return block("대학이 읽는 탐구력 포인트 — 세특 문장화 안내",
+    '<div class="science-upgrade-grid">' +
+      '<div class="science-upgrade-card">' +
+        '<div class="science-kicker">Inquiry Question</div>' +
+        '<h4>관측 자료와 질문 설정의 구체성</h4>' +
+        '<p><b>' + esc(product) + '</b>을(를) 만들기 전, 학생이 어떤 시간·공간 규모와 자료 출처를 기준으로 질문을 세웠는지 기록합니다. 핵심 렌즈는 <b>' + esc(x.lens) + '</b>입니다.</p>' +
+      '</div>' +
+      '<div class="science-upgrade-card">' +
+        '<div class="science-kicker">Evidence Handling</div>' +
+        '<h4>자료 변환과 근거 기반 추론</h4>' +
+        '<p>' + esc(method) + '</p>' +
+        '<p><b>관찰 단서:</b> ' + esc(evidence.join(" / ")) + '</p>' +
+      '</div>' +
+      '<div class="science-upgrade-card">' +
+        '<div class="science-kicker">Revision & Transfer</div>' +
+        '<h4>불확실성 점검과 지구·우주 맥락 전이</h4>' +
+        '<p>' + esc(x.correction || x.failure || guide.process) + '</p>' +
+        '<p><b>전이 질문:</b> ' + esc(transfer) + '</p>' +
+      '</div>' +
+    '</div>',
+    "세특 문장은 관측 자료, 변환 과정, 불확실성 점검, 지구·우주 맥락 전이가 보이게 가공합니다"
+  );
+}
+
 
 function panel(x){
   var qs=x.questions;
@@ -2429,6 +2459,7 @@ function panel(x){
       '<div class="sample-record">' + esc(x.sample) + '</div>',
       "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
     ) +
+    scienceRecordCompetencyGuide(x) +
     block("심화 탐구 주제 — 자기주도 탐구로의 확장",
       '<div class="card accent-astro">' +
         '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
