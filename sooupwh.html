@@ -1,0 +1,2483 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 세계사 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 세계사 13개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 사료 비판, 역사적 맥락화, 관점 비교, 역사 글쓰기, 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#0f6980;
+  --atmo-bg:#e1f0f3;
+  --geo:#8a5a1f;
+  --geo-bg:#f1e6d6;
+  --astro:#4c4f93;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(15,105,128,.035), transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(76,79,147,.030), transparent 40%);
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:-.025em;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:-.04em}
+ul,ol{margin:.4rem 0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:4.35rem;
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:.04em;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:.1em;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:clamp(1.7rem,2.8vw,2.4rem);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.1em;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:.12em;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.05em;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:.02em;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:.15em;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="mark">史</div>
+      <div class="b-text">
+        <strong>일반선택 세계사 수업설계 워크북</strong>
+        <span>개념기반탐구 · 13개 성취기준 · 학생부종합 대응</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"></path>
+          <path d="M5 10v10h14V10"></path>
+        </svg>
+        메인
+      </a>
+      <button data-view="home" class="on">개요</button>
+      <button data-view="standards">성취기준</button>
+      <button data-view="matrix">매트릭스</button>
+      <button data-view="guide">운영 가이드</button>
+      <button class="btn-pdf" onclick="window.print()">인쇄</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+
+<section id="home" class="view active">
+  <div class="cover">
+    <div class="cover-grid">
+      <div class="cover-meta">
+        <div class="kicker">2022 Revised Curriculum · General Elective World History</div>
+        <h1 class="cover-title">세계사<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1>
+        <p class="lead">
+          일반선택 세계사 13개 성취기준을 원문, 핵심 개념, 일반화 문장,
+          사실적·개념적·논쟁적·전이 질문, 단계별 역사 탐구수업, 사료·지도·이미지 자료 해석,
+          학생부종합전형형 산출물, 평가·피드백까지 하나의 교사용 워크북으로 통합했습니다.
+        </p>
+        <div class="actions">
+          <button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button>
+          <button class="btn" onclick="openView('matrix')">13개 수업 한눈에 보기</button>
+          <button class="btn" onclick="downloadCSV()">CSV 내려받기</button>
+        </div>
+      </div>
+      <aside class="cover-side">
+        <dl>
+          <dt>제작</dt>
+          <dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd>
+          <dt>대상</dt>
+          <dd>고등학교 일반선택 세계사 교과 담당교사</dd>
+          <dt>기준</dt>
+          <dd>교육부 고시 제2022-33호 [별책 7] 사회과 교육과정</dd>
+          <dt>설계 원리</dt>
+          <dd>Erickson &amp; Lanning Concept-Based Inquiry</dd>
+          <dt>활용</dt>
+          <dd>사료 비판 · 역사적 맥락화 · 관점 비교 · 역사 글쓰기 · 현대 세계 과제 전이 · 학생부 기록</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="pin">DOMAINS</span>
+      <span class="n">4<small>영역</small></span>
+      <span class="label">지역 세계 · 교역망 · 국민 국가 · 현대 세계의 과제</span>
+    </div>
+    <div class="stat">
+      <span class="pin">STANDARDS</span>
+      <span class="n">13<small>기준</small></span>
+      <span class="label">성취기준 원문·성취수준 반영</span>
+    </div>
+    <div class="stat">
+      <span class="pin">TABS</span>
+      <span class="n">6<small>탭</small></span>
+      <span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span>
+    </div>
+    <div class="stat">
+      <span class="pin">LEVELS</span>
+      <span class="n">A–E</span>
+      <span class="label">성취수준 기반 5단계 평가 루브릭</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">Design Principle</div>
+    <h2>설계 원칙 — 사료, 맥락, 관점, 현재 전이의 통합</h2>
+    <p>
+      세계사는 사건을 외우는 과목이 아니라 인류가 생태환경, 교류, 권력, 혁명, 전쟁, 인권, 평화, 생태환경의 문제를
+      어떻게 겪고 해석해 왔는지 탐구하는 과목입니다. 본 워크북은 성취기준별로 사료와 자료를 읽고, 작성 주체와 의도를 따져 보며,
+      서로 다른 관점을 비교하고, 오늘날 세계 문제로 사고를 전이하도록 설계했습니다.
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>사실에서 해석으로</h3>
+      <p>연표와 사건명을 확인한 뒤 사료의 작성 주체, 목적, 침묵, 관점 차이를 분석해 역사적 해석으로 나아갑니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>지역과 세계의 연결</h3>
+      <p>각 지역 세계의 고유성을 존중하면서 교류, 전쟁, 제국, 상품, 이념이 지역을 어떻게 연결하고 흔들었는지 탐구합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>현재 문제로 전이</h3>
+      <p>난민, 전쟁, 불평등, 기술 윤리, 기후 위기 같은 현대 문제를 세계사의 장기 맥락 속에서 성찰합니다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="idx">CBI Framework</div>
+    <h2>개념기반탐구(CBI) 6단계 — 세계사 수업의 공통 뼈대</h2>
+    <p>학생이 사료와 자료에서 출발해 역사적 개념을 일반화하고, 새로운 시대·지역·현대 문제에 적용하도록 설계했습니다.</p>
+  </div>
+
+  <div class="cbi-flow">
+    <div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>참여</strong><p>사료, 지도, 이미지, 통계, 문화유산을 통해 역사적 문제를 연다.</p></div>
+    <div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>초점</strong><p>생태환경, 교류, 권력, 시민권, 산업화, 인권, 평화 중 하나를 렌즈로 삼는다.</p></div>
+    <div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>자료 탐구</strong><p>문자 사료와 비문자 자료의 작성 주체, 목적, 맥락, 공백을 분석한다.</p></div>
+    <div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>조직화</strong><p>연표, 지도, 관점 비교표, 행위자 맵, 원인 사슬, CER 논증으로 자료를 표상한다.</p></div>
+    <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>사건 설명을 넘어 개념 간 관계를 자기 언어로 진술한다.</p></div>
+    <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>새로운 지역, 다른 시대, 현대 세계의 과제에 역사적 통찰을 적용한다.</p></div>
+  </div>
+
+  <div class="theory-section">
+    <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
+    <p>대학이 학생부에서 읽고 싶은 것은 세계사 사건의 암기량이 아니라 <b>자료를 근거로 역사적 맥락을 구성하고, 관점의 차이를 인식하며, 해석을 수정하고, 현재 문제로 사고를 확장하는 과정</b>입니다. CBI는 학생이 사료의 작성 주체와 의도, 자료의 공백, 시대착오적 판단의 위험을 점검하며 자기 해석을 더 정교하게 만들도록 합니다.</p>
+    <p>각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 사료 분석표, 지도 해석, 관점 비교, 역사 글쓰기 초안과 수정 장면, 현대 세계 과제 전이 질문이 함께 제시되어 수업 중 관찰 가능한 세특 근거를 확보할 수 있습니다.</p>
+    <div class="admission-proof-grid">
+      <div class="admission-proof-card">
+        <span class="tag">Evidence</span>
+        <h4>사료 기반 탐구력</h4>
+        <p>사료와 지도, 이미지, 통계를 근거로 작성 주체·의도·맥락·공백을 분석하는 과정이 기록됩니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Perspective</span>
+        <h4>관점 비교와 해석 수정</h4>
+        <p>지배자와 피지배자, 중심과 주변, 남성과 여성, 국가와 개인의 관점을 비교하며 해석을 조정합니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Transfer</span>
+        <h4>현대 세계 문제로 전이</h4>
+        <p>인권, 평화, 민주주의, 생태환경, 난민과 불평등 문제를 세계사의 장기 맥락 속에서 성찰합니다.</p>
+      </div>
+    </div>
+    <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
+  </div>
+</section>
+
+<section id="standards" class="view">
+  <div class="sec">
+    <div class="idx">Standards Board</div>
+    <h2>성취기준별 수업설계 보드</h2>
+    <p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p>
+  </div>
+
+  <div class="browser">
+    <aside class="side">
+      <div class="filters">
+        <label>SEARCH</label>
+        <input id="search" placeholder="코드, 제목, 개념, 산출물 검색" />
+        <div class="filter-row">
+          
+          
+          <select id="domain">
+            <option>전체 영역</option>
+            <option>지역 세계의 형성</option>
+            <option>교역망의 확대</option>
+            <option>국민 국가의 형성</option>
+            <option>현대 세계의 과제</option>
+          </select>
+          
+          
+          <select id="type">
+            <option>전체 수업 유형</option>
+            <option>사료</option>
+            <option>지도</option>
+            <option>비교</option>
+            <option>논증</option>
+            <option>역사 글쓰기</option>
+            <option>프로젝트</option>
+            <option>토론</option>
+          </select>
+        </div>
+      </div>
+      <div id="list-meta" class="list-meta"></div>
+      <div id="list"></div>
+    </aside>
+    <article id="detail" class="detail"></article>
+  </div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="sec">
+    <div class="idx">Matrix</div>
+    <h2>세계사 13개 성취기준 수업 매트릭스</h2>
+    <p>성취기준별 역사 탐구 주제, 수업 유형, 핵심 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>영역</th>
+          <th>코드</th>
+          <th>수업 제목</th>
+          <th>수업 유형</th>
+          <th>핵심 개념</th>
+          <th>산출물</th>
+          <th>학생부 관찰 증거</th>
+        </tr>
+      </thead>
+      <tbody id="matrixBody"></tbody>
+    </table>
+  </div>
+</section>
+
+
+
+<section id="guide" class="view">
+  <div class="sec">
+    <div class="idx">Teacher Guide</div>
+    <h2>교사용 운영 가이드</h2>
+    <p>세계사 수업은 사건 설명에서 멈추지 않고, 사료와 비문자 자료를 근거로 역사적 맥락을 구성하고 다양한 관점을 비교한 뒤 현대 세계의 과제로 전이하도록 운영해야 합니다.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">A</div>
+      <h3>수업 전</h3>
+      <p>문자 사료, 지도, 유물·유적 이미지, 포스터, 통계, 선언문을 준비하고 자료의 작성 주체와 관점, 민감한 표현을 미리 점검합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">B</div>
+      <h3>수업 중</h3>
+      <p>학생이 사료 분석표, 관점 비교표, 원인 사슬, 행위자 맵, 역사 글쓰기 개요, 피드백 후 수정본을 실제로 남기게 합니다.</p>
+    </div>
+    <div class="principle">
+      <div class="num">C</div>
+      <h3>수업 후</h3>
+      <p>결과물뿐 아니라 초안, 사료 선택 이유, 해석 수정 메모, 시대착오 경계, 현대 문제 전이 질문을 함께 보존합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  일반선택 세계사 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 11.5 12 4l9 7.5"></path>
+    <path d="M5 10v10h14V10"></path>
+  </svg>
+  메인으로
+</a>
+
+<script>
+const DATA=[
+  {
+    "code": "[12세사01-01]",
+    "domain": "지역 세계의 형성",
+    "title": "문명은 환경을 정복했는가, 적응했는가?",
+    "type": "고고학 자료 해석형",
+    "period": "2차시",
+    "lens": "생태환경과 적응",
+    "concept": "현생 인류와 문명 형성",
+    "related": "생태환경, 수렵·채집, 농경, 목축, 정착, 문명, 고고학 자료, 생활 방식, 환경 적응",
+    "phenomenon": "동굴 벽화, 석기, 매장지, 초기 농경 유적, 큰 강 유역 문명 지도를 함께 제시하고, 같은 현생 인류가 왜 서로 다른 생존 방식을 선택했는지 질문한다.",
+    "conflict": "학생은 농경과 정착을 인류가 반드시 거쳐야 하는 진보 단계로 이해할 수 있다. 그러나 수렵·채집, 농경, 목축은 우열의 단계가 아니라 생태환경과 집단의 선택이 결합된 다양한 생존 전략이다.",
+    "general": "현생 인류의 삶과 문명은 생태환경의 제약 속에서 형성되었지만, 인간은 도구, 이동, 정착, 상징 활동을 통해 환경에 적응하고 환경을 변화시키며 다양한 생활 방식을 만들었다.",
+    "studentGeneral": "문명은 자연을 이긴 결과만이 아니라, 사람들이 자기 환경에 맞게 살아갈 방법을 찾아낸 과정이다.",
+    "questions": [
+      "현생 인류의 삶을 보여 주는 고고학 자료에는 무엇이 있는가?",
+      "생태환경은 수렵·채집, 농경, 목축의 선택에 어떤 영향을 주었는가?",
+      "농경과 정착은 항상 더 발전된 삶이라고 볼 수 있는가?",
+      "오늘날 기후 위기 속 인간의 생활 방식 선택을 고대 문명 탐구와 어떻게 연결할 수 있는가?"
+    ],
+    "products": [
+      "고고학 자료 해석 카드",
+      "생태환경-생활 방식 관계 도식",
+      "문명 형성 CER 논증문"
+    ],
+    "evidence": [
+      "유적·유물 자료를 생활 방식의 증거로 분류함",
+      "환경 조건과 인간 선택을 연결해 설명함",
+      "단선적 발전 관점을 수정함",
+      "고대 문명 탐구를 오늘날 생태환경 문제로 전이함"
+    ],
+    "data": "동굴 벽화, 석기, 매장지, 농경 유적, 문명 발생 지역 지도를 자료 유형별로 나누고, 각 자료가 말해 주는 생존 방식과 말해 주지 못하는 한계를 함께 표시한다.",
+    "modeling": "환경 조건-생존 방식-사회 변화-문명 형성의 관계를 원인 사슬 도식으로 표현하고, 농경·목축·수렵 채집을 우열이 아닌 적응 전략으로 비교한다.",
+    "source": "고고학 유물 사진, 초기 문명 지도, 기후·하천 분포 지도, 농경·목축 관련 해설 자료",
+    "scale": "시공간 범위: 구석기-신석기-고대 문명 / 아프로유라시아와 아메리카의 다양한 생태환경",
+    "uncertainty": "고고학 자료는 남아 있는 흔적을 바탕으로 추론하므로 당시 사람들의 생각과 생활 전체를 완전히 복원할 수 없다.",
+    "misconception": "농경과 정착은 수렵·채집보다 무조건 발전된 생활 방식이다.",
+    "correction": "생존 안정성, 노동 강도, 질병, 환경 변화 대응력 등 여러 기준을 비교하여 생활 방식의 장단점을 역사적 맥락에서 판단하게 한다.",
+    "failure": "학생이 유물 이름을 나열하는 데 머물면, 각 자료가 어떤 생활 방식의 증거인지와 어떤 해석의 한계를 갖는지 함께 표시하게 한다.",
+    "safe": "선사 시대 집단을 미개·문명이라는 단순 서열로 표현하지 않고, 환경과 생활 방식의 다양성을 존중하도록 안내한다.",
+    "deepDive": "기후 변화가 초기 인류의 이동, 농경 확산, 도시 형성에 미친 영향을 오늘날 기후 난민 문제와 비교한다.",
+    "career": "고고학, 역사학, 인류학, 환경사, 문화유산, 지리정보",
+    "sample": "동굴 벽화·석기·매장지·초기 농경 유적을 생존 방식, 이동성, 상징 활동의 증거로 분류하고 각 자료가 보여 주는 정보와 공백을 구분함. 농경을 필연적 진보로 보던 초안을 수정해 환경 조건과 인간 선택이 서로 맞물리며 다양한 생활 방식이 형성되었음을 해석했고, 고대 생태환경 탐구를 오늘날 기후 변화에 따른 생활 방식 전환 질문으로 확장함.",
+    "official": [
+      "세계사-2 / 서술형 / 인류의 삶과 생태환경의 관계 파악하기"
+    ],
+    "tool": "세계사-2 / 서술형 / 현생 인류의 삶과 생태환경의 관계 파악",
+    "standard": "현생 인류의 삶과 문명의 형성을 생태환경과의 관계 속에서 파악한다.",
+    "levels": {
+      "A": "현생 인류의 삶과 문명의 형성 과정을 알고, 이를 생태환경과의 관계 속에서 종합적으로 설명할 수 있다.",
+      "B": "현생 인류의 삶과 문명의 형성 과정을 알고, 이를 생태환경과의 관계 속에서 설명할 수 있다.",
+      "C": "현생 인류의 삶과 문명의 형성 과정을 알고, 생태환경과의 관계를 보여주는 사례를 말할 수 있다.",
+      "D": "현생 인류의 삶과 문명의 형성에서 생태환경과의 관계를 보여주는 사례를 말할 수 있다.",
+      "E": "현생 인류의 삶과 문명이 생태환경과의 관계 속에서 형성되었음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사01-02]",
+    "domain": "지역 세계의 형성",
+    "title": "문화는 이동할 때 그대로 남는가, 새롭게 변형되는가?",
+    "type": "문화 교류 사료 비교형",
+    "period": "2차시",
+    "lens": "상호 작용과 수용",
+    "concept": "동아시아·인도 세계의 형성",
+    "related": "불교, 힌두교, 유교, 한자, 율령, 교역로, 문화 전파, 수용, 변용, 동남아시아",
+    "phenomenon": "불교 전파 지도, 법전·문자·사찰·불상 자료, 인도와 동아시아의 종교·사상 자료를 비교하며 문화가 이동할 때 무엇이 유지되고 무엇이 바뀌는지 탐구한다.",
+    "conflict": "학생은 문화 전파를 한 지역에서 다른 지역으로 단순히 전달되는 과정으로 이해할 수 있다. 실제 문화 전파는 전파, 선택적 수용, 지역화, 새로운 결합이 동시에 일어나는 상호 작용이다.",
+    "general": "동아시아와 인도 세계는 종교, 문자, 법, 사상, 교역의 상호 작용 속에서 형성되었으며, 문화는 이동 과정에서 지역의 정치·사회적 조건에 따라 새롭게 해석되고 변형된다.",
+    "studentGeneral": "문화는 복사하듯 옮겨지는 것이 아니라, 받아들이는 지역의 필요와 가치에 맞게 달라진다.",
+    "questions": [
+      "동아시아와 인도 세계의 형성에 영향을 준 문화 요소에는 무엇이 있는가?",
+      "문화의 전파와 수용은 지역 세계의 형성에 어떤 역할을 하는가?",
+      "문화 수용은 모방인가, 창조적 변용인가?",
+      "오늘날 한류, 종교, 음식, 언어의 세계적 확산은 고대 문화 교류와 어떤 점에서 닮았는가?"
+    ],
+    "products": [
+      "문화 전파 경로 지도",
+      "불교 수용 비교표",
+      "문화 변용 사례 해석문"
+    ],
+    "evidence": [
+      "문화 요소의 이동 경로를 지도와 자료로 확인함",
+      "전파와 수용, 변용을 구분함",
+      "동아시아·인도·동남아시아의 상호 작용을 설명함",
+      "현대 문화 확산 사례로 전이함"
+    ],
+    "data": "불교 전파 경로, 구법승 이동, 사찰·불상 양식, 한자·율령 수용 사례를 자료별로 정리하고, 각 지역이 무엇을 선택적으로 받아들였는지 표시한다.",
+    "modeling": "문화 요소-이동 경로-수용 주체-지역화 결과를 연결한 전파·변용 매트릭스로 표현한다.",
+    "source": "불교 전파 지도, 현장·혜초 관련 자료, 동아시아 율령·한자 문화권 자료, 인도 종교·사상 자료, 유적·유물 사진",
+    "scale": "시공간 범위: 고대-중세 초기 / 인도, 중국, 한반도, 일본, 동남아시아",
+    "uncertainty": "문화 교류 자료는 지배층과 종교 엘리트의 흔적이 많이 남아 있어 일반인의 수용 방식은 제한적으로 추론해야 한다.",
+    "misconception": "문화는 중심 지역에서 주변 지역으로 일방적으로 전파된다.",
+    "correction": "동남아시아와 동아시아의 사례를 함께 보며 문화 수용자가 자기 정치·사회 조건에 맞게 문화를 재해석했음을 확인하게 한다.",
+    "failure": "학생이 불교, 한자, 율령을 목록화하는 데 머물면 각 문화 요소가 어떤 사회 질서와 세계관을 만들었는지 질문하게 한다.",
+    "safe": "종교와 문화를 우열로 비교하지 않고, 각 지역의 역사적 맥락과 의미를 존중하는 표현을 사용한다.",
+    "deepDive": "불교 미술 양식의 지역별 차이를 분석해 종교 전파와 지역 문화의 결합 방식을 탐구한다.",
+    "career": "역사학, 종교학, 문화콘텐츠, 박물관, 동아시아학, 국제문화교류",
+    "sample": "불교 전파 지도와 사찰·불상 자료를 이동 경로, 수용 주체, 지역화 양식으로 분류하고 문화가 단순히 전달되는 것이 아니라 각 지역의 정치·사회 조건 속에서 재해석됨을 파악함. 처음에는 동아시아 문화권을 공통 요소의 집합으로만 보았으나, 동남아시아 교류와 인도 세계의 영향을 추가로 검토하며 문화권 형성이 상호 작용과 선택적 수용의 과정임을 설명함.",
+    "official": [
+      "세계사-3 / 서술형 / 불교 전파를 중심으로 동아시아 세계의 형성 과정 설명하기"
+    ],
+    "tool": "세계사-3 / 서술형 / 불교 전파와 동아시아 세계 형성",
+    "standard": "동아시아, 인도 세계의 형성을 문화의 상호 작용과 관련지어 이해한다.",
+    "levels": {
+      "A": "동아시아, 인도 세계의 형성 과정을 알고, 이를 문화의 상호 작용과 관련지어 종합적으로 설명할 수 있다.",
+      "B": "동아시아, 인도 세계의 형성 과정을 알고, 이를 문화의 상호 작용과 관련지어 설명할 수 있다.",
+      "C": "동아시아, 인도 세계의 형성 과정을 알고, 문화의 상호 작용과 관련지어 정리할 수 있다.",
+      "D": "동아시아, 인도 세계의 형성 과정을 문화의 상호 작용과 관련지어 그 사례를 말할 수 있다.",
+      "E": "동아시아, 인도 세계의 형성 과정이 문화의 상호 작용과 관련이 있음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사01-03]",
+    "domain": "지역 세계의 형성",
+    "title": "종교는 세계관과 정치 질서를 어떻게 바꾸었는가?",
+    "type": "종교·권력 관계 분석형",
+    "period": "2차시",
+    "lens": "권력과 세계관",
+    "concept": "서아시아·지중해·유럽 세계",
+    "related": "도시국가, 제국, 민주정, 공화정, 크리스트교, 이슬람교, 교회, 칼리프, 교류와 충돌, 종교 경관",
+    "phenomenon": "아테네 민주정, 로마 제국, 비잔티움, 이슬람 세계, 중세 서유럽의 지도·사료·문화유산 자료를 비교하고 정치 체제와 종교 세계관의 관계를 탐구한다.",
+    "conflict": "학생은 고대 정치 체제와 종교를 따로 외우거나, 크리스트교 세계와 이슬람 세계를 충돌의 관점으로만 이해할 수 있다. 실제로 종교는 정치 질서를 정당화하고 공동체를 연결했으며, 교류와 충돌을 동시에 낳았다.",
+    "general": "서아시아, 지중해, 유럽 세계의 형성은 정치 체제의 변화와 종교 확산이 결합된 과정이며, 종교는 세계관, 권력 정당화, 문화 교류, 갈등의 양상에 깊이 영향을 주었다.",
+    "studentGeneral": "종교는 믿음만의 문제가 아니라 사람들이 세상을 이해하고 공동체를 조직하는 방식에도 영향을 주었다.",
+    "questions": [
+      "서아시아, 지중해, 유럽 세계에서 발전한 정치 체제와 종교에는 무엇이 있는가?",
+      "종교의 확산은 정치 질서와 문화적 특징을 어떻게 바꾸었는가?",
+      "크리스트교 세계와 이슬람 세계는 충돌한 세계인가, 교류한 세계인가?",
+      "오늘날 종교 갈등과 문화 공존 문제를 역사적으로 이해하려면 어떤 관점이 필요한가?"
+    ],
+    "products": [
+      "정치 체제-종교 관계 비교표",
+      "종교 확산 지도 해석",
+      "교류와 충돌 균형 논증문"
+    ],
+    "evidence": [
+      "정치 체제의 구성 원리와 성격을 비교함",
+      "종교 확산과 문화적 특징을 연결함",
+      "교류와 충돌을 균형 있게 해석함",
+      "현대 종교·문화 공존 문제로 전이함"
+    ],
+    "data": "정치 체제 자료와 종교 관련 사료를 작성 주체, 목적, 공동체 질서, 문화 표현 기준으로 분석한다.",
+    "modeling": "정치 권력-종교 세계관-문화유산-교류·충돌의 관계를 행위자 맵과 시간축으로 표현한다.",
+    "source": "고대 정치 체제 사료, 종교 확산 지도, 성당·모스크·문화유산 이미지, 십자군·교역 관련 자료",
+    "scale": "시공간 범위: 고대-중세 / 서아시아, 지중해, 유럽, 북아프리카",
+    "uncertainty": "종교 관련 자료는 신앙 공동체 내부 관점이 강할 수 있으므로 상대 공동체의 자료와 교차해 해석해야 한다.",
+    "misconception": "크리스트교 세계와 이슬람 세계는 본질적으로 대립한 문명이다.",
+    "correction": "전쟁과 갈등 사례뿐 아니라 번역 운동, 상업 교류, 학문 교류, 문화유산을 함께 분석해 복합적 관계를 파악하게 한다.",
+    "failure": "학생이 종교 명칭과 정치 체제를 암기하는 데 머물면, 종교가 어떤 질서를 정당화하거나 변화시켰는지 사료 문장과 연결하게 한다.",
+    "safe": "현대 종교 집단에 대한 편견으로 이어지지 않도록 역사적 맥락과 자료의 관점을 분리해 다룬다.",
+    "deepDive": "중세 지중해 세계의 번역 운동과 상업 교류를 통해 종교 경계가 지식 이동을 완전히 막지 않았음을 탐구한다.",
+    "career": "역사학, 종교학, 국제관계, 문화유산, 지역학, 박물관 교육",
+    "sample": "중세 서유럽 사료와 종교 건축 자료를 정치 권력, 교회 권위, 공동체 세계관의 증거로 분류하고 종교를 단순 신앙이 아니라 사회 질서를 구성한 역사적 힘으로 해석함. 크리스트교 세계와 이슬람 세계를 대립 구도로만 보던 초안을 수정해 번역 운동, 교역, 전쟁 자료를 함께 대조했고, 교류와 충돌이 동시에 존재한 지중해 세계의 복합성을 근거로 설명함.",
+    "official": [
+      "세계사-4 / 서술형 / 중세 서유럽 세계의 문화적 특징 분석하기"
+    ],
+    "tool": "세계사-4 / 서술형 / 종교 확산과 문화적 특징 분석",
+    "standard": "서아시아, 지중해, 유럽 세계의 형성과 문화적 특징을 종교의 확산과 관련지어 분석한다.",
+    "levels": {
+      "A": "서아시아, 지중해, 유럽 세계의 형성과 문화적 특징을 알고, 이를 종교의 확산과 관련지어 종합적으로 분석할 수 있다.",
+      "B": "서아시아, 지중해, 유럽 세계의 형성과 문화적 특징을 알고, 이를 종교의 확산과 관련지어 분석할 수 있다.",
+      "C": "서아시아, 지중해, 유럽 세계의 형성과 문화적 특징을 알고, 종교의 확산과 관련지어 정리할 수 있다.",
+      "D": "서아시아, 지중해, 유럽 세계의 형성과 문화적 특징을 종교의 확산과 관련지어 그 사례를 말할 수 있다.",
+      "E": "서아시아, 지중해, 유럽 세계의 형성과 문화적 특징이 종교의 확산과 관련되었음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사02-01]",
+    "domain": "교역망의 확대",
+    "title": "제국의 팽창은 세계를 연결했는가, 흔들었는가?",
+    "type": "교역망 지도 탐구형",
+    "period": "2차시",
+    "lens": "연결과 이동",
+    "concept": "이슬람 세계와 몽골 제국",
+    "related": "팽창, 교역망, 실크로드, 인도양 교역, 역참, 지식 이동, 종교 전파, 제국, 문화 교류",
+    "phenomenon": "이슬람 세계와 몽골 제국의 영역 지도, 여행기, 상인·사절 이동 경로, 상품과 기술 이동 자료를 비교하며 팽창이 교류를 어떻게 확장했는지 탐구한다.",
+    "conflict": "학생은 제국의 팽창을 정복과 파괴로만 보거나, 반대로 교류 확대의 긍정적 효과만 볼 수 있다. 팽창은 폭력, 통합, 안전한 이동, 지식 교류, 지역 재편을 동시에 낳았다.",
+    "general": "이슬람 세계와 몽골 제국의 팽창은 유라시아와 인도양 교역망을 확장하고 사람·상품·기술·종교·정보의 이동을 촉진했지만, 그 과정에는 정복과 지배, 지역 사회의 재편도 함께 나타났다.",
+    "studentGeneral": "제국은 길을 열기도 했지만, 그 길은 누군가에게는 기회이고 누군가에게는 강제와 변화였다.",
+    "questions": [
+      "이슬람 세계와 몽골 제국의 팽창은 어떤 교류망을 형성했는가?",
+      "제국의 정치적 통합은 사람·상품·정보의 이동을 어떻게 바꾸었는가?",
+      "제국의 팽창을 연결의 역사로 볼 것인가, 지배의 역사로 볼 것인가?",
+      "오늘날 세계화의 연결성과 불균등을 제국의 교역망 확대와 어떻게 비교할 수 있는가?"
+    ],
+    "products": [
+      "제국 교역망 지도 분석",
+      "이동 주체별 관점 카드",
+      "연결과 지배 균형 논증문"
+    ],
+    "evidence": [
+      "교역망 확대를 지도와 이동 경로로 설명함",
+      "상품·기술·종교·정보 이동을 구분함",
+      "교류와 지배의 양면성을 해석함",
+      "세계화의 연결성과 불균등으로 전이함"
+    ],
+    "data": "제국 영역 지도, 역참·교역로, 여행기, 상품 이동 자료를 이동 주체와 이동 대상별로 분류하고 지역 사회 변화와 연결한다.",
+    "modeling": "제국 팽창-교통망 안정-교역 증가-문화 변화-지역 재편의 원인 사슬과 행위자별 이익·손실 맵으로 표현한다.",
+    "source": "이븐 바투타·마르코 폴로 관련 자료, 몽골 역참 제도 자료, 이슬람 상업권 지도, 실크로드·인도양 교역 지도",
+    "scale": "시공간 범위: 7-14세기 / 서아시아, 중앙아시아, 중국, 인도양, 유럽",
+    "uncertainty": "여행기와 지배층 기록은 관찰자의 목적과 과장이 반영될 수 있어 지도·경제 자료와 교차 확인해야 한다.",
+    "misconception": "제국의 팽창은 정복 전쟁 또는 문화 교류 중 하나로만 설명할 수 있다.",
+    "correction": "같은 팽창이 상인, 피지배민, 지배층, 종교인에게 다르게 작동했음을 이동 주체별 관점 카드로 비교하게 한다.",
+    "failure": "학생이 교역로를 지도에 표시하는 데서 멈추면, 그 길을 따라 이동한 상품·기술·사람이 지역 사회를 어떻게 바꾸었는지 추론하게 한다.",
+    "safe": "제국의 폭력과 교류 효과를 균형 있게 다루고, 특정 민족이나 종교를 본질화하는 표현을 피한다.",
+    "deepDive": "흑사병의 유라시아 확산을 교역망, 도시화, 생태환경 변화와 연결해 제국적 연결망의 위험성을 탐구한다.",
+    "career": "세계사, 국제관계, 물류·무역, 지역학, 문화교류, 감염병 역사",
+    "sample": "이슬람 상업권과 몽골 제국의 교역망 지도를 이동 주체, 상품, 정보, 종교 전파 기준으로 재구성하고 제국의 팽창이 교류 확대와 지역 재편을 동시에 낳았음을 해석함. 정복의 파괴성만 강조하던 초안을 수정해 역참, 상인 네트워크, 여행기 자료를 대조했고, 세계화의 연결성이 기회와 위험을 함께 만든다는 현재적 질문으로 확장함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 지도·여행기 기반 교역망 분석",
+    "standard": "이슬람 세계와 몽골 제국의 팽창에 따른 교류 양상을 파악한다.",
+    "levels": {
+      "A": "이슬람 세계와 몽골 제국의 팽창을 알고, 이에 따른 교류 양상을 종합적으로 설명할 수 있다.",
+      "B": "이슬람 세계와 몽골 제국의 팽창을 알고, 이에 따른 교류 양상을 설명할 수 있다.",
+      "C": "이슬람 세계와 몽골 제국의 팽창에 따른 교류 양상을 정리할 수 있다.",
+      "D": "이슬람 세계와 몽골 제국의 팽창에 따른 교류의 대표적인 사례를 말할 수 있다.",
+      "E": "이슬람 세계와 몽골 제국이 팽창하고 교류하였음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사02-02]",
+    "domain": "교역망의 확대",
+    "title": "신항로 개척은 누구의 세계를 넓혔는가?",
+    "type": "식민지·국가 형성 분석형",
+    "period": "2차시",
+    "lens": "팽창과 권력",
+    "concept": "신항로 개척과 재정·군사 국가",
+    "related": "신항로 개척, 중상주의, 재정·군사 국가, 식민지, 해상 제국, 경쟁과 균형, 원주민, 폭력",
+    "phenomenon": "항해 지도, 식민지 건설 자료, 국가 재정·군사력 확대 사례, 원주민과 식민지 사회 변화 자료를 비교하며 유럽의 팽창이 세계 각 지역에 가져온 변화를 탐구한다.",
+    "conflict": "학생은 신항로 개척을 모험과 발견의 역사로만 이해할 수 있다. 그러나 신항로 개척은 유럽 국가의 재정·군사 경쟁, 식민지 건설, 강제 노동, 지역 사회 붕괴와 결합된 세계 질서 재편 과정이다.",
+    "general": "신항로 개척과 재정·군사 국가의 성립은 유럽 국가 간 경쟁을 심화하고 식민지 건설을 확대했으며, 유럽과 식민지 사회의 경제·정치·문화 구조를 불균등하게 변화시켰다.",
+    "studentGeneral": "새로운 바닷길은 유럽에는 기회였지만, 다른 지역에는 침략과 강제 변화가 될 수 있었다.",
+    "questions": [
+      "신항로 개척과 재정·군사 국가는 어떻게 연결되는가?",
+      "유럽의 해상 팽창은 유럽과 식민지 사회에 어떤 변화를 가져왔는가?",
+      "신항로 개척을 발견의 역사라고 부르는 것은 적절한가?",
+      "오늘날 국제 질서의 불평등을 근대 초기 팽창의 역사와 어떻게 연결해 볼 수 있는가?"
+    ],
+    "products": [
+      "신항로 개척 원인-결과 지도",
+      "유럽·식민지 변화 비교표",
+      "발견 담론 비판 논증문"
+    ],
+    "evidence": [
+      "신항로 개척과 국가 경쟁을 연결함",
+      "유럽과 식민지의 변화를 구분해 분석함",
+      "발견 중심 서술의 한계를 비판함",
+      "현대 국제 질서의 불평등으로 전이함"
+    ],
+    "data": "항해 경로, 식민지 건설, 국가 재정·군사력 확대, 원주민 피해 자료를 유럽 국가·식민지 사회·해상 교역망 기준으로 분류한다.",
+    "modeling": "국가 경쟁-해상 팽창-식민지 건설-재정 확대-군사력 강화의 순환 구조를 도식화한다.",
+    "source": "신항로 개척 지도, 중상주의 자료, 식민지 건설 기록, 원주민 피해 관련 사료, 재정·군사 국가 해설 자료",
+    "scale": "시공간 범위: 15-18세기 / 유럽, 아메리카, 아프리카, 인도양, 대서양",
+    "uncertainty": "유럽 항해 기록은 탐험가와 국가의 관점이 강하므로 원주민·식민지 사회의 피해와 저항 자료를 함께 검토해야 한다.",
+    "misconception": "신항로 개척은 유럽인이 미지의 세계를 발견한 사건이다.",
+    "correction": "기존 주민과 교역망의 존재를 확인하고, 발견이라는 표현이 누구의 관점에서 만들어졌는지 사료의 작성 주체를 따져 보게 한다.",
+    "failure": "학생이 항해자 이름과 경로 암기에 머물면, 경로가 국가 재정·군사력과 식민지 사회 변화에 어떤 영향을 주었는지 연결하게 한다.",
+    "safe": "식민 지배와 원주민 피해를 선정적으로 소비하지 않고, 폭력의 구조와 역사적 책임을 자료 중심으로 다룬다.",
+    "deepDive": "근대 해상 제국의 경쟁과 오늘날 해양 패권·무역로 경쟁을 비교하되 시대 차이와 제도 차이를 구분한다.",
+    "career": "세계사, 국제정치, 해양사, 경제사, 식민주의 연구, 국제개발",
+    "sample": "항해 지도와 식민지 건설 자료를 유럽 국가 경쟁, 재정 확보, 군사력 강화, 원주민 사회 변화의 기준으로 분류하고 신항로 개척을 단순한 탐험이 아니라 세계 질서 재편 과정으로 해석함. ‘발견’이라는 표현이 유럽 중심 관점임을 사료의 작성 주체와 피해 지역 자료를 통해 검토했고, 근대 초기 팽창이 현대 국제 불평등의 역사적 배경으로 이어지는 지점을 설명함.",
+    "official": [
+      "세계사-5 / 서술형 / 재정·군사 국가의 성립이 가져온 변화 분석하기"
+    ],
+    "tool": "세계사-5 / 서술형 / 신항로 개척과 재정·군사 국가 분석",
+    "standard": "유럽의 신항로 개척과 재정ㆍ군사 국가의 성립이 가져온 변화를 분석한다.",
+    "levels": {
+      "A": "유럽의 신항로 개척과 재정⋅군사 국가의 성립을 알고, 이것이 가져온 변화의 모습을 맥락적으로 연결하여 분석할 수 있다.",
+      "B": "유럽의 신항로 개척과 재정⋅군사 국가의 성립을 알고, 이것이 가져온 변화의 모습을 연결하여 정리할 수 있다.",
+      "C": "유럽의 신항로 개척과 재정⋅군사 국가의 성립을 알고, 이후 나타난 변화의 모습을 정리할 수 있다.",
+      "D": "유럽의 신항로 개척과 재정⋅군사 국가의 성립이 가져온 변화의 모습을 말할 수 있다.",
+      "E": "유럽의 신항로 개척과 재정⋅군사 국가의 성립으로 변화가 나타났음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사02-03]",
+    "domain": "교역망의 확대",
+    "title": "설탕 한 조각에는 어떤 세계사가 들어 있는가?",
+    "type": "상품 교역 가치사슬 분석형",
+    "period": "2차시",
+    "lens": "상품과 불평등",
+    "concept": "세계적 상품 교역",
+    "related": "설탕, 은, 차, 도자기, 면직물, 노예 무역, 대서양 삼각 무역, 플랜테이션, 노동, 소비문화",
+    "phenomenon": "설탕, 은, 면직물, 차, 도자기, 노예 무역의 이동 경로와 소비 자료를 제시하고 상품 하나가 생산지, 노동, 소비, 국가 재정을 어떻게 연결했는지 탐구한다.",
+    "conflict": "학생은 교역을 지역 간 상품 교환으로만 이해할 수 있다. 세계적 상품 교역은 소비의 확대뿐 아니라 강제 노동, 식민지 경제, 지역 산업 변화, 불평등한 이익 배분을 만들었다.",
+    "general": "세계적 상품 교역은 대륙과 해양을 연결하며 소비문화를 변화시켰지만, 생산과 유통 과정에서 강제 노동, 식민 지배, 지역 경제 재편을 낳아 세계적 불평등을 심화했다.",
+    "studentGeneral": "상품은 그냥 물건이 아니라, 그것을 만든 사람과 이동시킨 권력, 소비한 사회의 관계를 담고 있다.",
+    "questions": [
+      "근대 세계 교역망에서 유통된 대표 상품에는 무엇이 있는가?",
+      "상품 교역은 생산지와 소비지의 사회·경제를 어떻게 바꾸었는가?",
+      "세계적 상품 교역은 세계를 연결한 진보인가, 불평등한 착취 구조인가?",
+      "오늘날 글로벌 공급망과 윤리적 소비 문제를 근대 상품 교역과 어떻게 비교할 수 있는가?"
+    ],
+    "products": [
+      "상품 이동 경로 지도",
+      "생산-유통-소비 가치사슬 분석",
+      "윤리적 소비 역사 비교 논증문"
+    ],
+    "evidence": [
+      "상품의 이동 경로와 교역망을 설명함",
+      "생산지·소비지의 변화를 연결함",
+      "노예 무역과 식민지 경제의 영향을 분석함",
+      "현대 공급망 문제로 전이함"
+    ],
+    "data": "상품 하나를 선택해 생산지, 노동 형태, 운송 경로, 소비지, 가격·이익, 사회 변화 자료를 가치사슬로 배열한다.",
+    "modeling": "상품 가치사슬과 대서양 삼각 무역 구조를 지도, 흐름도, 이익·피해 분포표로 표현한다.",
+    "source": "대서양 삼각 무역 지도, 설탕·은·면직물 교역 자료, 플랜테이션 노동 자료, 소비문화 관련 이미지와 통계",
+    "scale": "시공간 범위: 16-18세기 / 대서양, 인도양, 유럽, 아메리카, 아프리카, 아시아",
+    "uncertainty": "상품 교역 자료는 거래량과 가격 중심으로 남는 경우가 많아 강제 노동자의 경험과 지역 사회 변화는 별도 사료로 보완해야 한다.",
+    "misconception": "무역이 늘어나면 모든 지역이 함께 부유해진다.",
+    "correction": "상품의 이익과 피해가 생산자, 상인, 국가, 소비자, 강제 노동자에게 다르게 배분되었음을 가치사슬로 추적하게 한다.",
+    "failure": "학생이 상품 이동 경로만 표시하면 각 단계의 노동, 권력, 이익 배분, 사회 변화를 함께 적게 한다.",
+    "safe": "노예 무역을 단순 수치나 교역 구조로만 다루지 않고 인간의 존엄과 강제 노동의 폭력성을 분명히 다룬다.",
+    "deepDive": "근대 설탕 플랜테이션과 오늘날 패스트패션·전자제품 공급망의 노동·환경 문제를 역사적으로 비교한다.",
+    "career": "경제사, 무역, 국제개발, 윤리적 소비, 노동인권, 글로벌 공급망",
+    "sample": "설탕 교역을 생산지, 강제 노동, 운송 경로, 유럽 소비문화, 국가 재정의 가치사슬로 재구성하고 상품 교역이 연결과 불평등을 동시에 만들었음을 해석함. 교역량 증가를 경제 발전으로만 보던 초안을 수정해 플랜테이션 노동 자료와 소비 자료를 함께 검토했으며, 근대 상품 교역의 이익 배분 구조를 오늘날 글로벌 공급망의 노동·환경 문제와 비교함.",
+    "official": [
+      "세계사-6 / 서술형 / 대서양 삼각 무역의 사회·경제적 변화 설명하기"
+    ],
+    "tool": "세계사-6 / 서술형 / 세계적 상품 교역과 대서양 삼각 무역",
+    "standard": "세계적 상품 교역이 가져온 사회적·경제적 변화를 이해한다.",
+    "levels": {
+      "A": "세계적 상품 교역 양상을 알고, 이것이 가져온 사회적·경제적 변화를 맥락적으로 연결하여 설명할 수 있다.",
+      "B": "세계적 상품 교역 양상을 알고, 이것이 가져온 사회적·경제적 변화를 연결하여 설명할 수 있다.",
+      "C": "세계적 상품 교역 양상을 알고, 이후 나타난 사회적·경제적 변화를 설명할 수 있다.",
+      "D": "세계적 상품 교역이 가져온 사회적·경제적 변화의 대표적인 사례를 말할 수 있다.",
+      "E": "세계적 상품 교역으로 사회적·경제적 변화가 나타났음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사03-01]",
+    "domain": "국민 국가의 형성",
+    "title": "다민족 제국은 다양성을 어떻게 통치했는가?",
+    "type": "제국 통치 비교형",
+    "period": "2차시",
+    "lens": "통합과 다양성",
+    "concept": "청·무굴·오스만 제국",
+    "related": "다민족 제국, 통치 정책, 관료제, 종교 관용, 군사 제도, 상업, 수공업, 사회 변화, 문화 융합",
+    "phenomenon": "청, 무굴, 오스만 제국의 영토 지도, 통치 제도, 종교 정책, 경제·문화 자료를 비교하며 서로 다른 제국이 다양한 집단을 어떻게 통합했는지 탐구한다.",
+    "conflict": "학생은 근대 국민 국가와 다른 정치 모델을 낡은 제국으로만 이해할 수 있다. 세 제국은 다양한 민족과 종교를 통합하는 제도와 경제 기반을 갖춘 복합 정치 질서였다.",
+    "general": "청, 무굴, 오스만 제국은 다민족·다종교 사회를 통치하기 위해 군사, 관료, 종교, 경제 정책을 결합했으며, 그 과정에서 사회와 문화가 변화하고 제국별 통합 방식의 차이가 나타났다.",
+    "studentGeneral": "제국은 단순히 힘으로 넓은 땅을 다스린 것이 아니라, 다양한 사람들을 묶기 위한 여러 제도를 만들었다.",
+    "questions": [
+      "청, 무굴, 오스만 제국의 통치 정책과 사회·문화 변화에는 무엇이 있는가?",
+      "다민족 제국은 다양성을 통합하기 위해 어떤 제도를 활용했는가?",
+      "제국의 다양성 통치는 관용인가, 지배 전략인가?",
+      "오늘날 다문화 사회의 통합 문제를 다민족 제국의 역사와 어떻게 비교할 수 있는가?"
+    ],
+    "products": [
+      "세 제국 통치 정책 비교표",
+      "다양성 통합 행위자 맵",
+      "다민족 제국 역사 해석문"
+    ],
+    "evidence": [
+      "세 제국의 통치 정책을 비교함",
+      "사회·문화 변화를 제국별 맥락으로 설명함",
+      "다양성 통합의 장점과 한계를 판단함",
+      "현대 다문화 사회 문제로 전이함"
+    ],
+    "data": "세 제국의 통치 정책, 종교 정책, 군사·관료 제도, 경제 성장, 문화 자료를 통합 방식과 지역 조건 기준으로 비교한다.",
+    "modeling": "제국별 통치 정책-사회 변화-문화 변화-통합의 한계를 비교 매트릭스와 행위자 맵으로 표현한다.",
+    "source": "청의 통치 정책 자료, 무굴 제국의 종교·문화 자료, 오스만 제국의 밀레트·군사 제도 자료, 제국 지도와 문화유산 이미지",
+    "scale": "시공간 범위: 16-18세기 / 동아시아, 남아시아, 서아시아, 동유럽",
+    "uncertainty": "제국 자료는 중앙 권력의 시각이 강할 수 있어 지방 사회, 피지배 집단, 종교 공동체의 경험을 함께 살펴야 한다.",
+    "misconception": "제국은 국민 국가보다 덜 발전한 정치 체제이다.",
+    "correction": "국민 국가 중심의 발전 단계 관점을 경계하고, 각 제국이 자기 조건에서 만든 통합 방식과 한계를 비교하게 한다.",
+    "failure": "학생이 세 제국의 특징을 나열하면 통치 정책이 어떤 사회·문화 변화를 만들었는지 원인과 결과로 연결하게 한다.",
+    "safe": "특정 민족·종교를 통치 대상으로만 대상화하지 않고, 다양한 집단의 역사적 행위성과 문화적 의미를 함께 다룬다.",
+    "deepDive": "청의 다민족 통치와 오스만의 종교 공동체 운영을 현대 다문화 정책의 동화·공존 모델과 비교한다.",
+    "career": "세계사, 정치사, 지역학, 다문화교육, 국제관계, 공공정책",
+    "sample": "청·무굴·오스만 제국의 통치 정책을 군사, 관료, 종교, 경제 기준으로 비교하고 다민족 제국이 단순 지배가 아니라 다양한 집단을 통합하기 위한 제도적 조합을 운영했음을 해석함. 국민 국가를 기준으로 제국을 낡은 체제로 보던 초안을 수정해 각 제국의 지역 조건과 통합 방식의 차이를 검토했으며, 현대 다문화 사회의 통합 쟁점으로 역사적 비교를 확장함.",
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 청·무굴·오스만 제국 통치 비교",
+    "standard": "청, 무굴 제국, 오스만 제국의 통치 정책과 사회, 문화의 변화를 이해한다.",
+    "levels": {
+      "A": "청, 무굴 제국, 오스만 제국의 통치 정책을 알고, 사회, 문화의 변화를 종합적으로 설명할 수 있다.",
+      "B": "청, 무굴 제국, 오스만 제국의 통치 정책을 알고, 사회, 문화의 변화를 설명할 수 있다.",
+      "C": "청, 무굴 제국, 오스만 제국의 통치 정책을 알고, 사회, 문화의 변화 사례를 말할 수 있다.",
+      "D": "청, 무굴 제국, 오스만 제국의 통치 정책과 사회, 문화의 변화 사례를 말할 수 있다.",
+      "E": "청, 무굴 제국, 오스만 제국이 통치 정책을 시행하였고, 사회, 문화에 변화가 있었음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사03-02]",
+    "domain": "국민 국가의 형성",
+    "title": "시민 혁명은 누구를 시민으로 만들었는가?",
+    "type": "선언문 사료 비판형",
+    "period": "2차시",
+    "lens": "권리와 배제",
+    "concept": "시민 사회와 혁명",
+    "related": "계몽사상, 미국 혁명, 프랑스 혁명, 인권 선언, 참정권, 시민권, 여성, 식민지인, 노동자, 보편성",
+    "phenomenon": "독립 선언문, 인간과 시민의 권리 선언, 여성과 식민지인의 권리 요구 자료를 비교하며 시민 혁명이 주장한 보편적 권리와 실제 배제의 문제를 탐구한다.",
+    "conflict": "학생은 시민 혁명을 자유와 평등의 완성으로 이해할 수 있다. 그러나 혁명은 권리의 언어를 확산시키는 동시에 여성, 노예, 식민지인, 무산자의 배제를 남겼고 이후 권리 확대 운동을 촉발했다.",
+    "general": "미국 혁명과 프랑스 혁명은 시민 사회 형성과 보편적 권리의 언어를 확산시켰지만, 실제 시민권의 범위는 제한되었으며 배제된 집단의 투쟁 속에서 인권과 민주주의가 확장되었다.",
+    "studentGeneral": "혁명은 권리를 선언했지만, 그 권리가 누구에게 적용되는지는 계속 싸워야 할 문제였다.",
+    "questions": [
+      "미국 혁명과 프랑스 혁명의 과정과 주요 선언에는 무엇이 있는가?",
+      "혁명은 시민 사회 형성과 권리 인식에 어떤 변화를 가져왔는가?",
+      "시민 혁명은 보편적 인권을 실현했는가, 새로운 배제를 남겼는가?",
+      "오늘날 참정권, 인권, 시민권 논쟁을 시민 혁명의 역사와 어떻게 연결할 수 있는가?"
+    ],
+    "products": [
+      "혁명 선언문 사료 분석",
+      "권리와 배제 비교표",
+      "시민권 확장 논증문"
+    ],
+    "evidence": [
+      "선언문의 핵심 주장을 사료에서 근거로 찾음",
+      "시민 사회 형성과 권리 확대를 연결함",
+      "배제된 집단의 관점을 반영함",
+      "현대 시민권 논쟁으로 전이함"
+    ],
+    "data": "혁명 선언문과 권리 요구 자료를 작성 주체, 권리의 대상, 배제된 집단, 이후 운동의 연결성 기준으로 분석한다.",
+    "modeling": "권리 선언-배제된 집단-권리 확대 운동의 시간축과 시민권 범위 변화 도식으로 표현한다.",
+    "source": "미국 독립 선언문, 인간과 시민의 권리 선언, 여성 권리 선언, 아이티 혁명 관련 자료, 참정권 확대 자료",
+    "scale": "시공간 범위: 18-19세기 / 북아메리카, 프랑스, 카리브해, 유럽과 아메리카 시민 사회",
+    "uncertainty": "혁명 사료는 선언적 언어와 실제 정치 현실 사이에 차이가 있으므로 법적 문장과 사회적 실천을 구분해 해석해야 한다.",
+    "misconception": "시민 혁명 이후 모든 사람이 평등한 시민이 되었다.",
+    "correction": "여성, 노예, 식민지인, 노동자·농민의 자료를 함께 읽고 시민권의 범위가 역사적으로 확장되었음을 확인하게 한다.",
+    "failure": "학생이 혁명 이념을 외우는 데 머물면 선언문 속 권리의 주체와 배제된 집단을 직접 표시하게 한다.",
+    "safe": "노예제와 식민지 지배를 다룰 때 피해를 축소하거나 혁명의 성과로 폭력을 정당화하지 않도록 한다.",
+    "deepDive": "아이티 혁명을 프랑스 혁명의 권리 언어와 연결해 보편적 인권의 실제 적용 범위를 탐구한다.",
+    "career": "역사학, 법학, 정치학, 인권, 시민교육, 국제관계",
+    "sample": "미국 독립 선언문과 프랑스 인권 선언을 권리의 주체, 배제된 집단, 이후 권리 요구의 근거로 분석하고 시민 혁명을 권리의 완성이 아니라 시민권을 둘러싼 역사적 논쟁의 출발점으로 해석함. 여성과 식민지인의 관점 자료를 추가하며 혁명의 보편성과 한계를 함께 검토했고, 오늘날 참정권·인권 논쟁에서 시민의 범위가 어떻게 확장되는지 전이 질문으로 발전시킴.",
+    "official": [
+      "세계사-7 / 서술형 / 미국 혁명의 의미 파악하기"
+    ],
+    "tool": "세계사-7 / 서술형 / 시민 혁명과 시민 사회 형성",
+    "standard": "미국 혁명, 프랑스 혁명을 시민 사회 형성과 관련지어 파악한다.",
+    "levels": {
+      "A": "미국 혁명, 프랑스 혁명의 과정을 알고, 이를 시민 사회의 형성과 맥락적으로 연결하여 설명할 수 있다.",
+      "B": "미국 혁명, 프랑스 혁명의 과정을 알고, 이를 시민 사회의 형성과 연결하여 설명할 수 있다.",
+      "C": "미국 혁명, 프랑스 혁명의 과정을 알고, 시민 사회의 형성을 정리할 수 있다.",
+      "D": "미국 혁명, 프랑스 혁명 및 시민 사회의 형성 과정에서 나타난 주요 사건을 말할 수 있다.",
+      "E": "미국 혁명, 프랑스 혁명이 일어났고, 시민 사회가 형성되었음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사03-03]",
+    "domain": "국민 국가의 형성",
+    "title": "산업 혁명은 진보였는가, 새로운 위기의 시작이었는가?",
+    "type": "통계·이미지 자료 분석형",
+    "period": "2차시",
+    "lens": "산업화와 생태환경",
+    "concept": "산업 혁명과 제국주의",
+    "related": "제1차 산업 혁명, 제2차 산업 혁명, 산업 자본주의, 도시화, 노동 문제, 생태환경, 제국주의, 기술 변화",
+    "phenomenon": "공장 사진, 도시 인구 통계, 노동자 생활 자료, 대기 오염 그림, 석탄 소비량, 제국주의 풍자화를 비교하며 산업화가 사회와 환경을 어떻게 바꾸었는지 탐구한다.",
+    "conflict": "학생은 산업 혁명을 기술 발전과 경제 성장의 역사로만 이해할 수 있다. 산업 혁명은 생산력 증대와 생활 변화뿐 아니라 노동 착취, 도시 빈곤, 생태환경 문제, 제국주의 확대를 함께 낳았다.",
+    "general": "제1·2차 산업 혁명은 생산 방식과 자본주의를 변화시켜 사회·경제 구조를 재편했으며, 노동 문제와 생태환경 문제를 심화하고 서양 열강의 제국주의 팽창과도 연결되었다.",
+    "studentGeneral": "산업 혁명은 더 많이 만들 수 있게 했지만, 그 과정에서 사람과 환경이 치른 비용도 커졌다.",
+    "questions": [
+      "제1·2차 산업 혁명은 생산 방식과 사회 구조를 어떻게 바꾸었는가?",
+      "산업화는 사회, 경제, 생태환경 변화를 어떻게 연결했는가?",
+      "산업 혁명을 인류의 진보라고만 평가할 수 있는가?",
+      "오늘날 기술 혁신과 기후 위기 문제를 산업 혁명의 역사와 어떻게 비교할 수 있는가?"
+    ],
+    "products": [
+      "산업화 자료 분석표",
+      "사회·경제·생태환경 변화 원인 사슬",
+      "기술 진보 비판 논증문"
+    ],
+    "evidence": [
+      "제1·2차 산업 혁명의 차이를 설명함",
+      "사회·경제·환경 변화를 연결해 분석함",
+      "산업화의 성과와 비용을 균형 있게 판단함",
+      "현대 기술·기후 문제로 전이함"
+    ],
+    "data": "공장제 생산, 도시 인구, 노동 시간, 석탄 소비, 환경 오염, 제국주의 자료를 사회·경제·생태환경 변화 기준으로 분류한다.",
+    "modeling": "기술 변화-생산력 증가-도시화-노동 문제-환경 문제-제국주의 팽창의 원인 사슬로 표현한다.",
+    "source": "산업 혁명 통계, 공장·도시 사진, 노동자 증언, 문학 작품 발췌, 환경 오염 그림, 제국주의 만평",
+    "scale": "시공간 범위: 18-19세기 / 영국, 유럽, 미국, 식민지 지역",
+    "uncertainty": "산업화 통계는 생산량과 성장률을 보여 주지만 노동자의 삶과 환경 피해는 다른 유형의 자료로 보완해야 한다.",
+    "misconception": "산업 혁명은 기술 발전으로 삶을 풍요롭게 만든 사건이다.",
+    "correction": "생산량 증가와 노동·환경 비용을 같은 표에 놓고, 성장의 이익과 부담이 누구에게 돌아갔는지 비교하게 한다.",
+    "failure": "학생이 발명품과 산업 순서를 암기하면, 각 기술 변화가 노동, 도시, 환경, 제국주의에 미친 영향을 하나씩 연결하게 한다.",
+    "safe": "아동 노동과 환경 피해 자료를 다룰 때 선정적 이미지를 과도하게 사용하지 않고 구조적 원인과 개선 노력까지 함께 다룬다.",
+    "deepDive": "증기기관과 석탄 에너지 체제를 오늘날 화석연료 의존과 탄소중립 논의의 역사적 출발점으로 탐구한다.",
+    "career": "경제사, 환경사, 노동연구, 기술사, 에너지정책, 산업공학",
+    "sample": "산업 혁명 자료를 생산량 증가, 도시화, 노동 조건, 석탄 소비, 환경 오염 기준으로 분류하고 기술 발전이 사회·경제·생태환경 변화를 동시에 일으켰음을 분석함. 산업 혁명을 진보 서사로만 설명하던 초안을 수정해 노동자 증언과 환경 자료를 함께 검토했으며, 화석연료 기반 산업화의 역사적 경험을 오늘날 기후 위기와 기술 전환 문제로 확장함.",
+    "official": [
+      "세계사-8 / 서술형 / 산업 혁명으로 인한 생태환경 변화 분석하기"
+    ],
+    "tool": "세계사-8 / 서술형 / 산업 혁명과 생태환경 변화",
+    "standard": "제1·2차 산업 혁명이 가져온 사회, 경제, 생태환경의 변화를 분석한다.",
+    "levels": {
+      "A": "제1･2차 산업 혁명을 알고, 이것이 가져온 사회, 경제, 생태환경의 변화 모습을 맥락적으로 연결하여 분석할 수 있다.",
+      "B": "제1･2차 산업 혁명을 알고, 이것이 가져온 사회, 경제, 생태환경의 변화 모습을 연결하여 정리할 수 있다.",
+      "C": "제1･2차 산업 혁명을 알고, 이후 나타난 사회, 경제, 생태환경의 변화 모습을 정리할 수 있다.",
+      "D": "제1･2차 산업 혁명이 가져온 사회, 경제, 생태환경의 변화를 말할 수 있다.",
+      "E": "제1･2차 산업 혁명으로 사회, 경제, 생태환경에 변화가 나타났음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사03-04]",
+    "domain": "국민 국가의 형성",
+    "title": "국민 국가는 왜 지역마다 다르게 만들어졌는가?",
+    "type": "국민 국가 건설 운동 비교 글쓰기형",
+    "period": "3차시",
+    "lens": "저항과 자기 결정",
+    "concept": "아시아·아프리카 국민 국가 건설 운동",
+    "related": "민족주의, 제국주의, 국민 국가, 양무운동, 변법자강 운동, 반식민 운동, 근대화, 독립, 주체와 목표",
+    "phenomenon": "양무운동, 변법자강 운동, 인도 국민회의, 이집트·아프리카의 민족 운동 자료를 비교하고 국민 국가 건설 운동이 지역별로 다르게 전개된 이유를 탐구한다.",
+    "conflict": "학생은 국민 국가 건설 운동을 서구식 근대화를 따라간 과정으로 이해할 수 있다. 실제 운동은 제국주의 압력, 기존 정치 질서, 지역 엘리트와 민중의 목표, 종교·문화 조건에 따라 서로 다른 성격을 띠었다.",
+    "general": "아시아와 아프리카의 국민 국가 건설 운동은 제국주의와 기존 질서에 대응하는 과정에서 전개되었으며, 지역의 정치·사회 조건과 운동 주체의 목표에 따라 개혁, 저항, 독립, 근대화의 양상이 다양하게 나타났다.",
+    "studentGeneral": "국민 국가를 만들려는 움직임은 모두 같지 않았고, 각 지역이 처한 압력과 목표에 따라 다른 길을 갔다.",
+    "questions": [
+      "아시아와 아프리카 지역의 국민 국가 건설 운동에는 어떤 사례가 있는가?",
+      "운동의 주체, 목표, 방법, 국제 정세는 운동의 성격을 어떻게 바꾸었는가?",
+      "국민 국가 건설 운동은 근대화인가, 반제국주의 저항인가?",
+      "오늘날 자기 결정권과 탈식민 문제를 국민 국가 건설 운동의 역사와 어떻게 연결할 수 있는가?"
+    ],
+    "products": [
+      "국민 국가 건설 운동 비교표",
+      "운동 주체·목표 행위자 맵",
+      "비교 역사 글쓰기"
+    ],
+    "evidence": [
+      "지역별 운동의 양상과 성격을 비교함",
+      "주체·목표·방법·맥락을 구분함",
+      "근대화와 반제국주의 관점을 함께 적용함",
+      "탈식민·자기 결정권 문제로 전이함"
+    ],
+    "data": "각 운동의 배경, 주체, 목표, 방법, 제국주의와의 관계, 결과를 비교하고 운동이 추구한 국가상과 사회 변화를 분리해 분석한다.",
+    "modeling": "지역별 운동 비교 매트릭스와 주체-목표-방법-결과의 역사 글쓰기 개요로 표현한다.",
+    "source": "양무운동·변법자강 운동 자료, 인도 국민회의 자료, 아프리카·서아시아 민족 운동 자료, 선언문·강령·연표",
+    "scale": "시공간 범위: 19세기 후반-20세기 초 / 중국, 인도, 서아시아, 아프리카",
+    "uncertainty": "민족 운동 자료는 엘리트 지도자의 목소리가 강할 수 있으므로 민중, 여성, 종교·지역 집단의 관점을 함께 고려해야 한다.",
+    "misconception": "아시아와 아프리카의 국민 국가 건설 운동은 서구 근대화를 모방한 과정이다.",
+    "correction": "운동별로 제국주의 압력, 내부 개혁 요구, 문화적 정체성, 독립 목표가 다르게 결합되었음을 비교하게 한다.",
+    "failure": "학생이 사건 순서만 나열하면 두 운동의 주체·목표·방법·결과를 같은 기준으로 비교한 뒤 차이의 원인을 쓰게 한다.",
+    "safe": "식민 지배와 민족 운동을 다룰 때 특정 지역을 수동적 피해자로만 묘사하지 않고 다양한 저항과 선택을 함께 조명한다.",
+    "deepDive": "양무운동과 변법자강 운동의 차이를 제도 개혁, 기술 수용, 정치 권력, 국제 정세 기준으로 비교하고 다른 지역의 반식민 운동과 연결한다.",
+    "career": "역사학, 국제관계, 탈식민 연구, 지역학, 정치학, 시민교육",
+    "sample": "양무운동과 변법자강 운동을 주체, 목표, 개혁 범위, 국제 정세의 기준으로 비교하고 두 운동이 모두 서구 기술 수용이라는 말로 설명되지 않는 차이를 보임을 해석함. 국민 국가 건설 운동을 서구 근대화의 모방으로 보던 초안을 수정해 제국주의 압력과 내부 정치 질서의 영향을 분리했으며, 자기 결정권과 탈식민 문제를 현재 국제 질서의 쟁점으로 확장함.",
+    "official": [
+      "세계사-9 / 역사 글쓰기 / 양무운동과 변법자강 운동 비교"
+    ],
+    "tool": "세계사-9 / 역사 글쓰기 / 국민 국가 건설 운동 비교",
+    "standard": "아시아와 아프리카 지역에서 전개된 국민 국가 건설 운동의 양상과 성격을 비교한다.",
+    "levels": {
+      "A": "아시아와 아프리카 지역에서 전개된 국민 국가 건설 운동의 양상과 성격을 역사적 맥락에서 비교할 수 있다.",
+      "B": "아시아와 아프리카 지역에서 전개된 국민 국가 건설 운동의 양상과 성격을 비교할 수 있다.",
+      "C": "아시아와 아프리카 지역에서 전개된 국민 국가 건설 운동의 양상을 정리할 수 있다.",
+      "D": "아시아와 아프리카 지역에서 전개된 국민 국가 건설 운동의 사례를 말할 수 있다.",
+      "E": "아시아와 아프리카 지역에서 국민 국가 건설 운동이 전개되었음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사04-01]",
+    "domain": "현대 세계의 과제",
+    "title": "세계 대전은 인간과 기술의 의미를 어떻게 바꾸었는가?",
+    "type": "전쟁 사료·과학기술 윤리 탐구형",
+    "period": "3차시",
+    "lens": "인권과 과학 기술",
+    "concept": "세계 대전과 총력전",
+    "related": "제1차 세계 대전, 제2차 세계 대전, 총력전, 대량 학살, 홀로코스트, 원자폭탄, 과학 기술, 전쟁 책임, 인권",
+    "phenomenon": "참호전 사진, 선전 포스터, 민간인 피해 자료, 홀로코스트와 원자폭탄 관련 자료를 비교하며 세계 대전이 인권과 과학 기술의 의미를 어떻게 바꾸었는지 탐구한다.",
+    "conflict": "학생은 세계 대전을 국가 간 군사 충돌로만 이해할 수 있다. 세계 대전은 사회 전체가 동원된 총력전이었고, 민간인 피해, 대량 학살, 과학 기술의 군사화, 전후 인권 규범 형성에 큰 영향을 주었다.",
+    "general": "제1·2차 세계 대전은 총력전의 성격 속에서 대량 살상과 인권 침해를 낳았으며, 과학 기술의 군사적 활용은 인간의 책임과 국제적 인권 규범의 필요성을 역사적으로 드러냈다.",
+    "studentGeneral": "전쟁 기술이 강해질수록 인간을 지키기 위한 규칙과 책임도 더 중요해졌다.",
+    "questions": [
+      "제1·2차 세계 대전의 전개와 총력전의 특징은 무엇인가?",
+      "세계 대전은 인권과 과학 기술 문제를 어떻게 드러냈는가?",
+      "과학 기술자는 전쟁 기술의 사용에 어떤 책임을 져야 하는가?",
+      "오늘날 AI 무기, 핵무기, 전쟁 범죄 문제를 세계 대전의 경험과 어떻게 연결할 수 있는가?"
+    ],
+    "products": [
+      "세계 대전 인권·기술 쟁점 분석",
+      "총력전 구조 도식",
+      "과학기술 책임 CER 논증"
+    ],
+    "evidence": [
+      "세계 대전의 총력전 성격을 설명함",
+      "인권 침해와 과학 기술 문제를 사례로 분석함",
+      "전쟁 책임과 기술 윤리 쟁점을 판단함",
+      "현대 전쟁·기술 문제로 전이함"
+    ],
+    "data": "전쟁 사료를 군사 동원, 민간인 피해, 인권 침해, 과학 기술 활용, 전후 규범 형성 기준으로 분류하고 사료의 작성 주체를 확인한다.",
+    "modeling": "총력전-대량 피해-과학 기술 군사화-국제 규범 형성의 관계를 원인 사슬과 쟁점 매트릭스로 표현한다.",
+    "source": "세계 대전 연표, 전쟁 포스터, 피해 통계, 홀로코스트·원자폭탄 관련 자료, 국제 인권 규범 자료",
+    "scale": "시공간 범위: 1914-1945년과 전후 / 유럽, 아시아·태평양, 전 세계",
+    "uncertainty": "전쟁 자료는 국가 선전, 승전국·패전국 관점, 피해자 증언의 성격이 다르므로 자료의 목적과 맥락을 구분해야 한다.",
+    "misconception": "세계 대전은 군인끼리 싸운 전쟁이며 과학 기술은 승리를 위한 도구였다.",
+    "correction": "민간인 피해, 강제 동원, 대량 학살, 원자폭탄 피해 자료를 함께 분석해 총력전과 기술 윤리의 문제를 파악하게 한다.",
+    "failure": "학생이 전쟁 원인과 결과 암기에 머물면 한 사례를 골라 인권 문제와 과학 기술 문제가 어떻게 연결되는지 사료 근거로 추적하게 한다.",
+    "safe": "전쟁 범죄와 대량 학살 자료는 피해자의 존엄을 중심으로 다루고, 자극적 이미지 소비나 혐오 표현을 금지한다.",
+    "deepDive": "원자폭탄 개발과 투하 논쟁을 과학자의 책임, 군사적 필요 주장, 민간인 피해, 핵 억지의 관점으로 비교한다.",
+    "career": "역사학, 국제법, 평화학, 과학기술윤리, 국제관계, 군사사",
+    "sample": "세계 대전 자료를 총력전 동원, 민간인 피해, 대량 학살, 과학 기술 활용, 전후 인권 규범의 기준으로 분류하고 전쟁을 군사 충돌이 아니라 사회 전체와 인간 존엄을 뒤흔든 역사 과정으로 해석함. 원자폭탄과 홀로코스트 자료를 대조하며 기술 발전과 인권 침해가 어떻게 결합될 수 있는지 검토했고, 현대 핵무기와 AI 무기 윤리 문제로 탐구 질문을 확장함.",
+    "official": [
+      "세계사-1 / 선다형 / 제2차 세계 대전 중 인권과 과학 기술 문제",
+      "세계사-10 / 서술형 / 과학 기술의 양면성 파악하기"
+    ],
+    "tool": "세계사-1·10 / 선다형·서술형 / 세계 대전, 인권, 과학 기술",
+    "standard": "제1·2차 세계 대전을 인권, 과학 기술 문제와 관련지어 파악한다.",
+    "levels": {
+      "A": "제1·2차 세계 대전의 과정을 알고, 이를 인권, 과학 기술 문제와 관련지어 종합적으로 설명할 수 있다.",
+      "B": "제1·2차 세계 대전의 과정을 알고, 이를 인권, 과학 기술 문제와 관련지어 설명할 수 있다.",
+      "C": "제1·2차 세계 대전의 과정을 알고, 인권, 과학 기술 문제에 관한 사례를 말할 수 있다.",
+      "D": "제1·2차 세계 대전에서 나타난 인권, 과학 기술 문제의 사례를 말할 수 있다.",
+      "E": "제1·2차 세계 대전에서 인권, 과학 기술 문제가 나타났음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사04-02]",
+    "domain": "현대 세계의 과제",
+    "title": "냉전은 사람들의 일상과 문화를 어떻게 바꾸었는가?",
+    "type": "선전물·대중문화 분석형",
+    "period": "2차시",
+    "lens": "이념과 일상",
+    "concept": "냉전과 사회·문화 변화",
+    "related": "냉전, 양극 체제, 이념 대결, 선전, 대중문화, 핵 공포, 우주 경쟁, 분단, 사회 통제, 일상",
+    "phenomenon": "냉전 시기 선전 포스터, 영화, 대중가요, 신문 기사, 우주 경쟁 자료, 분단 사회 자료를 분석하며 이념 대결이 전쟁터 밖의 일상과 문화에 미친 영향을 탐구한다.",
+    "conflict": "학생은 냉전을 미국과 소련의 정치·군사 대립으로만 이해할 수 있다. 냉전은 사람들의 공포, 소비문화, 교육, 예술, 검열, 가족과 지역 사회의 일상까지 변화시킨 사회·문화적 질서였다.",
+    "general": "냉전의 대결 구도는 정치·군사 갈등을 넘어 선전, 문화, 과학 기술 경쟁, 사회 통제, 일상의 감정 구조에 영향을 주었으며 지역과 집단에 따라 다른 사회·문화 변화를 낳았다.",
+    "studentGeneral": "냉전은 지도 위의 대립만이 아니라 사람들이 무엇을 두려워하고 무엇을 믿게 되는지도 바꾸었다.",
+    "questions": [
+      "냉전의 전개 양상과 대표적 갈등 사례에는 무엇이 있는가?",
+      "이념 대결은 사회·문화와 일상생활을 어떻게 변화시켰는가?",
+      "냉전 문화 자료는 사실을 전달하는가, 감정을 조직하는가?",
+      "오늘날 혐오, 선전, 가짜뉴스 문제를 냉전의 문화정치와 어떻게 비교할 수 있는가?"
+    ],
+    "products": [
+      "냉전 선전물 분석표",
+      "이념 대결-일상 변화 관계망",
+      "냉전 문화 비판 해석문"
+    ],
+    "evidence": [
+      "냉전의 전개와 갈등 사례를 설명함",
+      "선전물과 대중문화 자료를 분석함",
+      "사회·문화 변화의 맥락을 해석함",
+      "현대 미디어·선전 문제로 전이함"
+    ],
+    "data": "포스터, 영화, 기사, 대중가요, 우주 경쟁 자료를 메시지, 대상, 감정, 적 이미지, 사회 통제 효과 기준으로 분석한다.",
+    "modeling": "이념 대결-선전 매체-감정 형성-사회문화 변화의 관계망과 자료별 프레이밍 비교표로 표현한다.",
+    "source": "냉전 선전 포스터, 영화·TV 자료, 신문 기사, 우주 경쟁 자료, 베를린·한국·베트남 관련 자료",
+    "scale": "시공간 범위: 1945년 이후 냉전기 / 미국, 소련, 유럽, 동아시아, 제3세계",
+    "uncertainty": "선전물은 설득 목적이 강한 자료이므로 사실 정보보다 메시지 구성과 감정 동원의 방식을 중심으로 해석해야 한다.",
+    "misconception": "냉전은 미국과 소련이 직접 싸우지 않은 정치적 대립이다.",
+    "correction": "대리전, 분단, 선전, 문화 통제, 핵 공포, 우주 경쟁 자료를 통해 냉전이 일상과 사회에 미친 영향을 확인하게 한다.",
+    "failure": "학생이 냉전 사건을 연표로만 정리하면 하나의 문화 자료가 어떤 이념 메시지와 감정을 만들었는지 자료 안의 표현을 근거로 분석하게 한다.",
+    "safe": "현대 정치 성향 비난으로 흐르지 않도록 냉전 자료의 시대적 맥락, 제작 의도, 수용 방식을 구분한다.",
+    "deepDive": "냉전 선전 포스터와 오늘날 소셜미디어 정치 콘텐츠를 메시지 구성, 적 이미지, 감정 동원 기준으로 비교한다.",
+    "career": "역사학, 미디어학, 국제관계, 문화연구, 정치커뮤니케이션, 평화교육",
+    "sample": "냉전 포스터와 영화 자료를 제작 주체, 목표 집단, 적 이미지, 감정 동원 방식으로 분석하고 냉전을 정치·군사 대립뿐 아니라 일상과 문화를 조직한 질서로 해석함. 사건 연표 중심 설명을 수정해 선전물의 이미지와 문구가 공포와 충성심을 어떻게 구성하는지 검토했으며, 현대 미디어의 가짜뉴스와 혐오 표현 문제로 역사적 비교를 확장함.",
+    "official": [
+      "세계사-11 / 서술형 / 냉전의 대결 구도 속 사회적 변화 파악하기"
+    ],
+    "tool": "세계사-11 / 서술형 / 냉전과 사회·문화 변화",
+    "standard": "냉전의 전개 양상에 따라 나타난 사회, 문화의 변화를 분석한다.",
+    "levels": {
+      "A": "냉전의 전개 양상을 알고, 이에 따라 나타난 사회, 문화의 변화를 맥락적으로 연결하여 분석할 수 있다.",
+      "B": "냉전의 전개 양상을 알고, 이에 따라 나타난 사회, 문화의 변화를 연결하여 정리할 수 있다.",
+      "C": "냉전의 전개 양상을 알고, 이 시기에 나타난 사회, 문화의 변화를 정리할 수 있다.",
+      "D": "냉전의 전개 양상에 따라 나타난 사회, 문화의 변화를 말할 수 있다.",
+      "E": "냉전의 전개 양상에 따라 사회, 문화의 변화가 나타났음을 말할 수 있다."
+    }
+  },
+  {
+    "code": "[12세사04-03]",
+    "domain": "현대 세계의 과제",
+    "title": "현대 세계 문제를 해결하는 데 세계사는 어떤 통찰을 주는가?",
+    "type": "현대 과제 역사 탐구 프로젝트형",
+    "period": "3차시",
+    "lens": "지속가능성과 책임",
+    "concept": "현대 세계의 과제와 인류의 노력",
+    "related": "민주주의, 평화, 난민, 경제적 불평등, 생태환경, 국제기구, 인권, 지속가능성, 역사적 맥락, 세계시민",
+    "phenomenon": "난민, 전쟁, 인권 침해, 경제적 불평등, 기후 위기, 생태환경 문제 중 하나를 선택하고 그 문제가 어떤 역사적 맥락에서 형성되었는지 탐구한다.",
+    "conflict": "학생은 현대 문제를 현재의 정책 실패나 특정 국가의 문제로만 볼 수 있다. 현대 세계의 과제는 제국주의, 전쟁, 냉전, 산업화, 국제 질서, 경제 구조의 역사적 축적 속에서 형성되었다.",
+    "general": "현대 세계의 과제는 장기적인 역사적 맥락 속에서 형성되었으며, 인류의 해결 노력은 국제기구, 시민사회, 국가 정책, 지역 공동체의 협력과 책임 있는 세계시민 의식을 요구한다.",
+    "studentGeneral": "오늘의 문제는 갑자기 생긴 것이 아니며, 과거를 이해해야 더 책임 있는 해결 방법을 생각할 수 있다.",
+    "questions": [
+      "현대 세계의 주요 과제와 이를 해결하기 위한 인류의 노력에는 무엇이 있는가?",
+      "현대 문제의 원인을 역사적 맥락 속에서 파악하면 어떤 설명이 달라지는가?",
+      "국제 사회의 노력은 충분한가, 어떤 한계를 갖는가?",
+      "내가 선택한 현대 문제를 해결하기 위해 역사 탐구가 어떤 실천 기준을 줄 수 있는가?"
+    ],
+    "products": [
+      "현대 과제 역사 맥락 탐구",
+      "국제적 노력 비교표",
+      "세계시민 실천 기준안"
+    ],
+    "evidence": [
+      "현대 문제의 역사적 맥락을 추적함",
+      "국제기구·국가·시민사회 노력을 비교함",
+      "해결 노력의 한계와 가능성을 판단함",
+      "세계시민적 실천 기준으로 전이함"
+    ],
+    "data": "현대 문제 하나를 선택해 역사적 배경, 현재 통계, 피해 집단, 국제 사회의 대응, 시민사회 활동, 해결의 한계를 시간축과 행위자별로 정리한다.",
+    "modeling": "문제의 역사적 원인-현재 양상-대응 주체-한계-실천 기준을 역사 맥락 지도와 행위자 맵으로 표현한다.",
+    "source": "국제기구 보고서, 난민·기후·불평등 통계, 신문·잡지 기사, 인권 자료, 시민사회 활동 사례, 세계사 학습 내용",
+    "scale": "시공간 범위: 20세기 이후 현재 / 지역 사례와 세계적 구조의 연결",
+    "uncertainty": "현대 문제 자료는 정치적 입장과 통계 기준에 따라 다르게 구성되므로 복수 출처를 비교하고 피해 당사자의 관점을 존중해야 한다.",
+    "misconception": "현대 세계 문제는 현재 정책과 기술로 해결할 수 있는 문제이다.",
+    "correction": "문제의 역사적 원인과 축적 과정을 추적하여 단기 처방과 장기 구조 개선을 구분하게 한다.",
+    "failure": "학생이 해결 방안 목록을 나열하면 각 방안이 어떤 역사적 원인에 대응하는지, 어떤 주체가 실행 가능한지 근거를 연결하게 한다.",
+    "safe": "난민, 전쟁, 빈곤, 기후 피해 사례를 다룰 때 피해자를 동정의 대상으로만 소비하지 않고 권리와 존엄, 구조적 원인을 중심에 둔다.",
+    "deepDive": "난민 문제를 제국주의, 세계 대전, 냉전, 지역 분쟁, 국제 난민 협약의 역사와 연결해 다층적으로 탐구한다.",
+    "career": "국제기구, 국제개발, 인권, 평화학, 환경정책, 역사교육, NGO",
+    "sample": "난민 문제를 선택해 전쟁, 제국주의 경계선, 냉전 이후 지역 분쟁, 국제 난민 협약, 최근 통계 자료를 시간축으로 연결하고 현대 문제가 장기적 역사 맥락 속에서 형성되었음을 분석함. 해결 방안을 인도적 지원 목록으로만 제시하던 초안을 수정해 국가, 국제기구, 시민사회, 지역 공동체의 역할과 한계를 구분했으며, 세계시민으로서 실천 가능한 정보 검증과 연대의 기준을 구체화함.",
+    "official": [
+      "세계사-12 / 역사 글쓰기 / 난민 문제 해결을 위한 인류의 노력 탐구"
+    ],
+    "tool": "세계사-12 / 역사 글쓰기 / 현대 세계의 과제와 인류의 노력",
+    "standard": "현대 세계의 과제를 해결하기 위해 인류가 기울여온 노력을 탐구한다.",
+    "levels": {
+      "A": "현대 세계의 과제를 해결하기 위해 인류가 기울여온 노력에 관한 자료를 분석·해석할 수 있다.",
+      "B": "현대 세계의 과제를 해결하기 위해 인류가 기울여온 노력에 관한 자료를 분석할 수 있다.",
+      "C": "현대 세계의 과제를 해결하기 위해 인류가 기울여온 노력에 관한 자료를 정리·요약할 수 있다.",
+      "D": "현대 세계의 과제를 해결하기 위해 인류가 기울여온 노력에 관한 자료를 읽고 내용을 요약할 수 있다.",
+      "E": "현대 세계의 과제를 해결하기 위해 인류가 기울여온 노력에 관한 자료를 읽고 내용을 말할 수 있다."
+    }
+  }
+];
+
+const TABS=[
+  ["overview","수업 한눈에 보기","01"],
+  ["cbi","개념기반탐구 설계","02"],
+  ["lesson","수업방법 상세안","03"],
+  ["worksheet","활동지·자료처리","04"],
+  ["assessment","평가·피드백","05"],
+  ["record","학생부 기록·심화탐구","06"]
+];
+
+const DOMAIN_KEY={
+  "지역 세계의 형성":"atmo",
+  "교역망의 확대":"geo",
+  "국민 국가의 형성":"astro",
+  "현대 세계의 과제":"green"
+};
+
+let current=0;
+let tab="overview";
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function cls(d){return "domain-" + (DOMAIN_KEY[d] || "atmo");}
+function accent(d){return "accent-" + (DOMAIN_KEY[d] || "atmo");}
+function openView(id){
+  var views=document.querySelectorAll(".view");
+  for(var i=0;i<views.length;i++) views[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle("on", btns[j].dataset.view===id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+(function bindNav(){
+  var btns=document.querySelectorAll(".nav button[data-view]");
+  for(var i=0;i<btns.length;i++){
+    (function(b){ b.onclick=function(){ openView(b.dataset.view); }; })(btns[i]);
+  }
+})();
+
+function pills(arr, solid){
+  return '<div class="pills">' + (arr||[]).map(function(x){
+    return '<span class="pill' + (solid?' solid':'') + '">' + esc(x) + '</span>';
+  }).join("") + '</div>';
+}
+function block(title, body, hint){
+  return '<div class="blk">' +
+    '<div class="blk-h"><span>' + esc(title) + '</span>' + (hint?'<span class="hint">' + esc(hint) + '</span>':"") + '</div>' +
+    body +
+  '</div>';
+}
+function recordCompetencyGuide(x){
+  var evidence = Array.isArray(x.evidence) ? x.evidence.slice(0,3) : [];
+  var product = Array.isArray(x.products) && x.products.length ? x.products[0] : "역사 탐구 산출물";
+  var transfer = Array.isArray(x.questions) && x.questions.length > 3 ? x.questions[3] : "새로운 시대·지역·현재 문제에 적용할 수 있는가?";
+  return block("대학이 읽는 탐구력 포인트 — 세특 문장화 안내",
+    '<div class="cards3">' +
+      '<div class="card accent-atmo">' +
+        '<h4>역사 질문과 자료 선택</h4>' +
+        '<p><b>' + esc(product) + '</b>을(를) 만들었다고 쓰는 대신, 학생이 어떤 역사 질문을 세우고 어떤 사료·지도·이미지 자료를 근거로 선택했는지 기록합니다. 자료 근거: ' + esc(x.source || "사료·지도·이미지·통계 자료") + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4>사료 해석과 관점 비교</h4>' +
+        '<p>' + esc(x.data || "") + '</p>' +
+        '<p><b>관찰 단서:</b> ' + esc(evidence.join(" / ")) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro">' +
+        '<h4>해석 수정과 현재 전이</h4>' +
+        '<p>' + esc(x.uncertainty || "자료의 작성 주체, 침묵, 관점의 한계를 점검합니다.") + '</p>' +
+        '<p><b>전이 질문:</b> ' + esc(transfer) + '</p>' +
+      '</div>' +
+    '</div>',
+    "예시 문장에는 사료 선택, 맥락화, 관점 수정, 심화 전이 과정을 함께 남깁니다"
+  );
+}
+function filtered(){
+  var s=document.getElementById("search");
+  var d=document.getElementById("domain");
+  var t=document.getElementById("type");
+  var q=(s && s.value ? s.value : "").toLowerCase();
+  var domainVal=d && d.value ? d.value : "전체 영역";
+  var typeVal=t && t.value ? t.value : "전체 수업 유형";
+  return DATA.filter(function(x){
+    return (domainVal==="전체 영역" || x.domain===domainVal) &&
+      (typeVal==="전체 수업 유형" || x.type.indexOf(typeVal)>=0) &&
+      [x.code,x.title,x.standard,x.concept,x.products.join(" "),x.evidence.join(" "),x.related].join(" ").toLowerCase().indexOf(q)>=0;
+  });
+}
+function renderList(){
+  var arr=filtered();
+  var inArr=false;
+  for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ inArr=true; break; } }
+  if(!inArr && arr.length) current=DATA.indexOf(arr[0]);
+  document.getElementById("list-meta").textContent = arr.length + " / " + DATA.length + " STANDARDS";
+  document.getElementById("list").innerHTML = arr.map(function(x){
+    var i=DATA.indexOf(x);
+    return '' +
+      '<button class="std-item ' + (i===current ? "on" : "") + '" onclick="select(' + i + ')">' +
+        '<div>' +
+          '<span class="code">' + esc(x.code) + '</span>' +
+          '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+          (x.official.length ? '<span class="chip">공식탐구</span>' : '') +
+        '</div>' +
+        '<span class="std-title">' + esc(x.title) + '</span>' +
+        '<span class="std-text">' + esc(x.standard) + '</span>' +
+      '</button>';
+  }).join("") || '<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';
+  renderDetail();
+}
+function select(i){
+  current=i;
+  tab="overview";
+  renderList();
+  if(window.innerWidth<=1180){
+    document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function setTab(t){
+  tab=t;
+  renderDetail();
+}
+
+
+
+function tableRows(x){
+  return '' +
+    '<div class="lesson-hd">' +
+      '<div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 01</span>도입<br>참여·초점</div>' +
+      '<div>교사는 <b>' + esc(x.phenomenon) + '</b>을(를) 제시하고 학생의 초기 해석과 시대착오적 판단 가능성을 드러내는 발문을 한다.</div>' +
+      '<div>학생은 사전 해석을 적고, 설명이 필요한 역사 개념과 자료에서 확인해야 할 질문을 표시한다.</div>' +
+      '<div>사전 해석지<br>탐구 질문지</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 02</span>자료 탐색</div>' +
+      '<div>교사는 개념 렌즈, 사료의 작성 주체와 의도, 비문자 자료 해석 기준, 민감한 역사 주제의 토론 원칙을 안내한다.</div>' +
+      '<div>학생은 사용할 사료·지도·이미지·통계 자료를 고르고, 자료가 보여 주는 것과 침묵하는 것을 구분한다.</div>' +
+      '<div>자료 선택표<br>사료 비판표</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 03</span>맥락화</div>' +
+      '<div>교사는 학생의 자료 출처, 시대·지역 맥락, 행위자 관점, 해석의 공백을 순회 점검한다.</div>' +
+      '<div>학생은 ' + esc(x.data) + '</div>' +
+      '<div>' + esc(x.products[0]) + '</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 04</span>관점 비교</div>' +
+      '<div>교사는 지배자·피지배자, 중심·주변, 국가·개인, 남성·여성 등 관점 차이를 비교하도록 질문한다.</div>' +
+      '<div>학생은 ' + esc(x.modeling) + '</div>' +
+      '<div>비교표·연표·지도·논증문</div>' +
+    '</div>' +
+    '<div class="lesson-row">' +
+      '<div><span class="stage-n">STEP 05</span>일반화·전이</div>' +
+      '<div>교사는 일반화 문장과 전이 질문을 통해 다른 시대·지역 또는 현대 세계의 과제로 사고를 확장한다.</div>' +
+      '<div>학생은 CER 결론문을 구성하고, 자료의 한계와 자신의 해석 수정 과정을 설명한다.</div>' +
+      '<div>CER 결론문<br>전이 질문</div>' +
+    '</div>';
+}
+
+function rubric(x){
+  var levels=x.levels || {};
+  function row(k){
+    var txt=levels[k] || "성취수준 자료를 확인해 보완한다.";
+    return '<div class="lv-row"><div class="lv ' + k + '">' + k + '</div><div class="lv-text">' + esc(txt) + '</div></div>';
+  }
+  return '<div class="rubric">' + row("A") + row("B") + row("C") + row("D") + row("E") + '</div>';
+}
+
+function steps(arr){
+  return '<div class="steps">' + arr.map(function(x){
+    return '<div class="step"><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function panel(x){
+  var qs=x.questions;
+  var panels={};
+
+  panels.overview =
+    block("성취기준 원문", '<div class="std-full"><b>' + esc(x.code) + '</b>' + esc(x.standard) + '</div>') +
+    '<div class="cards">' +
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4><span class="icon">i</span>수업 개요</h4>' +
+        '<p><b>제목 :</b> ' + esc(x.title) + '</p>' +
+        '<p><b>유형 :</b> ' + esc(x.type) + '</p>' +
+        '<p><b>권장 차시 :</b> ' + esc(x.period) + '</p>' +
+        '<p><b>탐구 설계 :</b> ' + (x.official.length ? esc(x.official.join(", ")) : "성취기준 기반 CBI 탐구") + '</p>' +
+        '<p><b>핵심 개념 :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈 :</b> ' + esc(x.lens) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green">' +
+        '<h4><span class="icon">▲</span>핵심 산출물</h4>' +
+        pills(x.products) +
+      '</div>' +
+    '</div>' +
+    block("교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서", pills(x.evidence), "수업 중 즉시 메모를 권장합니다") +
+    block("예시 평가도구 연결", '<div class="card"><p>' + esc(x.tool) + '</p></div>', "성취기준·성취수준 기반 평가");
+
+  panels.cbi =
+    block("개념 형성의 흐름",
+      '<div class="cards">' +
+        '<div class="card accent-gold">' +
+          '<h4><span class="icon">F</span>현상(Phenomenon)</h4>' +
+          '<p>' + esc(x.phenomenon) + '</p>' +
+        '</div>' +
+        '<div class="card ' + accent(x.domain) + '">' +
+          '<h4><span class="icon">C</span>개념 갈등(Conflict)</h4>' +
+          '<p>' + esc(x.conflict) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="general" style="margin-top:.9rem">' +
+        '<div class="gen-row">' +
+          '<b>교사용 일반화 진술 (Generalization)</b>' +
+          '<p>' + esc(x.general) + '</p>' +
+        '</div>' +
+        '<div class="gen-row">' +
+          '<b>학생용 일반화 진술 (Student-Friendly)</b>' +
+          '<p>' + esc(x.studentGeneral) + '</p>' +
+        '</div>' +
+      '</div>',
+      "Erickson & Lanning CBI 모형"
+    ) +
+    block("탐구 질문 4종 — 사실에서 전이까지",
+      '<div class="q-grid">' +
+        '<div class="q fact"><b>Factual · 사실적 질문</b><p>' + esc(qs[0]) + '</p></div>' +
+        '<div class="q concept"><b>Conceptual · 개념적 질문</b><p>' + esc(qs[1]) + '</p></div>' +
+        '<div class="q debate"><b>Debatable · 논쟁적 질문</b><p>' + esc(qs[2]) + '</p></div>' +
+        '<div class="q transfer"><b>Transfer · 전이 질문</b><p>' + esc(qs[3]) + '</p></div>' +
+      '</div>',
+      "수업 도입·전개·마무리 3구간에 배치"
+    ) +
+    block("핵심 개념과 관련 개념",
+      '<div class="card">' +
+        '<p><b>핵심 개념(Macro Concept) :</b> ' + esc(x.concept) + '</p>' +
+        '<p><b>개념 렌즈(Conceptual Lens) :</b> ' + esc(x.lens) + '</p>' +
+        '<p><b>관련 개념(Related Concepts) :</b> ' + esc(x.related) + '</p>' +
+      '</div>'
+    );
+
+  panels.lesson =
+    block("차시별·단계별 수업방법 (CBI 6단계 구현)", tableRows(x), "STEP 01–05 표준 흐름") +
+    block("교사 발문 세트 — 즉시 사용 가능",
+      '<div class="cards">' +
+        '<div class="card accent-atmo">' +
+          '<h4>탐구 전 발문</h4>' +
+          '<ul>' +
+            '<li>이 쟁점은 시대·지역·집단·현재 중 어떤 맥락에서 다르게 보이는가?</li>' +
+            '<li>우리는 어떤 사료·지도·이미지·통계 자료를 근거로 해석해야 하는가?</li>' +
+            '<li>한 관점만으로 설명할 때 배제되는 집단과 목소리는 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>탐구 중 발문</h4>' +
+          '<ul>' +
+            '<li>자료를 어떤 연표, 지도, 사료 대조표, 행위자 관계망으로 바꾸면 역사적 관계가 더 잘 보이는가?</li>' +
+            '<li>자료의 차이는 시대 맥락, 지역 조건, 작성 주체, 관점 차이 중 무엇인가?</li>' +
+            '<li>우리 해석이 충분히 반영하지 못한 집단, 지역, 사료의 공백은 무엇인가?</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>탐구 후 발문</h4>' +
+          '<ul>' +
+            '<li>오늘 만든 일반화 문장을 다른 시대·지역·현대 세계 문제에 적용해 보자.</li>' +
+            '<li>학생부 기록 근거로 남길 수 있는 사료 해석, 관점 비교, 해석 수정 장면은 무엇인가?</li>' +
+            '<li>다음 탐구에서 사료 출처, 시공간 범위, 관점 비교, 현재 전이를 어떻게 개선할 수 있는가?</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("오개념·실패 상황 대처·안전",
+      '<div class="cards3">' +
+        '<div class="card accent-red">' +
+          '<h4>예상 오개념</h4>' +
+          '<p>' + esc(x.misconception) + '</p>' +
+          '<p><b>피드백 :</b> ' + esc(x.correction) + '</p>' +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>실패 상황 대처</h4>' +
+          '<p>' + esc(x.failure) + '</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>안전·윤리</h4>' +
+          '<p>' + esc(x.safe) + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+
+  panels.worksheet =
+    block("학생 활동지 문항 — 실제 기록용",
+      steps([
+        "오늘의 자료에서 가장 설명이 필요한 역사 개념 또는 해석 쟁점을 쓰시오.",
+        qs[1],
+        "탐구에서 사용할 사료·지도·이미지 자료의 출처, 작성 주체, 관점, 해석 한계를 쓰시오.",
+        x.data,
+        x.modeling,
+        "자료에서 찾은 규칙성 또는 관계를 한 문장으로 쓰시오.",
+        "주장-증거-추론 구조로 결론을 작성하시오.",
+        "사료의 공백, 작성 주체의 관점, 시대착오적 해석 가능성을 2가지 이상 쓰시오.",
+        qs[3]
+      ])
+    ) +
+    block("자료 처리 안내 — 출처·연구 방법·윤리",
+      '<div class="card accent-atmo">' +
+        '<h4>자료 출처</h4>' +
+        '<p>' + esc(x.source) + '</p>' +
+      '</div>' +
+      '<div class="card accent-geo" style="margin-top:.8rem">' +
+        '<h4>분석 범위</h4>' +
+        '<p>' + esc(x.scale) + '</p>' +
+      '</div>' +
+      '<div class="card accent-green" style="margin-top:.8rem">' +
+        '<h4>자료 처리</h4>' +
+        '<p>' + esc(x.data) + '</p>' +
+      '</div>' +
+      '<div class="card accent-astro" style="margin-top:.8rem">' +
+        '<h4>모형화</h4>' +
+        '<p>' + esc(x.modeling) + '</p>' +
+      '</div>' +
+      '<div class="card accent-gold" style="margin-top:.8rem">' +
+        '<h4>자료·윤리·관점 한계</h4>' +
+        '<p>' + esc(x.uncertainty) + '</p>' +
+        '<p><b>해석 문장 틀 :</b> “사료와 자료에서 확인한 변화는 <b>' + esc(x.concept) + '</b> 개념으로 설명할 수 있으며, 이 해석은 <b>' + esc(x.lens) + '</b> 관점에서 다른 시대·지역 또는 현대 세계의 과제에 적용할 수 있다.”</p>' +
+      '</div>'
+    );
+
+  panels.assessment =
+    block("수행평가 과제",
+      '<div class="card ' + accent(x.domain) + '">' +
+        '<h4>' + esc(x.title) + '</h4>' +
+        '<p>' + esc(x.products[0]) + '을(를) 중심 산출물로 제출하고, 성취기준 원문에 도달했음을 사료·맥락·관점 비교 근거로 설명한다.</p>' +
+      '</div>'
+    ) +
+    block("평가 요소",
+      '<div class="cards3">' +
+        '<div class="card accent-atmo">' +
+          '<h4>지식·이해</h4>' +
+          '<p>' + esc(x.concept) + '와 관련 개념의 정확한 설명</p>' +
+        '</div>' +
+        '<div class="card accent-green">' +
+          '<h4>과정·기능</h4>' +
+          '<p>사료 비판, 역사적 맥락화, 관점 비교, 지도·이미지 자료 해석, 역사 글쓰기, CER 논증</p>' +
+        '</div>' +
+        '<div class="card accent-astro">' +
+          '<h4>가치·태도</h4>' +
+          '<p>타자 이해, 인권, 평화, 민주주의, 생태환경, 역사 해석의 책임</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("성취수준 기반 5단계 루브릭", rubric(x), "A–E 성취수준 근거") +
+    block("피드백 방향",
+      '<div class="card">' +
+        '<p><b>보충 :</b> 용어 나열에 머물지 말고 사례 분석, 자료 수집, 관점 비교, 윤리 점검 중 하나로 근거를 표현하게 한다.</p>' +
+        '<p><b>심화 :</b> 자료 출처 비교, 연구 방법 보완, 다른 관점 적용, 현대 세계 과제 성찰 또는 다른 시대·지역 비교 전이 과제를 추가하게 한다.</p>' +
+      '</div>'
+    );
+
+  panels.record =
+    '<div class="record">' +
+      '<b>학생부 기록 — 문장보다 ‘증거’가 먼저</b>' +
+      '<p>' + esc(x.evidence.join(" / ")) + '</p>' +
+    '</div>' +
+    block("관찰 가능한 수행 증거 정리",
+      '<div class="cards">' +
+        '<div class="card accent-green">' +
+          '<h4>기록 가능한 산출물</h4>' +
+          pills(x.products) +
+        '</div>' +
+        '<div class="card accent-gold">' +
+          '<h4>권장 기록 소재</h4>' +
+          '<p>「' + esc(x.title) + '」 수업에서 사료 선택, 시공간 맥락화, 관점 비교 과정을 통해 <b>' + esc(x.concept) + '</b> 개념을 설명하고, 자료 한계와 해석 수정 과정을 근거로 다른 시대·지역 또는 현대 세계의 과제로 사고를 확장함.</p>' +
+        '</div>' +
+      '</div>'
+    ) +
+    block("세부능력 및 특기사항 기록 예시",
+      '<div class="sample-record">' + esc(x.sample) + '</div>',
+      "그대로 복사하지 말고 학생 개별 수행에 맞춰 가공"
+    ) +
+    recordCompetencyGuide(x) +
+    block("심화 탐구 주제 — 자기주도 탐구로의 확장",
+      '<div class="card accent-astro">' +
+        '<h4><span class="icon">★</span>심화탐구 제안</h4>' +
+        '<p>' + esc(x.deepDive) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>전이 질문</h4>' +
+        '<p style="font-family:\'Fraunces\',serif">' + esc(x.questions[3]) + '</p>' +
+      '</div>' +
+      '<div class="card" style="margin-top:.7rem">' +
+        '<h4>연계 진로 분야</h4>' +
+        pills(x.career.split(", ")) +
+      '</div>'
+    );
+
+  return panels[tab] || panels.overview;
+}
+
+function renderDetail(){
+  var x=DATA[current];
+  var tabbar=TABS.map(function(t){
+    var id=t[0], label=t[1], n=t[2];
+    return '<button class="' + (tab===id?'on':'') + '" onclick="setTab(\'' + id + '\')">' +
+      '<span class="t-n">' + n + '</span>' + label +
+    '</button>';
+  }).join("");
+  document.getElementById("detail").innerHTML =
+    '<div class="detail-hd">' +
+      '<div class="chip-row">' +
+        '<span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span>' +
+        '<span class="chip">' + esc(x.code) + '</span>' +
+        (x.official.length ? '<span class="chip">성취기준 기반 설계</span>' : '<span class="chip">CBI 탐구</span>') +
+        '<span class="chip">' + esc(x.period) + '</span>' +
+      '</div>' +
+      '<h2>' + esc(x.title) + '</h2>' +
+      '<div class="std-full"><b>성취기준 원문</b>' + esc(x.standard) + '</div>' +
+    '</div>' +
+    '<div class="tabbar">' + tabbar + '</div>' +
+    '<div class="panel">' + panel(x) + '</div>';
+}
+
+function renderMatrix(){
+  document.getElementById("matrixBody").innerHTML = DATA.map(function(x,i){
+    return '<tr>' +
+      '<td><span class="chip ' + cls(x.domain) + '">' + esc(x.domain) + '</span></td>' +
+      '<td class="mcode" onclick="openStandard(' + i + ')">' + esc(x.code) + '</td>' +
+      '<td><b style="color:var(--ink);font-family:\'Fraunces\',serif">' + esc(x.title) + '</b></td>' +
+      '<td>' + esc(x.type) + '</td>' +
+      '<td>' + esc(x.concept) + '</td>' +
+      '<td>' + esc(x.products.join(", ")) + '</td>' +
+      '<td>' + esc(x.evidence.join(" / ")) + '</td>' +
+    '</tr>';
+  }).join("");
+}
+function openStandard(i){
+  current=i;
+  tab="overview";
+  openView("standards");
+  renderList();
+}
+function downloadCSV(){
+  var rows=[
+    ["영역","코드","성취기준","수업제목","유형","차시","핵심개념","개념렌즈","산출물","관찰증거","자료출처","분석범위","사료·관점·해석한계","심화탐구","연계진로"]
+  ];
+  for(var i=0;i<DATA.length;i++){
+    var x=DATA[i];
+    rows.push([
+      x.domain, x.code, x.standard, x.title, x.type, x.period,
+      x.concept, x.lens, x.products.join("; "), x.evidence.join(" / "),
+      x.source, x.scale, x.uncertainty, x.deepDive, x.career
+    ]);
+  }
+  var csv=rows.map(function(r){
+    return r.map(function(v){
+      return '"' + String(v).split('"').join('""') + '"';
+    }).join(",");
+  }).join("\n");
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download="세계사_수업설계_매트릭스_충남교육청.csv";
+  a.click();
+}
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("domain").addEventListener("change",renderList);
+document.getElementById("type").addEventListener("change",renderList);
+renderList();
+renderMatrix();
+
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(e.key==="ArrowDown" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>=0 && idx<arr.length-1) select(DATA.indexOf(arr[idx+1]));
+  }
+  if(e.key==="ArrowUp" && document.getElementById("standards").classList.contains("active")){
+    e.preventDefault();
+    var arr=filtered();
+    var idx=-1;
+    for(var k=0;k<arr.length;k++){ if(DATA.indexOf(arr[k])===current){ idx=k; break; } }
+    if(idx>0) select(DATA.indexOf(arr[idx-1]));
+  }
+});
+
+(function(){
+  var fab=document.getElementById("fabHome");
+  if(!fab) return;
+  var ticking=false;
+  function onScroll(){
+    if(window.scrollY>240) fab.classList.add("visible");
+    else fab.classList.remove("visible");
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>
