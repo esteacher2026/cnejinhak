@@ -443,6 +443,72 @@ h1.cover-title em{
 }
 .cbi-step:last-child::after{display:none}
 
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
 .browser{
   display:grid;
   grid-template-columns:380px 1fr;
@@ -889,7 +955,7 @@ td.mcode:hover{text-decoration:underline}
   .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-bottom:1px solid var(--line)}
-  .cards,.cards3,.q-grid,.principles{grid-template-columns:1fr}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
   .principle{border-right:0;border-bottom:1px solid var(--line)}
   .lesson-row,.lesson-hd{grid-template-columns:1fr}
   .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
@@ -1150,10 +1216,28 @@ td.mcode:hover{text-decoration:underline}
     <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>개념 간 관계를 자기 언어로 진술하고 증거로 뒷받침한다.</p></div>
     <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>재해·기후·지질유산·우주 탐구 맥락에 일반화를 적용한다.</p></div>
   </div>
-      <div class="theory-section">
+
+  <div class="theory-section">
     <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
-    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. CBI는 학생이 단순히 결과를 외우는 것이 아니라, 자료를 만들고 해석하며 결론을 자신의 언어로 진술하는 과정을 거치게 합니다.</p>
-    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <p>대학이 학생부에서 읽고 싶은 것은 지구과학 개념의 나열이 아니라 <b>관측 자료를 어떤 규모와 불확실성으로 해석하고, 그 해석을 재해·기후·지질유산·우주 탐구 맥락으로 어떻게 전이했는가</b>입니다. CBI는 학생이 자료를 변환하고, 패턴을 찾고, 근거 있는 예측과 대응을 제안하게 만듭니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 관찰 가능한 수행 증거, 권장 기록 소재, 심화탐구 주제가 함께 제시되어 있어 별도의 ‘기록용 활동’을 만들지 않아도 세특 근거가 수업 안에서 자연스럽게 생깁니다.</p>
+    <div class="admission-proof-grid">
+      <div class="admission-proof-card">
+        <span class="tag">Evidence</span>
+        <h4>자료 변환과 해석 근거</h4>
+        <p>일기도, 위성 영상, 지질단면도, 스펙트럼, H-R도 자료를 표·그래프·지도·모형으로 바꾸며 학생의 추론 과정을 볼 수 있습니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Scale</span>
+        <h4>시간·공간 규모의 사고</h4>
+        <p>날씨, 해양 순환, 지질시대, 별의 진화처럼 서로 다른 규모를 구분해 설명하게 하여 단순 암기를 넘어선 개념 적용력을 드러냅니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Transfer</span>
+        <h4>예측·대응·보전으로 전이</h4>
+        <p>관측 자료 해석을 재해 대응, 기후 해결, 지질공원 보전, 우주 탐구 질문으로 연결해 학생의 문제 해결 태도를 기록할 수 있습니다.</p>
+      </div>
+    </div>
     <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
   </div>
 

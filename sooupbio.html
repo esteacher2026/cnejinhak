@@ -444,6 +444,72 @@ h1.cover-title em{
 }
 .cbi-step:last-child::after{display:none}
 
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--system);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--system);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--system);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
 .browser{
   display:grid;
   grid-template-columns:380px 1fr;
@@ -890,7 +956,7 @@ td.mcode:hover{text-decoration:underline}
   .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-bottom:1px solid var(--line)}
-  .cards,.cards3,.q-grid,.principles{grid-template-columns:1fr}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
   .principle{border-right:0;border-bottom:1px solid var(--line)}
   .lesson-row,.lesson-hd{grid-template-columns:1fr}
   .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
@@ -1152,10 +1218,28 @@ td.mcode:hover{text-decoration:underline}
     <div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>개념 간 관계를 자기 언어로 진술하고 증거로 뒷받침한다.</p></div>
     <div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>건강·생태·의생명·진로 맥락에 일반화를 적용한다.</p></div>
   </div>
-    <div class="theory-section">
+
+  <div class="theory-section">
     <h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3>
-    <p>대학이 학생부에서 찾고 싶은 것은 ‘지식의 양’이 아니라 <b>탐구의 자기주도성, 개념의 적용력, 사고의 확장성</b>입니다. CBI는 학생이 단순히 결과를 외우는 것이 아니라, 자료를 만들고 해석하며 결론을 자신의 언어로 진술하는 과정을 거치게 합니다.</p>
-    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 그 과정에서 자연스럽게 산출되는 관찰 증거, 권장 기록 소재, 심화탐구 주제까지 함께 제시되어 있어, 교사는 별도의 ‘기록용 활동’을 만들지 않고도 풍부한 세특 근거를 확보할 수 있습니다.</p>
+    <p>대학이 학생부에서 읽고 싶은 것은 생명과학 용어의 양이 아니라 <b>생명 현상을 어떤 기준으로 관찰하고, 자료와 모형으로 어떻게 설명하며, 건강·생태·의생명 맥락으로 어떻게 전이했는가</b>입니다. CBI는 학생이 암기한 결과를 말하는 데서 멈추지 않고, 생명 시스템의 관계를 자기 언어로 일반화하게 만듭니다.</p>
+    <p>본 워크북의 각 성취기준 상세 페이지 마지막 탭(<b>학생부 기록·심화탐구</b>)에는 관찰 가능한 수행 증거, 산출물, 발화, 피드백 후 수정 장면이 함께 제시되어 있어 별도의 ‘기록용 활동’을 만들지 않아도 세특 근거가 수업 안에서 자연스럽게 생깁니다.</p>
+    <div class="admission-proof-grid">
+      <div class="admission-proof-card">
+        <span class="tag">Evidence</span>
+        <h4>관찰·분류·모형 근거</h4>
+        <p>세포 구조, 항상성, 면역, 유전, 계통수처럼 눈에 보이지 않는 관계를 표·흐름도·모형으로 드러내 학생의 사고 과정을 기록할 수 있습니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Transfer</span>
+        <h4>건강·생태·의생명 전이</h4>
+        <p>개념을 질병 예방, 백신, 생태계 안정성, 생명윤리 사례에 적용하게 하여 교과 지식이 실제 문제 해결로 확장되는 장면을 만듭니다.</p>
+      </div>
+      <div class="admission-proof-card">
+        <span class="tag">Record</span>
+        <h4>학생부에 남는 성장 장면</h4>
+        <p>오개념을 자료 근거로 수정하고, 자신의 일반화 문장을 다시 쓰는 과정이 탐구 태도와 학업 성장의 구체적 증거가 됩니다.</p>
+      </div>
+    </div>
     <div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div>
   </div>
 
