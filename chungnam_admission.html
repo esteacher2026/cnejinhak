@@ -236,6 +236,9 @@
     .pdf-btn span:not(.pdf-icon) {
       display: none;
     }
+    .search-btn span:not(:first-child) {
+      display: none;
+    }
   }
 
   .search-btn, .menu-toggle {
@@ -329,10 +332,12 @@
   .main {
     padding: 0;
     background: var(--paper);
+    min-width: 0;
   }
 
   .section {
     display: none;
+    min-width: 0;
     animation: fadeIn 0.4s ease;
   }
   .section.active { display: block; }
@@ -552,6 +557,74 @@
     display: flex;
     align-items: center;
     gap: 6px;
+  }
+
+  .guide-home-panel {
+    margin-top: 18px;
+    background: var(--ink);
+    color: var(--paper);
+    border-top: 3px solid var(--gold);
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .guide-home-kicker {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .guide-home-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .guide-home-desc {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: rgba(250, 247, 240, 0.78);
+  }
+  .guide-home-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .guide-link {
+    min-height: 38px;
+    border: 1px solid rgba(250, 247, 240, 0.28);
+    background: transparent;
+    color: var(--paper);
+    padding: 9px 14px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .guide-link:hover {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
+  }
+  .guide-link.primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+  .guide-link.primary:hover {
+    background: var(--paper);
+    border-color: var(--paper);
   }
 
   /* ===== 변경사항 + 공지 ===== */
@@ -890,6 +963,8 @@
   @media (max-width: 1024px) {
     .quick-grid { grid-template-columns: repeat(2, 1fr); }
     .info-section { grid-template-columns: 1fr; }
+    .guide-home-panel { grid-template-columns: 1fr; align-items: start; }
+    .guide-home-actions { justify-content: flex-start; }
     .hero, .quick-section, .info-section, .content-page { padding-left: 40px; padding-right: 40px; }
   }
 
@@ -916,6 +991,9 @@
     .quick-section, .content-page { padding-top: 40px; }
     .info-section { padding-bottom: 50px; }
     .quick-grid { grid-template-columns: 1fr; }
+    .guide-home-panel { padding: 22px; }
+    .guide-home-actions { display: grid; grid-template-columns: 1fr; }
+    .guide-link { width: 100%; }
     .hero-meta { gap: 20px; }
     .section-header { flex-direction: column; gap: 8px; align-items: flex-start; }
     .footer { padding: 30px 24px; }
@@ -1925,6 +2003,147 @@
     letter-spacing: 1px;
   }
 
+  .guide-resource {
+    margin-bottom: 28px;
+    background: white;
+    border: 1px solid var(--line);
+  }
+  .guide-resource-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: end;
+    padding: 26px 28px;
+    border-top: 3px solid var(--accent);
+    border-bottom: 1px solid var(--line-soft);
+    background:
+      linear-gradient(135deg, rgba(45, 93, 143, 0.06), transparent 58%),
+      white;
+  }
+  .guide-resource-kicker {
+    color: var(--accent-deep);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+  }
+  .guide-resource-title {
+    font-family: 'Gowun Batang', serif;
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .guide-resource-copy {
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 680px;
+  }
+  .guide-resource-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .guide-action {
+    min-height: 38px;
+    padding: 9px 14px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: all 0.2s;
+  }
+  .guide-action:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .guide-action.primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .guide-action.primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+  .guide-resource-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 14px 28px 0;
+  }
+  .guide-meta-chip {
+    background: var(--paper-warm);
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  .guide-preview-list {
+    display: grid;
+    gap: 14px;
+    padding: 18px 28px 28px;
+  }
+  .guide-preview-page {
+    border: 1px solid var(--line);
+    background: #f6f3ec;
+    text-decoration: none;
+    display: block;
+    overflow-x: auto;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .guide-preview-page:hover {
+    border-color: var(--ink);
+    box-shadow: 0 8px 22px rgba(26, 35, 50, 0.08);
+  }
+  .guide-preview-page img {
+    display: block;
+    width: 100%;
+    min-width: 940px;
+    height: auto;
+  }
+  .guide-preview-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    background: white;
+    border-top: 1px solid var(--line-soft);
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  .guide-preview-caption strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .guide-resource-head { grid-template-columns: 1fr; align-items: start; }
+    .guide-resource-actions { justify-content: flex-start; }
+  }
+
+  @media (max-width: 768px) {
+    .guide-resource-head,
+    .guide-resource-meta,
+    .guide-preview-list { padding-left: 20px; padding-right: 20px; }
+    .guide-resource-actions { display: grid; grid-template-columns: 1fr; }
+    .guide-action { width: 100%; }
+    .guide-preview-page img { min-width: 820px; }
+    .guide-preview-caption { flex-direction: column; gap: 3px; }
+  }
+
   /* 학교 배정 플로우 */
   .placement-flow {
     margin: 28px 0 40px;
@@ -2776,6 +2995,18 @@
           </button>
 
         </div>
+
+        <div class="guide-home-panel">
+          <div>
+            <div class="guide-home-kicker">SUPERINTENDENT ADMISSION GUIDE</div>
+            <div class="guide-home-title">천안·아산 교육감전형 안내서</div>
+            <p class="guide-home-desc">대상학교, 지원 절차, 배정 방법, 전형 일정과 자주 묻는 질문을 2쪽 리플릿으로 바로 확인할 수 있습니다.</p>
+          </div>
+          <div class="guide-home-actions">
+            <button class="guide-link primary" type="button" onclick="showSection('late')">웹에서 보기</button>
+            <a class="guide-link" href="2027-chungnam-superintendent-admission-guide.pdf" target="_blank" rel="noopener">PDF 열기</a>
+          </div>
+        </div>
       </div>
 
       <!-- 변경사항 + 공지 -->
@@ -3366,6 +3597,35 @@
 
         <!-- 교육감전형 -->
         <div class="subtab-content active" id="late-1">
+
+          <div class="guide-resource" id="superintendent-guide">
+            <div class="guide-resource-head">
+              <div>
+                <div class="guide-resource-kicker">PDF GUIDE · 천안·아산</div>
+                <h2 class="guide-resource-title">2027학년도 고등학교 교육감전형 안내서</h2>
+                <p class="guide-resource-copy">교육감전형 대상학교, 학군별 지원 방법, 학교 배정 절차, 전형 일정과 주요 FAQ를 2쪽 리플릿으로 정리한 자료입니다. 원본 PDF를 열거나 바로 아래 미리보기로 내용을 확인할 수 있습니다.</p>
+              </div>
+              <div class="guide-resource-actions">
+                <a class="guide-action primary" href="2027-chungnam-superintendent-admission-guide.pdf" target="_blank" rel="noopener">원본 PDF 열기</a>
+                <a class="guide-action" href="2027-chungnam-superintendent-admission-guide.pdf" download>다운로드</a>
+              </div>
+            </div>
+            <div class="guide-resource-meta" aria-label="안내서 정보">
+              <span class="guide-meta-chip">2쪽</span>
+              <span class="guide-meta-chip">약 2.4MB</span>
+              <span class="guide-meta-chip">천안학군·아산학군</span>
+            </div>
+            <div class="guide-preview-list">
+              <a class="guide-preview-page" href="assets/chungnam-superintendent-guide/page-1.webp" target="_blank" rel="noopener" aria-label="교육감전형 안내서 1쪽 크게 보기">
+                <img src="assets/chungnam-superintendent-guide/page-1.webp" alt="2027학년도 고등학교 교육감전형 안내서 1쪽. 천안·아산 학군 지도와 자주 묻는 질문이 포함되어 있습니다." loading="lazy">
+                <span class="guide-preview-caption"><strong>1쪽</strong><span>학군 지도 · 자주 묻는 질문 · 표지</span></span>
+              </a>
+              <a class="guide-preview-page" href="assets/chungnam-superintendent-guide/page-2.webp" target="_blank" rel="noopener" aria-label="교육감전형 안내서 2쪽 크게 보기">
+                <img src="assets/chungnam-superintendent-guide/page-2.webp" alt="2027학년도 고등학교 교육감전형 안내서 2쪽. 대상학교, 지원방법, 배정방법, 일정과 내신성적 반영점수가 포함되어 있습니다." loading="lazy">
+                <span class="guide-preview-caption"><strong>2쪽</strong><span>대상학교 · 지원방법 · 배정방법 · 일정</span></span>
+              </a>
+            </div>
+          </div>
 
           <div class="school-type-section">
             <div class="school-type-header">
@@ -6311,6 +6571,7 @@
     { label: '지원자격', target: 'eligibility', keywords: ['자격', '지원', '거주', '졸업예정자', '타시도', '검정고시', '혁신도시'] },
     { label: '전기학교', target: 'early', keywords: ['과학고', '예술고', '체육고', '마이스터고', '특성화고', '고등기술학교'] },
     { label: '후기학교', target: 'late', keywords: ['교육감전형', '학교장전형', '자율형 사립고', '외국어고', '천안학군', '아산학군'] },
+    { label: '교육감전형 안내서', target: 'late', keywords: ['교육감전형 안내서', '천안 아산', '리플릿', 'PDF', '대상학교', '배정방법'] },
     { label: '학교 배정', target: 'placement', keywords: ['배정', '우선배정', '일반배정', '쌍생아', '동시지원', '전산추첨'] },
     { label: '특별·기타 전형', target: 'special', keywords: ['사회통합', '특례입학', '체육특기자', '국가유공자', '특수교육', '중증질환', '외국인'] },
     { label: '전형 일정', target: 'schedule', keywords: ['일정', '원서접수', '합격자 발표', '추가모집', '수시모집'] },
