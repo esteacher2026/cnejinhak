@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 대수 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 대수 18개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 지수와 로그, 지수함수와 로그함수, 삼각함수, 수열, ∑, 수학적 귀납법, 그래프 탐구, 모델링, 증명과 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#145c6b;
+  --atmo-bg:#e1f0f3;
+  --geo:#7b4f16;
+  --geo-bg:#f1e6d6;
+  --astro:#35548a;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:0;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(90deg, rgba(20,92,107,.035) 1px, transparent 1px),
+    linear-gradient(rgba(53,84,138,.03) 1px, transparent 1px);
+  background-size:42px 42px;
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:0;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:0;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:4.35rem;
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:0;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:0;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:2.1rem;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:0;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:0;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:0}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+
+.math-expr{font-family:"JetBrains Mono","IBM Plex Sans KR",monospace;background:var(--paper-soft);border:1px solid var(--line-soft);padding:.08rem .35rem;border-radius:3px;white-space:nowrap;color:var(--ink)}
+.formula-strip{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
+.process-line{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--ink);margin:1rem 0;background:var(--card)}
+.process-line div{padding:.9rem;border-right:1px solid var(--line);min-height:88px}
+.process-line div:last-child{border-right:0}
+.process-line b{display:block;font-family:"Fraunces",serif;margin-bottom:.25rem;color:var(--ink)}
+@media(max-width:900px){.process-line{grid-template-columns:1fr}.process-line div{border-right:0;border-bottom:1px solid var(--line)}.process-line div:last-child{border-bottom:0}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="brand"><div class="mark">Σ</div><div class="b-text"><strong>일반선택 대수 수업설계 워크북</strong><span>개념기반탐구 · 18개 성취기준 · 학생부종합 대응</span></div></div><nav class="nav"><a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v10h14V10"></path></svg>메인</a><button data-view="home" class="on">개요</button><button data-view="standards">성취기준</button><button data-view="matrix">매트릭스</button><button data-view="guide">운영 가이드</button><button class="btn-pdf" onclick="window.print()">인쇄</button></nav></div></header>
+<main>
+<section id="home" class="view active">
+  <div class="cover"><div class="cover-grid"><div class="cover-meta"><div class="kicker">2022 Revised Curriculum · General Elective Algebra</div><h1 class="cover-title">대수<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1><p class="lead">일반선택 대수 18개 성취기준을 원문, 핵심 개념, 수학적 일반화 문장, 탐구 질문, 식·그래프·표·언어 표현 변환, 공학 도구 활용, 모델링, 증명, 학생부종합전형형 산출물, 평가·기록까지 하나의 교사용 워크북으로 통합했습니다.</p><div class="actions"><button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button><button class="btn" onclick="openView('matrix')">18개 수업 한눈에 보기</button><button class="btn" onclick="downloadCSV()">CSV 내려받기</button></div></div><aside class="cover-side"><dl><dt>제작</dt><dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd><dt>대상</dt><dd>고등학교 일반선택 대수 교과 담당교사</dd><dt>기준</dt><dd>교육부 고시 제2022-33호 [별책 8] 수학과 교육과정</dd><dt>설계 원리</dt><dd>Erickson &amp; Lanning Concept-Based Inquiry</dd><dt>활용</dt><dd>지수와 로그 · 함수 그래프 · 삼각함수 · 수열과 ∑ · 귀납법 · 모델링 · 증명 · 학생부 기록</dd></dl></aside></div></div>
+  <div class="stats"><div class="stat"><span class="pin">DOMAINS</span><span class="n">6<small>모듈</small></span><span class="label">거듭제곱·지수 확장 · 로그와 상용로그 · 지수/로그 함수 · 삼각함수 · 수열과 합 · 귀납과 증명</span></div><div class="stat"><span class="pin">STANDARDS</span><span class="n">18<small>기준</small></span><span class="label">성취기준 원문·성취수준 반영</span></div><div class="stat"><span class="pin">TABS</span><span class="n">6<small>탭</small></span><span class="label">개요 · CBI · 수업 · 활동지 · 평가 · 기록</span></div><div class="stat"><span class="pin">LEVELS</span><span class="n">A-E</span><span class="label">성취수준 기반 5단계 평가 루브릭</span></div></div>
+  <div class="sec"><div class="idx">Design Principle</div><h2>설계 원칙 — 계산을 넘어 구조, 표현, 모델, 증명으로</h2><p>대수 수업은 공식을 적용해 정답을 구하는 절차에서 멈추지 않고, 정의와 조건을 확인하고, 식·그래프·표·언어 설명을 오가며, 실제 현상을 함수나 수열로 모델링하고, 일반화와 증명으로 사고를 확장해야 합니다.</p></div>
+  <div class="principles"><div class="principle"><div class="num">01</div><h3>정의에서 조건으로</h3><p>거듭제곱근, 로그, 삼각함수, ∑, 귀납법의 정의와 적용 조건을 먼저 확인합니다.</p></div><div class="principle"><div class="num">02</div><h3>표현에서 구조로</h3><p>식, 표, 그래프, 수학 기호, 언어 설명을 비교하며 같은 대수 구조를 여러 방식으로 표현합니다.</p></div><div class="principle"><div class="num">03</div><h3>모델에서 증명으로</h3><p>실생활 현상을 함수와 수열로 모델링하고, 추측한 규칙을 일반화와 수학적 귀납법으로 정당화합니다.</p></div></div>
+  <div class="sec"><div class="idx">CBI Framework</div><h2>개념기반탐구(CBI) 6단계 — 대수 수업의 공통 뼈대</h2><p>학생이 계산 결과보다 수학적 구조를 설명하고, 자신의 전략을 검증하며, 새로운 문제 상황으로 전이하도록 설계했습니다.</p></div>
+  <div class="cbi-flow"><div class="cbi-step"><div class="step-n">01 · ENGAGE</div><strong>현상 포착</strong><p>급격한 변화, 주기적 변화, 반복 규칙, 증명할 명제를 제시해 탐구 필요성을 만든다.</p></div><div class="cbi-step"><div class="step-n">02 · FOCUS</div><strong>개념 초점</strong><p>정의, 조건, 표현 변환, 모델, 증명 중 하나를 개념 렌즈로 설정한다.</p></div><div class="cbi-step"><div class="step-n">03 · INVESTIGATE</div><strong>탐구</strong><p>표, 식, 그래프, 수열의 항, 공학 도구 결과, 풀이 과정을 수집하고 비교한다.</p></div><div class="cbi-step"><div class="step-n">04 · ORGANIZE</div><strong>구조화</strong><p>정의-조건표, 표현 변환표, 그래프 주석, 모델 조건표, 증명 구조도로 사고를 정리한다.</p></div><div class="cbi-step"><div class="step-n">05 · GENERALIZE</div><strong>일반화</strong><p>계산 규칙의 이유, 그래프 성질, 모델 조건, 증명 원리를 자기 언어로 일반화한다.</p></div><div class="cbi-step"><div class="step-n">06 · TRANSFER</div><strong>전이</strong><p>새로운 식, 함수, 실생활 자료, 수열, 명제 증명에 같은 수학적 기준을 적용한다.</p></div></div>
+  <div class="theory-section"><h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3><p>대학이 학생부에서 읽고 싶은 것은 문제 수나 정답 여부가 아니라 <b>학생이 정의와 조건을 확인하고, 표현을 변환하며, 전략을 선택하고, 결과를 검증하고, 일반화 또는 증명으로 사고를 확장한 과정</b>입니다.</p><p>각 성취기준 상세 페이지 마지막 탭에는 풀이 과정, 그래프 탐구, 모델링 조건, 오개념 수정, 증명 구조, 심화탐구 주제가 제시되어 세특 근거를 수업 안에서 확보할 수 있습니다.</p><div class="admission-proof-grid"><div class="admission-proof-card"><span class="tag">Concept</span><h4>정의와 조건의 정확성</h4><p>밑, 진수, 정의역, 공차, 공비, ∑ 범위, 귀납 가정처럼 수학 개념의 조건을 명확히 다룹니다.</p></div><div class="admission-proof-card"><span class="tag">Representation</span><h4>표현 변환과 그래프 해석</h4><p>식·표·그래프·언어 설명을 오가며 같은 구조를 여러 방식으로 설명합니다.</p></div><div class="admission-proof-card"><span class="tag">Proof</span><h4>모델링과 증명</h4><p>실생활 현상을 함수나 수열로 모델링하고, 일반화한 명제를 귀납법으로 정당화합니다.</p></div></div><div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div></div>
+</section>
+<section id="standards" class="view"><div class="sec"><div class="idx">Standards Board</div><h2>성취기준별 수업설계 보드</h2><p>모듈, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p></div><div class="browser"><aside class="side"><div class="filters"><label>SEARCH</label><input id="search" placeholder="코드, 제목, 개념, 수식, 산출물 검색" /><div class="filter-row"><select id="domain"><option>전체 영역</option><option>거듭제곱·지수 확장</option><option>로그와 상용로그</option><option>지수·로그 함수와 모델링</option><option>삼각함수와 주기 현상</option><option>수열과 합의 구조</option><option>귀납과 증명</option></select><select id="type"><option>전체 수업 유형</option><option>개념</option><option>식 구조</option><option>프로젝트</option><option>그래프</option><option>모델링</option><option>단위원</option><option>수열</option><option>기호</option><option>재귀</option><option>증명</option></select></div></div><div id="list-meta" class="list-meta"></div><div id="list"></div></aside><article id="detail" class="detail"></article></div></section>
+<section id="matrix" class="view"><div class="sec"><div class="idx">Matrix</div><h2>대수 18개 성취기준 수업 매트릭스</h2><p>성취기준별 핵심 수학 구조, 수업 유형, 산출물, 학생부 관찰 증거를 한눈에 검토합니다.</p></div><div class="matrix-wrap"><table><thead><tr><th>모듈</th><th>코드</th><th>수업 제목</th><th>수업 유형</th><th>핵심 개념</th><th>수식·표현</th><th>학생부 관찰 증거</th></tr></thead><tbody id="matrixBody"></tbody></table></div></section>
+<section id="guide" class="view"><div class="sec"><div class="idx">Teacher Guide</div><h2>교사용 운영 가이드</h2><p>대수 수업은 절차 숙달과 개념 탐구가 균형을 이루어야 합니다. 학생의 풀이가 맞았는지뿐 아니라 왜 그 전략을 선택했는지, 조건을 어떻게 확인했는지, 결과를 어떻게 검증했는지를 관찰해야 합니다.</p></div><div class="principles"><div class="principle"><div class="num">A</div><h3>수업 전</h3><p>개념 정의, 적용 조건, 대표 오개념, 공학 도구 사용 범위, 실생활 자료의 단위와 출처를 미리 점검합니다.</p></div><div class="principle"><div class="num">B</div><h3>수업 중</h3><p>학생이 계산 과정, 그래프 주석, 표현 변환표, 모델 조건표, 증명 구조도를 실제로 남기게 합니다.</p></div><div class="principle"><div class="num">C</div><h3>수업 후</h3><p>정답보다 정의 확인, 전략 선택, 반례 검토, 그래프 해석, 모델 한계, 귀납 가정 사용 장면을 학생부 기록 근거로 보존합니다.</p></div></div></section>
+<div class="footer">일반선택 대수 성취기준별 개념기반탐구 수업설계 워크북 · 충청남도교육청진로융합교육원</div>
+</main><div class="toast" id="toast"></div><a class="fab-home" id="fabHome" href="index.html" aria-label="진학정보실 메인으로 이동"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v10h14V10"></path></svg>메인으로</a>
+<script>
+const DATA=[
+  {
+    "code": "[12대수01-01]",
+    "domain": "거듭제곱·지수 확장",
+    "title": "거듭제곱근의 성질은 왜 계산 규칙이 아니라 정의에서 나오는가?",
+    "type": "개념 정의·계산 구조 탐구형",
+    "period": "3차시",
+    "lens": "정의와 조건",
+    "concept": "거듭제곱과 거듭제곱근",
+    "formula": "a^n, n√a, (n√a)^n=a",
+    "related": "거듭제곱, 거듭제곱근, 짝수 근과 홀수 근, 주값, 실수 범위, 연산 성질, 정의역 조건",
+    "phenomenon": "같은 식이라도 짝수 근과 홀수 근에서 가능한 값이 달라지는 사례, 계산기 입력 결과와 손계산 결과가 어긋나는 사례를 제시한다.",
+    "conflict": "거듭제곱근은 근호를 없애는 계산 절차라고 보기 쉽다. 그러나 핵심은 어떤 수를 몇 번 곱했을 때 주어진 수가 되는지 정의와 실수 범위의 조건을 확인하는 것이다.",
+    "general": "거듭제곱근의 성질은 근호 조작 규칙이 아니라 거듭제곱의 역관계와 실수 범위의 조건에서 도출되며, 조건을 확인할 때 계산의 타당성이 확보된다.",
+    "studentGeneral": "근호 계산은 모양을 바꾸는 기술이 아니라 “무엇을 몇 번 곱하면 되는가”를 조건과 함께 확인하는 과정이다.",
+    "questions": [
+      "거듭제곱근의 값을 결정할 때 반드시 확인해야 할 조건은 무엇인가?",
+      "짝수 근과 홀수 근에서 해석이 달라지는 이유는 무엇인가?",
+      "계산 규칙을 먼저 적용하는 것과 정의에서 출발하는 것은 어떤 차이를 만드는가?",
+      "이 조건 확인 절차를 지수·로그의 정의와 함수 해석에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "거듭제곱근 정의-조건 판별표",
+      "짝수근·홀수근 반례 카드",
+      "근호 계산 검증 노트"
+    ],
+    "data": "식의 밑, 지수, 근의 차수, 실수 범위, 양수·음수 여부를 표로 분류하고 각 계산 단계가 정의를 보존하는지 확인한다.",
+    "modeling": "거듭제곱과 거듭제곱근을 역관계 도식으로 나타내고, 계산 결과를 다시 거듭제곱해 검산하는 루프를 만든다.",
+    "uncertainty": "근호 표현은 실수 범위, 주값 약속, 짝수·홀수 근에 따라 해석이 달라지므로 계산 전에 조건을 명시해야 한다.",
+    "misconception": "√a^2=a처럼 근호와 제곱은 언제나 서로 사라진다고 생각한다.",
+    "correction": "a의 부호와 주값 조건을 확인하게 하고, √a^2=|a|가 필요한 사례를 반례로 제시한다.",
+    "deepDive": "짝수 근과 절댓값이 연결되는 이유를 그래프 y=x^2와 y=√x의 역관계 관점에서 설명한다.",
+    "career": "수학교육, 공학기초, 컴퓨터 그래픽스, 물리, 데이터 계산, 금융수학",
+    "sample": "거듭제곱근 계산에서 근호를 단순히 소거하지 않고 차수의 짝·홀, 실수 범위, 주값 조건을 먼저 확인하는 전략을 세움. √a^2의 값을 a로 처리하던 초기 오류를 반례와 그래프 역관계로 수정하고, 계산 결과를 다시 거듭제곱해 검증하는 과정을 통해 정의에서 성질이 도출된다는 점을 설명함.",
+    "source": "거듭제곱과 거듭제곱근 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 거듭제곱·지수 확장",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-1 / 단답형 / 거듭제곱과 거듭제곱근의 성질을 이용하여 계산하기"
+    ],
+    "tool": "대수-1 / 단답형 / 거듭제곱과 거듭제곱근의 성질을 이용하여 계산하기",
+    "standard": "거듭제곱과 거듭제곱근의 뜻을 알고, 그 성질을 이용하여 계산할 수 있다.",
+    "levels": {
+      "A": "거듭제곱과 거듭제곱근의 뜻과 성질을 설명하고, 그 성질을 이용하여 계산할 수 있다.",
+      "B": "거듭제곱과 거듭제곱근의 뜻과 성질을 이해하고, 그 성질을 이용하여 계산할 수 있다.",
+      "C": "거듭제곱과 거듭제곱근의 뜻과 성질을 알고, 그 성질을 이용하여 계산할 수 있다.",
+      "D": "거듭제곱과 거듭제곱근의 뜻을 알고, 간단한 계산을 할 수 있다.",
+      "E": "안내된 절차에 따라 실수의 거듭제곱근을 계산할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수01-02]",
+    "domain": "거듭제곱·지수 확장",
+    "title": "지수는 왜 자연수에서 유리수와 실수로 확장될 수 있는가?",
+    "type": "개념 확장 설명형",
+    "period": "3차시",
+    "lens": "일관성과 확장",
+    "concept": "지수의 확장",
+    "formula": "a^(m/n)=n√(a^m), a^x",
+    "related": "자연수 지수, 정수 지수, 유리수 지수, 실수 지수, 지수법칙의 일관성, 근호 표현, 연속적 변화",
+    "phenomenon": "a^1, a^2, a^3 사이에 a^(1/2), a^(3/2), a^π 같은 지수가 들어갈 때 값의 의미가 어떻게 유지되는지 수직선과 그래프로 살핀다.",
+    "conflict": "지수는 곱하는 횟수이므로 정수가 아니면 의미가 없다고 보기 쉽다. 그러나 지수 확장은 기존 지수법칙을 깨뜨리지 않는 방식으로 수 체계와 함수 개념을 넓히는 과정이다.",
+    "general": "지수의 확장은 곱셈 횟수라는 초기 의미를 넘어, 지수법칙의 일관성과 함수의 연속적 변화 표현을 보존하면서 수학적 표현 범위를 넓힌다.",
+    "studentGeneral": "지수가 분수나 실수가 되는 것은 억지 약속이 아니라 기존 규칙이 계속 맞도록 의미를 넓히는 일이다.",
+    "questions": [
+      "자연수 지수에서 정수·유리수·실수 지수로 확장할 때 유지되어야 할 규칙은 무엇인가?",
+      "a^(1/2), a^(m/n)은 근호와 어떻게 연결되는가?",
+      "지수를 확장할 때 밑의 조건이 필요한 이유는 무엇인가?",
+      "지수 확장 아이디어를 지수함수 그래프와 로그 정의에 어떻게 연결할 수 있는가?"
+    ],
+    "products": [
+      "지수 확장 단계 지도",
+      "유리수 지수-근호 변환표",
+      "지수법칙 일관성 설명문"
+    ],
+    "data": "자연수, 정수, 유리수 지수 사례를 같은 밑으로 배열하고 지수법칙이 유지되는지 계산과 그래프로 확인한다.",
+    "modeling": "지수 확장을 규칙 보존 표로 모델링하고, 유리수 지수 표현과 근호 표현을 양방향으로 변환한다.",
+    "uncertainty": "실수 지수의 엄밀한 정의는 고교 수준을 넘는 부분이 있으므로 직관적 연속성과 그래프 해석을 중심으로 다루되 밑의 양수 조건은 분명히 한다.",
+    "misconception": "분수 지수는 분수만큼 곱한다는 뜻이라 이해할 수 없다고 생각한다.",
+    "correction": "a^(1/2)을 “두 번 곱해 a가 되는 수”로 해석하게 하고, 지수법칙 (a^(1/2))^2=a로 검증한다.",
+    "deepDive": "밑이 양수일 때 a^x 그래프가 x축 전체에서 연속적으로 정의되는 이유를 수치표와 그래프 확대 관찰로 설명한다.",
+    "career": "수학교육, 물리, 공학 모델링, 컴퓨터 과학, 경제성장 모델, 데이터 과학",
+    "sample": "지수를 곱셈 횟수로만 해석하던 관점을 수정하여 지수법칙의 일관성을 보존하는 확장이라는 관점으로 설명함. a^(1/2), a^(3/2)을 근호 표현과 연결하고, 밑이 양수여야 실수 지수 함수로 안정적으로 확장됨을 표와 그래프를 근거로 제시함.",
+    "source": "지수의 확장 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 거듭제곱·지수 확장",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 개념 설명·표현 변환·문제해결 과정 기반 성취기준 도달 평가",
+    "standard": "지수가 유리수, 실수까지 확장될 수 있음을 이해하고, 이를 설명할 수 있다.",
+    "levels": {
+      "A": "지수가 유리수, 실수까지 확장될 수 있음을 이해하여 설명할 수 있다.",
+      "B": "지수가 유리수, 실수까지 확장될 수 있음을 이해하여 설명할 수 있다.",
+      "C": "지수가 유리수, 실수까지 확장될 수 있음을 이해한다.",
+      "D": "지수가 유리수, 실수까지 확장될 수 있음을 이해한다.",
+      "E": "지수가 유리수, 실수까지 확장될 수 있음을 안다."
+    }
+  },
+  {
+    "code": "[12대수01-03]",
+    "domain": "거듭제곱·지수 확장",
+    "title": "지수법칙은 식을 어떻게 구조적으로 단순화하는가?",
+    "type": "식 구조 분석형",
+    "period": "2차시",
+    "lens": "구조와 보존",
+    "concept": "지수법칙",
+    "formula": "a^m a^n=a^(m+n), (a^m)^n=a^(mn)",
+    "related": "곱셈 구조, 몫의 법칙, 거듭제곱의 거듭제곱, 밑의 조건, 동류 구조, 식의 간단한 표현",
+    "phenomenon": "복잡해 보이는 지수식이 밑과 지수의 구조를 보면 단순화되는 사례와, 밑이 다른데 무리하게 지수법칙을 적용한 오류 사례를 비교한다.",
+    "conflict": "지수법칙은 암기한 공식 모음이라고 보기 쉽다. 그러나 지수법칙은 같은 밑의 곱셈 구조를 보존하며 식의 정보를 더 간결하게 표현하는 언어이다.",
+    "general": "지수법칙은 같은 밑의 반복 곱셈 구조를 지수의 덧셈·곱셈 구조로 변환하여 식을 간결하게 만들며, 적용 조건을 확인해야 변환의 동치성이 유지된다.",
+    "studentGeneral": "지수법칙은 공식을 골라 쓰는 것이 아니라 같은 구조를 찾아 더 간단한 표현으로 바꾸는 방법이다.",
+    "questions": [
+      "지수법칙을 적용할 수 있는 구조와 적용할 수 없는 구조는 어떻게 구분하는가?",
+      "식의 단순화 과정에서 보존되는 값과 바뀌는 표현은 무엇인가?",
+      "지수법칙 오류는 주로 어떤 조건을 놓칠 때 발생하는가?",
+      "지수식 단순화 전략을 로그 성질과 함수 모델 해석에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "지수식 구조 분해표",
+      "지수법칙 적용 조건 체크리스트",
+      "오류 수정 해설 카드"
+    ],
+    "data": "식의 밑, 지수, 곱셈·나눗셈·거듭제곱 구조를 색으로 구분하고 어떤 법칙을 적용할 수 있는지 단계별로 표시한다.",
+    "modeling": "복잡한 지수식을 구조 트리로 나타낸 뒤, 같은 밑 묶기와 거듭제곱 구조 변환을 통해 동치 변형 과정을 설명한다.",
+    "uncertainty": "지수법칙은 밑의 조건과 연산 구조에 따라 적용 가능성이 달라지므로, 문자식에서는 밑이 0인지 양수인지 등 조건을 함께 확인해야 한다.",
+    "misconception": "지수가 보이면 밑이 달라도 지수끼리 더하거나 곱할 수 있다고 생각한다.",
+    "correction": "밑이 같은 경우와 다른 경우를 나란히 놓고, 전개 계산으로 같은 값이 되는지 검증하게 한다.",
+    "deepDive": "같은 값을 갖는 여러 지수 표현 중 어떤 표현이 문제 해결에 가장 유리한지 비교하고 선택 기준을 만든다.",
+    "career": "수학교육, 공학 계산, 알고리즘, 암호, 과학 데이터 처리, 금융공학",
+    "sample": "복잡한 지수식을 밑, 지수, 연산 구조로 분해해 지수법칙 적용 가능 조건을 먼저 판단함. 밑이 다른 항에 법칙을 적용하던 오류를 전개 검산으로 수정하고, 같은 값을 보존하면서 표현만 간단히 바꾸는 동치 변형의 의미를 단계별 해설로 설명함.",
+    "source": "지수법칙 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 거듭제곱·지수 확장",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 개념 설명·표현 변환·문제해결 과정 기반 성취기준 도달 평가",
+    "standard": "지수법칙을 이해하고, 이를 이용하여 식을 간단히 나타낼 수 있다.",
+    "levels": {
+      "A": "지수법칙을 설명하고, 이를 이용하여 다양한 식을 간단하게 나타낼 수 있다.",
+      "B": "지수법칙을 이해하고, 이를 이용하여 식을 간단하게 나타낼 수 있다.",
+      "C": "지수법칙을 알고, 이를 이용하여 식을 간단하게 나타낼 수 있다.",
+      "D": "지수법칙을 알고, 이를 이용하여 안내된 절차에 따라 식을 간단하게 나타낼 수 있다.",
+      "E": "지수법칙을 안다."
+    }
+  },
+  {
+    "code": "[12대수01-04]",
+    "domain": "로그와 상용로그",
+    "title": "로그는 지수 방정식의 질문을 어떻게 바꾸는가?",
+    "type": "역연산 개념 탐구형",
+    "period": "3차시",
+    "lens": "역관계와 조건",
+    "concept": "로그의 뜻과 성질",
+    "formula": "log_a b=x ⇔ a^x=b",
+    "related": "로그의 정의, 밑과 진수의 조건, 지수와 로그의 역관계, 로그의 성질, 식의 값, 동치 변형",
+    "phenomenon": "2^x=8, 10^x=1000처럼 지수로 쉽게 풀리는 질문과 2^x=7처럼 지수가 바로 보이지 않는 질문을 비교해 로그가 필요한 상황을 만든다.",
+    "conflict": "로그는 계산을 어렵게 만드는 새로운 기호라고 보기 쉽다. 그러나 로그는 “몇 제곱인가”를 묻는 지수의 역질문이며, 밑과 진수 조건을 지킬 때 식을 해석하고 계산하는 도구가 된다.",
+    "general": "로그는 지수관계의 역표현으로서 곱셈 구조를 덧셈 구조로 변환하며, 밑과 진수의 조건을 명시할 때 계산과 해석이 타당해진다.",
+    "studentGeneral": "로그는 낯선 기호가 아니라 “밑을 몇 제곱해야 진수가 되는가”라는 질문이다.",
+    "questions": [
+      "log_a b에서 밑, 진수, 로그값은 각각 무엇을 의미하는가?",
+      "로그의 성질은 지수법칙과 어떻게 연결되는가?",
+      "로그 계산 오류는 주로 어떤 조건을 놓칠 때 생기는가?",
+      "로그의 역관계 해석을 로그함수 그래프와 상용로그 문제에 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "지수식-로그식 변환표",
+      "로그 조건 점검 카드",
+      "로그 성질 유도 설명문"
+    ],
+    "data": "로그식을 지수식으로 바꾸어 밑, 진수, 로그값을 확인하고, 로그의 성질이 지수법칙에서 어떻게 나오는지 예시별로 유도한다.",
+    "modeling": "지수와 로그의 역관계를 화살표 도식으로 표현하고, 곱셈이 로그에서 덧셈으로 바뀌는 구조를 설명한다.",
+    "uncertainty": "로그는 밑이 0보다 크고 1이 아니며 진수가 양수일 때 정의되므로, 문자식 계산에서는 조건 확인이 필수이다.",
+    "misconception": "log(a+b)=log a+log b처럼 덧셈에도 로그 성질을 적용할 수 있다고 생각한다.",
+    "correction": "곱셈과 덧셈 사례를 수치로 검산하고, 로그 성질이 지수법칙의 어떤 구조에서 유도되는지 연결하게 한다.",
+    "deepDive": "로그 성질을 이용해 곱셈 계산을 덧셈 계산으로 바꾸는 원리를 계산 도구의 역사와 연결해 탐구한다.",
+    "career": "수학교육, 정보통신, 음향공학, 지진학, 화학, 데이터 스케일링, 컴퓨터 과학",
+    "sample": "로그를 공식 계산 대상으로 보지 않고 지수식의 역질문으로 해석하여 log_a b=x와 a^x=b의 동치 관계를 정확히 설명함. 진수 조건을 놓쳐 발생한 오류를 직접 반례로 검증하고, 로그의 곱셈 성질이 지수법칙에서 유도된다는 점을 단계적으로 정리함.",
+    "source": "로그의 뜻과 성질 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 로그와 상용로그",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-2 / 서·논술형 / 로그의 뜻과 성질을 이용하여 식의 값을 구한다."
+    ],
+    "tool": "대수-2 / 서·논술형 / 로그의 뜻과 성질을 이용하여 식의 값을 구한다.",
+    "standard": "로그의 뜻을 알고, 그 성질을 이용하여 계산할 수 있다.",
+    "levels": {
+      "A": "로그의 뜻과 성질을 설명하고, 그 성질을 이용하여 계산할 수 있다.",
+      "B": "로그의 뜻과 성질을 이해하고, 그 성질을 이용하여 계산할 수 있다.",
+      "C": "로그의 뜻과 성질을 알고, 그 성질을 이용하여 계산할 수 있다.",
+      "D": "로그의 뜻을 알고, 간단한 계산을 할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 로그의 계산을 할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수01-05]",
+    "domain": "로그와 상용로그",
+    "title": "상용로그는 큰 수와 작은 수의 규모를 어떻게 읽게 하는가?",
+    "type": "실생활 로그 스케일 프로젝트형",
+    "period": "4차시",
+    "lens": "스케일과 모델링",
+    "concept": "상용로그와 규모 해석",
+    "formula": "log x, 10^n ≤ x < 10^(n+1)",
+    "related": "상용로그, 자리수, 로그 스케일, 규모 비교, pH, 데시벨, 지진 규모, 실생활 문제 만들기",
+    "phenomenon": "인구, 데이터 용량, 소리 크기, 산성도, 지진 규모처럼 값의 범위가 매우 큰 자료를 제시하고 일반 눈금과 로그 눈금의 차이를 비교한다.",
+    "conflict": "상용로그는 로그표나 계산기로 값을 찾는 기능이라고 보기 쉽다. 그러나 상용로그는 10의 거듭제곱을 기준으로 수의 규모를 압축해 읽고 비교하게 하는 모델링 언어이다.",
+    "general": "상용로그는 큰 수와 작은 수의 규모를 10의 거듭제곱 기준으로 압축하여 표현하며, 로그 스케일은 실생활 자료의 상대적 변화와 차이를 해석하는 데 유용하다.",
+    "studentGeneral": "상용로그는 큰 수를 작게 만드는 계산이 아니라, 수의 규모가 몇 자리 수준인지 읽게 하는 도구이다.",
+    "questions": [
+      "상용로그 값의 정수 부분은 수의 자리수와 어떻게 연결되는가?",
+      "로그 스케일이 필요한 실생활 자료의 특징은 무엇인가?",
+      "로그 스케일은 차이를 줄이는가, 아니면 비율 구조를 더 잘 보이게 하는가?",
+      "상용로그 모델을 활용해 내가 만든 실생활 문제의 조건과 한계를 어떻게 설명할 수 있는가?"
+    ],
+    "products": [
+      "실생활 로그 스케일 자료 분석표",
+      "상용로그 활용 문제 제작지",
+      "로그 모델 조건·한계 설명 카드"
+    ],
+    "data": "실생활 자료의 단위, 최솟값·최댓값, 비율 변화, 10의 거듭제곱 기준 위치를 확인하고 상용로그로 표현했을 때 해석이 어떻게 달라지는지 비교한다.",
+    "modeling": "자료값을 일반 눈금과 로그 눈금에 각각 배치하고, 상용로그값의 정수 부분과 자리수의 관계를 이용해 규모를 설명한다.",
+    "uncertainty": "로그 스케일은 비율 비교에 강하지만 실제 맥락의 단위, 측정 방법, 자료 범위를 무시하면 해석이 왜곡될 수 있다.",
+    "misconception": "로그값이 작아지면 실제 차이도 작다고 생각한다.",
+    "correction": "로그 스케일에서 같은 간격은 같은 차이가 아니라 같은 비율을 뜻함을 수치 예시로 확인하게 한다.",
+    "deepDive": "지진 규모, 데시벨, pH 중 하나를 선택해 로그 스케일의 밑과 단위가 현실 해석에 미치는 영향을 조사한다.",
+    "career": "데이터 과학, 음향공학, 지구과학, 화학, 정보보안, 경제통계, 과학 커뮤니케이션",
+    "sample": "소리 세기 자료를 일반 눈금과 로그 눈금으로 비교하며 상용로그가 큰 범위의 값을 압축해 비율 구조를 드러낸다는 점을 설명함. 처음에는 로그값의 차이를 실제 세기 차이로 해석했으나, 같은 로그 간격이 일정한 배수 관계를 의미한다는 점을 수치 예시로 검증하고 직접 제작한 문제의 조건과 한계를 제시함.",
+    "source": "상용로그와 규모 해석 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 로그와 상용로그",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-3 / 프로젝트 / 실생활에서 상용로그가 활용되는 식을 찾아 발표한다. / 실생활과 연결하여 문제 만들고 해결한다."
+    ],
+    "tool": "대수-3 / 프로젝트 / 실생활에서 상용로그가 활용되는 식을 찾아 발표한다. / 실생활과 연결하여 문제 만들고 해결한다.",
+    "standard": "상용로그를 이해하고, 이를 실생활과 연결하여 문제를 해결할 수 있다.",
+    "levels": {
+      "A": "상용로그를 설명하고, 이를 실생활과 연결하여 다양한 문제를 해결할 수 있다.",
+      "B": "상용로그를 설명하고, 이를 실생활과 연결하여 문제를 해결할 수 있다.",
+      "C": "상용로그를 이해하고, 이를 실생활과 연결하여 간단한 문제를 해결할 수 있다.",
+      "D": "상용로그를 알고, 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 상용로그에 관한 간단한 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수01-06]",
+    "domain": "지수·로그 함수와 모델링",
+    "title": "지수함수와 로그함수는 왜 서로를 되돌리는 함수인가?",
+    "type": "함수 정의·역함수 탐구형",
+    "period": "3차시",
+    "lens": "대응과 역관계",
+    "concept": "지수함수와 로그함수의 뜻",
+    "formula": "y=a^x, y=log_a x",
+    "related": "함수, 대응, 정의역, 치역, 역함수, 밑의 조건, 지수함수, 로그함수",
+    "phenomenon": "같은 밑 a에 대해 y=a^x의 입력과 출력 순서를 뒤집으면 y=log_a x가 되는 표와 그래프를 비교한다.",
+    "conflict": "지수함수와 로그함수는 서로 다른 공식이라고 보기 쉽다. 그러나 두 함수는 같은 관계를 입력과 출력의 방향만 바꾸어 표현하는 역함수 관계이다.",
+    "general": "지수함수와 로그함수는 같은 밑에서 서로의 입력과 출력을 바꾸는 역함수이며, 정의역과 치역, 그래프 대칭을 함께 볼 때 관계가 명확해진다.",
+    "studentGeneral": "지수함수와 로그함수는 다른 이야기가 아니라 같은 대응을 반대 방향으로 읽는 함수이다.",
+    "questions": [
+      "지수함수와 로그함수의 정의에서 밑의 조건은 왜 필요한가?",
+      "두 함수의 정의역과 치역은 서로 어떻게 바뀌는가?",
+      "표와 그래프에서 역함수 관계는 어떻게 확인할 수 있는가?",
+      "이 역관계 해석을 방정식 풀이와 모델링 문제에 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "지수-로그 대응표",
+      "역함수 그래프 대칭 관찰지",
+      "정의역·치역 설명 카드"
+    ],
+    "data": "같은 밑에 대한 입력-출력 표를 만들고, 두 함수의 순서쌍이 서로 뒤바뀌는지 확인한 뒤 그래프의 대칭성을 관찰한다.",
+    "modeling": "y=a^x와 y=log_a x를 y=x에 대한 대칭 그래프로 나타내고, 정의역과 치역의 교환을 화살표로 표현한다.",
+    "uncertainty": "밑이 1보다 큰지 0과 1 사이인지에 따라 증가·감소가 달라지며, 로그함수는 x>0에서만 정의된다.",
+    "misconception": "로그함수는 지수함수와 별개의 계산 공식이라고 생각한다.",
+    "correction": "동일한 순서쌍을 입력과 출력만 바꾸어 표로 정리하고 그래프 대칭으로 확인하게 한다.",
+    "deepDive": "밑이 2, 1/2, 10일 때 지수함수와 로그함수의 증가·감소, 정의역·치역, 그래프 모양을 비교한다.",
+    "career": "수학교육, 데이터 분석, 인공지능 기초, 정보이론, 공학 모델링, 경제학",
+    "sample": "지수함수와 로그함수를 별도 공식으로 처리하지 않고 같은 대응의 방향을 바꾼 역함수 관계로 설명함. 입력-출력 표를 뒤집어 순서쌍을 비교하고, 그래프가 y=x에 대해 대칭임을 근거로 정의역과 치역이 서로 교환되는 이유를 명확히 제시함.",
+    "source": "지수함수와 로그함수의 뜻 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 지수·로그 함수와 모델링",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-4 / 서·논술형 / 주어진 지수함수의 그래프의 식을 찾고 이를 활용하여 문제를 해결한다. / 지수함수와 로그함수의 그래프를 그리고, 정의역, 치역, 점근선의 방정식을 구한다."
+    ],
+    "tool": "대수-4 / 서·논술형 / 주어진 지수함수의 그래프의 식을 찾고 이를 활용하여 문제를 해결한다. / 지수함수와 로그함수의 그래프를 그리고, 정의역, 치역, 점근선의 방정식을 구한다.",
+    "standard": "지수함수와 로그함수의 뜻을 알고, 이를 설명할 수 있다.",
+    "levels": {
+      "A": "지수함수와 로그함수의 뜻을 이해하여 설명할 수 있다.",
+      "B": "지수함수와 로그함수의 뜻을 이해하여 설명할 수 있다.",
+      "C": "지수함수와 로그함수의 뜻을 이해한다.",
+      "D": "지수함수와 로그함수의 뜻을 이해한다.",
+      "E": "지수함수와 로그함수의 뜻을 안다."
+    }
+  },
+  {
+    "code": "[12대수01-07]",
+    "domain": "지수·로그 함수와 모델링",
+    "title": "그래프의 모양은 함수의 성질을 어떻게 보여 주는가?",
+    "type": "그래프 탐구·공학도구 활용형",
+    "period": "4차시",
+    "lens": "변화율과 그래프 성질",
+    "concept": "지수함수와 로그함수의 그래프",
+    "formula": "y=a^x, y=log_a x, x=0, y=0",
+    "related": "그래프, 증가·감소, 점근선, 정의역, 치역, 밑의 변화, 평행이동, 대칭, 공학 도구",
+    "phenomenon": "밑 a가 1보다 클 때와 0<a<1일 때의 그래프를 공학 도구로 겹쳐 그리고, 점근선·정의역·치역·증가 감소가 어떻게 달라지는지 관찰한다.",
+    "conflict": "그래프 그리기는 대표 점을 찍고 연결하는 절차라고 보기 쉽다. 그러나 그래프는 함수의 정의역, 치역, 증가·감소, 점근선, 역관계를 한눈에 보여 주는 수학적 표현이다.",
+    "general": "지수함수와 로그함수의 그래프는 밑과 변환에 따라 변화 양상이 달라지며, 점근선과 정의역·치역은 함수의 성질과 모델 해석의 핵심 정보를 제공한다.",
+    "studentGeneral": "그래프는 그림이 아니라 함수가 어디에서 정의되고 어떻게 변하는지를 보여 주는 증거이다.",
+    "questions": [
+      "밑 a의 범위는 그래프의 증가·감소와 모양을 어떻게 바꾸는가?",
+      "지수함수와 로그함수의 점근선은 어떤 의미를 갖는가?",
+      "표만 볼 때와 그래프를 함께 볼 때 함수의 성질 이해는 어떻게 달라지는가?",
+      "그래프 성질을 실제 증가·감소 모델 해석에 어떻게 활용할 수 있는가?"
+    ],
+    "products": [
+      "지수·로그 그래프 비교 캡처와 해석표",
+      "정의역·치역·점근선 분석 카드",
+      "공학 도구 탐구 보고서"
+    ],
+    "data": "밑과 평행이동 값을 바꾸며 그래프를 그려 보고, 교점, 점근선, 증가·감소, 정의역과 치역을 표로 비교한다.",
+    "modeling": "함수식의 매개변수 변화가 그래프의 위치와 성질을 어떻게 바꾸는지 변환 지도와 그래프 주석으로 나타낸다.",
+    "uncertainty": "공학 도구 그래프는 창 범위 설정에 따라 점근선이나 전체 변화가 잘못 보일 수 있으므로 확대·축소와 표 확인을 병행해야 한다.",
+    "misconception": "그래프가 x축이나 y축에 가까워지면 언젠가 축과 만난다고 생각한다.",
+    "correction": "점근선의 의미를 표의 값 변화와 함께 확인하고, 함수가 정의되는 범위와 만나지 않는 이유를 설명하게 한다.",
+    "deepDive": "y=a^x와 y=log_a x를 같은 좌표평면에 그리고 y=x 대칭, 점근선의 교환, 밑 변화의 효과를 종합적으로 분석한다.",
+    "career": "수학교육, 공학 설계, 데이터 시각화, 생명과학 모델링, 경제 모델링, 컴퓨터 그래픽스",
+    "sample": "공학 도구로 밑이 다른 지수함수와 로그함수를 겹쳐 그린 뒤 증가·감소, 점근선, 정의역·치역을 그래프 근거로 비교함. 창 범위 때문에 그래프가 축과 만나는 것처럼 보이는 오류를 표와 확대 관찰로 수정하고, 점근선이 모델 해석에서 갖는 제한 조건을 설명함.",
+    "source": "지수함수와 로그함수의 그래프 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 지수·로그 함수와 모델링",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-4 / 서·논술형 / 주어진 지수함수의 그래프의 식을 찾고 이를 활용하여 문제를 해결한다. / 지수함수와 로그함수의 그래프를 그리고, 정의역, 치역, 점근선의 방정식을 구한다."
+    ],
+    "tool": "대수-4 / 서·논술형 / 주어진 지수함수의 그래프의 식을 찾고 이를 활용하여 문제를 해결한다. / 지수함수와 로그함수의 그래프를 그리고, 정의역, 치역, 점근선의 방정식을 구한다.",
+    "standard": "지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 설명할 수 있다.",
+    "levels": {
+      "A": "다양한 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 설명할 수 있다.",
+      "B": "지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.",
+      "C": "지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 안다.",
+      "D": "간단한 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 부분적으로 안다.",
+      "E": "안내된 절차에 따라 간단한 지수함수와 로그함수의 그래프를 그릴 수 있다."
+    }
+  },
+  {
+    "code": "[12대수01-08]",
+    "domain": "지수·로그 함수와 모델링",
+    "title": "지수·로그 함수는 어떤 현상을 설명하는 좋은 모델인가?",
+    "type": "함수 모델링 문제해결형",
+    "period": "4차시",
+    "lens": "모델과 한계",
+    "concept": "지수·로그 함수 활용",
+    "formula": "exponential growth/decay, logarithmic scale",
+    "related": "증가와 감소, 반감기, 복리, 감염 확산, 로그 스케일, 자료 적합, 매개변수, 모델 한계",
+    "phenomenon": "인구 성장, 약물 농도 감소, 복리, 데이터 저장량, 소리 크기 등 급격히 변하거나 로그 스케일로 읽는 자료를 제시한다.",
+    "conflict": "실생활 문제는 알맞은 공식을 찾아 대입하면 된다고 보기 쉽다. 그러나 함수 모델링은 현상의 변화 구조를 판단하고, 식의 매개변수와 그래프가 맥락에서 무엇을 뜻하는지 설명하는 과정이다.",
+    "general": "지수·로그 함수 모델은 일정한 배율 변화나 로그 스케일 현상을 설명하는 데 유용하지만, 자료 범위와 가정이 달라지면 모델의 타당성도 함께 점검해야 한다.",
+    "studentGeneral": "모델링은 공식 대입이 아니라 현상이 어떤 방식으로 변하는지 보고 알맞은 함수와 한계를 설명하는 일이다.",
+    "questions": [
+      "주어진 현상이 지수함수나 로그함수로 설명될 수 있는 근거는 무엇인가?",
+      "모델식의 밑, 계수, 절편은 실제 상황에서 무엇을 의미하는가?",
+      "모델이 잘 맞는 범위와 잘 맞지 않는 범위는 어떻게 판단하는가?",
+      "이 모델링 전략을 다른 급격한 변화나 규모 해석 문제에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "현상-함수 모델 선택표",
+      "지수·로그 모델 해석 보고서",
+      "모델 조건·한계 검증 카드"
+    ],
+    "data": "실생활 자료의 변화 비율, 초기값, 단위, 관찰 구간을 확인하고 지수·로그 함수 중 어떤 모델이 타당한지 그래프와 잔차 관찰로 비교한다.",
+    "modeling": "현상 설명 문장을 함수식으로 만들고, 매개변수의 맥락 의미와 예측값의 해석, 모델 한계를 함께 제시한다.",
+    "uncertainty": "실제 자료는 잡음, 포화, 외부 요인을 포함하므로 지수·로그 모델은 특정 구간에서만 타당할 수 있다.",
+    "misconception": "자료가 증가하면 모두 지수함수로 모델링할 수 있다고 생각한다.",
+    "correction": "일정한 차이 증가와 일정한 배율 증가를 표에서 비교하고, 지수모델의 필요 조건을 확인하게 한다.",
+    "deepDive": "같은 자료를 선형, 지수, 로그 모델로 각각 근사해 보고 어느 구간에서 어떤 모델이 더 타당한지 비교한다.",
+    "career": "데이터 과학, 생명과학, 경제·금융, 환경공학, 통계, 보건, 공학 모델링",
+    "sample": "약물 농도 감소 자료에서 일정 시간마다 비슷한 비율로 줄어드는 구조를 확인하고 지수감소 모델을 선택함. 단순 공식 대입을 넘어 초기값과 감소율이 실제 맥락에서 의미하는 바를 설명하고, 장기 예측에서는 생리적 요인으로 모델이 제한될 수 있음을 그래프와 단위 해석으로 제시함.",
+    "source": "지수·로그 함수 활용 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 지수·로그 함수와 모델링",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-5 / 서·논술형 / 지수함수와 로그함수를 활용하여 간단한 문제를 해결한다."
+    ],
+    "tool": "대수-5 / 서·논술형 / 지수함수와 로그함수를 활용하여 간단한 문제를 해결한다.",
+    "standard": "지수함수, 로그함수를 활용하여 문제를 해결할 수 있다.",
+    "levels": {
+      "A": "지수함수와 로그함수를 활용하여 다양한 문제를 해결할 수 있다.",
+      "B": "지수함수와 로그함수를 활용하여 다양한 문제를 해결할 수 있다.",
+      "C": "지수함수와 로그함수를 활용하여 간단한 문제를 해결할 수 있다.",
+      "D": "지수함수와 로그함수를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 지수함수 또는 로그함수를 활용하여 간단한 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수02-01]",
+    "domain": "삼각함수와 주기 현상",
+    "title": "라디안은 왜 각을 길이의 비율로 표현하는가?",
+    "type": "단위원·호도법 탐구형",
+    "period": "3차시",
+    "lens": "측정과 불변량",
+    "concept": "일반각과 호도법",
+    "formula": "θ=s/r, 180°=π rad",
+    "related": "일반각, 동경, 회전 방향, 호도법, 라디안, 단위원, 호의 길이, 육십분법",
+    "phenomenon": "반지름이 다른 원에서 같은 중심각이 만드는 호의 길이를 비교해, 각을 호의 길이와 반지름의 비율로 재는 이유를 탐구한다.",
+    "conflict": "라디안은 도 단위를 π가 들어간 형태로 바꾸는 변환법이라고 보기 쉽다. 그러나 라디안은 반지름에 대한 호의 길이의 비율로 각을 정의해 회전과 삼각함수를 자연스럽게 연결한다.",
+    "general": "호도법은 각을 호의 길이와 반지름의 비율로 표현하므로 원의 크기와 무관한 회전량을 나타내며, 삼각함수와 주기 현상을 수식화하는 표준 언어가 된다.",
+    "studentGeneral": "라디안은 도를 어렵게 바꾼 단위가 아니라, 회전한 만큼을 길이의 비율로 재는 방법이다.",
+    "questions": [
+      "같은 각에서 호의 길이와 반지름의 비율은 왜 일정한가?",
+      "일반각은 회전 방향과 여러 바퀴 회전을 어떻게 표현하는가?",
+      "도 단위와 라디안 단위 중 삼각함수 표현에 더 자연스러운 것은 무엇인가?",
+      "호도법을 주기 함수와 원운동 해석에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "호의 길이-반지름 비율 실험표",
+      "일반각 위치 표시 활동지",
+      "도-라디안 변환 근거 설명 카드"
+    ],
+    "data": "반지름이 다른 원에서 같은 중심각의 호의 길이를 측정하고 s/r 값이 일정한지 비교한다. 양의 방향과 음의 방향 회전을 동경 위치로 표시한다.",
+    "modeling": "단위원에서 각을 회전량으로 표현하고, θ=s/r 관계를 이용해 도 단위와 라디안 단위를 상호 변환한다.",
+    "uncertainty": "도 단위 변환에만 집중하면 라디안의 비율 의미를 놓치기 쉬우므로 실제 호의 길이와 반지름 관계를 함께 다룬다.",
+    "misconception": "π rad는 180°를 외워서 바꾸는 공식일 뿐이라고 생각한다.",
+    "correction": "반지름 r인 반원의 호의 길이가 πr임을 이용해 θ=s/r=π가 되는 과정을 설명하게 한다.",
+    "deepDive": "단위원 위의 동경 위치를 이용해 서로 다른 일반각이 같은 삼각함수 값을 갖는 이유를 탐구한다.",
+    "career": "물리, 기계공학, 로봇공학, 항공, 건축측량, 게임·애니메이션, 수학교육",
+    "sample": "반지름이 다른 원에서 같은 중심각의 호의 길이를 측정해 s/r 값이 일정함을 확인하고, 라디안을 단순 변환 공식이 아니라 회전량의 비율 표현으로 설명함. 180°=π rad를 암기식으로 처리하던 방식을 수정해 반원의 호의 길이와 반지름의 관계로 유도하고 일반각의 동경 위치를 정확히 표시함.",
+    "source": "일반각과 호도법 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 삼각함수와 주기 현상",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-6 / 완성형 / 호도법과 육십분법 사이의 관계 이해하기 / 동경이 나타내는 일반각을 호도법으로 나타내기"
+    ],
+    "tool": "대수-6 / 완성형 / 호도법과 육십분법 사이의 관계 이해하기 / 동경이 나타내는 일반각을 호도법으로 나타내기",
+    "standard": "일반각과 호도법의 뜻을 알고, 그 관계를 설명할 수 있다.",
+    "levels": {
+      "A": "일반각과 호도법의 뜻과 그 관계를 이해하여 설명할 수 있다.",
+      "B": "일반각과 호도법의 뜻과 그 관계를 이해한다.",
+      "C": "일반각과 호도법의 뜻과 그 관계를 안다.",
+      "D": "일반각과 호도법의 뜻을 안다.",
+      "E": "일반각 또는 호도법의 뜻을 안다."
+    }
+  },
+  {
+    "code": "[12대수02-02]",
+    "domain": "삼각함수와 주기 현상",
+    "title": "삼각함수 그래프는 단위원의 회전을 어떻게 시간의 변화로 바꾸는가?",
+    "type": "단위원-그래프 연결형",
+    "period": "4차시",
+    "lens": "주기와 대응",
+    "concept": "삼각함수와 그래프",
+    "formula": "y=sin x, y=cos x, y=tan x",
+    "related": "단위원, 사인, 코사인, 탄젠트, 주기, 진폭, 영점, 최대·최소, 점근선, 그래프 성질",
+    "phenomenon": "단위원 위 점의 x좌표와 y좌표 변화를 시간순으로 기록하고, 그 값이 사인함수와 코사인함수 그래프로 나타나는 과정을 연결한다.",
+    "conflict": "삼각함수 그래프는 외워서 그리는 곡선이라고 보기 쉽다. 그러나 삼각함수 그래프는 회전하는 동경의 좌표 변화가 주기적으로 반복되는 구조를 좌표평면에 펼친 것이다.",
+    "general": "삼각함수는 단위원의 회전과 좌표 변화를 함수로 표현하며, 그래프의 주기·진폭·점근선은 주기 현상의 구조를 해석하는 핵심 단서이다.",
+    "studentGeneral": "삼각함수 그래프는 외우는 물결 모양이 아니라 단위원에서 움직이는 점의 좌표를 시간에 따라 펼친 것이다.",
+    "questions": [
+      "단위원 위 점의 좌표는 사인·코사인 값과 어떻게 연결되는가?",
+      "주기, 진폭, 영점, 최대·최소는 그래프에서 어떤 의미를 갖는가?",
+      "탄젠트 그래프에 점근선이 생기는 이유는 무엇인가?",
+      "삼각함수 그래프 해석을 계절, 소리, 파동, 회전 운동에 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "단위원-삼각함수 값 대응표",
+      "삼각함수 그래프 성질 주석지",
+      "주기 현상 모델링 카드"
+    ],
+    "data": "특수각과 일반각에서 단위원 좌표를 확인하고, 각의 변화에 따라 sin, cos, tan 값이 어떻게 변하는지 표와 그래프로 연결한다.",
+    "modeling": "단위원 회전을 x축 방향 시간 변화로 펼쳐 그래프를 만들고, 주기·진폭·점근선·대칭성을 그래프 위에 표시한다.",
+    "uncertainty": "그래프의 모양만 외우면 단위원과의 연결을 놓치므로, 좌표값과 각의 위치를 함께 확인해야 한다.",
+    "misconception": "sin, cos 그래프는 비슷한 모양이므로 단순히 위치만 외우면 된다고 생각한다.",
+    "correction": "단위원에서 y좌표와 x좌표가 각각 sin, cos에 대응한다는 점을 표와 그래프로 동시에 확인하게 한다.",
+    "deepDive": "y=a sin b(x-c)+d에서 a, b, c, d가 그래프의 진폭, 주기, 평행이동에 미치는 영향을 공학 도구로 탐구한다.",
+    "career": "물리, 전기전자, 음향, 기계공학, 데이터 신호처리, 게임 개발, 수학교육",
+    "sample": "단위원 위 점의 좌표 변화를 표로 기록하고 이를 사인함수와 코사인함수 그래프로 연결하여 주기와 진폭의 의미를 설명함. 그래프 모양 암기에 머물던 접근을 수정해 특수각에서의 좌표와 그래프의 최대·최소·영점을 대응시키고, 탄젠트 그래프의 점근선이 cos x=0인 위치와 관련됨을 근거로 제시함.",
+    "source": "삼각함수와 그래프 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 삼각함수와 주기 현상",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-7 / 구술·발표 / 삼각함수의 그래프를 그리고, 그 성질을 설명한다."
+    ],
+    "tool": "대수-7 / 구술·발표 / 삼각함수의 그래프를 그리고, 그 성질을 설명한다.",
+    "standard": "삼각함수의 개념을 이해하여 사인함수, 코사인함수, 탄젠트함수의 그래프를 그리고, 그 성질을 설명할 수 있다.",
+    "levels": {
+      "A": "삼각함수의 개념을 설명하고 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있으며, 그 성질을 설명할 수 있다.",
+      "B": "삼각함수의 개념을 이해하여 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있으며, 그 성질을 이해한다.",
+      "C": "삼각함수의 개념을 알고 간단한 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있으며, 그 성질을 안다.",
+      "D": "삼각함수의 일부 개념을 알고, 안내된 절차에 따라 간단한 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.",
+      "E": "안내된 절차에 따라 간단한 사인함수, 코사인함수, 또는 탄젠트함수의 그래프를 그릴 수 있다."
+    }
+  },
+  {
+    "code": "[12대수02-03]",
+    "domain": "삼각함수와 주기 현상",
+    "title": "삼각법은 직접 잴 수 없는 거리를 어떻게 계산하게 하는가?",
+    "type": "삼각법 모델링형",
+    "period": "4차시",
+    "lens": "측정과 모델",
+    "concept": "사인법칙과 코사인법칙",
+    "formula": "a/sin A=b/sin B=c/sin C, c^2=a^2+b^2-2ab cos C",
+    "related": "삼각형, 사인법칙, 코사인법칙, 거리 측정, 각도, 모델링, 실생활 문제, 측정 오차",
+    "phenomenon": "강 건너 거리, 건물 높이, 접근하기 어려운 두 지점 사이 거리처럼 직접 측정하기 어려운 상황을 삼각형 모델로 바꾸어 해결한다.",
+    "conflict": "사인법칙과 코사인법칙은 삼각형 문제 공식이라고 보기 쉽다. 그러나 두 법칙은 측정 가능한 변과 각으로 직접 잴 수 없는 길이를 추론하게 하는 모델링 도구이다.",
+    "general": "사인법칙과 코사인법칙은 삼각형의 변과 각 사이의 관계를 이용해 측정 불가능한 거리를 계산하게 하며, 실제 문제에서는 모델 설정과 오차 검토가 함께 필요하다.",
+    "studentGeneral": "삼각법은 공식을 외워 푸는 것이 아니라, 실제 상황을 삼각형으로 바꾸어 잴 수 없는 것을 계산하는 방법이다.",
+    "questions": [
+      "실생활 상황을 삼각형 모델로 만들 때 필요한 측정값은 무엇인가?",
+      "어떤 조건에서 사인법칙을 쓰고 어떤 조건에서 코사인법칙을 쓰는가?",
+      "측정 오차는 계산 결과에 어떤 영향을 줄 수 있는가?",
+      "삼각법 모델링을 측량, 항해, 로봇 위치 추정 문제에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "실생활 삼각형 모델 설계도",
+      "법칙 선택 근거표",
+      "측정 오차와 결과 해석 보고서"
+    ],
+    "data": "상황에서 측정 가능한 변과 각을 표시하고, 삼각형 조건에 따라 사인법칙 또는 코사인법칙을 선택해 미지 길이를 계산한다.",
+    "modeling": "실제 공간을 삼각형 도식으로 단순화하고, 계산 결과의 단위와 오차 가능성을 함께 설명한다.",
+    "uncertainty": "실제 측정에는 각도 오차, 수평 거리 가정, 지형 조건이 개입하므로 계산값을 절대값이 아니라 모델 기반 추정값으로 해석해야 한다.",
+    "misconception": "사인법칙과 코사인법칙 중 아무 공식이나 대입하면 답이 나온다고 생각한다.",
+    "correction": "주어진 정보가 ASA, AAS, SSA, SAS, SSS 중 어떤 구조인지 분류하고 법칙 선택 이유를 말하게 한다.",
+    "deepDive": "학교 주변의 접근하기 어려운 거리 하나를 선정해 측정 계획, 삼각형 모델, 계산, 오차 분석까지 수행한다.",
+    "career": "측량, 건축, 토목, 항공·항해, 로봇공학, 국방, 공간정보, 수학교육",
+    "sample": "직접 측정하기 어려운 두 지점 사이 거리를 삼각형 모델로 설정하고 측정 가능한 각과 변을 기준으로 사인법칙과 코사인법칙 중 적절한 법칙을 선택함. 공식 대입보다 먼저 조건 구조를 분류하고, 각도 측정 오차가 결과에 미칠 영향을 검토해 계산값을 모델 기반 추정으로 해석함.",
+    "source": "사인법칙과 코사인법칙 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 삼각함수와 주기 현상",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 개념 설명·표현 변환·문제해결 과정 기반 성취기준 도달 평가",
+    "standard": "사인법칙과 코사인법칙을 이해하고, 실생활 문제를 해결할 수 있다.",
+    "levels": {
+      "A": "사인법칙과 코사인법칙을 설명하고, 이를 활용하여 다양한 실생활 문제를 해결할 수 있다.",
+      "B": "사인법칙과 코사인법칙을 이해하고, 이를 활용하여 실생활 문제를 해결할 수 있다.",
+      "C": "사인법칙과 코사인법칙을 알고, 이를 활용하여 간단한 실생활 문제를 해결할 수 있다.",
+      "D": "사인법칙과 코사인법칙을 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 사인법칙 또는 코사인법칙에 관한 간단한 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수03-01]",
+    "domain": "수열과 합의 구조",
+    "title": "수열은 나열된 수에서 어떤 규칙을 읽어 내는가?",
+    "type": "패턴 관찰·규칙 표현형",
+    "period": "2차시",
+    "lens": "규칙과 표현",
+    "concept": "수열의 뜻",
+    "formula": "a1, a2, a3, ..., an",
+    "related": "항, 첫째항, 일반항, 규칙, 순서, 정의역이 자연수인 함수, 표와 식",
+    "phenomenon": "계단 모양 점 배열, 저축 금액 변화, 반복 도형의 둘레와 넓이처럼 순서에 따라 값이 달라지는 자료를 제시한다.",
+    "conflict": "수열은 숫자를 차례대로 나열한 것이라고 보기 쉽다. 그러나 수열은 자연수 순서에 대응되는 값의 규칙을 식, 표, 말로 표현하는 함수적 대상이다.",
+    "general": "수열은 순서를 가진 대상의 변화를 자연수에 대한 대응으로 표현하며, 규칙을 찾고 일반항을 구성하면 특정 항과 전체 구조를 예측할 수 있다.",
+    "studentGeneral": "수열은 숫자 목록이 아니라 “몇 번째인가”에 따라 값이 정해지는 규칙이다.",
+    "questions": [
+      "나열된 값에서 항, 순서, 규칙은 어떻게 구분되는가?",
+      "수열을 자연수에 대한 함수로 보면 어떤 점이 명확해지는가?",
+      "같은 앞부분을 가진 수열도 다른 규칙을 가질 수 있는 이유는 무엇인가?",
+      "수열 규칙 찾기 전략을 등차·등비수열과 귀납적 정의에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "수열 규칙 관찰표",
+      "항 번호-항 값 대응표",
+      "가능한 일반항 비교 카드"
+    ],
+    "data": "항 번호와 항 값을 표로 정리하고 차이, 비, 도형 변화, 맥락 단위를 기준으로 가능한 규칙을 여러 개 제안한다.",
+    "modeling": "수열을 자연수 n에서 항 a_n으로 가는 대응으로 나타내고, 말 규칙을 식 또는 재귀적 표현으로 바꾼다.",
+    "uncertainty": "초기 몇 항만으로는 규칙이 하나로 결정되지 않을 수 있으므로 맥락, 생성 과정, 추가 항을 함께 확인해야 한다.",
+    "misconception": "앞의 몇 항만 같으면 수열의 규칙도 하나로 정해진다고 생각한다.",
+    "correction": "같은 첫 세 항을 갖지만 이후가 다른 수열 예시를 비교해, 규칙 설명과 생성 과정이 필요함을 확인하게 한다.",
+    "deepDive": "같은 첫 네 항을 갖는 서로 다른 세 수열을 만들고, 각 수열의 생성 규칙과 일반항 가능성을 비교한다.",
+    "career": "수학교육, 알고리즘, 경제 예측, 생물 개체수 모델, 디자인 패턴, 데이터 분석",
+    "sample": "나열된 수를 단순 목록으로 보지 않고 항 번호와 항 값을 대응시켜 수열을 자연수에 대한 함수로 설명함. 앞의 몇 항만으로 규칙을 단정하던 접근을 수정해 차이, 비, 도형 생성 과정이라는 여러 관점에서 가능한 규칙을 비교하고 일반항을 제안함.",
+    "source": "수열의 뜻 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 수열과 합의 구조",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 개념 설명·표현 변환·문제해결 과정 기반 성취기준 도달 평가",
+    "standard": "수열의 뜻을 설명할 수 있다.",
+    "levels": {
+      "A": "수열의 뜻을 이해하여 설명할 수 있다.",
+      "B": "수열의 뜻을 이해하여 설명할 수 있다.",
+      "C": "수열의 뜻을 이해한다.",
+      "D": "수열의 뜻을 이해한다.",
+      "E": "수열의 뜻을 안다."
+    }
+  },
+  {
+    "code": "[12대수03-02]",
+    "domain": "수열과 합의 구조",
+    "title": "등차수열의 일정한 차이는 일반항과 합을 어떻게 결정하는가?",
+    "type": "차이 구조 일반화형",
+    "period": "3차시",
+    "lens": "선형 변화와 누적",
+    "concept": "등차수열의 일반항과 합",
+    "formula": "a_n=a_1+(n-1)d, S_n=n(a_1+a_n)/2",
+    "related": "공차, 일반항, 첫째항, 제n항, 부분합, 선형 변화, 평균, 누적 구조",
+    "phenomenon": "매일 일정 금액씩 늘어나는 저축, 계단식 좌석 수, 일정하게 증가하는 도형 패턴을 등차수열로 모델링한다.",
+    "conflict": "등차수열은 공식에 첫째항과 공차를 넣는 문제라고 보기 쉽다. 그러나 등차수열의 핵심은 일정한 차이의 구조가 항과 누적합을 동시에 결정한다는 점이다.",
+    "general": "등차수열은 일정한 차이로 변하는 선형 구조이며, 일반항은 위치에 따른 값의 변화를, 합은 처음과 끝의 평균값이 누적되는 구조를 나타낸다.",
+    "studentGeneral": "등차수열의 공식은 외울 식이 아니라 일정한 차이가 몇 번 더해졌는지와 평균이 몇 개 쌓였는지를 표현한 것이다.",
+    "questions": [
+      "공차는 등차수열의 항 사이 관계를 어떻게 결정하는가?",
+      "일반항 공식에서 n-1이 나타나는 이유는 무엇인가?",
+      "등차수열의 합 공식은 왜 처음과 끝의 평균으로 설명될 수 있는가?",
+      "등차수열 구조를 실생활의 선형 증가 문제에 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "등차수열 구조 분석표",
+      "일반항·부분합 유도 노트",
+      "선형 증가 모델링 문제 제작지"
+    ],
+    "data": "항 번호, 항 값, 항 사이 차이를 표로 정리하고, 첫째항에서 제n항까지 공차가 몇 번 더해지는지 시각화한다.",
+    "modeling": "등차수열을 직선적 변화로 나타내고, 같은 합을 만드는 짝짓기 전략으로 부분합 공식을 유도한다.",
+    "uncertainty": "등차수열인지 판단하려면 항 사이 차이가 일정한지 확인해야 하며, 맥락이 비선형이면 공식 적용이 부적절할 수 있다.",
+    "misconception": "제n항을 구할 때 공차를 n번 더한다고 생각한다.",
+    "correction": "첫째항이 이미 1번째 항임을 수직선에 표시해 제n항까지 공차가 n-1번 더해지는 구조를 확인하게 한다.",
+    "deepDive": "등차수열의 부분합이 이차식 형태가 되는 이유를 도형 배열 또는 그래프 아래 누적 관점으로 설명한다.",
+    "career": "수학교육, 경제 계획, 건축 배치, 생산관리, 알고리즘, 데이터 추세 분석",
+    "sample": "등차수열의 일반항을 공식 암기가 아니라 첫째항에서 공차가 n-1번 누적되는 구조로 유도함. 부분합에서는 항을 양끝끼리 짝지어 평균이 일정하게 반복되는 원리를 설명하고, 일정 증가 저축 상황에 적용해 항과 누적합의 의미를 구분함.",
+    "source": "등차수열의 일반항과 합 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 수열과 합의 구조",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-8 / 서·논술형 / 등차수열의 뜻을 이해하고, 일반항과 첫째항부터 제n항까지의 합을 구한다."
+    ],
+    "tool": "대수-8 / 서·논술형 / 등차수열의 뜻을 이해하고, 일반항과 첫째항부터 제n항까지의 합을 구한다.",
+    "standard": "등차수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.",
+    "levels": {
+      "A": "등차수열의 뜻을 설명하고, 일반항과 첫째항부터 제n항까지의 합을 구하고 그 과정을 설명할 수 있다.",
+      "B": "등차수열의 뜻을 이해하고, 일반항과 첫째항부터 제n항까지의 합을 구할 수 있다.",
+      "C": "등차수열의 뜻을 알고, 일반항과 첫째항부터 특정한 항까지의 합을 구할 수 있다.",
+      "D": "등차수열의 뜻을 알고, 일반항을 구할 수 있다.",
+      "E": "안내된 절차에 따라 등차수열의 일반항을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수03-03]",
+    "domain": "수열과 합의 구조",
+    "title": "등비수열의 일정한 비는 성장을 어떻게 모델링하는가?",
+    "type": "비율 구조 일반화형",
+    "period": "3차시",
+    "lens": "배율 변화와 누적",
+    "concept": "등비수열의 일반항과 합",
+    "formula": "a_n=a_1 r^(n-1), S_n=a_1(1-r^n)/(1-r)",
+    "related": "공비, 일반항, 제n항, 부분합, 배율 변화, 복리, 감쇠, 지수적 변화",
+    "phenomenon": "복리 저축, 세포 분열, 감염 확산 초기, 반복 축소 도형처럼 일정한 비율로 변하는 현상을 등비수열로 해석한다.",
+    "conflict": "등비수열은 등차수열과 비슷하게 숫자만 곱하는 공식이라고 보기 쉽다. 그러나 등비수열은 일정한 배율 변화가 지수적 성장과 누적 구조를 만드는 수열이다.",
+    "general": "등비수열은 일정한 비율로 변하는 구조이며, 일반항은 반복 곱셈의 결과를, 합은 배율 변화가 누적된 전체량을 표현한다.",
+    "studentGeneral": "등비수열은 같은 수를 계속 더하는 것이 아니라 같은 비율로 계속 곱해지는 변화이다.",
+    "questions": [
+      "공비는 등비수열의 변화 구조를 어떻게 결정하는가?",
+      "일반항에서 r^(n-1)이 나타나는 이유는 무엇인가?",
+      "등비수열의 합 공식은 어떤 조작으로 유도되는가?",
+      "등비수열 구조를 복리, 감쇠, 반복 도형 문제에 어떻게 적용할 수 있는가?"
+    ],
+    "products": [
+      "등비수열 배율 변화표",
+      "일반항·부분합 유도 노트",
+      "비율 성장 모델링 카드"
+    ],
+    "data": "항 번호, 항 값, 앞 항에 대한 비를 표로 정리하고, 첫째항에서 제n항까지 공비가 몇 번 곱해지는지 표시한다.",
+    "modeling": "등비수열의 부분합 S_n과 rS_n을 비교해 소거 구조로 합 공식을 유도하고, 그래프 또는 도형으로 누적 의미를 설명한다.",
+    "uncertainty": "공비가 1인지, 음수인지, 절댓값이 1보다 작은지에 따라 수열의 변화와 합 해석이 달라진다.",
+    "misconception": "등비수열의 합도 첫째항과 마지막항의 평균으로 구할 수 있다고 생각한다.",
+    "correction": "등차수열의 합 짝짓기와 등비수열의 합 소거 전략을 비교하여 구조가 다름을 확인하게 한다.",
+    "deepDive": "무한히 반복되는 축소 도형에서 등비수열의 합이 어떤 극한적 직관을 제공하는지 탐구한다.",
+    "career": "금융, 생명과학, 감염병 모델링, 컴퓨터 알고리즘, 그래픽스, 수학교육",
+    "sample": "등비수열을 일정한 비율 변화로 해석하고, 일반항에서 공비가 n-1번 곱해지는 이유를 표와 반복 곱셈 구조로 설명함. 등차수열 합 공식과 혼동하던 오류를 S_n과 rS_n의 소거 전략으로 수정하고, 복리 상황에서 항과 누적합의 의미를 구분해 모델링함.",
+    "source": "등비수열의 일반항과 합 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 수열과 합의 구조",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-9 / 서·논술형 / 등비수열의 뜻을 이해하고, 일반항과 첫째항부터 제n항까지의 합을 구한다."
+    ],
+    "tool": "대수-9 / 서·논술형 / 등비수열의 뜻을 이해하고, 일반항과 첫째항부터 제n항까지의 합을 구한다.",
+    "standard": "등비수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.",
+    "levels": {
+      "A": "등비수열의 뜻을 설명하고, 일반항과 첫째항부터 제n항까지의 합을 구하고 그 과정을 설명할 수 있다.",
+      "B": "등비수열의 뜻을 이해하고, 일반항과 첫째항부터 제n항까지의 합을 구할 수 있다.",
+      "C": "등비수열의 뜻을 알고, 일반항과 첫째항부터 특정한 항까지의 합을 구할 수 있다.",
+      "D": "등비수열의 뜻을 알고, 일반항을 구할 수 있다.",
+      "E": "안내된 절차에 따라 등비수열의 일반항을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수03-04]",
+    "domain": "수열과 합의 구조",
+    "title": "∑ 기호는 반복되는 덧셈을 어떻게 압축해 표현하는가?",
+    "type": "기호 해석·합 구조 탐구형",
+    "period": "3차시",
+    "lens": "기호와 일반화",
+    "concept": "∑의 뜻과 성질",
+    "formula": "∑_{k=1}^n a_k",
+    "related": "시그마 기호, 합의 범위, 더미 변수, 선형성, 상수배, 합의 분리, 수열의 합",
+    "phenomenon": "긴 덧셈식을 ∑ 기호로 압축하거나, ∑ 표현을 실제 덧셈으로 풀어 쓰는 양방향 변환 사례를 제시한다.",
+    "conflict": "∑는 어려운 장식 기호라고 보기 쉽다. 그러나 ∑는 반복되는 덧셈의 시작, 끝, 규칙을 한 번에 표현하는 압축 언어이다.",
+    "general": "∑ 기호는 반복 덧셈의 범위와 항의 규칙을 명확하게 표현하며, 선형성과 합의 분리 성질을 활용하면 복잡한 합을 구조적으로 계산할 수 있다.",
+    "studentGeneral": "∑는 덧셈을 생략한 기호가 아니라, 무엇을 어디서부터 어디까지 더하는지 알려 주는 약속이다.",
+    "questions": [
+      "∑ 표현에서 시작값, 끝값, 일반항, 더미 변수는 각각 무엇을 의미하는가?",
+      "∑의 성질을 적용할 수 있는 구조와 적용할 수 없는 구조는 어떻게 구분하는가?",
+      "같은 합을 여러 ∑ 표현으로 나타낼 수 있는 이유는 무엇인가?",
+      "∑ 표현을 수열의 합과 수학적 귀납법 증명에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "∑ 기호 해석표",
+      "덧셈식-시그마식 변환 카드",
+      "∑ 성질 적용 조건 노트"
+    ],
+    "data": "∑ 표현의 아래첨자, 위첨자, 일반항을 분리하고 실제 항을 몇 개 전개해 더하는 범위와 규칙을 확인한다.",
+    "modeling": "긴 덧셈식을 ∑로 압축하고, ∑의 선형성·상수배·합의 분리를 구조 도식으로 설명한다.",
+    "uncertainty": "더미 변수 이름은 바뀔 수 있지만 범위와 일반항 구조가 바뀌면 합의 값이 달라지므로 기호의 각 요소를 정확히 읽어야 한다.",
+    "misconception": "∑ 안의 문자 k 자체가 특별한 값이라고 생각한다.",
+    "correction": "같은 합을 ∑_{k=1}^n, ∑_{i=1}^n처럼 다른 더미 변수로 표현해도 값이 같음을 전개로 확인하게 한다.",
+    "deepDive": "복잡한 다항식 합을 ∑의 성질로 분해하고, 자연수 거듭제곱 합 공식과 연결해 계산 전략을 설명한다.",
+    "career": "수학교육, 통계, 컴퓨터 과학, 데이터 분석, 물리 합산 모델, 알고리즘",
+    "sample": "∑ 표현을 읽을 때 아래첨자, 위첨자, 일반항, 더미 변수를 분리하여 실제 덧셈식으로 전개함. ∑ 안의 k를 특정한 값으로 오해하던 부분을 여러 더미 변수 표현의 전개 비교로 수정하고, 선형성과 합의 분리 성질을 활용해 반복 덧셈을 구조적으로 계산함.",
+    "source": "∑의 뜻과 성질 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 수열과 합의 구조",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-10 / 구술·발표 / ∑의 뜻과 성질을 활용하여 문제를 해결한다."
+    ],
+    "tool": "대수-10 / 구술·발표 / ∑의 뜻과 성질을 활용하여 문제를 해결한다.",
+    "standard": "∑의 뜻과 성질을 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+    "levels": {
+      "A": "의 뜻과 성질을 설명하고, 이를 활용하여 다양한 문제를 해결할 수 있다.",
+      "B": "의 뜻과 성질을 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+      "C": "의 뜻과 성질을 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "D": "의 뜻을 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "의 뜻을 안다."
+    }
+  },
+  {
+    "code": "[12대수03-05]",
+    "domain": "수열과 합의 구조",
+    "title": "여러 가지 수열의 합은 어떤 전략으로 구할 수 있는가?",
+    "type": "합 전략 비교형",
+    "period": "3차시",
+    "lens": "분해와 재구성",
+    "concept": "여러 가지 수열의 합",
+    "formula": "∑k, ∑k^2, ∑k^3",
+    "related": "자연수의 거듭제곱의 합, ∑ 성질, 항의 분해, 부분합, 규칙 설명, 계산 전략",
+    "phenomenon": "1+2+...+n, 1^2+2^2+...+n^2, 규칙이 섞인 수열의 합을 서로 다른 전략으로 구하고 방법을 비교한다.",
+    "conflict": "수열의 합은 공식을 기억해 대입하는 문제라고 보기 쉽다. 그러나 여러 가지 수열의 합은 항의 구조를 분해하고 이미 아는 합과 연결해 재구성하는 전략적 문제이다.",
+    "general": "여러 가지 수열의 합은 항의 구조를 분석해 기본 합으로 분해하거나 새로운 패턴으로 재구성할 때 효율적으로 계산되며, 방법 설명이 계산만큼 중요하다.",
+    "studentGeneral": "수열의 합은 공식을 찾는 일이 아니라 항을 어떻게 쪼개고 묶을지 전략을 세우는 일이다.",
+    "questions": [
+      "주어진 항은 어떤 기본 합이나 이미 아는 수열로 분해될 수 있는가?",
+      "같은 합을 구하는 여러 방법 중 어떤 전략이 더 효율적인가?",
+      "공식 대입과 방법 설명의 차이는 무엇인가?",
+      "합 전략을 증명, 알고리즘, 자료 누적 문제에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "수열 합 전략 선택표",
+      "자연수 거듭제곱 합 설명 노트",
+      "합 계산 과정 비교 카드"
+    ],
+    "data": "항을 전개해 차수, 계수, 상수항, 반복 구조를 확인하고 ∑ 성질을 이용해 기본 합으로 분해한다.",
+    "modeling": "복잡한 합을 기본 합의 조합으로 나타내고, 계산 과정의 각 변형이 왜 타당한지 기호와 말로 설명한다.",
+    "uncertainty": "공식을 적용할 때 합의 범위와 시작 인덱스가 달라지면 값이 달라지므로 범위를 먼저 확인해야 한다.",
+    "misconception": "합 공식만 알면 방법 설명 없이도 충분하다고 생각한다.",
+    "correction": "같은 답이라도 항의 분해, ∑ 성질, 기본 합 적용 과정을 빠뜨리면 왜 타당한지 설명할 수 없음을 비교하게 한다.",
+    "deepDive": "1^3+2^3+...+n^3=(1+2+...+n)^2의 구조를 도형 배열이나 귀납법으로 설명한다.",
+    "career": "알고리즘 분석, 통계, 물리, 수학교육, 데이터 누적 계산, 컴퓨터 과학",
+    "sample": "여러 가지 수열의 합을 공식 대입으로만 처리하지 않고 항의 차수와 계수 구조를 분해해 ∑의 선형성으로 기본 합에 연결함. 시작 인덱스를 잘못 해석한 오류를 범위 표시와 전개 검산으로 수정하고, 같은 합을 분해법과 패턴 관찰법으로 비교해 더 효율적인 전략을 설명함.",
+    "source": "여러 가지 수열의 합 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 수열과 합의 구조",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-11 / 서·논술형 / 자연수의 거듭제곱의 합을 구하고, 그 방법을 설명한다."
+    ],
+    "tool": "대수-11 / 서·논술형 / 자연수의 거듭제곱의 합을 구하고, 그 방법을 설명한다.",
+    "standard": "여러 가지 수열의 첫째항부터 제n항까지의 합을 구하는 방법을 설명할 수 있다.",
+    "levels": {
+      "A": "여러 가지 수열의 첫째항부터 제n항까지의 합을 구하고, 그 방법을 설명할 수 있다.",
+      "B": "여러 가지 수열의 첫째항부터 제n항까지의 합을 구하고, 그 방법을 이해한다.",
+      "C": "여러 가지 수열의 첫째항부터 제n항까지의 합을 구하고, 그 방법을 안다.",
+      "D": "여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.",
+      "E": "안내된 절차에 따라 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12대수03-06]",
+    "domain": "귀납과 증명",
+    "title": "귀납적 정의는 수열 전체를 어떻게 생성하는가?",
+    "type": "재귀 구조 탐구형",
+    "period": "3차시",
+    "lens": "생성과 관계",
+    "concept": "수열의 귀납적 정의",
+    "formula": "a_1, a_{n+1}=f(a_n)",
+    "related": "초기값, 점화식, 재귀, 귀납적 정의, 일반항, 생성 규칙, 알고리즘적 사고",
+    "phenomenon": "피보나치 수열, 반복 저축, 전염 확산 간단 모델처럼 다음 항이 이전 항으로 정해지는 사례를 제시한다.",
+    "conflict": "수열은 일반항이 있어야 완전히 정의된다고 보기 쉽다. 그러나 귀납적 정의는 초기값과 다음 항을 만드는 규칙으로 수열 전체를 생성하는 방식이다.",
+    "general": "귀납적 정의는 초기 조건과 재귀 규칙을 통해 수열을 생성하며, 항 사이 관계를 드러내기 때문에 알고리즘적 사고와 수학적 귀납법의 기반이 된다.",
+    "studentGeneral": "귀납적 정의는 한 번에 n번째 항을 알려 주는 것이 아니라, 시작값에서 다음 항을 계속 만들어 가는 규칙이다.",
+    "questions": [
+      "귀납적 정의에서 초기값과 재귀 규칙은 각각 어떤 역할을 하는가?",
+      "일반항 표현과 귀납적 정의는 어떤 장단점이 있는가?",
+      "같은 수열을 일반항과 점화식으로 모두 표현할 수 있는가?",
+      "귀납적 정의를 알고리즘과 수학적 귀납법 증명에 어떻게 연결할 수 있는가?"
+    ],
+    "products": [
+      "초기값-점화식 생성표",
+      "일반항과 귀납적 정의 비교 카드",
+      "재귀 규칙 알고리즘 표현지"
+    ],
+    "data": "초기값과 점화식을 이용해 앞의 여러 항을 생성하고, 생성 과정에서 이전 항과 다음 항의 관계를 표로 기록한다.",
+    "modeling": "귀납적 정의를 순서도나 간단한 의사코드로 나타내고, 일반항 표현과 비교하여 장단점을 설명한다.",
+    "uncertainty": "초기값이 없거나 재귀 규칙의 적용 범위가 불분명하면 수열이 하나로 정해지지 않으므로 정의 요소를 모두 확인해야 한다.",
+    "misconception": "점화식만 있으면 초기값이 없어도 수열이 정해진다고 생각한다.",
+    "correction": "같은 점화식에 다른 초기값을 넣어 서로 다른 수열이 생성되는 사례를 비교하게 한다.",
+    "deepDive": "피보나치 수열의 귀납적 정의를 표, 그래프, 간단한 알고리즘으로 표현하고 증가 구조를 분석한다.",
+    "career": "컴퓨터 과학, 알고리즘, 생물 모델링, 경제 동학, 수학교육, 인공지능 기초",
+    "sample": "수열을 일반항으로만 정의해야 한다는 생각에서 벗어나 초기값과 점화식이 수열 전체를 생성한다는 점을 표와 순서도로 설명함. 같은 재귀 규칙이라도 초기값이 달라지면 다른 수열이 만들어지는 사례를 비교하고, 귀납적 정의가 알고리즘적 사고와 수학적 귀납법의 출발점이 됨을 연결함.",
+    "source": "수열의 귀납적 정의 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 귀납과 증명",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "자체 CBI 수행평가 / 개념 설명·표현 변환·문제해결 과정 기반 성취기준 도달 평가",
+    "standard": "수열의 귀납적 정의를 설명할 수 있다.",
+    "levels": {
+      "A": "수열의 귀납적 정의를 이해하여 설명할 수 있다.",
+      "B": "수열의 귀납적 정의를 이해하여 설명할 수 있다.",
+      "C": "수열의 귀납적 정의를 이해한다.",
+      "D": "수열의 귀납적 정의를 이해한다.",
+      "E": "수열의 귀납적 정의를 안다."
+    }
+  },
+  {
+    "code": "[12대수03-07]",
+    "domain": "귀납과 증명",
+    "title": "수학적 귀납법은 어떻게 무한히 많은 명제를 증명하는가?",
+    "type": "증명 구조 탐구형",
+    "period": "4차시",
+    "lens": "논리와 전이",
+    "concept": "수학적 귀납법",
+    "formula": "P(1), P(k)⇒P(k+1)",
+    "related": "명제, 자연수, 기본 단계, 귀납 가정, 귀납 단계, 증명 구조, 도미노 원리",
+    "phenomenon": "자연수 n에 대한 합 공식이나 부등식이 여러 값에서 참임을 확인한 뒤, 모든 자연수에서 참임을 어떻게 보장할 수 있는지 질문한다.",
+    "conflict": "수학적 귀납법은 n=1을 확인하고 n=k를 n=k+1로 바꾸는 형식적 절차라고 보기 쉽다. 그러나 핵심은 첫 도미노와 연결 고리를 모두 증명해 자연수 전체로 논리를 확장하는 것이다.",
+    "general": "수학적 귀납법은 기본 단계와 귀납 단계가 결합될 때 자연수 전체에 대한 명제를 증명하며, 귀납 가정이 다음 경우를 이끌어 내는 논리적 연결이 핵심이다.",
+    "studentGeneral": "귀납법은 몇 개를 확인하는 것이 아니라, 첫 번째가 참이고 참이면 다음도 참이라는 연결을 증명해 모두를 보장하는 방법이다.",
+    "questions": [
+      "기본 단계와 귀납 단계는 각각 왜 필요한가?",
+      "귀납 가정은 증명 과정에서 어디에 어떻게 사용되는가?",
+      "여러 사례 확인과 수학적 귀납법 증명은 무엇이 다른가?",
+      "귀납법의 논리를 수열 공식, 부등식, 재귀 알고리즘 검증에 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "귀납법 증명 구조도",
+      "귀납 가정 사용 위치 표시지",
+      "명제 증명 피드백 카드"
+    ],
+    "data": "명제 P(n)을 명확히 쓰고, P(1) 확인, P(k) 가정, P(k+1) 증명 과정에서 사용한 식 변형과 귀납 가정 사용 위치를 표시한다.",
+    "modeling": "도미노 원리를 증명 구조와 연결하고, 기본 단계와 귀납 단계가 빠졌을 때 왜 증명이 불완전한지 반례 구조로 설명한다.",
+    "uncertainty": "귀납 단계에서 P(k)를 가정만 하고 실제로 사용하지 않거나, P(k+1)을 증명할 때 결론을 미리 사용하면 순환 논리가 된다.",
+    "misconception": "n=1,2,3에서 맞고 식을 정리하면 모든 자연수에서 참이라고 생각한다.",
+    "correction": "유한한 사례 확인과 전체 증명의 차이를 반례로 보여 주고, 귀납 가정이 P(k+1)로 이어지는 연결 고리를 명시하게 한다.",
+    "deepDive": "자연수 거듭제곱의 합 공식 중 하나를 선택해 패턴 발견, 추측, 귀납법 증명, 증명 구조 평가까지 수행한다.",
+    "career": "수학교육, 컴퓨터 과학, 알고리즘 검증, 논리학, 암호학, 이론물리, 데이터 구조",
+    "sample": "수학적 귀납법에서 기본 단계, 귀납 가정, 귀납 단계를 분리해 증명 구조도를 작성하고 귀납 가정이 P(k+1) 증명에서 사용되는 지점을 명확히 표시함. 몇 개 사례 확인을 일반 증명으로 착각하던 오류를 반례 가능성으로 수정하고, 도미노 원리와 연결해 자연수 전체로 명제가 확장되는 논리를 설명함.",
+    "source": "수학적 귀납법 관련 교과서 예제, 학생 풀이 과정, 공학 도구 그래프, 표·식·그래프 변환 자료, 실생활 맥락 자료",
+    "scale": "범위: 정의-성질-표현 변환-문제해결-일반화 / 맥락: 귀납과 증명",
+    "safe": "공학 도구와 온라인 자료를 사용할 때 출처와 단위를 확인하고, 계산 결과를 맥락 없이 단정하지 않도록 한다.",
+    "evidence": [
+      "개념 정의와 적용 조건을 분명히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과보다 전략 선택과 검증 과정을 설명함",
+      "오개념을 반례나 그래프 해석으로 수정함"
+    ],
+    "official": [
+      "대수-12 / 서·논술형 / 수학적 귀납법의 원리를 이해한다. / 수학적 귀납법을 이용하여 명제를 증명한다."
+    ],
+    "tool": "대수-12 / 서·논술형 / 수학적 귀납법의 원리를 이해한다. / 수학적 귀납법을 이용하여 명제를 증명한다.",
+    "standard": "수학적 귀납법의 원리를 이해하고, 이를 이용하여 명제를 증명할 수 있다.",
+    "levels": {
+      "A": "수학적 귀납법의 원리를 설명하고 이를 이용하여 명제를 증명할 수 있다.",
+      "B": "수학적 귀납법의 원리를 이해하고 이를 이용하여 명제를 증명할 수 있다.",
+      "C": "수학적 귀납법의 원리를 알고 이를 이용하여 간단한 명제를 증명할 수 있다.",
+      "D": "수학적 귀납법의 원리를 알고 안내된 절차에 따라 간단한 명제를 증명할 수 있다.",
+      "E": "수학적 귀납법의 원리를 부분적으로 안다."
+    }
+  }
+];
+const TABS=[['overview','수업 한눈에 보기','01'],['cbi','개념기반탐구 설계','02'],['lesson','수업방법 상세안','03'],['worksheet','활동지·자료처리','04'],['assessment','평가·피드백','05'],['record','학생부 기록·심화탐구','06']];
+const DOMAIN_KEY={'거듭제곱·지수 확장':'atmo','로그와 상용로그':'green','지수·로그 함수와 모델링':'geo','삼각함수와 주기 현상':'astro','수열과 합의 구조':'gold','귀납과 증명':'red'};
+let current=0, tab='overview';
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+function cls(d){return 'domain-'+(DOMAIN_KEY[d]||'atmo');} function accent(d){return 'accent-'+(DOMAIN_KEY[d]||'atmo');}
+function openView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button[data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===id));window.scrollTo({top:0,behavior:'smooth'});} document.querySelectorAll('.nav button[data-view]').forEach(b=>b.onclick=()=>openView(b.dataset.view));
+function pills(arr,solid){return '<div class="pills">'+(arr||[]).map(x=>'<span class="pill'+(solid?' solid':'')+'">'+esc(x)+'</span>').join('')+'</div>';}
+function formula(x){return '<div class="formula-strip"><span class="math-expr">'+esc(x.formula)+'</span><span class="pill solid">'+esc(x.lens)+'</span></div>';}
+function block(title,body,hint){return '<div class="blk"><div class="blk-h"><span>'+esc(title)+'</span>'+(hint?'<span class="hint">'+esc(hint)+'</span>':'')+'</div>'+body+'</div>';}
+function filtered(){const q=(document.getElementById('search').value||'').toLowerCase();const d=document.getElementById('domain').value;const t=document.getElementById('type').value;return DATA.filter(x=>(d==='전체 영역'||x.domain===d)&&(t==='전체 수업 유형'||x.type.includes(t))&&[x.code,x.title,x.standard,x.concept,x.formula,x.related,x.products.join(' '),x.evidence.join(' ')].join(' ').toLowerCase().includes(q));}
+function renderList(){const arr=filtered();if(arr.length&&!arr.includes(DATA[current])) current=DATA.indexOf(arr[0]);document.getElementById('list-meta').textContent=arr.length+' / '+DATA.length+' STANDARDS';document.getElementById('list').innerHTML=arr.map(x=>{const i=DATA.indexOf(x);return '<button class="std-item '+(i===current?'on':'')+'" onclick="select('+i+')"><div><span class="code">'+esc(x.code)+'</span><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span>'+(x.official.length?'<span class="chip">평가도구</span>':'')+'</div><span class="std-title">'+esc(x.title)+'</span><span class="std-text">'+esc(x.standard)+'</span></button>';}).join('')||'<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';renderDetail();}
+function select(i){current=i;tab='overview';renderList();if(window.innerWidth<=1180)document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'});} function setTab(t){tab=t;renderDetail();}
+function steps(arr){return '<div class="steps">'+arr.map(x=>'<div class="step"><span>'+esc(x)+'</span></div>').join('')+'</div>';}
+function rubric(x){const L=x.levels||{};return '<div class="rubric">'+['A','B','C','D','E'].map(k=>'<div class="lv-row"><div class="lv '+k+'">'+k+'</div><div class="lv-text">'+esc(L[k]||'성취수준 자료를 확인해 보완한다.')+'</div></div>').join('')+'</div>';}
+function processLine(){return '<div class="process-line"><div><b>관찰</b>자료·식·그래프에서 패턴과 조건을 찾는다.</div><div><b>표현</b>표, 식, 그래프, 언어 설명으로 바꾼다.</div><div><b>전략</b>법칙, 모델, 증명 방법을 선택한다.</div><div><b>검증</b>계산, 반례, 그래프, 단위로 확인한다.</div><div><b>일반화</b>새 문제에 적용할 기준을 문장화한다.</div></div>';}
+function tableRows(x){return '<div class="lesson-hd"><div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 01</span>도입<br>수학적 현상 발견</div><div>교사는 다음 현상을 제시하고 정답보다 설명이 필요한 구조를 찾게 한다.<br><b>'+esc(x.phenomenon)+'</b></div><div>학생은 처음 떠오른 풀이, 조건, 그래프 모양, 패턴을 분리해 기록한다.</div><div>초기 전략 카드<br>조건 관찰표</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 02</span>정의·조건 설정</div><div>교사는 핵심 개념과 적용 조건을 확인하고, 오개념이 생길 수 있는 경계 사례를 제시한다.</div><div>학생은 '+esc(x.concept)+'의 정의, 조건, 관련 개념을 수식과 말로 정리한다.</div><div>정의-조건표<br>개념 연결도</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 03</span>표현 변환·탐구</div><div>교사는 식·표·그래프·언어 설명 사이의 변환이 정확한지 질문한다.</div><div>학생은 '+esc(x.data)+'</div><div>'+esc(x.products[0])+'</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 04</span>전략 선택·검증</div><div>교사는 계산 결과를 반례, 그래프, 단위, 정의로 검증하게 한다.</div><div>학생은 '+esc(x.modeling)+'</div><div>전략 선택표<br>검증 기록</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 05</span>일반화·전이</div><div>교사는 다른 값, 다른 그래프, 다른 실생활 조건, 다른 명제에 같은 기준을 적용하게 한다.</div><div>학생은 최종 풀이의 조건과 한계를 설명하고 새로운 문제에 적용할 기준을 제시한다.</div><div>일반화 문장<br>전이 문제</div></div>';}
+function recordGuide(x){return block('대학이 읽는 탐구력 포인트 — 세특 문장화 안내','<div class="cards3"><div class="card accent-atmo"><h4>정의와 조건</h4><p>산출물명보다 학생이 어떤 조건을 확인하고 어떤 오개념을 수정했는지 기록합니다. 핵심 수식: <span class="math-expr">'+esc(x.formula)+'</span></p></div><div class="card accent-green"><h4>표현 변환과 전략</h4><p>'+esc(x.data)+'</p><p><b>관찰 단서:</b> '+esc(x.evidence.slice(0,3).join(' / '))+'</p></div><div class="card accent-astro"><h4>검증과 전이</h4><p>'+esc(x.uncertainty)+'</p><p><b>전이 질문:</b> '+esc(x.questions[3])+'</p></div></div>','계산량보다 사고 과정, 조건 확인, 검증 장면을 남깁니다');}
+function panel(x){const qs=x.questions;const panels={};
+panels.overview=block('성취기준 원문','<div class="std-full"><b>'+esc(x.code)+'</b>'+esc(x.standard)+'</div>'+formula(x))+'<div class="cards"><div class="card '+accent(x.domain)+'"><h4><span class="icon">i</span>수업 개요</h4><p><b>제목 :</b> '+esc(x.title)+'</p><p><b>유형 :</b> '+esc(x.type)+'</p><p><b>권장 차시 :</b> '+esc(x.period)+'</p><p><b>핵심 개념 :</b> '+esc(x.concept)+'</p><p><b>개념 렌즈 :</b> '+esc(x.lens)+'</p><p><b>평가 연결 :</b> '+esc(x.tool)+'</p></div><div class="card accent-green"><h4><span class="icon">∑</span>핵심 산출물</h4>'+pills(x.products)+'</div></div>'+block('교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서',pills(x.evidence),'수업 중 즉시 메모를 권장합니다');
+panels.cbi=block('개념 형성의 흐름','<div class="cards"><div class="card accent-gold"><h4>현상(Phenomenon)</h4><p>'+esc(x.phenomenon)+'</p></div><div class="card '+accent(x.domain)+'"><h4>개념 갈등(Conflict)</h4><p>'+esc(x.conflict)+'</p></div></div><div class="general" style="margin-top:.9rem"><div class="gen-row"><b>교사용 일반화 진술</b><p>'+esc(x.general)+'</p></div><div class="gen-row"><b>학생용 일반화 진술</b><p>'+esc(x.studentGeneral)+'</p></div></div>'+processLine(),'CBI 모형')+block('탐구 질문 4종 — 사실에서 전이까지','<div class="q-grid"><div class="q fact"><b>Factual · 사실적 질문</b><p>'+esc(qs[0])+'</p></div><div class="q concept"><b>Conceptual · 개념적 질문</b><p>'+esc(qs[1])+'</p></div><div class="q debate"><b>Debatable · 논쟁적 질문</b><p>'+esc(qs[2])+'</p></div><div class="q transfer"><b>Transfer · 전이 질문</b><p>'+esc(qs[3])+'</p></div></div>')+block('핵심 개념과 관련 개념','<div class="card"><p><b>핵심 개념 :</b> '+esc(x.concept)+'</p><p><b>수식·표현 :</b> <span class="math-expr">'+esc(x.formula)+'</span></p><p><b>관련 개념 :</b> '+esc(x.related)+'</p></div>');
+panels.lesson=block('차시별·단계별 수업방법',tableRows(x),'정의-표현-전략-검증-일반화')+block('교사 발문 세트 — 즉시 사용 가능','<div class="cards"><div class="card accent-atmo"><h4>탐구 전</h4><ul><li>이 문제에서 먼저 확인해야 할 정의와 조건은 무엇인가?</li><li>식, 표, 그래프, 말 설명 중 어떤 표현이 구조를 가장 잘 보여 주는가?</li><li>계산 전에 예상되는 결과의 범위나 그래프 모양은 무엇인가?</li></ul></div><div class="card accent-gold"><h4>탐구 중</h4><ul><li>지금 적용한 법칙의 조건은 모두 만족하는가?</li><li>다른 표현으로 바꾸면 같은 구조가 유지되는가?</li><li>반례, 그래프, 단위, 대입 검산 중 어떤 방법으로 확인할 수 있는가?</li></ul></div><div class="card accent-astro"><h4>탐구 후</h4><ul><li>오늘의 풀이 전략을 한 문장으로 일반화하면 무엇인가?</li><li>학생부 기록 근거로 남길 수 있는 전략 선택과 검증 장면은 무엇인가?</li><li>새로운 문제에서 같은 개념을 적용할 때 조심할 조건은 무엇인가?</li></ul></div></div>')+block('오개념·실패 상황 대처·안전','<div class="cards3"><div class="card accent-red"><h4>예상 오개념</h4><p>'+esc(x.misconception)+'</p><p><b>피드백 :</b> '+esc(x.correction)+'</p></div><div class="card accent-gold"><h4>실패 상황 대처</h4><p>학생이 계산 결과에만 머물면 적용 조건, 표현 변환, 검증 방법 중 하나를 반드시 표시하게 합니다.</p></div><div class="card accent-green"><h4>공학 도구·자료 윤리</h4><p>'+esc(x.safe)+'</p></div></div>');
+panels.worksheet=block('학생 활동지 문항 — 실제 기록용',steps(['오늘의 수학적 현상에서 설명해야 할 구조나 조건을 쓰시오.',qs[1],'핵심 수식 또는 표현을 쓰고 각 기호의 의미와 조건을 설명하시오: '+x.formula,x.data,x.modeling,'계산 결과를 검증할 방법을 두 가지 이상 제시하시오.',x.uncertainty,qs[3]]))+block('자료 처리 안내 — 수식·그래프·모델·증명','<div class="card accent-atmo"><h4>자료 출처</h4><p>'+esc(x.source)+'</p></div><div class="card accent-geo" style="margin-top:.8rem"><h4>분석 범위</h4><p>'+esc(x.scale)+'</p></div><div class="card accent-green" style="margin-top:.8rem"><h4>표현 변환</h4><p>'+esc(x.data)+'</p></div><div class="card accent-gold" style="margin-top:.8rem"><h4>조건·한계</h4><p>'+esc(x.uncertainty)+'</p><p><b>수학 문장 틀 :</b> “<b>'+esc(x.concept)+'</b> 개념은 <span class="math-expr">'+esc(x.formula)+'</span>로 표현되며, 이 문제에서는 <b>'+esc(x.lens)+'</b> 관점에서 조건을 확인하고 표현을 변환할 때 풀이가 정당화된다.”</p></div>');
+panels.assessment=block('수행평가 과제','<div class="card '+accent(x.domain)+'"><h4>'+esc(x.title)+'</h4><p>핵심 산출물(<b>'+esc(x.products[0])+'</b>)을 제출하고, 성취기준 원문에 도달했음을 정의·조건 확인, 표현 변환, 전략 선택, 검증 또는 증명 과정으로 설명한다.</p></div>')+block('평가 요소','<div class="cards3"><div class="card accent-atmo"><h4>지식·이해</h4><p>'+esc(x.concept)+'와 관련 조건의 정확한 설명</p></div><div class="card accent-green"><h4>과정·기능</h4><p>식·그래프·표 변환, 공학 도구 활용, 문제해결 전략 선택, 반례 검토, 모델링, 증명 구조화</p></div><div class="card accent-astro"><h4>가치·태도</h4><p>수학적 정확성, 논리성, 검증 태도, 유용성 인식, 끈기 있는 문제해결</p></div></div>')+block('성취수준 기반 5단계 루브릭',rubric(x),'A-E 성취수준 근거')+block('피드백 방향','<div class="card"><p><b>보충 :</b> 공식 암기나 단순 계산에 머물지 말고 정의, 조건, 표현 변환 중 하나를 근거로 설명하게 한다.</p><p><b>심화 :</b> 반례 탐색, 그래프 일반화, 실생활 모델링 한계, 귀납법 증명 또는 알고리즘 표현으로 확장하게 한다.</p></div>');
+panels.record='<div class="record"><b>학생부 기록 — 정답보다 “수학적 사고의 증거”가 먼저</b><p>'+esc(x.evidence.join(' / '))+'</p></div>'+block('관찰 가능한 수행 증거 정리','<div class="cards"><div class="card accent-green"><h4>기록 가능한 산출물</h4>'+pills(x.products)+'</div><div class="card accent-gold"><h4>권장 기록 소재</h4><p>「'+esc(x.title)+'」 수업에서 <b>'+esc(x.concept)+'</b> 개념을 정의와 조건 중심으로 설명하고, <span class="math-expr">'+esc(x.formula)+'</span> 표현을 활용해 전략 선택, 검증, 일반화 과정을 구체화함.</p></div></div>')+block('세부능력 및 특기사항 기록 예시','<div class="sample-record">'+esc(x.sample)+'</div>','그대로 복사하지 말고 학생 개별 수행에 맞춰 가공')+recordGuide(x)+block('심화 탐구 주제 — 자기주도 탐구로의 확장','<div class="card accent-astro"><h4>심화탐구 제안</h4><p>'+esc(x.deepDive)+'</p></div><div class="card" style="margin-top:.7rem"><h4>전이 질문</h4><p style="font-family:Fraunces,serif">'+esc(x.questions[3])+'</p></div><div class="card" style="margin-top:.7rem"><h4>연계 진로 분야</h4>'+pills(x.career.split(', '))+'</div>');
+return panels[tab]||panels.overview;}
+function renderDetail(){const x=DATA[current];const tabbar=TABS.map(t=>'<button class="'+(tab===t[0]?'on':'')+'" onclick="setTab(\''+t[0]+'\')"><span class="t-n">'+t[2]+'</span>'+t[1]+'</button>').join('');document.getElementById('detail').innerHTML='<div class="detail-hd"><div class="chip-row"><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span><span class="chip">'+esc(x.code)+'</span>'+(x.official.length?'<span class="chip">평가도구</span>':'<span class="chip">CBI 탐구</span>')+'<span class="chip">'+esc(x.period)+'</span></div><h2>'+esc(x.title)+'</h2><div class="std-full"><b>성취기준 원문</b>'+esc(x.standard)+'</div>'+formula(x)+'</div><div class="tabbar">'+tabbar+'</div><div class="panel">'+panel(x)+'</div>';}
+function renderMatrix(){document.getElementById('matrixBody').innerHTML=DATA.map((x,i)=>'<tr><td><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span></td><td class="mcode" onclick="openStandard('+i+')">'+esc(x.code)+'</td><td><b style="color:var(--ink);font-family:Fraunces,serif">'+esc(x.title)+'</b></td><td>'+esc(x.type)+'</td><td>'+esc(x.concept)+'</td><td><span class="math-expr">'+esc(x.formula)+'</span></td><td>'+esc(x.evidence.join(' / '))+'</td></tr>').join('');}
+function openStandard(i){current=i;tab='overview';openView('standards');renderList();}
+function downloadCSV(){const rows=[['영역','코드','성취기준','수업제목','유형','차시','핵심개념','수식표현','개념렌즈','산출물','관찰증거','심화탐구','연계진로']];DATA.forEach(x=>rows.push([x.domain,x.code,x.standard,x.title,x.type,x.period,x.concept,x.formula,x.lens,x.products.join('; '),x.evidence.join(' / '),x.deepDive,x.career]));const csv=rows.map(r=>r.map(v=>'"'+String(v).split('"').join('""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));a.download='대수_수업설계_매트릭스_충남교육청.csv';a.click();}
+document.getElementById('search').addEventListener('input',renderList);document.getElementById('domain').addEventListener('change',renderList);document.getElementById('type').addEventListener('change',renderList);renderList();renderMatrix();document.addEventListener('keydown',function(e){if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;if(e.key==='ArrowDown'&&document.getElementById('standards').classList.contains('active')){e.preventDefault();const arr=filtered();const idx=arr.indexOf(DATA[current]);if(idx>=0&&idx<arr.length-1)select(DATA.indexOf(arr[idx+1]));}if(e.key==='ArrowUp'&&document.getElementById('standards').classList.contains('active')){e.preventDefault();const arr=filtered();const idx=arr.indexOf(DATA[current]);if(idx>0)select(DATA.indexOf(arr[idx-1]));}});(function(){const fab=document.getElementById('fabHome');if(!fab)return;let ticking=false;function onScroll(){if(window.scrollY>240)fab.classList.add('visible');else fab.classList.remove('visible');ticking=false;}window.addEventListener('scroll',function(){if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});})();
+</script>
+</body>
+</html>
