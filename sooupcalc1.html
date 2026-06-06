@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 미적분Ⅰ 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 미적분Ⅰ 20개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 극한, 연속, 미분계수, 도함수, 평균값 정리, 그래프 개형, 부정적분, 정적분, 넓이, 속도와 거리, 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#145c6b;
+  --atmo-bg:#e1f0f3;
+  --geo:#7b4f16;
+  --geo-bg:#f1e6d6;
+  --astro:#35548a;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:0;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(90deg, rgba(20,92,107,.035) 1px, transparent 1px),
+    linear-gradient(rgba(53,84,138,.03) 1px, transparent 1px);
+  background-size:42px 42px;
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:0;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:0;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:4.35rem;
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:0;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:0;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:2.1rem;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:0;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:0;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:0}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+
+.math-expr{font-family:"JetBrains Mono","IBM Plex Sans KR",monospace;background:var(--paper-soft);border:1px solid var(--line-soft);padding:.08rem .35rem;border-radius:3px;white-space:nowrap;color:var(--ink)}
+.formula-strip{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
+.process-line{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--ink);margin:1rem 0;background:var(--card)}
+.process-line div{padding:.9rem;border-right:1px solid var(--line);min-height:88px}
+.process-line div:last-child{border-right:0}
+.process-line b{display:block;font-family:"Fraunces",serif;margin-bottom:.25rem;color:var(--ink)}
+@media(max-width:900px){.process-line{grid-template-columns:1fr}.process-line div{border-right:0;border-bottom:1px solid var(--line)}.process-line div:last-child{border-bottom:0}}
+
+.calc-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin-top:1rem}
+.calc-map .node{background:rgba(255,255,255,.72);border:1px solid var(--line-soft);border-radius:8px;padding:1rem;box-shadow:var(--shadow-card)}
+.calc-map .node b{display:block;color:var(--ink);font-size:.98rem;margin-bottom:.25rem}
+.calc-map .node span{display:block;color:var(--muted);font-size:.9rem;line-height:1.55}
+.limit-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.limit-strip span{border:1px solid var(--line);border-radius:999px;background:var(--paper-soft);padding:.32rem .62rem;font-family:"JetBrains Mono",monospace;font-size:.82rem}
+@media (max-width:860px){.calc-map{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="topbar"><div class="topbar-inner"><div class="brand"><div class="mark">∫</div><div class="b-text"><strong>일반선택 미적분Ⅰ 수업설계 워크북</strong><span>개념기반탐구 · 20개 성취기준 · 학생부종합 대응</span></div></div><nav class="nav"><a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v10h14V10"></path></svg>메인</a><button data-view="home" class="on">개요</button><button data-view="standards">성취기준</button><button data-view="matrix">매트릭스</button><button data-view="guide">운영 가이드</button><button class="btn-pdf" onclick="window.print()">인쇄</button></nav></div></header>
+<main>
+<section id="home" class="view active">
+  <div class="cover"><div class="cover-grid"><div class="cover-meta"><div class="kicker">2022 Revised Curriculum · General Elective Calculus I</div><h1 class="cover-title">미적분Ⅰ<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1><p class="lead">미적분Ⅰ 20개 성취기준을 극한의 국소적 해석, 연속성 판정, 미분을 통한 순간 변화와 그래프 구조 분석, 적분을 통한 누적량과 넓이·이동거리 모델링으로 재구성했습니다. 공식 계산보다 조건 확인, 표현 변환, 정리의 적용 가능성, 그래프 검증, 세특 기록 근거가 드러나도록 설계했습니다.</p><div class="actions"><button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button><button class="btn" onclick="openView('matrix')">20개 수업 한눈에 보기</button><button class="btn" onclick="downloadCSV()">CSV 내려받기</button></div></div><aside class="cover-side"><dl><dt>제작</dt><dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd><dt>대상</dt><dd>고등학교 일반선택 미적분Ⅰ 담당교사</dd><dt>기준</dt><dd>교육부 고시 제2022-33호 [별책 8] 수학과 교육과정</dd><dt>설계 원리</dt><dd>Erickson &amp; Lanning Concept-Based Inquiry</dd><dt>활용</dt><dd>극한 · 연속 · 미분계수 · 도함수 · 평균값 정리 · 그래프 개형 · 부정적분 · 정적분 · 넓이 · 속도와 거리</dd></dl></aside></div></div>
+  <div class="stats"><div><b>20</b><span>성취기준</span></div><div><b>100</b><span>A-E 성취수준</span></div><div><b>12</b><span>예시 평가도구</span></div><div><b>3</b><span>극한·미분·적분 영역</span></div></div>
+  <section class="sec intro"><div class="idx">Design Principle</div><h2>계산을 넘어 조건, 변화, 누적을 읽는 미적분 수업</h2><p>미적분Ⅰ 수업의 핵심은 더 빠른 계산이 아니라 “왜 그 계산을 할 수 있는가”를 묻는 것입니다. 학생은 극한에서 접근의 방향과 함수값을 구분하고, 미분에서 평균 변화와 순간 변화를 연결하며, 적분에서 부호 있는 누적량과 실제 넓이·이동거리를 구분해야 합니다.</p><div class="principles"><div class="principle"><div class="num">01</div><h3>조건을 먼저 읽기</h3><p>연속성, 미분가능성, 정리 적용 조건, 구간과 부호를 먼저 확인합니다.</p></div><div class="principle"><div class="num">02</div><h3>그래프로 검증하기</h3><p>식 계산 결과를 그래프, 표, 단위, 반례로 확인해 수학적 판단을 정교화합니다.</p></div><div class="principle"><div class="num">03</div><h3>현상으로 전이하기</h3><p>속도, 가속도, 누적량, 넓이, 임계값 판단 등 실생활·타 교과 모델로 확장합니다.</p></div></div></section>
+  <section class="sec"><div class="theory-section"><h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3><p>대학이 미적분Ⅰ 수업에서 보고 싶은 것은 공식 암기량이 아니라 <b>학생이 극한·미분·적분의 조건을 확인하고, 그래프와 식을 오가며, 정리의 적용 가능성을 판단하고, 변화율과 누적량을 실제 맥락에 맞게 해석한 과정</b>입니다.</p><p>각 성취기준 상세 탭에는 좌우극한, 연속성 조건, 미분가능성 반례, 도함수 부호표, 평균값 정리 조건, 정적분의 부호, 속도와 이동거리 구분처럼 세특 기록의 근거가 되는 구체적 탐구 장면을 배치했습니다.</p><div class="admission-proof-grid"><div class="admission-proof-card"><span class="tag">Limit</span><h4>접근과 조건 판정</h4><p>좌극한·우극한, 함수값, 연속성, 정리의 조건을 분리해 사고합니다.</p></div><div class="admission-proof-card"><span class="tag">Derivative</span><h4>변화율과 그래프 해석</h4><p>미분계수, 도함수 부호, 접선, 극값, 그래프 개형을 연결합니다.</p></div><div class="admission-proof-card"><span class="tag">Integral</span><h4>누적량과 모델링</h4><p>정적분의 부호, 넓이, 위치 변화, 이동거리를 맥락에 맞게 구분합니다.</p></div></div><div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div></div></section>
+  <section class="sec"><div class="idx">CBI Flow</div><h2>미적분Ⅰ 개념기반탐구 6단계</h2><div class="flow"><div><b>1. 현상 관찰</b><span>끊김, 순간 변화, 누적량처럼 설명이 필요한 그래프와 데이터를 제시합니다.</span></div><div><b>2. 개념 갈등</b><span>대입값과 극한값, 연속과 미분가능, 정적분값과 실제 넓이의 차이를 드러냅니다.</span></div><div><b>3. 정의와 조건</b><span>극한, 연속, 미분계수, 정적분의 정의와 적용 조건을 명확히 합니다.</span></div><div><b>4. 표현 변환</b><span>식, 표, 그래프, 언어 설명, 단위를 오가며 같은 구조를 해석합니다.</span></div><div><b>5. 전략·검증</b><span>정리 적용, 부호표, 구간 분할, 공학 도구 검증으로 판단을 정당화합니다.</span></div><div><b>6. 일반화·전이</b><span>변화율과 누적량 해석을 진로·실생활 문제로 확장합니다.</span></div></div><div class="calc-map"><div class="node"><b>극한·연속</b><span>접근 방향, 함수값, 정리 조건을 분리하여 판단</span></div><div class="node"><b>미분</b><span>순간변화율, 접선, 그래프 구조, 최적화와 운동 해석</span></div><div class="node"><b>적분</b><span>역연산, 정적분, 부호 있는 누적량, 넓이와 이동거리</span></div></div></section>
+</section>
+<section id="standards" class="view"><div class="sec"><div class="idx">Standards Board</div><h2>성취기준별 수업설계 보드</h2><p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p></div><div class="browser"><aside class="side"><div class="filters"><label>SEARCH</label><input id="search" placeholder="코드, 제목, 개념, 수식, 산출물 검색" /><div class="filter-row"><select id="domain"><option>전체 영역</option><option>극한의 의미와 접근</option><option>연속과 정리의 조건</option><option>미분계수와 도함수</option><option>미분 활용과 그래프</option><option>부정적분과 정적분</option><option>적분 활용과 누적량</option></select><select id="type"><option>전체 수업 유형</option><option>개념</option><option>성질</option><option>정리</option><option>미분</option><option>그래프</option><option>문제</option><option>적분</option><option>모델링</option><option>활용</option></select></div></div><div id="list-meta" class="list-meta"></div><div id="list"></div></aside><article id="detail" class="detail"></article></div></section>
+<section id="matrix" class="view"><div class="sec"><div class="idx">Curriculum Matrix</div><h2>20개 성취기준 수업 매트릭스</h2><p>영역-핵심 개념-수식 표현-관찰 증거를 한 표로 확인합니다.</p></div><div class="matrix"><table><thead><tr><th>영역</th><th>코드</th><th>수업 제목</th><th>유형</th><th>핵심 개념</th><th>수식 표현</th><th>평가·기록 증거</th></tr></thead><tbody id="matrixBody"></tbody></table></div></section>
+<section id="guide" class="view"><div class="sec"><div class="idx">Teacher Guide</div><h2>미적분Ⅰ 운영 가이드</h2><p>개념기반탐구와 학생부종합전형 기록을 동시에 고려한 수업 운영 원리입니다.</p></div><div class="guide-grid"><div class="guide-card"><h3>함수의 극한과 연속</h3><p>대입 계산보다 좌우 접근, 함수값, 연속 조건을 분리해서 기록하게 합니다. 사잇값 정리와 최대·최소 정리는 결론보다 조건 확인을 먼저 묻습니다.</p><div class="limit-strip"><span>lim</span><span>좌극한</span><span>우극한</span><span>연속</span><span>IVT</span></div></div><div class="guide-card"><h3>미분</h3><p>미분계수 정의, 접선의 기울기, 도함수 부호표, 평균값 정리를 연결합니다. 그래프 개형과 방정식·부등식 문제는 학생의 전략 선택이 잘 드러나는 구간입니다.</p><div class="limit-strip"><span>f′(a)</span><span>접선</span><span>MVT</span><span>극값</span><span>v=s′</span></div></div><div class="guide-card"><h3>적분</h3><p>부정적분은 미분의 역과정, 정적분은 부호 있는 누적량이라는 차이를 계속 확인합니다. 넓이와 이동거리 문제는 구간 분할과 부호 해석을 세특 근거로 남깁니다.</p><div class="limit-strip"><span>∫f dx</span><span>F(b)-F(a)</span><span>넓이</span><span>∫|v|</span></div></div></div><div class="sec"><h2>세특 기록 원칙</h2><div class="cards3"><div class="card accent-atmo"><h4>조건 판정</h4><p>연속성, 미분가능성, 정리 적용 조건, 구간 분할 조건을 학생이 어떻게 확인했는지 기록합니다.</p></div><div class="card accent-green"><h4>표현 변환</h4><p>식·그래프·표·언어 설명 사이를 오가며 같은 미적분 구조를 설명한 장면을 남깁니다.</p></div><div class="card accent-astro"><h4>검증과 전이</h4><p>공학 도구 검증, 반례 수정, 단위 해석, 변화율·누적량 모델링으로 사고가 확장된 부분을 기록합니다.</p></div></div></div></section>
+</main><button id="fabHome" onclick="openView('home')" aria-label="처음 화면으로">↑</button>
+<script>
+const DATA=[
+  {
+    "code": "[12미적Ⅰ-01-01]",
+    "standard": "함수의 극한의 뜻을 알고, 이를 설명할 수 있다.",
+    "domain": "극한의 의미와 접근",
+    "title": "값이 아니라 가까워지는 과정을 읽는 극한",
+    "type": "개념 탐구",
+    "period": "2차시",
+    "lens": "접근과 국소성",
+    "concept": "함수의 극한, 좌극한, 우극한, 수렴",
+    "formula": "lim_{x→a} f(x)=L",
+    "related": "접근, 근방, 좌우 접근, 함수값, 그래프의 빈 점, 표의 경향",
+    "phenomenon": "구멍이 있는 그래프에서 f(a)는 정의되지 않거나 다른 값인데도 x가 a에 가까워질수록 y값은 하나의 값에 접근한다.",
+    "conflict": "학생은 x=a를 대입한 값만 보려 하지만 극한은 점의 값이 아니라 그 점 주변의 함수값 경향을 묻는다.",
+    "general": "극한은 함수가 특정 점에서 어떤 값을 갖는가보다 그 점에 가까워질 때 주변 값들이 어떤 하나의 값으로 모이는가를 설명하는 국소적 언어이다.",
+    "studentGeneral": "극한을 판단할 때는 먼저 x가 어느 쪽에서 어떻게 가까워지는지 보고, f(a)의 값과 주변의 y값 경향을 구분해야 한다.",
+    "questions": [
+      "x가 a에 가까워진다는 말은 표와 그래프에서 어떻게 보이는가?",
+      "좌극한과 우극한이 같다는 사실은 함수의 주변 구조에 대해 무엇을 말해 주는가?",
+      "f(a)가 없거나 다른 값이어도 극한값이 존재한다고 말할 수 있는가?",
+      "계단요금, 임계값 정책, 센서 오차처럼 한 점의 값과 주변 경향이 다른 상황을 어떻게 해석할 수 있는가?"
+    ],
+    "products": [
+      "좌·우극한 판정 카드",
+      "그래프 접근 경로 해석지",
+      "극한 언어-기호 변환표"
+    ],
+    "data": "a의 왼쪽과 오른쪽에서 가까워지는 x값 표를 만들고 y값의 변화, 그래프의 화살표, f(a)의 존재 여부를 분리하여 표시한다.",
+    "modeling": "동일한 그래프를 표, 말, 기호 lim_{x→a} f(x)=L로 바꾸며 한 점의 함수값과 주변 값의 경향이 다른 사례를 비교한다.",
+    "uncertainty": "표본 간격이 거칠면 경향을 잘못 판단할 수 있으므로 좌우에서 더 가까운 값을 확인하고 그래프의 빈 점과 닫힌 점을 구분해야 한다.",
+    "misconception": "극한값을 구할 때 항상 x=a를 대입하면 된다고 생각한다.",
+    "correction": "대입값, 좌극한, 우극한, 극한값을 네 칸으로 분리해 기록하게 하고, 빈 점 그래프에서 네 값이 달라지는 사례를 비교한다.",
+    "deepDive": "택시요금, 주차요금, 합격 기준 점수처럼 경계값에서 실제 값과 주변 경향이 달라지는 사례를 함수로 만들고 좌우극한을 해석한다.",
+    "career": "수학, 경제학, 데이터 분석, 정책 모델링, 컴퓨터 그래픽, 센서 데이터 해석",
+    "sample": "그래프의 닫힌 점과 빈 점을 구분하여 f(a), 좌극한, 우극한을 별도로 판정하고, 좌우에서 y값이 같은 값으로 접근할 때만 극한값을 인정하는 기준을 세움. 초기에는 함수값과 극한값을 혼동했으나 표의 간격을 줄여 확인하며 한 점의 값보다 주변 값의 경향을 읽는 방식으로 사고를 수정함.",
+    "source": "극한의 의미와 접근 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 극한의 의미와 접근",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "함수의 극한, 좌극한, 우극한, 수렴의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 접근과 국소성 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-1 / 서･논술형 / 우극한과 좌극한을 이용하여 최솟값이 되는 경우를 찾는다. / 우극한과 좌극한을 구한다."
+    ],
+    "tool": "미적분Ⅰ-1 / 서･논술형 / 우극한과 좌극한을 이용하여 최솟값이 되는 경우를 찾는다. / 우극한과 좌극한을 구한다.",
+    "levels": {
+      "A": "함수의 극한의 뜻을 설명할 수 있다.",
+      "B": "함수의 극한의 뜻을 설명할 수 있다.",
+      "C": "함수의 극한의 뜻을 이해한다.",
+      "D": "함수의 극한의 뜻을 이해한다.",
+      "E": "함수의 극한의 뜻을 안다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-01-02]",
+    "standard": "함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.",
+    "domain": "극한의 의미와 접근",
+    "title": "극한 성질로 복잡한 식의 구조 읽기",
+    "type": "성질 적용",
+    "period": "2차시",
+    "lens": "연산 구조와 조건",
+    "concept": "극한의 성질, 극한값 계산, 식 변형",
+    "formula": "lim(f±g)=lim f±lim g, lim(fg)=(lim f)(lim g)",
+    "related": "합·차·곱·몫의 극한, 인수분해, 유리화, 약분, 정의역 조건",
+    "phenomenon": "겉으로는 0/0처럼 보이는 식도 인수분해나 유리화를 통해 극한의 성질을 적용할 수 있는 구조로 바뀐다.",
+    "conflict": "극한 성질은 무조건 적용하는 공식이 아니라 각 함수의 극한 존재와 분모의 극한값 조건을 확인한 뒤 사용할 수 있다.",
+    "general": "극한값 계산은 식을 단순히 변형하는 절차가 아니라 성질을 적용할 수 있는 조건을 확인하고 같은 극한 구조로 바꾸는 정당화 과정이다.",
+    "studentGeneral": "극한 성질을 쓰기 전에는 각 부분의 극한이 존재하는지, 분모가 0으로 가지 않는지, 변형 전후의 함수가 a 주변에서 같은지 확인해야 한다.",
+    "questions": [
+      "합, 차, 곱, 몫의 극한 성질은 어떤 조건에서 사용할 수 있는가?",
+      "0/0꼴이 나타날 때 식 변형은 극한을 어떻게 보이게 하는가?",
+      "같은 극한값을 얻는 여러 풀이 중 어떤 풀이가 가장 조건을 분명히 보여 주는가?",
+      "자료의 단위나 식의 형태가 바뀌어도 극한 성질을 적용할 수 있는 기준은 무엇인가?"
+    ],
+    "products": [
+      "극한 성질 적용 조건표",
+      "식 변형 정당화 노트",
+      "극한 풀이 비교 피드백지"
+    ],
+    "data": "주어진 식을 원식, 변형식, 적용한 극한 성질, 확인한 조건으로 나누어 쓰고, 변형 전후가 x=a 주변에서 같은 값을 주는지 대입 검산한다.",
+    "modeling": "그래프와 대수식의 결과를 함께 확인하며 인수분해, 약분, 유리화가 극한값을 드러내는 역할을 하는지 설명한다.",
+    "uncertainty": "분모가 0으로 접근하거나 변형 과정에서 x=a만 제외되는 경우가 생기므로 정의역과 주변 동치성을 확인하지 않으면 잘못된 결론이 나온다.",
+    "misconception": "0/0꼴이 나오면 극한값이 무조건 0이거나 존재하지 않는다고 판단한다.",
+    "correction": "0/0은 결론이 아니라 추가 분석이 필요한 신호임을 알려 주고, 인수분해 후 약분되는 사례와 좌우극한이 달라지는 사례를 나란히 비교한다.",
+    "deepDive": "서로 다른 세 가지 식 변형 전략으로 같은 극한값을 구하고, 각 전략이 성립하는 조건을 비교하여 풀이 선택 기준을 만든다.",
+    "career": "수학, 공학 계산, 물리 모델링, 경제 수리모형, 알고리즘 분석, 데이터 전처리",
+    "sample": "0/0꼴을 결론으로 처리하지 않고 인수분해와 유리화를 통해 극한 성질을 적용할 수 있는 형태로 바꾸었으며, 분모의 극한값과 약분 전후의 정의역 차이를 확인함. 풀이 과정에서 사용한 성질과 조건을 분리해 설명하여 계산 절차의 정당성을 스스로 점검함.",
+    "source": "극한의 의미와 접근 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 극한의 의미와 접근",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "극한의 성질, 극한값 계산, 식 변형의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 연산 구조와 조건 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-01-02] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "함수의 극한에 대한 성질을 설명할 수 있고, 여러 가지 함수의 극한값을 구할 수 있다.",
+      "B": "함수의 극한에 대한 성질을 이해하고, 주어진 함수의 극한값을 구할 수 있다.",
+      "C": "함수의 극한에 대한 성질을 알고, 주어진 함수의 극한값을 구할 수 있다.",
+      "D": "간단한 함수의 극한값을 구할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 함수의 극한값을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-01-03]",
+    "standard": "함수의 연속을 극한으로 탐구하고 이해한다.",
+    "domain": "연속과 정리의 조건",
+    "title": "연속을 극한으로 판정하는 세 가지 조건",
+    "type": "개념 판정",
+    "period": "2차시",
+    "lens": "연결성과 조건",
+    "concept": "연속, 불연속, 극한과 함수값의 일치",
+    "formula": "f is continuous at a ⇔ lim_{x→a} f(x)=f(a)",
+    "related": "좌극한, 우극한, 함수값, 제거 가능 불연속, 점프 불연속, 그래프 연결성",
+    "phenomenon": "그래프가 이어져 보이더라도 한 점의 함수값이 다르거나 좌우에서 접근하는 값이 다르면 연속이라고 할 수 없다.",
+    "conflict": "연속은 “선이 끊기지 않았다”는 시각적 인상만으로 판단하지 않고 극한값의 존재와 함수값의 일치 조건으로 판정한다.",
+    "general": "함수의 연속성은 한 점에서의 함수값과 그 점 주변의 접근 경향이 일치할 때 성립하며, 극한은 이를 판정하는 기준이 된다.",
+    "studentGeneral": "연속을 판단할 때는 f(a)가 있는지, lim_{x→a} f(x)가 있는지, 두 값이 같은지를 차례로 확인해야 한다.",
+    "questions": [
+      "한 점에서 함수가 연속이려면 어떤 세 조건이 필요한가?",
+      "그래프의 끊김 유형은 좌우극한과 함수값 관계로 어떻게 설명되는가?",
+      "연속 여부를 눈대중으로 판단하면 어떤 오류가 생길 수 있는가?",
+      "실험 데이터의 결측값이나 갑작스러운 정책 변화는 연속성 관점에서 어떻게 해석할 수 있는가?"
+    ],
+    "products": [
+      "연속성 3조건 체크리스트",
+      "불연속 유형 분류 카드",
+      "그래프-기호 판정 발표 자료"
+    ],
+    "data": "여러 그래프에서 f(a), 좌극한, 우극한, 극한값을 표로 정리하고 세 조건 중 어느 조건이 실패했는지 표시한다.",
+    "modeling": "조각함수의 경계점 값을 바꾸어 연속이 되도록 매개변수를 조정하고, 조정 전후 그래프를 공학 도구로 비교한다.",
+    "uncertainty": "그래프 해상도만으로는 작은 빈 점이나 점프를 놓칠 수 있으므로 함수식과 경계값을 함께 확인해야 한다.",
+    "misconception": "그래프가 한 붓 그리기처럼 보이면 항상 연속이라고 생각한다.",
+    "correction": "확대 그래프와 함수값 표를 함께 보게 하여 시각적 연결성과 극한 조건이 항상 같은 판단을 주지 않음을 확인하게 한다.",
+    "deepDive": "조각함수의 경계점에서 연속이 되도록 매개변수를 찾고, 그 조건이 실제 데이터 보정이나 모델 연결에서 어떤 의미를 갖는지 설명한다.",
+    "career": "수학, 데이터 보간, 컴퓨터 그래픽, 제어공학, 경제 모델링, 의료 신호 처리",
+    "sample": "연속성 판정에서 f(a)의 존재, 좌우극한의 일치, 극한값과 함수값의 일치 여부를 표로 분리하여 확인함. 조각함수 경계점의 매개변수를 조정하며 불연속 원인을 함수값 문제와 좌우 접근 문제로 구분했고, 연속 조건을 기호와 그래프로 연결해 설명함.",
+    "source": "연속과 정리의 조건 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 연속과 정리의 조건",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "연속, 불연속, 극한과 함수값의 일치의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 연결성과 조건 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-2 / 구술·발표 / 함수의 연속과 불연속을 판단하고 그 이유를 설명한다."
+    ],
+    "tool": "미적분Ⅰ-2 / 구술·발표 / 함수의 연속과 불연속을 판단하고 그 이유를 설명한다.",
+    "levels": {
+      "A": "함수의 연속을 극한으로 탐구하고 설명할 수 있다.",
+      "B": "함수의 연속을 극한으로 탐구하고 설명할 수 있다.",
+      "C": "함수의 연속을 극한으로 이해한다.",
+      "D": "함수의 연속을 극한으로 이해한다.",
+      "E": "함수의 연속을 극한으로 안다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-01-04]",
+    "standard": "연속함수의 성질을 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+    "domain": "연속과 정리의 조건",
+    "title": "최대·최소 정리와 사잇값 정리의 조건 탐구",
+    "type": "정리 활용",
+    "period": "2차시",
+    "lens": "존재 보장과 조건",
+    "concept": "연속함수의 성질, 최대·최소 정리, 사잇값 정리",
+    "formula": "continuous on [a,b] ⇒ max/min exist; f(c)=N",
+    "related": "닫힌구간, 연속성, 최댓값, 최솟값, 근의 존재, 중간값",
+    "phenomenon": "닫힌구간에서 연속인 함수는 가장 큰 값과 작은 값을 가지며, 양끝값 사이의 값은 중간 어딘가에서 실제로 나타난다.",
+    "conflict": "정리는 결론만 외우면 위험하다. 열린구간이거나 불연속이면 최대·최소나 중간값의 존재 보장이 깨질 수 있다.",
+    "general": "연속함수의 정리는 그래프의 직관을 수학적으로 보장하지만, 그 보장은 닫힌구간과 연속성 같은 조건이 충족될 때만 유효하다.",
+    "studentGeneral": "정리를 쓰기 전에는 구간이 닫혀 있는지, 함수가 그 구간에서 연속인지, 목표 값이 양끝값 사이에 있는지 먼저 확인해야 한다.",
+    "questions": [
+      "최대·최소 정리와 사잇값 정리는 각각 무엇의 존재를 보장하는가?",
+      "닫힌구간과 연속성 조건이 빠지면 어떤 반례가 생기는가?",
+      "정리의 결론을 계산 없이 믿어도 되는 이유는 무엇인가?",
+      "방정식의 해 존재, 안전 기준 통과, 온도 변화 예측에 연속함수의 성질을 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "정리 조건-결론 카드",
+      "반례 그래프 미니북",
+      "근 존재 설명 발표 자료"
+    ],
+    "data": "연속/불연속, 닫힌구간/열린구간 그래프를 비교하고 각 경우 최대·최소와 중간값 존재 여부를 표로 정리한다.",
+    "modeling": "실생활 변화량 그래프에서 목표 값이 반드시 나타나는 조건을 찾고, 사잇값 정리를 이용해 방정식의 해 존재를 설명한다.",
+    "uncertainty": "정리는 해의 정확한 위치나 개수를 모두 알려 주지는 않으므로 존재 보장과 값 계산을 구분해야 한다.",
+    "misconception": "양끝값의 부호가 다르면 항상 해가 하나만 있다고 생각한다.",
+    "correction": "사잇값 정리는 적어도 하나의 존재를 보장할 뿐 개수와 위치는 추가 분석이 필요함을 여러 그래프로 비교한다.",
+    "deepDive": "일상적 변화 현상 하나를 골라 연속성 가정을 세우고, 사잇값 정리로 특정 값의 존재를 보장한 뒤 그 가정이 깨지는 상황을 반례로 제시한다.",
+    "career": "수학, 공학 설계, 환경 모델링, 안전 기준 평가, 경제 균형 분석, 데이터 예측",
+    "sample": "최대·최소 정리와 사잇값 정리를 적용하기 전에 닫힌구간과 연속성 조건을 먼저 점검하고, 조건이 빠질 때의 반례 그래프를 스스로 구성함. 방정식의 해 존재를 계산값이 아니라 연속함수의 값 변화 구조로 설명하며 정리의 결론과 한계를 구분함.",
+    "source": "연속과 정리의 조건 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 연속과 정리의 조건",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "연속함수의 성질, 최대·최소 정리, 사잇값 정리의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 존재 보장과 조건 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-3 / 프로젝트 / 최대·최소 정리와 사잇값 정리를 예를 들어 설명하고, 두 정리를 변형한 명제를 이용하여 미니북을 만들고 발표한다."
+    ],
+    "tool": "미적분Ⅰ-3 / 프로젝트 / 최대·최소 정리와 사잇값 정리를 예를 들어 설명하고, 두 정리를 변형한 명제를 이용하여 미니북을 만들고 발표한다.",
+    "levels": {
+      "A": "연속함수의 성질을 설명하고, 이를 활용하여 다양한 문제를 해결할 수 있다.",
+      "B": "연속함수의 성질을 설명하고, 이를 활용하여 문제를 해결할 수 있다.",
+      "C": "연속함수의 성질을 이해하고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "D": "연속함수의 성질을 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "연속함수의 성질을 안다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-01]",
+    "standard": "미분계수를 이해하고, 이를 구할 수 있다.",
+    "domain": "미분계수와 도함수",
+    "title": "평균변화율에서 순간변화율로 넘어가기",
+    "type": "미분 개념",
+    "period": "2차시",
+    "lens": "순간 변화와 접선",
+    "concept": "미분계수, 평균변화율, 순간변화율, 접선의 기울기",
+    "formula": "f'(a)=lim_{h→0}{f(a+h)-f(a)}/h",
+    "related": "증분, Δx, Δy, 할선, 접선, 기하학적 의미, 국소 기울기",
+    "phenomenon": "두 점을 잇는 할선의 기울기는 구간을 줄일수록 한 점에서의 접선 기울기에 가까워진다.",
+    "conflict": "평균변화율은 구간 전체의 변화이고 미분계수는 한 점 근처의 극한적 변화이므로 같은 숫자가 될 수도 있지만 의미가 다르다.",
+    "general": "미분계수는 평균변화율의 극한으로 정의되며, 한 점에서 함수가 얼마나 빠르게 변하는지를 접선의 기울기로 해석하게 해 준다.",
+    "studentGeneral": "미분계수를 구할 때는 작은 구간의 변화율을 계산하고, 그 구간을 0에 가깝게 줄이는 과정을 극한으로 설명해야 한다.",
+    "questions": [
+      "평균변화율과 순간변화율은 계산식과 의미에서 어떻게 다른가?",
+      "할선이 접선으로 가까워진다는 말은 그래프에서 어떻게 확인되는가?",
+      "한 점의 변화율을 정확히 구할 수 있다는 주장은 어떤 극한 과정에 기대고 있는가?",
+      "속도, 온도 변화, 경제 성장률처럼 순간 변화가 중요한 상황을 어떻게 모델링할 수 있는가?"
+    ],
+    "products": [
+      "할선-접선 동적 관찰지",
+      "미분계수 정의 전개표",
+      "순간변화율 실생활 해석 카드"
+    ],
+    "data": "a 주변의 두 점을 점점 가깝게 잡아 평균변화율을 계산하고, 값의 경향과 접선 기울기의 그래프 변화를 함께 기록한다.",
+    "modeling": "공학 도구에서 h 값을 줄이며 할선 기울기가 어떤 값으로 안정되는지 관찰하고, 그 값을 미분계수 정의식과 연결한다.",
+    "uncertainty": "h가 충분히 작다는 말은 계산 편의가 아니라 극한 과정의 근사이므로 수치 오차와 기호적 극한을 구분해야 한다.",
+    "misconception": "순간변화율은 매우 짧은 시간 동안의 평균변화율과 완전히 같은 것이라고 생각한다.",
+    "correction": "짧은 구간 평균은 근사이고 미분계수는 그 근사의 극한임을 표와 그래프로 비교하게 한다.",
+    "deepDive": "실제 이동 데이터나 온도 데이터를 구간별 평균변화율로 분석한 뒤, 특정 순간의 변화율을 추정하고 모델의 한계를 설명한다.",
+    "career": "물리학, 공학, 의학 생체신호, 경제학, 데이터 과학, 로봇 제어",
+    "sample": "할선의 두 점 사이 간격을 줄이며 평균변화율이 접선 기울기로 수렴하는 과정을 표와 그래프로 동시에 확인함. 미분계수를 공식 대입으로만 처리하지 않고 h→0의 극한 과정, 접선의 기하학적 의미, 순간변화율 해석을 연결하여 설명함.",
+    "source": "미분계수와 도함수 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분계수와 도함수",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "미분계수, 평균변화율, 순간변화율, 접선의 기울기의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 순간 변화와 접선 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-02-01] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "미분계수의 뜻과 그 기하학적 의미를 설명할 수 있으며, 함수 f(x)의 x=a에서의 미분계수를 구할 수 있다.",
+      "B": "미분계수의 뜻과 그 기하학적 의미를 이해하고, 함수 f(x)의 x=a에서의 미분계수를 구할 수 있다.",
+      "C": "미분계수의 뜻을 알고, 함수 f(x)의 x=a에서의 미분계수를 구할 수 있다.",
+      "D": "간단한 함수 f(x)의 x=a에서의 미분계수를 구할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 함수 f(x)의 x=a에서의 미분계수를 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-02]",
+    "standard": "함수의 미분가능성과 연속성의 관계를 설명하고, 이를 활용할 수 있다.",
+    "domain": "미분계수와 도함수",
+    "title": "미분가능하면 왜 연속인가",
+    "type": "개념 관계",
+    "period": "2차시",
+    "lens": "조건의 위계",
+    "concept": "미분가능성, 연속성, 반례, 함의 관계",
+    "formula": "differentiable at a ⇒ continuous at a",
+    "related": "뾰족점, 꺾인점, 점프 불연속, 연속이지만 미분불가능한 함수",
+    "phenomenon": "그래프가 끊기지 않아도 뾰족하게 꺾인 점에서는 접선 기울기가 하나로 정해지지 않아 미분가능하지 않을 수 있다.",
+    "conflict": "연속이면 미분가능하다는 오개념은 자연스럽지만, 실제로는 미분가능성이 연속성보다 더 강한 조건이다.",
+    "general": "미분가능성은 한 점에서 접선 기울기가 존재한다는 조건이므로 연속성을 포함하지만, 연속성만으로는 미분가능성을 보장하지 않는다.",
+    "studentGeneral": "미분가능성을 판단하려면 먼저 연속성을 확인하고, 좌우에서의 변화율이 같은 하나의 값으로 모이는지도 확인해야 한다.",
+    "questions": [
+      "미분가능하면 연속이라는 명제는 어떤 방향의 관계인가?",
+      "연속이지만 미분가능하지 않은 함수는 그래프에서 어떤 특징을 보이는가?",
+      "미분가능성과 연속성을 같은 조건으로 생각하면 어떤 판단 오류가 생기는가?",
+      "충격, 방향 전환, 임계점이 있는 현상을 모델링할 때 미분가능성을 어떻게 고려할 수 있는가?"
+    ],
+    "products": [
+      "연속-미분가능 벤다이어그램",
+      "반례 그래프 분류표",
+      "좌우 변화율 비교 설명지"
+    ],
+    "data": "여러 함수의 경계점에서 연속성 여부, 좌미분계수, 우미분계수를 표로 정리하여 미분가능성을 판정한다.",
+    "modeling": "절댓값 함수, 조각함수, 모서리가 있는 거리 함수의 그래프를 확대하며 연속성과 미분가능성의 차이를 시각화한다.",
+    "uncertainty": "그래프가 매끄러워 보이는 해상도만으로는 미분가능성을 판단하기 어렵기 때문에 좌우 변화율의 극한을 확인해야 한다.",
+    "misconception": "그래프가 이어져 있으면 모든 점에서 미분가능하다고 생각한다.",
+    "correction": "|x|, 조각함수, 접선이 수직에 가까워지는 사례를 비교하여 연속성과 미분가능성을 별도 조건으로 체크하게 한다.",
+    "deepDive": "연속이지만 특정 점에서 미분가능하지 않은 함수를 설계하고, 그 점에서 좌우 변화율이 왜 일치하지 않는지 설명한다.",
+    "career": "수학, 물리 충돌 모델, 컴퓨터 그래픽, 최적화, 로봇 경로 설계, 경제 임계모형",
+    "sample": "연속성과 미분가능성을 포함 관계로 정리하고, 절댓값 함수와 조각함수의 경계점에서 좌우 변화율을 비교하여 반례를 제시함. “연속이면 미분가능”이라는 초기 판단을 수정하고, 미분가능성이 연속성보다 강한 조건임을 그래프와 기호로 설명함.",
+    "source": "미분계수와 도함수 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분계수와 도함수",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "미분가능성, 연속성, 반례, 함의 관계의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 조건의 위계 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-4 / 실험ㆍ실습 / 연속이 아닌 함수의 미분가능성을 판단한다. / 함수의 미분가능성과 연속성의 관계를 증명한다."
+    ],
+    "tool": "미적분Ⅰ-4 / 실험ㆍ실습 / 연속이 아닌 함수의 미분가능성을 판단한다. / 함수의 미분가능성과 연속성의 관계를 증명한다.",
+    "levels": {
+      "A": "함수의 미분가능성과 연속성의 관계를 설명할 수 있고, 이를 문제에 활용할 수 있다.",
+      "B": "함수의 미분가능성과 연속성의 관계를 설명할 수 있고, 이를 문제에 활용할 수 있다.",
+      "C": "함수의 미분가능성과 연속성의 관계를 이해하고, 이를 간단한 문제에 활용할 수 있다.",
+      "D": "함수의 미분가능성과 연속성의 관계를 이해하고, 이를 간단한 문제에 활용할 수 있다.",
+      "E": "함수의 미분가능성과 연속성의 관계를 안다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-03]",
+    "standard": "함수 y=x^n (n은 양의 정수)의 도함수를 구할 수 있다.",
+    "domain": "미분계수와 도함수",
+    "title": "x^n의 도함수 공식은 어떻게 일반화되는가",
+    "type": "공식 유도",
+    "period": "2차시",
+    "lens": "패턴과 일반화",
+    "concept": "도함수, 거듭제곱 함수, 일반화",
+    "formula": "d/dx(x^n)=n x^{n-1} (n∈N)",
+    "related": "이항전개, 평균변화율, 극한, 지수 감소, 일반항",
+    "phenomenon": "x, x^2, x^3의 도함수를 직접 구해 보면 계수와 지수가 일정한 패턴으로 변한다.",
+    "conflict": "공식은 외워서 쓰는 도구가 아니라 미분계수 정의와 식 전개에서 반복적으로 나타나는 구조를 일반화한 결과이다.",
+    "general": "거듭제곱 함수의 도함수 공식은 여러 구체적 사례의 계산 패턴을 극한 정의로 정당화하여 얻는 일반화이다.",
+    "studentGeneral": "x^n의 도함수를 구할 때는 지수가 앞으로 내려오고 지수가 1 줄어드는 이유를 정의식과 전개 과정에서 설명할 수 있어야 한다.",
+    "questions": [
+      "x, x^2, x^3의 도함수를 정의로 구하면 어떤 패턴이 보이는가?",
+      "x^n의 도함수 공식에서 계수 n과 지수 n-1은 어디에서 생기는가?",
+      "공식을 암기한 풀이와 정의로 정당화한 풀이는 어떤 차이가 있는가?",
+      "새로운 다항함수나 물리량의 변화율을 구할 때 이 일반화를 어떻게 사용할 수 있는가?"
+    ],
+    "products": [
+      "x^n 도함수 유도표",
+      "패턴 일반화 발표지",
+      "정의식-공식 연결 카드"
+    ],
+    "data": "n=1,2,3,4일 때 미분계수 정의로 도함수를 구하고, 전개 후 h가 사라지는 구조와 남는 항의 패턴을 비교한다.",
+    "modeling": "공학 도구로 y=x^n의 그래프와 도함수 그래프를 함께 그려 지수와 기울기 변화의 관계를 관찰한다.",
+    "uncertainty": "공식을 사용할 때 n의 범위와 함수 형태를 확인하지 않으면 아직 배우지 않은 지수 범위나 다른 함수에 무리하게 적용할 수 있다.",
+    "misconception": "x^n의 도함수 공식을 이유 없이 암기해 모든 거듭제곱 표현에 기계적으로 적용한다.",
+    "correction": "정의식에서 (x+h)^n-x^n을 전개한 뒤 h로 나누고 h→0을 보내는 과정을 따라가며 공식의 발생 원리를 설명하게 한다.",
+    "deepDive": "n=1부터 5까지 도함수 그래프를 비교하여 원래 함수의 차수와 도함수의 차수, 그래프 모양 변화의 관계를 분석한다.",
+    "career": "수학, 공학 계산, 물리학, 컴퓨터 그래픽, 최적화, 알고리즘 모델링",
+    "sample": "x^2, x^3의 도함수를 정의로 직접 구한 뒤 전개식에서 공통적으로 남는 항을 비교하여 x^n의 도함수 공식을 일반화함. 단순 암기가 아니라 h로 나눈 뒤 h→0에서 사라지는 항과 남는 항을 구분하며 공식의 정당화 과정을 설명함.",
+    "source": "미분계수와 도함수 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분계수와 도함수",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "도함수, 거듭제곱 함수, 일반화의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 패턴과 일반화 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-02-03] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "함수 y=x^n (n은 양의 정수)의 도함수를 구하고, 그 과정을 설명할 수 있다.",
+      "B": "함수 y=x^n (n은 양의 정수)의 도함수를 구하고, 그 과정을 설명할 수 있다.",
+      "C": "함수 y=x^n (n은 양의 정수)의 도함수를 구하는 과정을 이해하고, 도함수를 구할 수 있다.",
+      "D": "함수 y=x^n (n은 양의 정수)의 도함수를 구하는 과정을 이해하고, 도함수를 구할 수 있다.",
+      "E": "안내된 절차에 따라 함수 y=x^n (n은 양의 정수)의 도함수를 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-04]",
+    "standard": "함수의 실수배, 합, 차, 곱의 미분법을 알고, 다항함수의 도함수를 구할 수 있다.",
+    "domain": "미분계수와 도함수",
+    "title": "미분법의 연산 규칙으로 다항함수 해석하기",
+    "type": "연산 구조",
+    "period": "2차시",
+    "lens": "선형성과 곱 구조",
+    "concept": "실수배, 합, 차, 곱의 미분법, 다항함수의 도함수",
+    "formula": "(af+bg)′=af′+bg′, (fg)′=f′g+fg′",
+    "related": "선형성, 곱의 미분법, 항별 미분, 다항함수, 도함수",
+    "phenomenon": "복잡한 다항함수도 항별로 나누어 미분하면 변화율 함수가 체계적으로 구성된다.",
+    "conflict": "합과 차의 미분은 항별로 가능하지만 곱의 미분은 단순히 도함수끼리 곱하는 방식이 아니다.",
+    "general": "미분법은 함수의 연산 구조가 변화율에 어떻게 반영되는지 보여 주며, 다항함수의 도함수는 항별 구조를 이용해 체계적으로 구할 수 있다.",
+    "studentGeneral": "다항함수를 미분할 때는 항을 분리하고, 실수배·합·차·곱 중 어떤 연산 규칙을 적용하는지 표시해야 한다.",
+    "questions": [
+      "실수배, 합, 차의 미분법은 왜 항별 미분으로 이어지는가?",
+      "곱의 미분법은 왜 f′g′가 아니라 f′g+fg′인가?",
+      "같은 다항함수의 도함수를 전개 후 미분한 결과와 곱의 미분법으로 구한 결과는 어떻게 일치하는가?",
+      "복잡한 변화 모델을 여러 항으로 나누어 해석하는 전략은 어디에 활용될 수 있는가?"
+    ],
+    "products": [
+      "미분법 선택표",
+      "항별 미분 검산지",
+      "전개 풀이-곱의 미분법 비교지"
+    ],
+    "data": "함수를 항 또는 인수 구조로 분해하고, 각 단계마다 적용한 미분법과 계산 결과를 옆에 표시하여 풀이 흐름을 추적한다.",
+    "modeling": "전개 후 항별 미분과 곱의 미분법 풀이를 같은 함수에 적용해 결과가 일치함을 확인하고 계산 효율성을 비교한다.",
+    "uncertainty": "곱의 미분법을 잘못 적용하거나 괄호 구조를 놓치면 도함수가 달라지므로 원함수의 연산 구조를 먼저 읽어야 한다.",
+    "misconception": "곱의 도함수를 두 도함수의 곱으로 계산한다.",
+    "correction": "간단한 예 f=x, g=x를 사용해 (fg)′와 f′g′가 서로 다른 값을 준다는 반례를 제시하고, 곱의 미분법 항의 의미를 설명하게 한다.",
+    "deepDive": "하나의 다항함수를 세 가지 형태로 변형한 뒤 각각 미분하고, 풀이 효율성과 오류 가능성을 비교하는 전략 보고서를 만든다.",
+    "career": "공학 계산, 물리 모델링, 경제 함수 분석, 데이터 피팅, 컴퓨터 시뮬레이션, 최적화",
+    "sample": "다항함수의 항과 인수 구조를 먼저 분석한 뒤 실수배, 합, 차, 곱의 미분법 중 필요한 규칙을 표시하며 도함수를 구함. 곱의 도함수를 f′g′로 처리하던 오류를 반례 계산으로 수정하고, 전개 후 미분과 곱의 미분법 결과가 일치함을 검산함.",
+    "source": "미분계수와 도함수 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분계수와 도함수",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "실수배, 합, 차, 곱의 미분법, 다항함수의 도함수의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 선형성과 곱 구조 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-02-04] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "함수의 실수배, 합, 차, 곱의 미분법을 설명할 수 있으며, 다항함수의 도함수를 구할 수 있다.",
+      "B": "함수의 실수배, 합, 차, 곱의 미분법을 이해하고, 다항함수의 도함수를 구할 수 있다.",
+      "C": "함수의 실수배, 합, 차, 곱의 미분법을 알고, 간단한 다항함수의 도함수를 구할 수 있다.",
+      "D": "간단한 다항함수의 도함수를 구할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 다항함수의 도함수를 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-05]",
+    "standard": "미분계수와 접선의 기울기의 관계를 이해하고, 접선의 방정식을 구할 수 있다.",
+    "domain": "미분 활용과 그래프",
+    "title": "접선의 방정식으로 국소적 선형 구조 읽기",
+    "type": "접선 모델링",
+    "period": "2차시",
+    "lens": "국소 선형화",
+    "concept": "미분계수, 접선의 기울기, 접선의 방정식",
+    "formula": "y-f(a)=f'(a)(x-a)",
+    "related": "접점, 기울기, 직선 방정식, 접선, 근사, 그래프 해석",
+    "phenomenon": "곡선도 한 점 근처를 확대하면 접선과 거의 같은 직선처럼 보이며, 접선은 그 점 주변의 변화를 간단히 설명한다.",
+    "conflict": "접선은 단순히 곡선과 한 점에서 만나는 직선이 아니라 그 점에서의 변화율을 공유하는 국소적 모델이다.",
+    "general": "접선의 방정식은 한 점에서의 함수값과 미분계수를 결합하여 곡선의 국소적 변화 구조를 직선으로 표현한다.",
+    "studentGeneral": "접선을 구하려면 접점의 x좌표, 함수값, 미분계수를 차례로 확인하고 점-기울기식에 연결해야 한다.",
+    "questions": [
+      "접선의 기울기는 미분계수와 어떻게 연결되는가?",
+      "접점이 주어진 경우와 접선의 기울기나 지나는 점이 주어진 경우 풀이 전략은 어떻게 달라지는가?",
+      "접선이 곡선을 여러 번 만나도 접선이라고 할 수 있는가?",
+      "곡선의 한 점 근처 값을 빠르게 추정할 때 접선 모델을 어떻게 활용할 수 있는가?"
+    ],
+    "products": [
+      "접선 조건 분석표",
+      "점-기울기식 구성지",
+      "곡선 확대 관찰 자료"
+    ],
+    "data": "접점, 기울기, 지나는 점, 원함수 조건을 분리해 주어진 정보가 무엇인지 표시하고 접선 방정식에 필요한 값으로 변환한다.",
+    "modeling": "그래프를 확대하여 곡선과 접선의 차이를 관찰하고, 접점 근처에서 접선이 함수값을 근사하는 정도를 비교한다.",
+    "uncertainty": "접선이 곡선을 한 번만 만나야 한다는 조건은 일반적으로 성립하지 않으므로 접선의 정의를 기울기와 접점 중심으로 확인해야 한다.",
+    "misconception": "접선은 곡선과 오직 한 점에서만 만나는 직선이라고 생각한다.",
+    "correction": "다항함수의 접선이 다른 지점에서 곡선과 다시 만나는 예를 보여 주고, 접선 판정의 핵심이 접점에서의 기울기 일치임을 확인하게 한다.",
+    "deepDive": "접선을 이용한 선형 근사의 사례를 만들고, 접점에서 멀어질수록 오차가 어떻게 커지는지 표와 그래프로 분석한다.",
+    "career": "공학 설계, 물리학, 경제 한계분석, 컴퓨터 그래픽, 최적화, 로봇 경로 추정",
+    "sample": "접선 조건을 접점, 함수값, 미분계수, 지나는 점으로 분해하여 필요한 정보를 재구성하고 점-기울기식으로 접선의 방정식을 도출함. 접선이 곡선과 한 점에서만 만나야 한다는 오개념을 그래프 반례로 수정하고, 접점 근처에서 접선이 국소적 선형 근사로 작동하는 이유를 설명함.",
+    "source": "미분 활용과 그래프 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분 활용과 그래프",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "미분계수, 접선의 기울기, 접선의 방정식의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 국소 선형화 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-5 / 서･논술형 / 미분계수를 이용하여 접선의 방정식을 구한다."
+    ],
+    "tool": "미적분Ⅰ-5 / 서･논술형 / 미분계수를 이용하여 접선의 방정식을 구한다.",
+    "levels": {
+      "A": "미분계수와 접선의 기울기의 관계를 설명할 수 있으며, 다양한 조건에서 접선의 방정식을 구할 수 있다.",
+      "B": "미분계수와 접선의 기울기의 관계를 이해하고, 다양한 조건에서 접선의 방정식을 구할 수 있다.",
+      "C": "미분계수와 접선의 기울기의 관계를 알고, 접선의 방정식을 구할 수 있다.",
+      "D": "미분계수와 접선의 기울기의 관계를 알고, 간단한 접선의 방정식을 구할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 접선의 방정식을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-06]",
+    "standard": "함수에 대한 평균값 정리를 설명하고, 이를 활용할 수 있다.",
+    "domain": "미분 활용과 그래프",
+    "title": "평균값 정리로 평균 변화와 순간 변화를 연결하기",
+    "type": "정리 활용",
+    "period": "2차시",
+    "lens": "평균과 순간의 보장",
+    "concept": "평균값 정리, 롤의 정리, 연속·미분가능 조건",
+    "formula": "f'(c)={f(b)-f(a)}/(b-a)",
+    "related": "닫힌구간 연속, 열린구간 미분가능, 평균변화율, 순간변화율, 존재성",
+    "phenomenon": "전체 구간의 평균 속도와 같은 순간 속도를 갖는 시점이 적어도 하나 존재할 수 있다.",
+    "conflict": "평균값 정리는 계산 공식처럼 보이지만 실제 핵심은 조건이 만족될 때 특정 순간 변화율의 존재를 보장한다는 점이다.",
+    "general": "평균값 정리는 구간 전체의 평균변화율과 어느 한 점의 순간변화율을 연결하며, 연속성과 미분가능성 조건 아래에서 존재를 보장한다.",
+    "studentGeneral": "평균값 정리를 적용하려면 닫힌구간에서 연속이고 열린구간에서 미분가능한지 확인한 뒤 평균변화율과 같은 f′(c)를 찾는다.",
+    "questions": [
+      "평균값 정리의 조건과 결론은 각각 무엇인가?",
+      "평균변화율과 같은 순간변화율이 존재한다는 말은 그래프에서 어떻게 보이는가?",
+      "조건이 빠지면 평균값 정리의 결론은 항상 성립하는가?",
+      "구간 평균 속도, 고도 변화, 성장률 분석에 평균값 정리를 어떻게 해석할 수 있는가?"
+    ],
+    "products": [
+      "평균값 정리 조건 점검표",
+      "평균-순간 기울기 그래프 자료",
+      "정리 적용 반례 카드"
+    ],
+    "data": "구간 양끝값으로 평균변화율을 구하고, 도함수 그래프 또는 방정식 f′(c)=평균변화율을 이용해 c의 존재와 위치를 탐색한다.",
+    "modeling": "이동 거리 그래프에서 평균 속도와 같은 순간 속도를 갖는 시점을 찾고, 정리가 보장하는 것과 보장하지 않는 것을 구분한다.",
+    "uncertainty": "정리는 c의 존재를 보장하지만 c가 유일하다는 말은 아니므로 도함수 방정식의 해 개수를 별도로 확인해야 한다.",
+    "misconception": "평균값 정리는 평균값 자체를 구하는 공식이라고 생각한다.",
+    "correction": "함숫값의 평균과 변화율의 평균을 구분하고, 그래프에서 할선과 평행한 접선의 존재를 찾게 한다.",
+    "deepDive": "평균속도 단속 상황을 함수 그래프로 모델링하고, 평균값 정리가 어떤 조건에서 순간속도 존재를 설명하는지 분석한다.",
+    "career": "교통공학, 물리학, 경제 성장률 분석, 환경 변화 분석, 데이터 과학, 안전 진단",
+    "sample": "평균값 정리 적용 전에 닫힌구간 연속성과 열린구간 미분가능성을 먼저 확인하고, 할선 기울기와 평행한 접선의 존재를 그래프로 설명함. 평균값을 구하는 공식으로 오해하던 부분을 평균변화율과 순간변화율의 연결 문제로 재구성하고, c의 존재와 유일성을 구분함.",
+    "source": "미분 활용과 그래프 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분 활용과 그래프",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "평균값 정리, 롤의 정리, 연속·미분가능 조건의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 평균과 순간의 보장 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-02-06] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "함수에 대한 평균값 정리를 설명하고, 이를 문제에 활용할 수 있다.",
+      "B": "함수에 대한 평균값 정리를 이해하고, 이를 문제에 활용할 수 있다.",
+      "C": "함수에 대한 평균값 정리를 알고, 간단한 문제를 해결할 수 있다.",
+      "D": "함수에 대한 평균값 정리를 알고, 안내된 절차에 따라 간단한 문제를 해결할 수 있다.",
+      "E": "함수에 대한 평균값 정리를 안다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-07]",
+    "standard": "함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.",
+    "domain": "미분 활용과 그래프",
+    "title": "도함수의 부호로 증가·감소와 극값 판정하기",
+    "type": "그래프 해석",
+    "period": "2차시",
+    "lens": "변화율의 부호",
+    "concept": "증가, 감소, 극대, 극소, 도함수 부호표",
+    "formula": "f'(x)>0 증가, f'(x)<0 감소",
+    "related": "임계점, 극값, 부호 변화, 구간 분석, 함수의 변화",
+    "phenomenon": "도함수가 양수인 구간에서는 함수가 올라가고, 음수인 구간에서는 내려가며 부호가 바뀌는 지점에서 극값이 나타날 수 있다.",
+    "conflict": "f′(x)=0인 점이 항상 극값은 아니며, 극값 판정에는 주변 구간의 부호 변화가 필요하다.",
+    "general": "도함수의 부호는 함수값의 증가와 감소를 설명하고, 부호 변화의 구조는 극대와 극소를 판정하는 근거가 된다.",
+    "studentGeneral": "극값을 찾을 때는 f′(x)=0인 점을 후보로 잡고, 그 양쪽에서 도함수 부호가 어떻게 바뀌는지 확인해야 한다.",
+    "questions": [
+      "도함수의 부호는 원함수의 증가와 감소를 어떻게 알려 주는가?",
+      "f′(x)=0인 점과 극값은 어떤 관계인가?",
+      "부호표 없이 극값을 판단하면 어떤 오류가 생길 수 있는가?",
+      "최대 수익, 최소 비용, 온도 변화의 전환점 분석에 도함수 부호를 어떻게 활용할 수 있는가?"
+    ],
+    "products": [
+      "도함수 부호표",
+      "증감·극값 판정 설명지",
+      "오개념 반례 그래프"
+    ],
+    "data": "도함수의 영점과 부호를 수직선에 표시하고, 각 구간에서 원함수의 증가·감소와 극대·극소 여부를 연결해 기록한다.",
+    "modeling": "공학 도구로 원함수와 도함수 그래프를 동시에 그려 도함수 부호 변화와 원함수의 방향 변화가 일치하는지 확인한다.",
+    "uncertainty": "도함수 값이 0인 점에서 부호가 바뀌지 않으면 극값이 아닐 수 있으므로 단일 조건만으로 결론을 내리지 않는다.",
+    "misconception": "f′(x)=0이면 무조건 극대나 극소라고 생각한다.",
+    "correction": "x^3처럼 f′(0)=0이지만 극값이 아닌 사례를 제시하고, 좌우 부호 변화가 필요한 이유를 그래프로 확인한다.",
+    "deepDive": "실생활 최적화 문제를 함수로 표현한 뒤 도함수 부호표로 증가·감소와 극값을 판정하고 결과의 단위를 해석한다.",
+    "career": "경제학, 경영 최적화, 공학 설계, 물리학, 환경 모델링, 데이터 분석",
+    "sample": "도함수의 영점만 나열하지 않고 좌우 부호 변화를 수직선에 표시하여 증가·감소 구간과 극대·극소를 판정함. f′(x)=0이면 항상 극값이라는 오개념을 x^3 반례로 수정하고, 부호 변화가 극값 판단의 핵심 근거임을 설명함.",
+    "source": "미분 활용과 그래프 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분 활용과 그래프",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "증가, 감소, 극대, 극소, 도함수 부호표의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 변화율의 부호 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-02-07] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "함수의 증가와 감소, 극대와 극소를 판정하고, 그 과정을 설명할 수 있다.",
+      "B": "함수의 증가와 감소, 극대와 극소를 이해하고, 판정할 수 있다.",
+      "C": "함수의 증가와 감소, 극대와 극소를 판정할 수 있다.",
+      "D": "간단한 함수의 증가와 감소, 극대와 극소를 부분적으로 판정할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 함수의 증가와 감소, 극대와 극소를 부분적으로 판정할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-08]",
+    "standard": "함수의 그래프의 개형을 그릴 수 있다.",
+    "domain": "미분 활용과 그래프",
+    "title": "도함수 정보를 종합해 그래프 개형 그리기",
+    "type": "그래프 종합",
+    "period": "2차시",
+    "lens": "국소 정보의 통합",
+    "concept": "함수 그래프의 개형, 증감, 극값, 절편",
+    "formula": "도함수 부호표 + 함수값 표 → 그래프 개형",
+    "related": "정의역, 절편, 증감표, 극값, 구간별 변화, 그래프 스케치",
+    "phenomenon": "함수식을 직접 많이 대입하지 않아도 도함수의 부호와 몇 개의 핵심 값만으로 그래프의 큰 모양을 예측할 수 있다.",
+    "conflict": "그래프 개형은 점을 많이 찍는 활동이 아니라 함수의 구조, 도함수 부호, 극값, 절편을 통합해 전체 변화를 설명하는 활동이다.",
+    "general": "함수의 그래프 개형은 원함수의 값 정보와 도함수의 변화율 정보를 통합하여 함수의 전체적 구조를 시각화한 결과이다.",
+    "studentGeneral": "그래프를 그릴 때는 정의역과 절편을 확인하고 도함수 부호표로 증감과 극값을 판정한 뒤 점과 구간을 연결해야 한다.",
+    "questions": [
+      "그래프 개형을 그리기 전에 어떤 정보를 먼저 수집해야 하는가?",
+      "도함수 부호표는 원함수 그래프의 어느 부분을 결정해 주는가?",
+      "점 대입만으로 그린 그래프와 도함수 정보를 사용한 그래프는 무엇이 다른가?",
+      "복잡한 현상의 전체 경향을 설명할 때 그래프 개형 분석을 어떻게 활용할 수 있는가?"
+    ],
+    "products": [
+      "그래프 개형 분석표",
+      "도함수-원함수 대응 카드",
+      "공학 도구 검증 화면"
+    ],
+    "data": "정의역, 절편, 도함수 영점, 부호 변화, 극값 좌표를 한 장의 분석표에 정리하고 그래프 스케치의 각 부분과 연결한다.",
+    "modeling": "먼저 손으로 개형을 예측한 뒤 공학 도구 그래프와 비교하여 누락한 조건이나 잘못 판정한 구간을 수정한다.",
+    "uncertainty": "공학 도구 그래프의 화면 범위에 따라 극값이나 절편이 보이지 않을 수 있으므로 대수적 분석으로 확인해야 한다.",
+    "misconception": "그래프는 몇 개의 점을 찍어 부드럽게 이어 그리면 된다고 생각한다.",
+    "correction": "점 대입만으로는 보이지 않는 증가·감소 전환을 도함수 부호표로 찾게 하고, 예측 그래프와 실제 그래프를 비교한다.",
+    "deepDive": "매개변수가 들어간 다항함수의 그래프 개형이 매개변수 변화에 따라 어떻게 달라지는지 도함수 부호표로 분류한다.",
+    "career": "데이터 시각화, 공학 설계, 경제 예측, 물리 모델링, 컴퓨터 그래픽, 통계 분석",
+    "sample": "정의역, 절편, 도함수 영점, 부호 변화를 순서대로 정리하여 함수의 그래프 개형을 예측하고 공학 도구로 검증함. 단순히 점을 찍어 연결하는 방식에서 벗어나 도함수 부호가 원함수의 증가·감소와 극값을 결정한다는 근거를 들어 그래프를 수정함.",
+    "source": "미분 활용과 그래프 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분 활용과 그래프",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "함수 그래프의 개형, 증감, 극값, 절편의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 국소 정보의 통합 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-6 / 실험･실습 / 공학 도구를 이용하여 도형의 넓이의 변화를 확인하고 넓이를 식으로 표현한다. / 미분을 활용하여 도형의 넓이를 구한다. / 변화하는 현상을 이해하는 도구로서 미분의 유용성을 인식한다."
+    ],
+    "tool": "미적분Ⅰ-6 / 실험･실습 / 공학 도구를 이용하여 도형의 넓이의 변화를 확인하고 넓이를 식으로 표현한다. / 미분을 활용하여 도형의 넓이를 구한다. / 변화하는 현상을 이해하는 도구로서 미분의 유용성을 인식한다.",
+    "levels": {
+      "A": "함수의 그래프의 개형을 그리고, 그 방법을 설명할 수 있다.",
+      "B": "함수의 그래프의 개형을 그리는 방법을 알고, 그릴 수 있다.",
+      "C": "간단한 함수의 그래프의 개형을 그릴 수 있다.",
+      "D": "간단한 함수의 그래프의 개형을 부분적으로 그릴 수 있다.",
+      "E": "안내된 절차에 따라 간단한 함수의 그래프의 개형을 그릴 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-09]",
+    "standard": "방정식과 부등식에 대한 문제를 해결할 수 있다.",
+    "domain": "미분 활용과 그래프",
+    "title": "방정식과 부등식을 함수의 그래프로 해결하기",
+    "type": "문제 해결",
+    "period": "2차시",
+    "lens": "함수화와 존재성",
+    "concept": "방정식, 부등식, 함수의 그래프, 실근의 개수",
+    "formula": "f(x)=0, f(x)≥0을 그래프와 범위로 해석",
+    "related": "실근, 교점, 함수값의 부호, 극값, 범위, 판별 전략",
+    "phenomenon": "방정식의 실근 개수는 그래프가 x축과 만나는 횟수로, 부등식의 해는 그래프가 기준선 위나 아래에 있는 구간으로 해석된다.",
+    "conflict": "복잡한 방정식과 부등식은 대수적 변형만으로 해결하기 어려울 수 있으며, 미분을 이용한 그래프 구조 분석이 강력한 전략이 된다.",
+    "general": "미분은 함수의 증가·감소와 극값을 밝혀 방정식의 해 개수와 부등식의 해 구간을 판단하게 하는 구조적 도구이다.",
+    "studentGeneral": "방정식과 부등식 문제를 함수 문제로 바꾸고, 그래프의 교점·부호·극값 정보를 이용해 해를 판단해야 한다.",
+    "questions": [
+      "방정식 f(x)=0의 해는 그래프에서 무엇을 의미하는가?",
+      "도함수와 극값은 실근의 개수 판단에 어떤 정보를 주는가?",
+      "계산으로 해를 구하지 않아도 해의 존재나 개수를 말할 수 있는가?",
+      "경제 손익분기점, 임계 농도, 안전 기준 통과 구간을 함수 그래프로 어떻게 해석할 수 있는가?"
+    ],
+    "products": [
+      "함수화 전략표",
+      "실근 개수 판정 그래프",
+      "부등식 해 구간 설명지"
+    ],
+    "data": "문제를 f(x)=0 또는 f(x)≥0 형태로 바꾸고, 도함수 부호표와 극값을 이용해 그래프가 기준선과 만나는 횟수와 부호 구간을 기록한다.",
+    "modeling": "매개변수 값에 따라 그래프와 x축의 교점 수가 어떻게 달라지는지 공학 도구로 탐색하고 임계 조건을 설명한다.",
+    "uncertainty": "그래프 화면만으로 교점이 정확히 몇 개인지 판단하면 오류가 생길 수 있으므로 극값과 함수값 부호를 함께 확인해야 한다.",
+    "misconception": "방정식은 반드시 근의 공식을 써서 정확한 해를 구해야만 해결된다고 생각한다.",
+    "correction": "실근의 개수나 부등식 해 구간은 그래프 구조와 부호 분석으로도 판단할 수 있음을 다양한 함수 예시로 확인한다.",
+    "deepDive": "매개변수 k에 따라 f(x)=k의 실근 개수가 달라지는 문제를 만들고, 그래프의 극값과 범위를 이용해 분류한다.",
+    "career": "경제학, 공학 설계, 데이터 임계값 분석, 환경 안전 기준, 수리 생물학, 최적화",
+    "sample": "방정식과 부등식을 함수의 그래프 문제로 전환하고, 도함수 부호표와 극값을 이용해 실근의 개수와 해 구간을 판단함. 정확한 근 계산에 집착하던 접근에서 벗어나 함수값의 부호 변화, 교점, 범위를 근거로 해의 존재와 개수를 설명함.",
+    "source": "미분 활용과 그래프 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분 활용과 그래프",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "방정식, 부등식, 함수의 그래프, 실근의 개수의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 함수화와 존재성 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-7 / 구술·발표 / 방정식의 실근의 개수를 미분을 이용하여 구한다. / 미분의 개념, 원리, 법칙이나 자신의 수학적 사고와 전략을 설명한다."
+    ],
+    "tool": "미적분Ⅰ-7 / 구술·발표 / 방정식의 실근의 개수를 미분을 이용하여 구한다. / 미분의 개념, 원리, 법칙이나 자신의 수학적 사고와 전략을 설명한다.",
+    "levels": {
+      "A": "미분을 이용하여 방정식과 부등식에 대한 다양한 문제를 해결할 수 있다.",
+      "B": "미분을 이용하여 방정식과 부등식에 대한 문제를 해결할 수 있다.",
+      "C": "미분을 이용하여 방정식과 부등식에 대한 간단한 문제를 해결할 수 있다.",
+      "D": "미분을 이용하여 방정식 또는 부등식에 대한 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 미분을 이용하여 방정식 또는 부등식에 대한 간단한 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-02-10]",
+    "standard": "미분을 속도와 가속도에 대한 문제에 활용하고, 그 유용성을 인식할 수 있다.",
+    "domain": "미분 활용과 그래프",
+    "title": "속도와 가속도를 변화율로 해석하기",
+    "type": "운동 모델링",
+    "period": "2차시",
+    "lens": "변화율 모델링",
+    "concept": "위치, 속도, 가속도, 직선 운동",
+    "formula": "v(t)=s′(t), a(t)=v′(t)",
+    "related": "위치 함수, 속도, 가속도, 순간변화율, 단위, 방향",
+    "phenomenon": "위치가 시간에 따라 변할 때 속도는 위치의 변화율이고, 가속도는 속도의 변화율로 해석된다.",
+    "conflict": "속도의 부호는 운동 방향을 포함하므로 속도 값의 크기만 보고 실제 움직임을 해석하면 방향 전환을 놓칠 수 있다.",
+    "general": "미분은 시간에 따른 위치 변화에서 속도와 가속도를 정의하며, 운동의 방향과 변화 정도를 수학적으로 해석하게 한다.",
+    "studentGeneral": "위치 함수가 주어지면 한 번 미분해 속도, 다시 미분해 가속도를 구하고, 부호와 단위를 함께 해석해야 한다.",
+    "questions": [
+      "위치, 속도, 가속도는 각각 어떤 변화율 관계를 갖는가?",
+      "속도의 부호와 속력은 운동 해석에서 어떻게 다른가?",
+      "가속도가 양수라는 말은 항상 물체가 빨라진다는 뜻인가?",
+      "직선 운동, 센서 데이터, 교통 흐름 분석에 미분 모델을 어떻게 사용할 수 있는가?"
+    ],
+    "products": [
+      "위치-속도-가속도 관계도",
+      "운동 부호 해석표",
+      "시간별 운동 설명 발표지"
+    ],
+    "data": "위치 함수에서 속도와 가속도를 구하고, 시간 구간별 속도 부호와 가속도 부호를 표로 정리해 움직임을 문장으로 해석한다.",
+    "modeling": "직선 운동 그래프에서 정지 순간, 방향 전환, 가속 구간을 찾고 단위가 변화율 해석에 맞는지 확인한다.",
+    "uncertainty": "가속도의 부호와 속도의 부호를 함께 보지 않으면 빨라짐과 느려짐을 잘못 판단할 수 있다.",
+    "misconception": "가속도가 양수이면 언제나 속력이 증가한다고 생각한다.",
+    "correction": "속도가 음수인 상황에서 양의 가속도가 속력 감소로 이어질 수 있음을 수직선 운동 예로 확인하게 한다.",
+    "deepDive": "실제 이동 앱 또는 실험 데이터의 위치-시간 그래프를 근사 함수로 만들고 속도·가속도 그래프를 해석한다.",
+    "career": "물리학, 기계공학, 자율주행, 스포츠 과학, 항공우주, 생체 운동 분석",
+    "sample": "위치 함수를 미분하여 속도와 가속도를 구한 뒤 각 구간의 부호와 단위를 함께 해석함. 가속도가 양수이면 항상 빨라진다는 오개념을 속도 부호와 함께 분석하며 수정하고, 정지 순간과 방향 전환 시점을 수학적으로 설명함.",
+    "source": "미분 활용과 그래프 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 미분 활용과 그래프",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "위치, 속도, 가속도, 직선 운동의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 변화율 모델링 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-8 / 구술･발표 / 미분을 속도와 가속도에 대한 문제에 활용하고, 문제를 해결하는 과정을 발표한다. / 미분의 유용성을 인식한다."
+    ],
+    "tool": "미적분Ⅰ-8 / 구술･발표 / 미분을 속도와 가속도에 대한 문제에 활용하고, 문제를 해결하는 과정을 발표한다. / 미분의 유용성을 인식한다.",
+    "levels": {
+      "A": "미분을 속도와 가속도에 대한 다양한 문제에 활용할 수 있고, 미분의 유용성을 인식할 수 있다.",
+      "B": "미분을 속도와 가속도에 대한 문제에 활용할 수 있고, 미분의 유용성을 인식할 수 있다.",
+      "C": "미분을 속도와 가속도에 대한 문제에 활용할 수 있고, 미분에 관심을 가진다.",
+      "D": "미분을 속도와 가속도에 대한 간단한 문제에 활용할 수 있고, 미분에 관심을 가진다.",
+      "E": "안내된 절차에 따라 미분을 속도와 가속도에 대한 간단한 문제에 활용할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-03-01]",
+    "standard": "부정적분의 뜻을 알고, 이를 설명할 수 있다.",
+    "domain": "부정적분과 정적분",
+    "title": "부정적분은 도함수의 역추적이다",
+    "type": "적분 개념",
+    "period": "2차시",
+    "lens": "역연산과 함수족",
+    "concept": "부정적분, 적분상수, 원시함수",
+    "formula": "∫ f(x) dx = F(x)+C, F′(x)=f(x)",
+    "related": "역연산, 원시함수, 적분상수, 함수족, 평행이동",
+    "phenomenon": "같은 도함수를 갖는 함수들은 상수만큼 차이가 나며, 부정적분은 하나의 함수가 아니라 함수족을 나타낸다.",
+    "conflict": "적분상수 C는 형식적으로 붙이는 기호가 아니라 미분하면 사라지는 모든 상수 차이를 포함하기 위한 장치이다.",
+    "general": "부정적분은 미분의 역과정으로, 주어진 변화율을 만들어 내는 모든 원시함수를 적분상수와 함께 표현한다.",
+    "studentGeneral": "부정적분을 구할 때는 미분해서 원래 함수가 되는지 확인하고, 같은 도함수를 갖는 함수들이 C만큼 달라진다는 점을 설명해야 한다.",
+    "questions": [
+      "부정적분과 미분은 어떤 역관계를 갖는가?",
+      "적분상수 C가 필요한 이유는 무엇인가?",
+      "같은 도함수를 갖는 여러 함수는 그래프에서 어떻게 보이는가?",
+      "변화율 정보만 알고 원래 상태를 추정하는 문제에서 부정적분을 어떻게 사용할 수 있는가?"
+    ],
+    "products": [
+      "원시함수 가족 그래프",
+      "적분상수 의미 설명지",
+      "미분 검산 카드"
+    ],
+    "data": "여러 함수 F(x)+C를 그래프로 그리고 모두 같은 도함수 f(x)를 갖는지 미분 검산하여 적분상수의 의미를 확인한다.",
+    "modeling": "공학 도구로 적분상수 값을 바꾸며 그래프가 세로로 평행이동하고 도함수는 변하지 않는 현상을 관찰한다.",
+    "uncertainty": "초기 조건이나 한 점의 함수값이 없으면 C를 특정할 수 없으므로 일반해와 특수해를 구분해야 한다.",
+    "misconception": "부정적분 결과에서 C를 생략해도 의미가 같다고 생각한다.",
+    "correction": "x^2, x^2+3, x^2-5를 미분해 같은 도함수가 나오는 사례를 통해 C가 모든 원시함수를 포함하는 역할을 함을 확인한다.",
+    "deepDive": "속도 함수의 부정적분으로 위치 함수를 복원하되 초기 위치가 달라질 때 가능한 위치 함수 가족을 그래프로 비교한다.",
+    "career": "물리학, 공학, 경제 누적모형, 생명과학 성장 모델, 데이터 복원, 제어 시스템",
+    "sample": "부정적분을 미분의 역과정으로 해석하고, 여러 원시함수가 같은 도함수를 갖는 이유를 그래프의 평행이동과 미분 검산으로 설명함. 적분상수 C를 형식적으로 붙이는 단계가 아니라 변화율 정보만으로는 초기값을 특정할 수 없다는 수학적 의미로 해석함.",
+    "source": "부정적분과 정적분 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 부정적분과 정적분",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "부정적분, 적분상수, 원시함수의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 역연산과 함수족 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-9 / 실험·실습 / 지오지브라(GeoGebra)를 활용하여 부정적분의 적분상수의 의미를 설명한다."
+    ],
+    "tool": "미적분Ⅰ-9 / 실험·실습 / 지오지브라(GeoGebra)를 활용하여 부정적분의 적분상수의 의미를 설명한다.",
+    "levels": {
+      "A": "부정적분의 뜻을 설명할 수 있다.",
+      "B": "부정적분의 뜻을 설명할 수 있다.",
+      "C": "부정적분의 뜻을 이해한다.",
+      "D": "부정적분의 뜻을 이해한다.",
+      "E": "부정적분의 뜻을 안다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-03-02]",
+    "standard": "함수의 실수배, 합, 차의 부정적분을 알고, 다항함수의 부정적분을 구할 수 있다.",
+    "domain": "부정적분과 정적분",
+    "title": "부정적분의 선형성으로 다항함수 복원하기",
+    "type": "연산 구조",
+    "period": "2차시",
+    "lens": "역연산의 선형성",
+    "concept": "부정적분의 실수배, 합, 차, 다항함수의 부정적분",
+    "formula": "∫(af+bg)dx=a∫f dx+b∫g dx",
+    "related": "선형성, 항별 적분, 적분상수, 다항함수, 미분 검산",
+    "phenomenon": "다항함수는 항별로 적분할 수 있으며, 적분 결과를 다시 미분하면 원래 함수로 돌아간다.",
+    "conflict": "부정적분은 공식 적용으로 끝나는 계산이 아니라 미분 검산을 통해 역연산 관계를 확인해야 한다.",
+    "general": "부정적분의 선형성은 복잡한 다항함수를 항별로 나누어 원시함수를 구성하게 해 주며, 결과는 미분 검산으로 정당화된다.",
+    "studentGeneral": "다항함수를 적분할 때는 항별로 지수를 1 늘리고 계수를 조정한 뒤, 마지막에 적분상수와 미분 검산을 포함해야 한다.",
+    "questions": [
+      "부정적분의 실수배, 합, 차 성질은 항별 적분과 어떻게 연결되는가?",
+      "∫x^n dx 공식은 x^n의 도함수 공식과 어떤 역관계를 갖는가?",
+      "적분 결과가 맞는지 가장 확실히 검증하는 방법은 무엇인가?",
+      "복잡한 변화율 함수를 여러 항으로 나누어 원래 함수를 복원하는 전략은 어디에 활용되는가?"
+    ],
+    "products": [
+      "항별 적분 절차표",
+      "미분 검산 기록지",
+      "적분상수 조건 카드"
+    ],
+    "data": "다항함수의 각 항에 적용한 적분 규칙을 표시하고, 완성한 원시함수를 다시 미분해 원래 함수와 일치하는지 확인한다.",
+    "modeling": "초기 조건이 주어진 경우 C를 결정하고, 초기 조건이 없을 때 가능한 함수족을 비교한다.",
+    "uncertainty": "항별 적분 후 모든 항에 각각 다른 적분상수를 붙일 필요는 없지만 전체 상수 하나를 생략하면 일반해가 불완전하다.",
+    "misconception": "각 항을 적분한 뒤 C를 붙이지 않거나, 적분 결과를 검산하지 않는다.",
+    "correction": "미분 검산 체크칸을 의무화하고, C가 없을 때 특정 원시함수만 제시되는 한계를 설명하게 한다.",
+    "deepDive": "주어진 가속도 또는 변화율 다항식에서 속도나 누적량 함수를 복원하고, 초기 조건에 따라 결과가 어떻게 달라지는지 분석한다.",
+    "career": "공학 계산, 물리학, 경제 누적함수, 생명과학 변화율 모델, 데이터 복원, 수치해석",
+    "sample": "부정적분의 실수배·합·차 성질을 이용해 다항함수를 항별로 복원하고, 결과를 다시 미분하여 원래 함수가 되는지 검산함. 적분상수 C의 위치와 의미를 초기 조건 문제와 연결해 설명하며 일반해와 특수해를 구분함.",
+    "source": "부정적분과 정적분 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 부정적분과 정적분",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "부정적분의 실수배, 합, 차, 다항함수의 부정적분의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 역연산의 선형성 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-03-02] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "함수의 실수배, 합, 차의 부정적분을 설명할 수 있으며, 다항함수의 부정적분을 구할 수 있다.",
+      "B": "함수의 실수배, 합, 차의 부정적분을 이해하고, 다항함수의 부정적분을 구할 수 있다.",
+      "C": "함수의 실수배, 합, 차의 부정적분을 알고, 간단한 다항함수의 부정적분을 구할 수 있다.",
+      "D": "간단한 다항함수의 부정적분을 구할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 다항함수의 부정적분을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-03-03]",
+    "standard": "정적분의 개념을 탐구하고, 그 성질을 이해한다.",
+    "domain": "부정적분과 정적분",
+    "title": "정적분을 넓이에서 누적량으로 확장하기",
+    "type": "적분 개념",
+    "period": "2차시",
+    "lens": "누적과 부호",
+    "concept": "정적분, 넓이, 성질, 누적량",
+    "formula": "∫_a^b f(x) dx",
+    "related": "닫힌구간, 부호 있는 넓이, 구간 분할, 정적분 성질, 누적 변화",
+    "phenomenon": "x축 위에 있는 그래프의 정적분은 넓이로 해석되지만, 일반 함수에서는 부호를 가진 누적량으로 확장된다.",
+    "conflict": "정적분을 항상 실제 넓이라고 생각하면 함수가 x축 아래에 있는 구간이나 부호가 바뀌는 구간을 잘못 해석한다.",
+    "general": "정적분은 처음에는 넓이로 이해되지만, 함수값의 부호와 구간 방향을 포함하는 누적량의 개념으로 확장된다.",
+    "studentGeneral": "정적분을 해석할 때는 구간, 함수값의 부호, 넓이인지 부호 있는 누적량인지 먼저 구분해야 한다.",
+    "questions": [
+      "정적분은 어떤 조건에서 도형의 넓이로 해석되는가?",
+      "부호 있는 넓이와 실제 넓이는 어떻게 다른가?",
+      "정적분의 성질은 구간을 나누거나 방향을 바꿀 때 무엇을 보장하는가?",
+      "강수량, 전력 사용량, 속도 변화처럼 누적량이 필요한 상황을 어떻게 정적분으로 모델링할 수 있는가?"
+    ],
+    "products": [
+      "정적분 해석 구분표",
+      "부호 있는 넓이 시각화 자료",
+      "구간 분할 성질 카드"
+    ],
+    "data": "그래프가 x축 위·아래에 있는 구간을 색으로 구분하고, 각 구간의 정적분 부호와 실제 넓이를 따로 계산한다.",
+    "modeling": "공학 도구로 구간을 나누어 정적분 값이 어떻게 더해지는지 확인하고, 구간 방향을 바꾸었을 때 부호가 변하는 이유를 설명한다.",
+    "uncertainty": "정적분 값이 0이라고 해서 그래프와 x축 사이의 실제 넓이가 0이라는 뜻은 아닐 수 있다.",
+    "misconception": "정적분은 언제나 양수인 넓이라고 생각한다.",
+    "correction": "x축 위와 아래의 넓이가 상쇄되는 그래프를 제시하여 정적분값과 실제 넓이를 별도로 계산하게 한다.",
+    "deepDive": "하루 동안의 전력 순사용량처럼 양의 구간과 음의 구간이 함께 있는 데이터를 만들고, 정적분값과 총사용량의 차이를 설명한다.",
+    "career": "물리학, 에너지 분석, 경제 누적 수익, 환경 데이터, 의학 농도 분석, 데이터 과학",
+    "sample": "정적분을 단순한 넓이 계산으로 처리하지 않고 x축 위·아래 구간을 구분하여 부호 있는 누적량과 실제 넓이를 별도로 해석함. 구간 분할 성질과 방향에 따른 부호 변화를 그래프로 확인하며 정적분의 개념을 넓이에서 누적량으로 확장함.",
+    "source": "부정적분과 정적분 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 부정적분과 정적분",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "정적분, 넓이, 성질, 누적량의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 누적과 부호 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [],
+    "tool": "[12미적Ⅰ-03-03] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "정적분의 개념을 탐구하고, 그 성질을 설명할 수 있다.",
+      "B": "정적분의 개념을 설명하고, 그 성질을 이해한다.",
+      "C": "정적분의 개념과 그 성질을 이해한다.",
+      "D": "정적분의 개념과 그 성질을 안다.",
+      "E": "정적분의 개념과 그 성질을 부분적으로 안다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-03-04]",
+    "standard": "부정적분과 정적분의 관계를 이해하고, 다항함수의 정적분을 구할 수 있다.",
+    "domain": "부정적분과 정적분",
+    "title": "부정적분과 정적분의 관계로 누적 변화 계산하기",
+    "type": "관계 탐구",
+    "period": "2차시",
+    "lens": "변화량과 누적",
+    "concept": "부정적분과 정적분의 관계, 다항함수의 정적분",
+    "formula": "∫_a^b f(x) dx = F(b)-F(a)",
+    "related": "원시함수, 구간, 정적분 계산, 누적 변화, 미분과 적분의 연결",
+    "phenomenon": "정적분은 매번 넓이를 직접 구하지 않아도 원시함수의 양끝값 차이로 계산할 수 있다.",
+    "conflict": "부정적분과 정적분을 별개의 계산으로 외우면, 적분이 변화율과 누적 변화량을 연결한다는 핵심 의미를 놓친다.",
+    "general": "부정적분과 정적분의 관계는 변화율 함수의 누적량을 원시함수의 변화량으로 계산하게 하며, 미분과 적분의 연결성을 보여 준다.",
+    "studentGeneral": "정적분을 계산할 때는 먼저 원시함수 F를 구하고, 구간의 양끝값 F(b)-F(a)를 통해 누적 변화를 구해야 한다.",
+    "questions": [
+      "부정적분으로 얻은 원시함수는 정적분 계산에서 어떤 역할을 하는가?",
+      "F(b)-F(a)는 어떤 변화량을 의미하는가?",
+      "적분상수 C는 정적분 계산에서 왜 사라지는가?",
+      "속도, 유량, 변화율 자료의 누적 변화를 빠르게 계산할 때 이 관계를 어떻게 활용할 수 있는가?"
+    ],
+    "products": [
+      "원시함수-정적분 연결도",
+      "양끝값 계산 검산표",
+      "누적 변화 해석 카드"
+    ],
+    "data": "정적분 문제에서 원시함수, 아래끝, 위끝, F(b), F(a), F(b)-F(a)를 표로 정리하고 결과의 단위를 해석한다.",
+    "modeling": "넓이로 직접 구할 수 있는 간단한 경우와 원시함수를 이용한 계산 결과를 비교하여 두 방법의 연결을 확인한다.",
+    "uncertainty": "정적분 값은 구간과 방향에 따라 달라지므로 위끝과 아래끝을 바꾸거나 단위를 빠뜨리면 해석이 달라진다.",
+    "misconception": "부정적분에서 나온 C를 정적분 계산에도 끝까지 따로 계산해야 한다고 생각한다.",
+    "correction": "F(x)+C를 F(b)-F(a)에 대입해 C가 상쇄되는 과정을 직접 보여 주고, 정적분이 원시함수의 변화량임을 설명하게 한다.",
+    "deepDive": "속도 함수 또는 유량 함수의 누적량을 정적분으로 계산하고, 같은 값을 원시함수의 변화량 관점에서 해석한다.",
+    "career": "물리학, 공학 유량 분석, 경제 누적 성장, 생명과학 농도 변화, 환경 데이터, 데이터 과학",
+    "sample": "부정적분으로 원시함수를 구한 뒤 F(b)-F(a)의 형태로 정적분을 계산하고, 결과를 누적 변화량으로 해석함. 적분상수 C가 정적분 계산에서 상쇄되는 이유를 직접 대입해 설명하며, 미분과 적분의 관계를 공식이 아닌 변화율과 누적량의 연결로 이해함.",
+    "source": "부정적분과 정적분 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 부정적분과 정적분",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "부정적분과 정적분의 관계, 다항함수의 정적분의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 변화량과 누적 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-10 / 단답형 / 적분과 미분의 관계를 이용하여 주어진 조건을 해석하여 함숫값 구하기"
+    ],
+    "tool": "미적분Ⅰ-10 / 단답형 / 적분과 미분의 관계를 이용하여 주어진 조건을 해석하여 함숫값 구하기",
+    "levels": {
+      "A": "부정적분과 정적분의 관계를 설명할 수 있으며, 다항함수의 정적분을 구할 수 있다.",
+      "B": "부정적분과 정적분의 관계를 이해하며, 다항함수의 정적분을 구할 수 있다.",
+      "C": "부정적분과 정적분의 관계를 알고, 간단한 다항함수의 정적분을 구할 수 있다.",
+      "D": "간단한 다항함수의 정적분을 구할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 다항함수의 정적분을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-03-05]",
+    "standard": "곡선으로 둘러싸인 도형의 넓이에 대한 문제를 해결할 수 있다.",
+    "domain": "적분 활용과 누적량",
+    "title": "곡선 사이의 넓이를 위-아래 함수 차이로 구하기",
+    "type": "넓이 모델링",
+    "period": "2차시",
+    "lens": "차이의 누적",
+    "concept": "곡선으로 둘러싸인 도형의 넓이, 교점, 구간 분할",
+    "formula": "Area=∫_a^b |f(x)-g(x)| dx",
+    "related": "위쪽 함수, 아래쪽 함수, 교점, 구간 나누기, 실제 넓이, 정적분",
+    "phenomenon": "두 곡선 사이의 넓이는 각 x에서 위쪽 함수값과 아래쪽 함수값의 차이를 구간 전체에 걸쳐 누적한 값이다.",
+    "conflict": "교점 사이에서 위아래 관계가 바뀌면 하나의 식으로 적분할 수 없으며, 실제 넓이는 항상 음수가 되지 않도록 해석해야 한다.",
+    "general": "곡선으로 둘러싸인 도형의 넓이는 구간별 위아래 관계를 판정한 뒤 두 함수값 차이를 누적하여 구한다.",
+    "studentGeneral": "넓이를 구하기 전에 교점을 찾고, 각 구간에서 위쪽 함수와 아래쪽 함수를 정한 뒤 위-아래를 적분해야 한다.",
+    "questions": [
+      "두 곡선 사이의 넓이는 왜 위쪽 함수에서 아래쪽 함수를 뺀 값을 적분하는가?",
+      "교점이 여러 개이거나 위아래 관계가 바뀌면 어떻게 구간을 나누어야 하는가?",
+      "정적분값이 음수로 나오는 풀이와 실제 넓이 계산은 어떻게 다른가?",
+      "두 변수의 차이가 누적되는 손익, 수요-공급, 오차 분석에 이 방법을 어떻게 전이할 수 있는가?"
+    ],
+    "products": [
+      "교점-구간 분할표",
+      "위아래 함수 판정 그래프",
+      "넓이 계산 검증지"
+    ],
+    "data": "두 함수의 교점을 구하고 각 구간에서 샘플 값을 대입해 위쪽 함수를 결정한 뒤, 구간별 적분식을 세워 실제 넓이를 합산한다.",
+    "modeling": "공학 도구로 두 그래프와 교점을 확인한 후 손계산으로 구한 넓이와 비교하여 구간 분할이 맞는지 검증한다.",
+    "uncertainty": "위아래 관계를 확인하지 않고 f-g를 적분하면 음수 값이나 상쇄가 생겨 실제 넓이와 다른 결과가 나올 수 있다.",
+    "misconception": "두 곡선 사이의 넓이를 무조건 ∫(f-g)dx로 계산하면 된다고 생각한다.",
+    "correction": "교점 사이에서 위아래가 바뀌는 사례를 제시하고, 샘플 값으로 위쪽 함수를 확인한 뒤 구간별로 적분식을 세우게 한다.",
+    "deepDive": "수요 함수와 공급 함수 사이의 차이를 소비자·생산자 잉여의 직관과 연결하거나, 두 측정값의 누적 오차 면적을 모델링한다.",
+    "career": "경제학, 공학 설계, 데이터 오차 분석, 환경 변화량 비교, 의료 신호 분석, 컴퓨터 그래픽",
+    "sample": "두 곡선의 교점을 먼저 찾고 각 구간에서 위쪽 함수와 아래쪽 함수를 샘플 값으로 판정하여 넓이 적분식을 구성함. 정적분값과 실제 넓이를 혼동하던 오류를 구간 분할과 절댓값 해석으로 수정하고, 그래프 검증을 통해 풀이의 타당성을 확인함.",
+    "source": "적분 활용과 누적량 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 적분 활용과 누적량",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "곡선으로 둘러싸인 도형의 넓이, 교점, 구간 분할의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 차이의 누적 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-11 / 구술·발표 / 곡선으로 둘러싸인 도형의 넓이를 구한다."
+    ],
+    "tool": "미적분Ⅰ-11 / 구술·발표 / 곡선으로 둘러싸인 도형의 넓이를 구한다.",
+    "levels": {
+      "A": "곡선으로 둘러싸인 도형의 넓이를 구하는 방법을 이해하고, 이를 활용하여 다양한 문제를 해결할 수 있다.",
+      "B": "일 때, 두 곡선 , 로 둘러싸인 도형의 넓이를 구하는 방법을 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+      "C": "일 때, 두 곡선 , 로 둘러싸인 도형의 넓이를 구하는 방법을 알고, 이를 활용하여 문제를 해결할 수 있다.",
+      "D": "곡선과 축으로 둘러싸인 도형의 넓이를 구하는 방법을 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 곡선과 축으로 둘러싸인 도형의 넓이를 구하는 간단한 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12미적Ⅰ-03-06]",
+    "standard": "적분을 속도와 거리에 대한 문제에 활용하고, 그 유용성을 인식할 수 있다.",
+    "domain": "적분 활용과 누적량",
+    "title": "속도 함수에서 위치 변화와 이동거리 구분하기",
+    "type": "운동 누적 모델링",
+    "period": "2차시",
+    "lens": "부호 있는 누적과 실제 거리",
+    "concept": "속도, 위치 변화, 이동거리, 정적분의 활용",
+    "formula": "displacement=∫v(t)dt, distance=∫|v(t)|dt",
+    "related": "속도 함수, 위치 변화량, 이동거리, 방향 전환, 부호, 직선 운동",
+    "phenomenon": "속도가 양수인 구간과 음수인 구간이 있으면 위치 변화량은 서로 상쇄될 수 있지만 실제 이동거리는 각 구간의 크기를 모두 더해야 한다.",
+    "conflict": "속도와 속력, 위치 변화량과 이동거리를 구분하지 않으면 정적분을 올바르게 해석해도 물리적 결론이 틀릴 수 있다.",
+    "general": "속도 함수의 정적분은 부호 있는 위치 변화량을 나타내며, 실제 이동거리는 속도의 부호가 바뀌는 지점을 기준으로 절댓값 누적을 해야 한다.",
+    "studentGeneral": "속도 함수를 적분할 때는 먼저 v(t)=0인 시점을 찾아 방향 전환 여부를 확인하고, 위치 변화와 이동거리를 구분해 계산해야 한다.",
+    "questions": [
+      "속도 함수의 정적분은 위치 변화량과 어떻게 연결되는가?",
+      "이동거리를 구할 때 왜 속도의 절댓값이나 구간 분할이 필요한가?",
+      "속도 부호가 바뀌는 순간을 놓치면 어떤 해석 오류가 생기는가?",
+      "직선 운동, 교통 데이터, 운동 센서 분석에서 위치 변화와 이동거리 구분을 어떻게 활용할 수 있는가?"
+    ],
+    "products": [
+      "속도 부호 구간표",
+      "위치 변화-이동거리 비교지",
+      "운동 상황 해석 발표 자료"
+    ],
+    "data": "속도 함수의 영점을 찾고 구간별 속도 부호를 표시한 뒤, 위치 변화량은 부호 있는 적분으로, 이동거리는 구간별 절댓값 적분의 합으로 계산한다.",
+    "modeling": "속도-시간 그래프의 x축 위아래 면적을 색으로 구분하고, 상쇄되는 위치 변화량과 상쇄되지 않는 이동거리를 비교한다.",
+    "uncertainty": "속도 함수가 부호를 바꾸는 지점을 놓치면 이동거리 계산에서 상쇄가 일어나 실제 이동한 거리를 과소평가할 수 있다.",
+    "misconception": "속도 함수를 적분하면 언제나 이동거리가 나온다고 생각한다.",
+    "correction": "왕복 운동처럼 출발점으로 돌아오는 사례를 제시하여 위치 변화량은 0이어도 이동거리는 양수일 수 있음을 확인하게 한다.",
+    "deepDive": "실제 직선 운동 데이터를 속도-시간 그래프로 모델링하고, 위치 변화량과 총 이동거리의 차이를 구간별 부호 분석으로 설명한다.",
+    "career": "물리학, 자율주행, 스포츠 과학, 교통공학, 항공우주, 로봇 제어",
+    "sample": "속도 함수의 영점을 찾아 운동 방향이 바뀌는 구간을 먼저 분리하고, 위치 변화량과 이동거리를 서로 다른 적분식으로 계산함. 속도 함수의 정적분을 항상 이동거리로 해석하던 오류를 왕복 운동 사례로 수정하고, 부호 있는 누적과 실제 거리의 차이를 그래프 면적으로 설명함.",
+    "source": "적분 활용과 누적량 관련 교과서 예제, 함수 그래프, 공학 도구 탐구 화면, 표·식·그래프 변환 자료, 실생활 변화·누적 맥락 자료",
+    "scale": "범위: 정의-조건-표현 변환-문제해결-일반화 / 맥락: 적분 활용과 누적량",
+    "safe": "공학 도구의 그래프와 계산 결과를 사용할 때 구간, 정의역, 단위, 화면 범위, 근사 오차를 확인하고 수학적 조건을 함께 기록한다.",
+    "evidence": [
+      "속도, 위치 변화, 이동거리, 정적분의 활용의 정의와 적용 조건을 명확히 구분함",
+      "식·그래프·표·언어 설명 사이의 표현 변환을 수행함",
+      "계산 결과를 부호 있는 누적과 실제 거리 관점에서 검증하고 한계를 설명함",
+      "오개념을 반례, 그래프 확대, 구간 분할, 단위 해석으로 수정함"
+    ],
+    "official": [
+      "미적분Ⅰ-12 / 서·논술형 / 속도 함수를 이용하여 움직이는 점의 위치와 이동거리를 구한다."
+    ],
+    "tool": "미적분Ⅰ-12 / 서·논술형 / 속도 함수를 이용하여 움직이는 점의 위치와 이동거리를 구한다.",
+    "levels": {
+      "A": "적분을 속도와 거리에 대한 다양한 문제에 활용할 수 있고, 적분의 유용성을 인식할 수 있다.",
+      "B": "적분을 속도와 거리에 대한 문제에 활용할 수 있고, 적분의 유용성을 인식할 수 있다.",
+      "C": "적분을 속도와 거리에 대한 문제에 활용할 수 있고, 적분에 관심을 가진다.",
+      "D": "적분을 속도와 거리에 대한 간단한 문제에 활용할 수 있고, 적분에 관심을 가진다.",
+      "E": "안내된 절차에 따라 적분을 속도와 거리에 대한 간단한 문제에 활용할 수 있다."
+    }
+  }
+];
+window.DATA=DATA;
+const TABS=[['overview','수업 한눈에 보기','01'],['cbi','개념기반탐구 설계','02'],['lesson','수업방법 상세안','03'],['worksheet','활동지·자료처리','04'],['assessment','평가·피드백','05'],['record','학생부 기록·심화탐구','06']];
+const DOMAIN_KEY={'극한의 의미와 접근':'atmo','연속과 정리의 조건':'green','미분계수와 도함수':'geo','미분 활용과 그래프':'astro','부정적분과 정적분':'gold','적분 활용과 누적량':'red'};
+let current=0, tab='overview';
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+function cls(d){return 'domain-'+(DOMAIN_KEY[d]||'atmo');} function accent(d){return 'accent-'+(DOMAIN_KEY[d]||'atmo');}
+function openView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button[data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===id));window.scrollTo({top:0,behavior:'smooth'});} document.querySelectorAll('.nav button[data-view]').forEach(b=>b.onclick=()=>openView(b.dataset.view));
+function pills(arr,solid){return '<div class="pills">'+(arr||[]).map(x=>'<span class="pill'+(solid?' solid':'')+'">'+esc(x)+'</span>').join('')+'</div>';}
+function formula(x){return '<div class="formula-strip"><span class="math-expr">'+esc(x.formula)+'</span><span class="pill solid">'+esc(x.lens)+'</span></div>';}
+function block(title,body,hint){return '<div class="blk"><div class="blk-h"><span>'+esc(title)+'</span>'+(hint?'<span class="hint">'+esc(hint)+'</span>':'')+'</div>'+body+'</div>';}
+function filtered(){const q=(document.getElementById('search').value||'').toLowerCase();const d=document.getElementById('domain').value;const t=document.getElementById('type').value;return DATA.filter(x=>(d==='전체 영역'||x.domain===d)&&(t==='전체 수업 유형'||x.type.includes(t))&&[x.code,x.title,x.standard,x.concept,x.formula,x.related,x.products.join(' '),x.evidence.join(' ')].join(' ').toLowerCase().includes(q));}
+function renderList(){const arr=filtered();if(arr.length&&!arr.includes(DATA[current])) current=DATA.indexOf(arr[0]);document.getElementById('list-meta').textContent=arr.length+' / '+DATA.length+' STANDARDS';document.getElementById('list').innerHTML=arr.map(x=>{const i=DATA.indexOf(x);return '<button class="std-item '+(i===current?'on':'')+'" onclick="select('+i+')"><div><span class="code">'+esc(x.code)+'</span><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span>'+(x.official.length?'<span class="chip">평가도구</span>':'')+'</div><span class="std-title">'+esc(x.title)+'</span><span class="std-text">'+esc(x.standard)+'</span></button>';}).join('')||'<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';renderDetail();}
+function select(i){current=i;tab='overview';renderList();if(window.innerWidth<=1180)document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'});} function setTab(t){tab=t;renderDetail();}
+function steps(arr){return '<div class="steps">'+arr.map(x=>'<div class="step"><span>'+esc(x)+'</span></div>').join('')+'</div>';}
+function rubric(x){const L=x.levels||{};return '<div class="rubric">'+['A','B','C','D','E'].map(k=>'<div class="lv-row"><div class="lv '+k+'">'+k+'</div><div class="lv-text">'+esc(L[k]||'성취수준 자료를 확인해 보완한다.')+'</div></div>').join('')+'</div>';}
+function processLine(){return '<div class="process-line"><div><b>관찰</b>자료·식·그래프에서 패턴과 조건을 찾는다.</div><div><b>표현</b>표, 식, 그래프, 언어 설명으로 바꾼다.</div><div><b>전략</b>법칙, 모델, 증명 방법을 선택한다.</div><div><b>검증</b>계산, 반례, 그래프, 단위로 확인한다.</div><div><b>일반화</b>새 문제에 적용할 기준을 문장화한다.</div></div>';}
+function tableRows(x){return '<div class="lesson-hd"><div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 01</span>도입<br>수학적 현상 발견</div><div>교사는 다음 현상을 제시하고 정답보다 설명이 필요한 구조를 찾게 한다.<br><b>'+esc(x.phenomenon)+'</b></div><div>학생은 처음 떠오른 풀이, 조건, 그래프 모양, 패턴을 분리해 기록한다.</div><div>초기 전략 카드<br>조건 관찰표</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 02</span>정의·조건 설정</div><div>교사는 핵심 개념과 적용 조건을 확인하고, 오개념이 생길 수 있는 경계 사례를 제시한다.</div><div>학생은 '+esc(x.concept)+'의 정의, 조건, 관련 개념을 수식과 말로 정리한다.</div><div>정의-조건표<br>개념 연결도</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 03</span>표현 변환·탐구</div><div>교사는 식·표·그래프·언어 설명 사이의 변환이 정확한지 질문한다.</div><div>학생은 '+esc(x.data)+'</div><div>'+esc(x.products[0])+'</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 04</span>전략 선택·검증</div><div>교사는 계산 결과를 반례, 그래프, 단위, 정의로 검증하게 한다.</div><div>학생은 '+esc(x.modeling)+'</div><div>전략 선택표<br>검증 기록</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 05</span>일반화·전이</div><div>교사는 다른 값, 다른 그래프, 다른 실생활 조건, 다른 명제에 같은 기준을 적용하게 한다.</div><div>학생은 최종 풀이의 조건과 한계를 설명하고 새로운 문제에 적용할 기준을 제시한다.</div><div>일반화 문장<br>전이 문제</div></div>';}
+function recordGuide(x){return block('대학이 읽는 탐구력 포인트 — 세특 문장화 안내','<div class="cards3"><div class="card accent-atmo"><h4>정의와 조건</h4><p>산출물명보다 학생이 어떤 조건을 확인하고 어떤 오개념을 수정했는지 기록합니다. 핵심 수식: <span class="math-expr">'+esc(x.formula)+'</span></p></div><div class="card accent-green"><h4>표현 변환과 전략</h4><p>'+esc(x.data)+'</p><p><b>관찰 단서:</b> '+esc(x.evidence.slice(0,3).join(' / '))+'</p></div><div class="card accent-astro"><h4>검증과 전이</h4><p>'+esc(x.uncertainty)+'</p><p><b>전이 질문:</b> '+esc(x.questions[3])+'</p></div></div>','계산량보다 사고 과정, 조건 확인, 검증 장면을 남깁니다');}
+function panel(x){const qs=x.questions;const panels={};
+panels.overview=block('성취기준 원문','<div class="std-full"><b>'+esc(x.code)+'</b>'+esc(x.standard)+'</div>'+formula(x))+'<div class="cards"><div class="card '+accent(x.domain)+'"><h4><span class="icon">i</span>수업 개요</h4><p><b>제목 :</b> '+esc(x.title)+'</p><p><b>유형 :</b> '+esc(x.type)+'</p><p><b>권장 차시 :</b> '+esc(x.period)+'</p><p><b>핵심 개념 :</b> '+esc(x.concept)+'</p><p><b>개념 렌즈 :</b> '+esc(x.lens)+'</p><p><b>평가 연결 :</b> '+esc(x.tool)+'</p></div><div class="card accent-green"><h4><span class="icon">∑</span>핵심 산출물</h4>'+pills(x.products)+'</div></div>'+block('교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서',pills(x.evidence),'수업 중 즉시 메모를 권장합니다');
+panels.cbi=block('개념 형성의 흐름','<div class="cards"><div class="card accent-gold"><h4>현상(Phenomenon)</h4><p>'+esc(x.phenomenon)+'</p></div><div class="card '+accent(x.domain)+'"><h4>개념 갈등(Conflict)</h4><p>'+esc(x.conflict)+'</p></div></div><div class="general" style="margin-top:.9rem"><div class="gen-row"><b>교사용 일반화 진술</b><p>'+esc(x.general)+'</p></div><div class="gen-row"><b>학생용 일반화 진술</b><p>'+esc(x.studentGeneral)+'</p></div></div>'+processLine(),'CBI 모형')+block('탐구 질문 4종 — 사실에서 전이까지','<div class="q-grid"><div class="q fact"><b>Factual · 사실적 질문</b><p>'+esc(qs[0])+'</p></div><div class="q concept"><b>Conceptual · 개념적 질문</b><p>'+esc(qs[1])+'</p></div><div class="q debate"><b>Debatable · 논쟁적 질문</b><p>'+esc(qs[2])+'</p></div><div class="q transfer"><b>Transfer · 전이 질문</b><p>'+esc(qs[3])+'</p></div></div>')+block('핵심 개념과 관련 개념','<div class="card"><p><b>핵심 개념 :</b> '+esc(x.concept)+'</p><p><b>수식·표현 :</b> <span class="math-expr">'+esc(x.formula)+'</span></p><p><b>관련 개념 :</b> '+esc(x.related)+'</p></div>');
+panels.lesson=block('차시별·단계별 수업방법',tableRows(x),'정의-표현-전략-검증-일반화')+block('교사 발문 세트 — 즉시 사용 가능','<div class="cards"><div class="card accent-atmo"><h4>탐구 전</h4><ul><li>이 문제에서 먼저 확인해야 할 정의와 조건은 무엇인가?</li><li>식, 표, 그래프, 말 설명 중 어떤 표현이 구조를 가장 잘 보여 주는가?</li><li>계산 전에 예상되는 결과의 범위나 그래프 모양은 무엇인가?</li></ul></div><div class="card accent-gold"><h4>탐구 중</h4><ul><li>지금 적용한 법칙의 조건은 모두 만족하는가?</li><li>다른 표현으로 바꾸면 같은 구조가 유지되는가?</li><li>반례, 그래프, 단위, 대입 검산 중 어떤 방법으로 확인할 수 있는가?</li></ul></div><div class="card accent-astro"><h4>탐구 후</h4><ul><li>오늘의 풀이 전략을 한 문장으로 일반화하면 무엇인가?</li><li>학생부 기록 근거로 남길 수 있는 전략 선택과 검증 장면은 무엇인가?</li><li>새로운 문제에서 같은 개념을 적용할 때 조심할 조건은 무엇인가?</li></ul></div></div>')+block('오개념·실패 상황 대처·안전','<div class="cards3"><div class="card accent-red"><h4>예상 오개념</h4><p>'+esc(x.misconception)+'</p><p><b>피드백 :</b> '+esc(x.correction)+'</p></div><div class="card accent-gold"><h4>실패 상황 대처</h4><p>학생이 계산 결과에만 머물면 적용 조건, 표현 변환, 검증 방법 중 하나를 반드시 표시하게 합니다.</p></div><div class="card accent-green"><h4>공학 도구·자료 윤리</h4><p>'+esc(x.safe)+'</p></div></div>');
+panels.worksheet=block('학생 활동지 문항 — 실제 기록용',steps(['오늘의 수학적 현상에서 설명해야 할 구조나 조건을 쓰시오.',qs[1],'핵심 수식 또는 표현을 쓰고 각 기호의 의미와 조건을 설명하시오: '+x.formula,x.data,x.modeling,'계산 결과를 검증할 방법을 두 가지 이상 제시하시오.',x.uncertainty,qs[3]]))+block('자료 처리 안내 — 수식·그래프·모델·증명','<div class="card accent-atmo"><h4>자료 출처</h4><p>'+esc(x.source)+'</p></div><div class="card accent-geo" style="margin-top:.8rem"><h4>분석 범위</h4><p>'+esc(x.scale)+'</p></div><div class="card accent-green" style="margin-top:.8rem"><h4>표현 변환</h4><p>'+esc(x.data)+'</p></div><div class="card accent-gold" style="margin-top:.8rem"><h4>조건·한계</h4><p>'+esc(x.uncertainty)+'</p><p><b>수학 문장 틀 :</b> “<b>'+esc(x.concept)+'</b> 개념은 <span class="math-expr">'+esc(x.formula)+'</span>로 표현되며, 이 문제에서는 <b>'+esc(x.lens)+'</b> 관점에서 조건을 확인하고 표현을 변환할 때 풀이가 정당화된다.”</p></div>');
+panels.assessment=block('수행평가 과제','<div class="card '+accent(x.domain)+'"><h4>'+esc(x.title)+'</h4><p>핵심 산출물(<b>'+esc(x.products[0])+'</b>)을 제출하고, 성취기준 원문에 도달했음을 정의·조건 확인, 표현 변환, 전략 선택, 검증 또는 증명 과정으로 설명한다.</p></div>')+block('평가 요소','<div class="cards3"><div class="card accent-atmo"><h4>지식·이해</h4><p>'+esc(x.concept)+'와 관련 조건의 정확한 설명</p></div><div class="card accent-green"><h4>과정·기능</h4><p>식·그래프·표 변환, 공학 도구 활용, 문제해결 전략 선택, 반례 검토, 모델링, 증명 구조화</p></div><div class="card accent-astro"><h4>가치·태도</h4><p>수학적 정확성, 논리성, 검증 태도, 유용성 인식, 끈기 있는 문제해결</p></div></div>')+block('성취수준 기반 5단계 루브릭',rubric(x),'A-E 성취수준 근거')+block('피드백 방향','<div class="card"><p><b>보충 :</b> 공식 암기나 단순 계산에 머물지 말고 정의, 조건, 표현 변환 중 하나를 근거로 설명하게 한다.</p><p><b>심화 :</b> 반례 탐색, 그래프 일반화, 실생활 모델링 한계, 극한의 좌우 조건, 그래프 일반화, 변화율·누적량 모델링 한계, 정리의 조건 검토으로 확장하게 한다.</p></div>');
+panels.record='<div class="record"><b>학생부 기록 — 정답보다 “수학적 사고의 증거”가 먼저</b><p>'+esc(x.evidence.join(' / '))+'</p></div>'+block('관찰 가능한 수행 증거 정리','<div class="cards"><div class="card accent-green"><h4>기록 가능한 산출물</h4>'+pills(x.products)+'</div><div class="card accent-gold"><h4>권장 기록 소재</h4><p>「'+esc(x.title)+'」 수업에서 <b>'+esc(x.concept)+'</b> 개념을 정의와 조건 중심으로 설명하고, <span class="math-expr">'+esc(x.formula)+'</span> 표현을 활용해 전략 선택, 검증, 일반화 과정을 구체화함.</p></div></div>')+block('세부능력 및 특기사항 기록 예시','<div class="sample-record">'+esc(x.sample)+'</div>','그대로 복사하지 말고 학생 개별 수행에 맞춰 가공')+recordGuide(x)+block('심화 탐구 주제 — 자기주도 탐구로의 확장','<div class="card accent-astro"><h4>심화탐구 제안</h4><p>'+esc(x.deepDive)+'</p></div><div class="card" style="margin-top:.7rem"><h4>전이 질문</h4><p style="font-family:Fraunces,serif">'+esc(x.questions[3])+'</p></div><div class="card" style="margin-top:.7rem"><h4>연계 진로 분야</h4>'+pills(x.career.split(', '))+'</div>');
+return panels[tab]||panels.overview;}
+function renderDetail(){const x=DATA[current];const tabbar=TABS.map(t=>'<button class="'+(tab===t[0]?'on':'')+'" onclick="setTab(\''+t[0]+'\')"><span class="t-n">'+t[2]+'</span>'+t[1]+'</button>').join('');document.getElementById('detail').innerHTML='<div class="detail-hd"><div class="chip-row"><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span><span class="chip">'+esc(x.code)+'</span>'+(x.official.length?'<span class="chip">평가도구</span>':'<span class="chip">CBI 탐구</span>')+'<span class="chip">'+esc(x.period)+'</span></div><h2>'+esc(x.title)+'</h2><div class="std-full"><b>성취기준 원문</b>'+esc(x.standard)+'</div>'+formula(x)+'</div><div class="tabbar">'+tabbar+'</div><div class="panel">'+panel(x)+'</div>';}
+function renderMatrix(){document.getElementById('matrixBody').innerHTML=DATA.map((x,i)=>'<tr><td><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span></td><td class="mcode" onclick="openStandard('+i+')">'+esc(x.code)+'</td><td><b style="color:var(--ink);font-family:Fraunces,serif">'+esc(x.title)+'</b></td><td>'+esc(x.type)+'</td><td>'+esc(x.concept)+'</td><td><span class="math-expr">'+esc(x.formula)+'</span></td><td>'+esc(x.evidence.join(' / '))+'</td></tr>').join('');}
+function openStandard(i){current=i;tab='overview';openView('standards');renderList();}
+function downloadCSV(){const rows=[['영역','코드','성취기준','수업제목','유형','차시','핵심개념','수식표현','개념렌즈','산출물','관찰증거','심화탐구','연계진로']];DATA.forEach(x=>rows.push([x.domain,x.code,x.standard,x.title,x.type,x.period,x.concept,x.formula,x.lens,x.products.join('; '),x.evidence.join(' / '),x.deepDive,x.career]));const csv=rows.map(r=>r.map(v=>'"'+String(v).split('"').join('""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));a.download='미적분Ⅰ_수업설계_매트릭스_충남교육청.csv';a.click();}
+document.getElementById('search').addEventListener('input',renderList);document.getElementById('domain').addEventListener('change',renderList);document.getElementById('type').addEventListener('change',renderList);renderList();renderMatrix();document.addEventListener('keydown',function(e){if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;if(e.key==='ArrowDown'&&document.getElementById('standards').classList.contains('active')){e.preventDefault();const arr=filtered();const idx=arr.indexOf(DATA[current]);if(idx>=0&&idx<arr.length-1)select(DATA.indexOf(arr[idx+1]));}if(e.key==='ArrowUp'&&document.getElementById('standards').classList.contains('active')){e.preventDefault();const arr=filtered();const idx=arr.indexOf(DATA[current]);if(idx>0)select(DATA.indexOf(arr[idx-1]));}});(function(){const fab=document.getElementById('fabHome');if(!fab)return;let ticking=false;function onScroll(){if(window.scrollY>240)fab.classList.add('visible');else fab.classList.remove('visible');ticking=false;}window.addEventListener('scroll',function(){if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});})();
+</script>
