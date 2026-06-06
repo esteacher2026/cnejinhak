@@ -11,275 +11,417 @@
   </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>학생부종합전형 서류평가 비교</title>
+  <meta name="description" content="대학별 학생부종합전형 서류평가 내용과 전형별 평가요소 비율을 어디가 원문 기준으로 비교합니다." />
+  <title>서류평가 기준 비교 · 학생부종합전형 2027</title>
   <script src="jonghapdoc_eval_data.js"></script>
   <style>
     :root{
-      --bg:#f4f6f8;--surface:#fff;--ink:#111827;--muted:#667085;--line:#d9e0e8;
-      --navy:#123247;--navy2:#0f2534;--teal:#0f766e;--teal-soft:#d9f3ef;
-      --blue:#2563eb;--blue-soft:#e8f0ff;--amber:#b45309;--amber-soft:#fff4d8;
-      --red:#b42318;--red-soft:#fee4e2;--green:#15803d;--green-soft:#dcfce7;
-      --shadow:0 14px 32px rgba(15,23,42,.08);--radius:8px;--safe-bottom:env(safe-area-inset-bottom,0px);
-      --bar1:#2563eb;--bar2:#0f766e;--bar3:#b45309;--bar4:#7c3aed;--bar5:#475467;
+      --bg:#eef1f6; --surface:#fff;
+      --ink:#0f172a; --ink-soft:#1e293b; --muted:#64748b; --faint:#94a3b8;
+      --line:#e3e8ef; --line-soft:#eef2f7;
+      --brand:#4f46e5; --brand-dark:#4338ca; --brand-soft:#eef2ff; --brand-ink:#3730a3;
+      --ok:#15803d; --ok-soft:#dcfce7; --warn:#b45309; --warn-soft:#fef3c7;
+      --danger:#b91c1c; --danger-soft:#fee2e2; --info:#1d4ed8; --info-soft:#e0e7ff;
+      --f-acad:#4f46e5; --f-career:#0f766e; --f-character:#b45309; --f-comm:#7c3aed; --f-etc:#475569;
+      --radius:14px; --radius-md:11px; --radius-sm:8px;
+      --shadow-sm:0 1px 2px rgba(15,23,42,.05);
+      --shadow:0 6px 20px rgba(15,23,42,.06);
+      --shadow-lg:0 16px 40px rgba(15,23,42,.12);
+      --safe-bottom:env(safe-area-inset-bottom,0px);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     html,body{overflow-x:hidden}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.45;-webkit-text-size-adjust:100%}
-    button,input,select{font:inherit}
+    body{
+      margin:0;background:var(--bg);color:var(--ink);
+      font-family:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+      line-height:1.6;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;
+    }
+    button,input,select{font:inherit;color:inherit}
     button{cursor:pointer}
-    .app{width:min(1440px,100%);margin:0 auto;padding:16px 16px calc(36px + var(--safe-bottom))}
-    .topbar{display:flex;align-items:center;margin-bottom:12px}
-    .home{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 13px;border:1px solid #b9c8d8;border-radius:999px;background:var(--navy);color:#fff;text-decoration:none;font-size:13px;font-weight:900}
-    .home svg,.icon{width:16px;height:16px;flex:0 0 16px}
-    header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;padding:22px 24px;border-radius:var(--radius);background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff;box-shadow:var(--shadow)}
-    .eyebrow{margin:0 0 6px;color:#b6d3dd;font-size:12px;font-weight:900;letter-spacing:.02em}
-    h1{margin:0;font-size:clamp(26px,4vw,42px);line-height:1.1;letter-spacing:0}
-    header p{margin:10px 0 0;max-width:860px;color:#d6e4ea;font-size:14px;word-break:keep-all}
-    .meta-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-    .meta-pill{display:inline-flex;align-items:center;min-height:28px;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:12px;font-weight:850;color:#fff}
-    .summary-box{min-width:248px;padding:14px;border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);background:rgba(255,255,255,.08)}
-    .summary-box b{display:block;font-size:22px;line-height:1.1}
-    .summary-box span{display:block;margin-top:5px;color:#c9d8de;font-size:12px;font-weight:750}
-    .workspace{display:grid;grid-template-columns:360px minmax(0,1fr);gap:12px;margin-top:12px;align-items:start}
-    .panel{min-width:0;background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 10px 24px rgba(15,23,42,.05)}
-    .controls{position:sticky;top:10px;z-index:10;padding:14px}
-    .field{display:grid;gap:6px;margin-bottom:10px}
-    .field label{color:#344054;font-size:12px;font-weight:900}
-    input[type="search"],select{width:100%;height:42px;border:1px solid #cbd5e1;border-radius:var(--radius);background:#fff;padding:0 11px;color:#111827;outline:none}
-    input[type="search"]:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.12)}
-    .checks{display:grid;gap:8px;margin-top:10px}
-    .check{display:flex;align-items:center;gap:8px;min-height:38px;padding:8px 9px;border:1px solid #e2e8f0;border-radius:var(--radius);background:#f8fafc;color:#344054;font-size:12.5px;font-weight:850}
-    .check input{width:18px;height:18px;accent-color:var(--teal)}
-    .filter-actions{display:flex;gap:8px;margin-top:12px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:0 12px;border:1px solid transparent;border-radius:var(--radius);background:var(--navy);color:#fff;font-size:12.5px;font-weight:900}
-    .btn.secondary{background:#fff;color:#344054;border-color:#cbd5e1}
-    .btn.teal{background:var(--teal)}
-    .btn.warn{background:#fff;color:#92400e;border-color:#f3c36b}
+    a{color:inherit}
+    ::selection{background:var(--brand-soft)}
+
+    .app{width:min(1320px,100%);margin:0 auto;padding:14px 16px calc(40px + var(--safe-bottom))}
+
+    /* ---------- top bar ---------- */
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .home,.source-link{
+      display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 13px;
+      border-radius:999px;text-decoration:none;font-size:13px;font-weight:700;
+      transition:background .15s,border-color .15s,color .15s;
+    }
+    .home{border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);box-shadow:var(--shadow-sm)}
+    .home:hover{border-color:#cbd5e1;background:#f8fafc}
+    .source-link{color:var(--brand-ink);background:var(--brand-soft)}
+    .source-link:hover{background:#e2e7ff}
+    .ic{width:16px;height:16px;flex:0 0 16px;stroke-width:2.2}
+
+    /* ---------- hero ---------- */
+    .hero{
+      display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+      padding:20px 24px;border-radius:var(--radius);background:var(--surface);
+      border:1px solid var(--line);border-left:4px solid var(--brand);box-shadow:var(--shadow)
+    }
+    .hero-main{min-width:0;flex:1 1 420px}
+    .eyebrow{display:inline-block;margin-bottom:8px;color:var(--brand-ink);font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(22px,3.2vw,30px);line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+    .hero-main p{margin:9px 0 0;max-width:760px;color:var(--muted);font-size:13.5px;word-break:keep-all}
+    .hero-stats{display:flex;gap:10px;flex-wrap:wrap}
+    .hero-stats .stat{
+      min-width:104px;padding:11px 14px;border-radius:var(--radius-md);
+      background:linear-gradient(180deg,#fafbff,#f3f5ff);border:1px solid #e6e9f8;text-align:center
+    }
+    .hero-stats .stat b{display:block;font-size:21px;font-weight:800;color:var(--brand-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .hero-stats .stat span{display:block;margin-top:3px;color:var(--muted);font-size:11.5px;font-weight:600}
+
+    /* ---------- toolbar ---------- */
+    .toolbar{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;
+      padding:12px 14px;border-radius:var(--radius);background:var(--surface);
+      border:1px solid var(--line);box-shadow:var(--shadow-sm)
+    }
+    .tool-search{position:relative;flex:1 1 260px;min-width:220px}
+    .tool-search .ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--faint);pointer-events:none}
+    .tool-search input{width:100%;height:42px;padding:0 12px 0 38px;border:1px solid #cbd5e1;border-radius:var(--radius-sm);background:#fff;outline:none;font-size:14px}
+    select{
+      height:42px;border:1px solid #cbd5e1;border-radius:var(--radius-sm);background:#fff;
+      padding:0 34px 0 12px;outline:none;font-size:13.5px;color:var(--ink-soft);font-weight:600;
+      max-width:100%;
+      appearance:none;-webkit-appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;background-position:right 11px center
+    }
+    .tool-search input:focus,select:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(79,70,229,.14)}
+    .switch{
+      display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 13px;
+      border:1px solid #cbd5e1;border-radius:var(--radius-sm);background:#fff;
+      color:var(--muted);font-size:13px;font-weight:600;user-select:none;transition:.15s
+    }
+    .switch input{width:17px;height:17px;accent-color:var(--brand);margin:0}
+    .switch:has(input:checked){background:var(--brand-soft);border-color:#c7cdf7;color:var(--brand-ink)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 15px;
+      border:1px solid transparent;border-radius:var(--radius-sm);background:var(--brand);color:#fff;
+      font-size:13.5px;font-weight:700;transition:background .15s,border-color .15s,color .15s,box-shadow .15s;white-space:nowrap
+    }
+    .btn:hover{background:var(--brand-dark)}
+    .btn.ghost{background:#fff;color:var(--ink-soft);border-color:#cbd5e1}
+    .btn.ghost:hover{background:#f8fafc;border-color:#94a3b8}
+    .btn.subtle{background:var(--brand-soft);color:var(--brand-ink)}
+    .btn.subtle:hover{background:#e2e7ff}
+    .btn.warn{background:#fff;color:var(--warn);border-color:#f3cf9b}
+    .btn.warn:hover{background:var(--warn-soft)}
     .btn:disabled{opacity:.45;cursor:not-allowed}
-    .status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
-    .stat{padding:9px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#f8fafc}
-    .stat span{display:block;color:#667085;font-size:11px;font-weight:850}
-    .stat b{display:block;margin-top:2px;font-size:19px;font-variant-numeric:tabular-nums}
-    .compare-tray{margin-top:12px;padding:12px;border:1px solid #c7e8e2;border-radius:var(--radius);background:#f2fbf9}
-    .tray-title{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;margin-bottom:8px}
-    .tray-title b{font-size:13px}
-    .compare-tags{display:flex;gap:6px;flex-wrap:wrap}
-    .tag{display:inline-flex;align-items:center;gap:6px;max-width:100%;min-height:28px;padding:4px 8px;border-radius:999px;background:#fff;border:1px solid #cbd5e1;color:#344054;font-size:12px;font-weight:800}
-    .tag button{border:0;background:transparent;color:#667085;padding:0;line-height:1;font-size:16px}
-    .main{display:grid;gap:12px}
-    .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px}
-    .toolbar h2{margin:0;font-size:17px;letter-spacing:0}
-    .toolbar p{margin:2px 0 0;color:#667085;font-size:12px}
-    .list{display:grid;gap:8px;padding:0 12px 12px;max-height:520px;overflow:auto}
-    .uni-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff;text-align:left}
-    .uni-row.active{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.10)}
-    .uni-row:hover{border-color:#b6c5d6}
-    .uni-main{display:block;width:100%;border:0;background:transparent;color:inherit;padding:0;text-align:left}
-    .uni-name{font-size:14.5px;font-weight:900;letter-spacing:0;word-break:keep-all}
+    .btn .ic{width:15px;height:15px}
+    .spacer{flex:1 1 auto}
+
+    /* ---------- layout ---------- */
+    .layout{display:grid;grid-template-columns:360px minmax(0,1fr);gap:14px;margin-top:14px;align-items:start}
+    .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+
+    /* ---------- list pane ---------- */
+    .list-pane{position:sticky;top:14px;max-height:calc(100vh - 28px);display:flex;flex-direction:column;overflow:hidden}
+    .list-head{padding:13px 14px 11px;border-bottom:1px solid var(--line-soft)}
+    .list-head-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .list-head-row h2{margin:0;font-size:15px;font-weight:800;letter-spacing:-.01em}
+    .count{display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:999px;background:var(--brand-soft);color:var(--brand-ink);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
+    .list-sub{margin:6px 0 0;color:var(--faint);font-size:11.5px;font-weight:600}
+    .active-filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+    .fchip{display:inline-flex;align-items:center;gap:5px;height:25px;padding:0 6px 0 9px;border:1px solid #c7cdf7;border-radius:999px;background:var(--brand-soft);color:var(--brand-ink);font-size:11.5px;font-weight:700}
+    .fchip span{font-size:14px;line-height:1;opacity:.7}
+    .fchip:hover{background:#e2e7ff}
+
+    .list{flex:1 1 auto;overflow:auto;padding:8px;display:flex;flex-direction:column;gap:7px;scrollbar-gutter:stable}
+    .uni-row{
+      display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;
+      padding:9px 10px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;
+      transition:border-color .12s,box-shadow .12s,background .12s
+    }
+    .uni-row:hover{border-color:#c3cadb;background:#fcfdff}
+    .uni-row.active{border-color:var(--brand);background:var(--brand-soft);box-shadow:0 0 0 1px var(--brand) inset}
+    .uni-main{display:block;width:100%;border:0;background:transparent;padding:0;text-align:left;min-width:0}
+    .uni-name{font-size:14px;font-weight:700;letter-spacing:-.01em;word-break:keep-all;color:var(--ink)}
     .uni-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
-    .badge{display:inline-flex;align-items:center;min-height:22px;padding:3px 7px;border-radius:999px;background:#f1f5f9;color:#475467;font-size:11px;font-weight:850}
-    .badge.good{background:var(--green-soft);color:#166534}.badge.teal{background:var(--teal-soft);color:#115e59}.badge.blue{background:var(--blue-soft);color:#1d4ed8}.badge.warn{background:var(--amber-soft);color:#92400e}.badge.red{background:var(--red-soft);color:#991b1b}
-    .row-actions{display:flex;gap:6px}
-    .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid #cbd5e1;border-radius:var(--radius);background:#fff;color:#344054}
-    .icon-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
-    .detail{padding:16px}
-    .detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-    .detail h2{margin:0;font-size:22px;letter-spacing:0;word-break:keep-all}
-    .detail-sub{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-    .empty{padding:28px 18px;text-align:center;color:#667085}
-    .empty b{display:block;color:#111827;font-size:16px;margin-bottom:5px}
-    .section-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
-    .kpi{padding:12px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fbfcfe}
-    .kpi span{display:block;color:#667085;font-size:11.5px;font-weight:900}
-    .kpi b{display:block;margin-top:4px;font-size:18px;line-height:1.2}
-    .block{margin-top:14px}
-    .block-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}
-    .block-title h3{margin:0;font-size:16px}
-    .block-title span{color:#667085;font-size:12px;font-weight:750}
-    .ratio-list{display:grid;gap:8px}
-    .ratio-card{padding:11px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff}
-    .ratio-card.special{background:#fffaf0;border-color:#f4cf8e}
-    .ratio-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
-    .ratio-title b{font-size:13.5px;word-break:keep-all}
-    .stack{height:28px;display:flex;overflow:hidden;border-radius:6px;background:#eef2f7;border:1px solid #e4eaf1}
-    .seg{display:flex;align-items:center;justify-content:center;min-width:32px;color:#fff;font-size:11px;font-weight:900;white-space:nowrap}
-    .legend{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-    .legend-item{display:inline-flex;align-items:center;gap:5px;color:#475467;font-size:11.5px;font-weight:800}
-    .swatch{width:10px;height:10px;border-radius:3px;background:#667085}
-    .table-wrap{overflow:auto;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff}
-    table{width:100%;border-collapse:collapse;font-size:12px;min-width:640px}
-    th,td{padding:8px 9px;border-bottom:1px solid #edf1f5;border-right:1px solid #edf1f5;text-align:left;vertical-align:top}
-    th{background:#f1f5f9;color:#344054;font-weight:900}
-    td{color:#1f2937}
-    tr.special-row td{background:#fffaf0}
-    .table-wrap.compact table{min-width:520px}
-    .text-box{max-height:320px;overflow:auto;padding:12px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff;white-space:pre-wrap;color:#344054;font-size:12.5px}
-    details.source{margin-top:12px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff}
-    details.source summary{padding:11px 12px;cursor:pointer;font-size:13px;font-weight:900;color:#344054}
-    .source-text{padding:0 12px 12px;white-space:pre-wrap;color:#344054;font-size:12.5px;max-height:360px;overflow:auto}
-    .compare-panel{padding:16px}
-    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
-    .compare-card{border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff;padding:12px}
-    .compare-card h3{margin:0 0 8px;font-size:16px;word-break:keep-all}
-    .factor-list{display:grid;gap:6px;margin-top:8px}
-    .factor-row{display:grid;grid-template-columns:90px 1fr 42px;gap:8px;align-items:center;font-size:12px;color:#344054}
-    .mini-bar{height:8px;border-radius:999px;background:#e4eaf1;overflow:hidden}
-    .mini-bar i{display:block;height:100%;background:var(--teal)}
-    .note{margin:10px 0 0;padding:10px;border-radius:var(--radius);background:#f8fafc;border:1px solid #e4eaf1;color:#475467;font-size:12px;word-break:keep-all}
-    .footer-credit{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:14px;padding:15px 18px;border-top:1px solid #cfd8e3;color:#475467}
-    .credit-label{display:block;margin-bottom:3px;color:#667085;font-size:11px;font-weight:900}
-    .credit-main{margin:0;color:#123247;font-size:13px;font-weight:850;word-break:keep-all}
-    .credit-main b{font-weight:950}
-    .credit-source{margin:0;color:#667085;font-size:12px;font-weight:850;white-space:nowrap}
-    .toast{position:fixed;left:50%;bottom:calc(18px + var(--safe-bottom));transform:translateX(-50%) translateY(16px);opacity:0;z-index:100;pointer-events:none;padding:10px 14px;border-radius:999px;background:#111827;color:#fff;box-shadow:var(--shadow);transition:opacity .18s,transform .18s;font-size:12.5px;font-weight:850}
+    .row-actions{display:flex}
+    .pin{
+      display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+      border:1px solid #cbd5e1;border-radius:var(--radius-sm);background:#fff;color:var(--muted);transition:.12s
+    }
+    .pin:hover{border-color:var(--brand);color:var(--brand)}
+    .pin.active{background:var(--brand);border-color:var(--brand);color:#fff}
+    .pin .ic{width:16px;height:16px}
+
+    /* badges */
+    .badge{display:inline-flex;align-items:center;height:21px;padding:0 8px;border-radius:999px;background:#eef2f7;color:#475467;font-size:11px;font-weight:700;white-space:nowrap}
+    .badge.ok{background:var(--ok-soft);color:#166534}
+    .badge.brand{background:var(--brand-soft);color:var(--brand-ink)}
+    .badge.career{background:#d8f3ef;color:#115e59}
+    .badge.warn{background:var(--warn-soft);color:#92400e}
+    .badge.danger{background:var(--danger-soft);color:#991b1b}
+    .pill{display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:999px;font-size:11px;font-weight:700}
+    .pill.warn{background:var(--warn-soft);color:#92400e}
+
+    /* compare tray */
+    .compare-tray{border-top:1px solid var(--line-soft);padding:11px 14px;background:#fbfcfe;border-radius:0 0 var(--radius) var(--radius)}
+    .tray-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .tray-head b{font-size:12.5px;font-weight:800}
+    .chip-count{font-size:11.5px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+    .link-btn{border:0;background:transparent;padding:0;color:var(--brand-ink);font-size:12px;font-weight:800}
+    .link-btn:hover{text-decoration:underline}
+    .link-btn.muted{color:var(--faint)}
+    .link-btn:disabled{opacity:.4;cursor:not-allowed;text-decoration:none}
+    .compare-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+    .tag{display:inline-flex;align-items:center;gap:6px;max-width:100%;height:27px;padding:0 6px 0 10px;border-radius:999px;background:#fff;border:1px solid #cbd5e1;color:var(--ink-soft);font-size:12px;font-weight:700}
+    .tag span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:150px}
+    .tag button{border:0;background:transparent;color:var(--faint);padding:2px;line-height:1;font-size:15px;display:flex}
+    .tag button:hover{color:var(--danger)}
+    .tray-empty{color:var(--faint);font-size:12px;font-weight:600;margin-top:8px}
+
+    /* ---------- detail pane ---------- */
+    .detail-pane{display:flex;flex-direction:column;gap:12px;min-width:0}
+    .tabs{display:inline-flex;gap:4px;padding:4px;background:#e7ebf2;border-radius:999px;align-self:flex-start}
+    .tab{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:13.5px;font-weight:700;transition:.15s}
+    .tab:hover{color:var(--ink-soft)}
+    .tab.active{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
+    .tab-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#cbd2de;color:#475467;font-size:11px;font-weight:800}
+    .tab.active .tab-badge{background:var(--brand);color:#fff}
+
+    .detail,.compare{padding:18px 20px}
+    .detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-bottom:15px;border-bottom:1px solid var(--line)}
+    .detail-head h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.02em;word-break:keep-all}
+    .detail-sub{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+    .detail-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .back-btn{display:none}
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+    .kpi{padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(180deg,#fcfdff,#f7f9fd)}
+    .kpi span{display:block;color:var(--muted);font-size:11.5px;font-weight:700}
+    .kpi b{display:block;margin-top:5px;font-size:20px;font-weight:800;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
+
+    .block{margin-top:22px}
+    .block-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:11px}
+    .block-title h3{margin:0;font-size:15.5px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+    .block-title h3::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--brand)}
+    .block-title .hint{color:var(--faint);font-size:12px;font-weight:600}
+
+    /* ratio cards */
+    .ratio-list{display:grid;gap:11px}
+    .ratio-card{padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff}
+    .ratio-card.special{background:#fffdf6;border-color:#f0d9a8}
+    .ratio-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .ratio-title b{font-size:14px;font-weight:700;word-break:keep-all;color:var(--ink)}
+    .sum-note{margin-left:auto;color:var(--warn);font-size:11.5px;font-weight:700}
+    .stack{display:flex;height:30px;overflow:hidden;border-radius:7px;background:#eef2f7;border:1px solid var(--line)}
+    .seg{display:flex;align-items:center;justify-content:center;min-width:3px;color:#fff;font-size:11.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-shadow:0 1px 1px rgba(0,0,0,.12)}
+    .legend{display:flex;gap:7px 14px;flex-wrap:wrap;margin-top:10px}
+    .legend-item{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-size:12px;font-weight:600}
+    .legend-item b{font-weight:800}
+    .swatch{width:11px;height:11px;border-radius:3px;flex:0 0 11px}
+
+    /* tables */
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff}
+    table{width:100%;border-collapse:collapse;font-size:12.5px}
+    th,td{padding:10px 11px;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:top;word-break:keep-all}
+    th{background:#f5f7fb;color:var(--ink-soft);font-weight:800;position:sticky;top:0}
+    td{color:var(--ink-soft)}
+    tr:last-child td{border-bottom:0}
+    tr.special-row td{background:#fffdf6}
+    .cell-list{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:3px}
+    .cell-list li{padding-left:2px}
+    .table-note{margin-top:8px}
+
+    .text-box{max-height:340px;overflow:auto;padding:14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;white-space:pre-wrap;color:var(--ink-soft);font-size:12.5px;line-height:1.7}
+
+    details.source{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;overflow:hidden}
+    details.source>summary{padding:12px 14px;cursor:pointer;font-size:13px;font-weight:800;color:var(--ink-soft);list-style:none;display:flex;align-items:center;gap:8px}
+    details.source>summary::-webkit-details-marker{display:none}
+    details.source>summary::before{content:"";width:8px;height:8px;border-right:2px solid var(--faint);border-bottom:2px solid var(--faint);transform:rotate(-45deg);transition:transform .15s;margin-left:2px}
+    details.source[open]>summary::before{transform:rotate(45deg)}
+    .source-text{padding:0 14px 14px;white-space:pre-wrap;color:var(--ink-soft);font-size:12.5px;line-height:1.7;max-height:380px;overflow:auto}
+
+    .note{margin:14px 0 0;padding:12px 14px;border-radius:var(--radius-md);background:#f6f8fc;border:1px solid var(--line-soft);color:var(--muted);font-size:12px;word-break:keep-all;line-height:1.6}
+    .note.inline{margin:0}
+
+    /* compare view */
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+    .compare-card{border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;padding:14px;display:flex;flex-direction:column}
+    .compare-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+    .compare-card h3{margin:0;font-size:15.5px;font-weight:800;word-break:keep-all;line-height:1.25}
+    .compare-card .remove{border:0;background:transparent;color:var(--faint);font-size:17px;line-height:1;padding:2px;flex:0 0 auto}
+    .compare-card .remove:hover{color:var(--danger)}
+    .compare-card .detail-sub{margin-top:8px}
+    .compare-card .admission-label{margin-top:13px;color:var(--muted);font-size:11.5px;font-weight:700}
+    .compare-card .stack{margin-top:6px;height:26px}
+    .compare-card .legend{margin-top:9px}
+
+    /* empty states */
+    .empty{padding:40px 22px;text-align:center;color:var(--muted)}
+    .empty .ic{width:34px;height:34px;color:var(--faint);margin-bottom:10px;stroke-width:1.8}
+    .empty b{display:block;color:var(--ink);font-size:15.5px;font-weight:800;margin-bottom:5px}
+    .empty p{margin:0;font-size:13px}
+
+    .foot{margin-top:18px;padding:14px 6px 0;color:var(--faint);font-size:12px;text-align:center;line-height:1.7}
+    .foot a{color:var(--muted);font-weight:700}
+
+    /* toast */
+    .toast{
+      position:fixed;left:50%;bottom:calc(22px + var(--safe-bottom));transform:translateX(-50%) translateY(14px);
+      opacity:0;z-index:200;pointer-events:none;padding:11px 18px;border-radius:999px;
+      background:var(--ink);color:#fff;box-shadow:var(--shadow-lg);transition:opacity .2s,transform .2s;font-size:13px;font-weight:700
+    }
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-    @media(max-width:980px){
-      header{grid-template-columns:1fr}.summary-box{min-width:0}
-      .workspace{grid-template-columns:1fr}.controls{position:static}.list{max-height:none}
+
+    /* ---------- responsive ---------- */
+    @media(max-width:920px){
+      .layout{grid-template-columns:1fr}
+      .list-pane{position:static;max-height:none}
+      .list{max-height:58vh}
+      .hero-stats{width:100%}
+      .hero-stats .stat{flex:1 1 0;min-width:0}
+      .back-btn{display:inline-flex}
     }
-    @media(max-width:640px){
-      .app{padding:10px 8px calc(26px + var(--safe-bottom))}
-      header{padding:18px 16px}.footer-credit{display:grid;gap:8px;padding:13px 8px}.credit-source{white-space:normal}
-      .meta-strip{display:grid;grid-template-columns:minmax(0,1fr)}
-      .meta-pill{justify-content:center;min-width:0;text-align:center;white-space:normal;line-height:1.2}
-      .summary-box{width:100%}
-      .toolbar,.detail-head{flex-direction:column;align-items:stretch}
-      .section-grid{grid-template-columns:1fr}
-      .uni-row{grid-template-columns:1fr}.row-actions{justify-content:flex-end}
-      .filter-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-      .filter-actions .btn{width:100%;min-width:0;padding-left:8px;padding-right:8px}
-      .status,.compare-tray{min-width:0}
+    @media(max-width:560px){
+      .app{padding:10px 10px calc(30px + var(--safe-bottom))}
+      .hero{padding:16px 16px 16px 18px}
+      .source-link span{display:none}
+      .tool-search{flex-basis:100%}
+      .toolbar select,.toolbar .switch{flex:1 1 calc(50% - 5px)}
+      .toolbar .btn.ghost{flex:1 1 100%}
+      .detail,.compare{padding:15px 14px}
+      .kpi-grid{grid-template-columns:1fr}
+      .detail-head h2{font-size:19px}
+      .detail-actions{width:100%}
+      .detail-actions .btn{flex:1 1 0}
     }
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
   <div class="app">
     <div class="topbar">
       <a class="home" href="index.html" aria-label="메인으로 이동">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>
         메인
+      </a>
+      <a class="source-link" href="https://www.adiga.kr/uct/acd/ade/criteriaAndResultView.do?menuId=PCUCTACD2000" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        <span>어디가 원자료</span>
       </a>
     </div>
 
-    <header>
-      <div>
-        <p class="eyebrow">2027학생부종합전형</p>
+    <header class="hero">
+      <div class="hero-main">
+        <span class="eyebrow">ADIGA 2027 · 학생부종합전형</span>
         <h1>서류평가 기준 비교</h1>
-        <p>대학별 서류평가 내용과 전형별 평가요소 비율을 원문 표 기준으로 확인하고, 필요한 대학만 골라 비교합니다.</p>
-        <div class="meta-strip">
-          <span class="meta-pill" id="metaUniversities">전체 대학 -</span>
-          <span class="meta-pill" id="metaSections">서류평가 확인 -</span>
-          <span class="meta-pill" id="metaParsed">비율 그래프 가능 -</span>
-        </div>
+        <p>대학별 서류평가 내용과 전형별 평가요소 비율을 어디가 원문 표 기준으로 확인하고, 필요한 대학만 골라 나란히 비교합니다.</p>
       </div>
-      <div class="summary-box">
-        <b>2027학년도 기준</b>
-        <span>전년도 결과공개 안내의 학생부종합전형 주요사항 중 [서류평가] 구간을 정리했습니다.</span>
+      <div class="hero-stats">
+        <div class="stat"><b id="metaUniversities">—</b><span>전체 대학</span></div>
+        <div class="stat"><b id="metaSections">—</b><span>서류평가 확인</span></div>
+        <div class="stat"><b id="metaParsed">—</b><span>비율 그래프</span></div>
       </div>
     </header>
 
-    <main class="workspace">
-      <aside class="panel controls" aria-label="검색과 필터">
-        <div class="field">
-          <label for="q">대학명·평가요소 검색</label>
-          <input id="q" type="search" placeholder="예: 서울, 학업역량, 진로역량" autocomplete="off" />
+    <div class="toolbar" role="search">
+      <div class="tool-search">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="대학명 또는 평가요소 검색 (예: 서울, 학업역량)" autocomplete="off" aria-label="대학명·평가요소 검색" />
+      </div>
+      <select id="region" aria-label="지역 필터"></select>
+      <select id="factor" aria-label="평가요소 필터"></select>
+      <select id="sort" aria-label="정렬 기준">
+        <option value="name">대학명순</option>
+        <option value="region">지역순</option>
+        <option value="recruitment">모집인원 많은순</option>
+      </select>
+      <label class="switch"><input id="onlyData" type="checkbox" checked /> 자료 있는 대학만</label>
+      <label class="switch"><input id="hideSpecial" type="checkbox" checked /> 특별전형 숨김</label>
+      <span class="spacer"></span>
+      <button class="btn ghost" id="resetBtn" type="button">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/></svg>
+        초기화
+      </button>
+    </div>
+
+    <main class="layout">
+      <aside class="panel list-pane" aria-label="대학 목록">
+        <div class="list-head">
+          <div class="list-head-row">
+            <h2>대학 목록</h2>
+            <span class="count"><b id="resultCount">—</b>개</span>
+          </div>
+          <p class="list-sub" id="listNote">자료를 불러오는 중입니다.</p>
+          <div class="active-filters" id="activeFilters" style="display:none"></div>
         </div>
-        <div class="field">
-          <label for="region">지역</label>
-          <select id="region"></select>
-        </div>
-        <div class="field">
-          <label for="factor">평가요소</label>
-          <select id="factor"></select>
-        </div>
-        <div class="checks">
-          <label class="check"><input id="onlyData" type="checkbox" checked /> 서류평가 자료 있는 대학만</label>
-          <label class="check"><input id="hideSpecial" type="checkbox" checked /> 특별전형 행 기본 숨김</label>
-        </div>
-        <div class="filter-actions">
-          <button class="btn secondary" id="resetBtn" type="button">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/></svg>
-            초기화
-          </button>
-          <button class="btn teal" id="compareJump" type="button">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-            비교
-          </button>
-        </div>
-        <div class="status">
-          <div class="stat"><span>검색 결과</span><b id="resultCount">-</b></div>
-          <div class="stat"><span>선택 비교</span><b id="compareCount">0</b></div>
-        </div>
+        <div class="list" id="list" role="list"></div>
         <div class="compare-tray">
-          <div class="tray-title"><b>비교 대학</b><button class="btn secondary" id="clearCompare" type="button">비우기</button></div>
-          <div class="compare-tags" id="compareTags"></div>
+          <div class="tray-head">
+            <b>비교함</b>
+            <span class="chip-count" id="compareCount">0/3</span>
+            <span class="spacer"></span>
+            <button class="link-btn" id="viewCompare" type="button" disabled>비교 보기 →</button>
+            <button class="link-btn muted" id="clearCompare" type="button">비우기</button>
+          </div>
+          <div class="compare-tags" id="compareTags"><span class="tray-empty">목록의 + 버튼으로 최대 3개까지 담을 수 있습니다.</span></div>
         </div>
       </aside>
 
-      <section class="main">
-        <section class="panel">
-          <div class="toolbar">
-            <div>
-              <h2>대학 목록</h2>
-              <p id="listNote">자료를 불러오는 중입니다.</p>
-            </div>
-            <select id="sort">
-              <option value="name">대학명순</option>
-              <option value="region">지역순</option>
-              <option value="recruitment">종합 모집인원순</option>
-            </select>
-          </div>
-          <div class="list" id="list"></div>
-        </section>
-
-        <section class="panel detail" id="detail"></section>
-
-        <section class="panel compare-panel" id="comparePanel">
-          <div class="block-title">
-            <h3>대학 비교</h3>
-            <span>선택한 대학 기준</span>
-          </div>
-          <div id="compareBody"></div>
-        </section>
+      <section class="detail-pane">
+        <div class="tabs" role="tablist" aria-label="보기 전환">
+          <button class="tab active" id="tabDetail" role="tab" aria-selected="true" type="button">상세 보기</button>
+          <button class="tab" id="tabCompare" role="tab" aria-selected="false" type="button">비교 <span class="tab-badge" id="tabCompareCount">0</span></button>
+        </div>
+        <section class="panel detail" id="detailView" role="tabpanel" aria-labelledby="tabDetail"></section>
+        <section class="panel compare" id="compareView" role="tabpanel" aria-labelledby="tabCompare" hidden></section>
       </section>
     </main>
-    <footer class="footer-credit">
-      <div>
-        <span class="credit-label">제작:</span>
-        <p class="credit-main"><b>충청남도교육청진로융합교육원</b> 교육연구사 정재연</p>
-      </div>
-      <p class="credit-source">출처: 대입정보포털(adiga)</p>
-    </footer>
+
+    <footer class="foot" id="foot"></footer>
   </div>
-  <div class="toast" id="toast"></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
     const DATA = window.JONGHAP_DOC_EVAL_DATA;
-    const state = { q:"", region:"", factor:"", onlyData:true, hideSpecial:true, sort:"name", selected:null, compare:[] };
-    const colorMap = {"학업역량":"#2563eb","진로·전공역량":"#0f766e","인성·공동체":"#b45309","의사소통":"#7c3aed","기타":"#475467"};
+    const state = { q:"", region:"", factor:"", onlyData:true, hideSpecial:true, sort:"name", selected:null, compare:[], tab:"detail" };
+
+    const FACTOR_COLOR = {
+      "학업역량":"var(--f-acad)","진로·전공역량":"var(--f-career)",
+      "인성·공동체":"var(--f-character)","의사소통":"var(--f-comm)","기타":"var(--f-etc)"
+    };
+    const PALETTE = ["#4f46e5","#0f766e","#b45309","#7c3aed","#475569","#0891b2","#be123c","#65a30d"];
     const els = {};
 
+    /* ---------- helpers ---------- */
     function $(id){ return document.getElementById(id); }
-    function esc(value){
-      return String(value ?? "").replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-    }
+    function esc(v){ return String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function clean(v){ return String(v ?? "").replace(/\s+/g," ").trim(); }
     function codeLabel(code){ return String(code).padStart(7,"0"); }
-    function toast(message){
-      const el = $("toast"); el.textContent = message; el.classList.add("show");
-      clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove("show"), 1700);
+    function factorColor(standard, idx){ return FACTOR_COLOR[standard] || PALETTE[idx % PALETTE.length]; }
+    function recruitDisplay(rec){
+      const n = Number(rec) || 0;
+      if(n) return n.toLocaleString() + "명";
+      if(typeof rec === "string" && rec.trim()) return esc(rec.trim());
+      return "—";
     }
+    function isMobile(){ return window.matchMedia("(max-width:920px)").matches; }
+    function toast(msg){
+      const el = $("toast"); el.textContent = msg; el.classList.add("show");
+      clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove("show"), 1800);
+    }
+
     function regularRatios(uni){
       const ratios = uni.parsedRatios || [];
-      return state.hideSpecial ? ratios.filter(item => !item.special) : ratios;
+      return state.hideSpecial ? ratios.filter(r => !r.special) : ratios;
     }
     function visibleRows(table){
-      return state.hideSpecial ? table.rows.filter(row => !row.special) : table.rows;
+      return state.hideSpecial ? table.rows.filter(r => !r.special) : table.rows;
     }
     function hasFactor(uni, factor){
       if(!factor) return true;
       return (uni.parsedRatios || []).some(r => r.factors.some(f => f.standard === factor || f.name === factor))
-        || uni.searchText.includes(factor);
+        || (uni.searchText || "").includes(factor);
     }
     function filtered(){
       const q = state.q.trim().toLowerCase();
@@ -287,215 +429,367 @@
         if(state.onlyData && !uni.hasSection) return false;
         if(state.region && uni.region !== state.region) return false;
         if(state.factor && !hasFactor(uni, state.factor)) return false;
-        if(q && !uni.searchText.toLowerCase().includes(q) && !uni.name.toLowerCase().includes(q)) return false;
+        if(q && !(uni.searchText || "").toLowerCase().includes(q) && !uni.name.toLowerCase().includes(q)) return false;
         return true;
       });
       rows.sort((a,b) => {
-        if(state.sort === "region") return (a.region || "").localeCompare(b.region || "ko") || a.name.localeCompare(b.name, "ko");
-        if(state.sort === "recruitment") return (Number(b.recruitment) || 0) - (Number(a.recruitment) || 0) || a.name.localeCompare(b.name, "ko");
-        return a.name.localeCompare(b.name, "ko");
+        if(state.sort === "region") return (a.region||"").localeCompare(b.region||"","ko") || a.name.localeCompare(b.name,"ko");
+        if(state.sort === "recruitment") return (Number(b.recruitment)||0) - (Number(a.recruitment)||0) || a.name.localeCompare(b.name,"ko");
+        return a.name.localeCompare(b.name,"ko");
       });
       return rows;
     }
+    function uniByCode(code){ return DATA.universities.find(u => u.code === code); }
+    function currentUni(){ return uniByCode(state.selected) || DATA.universities.find(u=>u.hasSection) || DATA.universities[0]; }
+
+    /* ---------- init ---------- */
     function init(){
-      if(!DATA){ document.body.innerHTML = "<p>데이터 파일을 불러오지 못했습니다.</p>"; return; }
+      if(!DATA){ document.querySelector(".app").innerHTML = '<div class="panel empty"><b>데이터를 불러오지 못했습니다.</b><p>jonghapdoc_eval_data.js 파일을 확인해 주세요.</p></div>'; return; }
       ["q","region","factor","onlyData","hideSpecial","sort"].forEach(id => els[id] = $(id));
-      $("metaUniversities").textContent = `전체 대학 ${DATA.meta.universities.toLocaleString()}개`;
-      $("metaSections").textContent = `서류평가 확인 ${DATA.meta.hasSection.toLocaleString()}개`;
-      $("metaParsed").textContent = `비율 그래프 가능 ${DATA.meta.parsedRatioUniversities.toLocaleString()}개`;
+
+      $("metaUniversities").textContent = `${DATA.meta.universities.toLocaleString()}개`;
+      $("metaSections").textContent = `${DATA.meta.hasSection.toLocaleString()}개`;
+      $("metaParsed").textContent = `${DATA.meta.parsedRatioUniversities.toLocaleString()}개`;
+
       els.region.innerHTML = `<option value="">전체 지역</option>` + DATA.regions.map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join("");
       els.factor.innerHTML = `<option value="">전체 평가요소</option>` + DATA.factorFilters.map(f => `<option value="${esc(f)}">${esc(f)}</option>`).join("");
-      state.selected = (DATA.universities.find(u => u.hasSection) || DATA.universities[0]).code;
+
+      const hashed = decodeURIComponent((location.hash || "").slice(1));
+      state.selected = (hashed && uniByCode(hashed)) ? hashed : (DATA.universities.find(u => u.hasSection) || DATA.universities[0]).code;
+
+      const d = (DATA.meta.generatedAt || "").slice(0,10);
+      $("foot").innerHTML = `자료 기준: <a href="${esc(DATA.meta.sourceUrl)}" target="_blank" rel="noopener">${esc(DATA.meta.sourceLabel)}</a>${d ? ` · ${esc(d)} 기준` : ""}<br>표준분류와 그래프는 비교 편의를 위한 보조 정보입니다. 최종 확인은 각 대학 원문 표를 우선하세요.`;
+
       bind();
-      render();
+      renderList();
+      renderDetail();
+      renderTray();
+      renderCompare();
     }
+
     function bind(){
       els.q.addEventListener("input", e => { state.q = e.target.value; renderList(); });
       els.region.addEventListener("change", e => { state.region = e.target.value; renderList(); });
       els.factor.addEventListener("change", e => { state.factor = e.target.value; renderList(); });
-      els.onlyData.addEventListener("change", e => { state.onlyData = e.target.checked; renderList(); });
-      els.hideSpecial.addEventListener("change", e => { state.hideSpecial = e.target.checked; renderDetail(); renderCompare(); renderList(); });
       els.sort.addEventListener("change", e => { state.sort = e.target.value; renderList(); });
+      els.onlyData.addEventListener("change", e => { state.onlyData = e.target.checked; renderList(); });
+      els.hideSpecial.addEventListener("change", e => { state.hideSpecial = e.target.checked; renderDetail(); renderCompare(); });
+
       $("resetBtn").addEventListener("click", () => {
         Object.assign(state, { q:"", region:"", factor:"", onlyData:true, hideSpecial:true, sort:"name" });
-        els.q.value = ""; els.region.value = ""; els.factor.value = ""; els.onlyData.checked = true; els.hideSpecial.checked = true; els.sort.value = "name";
-        render();
+        els.q.value=""; els.region.value=""; els.factor.value=""; els.sort.value="name";
+        els.onlyData.checked=true; els.hideSpecial.checked=true;
+        renderList(); renderDetail(); renderCompare();
+        toast("필터를 초기화했습니다.");
       });
-      $("clearCompare").addEventListener("click", () => { state.compare = []; renderCompare(); renderList(); });
-      $("compareJump").addEventListener("click", () => $("comparePanel").scrollIntoView({behavior:"smooth", block:"start"}));
+
+      $("clearCompare").addEventListener("click", () => { if(!state.compare.length) return; state.compare = []; afterCompareChange(); toast("비교 목록을 비웠습니다."); });
+      $("viewCompare").addEventListener("click", () => setTab("compare"));
+      $("tabDetail").addEventListener("click", () => setTab("detail"));
+      $("tabCompare").addEventListener("click", () => setTab("compare"));
+
+      // delegated events
+      $("list").addEventListener("click", e => {
+        const pin = e.target.closest("[data-compare]");
+        if(pin){ toggleCompare(pin.dataset.compare); return; }
+        const open = e.target.closest("[data-open]");
+        if(open){ select(open.dataset.open); }
+      });
+      $("activeFilters").addEventListener("click", e => {
+        const btn = e.target.closest("[data-clearfilter]"); if(!btn) return;
+        const key = btn.dataset.clearfilter;
+        if(key==="q"){ state.q=""; els.q.value=""; }
+        else if(key==="region"){ state.region=""; els.region.value=""; }
+        else if(key==="factor"){ state.factor=""; els.factor.value=""; }
+        renderList();
+      });
+      $("compareTags").addEventListener("click", e => {
+        const btn = e.target.closest("[data-remove]"); if(btn) toggleCompare(btn.dataset.remove);
+      });
+      $("detailView").addEventListener("click", e => {
+        const c = e.target.closest("[data-detailcompare]"); if(c){ toggleCompare(c.dataset.detailcompare); return; }
+        if(e.target.closest("[data-copy]")){ copyLink(); return; }
+        if(e.target.closest("[data-back]")){ document.querySelector('.list-pane').scrollIntoView({behavior:"smooth",block:"start"}); }
+      });
+      $("compareView").addEventListener("click", e => {
+        const r = e.target.closest("[data-remove]"); if(r) toggleCompare(r.dataset.remove);
+      });
+
+      window.addEventListener("hashchange", () => {
+        const h = decodeURIComponent((location.hash || "").slice(1));
+        if(h && uniByCode(h) && h !== state.selected){ state.selected = h; setTab("detail"); setActiveRow(); renderDetail(); }
+      });
     }
-    function render(){ renderList(); renderDetail(); renderCompare(); }
+
+    /* ---------- selection & tabs ---------- */
+    function select(code){
+      state.selected = code;
+      if(history.replaceState) history.replaceState(null,"","#"+encodeURIComponent(code)); else location.hash = code;
+      setActiveRow();
+      setTab("detail");
+      renderDetail();
+      if(isMobile()) document.querySelector(".detail-pane").scrollIntoView({behavior:"smooth",block:"start"});
+    }
+    function setTab(tab){
+      state.tab = tab;
+      const onDetail = tab === "detail";
+      $("tabDetail").classList.toggle("active", onDetail);
+      $("tabCompare").classList.toggle("active", !onDetail);
+      $("tabDetail").setAttribute("aria-selected", onDetail);
+      $("tabCompare").setAttribute("aria-selected", !onDetail);
+      $("detailView").hidden = !onDetail;
+      $("compareView").hidden = onDetail;
+    }
+    function setActiveRow(){
+      const list = $("list");
+      list.querySelectorAll(".uni-row.active").forEach(el => { el.classList.remove("active"); el.removeAttribute("aria-current"); });
+      const row = list.querySelector(`.uni-row[data-code="${state.selected}"]`);
+      if(row){ row.classList.add("active"); row.setAttribute("aria-current","true"); }
+    }
+
+    /* ---------- list ---------- */
     function renderList(){
       const rows = filtered();
       $("resultCount").textContent = rows.length.toLocaleString();
-      $("listNote").textContent = `${DATA.meta.sourceYear}학년도 기준 · ${state.hideSpecial ? "특별전형 행 숨김" : "특별전형 행 포함"}`;
+      $("listNote").textContent = `${DATA.meta.sourceYear}학년도 · ${state.hideSpecial ? "특별전형 숨김" : "특별전형 포함"}`;
+      renderActiveFilters();
       const list = $("list");
       if(!rows.length){
-        list.innerHTML = `<div class="empty"><b>검색 결과가 없습니다.</b><span>검색어와 필터를 조정해 주세요.</span></div>`;
+        list.innerHTML = `<div class="empty">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <b>검색 결과가 없습니다</b><p>검색어와 필터를 조정해 보세요.</p></div>`;
         return;
       }
-      list.innerHTML = rows.map(uni => rowHtml(uni)).join("");
-      list.querySelectorAll("[data-open]").forEach(btn => btn.addEventListener("click", () => { state.selected = btn.dataset.open; renderList(); renderDetail(); }));
-      list.querySelectorAll("[data-compare]").forEach(btn => btn.addEventListener("click", e => { e.stopPropagation(); toggleCompare(btn.dataset.compare); }));
+      list.innerHTML = rows.map(rowHtml).join("");
+      setActiveRow();
     }
+    function renderActiveFilters(){
+      const chips = [];
+      if(state.q) chips.push(chip("q", `검색 "${clean(state.q)}"`));
+      if(state.region) chips.push(chip("region", state.region));
+      if(state.factor) chips.push(chip("factor", state.factor));
+      const box = $("activeFilters");
+      box.innerHTML = chips.join("");
+      box.style.display = chips.length ? "flex" : "none";
+    }
+    function chip(key, label){ return `<button class="fchip" data-clearfilter="${key}" type="button">${esc(label)} <span>×</span></button>`; }
+
     function rowHtml(uni){
       const selected = uni.code === state.selected;
       const compared = state.compare.includes(uni.code);
-      const top = uni.topFactors && uni.topFactors[0] ? `${uni.topFactors[0].name} ${uni.topFactors[0].value}%` : "원표 확인";
-      return `
-        <article class="uni-row ${selected ? "active" : ""}">
-          <button class="uni-main" data-open="${esc(uni.code)}" type="button">
-            <div>
-              <div class="uni-name">${esc(uni.name)}</div>
-              <div class="uni-meta">
-                <span class="badge">${esc(uni.region || "-")}</span>
-                <span class="badge ${uni.hasSection ? "good" : "red"}">${uni.hasSection ? "서류평가 있음" : "구간 미확인"}</span>
-                <span class="badge ${uni.parsedRatios.length ? "teal" : "warn"}">${uni.parsedRatios.length ? "그래프 가능" : "원표 기준"}</span>
-                <span class="badge blue">${esc(top)}</span>
-              </div>
-            </div>
-          </button>
-          <div class="row-actions">
-            <button class="icon-btn ${compared ? "active" : ""}" data-compare="${esc(uni.code)}" type="button" aria-label="비교 선택">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-            </button>
+      const top = (uni.topFactors && uni.topFactors[0]) ? `${clean(uni.topFactors[0].name)} ${uni.topFactors[0].value}%` : null;
+      return `<article class="uni-row${selected ? " active" : ""}"${selected ? ' aria-current="true"' : ""} data-code="${esc(uni.code)}" role="listitem">
+        <button class="uni-main" data-open="${esc(uni.code)}" type="button">
+          <div class="uni-name">${esc(uni.name)}</div>
+          <div class="uni-meta">
+            <span class="badge">${esc(uni.region || "—")}</span>
+            ${uni.hasSection ? '<span class="badge ok">서류평가</span>' : '<span class="badge danger">미확인</span>'}
+            ${uni.parsedRatios.length ? '<span class="badge career">그래프</span>' : ""}
+            ${top ? `<span class="badge brand">${esc(top)}</span>` : ""}
           </div>
-        </article>`;
+        </button>
+        <div class="row-actions">
+          <button class="pin${compared ? " active" : ""}" data-compare="${esc(uni.code)}" type="button" aria-label="비교함에 담기" title="${compared ? "비교 해제" : "비교에 추가"}">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${compared ? '<path d="M5 12h14"/>' : '<path d="M12 5v14M5 12h14"/>'}</svg>
+          </button>
+        </div>
+      </article>`;
     }
-    function currentUni(){ return DATA.universities.find(uni => uni.code === state.selected) || DATA.universities[0]; }
+
+    /* ---------- detail ---------- */
     function renderDetail(){
       const uni = currentUni();
-      if(!uni){ $("detail").innerHTML = `<div class="empty"><b>대학을 선택해 주세요.</b></div>`; return; }
+      const view = $("detailView");
+      if(!uni){ view.innerHTML = `<div class="empty"><b>대학을 선택해 주세요.</b></div>`; return; }
       const compared = state.compare.includes(uni.code);
-      $("detail").innerHTML = `
+      view.innerHTML = `
         <div class="detail-head">
           <div>
             <h2>${esc(uni.name)}</h2>
             <div class="detail-sub">
-              <span class="badge">${esc(uni.region || "-")}</span>
-              <span class="badge blue">대학코드 ${codeLabel(uni.code)}</span>
-              <span class="badge teal">학생부종합 모집 ${esc(uni.recruitment || "-")}명</span>
-              <span class="badge ${uni.hasSection ? "good" : "red"}">${uni.hasSection ? "서류평가 자료 있음" : "서류평가 구간 미확인"}</span>
+              <span class="badge">${esc(uni.region || "—")}</span>
+              <span class="badge brand">코드 ${codeLabel(uni.code)}</span>
+              <span class="badge career">학종 모집 ${recruitDisplay(uni.recruitment)}</span>
+              ${uni.hasSection ? '<span class="badge ok">서류평가 자료 있음</span>' : '<span class="badge danger">서류평가 구간 미확인</span>'}
             </div>
           </div>
-          <button class="btn ${compared ? "warn" : "teal"}" id="detailCompare" type="button">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-            ${compared ? "비교 해제" : "비교 선택"}
-          </button>
+          <div class="detail-actions">
+            <button class="btn ghost back-btn" data-back type="button" aria-label="목록으로">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              목록
+            </button>
+            <button class="btn ghost" data-copy type="button" title="이 대학 링크 복사">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+              링크
+            </button>
+            <button class="btn ${compared ? "warn" : ""}" data-detailcompare="${esc(uni.code)}" type="button">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${compared ? '<path d="M5 12h14"/>' : '<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>'}</svg>
+              ${compared ? "비교 해제" : "비교 담기"}
+            </button>
+          </div>
         </div>
-        ${uni.hasSection ? detailBody(uni) : `<div class="empty"><b>[서류평가] 구간이 확인되지 않았습니다.</b><span>어디가 응답 원문 기준으로 해당 구간이 없거나 빈 항목입니다.</span></div>`}
+        ${uni.hasSection ? detailBody(uni) : `<div class="empty">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+            <b>서류평가 구간이 확인되지 않았습니다</b><p>어디가 응답 원문에 해당 구간이 없거나 비어 있습니다.</p></div>`}
       `;
-      $("detailCompare").addEventListener("click", () => toggleCompare(uni.code));
     }
     function detailBody(uni){
       const ratios = regularRatios(uni);
-      const contentTableCount = uni.contentTables.reduce((sum,t)=>sum + visibleRows(t).length, 0);
-      const ratioTableCount = uni.ratioTables.reduce((sum,t)=>sum + visibleRows(t).length, 0);
+      const contentRows = uni.contentTables.reduce((s,t)=>s + visibleRows(t).length, 0);
+      const ratioRows = uni.ratioTables.reduce((s,t)=>s + visibleRows(t).length, 0);
       return `
-        <div class="section-grid">
-          <div class="kpi"><span>그래프화된 전형</span><b>${ratios.length.toLocaleString()}개</b></div>
-          <div class="kpi"><span>서류평가 내용 행</span><b>${contentTableCount.toLocaleString()}행</b></div>
-          <div class="kpi"><span>평가요소 비율 원표 행</span><b>${ratioTableCount.toLocaleString()}행</b></div>
+        <div class="kpi-grid">
+          <div class="kpi"><span>비율 그래프 전형</span><b>${ratios.length.toLocaleString()}개</b></div>
+          <div class="kpi"><span>서류평가 내용</span><b>${contentRows.toLocaleString()}행</b></div>
+          <div class="kpi"><span>평가요소 비율 원표</span><b>${ratioRows.toLocaleString()}행</b></div>
         </div>
         <div class="block">
-          <div class="block-title"><h3>전형별 평가요소 비율</h3><span>${ratios.length ? "그래프 + 원표" : "원표 기준"}</span></div>
-          ${ratios.length ? `<div class="ratio-list">${ratios.map(ratioHtml).join("")}</div>` : `<p class="note">이 대학은 비율표 형식이 일정하지 않아 자동 그래프를 만들지 않았습니다. 아래 원표를 기준으로 확인해 주세요.</p>`}
+          <div class="block-title"><h3>전형별 평가요소 비율</h3><span class="hint">${ratios.length ? "그래프 + 원표" : "원표 기준"}</span></div>
+          ${ratios.length
+            ? `<div class="ratio-list">${ratios.map(ratioHtml).join("")}</div>`
+            : `<p class="note inline">이 대학은 비율표 형식이 일정하지 않아 자동 그래프를 만들지 않았습니다. 아래 원표를 기준으로 확인해 주세요.</p>`}
           ${renderTables(uni.ratioTables, "ratio")}
         </div>
         <div class="block">
-          <div class="block-title"><h3>서류평가 내용</h3><span>대학 원문 표</span></div>
+          <div class="block-title"><h3>서류평가 내용</h3><span class="hint">대학 원문 표</span></div>
           ${uni.contentTables.length ? renderTables(uni.contentTables, "content") : renderContentText(uni)}
         </div>
         <details class="source">
-          <summary>원문 구간 보기</summary>
+          <summary>원문 구간 전체 보기</summary>
           <div class="source-text">${esc(uni.sectionText || "원문 텍스트 없음")}</div>
         </details>
-        <p class="note">자료 기준: ${esc(DATA.meta.sourceLabel)}. 표준분류와 그래프는 비교 편의를 위한 보조 정보이며, 원문 표를 우선 기준으로 확인하세요.</p>
       `;
     }
+
+    function stackHtml(factors){
+      const total = factors.reduce((s,f)=>s + (Number(f.value)||0), 0) || 100;
+      return `<div class="stack" role="img" aria-label="평가요소 비율 막대">` + factors.map((f,i)=>{
+        const v = Number(f.value)||0;
+        const pct = Math.max(0, (v/total)*100);
+        const color = factorColor(f.standard, i);
+        const label = pct >= 8 ? `${esc(f.value)}%` : "";
+        return `<span class="seg" style="width:${pct.toFixed(3)}%;background:${color}" title="${esc(clean(f.name))} ${esc(f.value)}%">${label}</span>`;
+      }).join("") + `</div>`;
+    }
+    function legendHtml(factors){
+      return `<div class="legend">` + factors.map((f,i)=>
+        `<span class="legend-item"><i class="swatch" style="background:${factorColor(f.standard,i)}"></i>${esc(clean(f.name))} <b>${esc(f.value)}%</b></span>`
+      ).join("") + `</div>`;
+    }
     function ratioHtml(item){
-      const total = item.factors.reduce((sum,f)=>sum + Number(f.value || 0), 0) || 100;
-      const segments = item.factors.map((f,idx) => {
-        const w = Math.max(6, Math.round((Number(f.value) / total) * 100));
-        const color = colorMap[f.standard] || `var(--bar${(idx % 5) + 1})`;
-        return `<span class="seg" style="width:${w}%;background:${color}" title="${esc(f.name)} ${esc(f.value)}%">${esc(f.value)}%</span>`;
-      }).join("");
-      const legend = item.factors.map((f,idx) => {
-        const color = colorMap[f.standard] || `var(--bar${(idx % 5) + 1})`;
-        return `<span class="legend-item"><i class="swatch" style="background:${color}"></i>${esc(f.name)} ${esc(f.value)}%</span>`;
-      }).join("");
-      return `<article class="ratio-card ${item.special ? "special" : ""}">
-        <div class="ratio-title"><b>${esc(item.admission)}</b>${item.special ? '<span class="badge warn">특별전형</span>' : ''}</div>
-        <div class="stack">${segments}</div>
-        <div class="legend">${legend}</div>
+      const total = item.factors.reduce((s,f)=>s + (Number(f.value)||0), 0);
+      const sumNote = (total && total !== 100) ? `<span class="sum-note">합계 ${total}%</span>` : "";
+      return `<article class="ratio-card${item.special ? " special" : ""}">
+        <div class="ratio-title"><b>${esc(clean(item.admission))}</b>${item.special ? '<span class="pill warn">특별전형</span>' : ""}${sumNote}</div>
+        ${stackHtml(item.factors)}
+        ${legendHtml(item.factors)}
       </article>`;
+    }
+
+    function cellHtml(raw){
+      const t = clean(String(raw ?? "").replace(/\r/g,""));
+      if(!t) return "";
+      if(/^[-·]/.test(t)){
+        const items = t.split(/\s*[-·]\s*/).map(s=>s.trim()).filter(Boolean);
+        if(items.length >= 2) return `<ul class="cell-list">${items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>`;
+      }
+      return esc(t);
     }
     function renderTables(tables, kind){
       if(!tables.length) return `<div class="empty"><b>표 데이터가 없습니다.</b></div>`;
-      return tables.map((table, idx) => {
+      const html = tables.map((table, idx) => {
         const rows = visibleRows(table);
         if(!rows.length) return "";
         const body = rows.map((row, rIdx) => {
-          const tag = rIdx === 0 ? "th" : "td";
-          return `<tr class="${row.special ? "special-row" : ""}">${row.cells.map(cell => `<${tag}>${esc(cell)}</${tag}>`).join("")}</tr>`;
+          if(rIdx === 0) return `<tr>${row.cells.map(c=>`<th scope="col">${esc(clean(c))}</th>`).join("")}</tr>`;
+          return `<tr class="${row.special ? "special-row" : ""}">${row.cells.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`;
         }).join("");
-        return `<div class="block">
-          <div class="block-title"><h3>${kind === "ratio" ? "비율표" : "내용표"} ${idx + 1}</h3><span>${esc(table.context || "")}</span></div>
-          <div class="table-wrap ${kind === "content" ? "compact" : ""}"><table>${body}</table></div>
-        </div>`;
+        const caption = tables.length > 1 ? `<div class="block-title" style="margin-bottom:8px"><h3 style="font-size:13.5px">${kind === "ratio" ? "비율표" : "내용표"} ${idx+1}</h3><span class="hint">${esc(table.context || "")}</span></div>` : "";
+        return `<div style="margin-top:${idx ? "12px" : "0"}">${caption}<div class="table-wrap"><table>${body}</table></div></div>`;
       }).join("");
+      return html || `<div class="empty"><b>표시할 행이 없습니다.</b><p>특별전형 숨김을 해제하면 더 볼 수 있습니다.</p></div>`;
     }
     function renderContentText(uni){
       const text = uni.sectionText || "";
       const split = text.split("2) 전형별 서류평가 평가요소 비율")[0] || text;
-      return `<div class="text-box">${esc(split || "서류평가 내용 원문 없음")}</div>`;
+      return `<div class="text-box">${esc(split.trim() || "서류평가 내용 원문 없음")}</div>`;
     }
+
+    /* ---------- compare ---------- */
     function toggleCompare(code){
-      const index = state.compare.indexOf(code);
-      if(index >= 0) state.compare.splice(index, 1);
+      const i = state.compare.indexOf(code);
+      if(i >= 0) state.compare.splice(i, 1);
       else {
-        if(state.compare.length >= 3){ toast("비교는 3개 대학까지 가능합니다."); return; }
+        if(state.compare.length >= 3){ toast("비교는 최대 3개 대학까지 가능합니다."); return; }
         state.compare.push(code);
       }
-      renderCompare(); renderList(); renderDetail();
+      afterCompareChange();
+    }
+    function afterCompareChange(){
+      // targeted pin updates (preserves list scroll)
+      $("list").querySelectorAll("[data-compare]").forEach(btn=>{
+        const on = state.compare.includes(btn.dataset.compare);
+        btn.classList.toggle("active", on);
+        btn.querySelector("svg").innerHTML = on ? '<path d="M5 12h14"/>' : '<path d="M12 5v14M5 12h14"/>';
+        btn.title = on ? "비교 해제" : "비교에 추가";
+      });
+      renderTray();
+      renderCompare();
+      renderDetail();
+    }
+    function renderTray(){
+      const n = state.compare.length;
+      $("compareCount").textContent = `${n}/3`;
+      $("tabCompareCount").textContent = n;
+      $("viewCompare").disabled = !n;
+      const tags = $("compareTags");
+      if(!n){ tags.innerHTML = `<span class="tray-empty">목록의 + 버튼으로 최대 3개까지 담을 수 있습니다.</span>`; return; }
+      tags.innerHTML = state.compare.map(code => {
+        const uni = uniByCode(code);
+        return `<span class="tag"><span>${esc(uni ? uni.name : code)}</span><button type="button" data-remove="${esc(code)}" aria-label="비교 제거">×</button></span>`;
+      }).join("");
     }
     function renderCompare(){
-      $("compareCount").textContent = state.compare.length;
-      const tags = $("compareTags");
-      if(!state.compare.length) tags.innerHTML = `<span class="badge">선택 없음</span>`;
-      else tags.innerHTML = state.compare.map(code => {
-        const uni = DATA.universities.find(u => u.code === code);
-        return `<span class="tag">${esc(uni ? uni.name : code)} <button type="button" data-remove="${esc(code)}" aria-label="비교 제거">×</button></span>`;
-      }).join("");
-      tags.querySelectorAll("[data-remove]").forEach(btn => btn.addEventListener("click", () => toggleCompare(btn.dataset.remove)));
-      const body = $("compareBody");
+      const body = $("compareView");
       if(!state.compare.length){
-        body.innerHTML = `<div class="empty"><b>비교 대학이 없습니다.</b><span>목록에서 비교 아이콘을 선택하면 이곳에 정리됩니다.</span></div>`;
+        body.innerHTML = `<div class="empty">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+          <b>비교할 대학이 없습니다</b><p>목록에서 + 버튼을 눌러 대학을 담으면 이곳에서 나란히 비교합니다.</p></div>`;
         return;
       }
-      const cards = state.compare.map(code => DATA.universities.find(u => u.code === code)).filter(Boolean).map(compareCard).join("");
-      body.innerHTML = `<div class="compare-grid">${cards}</div>`;
+      const cards = state.compare.map(uniByCode).filter(Boolean).map(compareCard).join("");
+      body.innerHTML = `
+        <div class="block-title"><h3>대학 비교</h3><span class="hint">${state.compare.length}개 대학 · 첫 일반전형 기준</span></div>
+        <div class="compare-grid">${cards}</div>
+        <p class="note">각 대학의 첫 번째 일반전형 비율을 기준으로 표시합니다. 전형별 상세 비율은 상세 보기에서 확인하세요.</p>`;
     }
     function compareCard(uni){
       const ratio = regularRatios(uni)[0];
-      const top = ratio ? ratio.factors : (uni.topFactors || []);
-      const factorRows = top.length ? top.map(f => `
-        <div class="factor-row">
-          <span>${esc(f.name)}</span>
-          <span class="mini-bar"><i style="width:${Math.min(100, Number(f.value) || 0)}%;background:${colorMap[f.standard] || '#0f766e'}"></i></span>
-          <b>${esc(f.value)}%</b>
-        </div>`).join("") : `<p class="note">자동 그래프 없음</p>`;
+      const factors = ratio ? ratio.factors : (uni.topFactors || []);
+      const chart = factors.length
+        ? `<div class="admission-label">${esc(clean(ratio ? ratio.admission : "대표 평가요소"))}</div>${stackHtml(factors)}${legendHtml(factors)}`
+        : `<p class="note inline" style="margin-top:12px">자동 그래프 없음 · 상세 보기에서 원표를 확인하세요.</p>`;
       return `<article class="compare-card">
-        <h3>${esc(uni.name)}</h3>
-        <div class="detail-sub">
-          <span class="badge">${esc(uni.region || "-")}</span>
-          <span class="badge teal">${esc(uni.recruitment || "-")}명</span>
-          <span class="badge ${uni.parsedRatios.length ? "good" : "warn"}">${uni.parsedRatios.length ? "비율 추출" : "원표 확인"}</span>
+        <div class="compare-card-head">
+          <h3>${esc(uni.name)}</h3>
+          <button class="remove" type="button" data-remove="${esc(uni.code)}" aria-label="비교 제거">×</button>
         </div>
-        <div class="factor-list">${factorRows}</div>
-        <p class="note">${ratio ? `${esc(ratio.admission)} 기준 첫 번째 일반전형 비율입니다.` : "원표 형식이 일정하지 않아 상세 표에서 확인하세요."}</p>
+        <div class="detail-sub">
+          <span class="badge">${esc(uni.region || "—")}</span>
+          <span class="badge career">${recruitDisplay(uni.recruitment)}</span>
+          ${uni.parsedRatios.length ? '<span class="badge ok">비율 추출</span>' : '<span class="badge warn">원표 확인</span>'}
+        </div>
+        ${chart}
       </article>`;
     }
+
+    function copyLink(){
+      const url = location.origin + location.pathname + "#" + encodeURIComponent(state.selected);
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(()=>toast("대학 링크를 복사했습니다.")).catch(()=>toast("복사하지 못했습니다."));
+      } else { toast("복사를 지원하지 않는 브라우저입니다."); }
+    }
+
     document.addEventListener("DOMContentLoaded", init);
   </script>
 </body>
