@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>일반선택 확률과 통계 수업설계 워크북 | 충청남도교육청</title>
+<meta name="description" content="2022 개정 교육과정 일반선택 확률과 통계 16개 성취기준 개념기반탐구(CBI) 수업설계 워크북. 경우의 수, 확률, 조건부확률, 독립, 확률분포, 이항분포, 정규분포, 표본추출, 통계적 추정과 학생부종합전형 대응 탐구 활동 포함." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#ece5d3;
+  --paper-soft:#fbf8f0;
+  --card:#ffffff;
+  --ink:#1a1612;
+  --ink-2:#3a3328;
+  --muted:#6b6354;
+  --faint:#9c9281;
+  --line:#d6cdb8;
+  --line-soft:#e8e0cb;
+
+  --atmo:#145c6b;
+  --atmo-bg:#e1f0f3;
+  --geo:#7b4f16;
+  --geo-bg:#f1e6d6;
+  --astro:#35548a;
+  --astro-bg:#e8e9f7;
+
+  --gold:#b8862d;
+  --green:#0e6b5c;
+  --red:#a5362a;
+
+  --A:#256d3d;
+  --B:#5a842f;
+  --C:#b8862d;
+  --D:#c26722;
+  --E:#a83d2d;
+
+  --maxw:1380px;
+  --shadow-card:0 1px 0 var(--line-soft),0 2px 12px rgba(26,22,18,.04);
+  --shadow-lift:0 4px 24px rgba(26,22,18,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  word-break:keep-all;
+  letter-spacing:0;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(90deg, rgba(20,92,107,.035) 1px, transparent 1px),
+    linear-gradient(rgba(53,84,138,.03) 1px, transparent 1px);
+  background-size:42px 42px;
+  z-index:0;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,h4,h5{
+  margin:0;
+  line-height:1.2;
+  letter-spacing:0;
+  font-family:"Fraunces","IBM Plex Sans KR",serif;
+  font-weight:700;
+}
+h1{font-weight:900;letter-spacing:0;padding-left:1.3rem}
+li{margin:.28rem 0;color:var(--muted);line-height:1.65}
+li::marker{color:var(--atmo)}
+::selection{background:var(--ink);color:var(--paper-soft)}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(245,241,232,.92);
+  backdrop-filter:saturate(120%) blur(14px);
+  -webkit-backdrop-filter:saturate(120%) blur(14px);
+  border-bottom:1px solid var(--ink);
+}
+.topbar-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:.8rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.2rem;
+}
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.mark{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  font-size:1.4rem;
+  flex:none;
+  border-radius:2px;
+  position:relative;
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  pointer-events:none;
+}
+.brand .b-text strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.brand .b-text span{
+  display:block;
+  color:var(--faint);
+  font-size:.72rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nav{display:flex;gap:.15rem;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav button{
+  font-size:.83rem;
+  font-weight:600;
+  color:var(--muted);
+  padding:.5rem .85rem;
+  border-radius:2px;
+  transition:all .15s ease;
+  position:relative;
+}
+.nav button[data-view]::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:.25rem;
+  width:0;
+  height:1.5px;
+  background:var(--ink);
+  transition:width .2s ease,left .2s ease;
+}
+.nav button[data-view].on::after,
+.nav button[data-view]:hover::after{
+  width:60%;
+  left:20%;
+}
+.nav button[data-view].on{color:var(--ink)}
+.nav button.btn-pdf{
+  background:var(--ink);
+  color:var(--paper-soft);
+  border-radius:2px;
+}
+.nav button.btn-pdf:hover{background:var(--atmo)}
+
+.nav a.btn-home{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.83rem;
+  font-weight:700;
+  color:var(--ink);
+  padding:.5rem .85rem;
+  border:1px solid var(--ink);
+  border-radius:2px;
+  text-decoration:none;
+  margin-right:.35rem;
+  transition:background .15s ease,color .15s ease;
+}
+.nav a.btn-home:hover{background:var(--ink);color:var(--paper-soft)}
+.nav a.btn-home svg{width:13px;height:13px;flex:none}
+
+.fab-home{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.72rem 1.05rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:0;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:var(--shadow-lift);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .15s ease;
+}
+.fab-home.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-home:hover{background:var(--atmo)}
+.fab-home svg{width:15px;height:15px;flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 4rem;position:relative;z-index:1}
+.view{display:none}
+.view.active{display:block;animation:fade .35s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.cover{
+  padding:4rem 0 2.5rem;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.cover-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+.cover-meta{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.kicker{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.kicker::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--atmo);
+}
+h1.cover-title{
+  font-size:4.35rem;
+  max-width:22ch;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.05;
+}
+h1.cover-title em{
+  font-style:italic;
+  color:var(--atmo);
+  font-weight:700;
+}
+.lead{
+  max-width:46ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.75;
+  margin:0;
+}
+.cover-side{
+  border-left:1px solid var(--line);
+  padding-left:2rem;
+  font-size:.84rem;
+  color:var(--muted);
+}
+.cover-side dt{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:1rem;
+}
+.cover-side dt:first-child{margin-top:0}
+.cover-side dd{margin:.2rem 0 0;color:var(--ink-2);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.btn{
+  border:1.5px solid var(--ink);
+  padding:.65rem 1.1rem;
+  font-weight:600;
+  font-size:.88rem;
+  background:transparent;
+  border-radius:2px;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn:hover{background:var(--ink);color:var(--paper-soft)}
+.btn.fill{background:var(--ink);color:var(--paper-soft)}
+.btn.fill:hover{background:var(--atmo);border-color:var(--atmo)}
+.btn svg{width:14px;height:14px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin:2.2rem 0 0;
+  box-shadow:var(--shadow-card);
+}
+.stat{
+  padding:1.4rem 1.3rem;
+  border-right:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.stat:last-child{border-right:0}
+.stat .n{
+  font-family:"Fraunces",serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1;
+  color:var(--ink);
+  display:block;
+}
+.stat .n small{
+  font-size:.9rem;
+  color:var(--faint);
+  font-weight:500;
+  margin-left:.2rem;
+}
+.stat .label{
+  display:block;
+  margin-top:.55rem;
+  font-size:.72rem;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:0;
+}
+.stat .pin{
+  position:absolute;
+  top:.7rem;
+  right:.9rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.6rem;
+  color:var(--faint);
+  letter-spacing:0;
+}
+
+.sec{margin:3.2rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.sec .idx{
+  font-size:.7rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:uppercase;
+  font-family:"JetBrains Mono",monospace;
+}
+.sec h2{
+  font-size:2.1rem;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+.sec p{color:var(--muted);max-width:76ch;margin:.2rem 0 0;font-size:.95rem}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+.principle{
+  padding:1.6rem 1.5rem;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.principle:last-child{border-right:0}
+.principle .num{
+  font-family:"Fraunces",serif;
+  font-size:3rem;
+  color:var(--atmo);
+  font-weight:900;
+  line-height:1;
+  font-style:italic;
+}
+.principle h3{margin:.6rem 0 .5rem;font-size:1.15rem}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.cbi-flow{
+  margin:1.2rem 0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:.5rem;
+}
+.cbi-step{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:.85rem .7rem;
+  position:relative;
+}
+.cbi-step .step-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-weight:700;
+}
+.cbi-step strong{display:block;font-size:.96rem;margin:.25rem 0}
+.cbi-step p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5}
+.cbi-step::after{
+  content:"→";
+  position:absolute;
+  right:-.45rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font-weight:700;
+  z-index:2;
+  background:var(--paper);
+  width:14px;
+  height:14px;
+  display:grid;
+  place-items:center;
+  font-size:.85rem;
+}
+.cbi-step:last-child::after{display:none}
+
+.theory-section{
+  margin-top:1.5rem;
+  border:1px solid var(--ink);
+  background:var(--paper-soft);
+  padding:1.8rem;
+  box-shadow:var(--shadow-card);
+}
+.theory-section h3{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1rem;
+  font-size:1.34rem;
+  line-height:1.28;
+}
+.theory-section h3::before{
+  content:"";
+  width:7px;
+  height:28px;
+  background:var(--atmo);
+  flex:none;
+}
+.theory-section p{
+  margin:.55rem 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.78;
+}
+.theory-section .ref{
+  margin-top:1rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  color:var(--faint);
+  font-size:.78rem;
+}
+.admission-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin-top:1rem;
+}
+.admission-proof-card{
+  border:1px solid var(--line);
+  border-top:4px solid var(--atmo);
+  background:var(--card);
+  padding:1rem;
+}
+.admission-proof-card .tag{
+  display:block;
+  margin-bottom:.38rem;
+  color:var(--atmo);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:0;
+}
+.admission-proof-card h4{
+  margin:0 0 .45rem;
+  font-size:1rem;
+  line-height:1.32;
+}
+.admission-proof-card p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.62;
+}
+
+.browser{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  border:1px solid var(--ink);
+  background:var(--card);
+  margin-top:1.4rem;
+  min-height:820px;
+  box-shadow:var(--shadow-card);
+}
+.side{
+  border-right:1px solid var(--ink);
+  background:var(--paper-deep);
+  max-height:1380px;
+  overflow:auto;
+}
+.filters{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  z-index:5;
+  padding:1.1rem 1.1rem 1rem;
+  border-bottom:1px solid var(--ink);
+}
+.filters label{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.62rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+.filter-row{display:flex;gap:.4rem;margin-bottom:.55rem}
+.filter-row select{flex:1}
+.filters input,.filters select{
+  width:100%;
+  padding:.55rem .65rem;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  outline:none;
+  border-radius:2px;
+  font-size:.85rem;
+  transition:border-color .15s;
+}
+.filters input:focus,.filters select:focus{border-color:var(--ink)}
+.list-meta{
+  padding:.55rem 1.1rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--paper-soft);
+}
+.std-item{
+  width:100%;
+  text-align:left;
+  padding:1rem 1.1rem;
+  border-bottom:1px solid var(--line-soft);
+  display:block;
+  transition:all .15s ease;
+  position:relative;
+}
+.std-item:hover{background:var(--card)}
+.std-item.on{
+  background:var(--card);
+  box-shadow:inset 4px 0 0 var(--atmo);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  font-size:.66rem;
+  padding:.18rem .45rem;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-weight:700;
+  background:var(--paper-soft);
+  color:var(--muted);
+  margin-right:.25rem;
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+}
+.domain-atmo{background:rgba(15,105,128,.08);color:var(--atmo);border-color:rgba(15,105,128,.3)}
+.domain-geo{background:rgba(138,90,31,.08);color:var(--geo);border-color:rgba(138,90,31,.3)}
+.domain-astro{background:rgba(76,79,147,.08);color:var(--astro);border-color:rgba(76,79,147,.3)}
+.domain-green{background:rgba(47,119,92,.08);color:var(--green);border-color:rgba(47,119,92,.3)}
+.code{
+  font-weight:800;
+  font-size:.74rem;
+  font-family:"JetBrains Mono",monospace;
+  letter-spacing:0;
+  color:var(--ink);
+}
+.std-title{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--ink-2);
+  margin:.4rem 0 .3rem;
+  line-height:1.35;
+}
+.std-text{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.detail-hd{
+  padding:1.7rem 1.9rem 1.5rem;
+  border-bottom:1px solid var(--ink);
+  background:linear-gradient(180deg,var(--paper-soft),var(--card));
+}
+.detail-hd .chip-row{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.85rem}
+.detail-hd h2{
+  font-size:1.7rem;
+  margin:.5rem 0 .75rem;
+  font-family:"Fraunces",serif;
+  font-weight:800;
+  line-height:1.2;
+}
+.std-full{
+  background:var(--paper-soft);
+  border-left:3px solid var(--atmo);
+  padding:.85rem 1.1rem;
+  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink-2);
+  line-height:1.6;
+  border-radius:0 2px 2px 0;
+}
+.std-full b{
+  display:block;
+  font-size:.65rem;
+  color:var(--atmo);
+  letter-spacing:0;
+  font-family:"JetBrains Mono",monospace;
+  margin-bottom:.3rem;
+  font-weight:700;
+}
+.tabbar{
+  display:flex;
+  overflow-x:auto;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--ink);
+  scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  padding:.85rem 1.05rem;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.82rem;
+  transition:all .15s ease;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.tabbar button:hover{color:var(--ink);background:var(--paper-soft)}
+.tabbar button.on{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:inset 0 -2.5px 0 var(--atmo);
+}
+.tabbar button .t-n{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.66rem;
+  color:var(--faint);
+  font-weight:700;
+}
+.tabbar button.on .t-n{color:var(--atmo)}
+.panel{padding:1.55rem 1.75rem 2.2rem}
+
+.blk{margin-bottom:1.5rem}
+.blk:last-child{margin-bottom:0}
+.blk-h{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--faint);
+  letter-spacing:0;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.45rem;
+  margin-bottom:.9rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.blk-h::before{
+  content:"";
+  width:8px;
+  height:8px;
+  margin-top:.38rem;
+  background:var(--atmo);
+  display:inline-block;
+  flex:none;
+}
+.blk-h span:first-child{margin-right:auto}
+.hint{font-size:.66rem;color:var(--gold);letter-spacing:0}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{
+  border:1.3px solid var(--line);
+  background:var(--paper-soft);
+  padding:1rem 1.05rem;
+}
+.card h4{font-size:1rem;margin-bottom:.45rem;font-family:"Fraunces",serif}
+.card p{margin:.35rem 0;color:var(--muted);font-size:.9rem}
+.card b{color:var(--ink-2)}
+.icon{
+  display:inline-grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  margin-right:.4rem;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-family:"JetBrains Mono",monospace;
+  font-size:.68rem;
+}
+.accent-atmo{border-top:4px solid var(--atmo)}
+.accent-geo{border-top:4px solid var(--geo)}
+.accent-astro{border-top:4px solid var(--astro)}
+.accent-gold{border-top:4px solid var(--gold)}
+.accent-green{border-top:4px solid var(--green)}
+.accent-red{border-top:4px solid var(--red)}
+
+.pills{display:flex;flex-wrap:wrap;gap:.38rem}
+.pill{
+  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--paper-soft);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.76rem;
+  font-weight:700;
+}
+.pill.solid{background:var(--ink);color:var(--paper-soft);border-color:var(--ink)}
+.general{
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:1.2rem 1.35rem;
+}
+.general .gen-row+ .gen-row{border-top:1px solid rgba(255,255,255,.16);margin-top:1rem;padding-top:1rem}
+.general b{
+  display:block;
+  color:#d8c28e;
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.general p{
+  margin:0;
+  font-family:"Gowun Batang",serif;
+  font-size:1.05rem;
+  line-height:1.62;
+}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.q{
+  border:1.2px solid var(--line);
+  background:var(--paper-soft);
+  border-left-width:5px;
+  padding:.9rem;
+}
+.q.fact{border-left-color:var(--atmo)}
+.q.concept{border-left-color:var(--gold)}
+.q.debate{border-left-color:var(--red)}
+.q.transfer{border-left-color:var(--green)}
+.q b{
+  display:block;
+  font-size:.7rem;
+  color:var(--faint);
+  letter-spacing:0;
+  margin-bottom:.4rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.q p{margin:0;font-weight:700;color:var(--ink)}
+
+.lesson-hd,.lesson-row{
+  display:grid;
+  grid-template-columns:1.05fr 1.5fr 1.5fr 1.05fr;
+}
+.lesson-hd{
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-size:.75rem;
+  font-family:"JetBrains Mono",monospace;
+}
+.lesson-hd>div{padding:.65rem .8rem;border-right:1px solid #4d4538}
+.lesson-row{
+  border:1px solid var(--line);
+  border-top:0;
+  background:var(--paper-soft);
+}
+.lesson-row>div{
+  padding:.85rem .9rem;
+  border-right:1px solid var(--line);
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.6;
+}
+.lesson-row>div:last-child,
+.lesson-hd>div:last-child{border-right:0}
+.stage-n{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.64rem;
+  color:var(--atmo);
+  font-weight:800;
+  letter-spacing:0;
+  margin-bottom:.22rem;
+}
+.steps{counter-reset:st;display:grid;gap:.55rem}
+.step{display:grid;grid-template-columns:30px 1fr;gap:.72rem;align-items:start}
+.step::before{
+  counter-increment:st;
+  content:counter(st);
+  width:28px;
+  height:28px;
+  border:1.4px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:"JetBrains Mono",monospace;
+  font-weight:700;
+  background:var(--paper-soft);
+}
+.step span{color:var(--muted);font-size:.88rem}
+.rubric{border:1.5px solid var(--ink)}
+.lv-row{display:grid;grid-template-columns:58px 1fr;border-bottom:1px solid var(--line)}
+.lv-row:last-child{border-bottom:0}
+.lv{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:1.2rem;
+  font-family:"Fraunces",serif;
+  font-weight:900;
+}
+.lv.A{background:var(--A)}
+.lv.B{background:var(--B)}
+.lv.C{background:var(--C)}
+.lv.D{background:var(--D)}
+.lv.E{background:var(--E)}
+.lv-text{padding:.82rem 1rem;color:var(--muted);font-size:.88rem}
+.record{
+  background:var(--atmo-bg);
+  border:1.4px solid var(--atmo);
+  padding:1.05rem 1.15rem;
+  margin-bottom:1rem;
+}
+.record b{
+  display:block;
+  color:var(--atmo);
+  font-size:.72rem;
+  letter-spacing:0;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.record p{margin:0;font-weight:700;color:var(--ink)}
+.sample-record{
+  background:var(--paper-soft);
+  border-left:4px solid var(--atmo);
+  padding:1rem 1.1rem;
+  color:var(--ink-2);
+  font-family:"Gowun Batang",serif;
+  line-height:1.75;
+}
+.copy-btn{
+  border:1px solid var(--atmo);
+  color:var(--atmo);
+  background:transparent;
+  padding:.28rem .6rem;
+  font-size:.72rem;
+  font-weight:800;
+}
+.copy-btn:hover{background:var(--atmo);color:#fff}
+
+.matrix-wrap{
+  border:1px solid var(--ink);
+  overflow:auto;
+  background:var(--card);
+  box-shadow:var(--shadow-card);
+}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--ink);
+  color:var(--paper-soft);
+  text-align:left;
+  padding:.78rem .85rem;
+  white-space:nowrap;
+  font-size:.72rem;
+  font-family:"JetBrains Mono",monospace;
+}
+td{
+  padding:.72rem .85rem;
+  border-bottom:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--muted);
+}
+td.mcode{
+  color:var(--ink);
+  font-weight:900;
+  white-space:nowrap;
+  cursor:pointer;
+  font-family:"JetBrains Mono",monospace;
+}
+td.mcode:hover{text-decoration:underline}
+.footer{
+  margin-top:4rem;
+  border-top:1px solid var(--line);
+  padding-top:1rem;
+  color:var(--faint);
+  font-size:.78rem;
+}
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  transform:translate(-50%,140%);
+  background:var(--ink);
+  color:var(--paper-soft);
+  padding:.7rem 1rem;
+  z-index:100;
+  font-size:.85rem;
+  border-radius:2px;
+  transition:.22s ease;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1180px){
+  .browser{grid-template-columns:1fr}
+  .side{border-right:0;border-bottom:1px solid var(--ink);max-height:460px}
+  .cover-grid{grid-template-columns:1fr;gap:2rem}
+  .cover-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .cards,.cards3,.q-grid,.principles,.admission-proof-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .lesson-row,.lesson-hd{grid-template-columns:1fr}
+  .lesson-row>div,.lesson-hd>div{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .cbi-flow{grid-template-columns:repeat(2,1fr)}
+  .cbi-step::after{display:none}
+}
+@media(max-width:640px){
+  main{padding:0 1rem 3rem}
+  .cover{padding:2.5rem 0 1.8rem}
+  .cover-grid{grid-template-columns:minmax(0,1fr)}
+  .kicker{letter-spacing:0;flex-wrap:wrap}
+  h1.cover-title{font-size:2.15rem;max-width:100%;overflow-wrap:anywhere}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0!important}
+  .stat .n{font-size:2.2rem}
+  .cbi-flow{grid-template-columns:1fr}
+  .detail-hd,.panel{padding-left:1.2rem;padding-right:1.2rem}
+  .fab-home{right:1rem;bottom:1rem;padding:.62rem .9rem;font-size:.8rem}
+  .nav a.btn-home{font-size:.78rem;padding:.42rem .7rem}
+}
+@media print{
+  body{background:white;color:black}
+  body::before{display:none}
+  .topbar,.side,.tabbar,.actions,.filters,.list-meta,.footer,.fab-home,.toast{display:none!important}
+  .view{display:block!important;page-break-before:auto}
+  .browser{display:block;border:0;box-shadow:none}
+  .panel{display:block!important}
+  .cover{padding:1.5rem 0}
+  .general{color:black;background:#f4f4f4;border:1px solid black}
+  .general b{color:#666}
+  .general p{color:black}
+  .card,.lesson-row,.lesson-hd{break-inside:avoid}
+}
+
+.math-expr{font-family:"JetBrains Mono","IBM Plex Sans KR",monospace;background:var(--paper-soft);border:1px solid var(--line-soft);padding:.08rem .35rem;border-radius:3px;white-space:nowrap;color:var(--ink)}
+.formula-strip{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
+.process-line{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--ink);margin:1rem 0;background:var(--card)}
+.process-line div{padding:.9rem;border-right:1px solid var(--line);min-height:88px}
+.process-line div:last-child{border-right:0}
+.process-line b{display:block;font-family:"Fraunces",serif;margin-bottom:.25rem;color:var(--ink)}
+@media(max-width:900px){.process-line{grid-template-columns:1fr}.process-line div{border-right:0;border-bottom:1px solid var(--line)}.process-line div:last-child{border-bottom:0}}
+
+.calc-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin-top:1rem}
+.calc-map .node{background:rgba(255,255,255,.72);border:1px solid var(--line-soft);border-radius:8px;padding:1rem;box-shadow:var(--shadow-card)}
+.calc-map .node b{display:block;color:var(--ink);font-size:.98rem;margin-bottom:.25rem}
+.calc-map .node span{display:block;color:var(--muted);font-size:.9rem;line-height:1.55}
+.limit-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.limit-strip span{border:1px solid var(--line);border-radius:999px;background:var(--paper-soft);padding:.32rem .62rem;font-family:"JetBrains Mono",monospace;font-size:.82rem}
+@media (max-width:860px){.calc-map{grid-template-columns:1fr}}
+
+.stat-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin-top:1rem}
+.stat-map .node{background:rgba(255,255,255,.72);border:1px solid var(--line-soft);border-radius:8px;padding:1rem;box-shadow:var(--shadow-card)}
+.stat-map .node b{display:block;color:var(--ink);font-size:.98rem;margin-bottom:.25rem}
+.stat-map .node span{display:block;color:var(--muted);font-size:.9rem;line-height:1.55}
+.prob-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.prob-strip span{border:1px solid var(--line);border-radius:999px;background:var(--paper-soft);padding:.32rem .62rem;font-family:"JetBrains Mono",monospace;font-size:.82rem}
+@media (max-width:860px){.stat-map{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="topbar"><div class="topbar-inner"><div class="brand"><div class="mark">P</div><div class="b-text"><strong>일반선택 확률과 통계 수업설계 워크북</strong><span>개념기반탐구 · 16개 성취기준 · 학생부종합 대응</span></div></div><nav class="nav"><a href="index.html" class="btn-home" aria-label="진학정보실 메인으로 이동"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v10h14V10"></path></svg>메인</a><button data-view="home" class="on">개요</button><button data-view="standards">성취기준</button><button data-view="matrix">매트릭스</button><button data-view="guide">운영 가이드</button><button class="btn-pdf" onclick="window.print()">인쇄</button></nav></div></header>
+<main>
+<section id="home" class="view active">
+  <div class="cover"><div class="cover-grid"><div class="cover-meta"><div class="kicker">2022 Revised Curriculum · General Elective Probability & Statistics</div><h1 class="cover-title">확률과 통계<br />성취기준별<br /><em>개념기반탐구</em> 수업<br />플랫폼</h1><p class="lead">확률과 통계 16개 성취기준을 경우의 수 구조화, 가능성의 수치화, 조건부확률과 독립 판단, 확률분포 해석, 표본과 추정의 불확실성으로 재구성했습니다. 공식 계산보다 조건 분류, 자료 해석, 모의실험, 표본 설계, 추정 결과의 한계가 드러나도록 설계했습니다.</p><div class="actions"><button class="btn fill" onclick="openView('standards')">성취기준별 수업 설계 시작</button><button class="btn" onclick="openView('matrix')">16개 수업 한눈에 보기</button><button class="btn" onclick="downloadCSV()">CSV 내려받기</button></div></div><aside class="cover-side"><dl><dt>제작</dt><dd>충청남도교육청진로융합교육원 교육연구사 정재연</dd><dt>대상</dt><dd>고등학교 일반선택 확률과 통계 담당교사</dd><dt>기준</dt><dd>교육부 고시 제2022-33호 [별책 8] 수학과 교육과정</dd><dt>설계 원리</dt><dd>Erickson &amp; Lanning Concept-Based Inquiry</dd><dt>활용</dt><dd>중복순열 · 중복조합 · 이항정리 · 조건부확률 · 독립 · 이항분포 · 정규분포 · 표본추출 · 신뢰구간 · 공학 도구 추정</dd></dl></aside></div></div>
+  <div class="stats"><div><b>16</b><span>성취기준</span></div><div><b>80</b><span>A-E 성취수준</span></div><div><b>12</b><span>예시 평가도구</span></div><div><b>3</b><span>경우의 수·확률·통계 영역</span></div></div>
+  <section class="sec intro"><div class="idx">Design Principle</div><h2>불확실한 세계를 근거 있게 판단하는 확률과 통계 수업</h2><p>확률과 통계 수업의 핵심은 공식을 빠르게 적용하는 것이 아니라 “어떤 조건에서 이 모델을 쓸 수 있는가”, “자료는 무엇을 대표하는가”, “계산 결과를 어떻게 의사결정으로 해석할 것인가”를 묻는 것입니다.</p><div class="principles"><div class="principle"><div class="num">01</div><h3>조건을 분류하기</h3><p>구별, 반복, 순서, 조건, 독립성, 표본추출 방법을 먼저 확인합니다.</p></div><div class="principle"><div class="num">02</div><h3>자료로 검증하기</h3><p>모의실험, 2×2 표, 분포 그래프, 반복 표본추출로 계산의 의미를 확인합니다.</p></div><div class="principle"><div class="num">03</div><h3>불확실성을 해석하기</h3><p>확률, 표준편차, 표본오차, 신뢰구간을 근거로 한계가 포함된 판단을 합니다.</p></div></div></section>
+  <section class="sec"><div class="theory-section"><h3>개념기반탐구가 학생부종합전형에서 강력한 이유</h3><p>대학이 확률과 통계 수업에서 읽고 싶은 것은 계산 공식의 나열이 아니라 <b>학생이 조건을 분류하고, 자료를 구조화하며, 확률 모델의 적용 가능성과 표본의 한계를 검토하고, 불확실성을 포함해 결론을 해석한 과정</b>입니다.</p><p>각 성취기준 상세 탭에는 중복 세기의 오류 수정, 조건부확률의 분모 해석, 독립 판단 근거, 분포의 중심과 변동성, 표본추출 편향, 신뢰구간 해석처럼 세특 기록의 근거가 되는 탐구 장면을 배치했습니다.</p><div class="admission-proof-grid"><div class="admission-proof-card"><span class="tag">Counting</span><h4>조건 분류와 구조화</h4><p>구별·반복·순서·분배 조건을 분리해 경우의 수 모델을 선택합니다.</p></div><div class="admission-proof-card"><span class="tag">Probability</span><h4>조건과 의사결정</h4><p>확률을 가능성의 수치로 해석하고 조건부확률·독립을 근거로 판단합니다.</p></div><div class="admission-proof-card"><span class="tag">Statistics</span><h4>표본과 추정의 한계</h4><p>표본변동성, 분포, 신뢰구간을 통해 불확실성을 포함한 결론을 제시합니다.</p></div></div><div class="ref">— H. L. Erickson, L. A. Lanning &amp; R. French, <em>Concept-Based Curriculum and Instruction for the Thinking Classroom</em> (2017)</div></div></section>
+  <section class="sec"><div class="idx">CBI Flow</div><h2>확률과 통계 개념기반탐구 6단계</h2><div class="flow"><div><b>1. 현상 관찰</b><span>중복 세기, 조건이 바뀐 확률, 흔들리는 표본 결과처럼 판단이 필요한 상황을 제시합니다.</span></div><div><b>2. 개념 갈등</b><span>공식 선택 오류, 조건부확률 오해, 표본 대표성 문제, 신뢰구간 해석 오류를 드러냅니다.</span></div><div><b>3. 정의와 조건</b><span>표본공간, 독립성, 분포 조건, 임의추출, 추정 조건을 분명히 합니다.</span></div><div><b>4. 자료 구조화</b><span>표, 벤다이어그램, 나무그림, 분포 그래프, 시뮬레이션 결과로 표현을 바꿉니다.</span></div><div><b>5. 판단·검증</b><span>계산값을 모의실험, 반례, 표본 설계, 공학 도구 결과로 검토합니다.</span></div><div><b>6. 일반화·전이</b><span>합리적 의사결정, 위험 평가, 조사 해석, 정책 판단으로 확장합니다.</span></div></div><div class="stat-map"><div class="node"><b>경우의 수</b><span>구별, 반복, 순서, 분배 조건을 분류해 체계적으로 셉니다.</span></div><div class="node"><b>확률</b><span>가능성을 수치화하고 조건, 여사건, 독립, 곱셈정리로 판단합니다.</span></div><div class="node"><b>통계</b><span>분포, 표본, 추정을 통해 불확실한 자료를 책임 있게 해석합니다.</span></div></div></section>
+</section>
+<section id="standards" class="view"><div class="sec"><div class="idx">Standards Board</div><h2>성취기준별 수업설계 보드</h2><p>영역, 수업 유형, 검색어로 성취기준을 찾고 상세 탭에서 수업 설계안을 확인하세요.</p></div><div class="browser"><aside class="side"><div class="filters"><label>SEARCH</label><input id="search" placeholder="코드, 제목, 개념, 수식, 산출물 검색" /><div class="filter-row"><select id="domain"><option>전체 영역</option><option>경우의 수 구조화</option><option>확률과 의사결정</option><option>조건부확률과 독립</option><option>확률분포와 기대</option><option>분포 모델과 근사</option><option>표본과 통계적 추정</option></select><select id="type"><option>전체 수업 유형</option><option>분류</option><option>구조</option><option>패턴</option><option>모의실험</option><option>확률</option><option>조건</option><option>분포</option><option>표본</option><option>추정</option></select></div></div><div id="list-meta" class="list-meta"></div><div id="list"></div></aside><article id="detail" class="detail"></article></div></section>
+<section id="matrix" class="view"><div class="sec"><div class="idx">Curriculum Matrix</div><h2>16개 성취기준 수업 매트릭스</h2><p>영역-핵심 개념-수식 표현-관찰 증거를 한 표로 확인합니다.</p></div><div class="matrix"><table><thead><tr><th>영역</th><th>코드</th><th>수업 제목</th><th>유형</th><th>핵심 개념</th><th>수식 표현</th><th>평가·기록 증거</th></tr></thead><tbody id="matrixBody"></tbody></table></div></section>
+<section id="guide" class="view"><div class="sec"><div class="idx">Teacher Guide</div><h2>확률과 통계 운영 가이드</h2><p>개념기반탐구와 학생부종합전형 기록을 동시에 고려한 수업 운영 원리입니다.</p></div><div class="guide-grid"><div class="guide-card"><h3>경우의 수</h3><p>공식 선택보다 조건 분류를 먼저 기록하게 합니다. 중복순열, 같은 것이 있는 순열, 중복조합, 이항정리는 구별·반복·순서·분배 조건을 통해 연결합니다.</p><div class="prob-strip"><span>n^r</span><span>nHr</span><span>C(n,k)</span><span>Σ</span></div></div><div class="guide-card"><h3>확률</h3><p>확률은 가능성의 수치화이자 의사결정 도구입니다. 조건부확률은 인과관계가 아니라 제한된 표본공간의 확률이라는 점을 반복 확인합니다.</p><div class="prob-strip"><span>P(A∪B)</span><span>P(A^c)</span><span>P(B|A)</span><span>독립</span></div></div><div class="guide-card"><h3>통계</h3><p>분포의 중심과 변동성, 표본 대표성, 신뢰구간 해석이 핵심입니다. 실제 자료와 공학 도구를 사용하되 표본추출 방법과 해석 한계를 반드시 남깁니다.</p><div class="prob-strip"><span>E(X)</span><span>B(n,p)</span><span>N(m,σ²)</span><span>X̄</span><span>p̂</span></div></div></div><div class="sec"><h2>세특 기록 원칙</h2><div class="cards3"><div class="card accent-atmo"><h4>조건 분류</h4><p>공식 적용 전 학생이 어떤 조건을 확인했고 어떤 모델을 선택했는지 기록합니다.</p></div><div class="card accent-green"><h4>자료 해석</h4><p>표, 그래프, 모의실험, 표본추출 결과를 어떻게 정리하고 해석했는지 남깁니다.</p></div><div class="card accent-astro"><h4>불확실성 판단</h4><p>확률, 변동성, 편향, 신뢰구간의 한계를 고려해 결론을 조정한 장면을 기록합니다.</p></div></div></div></section>
+</main><button id="fabHome" onclick="openView('home')" aria-label="처음 화면으로">↑</button>
+<script>
+const DATA=[
+  {
+    "code": "[12확통01-01]",
+    "standard": "중복순열, 같은 것이 있는 순열을 이해하고, 그 순열의 수를 구하는 방법을 설명할 수 있다.",
+    "domain": "경우의 수 구조화",
+    "title": "구별과 중복 조건으로 순열 구조 읽기",
+    "type": "분류 탐구",
+    "period": "2차시",
+    "lens": "구별과 배열",
+    "concept": "중복순열, 같은 것이 있는 순열, 체계적 세기",
+    "formula": "중복순열 n^r, 같은 것이 있는 순열 n!/(p!q!...)",
+    "related": "구별 가능성, 반복 허용, 배열, 분류, 곱의 원리, 누락과 중복",
+    "phenomenon": "비밀번호, 좌석 배치, 문자 배열처럼 비슷해 보이는 상황도 반복 허용 여부와 같은 대상의 존재에 따라 경우의 수가 크게 달라진다.",
+    "conflict": "학생은 “몇 개를 뽑아 나열한다”는 표면 구조만 보고 공식을 선택하지만, 실제 핵심은 대상이 구별되는지와 같은 선택을 반복할 수 있는지의 조건이다.",
+    "general": "경우의 수를 정확히 세기 위해서는 먼저 대상을 구별할 수 있는가, 순서가 의미 있는가, 반복이 허용되는가를 구조적으로 분류해야 한다.",
+    "studentGeneral": "순열 문제를 풀 때는 공식을 먼저 고르지 말고, 무엇을 서로 다르게 볼지와 같은 것을 몇 번 반복할 수 있는지부터 확인해야 한다.",
+    "questions": [
+      "중복순열과 같은 것이 있는 순열은 각각 어떤 상황을 세는 방법인가?",
+      "대상이 구별되는지에 따라 같은 배열을 몇 번 중복해 세게 되는가?",
+      "공식을 빠르게 적용하는 풀이와 조건을 분류한 풀이 중 어느 쪽이 오류를 더 잘 막는가?",
+      "비밀번호 설계, 상품 진열, 유전자 서열 분석 같은 상황에서 구별과 중복 조건은 어떻게 달라지는가?"
+    ],
+    "products": [
+      "조건 분류 카드",
+      "배열 중복 검토표",
+      "실생활 순열 문제 설계지"
+    ],
+    "data": "문제 상황에서 대상, 자리 수, 순서의 의미, 반복 허용 여부, 같은 대상의 개수를 표로 정리하고 공식 적용 전에 중복 세기 가능성을 확인한다.",
+    "modeling": "간단한 배열을 직접 나열한 뒤 공식값과 비교하여 누락과 중복이 어디서 생기는지 설명한다.",
+    "uncertainty": "같은 문자가 있는 배열에서 모든 문자를 서로 다른 것으로 세면 같은 배열을 여러 번 세게 되므로, 중복되는 배열의 수를 나누어야 한다.",
+    "misconception": "순서가 있는 문제는 언제나 nPr만 쓰면 된다고 생각한다.",
+    "correction": "반복 허용, 같은 대상 존재, 자리 수 제한이 서로 다른 세 사례를 비교하게 하여 공식 선택 전에 조건 분류표를 작성하게 한다.",
+    "deepDive": "학교 행사 좌석표나 임시 비밀번호 생성 규칙을 설계하고, 보안성과 편의성을 경우의 수 관점에서 비교한다.",
+    "career": "정보보안, 컴퓨터과학, 유전정보 분석, 물류 배치, 산업공학, 데이터 구조 설계",
+    "sample": "비밀번호 생성 상황에서 자리 수, 반복 허용, 문자 구별 가능성을 먼저 분류하고 중복순열 공식이 적용되는 이유를 설명함. 같은 문자가 있는 배열에서는 서로 다른 것으로 세었을 때 발생하는 중복을 직접 나열해 확인하고, 공식 선택의 근거를 조건 분류표로 제시함.",
+    "source": "경우의 수 구조화 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 경우의 수 구조화",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "중복순열, 같은 것이 있는 순열, 체계적 세기의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "구별과 배열 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [],
+    "tool": "[12확통01-01] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "중복순열, 같은 것이 있는 순열의 개념을 이해하고, 그 순열의 수를 구하는 방법을 논리적으로 설명할 수 있다.",
+      "B": "중복순열, 같은 것이 있는 순열의 개념을 이해하고, 그 순열의 수를 구하는 방법을 설명할 수 있다.",
+      "C": "중복순열, 같은 것이 있는 순열의 개념을 알고, 그 순열의 수를 구할 수 있다.",
+      "D": "중복순열, 같은 것이 있는 순열의 수를 구할 수 있다.",
+      "E": "안내된 절차에 따라 중복순열, 같은 것이 있는 순열의 수를 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통01-02]",
+    "standard": "중복조합을 이해하고, 중복조합의 수를 구하는 방법을 설명할 수 있다.",
+    "domain": "경우의 수 구조화",
+    "title": "순서 없는 반복 선택을 중복조합으로 모델링하기",
+    "type": "구조 모델링",
+    "period": "2차시",
+    "lens": "반복 선택과 분배",
+    "concept": "중복조합, 순서 없는 선택, 분배 구조",
+    "formula": "nHr = C(n+r-1, r)",
+    "related": "순서 없음, 반복 허용, 칸막이 모델, 분배, 선택 조건, 합의 조건",
+    "phenomenon": "여러 종류의 음료를 총 r개 고르거나 씨앗을 여러 칸에 나누어 심을 때, 같은 종류를 여러 번 고를 수 있지만 고른 순서는 중요하지 않다.",
+    "conflict": "반복을 허용한다는 점은 중복순열과 비슷하지만, 순서가 의미 없다는 점 때문에 완전히 다른 세기 구조가 된다.",
+    "general": "중복조합은 반복 선택은 허용하되 선택 순서는 구별하지 않는 상황을 종류별 개수의 분배 문제로 바꾸어 세는 방법이다.",
+    "studentGeneral": "중복조합을 사용할 때는 “무엇을 몇 개씩 골랐는가”가 중요하고 “어떤 순서로 골랐는가”는 중요하지 않은지 확인해야 한다.",
+    "questions": [
+      "중복조합은 중복순열과 어떤 조건에서 달라지는가?",
+      "칸막이 모델은 종류별 선택 개수를 어떻게 시각화하는가?",
+      "순서를 구별하지 않는다는 말은 실제 상황에서 어떤 의미인가?",
+      "상품 묶음 구성, 식단 선택, 자원 배분 문제를 중복조합으로 어떻게 표현할 수 있는가?"
+    ],
+    "products": [
+      "칸막이 모델 활동지",
+      "중복순열-중복조합 비교표",
+      "자원 배분 문제 설명 카드"
+    ],
+    "data": "선택한 전체 개수 r, 종류 수 n, 각 종류별 개수 합이 r이라는 조건을 표로 정리하고 별과 막대 모형으로 변환한다.",
+    "modeling": "소규모 사례를 직접 나열해 순서를 무시한 결과와 순서를 고려한 결과를 비교하고 공식 nHr의 구조를 설명한다.",
+    "uncertainty": "문제에 최소 1개 이상, 특정 종류 제외, 상한 조건이 있으면 기본 중복조합 공식만으로는 부족하므로 조건 변형을 먼저 확인해야 한다.",
+    "misconception": "반복 선택이 허용되면 모두 중복순열이라고 판단한다.",
+    "correction": "AA B와 A BA처럼 순서가 달라도 같은 선택인지 묻고, 선택 결과를 종류별 개수 벡터로 표현하게 한다.",
+    "deepDive": "급식 메뉴 조합이나 동아리 예산 배분 사례를 설계하고, 기본 중복조합에서 추가 조건이 들어올 때 풀이가 어떻게 바뀌는지 분석한다.",
+    "career": "경영 상품 구성, 자원 배분, 영양학, 운영 연구, 컴퓨터 조합론, 통계 실험 설계",
+    "sample": "씨앗 선택 상황을 종류별 개수의 분배 문제로 바꾸고, 별과 막대 모형을 이용해 nHr=C(n+r-1,r)의 구조를 설명함. 처음에는 반복 허용만 보고 중복순열을 적용했으나 순서가 의미 없는 상황임을 확인하며 중복조합으로 모델을 수정함.",
+    "source": "경우의 수 구조화 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 경우의 수 구조화",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "중복조합, 순서 없는 선택, 분배 구조의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "반복 선택과 분배 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-1 / 토의·토론 / 중복조합을 이해한다. / 중복조합의 수를 구하는 방법을 설명한다."
+    ],
+    "tool": "확률과 통계-1 / 토의·토론 / 중복조합을 이해한다. / 중복조합의 수를 구하는 방법을 설명한다.",
+    "levels": {
+      "A": "중복조합의 개념을 이해하고, 중복조합의 수를 구하는 방법을 논리적으로 설명할 수 있다.",
+      "B": "중복조합의 개념을 이해하고, 중복조합의 수를 구하는 방법을 설명할 수 있다.",
+      "C": "중복조합의 개념을 알고, 중복조합의 수를 구할 수 있다.",
+      "D": "중복조합의 수를 구할 수 있다.",
+      "E": "안내된 절차에 따라 중복조합의 수를 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통01-03]",
+    "standard": "이항정리를 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+    "domain": "경우의 수 구조화",
+    "title": "이항계수로 전개와 선택 구조 연결하기",
+    "type": "패턴 일반화",
+    "period": "2차시",
+    "lens": "선택 구조와 계수",
+    "concept": "이항정리, 이항계수, 파스칼의 삼각형",
+    "formula": "(a+b)^n = Σ C(n,k)a^{n-k}b^k",
+    "related": "전개, 조합, 계수, 파스칼의 삼각형, 항의 위치, 대칭성",
+    "phenomenon": "(a+b)^n을 전개할 때 각 항의 계수는 단순 계산 결과가 아니라 n번의 선택 중 b를 k번 고르는 경우의 수와 연결된다.",
+    "conflict": "이항정리를 전개 공식으로만 외우면 왜 조합 C(n,k)가 계수가 되는지 설명하기 어렵다.",
+    "general": "이항정리는 대수적 전개의 계수가 선택의 경우의 수와 같다는 사실을 보여 주며, 이항계수는 조합적 구조를 수식으로 표현한다.",
+    "studentGeneral": "이항정리에서 특정 항의 계수를 찾을 때는 n개의 괄호에서 어떤 항을 몇 번 선택하는지 생각하면 된다.",
+    "questions": [
+      "(a+b)^n의 전개에서 C(n,k)는 어떤 선택을 세는가?",
+      "파스칼의 삼각형은 이항계수의 어떤 구조를 보여 주는가?",
+      "전개 계산과 조합 해석 중 어떤 설명이 계수의 의미를 더 잘 드러내는가?",
+      "확률분포, 유전 조합, 알고리즘 경우의 수에서 이항계수는 어떻게 활용되는가?"
+    ],
+    "products": [
+      "이항계수 선택 설명지",
+      "파스칼 삼각형 패턴 분석표",
+      "특정항 찾기 전략 카드"
+    ],
+    "data": "n이 작은 경우를 직접 전개하고 각 항의 계수가 n개의 괄호에서 b를 선택하는 횟수 C(n,k)와 일치함을 표로 확인한다.",
+    "modeling": "파스칼의 삼각형을 생성하고 인접한 두 수의 합, 대칭성, 행의 합이 이항정리와 어떻게 연결되는지 설명한다.",
+    "uncertainty": "항의 순서와 지수, 계수의 위치를 혼동하면 특정항을 잘못 찾으므로 k의 의미를 b의 선택 횟수로 명확히 해야 한다.",
+    "misconception": "이항계수는 전개 과정에서 우연히 생기는 숫자라고 생각한다.",
+    "correction": "괄호 n개에서 a 또는 b를 선택하는 경로를 직접 표시하고, 같은 항으로 모이는 선택의 수가 계수임을 확인하게 한다.",
+    "deepDive": "이항정리를 이용해 이항분포의 확률식 C(n,k)p^k(1-p)^{n-k}가 나타나는 이유를 예고 탐구로 연결한다.",
+    "career": "통계학, 유전학, 컴퓨터과학, 암호학, 금융공학, 알고리즘 분석",
+    "sample": "(a+b)^n의 특정 항을 찾을 때 전개를 기계적으로 수행하지 않고 n개의 괄호에서 b를 k번 선택하는 조합 구조로 계수를 설명함. 파스칼의 삼각형과 이항계수의 대칭성을 비교하며 이항정리가 대수와 조합을 연결한다는 점을 정리함.",
+    "source": "경우의 수 구조화 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 경우의 수 구조화",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "이항정리, 이항계수, 파스칼의 삼각형의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "선택 구조와 계수 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-2 / 완성형 / 이항정리 이해하기 / 이항정리를 활용하여 문제 해결하기"
+    ],
+    "tool": "확률과 통계-2 / 완성형 / 이항정리 이해하기 / 이항정리를 활용하여 문제 해결하기",
+    "levels": {
+      "A": "이항정리를 이해하고, 이를 활용하여 다양한 문제를 해결하고 그 과정을 설명할 수 있다.",
+      "B": "이항정리를 이해하고, 이를 활용하여 다양한 문제를 해결할 수 있다.",
+      "C": "이항정리를 이해하고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "D": "이항정리를 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 이항정리에 관한 간단한 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통02-01]",
+    "standard": "확률의 개념을 이해하고 기본 성질을 설명할 수 있다.",
+    "domain": "확률과 의사결정",
+    "title": "수학적 확률과 통계적 확률로 가능성 해석하기",
+    "type": "모의실험",
+    "period": "2차시",
+    "lens": "가능성의 수치화",
+    "concept": "확률의 개념, 기본 성질, 통계적 확률",
+    "formula": "0≤P(A)≤1, P(S)=1, P(∅)=0",
+    "related": "시행, 표본공간, 사건, 수학적 확률, 통계적 확률, 큰 수의 경향",
+    "phenomenon": "동전이나 주사위를 몇 번 던지면 상대도수는 흔들리지만 시행 횟수가 많아질수록 특정 값 근처로 안정되는 경향을 보인다.",
+    "conflict": "짧은 실험의 결과가 이론적 확률과 다르다고 해서 확률 자체가 틀린 것은 아니며, 우연 변동과 장기적 경향을 구분해야 한다.",
+    "general": "확률은 사건이 일어날 가능성을 0과 1 사이의 수로 표현하며, 수학적 확률과 통계적 확률은 이론적 구조와 실제 자료를 연결한다.",
+    "studentGeneral": "확률을 판단할 때는 표본공간과 사건을 먼저 정하고, 실험 결과는 시행 횟수와 우연 변동을 고려해 해석해야 한다.",
+    "questions": [
+      "확률이 0, 1, 그 사이의 값이라는 것은 각각 어떤 의미인가?",
+      "수학적 확률과 통계적 확률은 어떻게 다르고 어떻게 연결되는가?",
+      "모의실험 결과가 이론값과 다를 때 어떤 해석이 합리적인가?",
+      "여론조사, 게임 확률, 위험 예측에서 확률을 근거로 어떻게 의사결정할 수 있는가?"
+    ],
+    "products": [
+      "모의실험 설계표",
+      "상대도수 변화 그래프",
+      "확률 해석 카드"
+    ],
+    "data": "공학 도구로 시행 횟수를 늘리며 상대도수 변화를 기록하고, 표본공간·사건·이론적 확률·실험적 상대도수를 비교한다.",
+    "modeling": "동전, 주사위, 룰렛 등 간단한 확률 실험을 시뮬레이션하고 시행 횟수에 따른 변동성과 안정성을 설명한다.",
+    "uncertainty": "시행 횟수가 적으면 상대도수가 크게 흔들릴 수 있으므로 단기 결과를 장기 확률로 일반화하지 않도록 한다.",
+    "misconception": "확률이 1/2이면 두 번 중 한 번은 반드시 일어난다고 생각한다.",
+    "correction": "짧은 시행과 긴 시행의 상대도수 그래프를 비교하여 확률은 개별 결과 보장이 아니라 장기적 가능성의 수치임을 확인하게 한다.",
+    "deepDive": "실제 생활 속 무작위 현상 하나를 정해 모의실험을 설계하고, 이론적 확률과 실험 결과의 차이를 우연 변동 관점에서 해석한다.",
+    "career": "데이터 과학, 보험, 게임 설계, 위험관리, 정책 분석, 의학 임상 연구",
+    "sample": "표본공간과 사건을 명확히 정의한 뒤 공학 도구로 모의실험을 반복하여 상대도수의 변화를 그래프로 분석함. 시행 횟수가 적을 때 나타나는 우연 변동을 이론적 확률의 오류로 해석하지 않고, 수학적 확률과 통계적 확률의 관계를 장기적 경향으로 설명함.",
+    "source": "확률과 의사결정 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 확률과 의사결정",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "확률의 개념, 기본 성질, 통계적 확률의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "가능성의 수치화 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-3 / 프로젝트 / 모의실험을 설계하고 통계적 확률 계산으로 근삿값을 구한다."
+    ],
+    "tool": "확률과 통계-3 / 프로젝트 / 모의실험을 설계하고 통계적 확률 계산으로 근삿값을 구한다.",
+    "levels": {
+      "A": "확률의 개념과 기본 성질을 설명할 수 있다.",
+      "B": "확률의 개념과 기본 성질을 설명할 수 있다.",
+      "C": "확률의 개념과 기본 성질을 이해한다.",
+      "D": "확률의 개념과 기본 성질을 이해한다.",
+      "E": "확률의 개념을 알고, 기본 성질을 부분적으로 안다."
+    }
+  },
+  {
+    "code": "[12확통02-02]",
+    "standard": "확률의 덧셈정리를 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+    "domain": "확률과 의사결정",
+    "title": "겹치는 사건을 포함해 덧셈정리로 가능성 계산하기",
+    "type": "확률 구조",
+    "period": "2차시",
+    "lens": "합집합과 중복 조정",
+    "concept": "확률의 덧셈정리, 배반사건, 합사건",
+    "formula": "P(A∪B)=P(A)+P(B)-P(A∩B)",
+    "related": "합집합, 교집합, 배반사건, 벤다이어그램, 중복 계산, 의사결정",
+    "phenomenon": "두 조건 중 하나 이상을 만족하는 사람의 비율을 구할 때, 두 조건을 모두 만족하는 사람을 두 번 세지 않도록 조정해야 한다.",
+    "conflict": "“A 또는 B”라는 표현은 단순히 두 확률을 더하는 문제가 아니라 두 사건이 겹치는지 먼저 확인해야 하는 문제이다.",
+    "general": "확률의 덧셈정리는 합사건의 가능성을 계산할 때 중복해서 세어진 교집합을 조정하는 원리이다.",
+    "studentGeneral": "A 또는 B가 일어날 확률을 구할 때는 두 사건이 배반인지, 겹치는 부분이 있는지 먼저 확인해야 한다.",
+    "questions": [
+      "배반사건과 겹치는 사건은 벤다이어그램에서 어떻게 다른가?",
+      "P(A∩B)를 빼는 이유는 무엇인가?",
+      "실생활의 “또는” 표현은 항상 배반사건을 뜻하는가?",
+      "질병 검사, 선호도 조사, 위험 요인 분석에서 겹치는 사건의 확률을 어떻게 해석할 수 있는가?"
+    ],
+    "products": [
+      "벤다이어그램 확률 해석지",
+      "중복 계산 오류 수정표",
+      "실생활 합사건 사례 카드"
+    ],
+    "data": "두 사건의 개수 또는 비율 자료를 벤다이어그램으로 나타내고, 합집합·교집합·여집합 영역의 의미를 문장으로 설명한다.",
+    "modeling": "설문 자료에서 두 조건 중 하나 이상을 만족하는 비율을 구하고, 단순 합과 덧셈정리 결과의 차이를 비교한다.",
+    "uncertainty": "사건 설명에 “또는”이 있어도 두 사건이 동시에 일어날 수 있으면 배반사건이 아니므로 교집합을 확인해야 한다.",
+    "misconception": "A 또는 B의 확률은 항상 P(A)+P(B)라고 생각한다.",
+    "correction": "동시에 발생 가능한 사례와 불가능한 사례를 나누어 벤다이어그램으로 표시하고, 교집합을 두 번 센 흔적을 찾게 한다.",
+    "deepDive": "건강 위험 요인 두 가지가 있는 가상 자료를 만들고, 둘 중 하나 이상의 위험 요인을 가진 집단 비율을 덧셈정리로 분석한다.",
+    "career": "보건통계, 마케팅 분석, 사회조사, 보험 위험관리, 데이터 분석, 정책 평가",
+    "sample": "설문 자료를 벤다이어그램으로 구조화하고 두 조건을 모두 만족하는 교집합을 별도로 표시하여 덧셈정리를 적용함. 처음에는 두 확률을 단순히 더했으나, 교집합이 중복 계산된다는 점을 확인하고 합사건의 확률을 중복 조정 원리로 설명함.",
+    "source": "확률과 의사결정 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 확률과 의사결정",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "확률의 덧셈정리, 배반사건, 합사건의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "합집합과 중복 조정 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [],
+    "tool": "[12확통02-02] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "확률의 덧셈정리를 설명하고, 이를 활용하여 다양한 문제를 해결할 수 있다.",
+      "B": "확률의 덧셈정리를 설명하고, 이를 활용하여 문제를 해결할 수 있다.",
+      "C": "확률의 덧셈정리를 이해하고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "D": "확률의 덧셈정리를 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 확률의 덧셈정리 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통02-03]",
+    "standard": "여사건의 확률을 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+    "domain": "확률과 의사결정",
+    "title": "여사건으로 복잡한 가능성을 간단히 보기",
+    "type": "전략 선택",
+    "period": "2차시",
+    "lens": "보완적 사고",
+    "concept": "여사건의 확률, 적어도 하나, 전체와 보완",
+    "formula": "P(A^c)=1-P(A)",
+    "related": "여사건, 전체사건, 적어도 하나, 모두 아님, 보완 전략",
+    "phenomenon": "“적어도 하나 성공”처럼 직접 세기 어려운 사건은 “하나도 성공하지 않음”의 여사건을 이용하면 간단히 계산할 수 있다.",
+    "conflict": "학생은 문제에서 묻는 사건을 직접 세려고 하지만, 때로는 반대 사건을 세는 것이 더 정확하고 효율적이다.",
+    "general": "여사건은 전체 가능성에서 관심 사건이 일어나지 않는 경우를 제외하여 복잡한 사건의 확률을 간결하게 구하게 해 주는 전략이다.",
+    "studentGeneral": "사건을 직접 세기 복잡하면 먼저 반대 사건이 더 단순한지 확인하고, 전체 확률 1에서 빼는 전략을 선택할 수 있다.",
+    "questions": [
+      "여사건은 원래 사건과 어떤 관계를 갖는가?",
+      "“적어도 하나”와 “하나도 없음”은 왜 서로 여사건인가?",
+      "직접 세기와 여사건 전략 중 어떤 방법이 더 오류를 줄이는가?",
+      "안전장치, 품질검사, 당첨 가능성 문제에서 여사건 전략을 어떻게 사용할 수 있는가?"
+    ],
+    "products": [
+      "여사건 문장 변환표",
+      "직접 세기-여사건 풀이 비교지",
+      "전략 선택 체크리스트"
+    ],
+    "data": "문제 문장을 관심 사건과 여사건 문장으로 바꾸고, 두 사건이 겹치지 않으며 전체를 모두 포함하는지 확인한다.",
+    "modeling": "독립 시행에서 “적어도 한 번” 사건을 직접 계산한 경우와 여사건으로 계산한 경우를 비교하여 풀이 효율성을 분석한다.",
+    "uncertainty": "여사건 문장을 잘못 만들면 빠진 경우나 겹치는 경우가 생기므로 원사건과 여사건이 전체를 정확히 나누는지 확인해야 한다.",
+    "misconception": "여사건은 단순히 문제 문장의 반대말을 아무렇게나 붙이면 된다고 생각한다.",
+    "correction": "적어도 하나, 모두, 하나도 없음, 전부는 아님 등의 표현을 논리적으로 변환하는 훈련을 통해 여사건 문장을 정확히 쓰게 한다.",
+    "deepDive": "품질 검사에서 불량품이 적어도 하나 포함될 확률을 여사건으로 구하고, 표본 크기 변화가 위험 판단에 미치는 영향을 분석한다.",
+    "career": "품질관리, 보험, 안전공학, 의학 검사, 게임 확률, 신뢰성 공학",
+    "sample": "“적어도 하나” 사건을 직접 나열하지 않고 “하나도 없음”이라는 여사건으로 변환하여 계산 전략을 선택함. 원사건과 여사건이 서로 겹치지 않고 전체를 모두 포함한다는 조건을 확인하며, 여사건 전략이 복잡한 경우의 누락을 줄이는 이유를 설명함.",
+    "source": "확률과 의사결정 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 확률과 의사결정",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "여사건의 확률, 적어도 하나, 전체와 보완의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "보완적 사고 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-4 / 서·논술형 / 여사건의 확률을 설명한다. / 여사건의 확률을 활용하여 문제를 해결한다."
+    ],
+    "tool": "확률과 통계-4 / 서·논술형 / 여사건의 확률을 설명한다. / 여사건의 확률을 활용하여 문제를 해결한다.",
+    "levels": {
+      "A": "여사건의 확률을 설명하고, 이를 활용하여 다양한 문제를 해결할 수 있다.",
+      "B": "여사건의 확률을 설명하고, 이를 활용하여 문제를 해결할 수 있다.",
+      "C": "여사건의 확률을 이해하고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "D": "여사건의 확률을 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 여사건의 확률을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통02-04]",
+    "standard": "조건부확률을 이해하고, 이를 실생활과 연결하여 문제를 해결할 수 있다.",
+    "domain": "조건부확률과 독립",
+    "title": "조건이 바뀌면 표본공간도 바뀐다",
+    "type": "조건 해석",
+    "period": "2차시",
+    "lens": "조건과 정보 갱신",
+    "concept": "조건부확률, 조건이 주어진 표본공간, 실생활 의사결정",
+    "formula": "P(B|A)=P(A∩B)/P(A), P(A)>0",
+    "related": "조건, 정보 갱신, 제한된 표본공간, 검사 결과, 위험 판단, 인과 오해",
+    "phenomenon": "검사에서 양성이 나왔다는 정보가 주어지면 관심 표본공간은 전체가 아니라 양성이 나온 집단으로 바뀐다.",
+    "conflict": "조건부확률은 시간 순서나 원인-결과 관계를 뜻하지 않는데, 학생은 P(B|A)를 A가 B의 원인이라는 식으로 해석하기 쉽다.",
+    "general": "조건부확률은 새로운 조건이 주어졌을 때 표본공간을 제한하여 사건의 가능성을 다시 계산하는 정보 갱신의 도구이다.",
+    "studentGeneral": "조건부확률을 해석할 때는 “무엇이 주어진 조건인가”를 먼저 확인하고, 그 조건 안에서 관심 사건의 비율을 구해야 한다.",
+    "questions": [
+      "P(B|A)에서 조건이 되는 사건과 관심 사건은 각각 무엇인가?",
+      "조건이 주어지면 표본공간은 어떻게 달라지는가?",
+      "조건부확률을 인과관계로 해석하면 어떤 오류가 생기는가?",
+      "의학 검사, 추천 알고리즘, 사고 위험 분석에서 조건부확률은 어떤 판단을 돕는가?"
+    ],
+    "products": [
+      "조건-관심 사건 분리표",
+      "2×2 표 해석지",
+      "조건부확률 오해 수정 카드"
+    ],
+    "data": "실생활 자료를 2×2 표로 정리하고 전체 비율, 행 조건 비율, 열 조건 비율을 구분하여 P(B|A)와 P(A|B)를 비교한다.",
+    "modeling": "검사 정확도와 유병률 자료를 이용해 양성일 때 실제 질병일 확률을 계산하고, 기저율이 판단에 미치는 영향을 해석한다.",
+    "uncertainty": "P(B|A)와 P(A|B)는 일반적으로 다르며, 조건부확률만으로 인과관계를 단정할 수 없다.",
+    "misconception": "P(B|A)와 P(A|B)를 같은 값으로 보거나, 조건을 원인으로 해석한다.",
+    "correction": "2×2 표에서 분모가 달라지는 모습을 색으로 표시하고, 조건이 바뀌면 기준 집단이 바뀐다는 점을 반복 확인하게 한다.",
+    "deepDive": "뉴스 속 조건부확률 사례를 찾아 기저율, 조건, 관심 사건을 분리하고 잘못된 위험 해석이 있는지 검토한다.",
+    "career": "의학 통계, 데이터 과학, 인공지능 추천, 법과 증거 판단, 보험, 공중보건",
+    "sample": "의학 검사 사례를 2×2 표로 정리하여 조건이 주어진 집단을 분모로 설정하고 P(B|A)와 P(A|B)를 구분함. 조건부확률을 시간 순서나 인과관계로 해석하던 오류를 기저율과 조건 표본공간 관점에서 수정하고, 계산 결과가 실제 의사결정에 주는 의미와 한계를 설명함.",
+    "source": "조건부확률과 독립 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 조건부확률과 독립",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "조건부확률, 조건이 주어진 표본공간, 실생활 의사결정의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "조건과 정보 갱신 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-5 / 구술·발표 / 사건의 확률에 대한 각각의 주장을 논리적으로 판단하고 확률 계산을 통해 그 이유를 설명한다."
+    ],
+    "tool": "확률과 통계-5 / 구술·발표 / 사건의 확률에 대한 각각의 주장을 논리적으로 판단하고 확률 계산을 통해 그 이유를 설명한다.",
+    "levels": {
+      "A": "조건부확률을 설명하고, 조건부확률을 실생활과 연결하여 다양한 문제를 해결할 수 있다.",
+      "B": "조건부확률을 이해하고, 조건부확률을 실생활과 연결하여 문제를 해결할 수 있다.",
+      "C": "조건부확률을 알고, 조건부확률을 실생활과 연결하여 간단한 문제를 해결할 수 있다.",
+      "D": "조건부확률을 알고, 조건부확률을 구할 수 있다.",
+      "E": "안내된 절차에 따라 조건부확률을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통02-05]",
+    "standard": "사건의 독립과 종속을 이해하고, 이를 판단할 수 있다.",
+    "domain": "조건부확률과 독립",
+    "title": "독립은 관계 없음이 아니라 확률 변화 없음이다",
+    "type": "판단 탐구",
+    "period": "2차시",
+    "lens": "정보의 영향",
+    "concept": "사건의 독립과 종속, 조건부확률 비교",
+    "formula": "독립 ⇔ P(A∩B)=P(A)P(B) ⇔ P(B|A)=P(B)",
+    "related": "독립, 종속, 조건, 정보, 교집합, 상관과 인과 구분",
+    "phenomenon": "한 사건이 일어났다는 정보가 다른 사건의 확률을 바꾸지 않으면 두 사건은 독립이라고 판단할 수 있다.",
+    "conflict": "일상어의 “관련 없어 보임”과 수학적 독립은 다르며, 독립 판단은 직관이 아니라 확률값 비교로 해야 한다.",
+    "general": "사건의 독립은 한 사건에 대한 정보가 다른 사건의 확률을 변화시키지 않는다는 수학적 조건으로 판단된다.",
+    "studentGeneral": "독립인지 판단할 때는 P(B|A)와 P(B)를 비교하거나 P(A∩B)=P(A)P(B)가 성립하는지 확인해야 한다.",
+    "questions": [
+      "사건 A가 일어났다는 정보가 B의 확률을 바꾸지 않는다는 것은 어떤 의미인가?",
+      "독립과 배반은 어떻게 다른가?",
+      "직관적으로 관련 없어 보이는 사건도 왜 계산으로 확인해야 하는가?",
+      "자료 분석에서 독립 판단은 변수 관계 해석에 어떤 도움과 한계를 주는가?"
+    ],
+    "products": [
+      "독립 판정 계산표",
+      "독립-배반 비교 카드",
+      "조건 정보 영향 분석지"
+    ],
+    "data": "두 사건의 주변확률, 교집합 확률, 조건부확률을 표로 정리하고 세 판정 기준 중 하나 이상으로 독립 여부를 설명한다.",
+    "modeling": "카드 뽑기, 설문 자료, 검사 결과 같은 상황에서 독립과 종속을 계산으로 판정하고 직관적 예상과 비교한다.",
+    "uncertainty": "배반사건은 동시에 일어나지 않기 때문에 둘 다 양의 확률을 가지면 독립이 될 수 없다는 점을 혼동하지 않아야 한다.",
+    "misconception": "서로 배반이면 독립이라고 생각하거나, 관련 없어 보이면 독립이라고 판단한다.",
+    "correction": "동전 두 번 던지기와 카드 사건을 비교해 배반과 독립의 기준이 다름을 계산으로 확인하게 한다.",
+    "deepDive": "실제 설문 문항 두 개를 골라 독립 여부를 판단하고, 표본 크기와 조사 방식이 결론에 미치는 영향을 토의한다.",
+    "career": "데이터 분석, 사회조사, 인공지능, 품질관리, 생명정보학, 금융 리스크",
+    "sample": "두 사건의 주변확률과 교집합 확률을 표로 정리하고 P(A∩B)=P(A)P(B) 및 P(B|A)=P(B)를 이용해 독립 여부를 판단함. 배반과 독립을 혼동하던 초기 판단을 카드 사건 반례로 수정하고, 독립을 “정보가 확률을 바꾸지 않는 상태”로 설명함.",
+    "source": "조건부확률과 독립 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 조건부확률과 독립",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "사건의 독립과 종속, 조건부확률 비교의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "정보의 영향 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-6 / 서·논술형 / 사건의 독립과 종속을 구분한다."
+    ],
+    "tool": "확률과 통계-6 / 서·논술형 / 사건의 독립과 종속을 구분한다.",
+    "levels": {
+      "A": "사건의 독립과 종속을 설명하고, 다양한 상황에서 사건의 독립과 종속을 판단할 수 있다.",
+      "B": "사건의 독립과 종속을 설명하고, 다양한 상황에서 사건의 독립과 종속을 판단할 수 있다.",
+      "C": "사건의 독립과 종속을 알고, 이를 판단할 수 있다.",
+      "D": "사건의 독립과 종속을 알고, 이를 판단할 수 있다.",
+      "E": "간단한 예를 통해 사건의 독립과 종속을 판단할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통02-06]",
+    "standard": "확률의 곱셈정리를 이해하고, 이를 활용하여 문제를 해결할 수 있다.",
+    "domain": "조건부확률과 독립",
+    "title": "곱셈정리로 연속된 조건의 확률 구조화하기",
+    "type": "문제 해결",
+    "period": "2차시",
+    "lens": "단계와 조건의 연결",
+    "concept": "확률의 곱셈정리, 조건부확률, 연속 사건",
+    "formula": "P(A∩B)=P(A)P(B|A)",
+    "related": "연속 시행, 조건 변화, 나무그림, 독립시행, 의사결정 경로",
+    "phenomenon": "상자를 두 번 뽑거나 검사 절차가 단계적으로 이어질 때, 앞 단계 결과가 뒤 단계의 표본공간을 바꾸는 경우가 많다.",
+    "conflict": "각 단계의 확률을 곱할 수는 있지만, 뒤 단계 확률이 처음과 같은지 아니면 조건에 따라 달라지는지 확인해야 한다.",
+    "general": "확률의 곱셈정리는 여러 조건이 순차적으로 연결된 사건의 교집합 확률을 단계별 조건부확률의 곱으로 구조화한다.",
+    "studentGeneral": "연속된 사건의 확률을 구할 때는 나무그림으로 경로를 나타내고, 각 가지의 확률이 어떤 조건에서 계산되는지 표시해야 한다.",
+    "questions": [
+      "P(A∩B)를 P(A)P(B|A)로 나타내는 이유는 무엇인가?",
+      "독립시행과 종속 시행에서 두 번째 확률은 어떻게 달라지는가?",
+      "나무그림은 조건이 바뀌는 확률을 어떻게 드러내는가?",
+      "검사 절차, 품질 선별, 게임 전략에서 곱셈정리는 어떤 의사결정을 돕는가?"
+    ],
+    "products": [
+      "조건부 나무그림",
+      "경로 확률 계산표",
+      "독립·종속 시행 비교지"
+    ],
+    "data": "각 단계의 사건, 조건, 분모 변화, 가지 확률을 나무그림에 표시하고 특정 경로의 확률을 곱셈정리로 계산한다.",
+    "modeling": "복원추출과 비복원추출 상황을 비교하여 두 번째 시행의 확률이 고정되는 경우와 바뀌는 경우를 설명한다.",
+    "uncertainty": "조건이 바뀌는 상황에서 독립시행처럼 같은 확률을 반복해서 곱하면 실제 확률과 달라진다.",
+    "misconception": "연속해서 일어나는 사건은 언제나 각 사건의 확률을 그대로 곱하면 된다고 생각한다.",
+    "correction": "복원추출과 비복원추출을 같은 물건 수로 비교하여 조건에 따라 두 번째 분모와 분자가 달라지는 과정을 확인하게 한다.",
+    "deepDive": "단계적 검사 시스템의 통과 확률을 나무그림으로 모델링하고, 특정 단계의 정확도 변화가 전체 확률에 미치는 영향을 분석한다.",
+    "career": "품질관리, 의료 검사, 보험, 게임 설계, 신뢰성 공학, 의사결정 과학",
+    "sample": "복원추출과 비복원추출을 나무그림으로 구분하고 각 가지의 확률이 어떤 조건에서 계산되는지 표시함. 단순히 확률을 반복해서 곱하던 오류를 조건부확률의 분모 변화로 수정하고, P(A∩B)=P(A)P(B|A)의 구조를 경로 확률로 설명함.",
+    "source": "조건부확률과 독립 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 조건부확률과 독립",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "확률의 곱셈정리, 조건부확률, 연속 사건의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "단계와 조건의 연결 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-7 / 서·논술형 / 확률의 곱셈정리를 이용하여 문제를 해결한다."
+    ],
+    "tool": "확률과 통계-7 / 서·논술형 / 확률의 곱셈정리를 이용하여 문제를 해결한다.",
+    "levels": {
+      "A": "확률의 곱셈정리를 설명하고, 이를 활용하여 다양한 문제를 해결할 수 있다.",
+      "B": "확률의 곱셈정리를 설명하고, 이를 활용하여 문제를 해결할 수 있다.",
+      "C": "확률의 곱셈정리를 이해하고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "D": "확률의 곱셈정리를 알고, 이를 활용하여 간단한 문제를 해결할 수 있다.",
+      "E": "안내된 절차에 따라 간단한 확률의 곱셈정리 문제를 해결할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통03-01]",
+    "standard": "확률변수와 확률분포의 뜻을 설명할 수 있다.",
+    "domain": "확률분포와 기대",
+    "title": "확률변수로 무작위 결과를 수량화하기",
+    "type": "분포 개념",
+    "period": "2차시",
+    "lens": "무작위 결과의 수량화",
+    "concept": "확률변수, 확률분포, 이산확률변수",
+    "formula": "X:S→R, ΣP(X=x)=1",
+    "related": "표본공간, 값, 확률분포표, 확률질량, 무작위 결과, 수량화",
+    "phenomenon": "동전 세 번 던지기의 결과는 HHT 같은 문자열이지만, 앞면의 개수 X로 바꾸면 확률분포를 만들 수 있다.",
+    "conflict": "확률변수는 변하는 미지수가 아니라 무작위 결과를 숫자로 대응시키는 함수라는 점을 놓치기 쉽다.",
+    "general": "확률변수는 무작위 실험의 결과를 분석 가능한 수치로 바꾸고, 확률분포는 각 값이 나타날 가능성을 체계적으로 보여 준다.",
+    "studentGeneral": "확률변수를 정의할 때는 어떤 실험 결과를 어떤 숫자로 바꿀지 정하고, 각 값의 확률 합이 1인지 확인해야 한다.",
+    "questions": [
+      "확률변수는 일반적인 문자 변수와 무엇이 다른가?",
+      "같은 표본공간에서도 확률변수를 어떻게 정의하느냐에 따라 분포가 달라지는가?",
+      "확률분포표에서 모든 확률의 합이 1이어야 하는 이유는 무엇인가?",
+      "게임 점수, 보험 손실, 설문 응답을 확률변수로 바꾸면 어떤 분석이 가능해지는가?"
+    ],
+    "products": [
+      "확률변수 정의 카드",
+      "확률분포표 작성지",
+      "분포 해석 발표 자료"
+    ],
+    "data": "표본공간의 각 결과를 확률변수 값으로 대응시키고, 같은 값을 갖는 결과들의 확률을 합해 확률분포표를 만든다.",
+    "modeling": "동전, 주사위, 간단한 게임 점수 상황에서 서로 다른 확률변수를 정의하고 분포표가 어떻게 달라지는지 비교한다.",
+    "uncertainty": "확률변수 값을 중복해서 합치거나 빠뜨리면 확률의 합이 1이 되지 않으므로 분포표 완성 후 합을 확인해야 한다.",
+    "misconception": "확률변수를 방정식의 미지수처럼 생각한다.",
+    "correction": "표본공간의 결과를 숫자로 바꾸는 대응표를 먼저 만들고, 확률변수가 실험 결과를 수량화하는 규칙임을 확인하게 한다.",
+    "deepDive": "간단한 보드게임이나 뽑기 게임의 점수를 확률변수로 정의하고, 확률분포를 이용해 게임의 특성을 설명한다.",
+    "career": "보험계리, 게임 설계, 데이터 과학, 금융공학, 품질관리, 생명통계",
+    "sample": "무작위 실험의 결과를 확률변수 X의 값으로 대응시키는 표를 만들고, 같은 값을 갖는 결과의 확률을 합해 확률분포표를 구성함. 확률변수를 미지수로 보던 오개념을 수정하고, 분포표의 확률 합이 1인지 검산하며 무작위 결과를 수량화하는 과정을 설명함.",
+    "source": "확률분포와 기대 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 확률분포와 기대",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "확률변수, 확률분포, 이산확률변수의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "무작위 결과의 수량화 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [],
+    "tool": "[12확통03-01] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "확률변수와 확률분포의 뜻을 설명하고, 관련된 문제를 해결할 수 있다.",
+      "B": "확률변수와 확률분포의 뜻을 이해하고, 관련된 문제를 해결할 수 있다.",
+      "C": "확률변수와 확률분포의 뜻을 알고, 관련된 간단한 문제를 해결할 수 있다.",
+      "D": "확률변수와 확률분포의 뜻을 안다.",
+      "E": "주어진 확률변수가 이산확률변수인지 연속확률변수인지 구분할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통03-02]",
+    "standard": "이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다.",
+    "domain": "확률분포와 기대",
+    "title": "기댓값과 표준편차로 예측과 변동성 해석하기",
+    "type": "분포 해석",
+    "period": "2차시",
+    "lens": "중심과 변동",
+    "concept": "이산확률변수의 기댓값, 분산, 표준편차",
+    "formula": "E(X)=ΣxP(X=x), V(X)=Σ(x-μ)^2P(X=x), σ=√V(X)",
+    "related": "평균, 기대 손익, 분산, 표준편차, 위험, 변동성",
+    "phenomenon": "두 게임의 평균 보상은 같아도 한 게임은 결과가 안정적이고 다른 게임은 큰 손실과 큰 이익이 함께 나타날 수 있다.",
+    "conflict": "기댓값은 실제로 반드시 얻는 값이 아니라 장기적 평균이며, 표준편차는 예측의 불확실성과 위험을 함께 보여 준다.",
+    "general": "기댓값은 확률분포의 중심을, 표준편차는 결과가 중심에서 얼마나 흩어지는지를 나타내어 예측과 위험 판단을 돕는다.",
+    "studentGeneral": "확률분포를 비교할 때는 평균만 보지 말고 각 값의 확률과 표준편차를 함께 보아 안정성과 위험을 해석해야 한다.",
+    "questions": [
+      "기댓값은 확률분포에서 어떤 중심을 의미하는가?",
+      "표준편차가 큰 분포와 작은 분포는 의사결정에서 어떻게 다르게 해석되는가?",
+      "기댓값이 같으면 두 선택은 항상 같은 가치인가?",
+      "보험료, 게임 기대 손익, 투자 위험을 기댓값과 표준편차로 어떻게 비교할 수 있는가?"
+    ],
+    "products": [
+      "기댓값 계산표",
+      "분포 비교 위험 분석지",
+      "평균-표준편차 의사결정 카드"
+    ],
+    "data": "확률분포표에서 xP(X=x), 편차, 편차제곱, 가중편차제곱을 계산하여 기댓값과 표준편차를 구하고 의미를 문장으로 해석한다.",
+    "modeling": "기댓값은 같지만 표준편차가 다른 두 확률 게임을 설계해 안정성, 위험 선호, 합리적 선택 기준을 토의한다.",
+    "uncertainty": "기댓값이 장기 평균이라는 점을 무시하면 한 번의 시행 결과를 보장한다고 오해할 수 있다.",
+    "misconception": "기댓값은 실제로 가장 자주 나오는 값이거나 한 번 시행하면 얻을 값이라고 생각한다.",
+    "correction": "기댓값이 가능한 값 목록에 없는 분포와 최빈값이 다른 분포를 비교하여 평균, 최빈값, 실제 결과의 차이를 구분하게 한다.",
+    "deepDive": "복권, 보험, 게임 보상 구조 중 하나를 선택해 기댓값과 표준편차를 계산하고, 참여 여부를 수학적 근거로 판단한다.",
+    "career": "보험계리, 금융투자, 경영 의사결정, 게임 설계, 위험관리, 데이터 분석",
+    "sample": "확률분포표에서 기댓값과 표준편차를 계산한 뒤 평균 보상과 결과의 변동성을 함께 해석함. 기댓값을 한 번의 시행에서 얻는 보장값으로 오해하던 부분을 장기 평균 관점으로 수정하고, 표준편차가 의사결정의 위험 정보를 제공한다는 점을 사례로 설명함.",
+    "source": "확률분포와 기대 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 확률분포와 기대",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "이산확률변수의 기댓값, 분산, 표준편차의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "중심과 변동 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-8 / 서·논술형 / 이산확률변수의 기댓값(평균)과 표준편차를 구한다. / 이산확률변수의 기댓값(평균)과 표준편차의 성질을 이해한다."
+    ],
+    "tool": "확률과 통계-8 / 서·논술형 / 이산확률변수의 기댓값(평균)과 표준편차를 구한다. / 이산확률변수의 기댓값(평균)과 표준편차의 성질을 이해한다.",
+    "levels": {
+      "A": "이산확률변수의 기댓값(평균)과 표준편차의 성질을 이해하고, 이산확률변수의 기댓값(평균)과 표준편차를 구하며 그 과정을 논리적으로 설명할 수 있다.",
+      "B": "이산확률변수의 기댓값(평균)과 표준편차의 성질을 이해하고, 이산확률변수의 기댓값(평균)과 표준편차를 구하며 그 과정을 설명할 수 있다.",
+      "C": "이산확률변수의 기댓값(평균)과 표준편차의 성질을 알고, 이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다.",
+      "D": "이산확률변수의 기댓값(평균)과 표준편차를 알고, 그 값을 구할 수 있다.",
+      "E": "안내된 절차에 따라 이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통03-03]",
+    "standard": "이항분포의 뜻과 성질을 이해하고, 평균과 표준편차를 구할 수 있다.",
+    "domain": "분포 모델과 근사",
+    "title": "이항분포로 반복 독립시행의 성공 횟수 예측하기",
+    "type": "분포 모델링",
+    "period": "2차시",
+    "lens": "반복과 성공 횟수",
+    "concept": "이항분포, 독립시행, 평균과 표준편차",
+    "formula": "X~B(n,p), P(X=k)=C(n,k)p^k(1-p)^{n-k}, E(X)=np, σ=√np(1-p)",
+    "related": "성공/실패, 독립시행, 시행 횟수, 성공확률, 이항계수, 변동성",
+    "phenomenon": "같은 성공확률의 시행을 n번 반복할 때 성공 횟수는 하나의 확률분포를 이루며, n과 p에 따라 중심과 퍼짐이 달라진다.",
+    "conflict": "이항분포를 적용하려면 시행 횟수가 고정되고 각 시행이 독립이며 성공확률이 일정해야 하는데, 실제 상황에서는 이 조건이 자주 흔들린다.",
+    "general": "이항분포는 동일한 조건의 독립시행에서 성공 횟수의 불확실성을 모델링하고, 평균과 표준편차로 예상 성공 수와 변동성을 설명한다.",
+    "studentGeneral": "이항분포 문제를 풀 때는 먼저 성공/실패 구분, 시행 횟수 n, 성공확률 p, 독립성과 동일확률 조건을 확인해야 한다.",
+    "questions": [
+      "이항분포를 적용하기 위한 조건은 무엇인가?",
+      "C(n,k)p^k(1-p)^{n-k}에서 각 요소는 어떤 의미를 갖는가?",
+      "n과 p가 바뀌면 분포의 중심과 퍼짐은 어떻게 달라지는가?",
+      "품질검사, 여론조사, 유전 형질 예측에서 이항분포 조건은 어떻게 확인해야 하는가?"
+    ],
+    "products": [
+      "이항분포 조건 점검표",
+      "n,p 변화 분포 비교 그래프",
+      "성공 횟수 예측 설명지"
+    ],
+    "data": "상황에서 n, p, k, 독립성, 동일확률 조건을 표시하고, 성공 횟수별 확률을 표나 공학 도구 그래프로 나타낸다.",
+    "modeling": "n과 p 값을 바꾸어 이항분포 그래프가 어떻게 이동하고 퍼지는지 관찰하고 평균 np와 표준편차 √np(1-p)를 해석한다.",
+    "uncertainty": "시행들이 서로 영향을 주거나 성공확률이 시행마다 달라지면 기본 이항분포 모델을 적용하기 어렵다.",
+    "misconception": "성공/실패가 있는 모든 상황은 이항분포라고 생각한다.",
+    "correction": "비복원추출이나 성공확률이 변하는 사례를 제시해 독립성과 동일확률 조건이 왜 필요한지 비교하게 한다.",
+    "deepDive": "실제 품질검사나 설문 응답 상황을 이항분포로 모델링하고, 조건이 완전히 충족되지 않을 때 해석의 한계를 설명한다.",
+    "career": "품질관리, 생명통계, 여론조사, 보험, 데이터 과학, 스포츠 분석",
+    "sample": "성공/실패 기준, 시행 횟수 n, 성공확률 p, 독립성과 동일확률 조건을 먼저 점검한 뒤 이항분포 B(n,p)를 적용함. C(n,k), p^k, (1-p)^{n-k}가 각각 선택 위치와 성공·실패 확률을 의미함을 설명하고, n과 p 변화에 따른 평균과 표준편차의 변화를 그래프로 해석함.",
+    "source": "분포 모델과 근사 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 분포 모델과 근사",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "이항분포, 독립시행, 평균과 표준편차의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "반복과 성공 횟수 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-9 / 선다형 / 이항분포 를 따르는 확률변수 의 평균과 표준편차 구하기"
+    ],
+    "tool": "확률과 통계-9 / 선다형 / 이항분포 를 따르는 확률변수 의 평균과 표준편차 구하기",
+    "levels": {
+      "A": "이항분포의 뜻과 성질을 설명하고, 다양한 상황에서 이항분포의 평균과 표준편차를 구할 수 있다.",
+      "B": "이항분포의 뜻과 성질을 이해하고, 이항분포의 평균과 표준편차를 구할 수 있다.",
+      "C": "이항분포의 뜻과 성질을 알고, 이항분포의 평균과 표준편차를 구할 수 있다.",
+      "D": "이항분포의 뜻을 알고, 이항분포의 평균과 표준편차를 구할 수 있다.",
+      "E": "안내된 절차에 따라 이항분포의 평균과 표준편차를 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통03-04]",
+    "standard": "정규분포의 뜻과 성질을 이해하고, 이항분포와의 관계를 설명할 수 있다.",
+    "domain": "분포 모델과 근사",
+    "title": "정규분포로 연속적 변동과 이항분포 근사 이해하기",
+    "type": "분포 비교",
+    "period": "2차시",
+    "lens": "연속성과 근사",
+    "concept": "정규분포, 표준정규분포, 이항분포와의 관계",
+    "formula": "X~N(m,σ²), Z=(X-m)/σ, N(0,1)",
+    "related": "종 모양, 평균, 표준편차, 표준화, 누적확률, 이항분포 근사",
+    "phenomenon": "키, 측정 오차, 점수처럼 많은 자료는 평균 주변에 몰리고 양쪽으로 갈수록 적어지는 종 모양 분포를 보일 수 있다.",
+    "conflict": "정규분포는 모든 자료에 자동으로 적용되는 만능 모델이 아니며, 평균과 표준편차, 분포 모양, 근사 조건을 함께 확인해야 한다.",
+    "general": "정규분포는 연속적 변동을 평균과 표준편차로 설명하는 확률모델이며, 조건이 적절할 때 이항분포의 형태를 근사적으로 설명할 수 있다.",
+    "studentGeneral": "정규분포 문제를 풀 때는 평균과 표준편차를 확인하고 표준화한 뒤, 구하려는 구간의 누적확률을 해석해야 한다.",
+    "questions": [
+      "정규분포의 평균과 표준편차는 그래프의 위치와 퍼짐을 어떻게 결정하는가?",
+      "표준화 Z=(X-m)/σ는 서로 다른 분포를 어떻게 비교 가능하게 하는가?",
+      "이항분포가 어떤 조건에서 정규분포와 비슷해지는가?",
+      "시험 점수, 측정 오차, 품질 규격 판정에서 정규분포 모델의 장점과 한계는 무엇인가?"
+    ],
+    "products": [
+      "정규분포 표준화 계산지",
+      "이항-정규 그래프 비교표",
+      "분포 모델 적합성 판단 카드"
+    ],
+    "data": "평균과 표준편차가 다른 정규분포를 그래프로 비교하고, 특정 구간을 표준화하여 표준정규분포의 누적확률로 해석한다.",
+    "modeling": "공학 도구로 이항분포 B(n,p)의 n을 크게 하며 정규분포 모양에 가까워지는 과정을 시각화한다.",
+    "uncertainty": "자료가 치우쳐 있거나 이상치가 많으면 정규분포 가정이 부적절할 수 있으므로 그래프와 맥락을 확인해야 한다.",
+    "misconception": "자료가 많으면 언제나 정규분포를 따른다고 생각한다.",
+    "correction": "대칭적인 자료와 치우친 자료의 히스토그램을 비교하여 정규분포 모델 적용 전 분포 모양을 확인하게 한다.",
+    "deepDive": "실제 공공데이터나 학교 자료를 히스토그램으로 나타내고, 정규분포 모델로 해석 가능한 부분과 어려운 부분을 구분한다.",
+    "career": "품질관리, 심리측정, 교육평가, 의학 통계, 공학 실험, 데이터 과학",
+    "sample": "평균과 표준편차가 정규분포 그래프의 위치와 퍼짐을 결정한다는 점을 그래프로 비교하고, Z=(X-m)/σ로 표준화하여 누적확률을 해석함. 이항분포와 정규분포의 관계를 공학 도구 그래프로 확인하면서 정규분포 모델이 항상 적용되는 것은 아니라는 한계까지 설명함.",
+    "source": "분포 모델과 근사 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 분포 모델과 근사",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "정규분포, 표준정규분포, 이항분포와의 관계의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "연속성과 근사 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-10 / 서·논술형 / 그래프를 이용하여 정규분포와 이항분포의 관계를 설명한다. / 정규분포와 관련된 확률을 구한다."
+    ],
+    "tool": "확률과 통계-10 / 서·논술형 / 그래프를 이용하여 정규분포와 이항분포의 관계를 설명한다. / 정규분포와 관련된 확률을 구한다.",
+    "levels": {
+      "A": "정규분포의 뜻과 성질을 설명하고 관련된 확률을 구하며, 이항분포와의 관계를 그래프를 이용하여 설명할 수 있다.",
+      "B": "정규분포의 뜻과 성질을 이해하고 관련된 확률을 구하며, 이항분포와의 관계를 설명할 수 있다.",
+      "C": "정규분포의 뜻과 성질, 이항분포와의 관계를 알고, 정규분포를 따르는 확률변수의 확률을 구할 수 있다.",
+      "D": "정규분포의 뜻과 성질을 알고, 정규분포를 따르는 확률변수의 확률을 구할 수 있다.",
+      "E": "표준정규분포를 따르는 확률변수의 확률을 구할 수 있다."
+    }
+  },
+  {
+    "code": "[12확통03-05]",
+    "standard": "모집단과 표본의 뜻을 알고, 표본추출의 방법을 설명할 수 있다.",
+    "domain": "표본과 통계적 추정",
+    "title": "좋은 표본은 모집단을 어떻게 대표하는가",
+    "type": "표본 설계",
+    "period": "2차시",
+    "lens": "대표성과 편향",
+    "concept": "모집단, 표본, 표본추출, 임의추출",
+    "formula": "모집단 → 임의추출 표본 → 통계량",
+    "related": "전수조사, 표본조사, 대표성, 편향, 임의추출, 표본 크기, 조사 설계",
+    "phenomenon": "같은 주제의 조사라도 누구에게 어떻게 물었는지에 따라 결과가 크게 달라질 수 있다.",
+    "conflict": "표본의 수가 많아도 추출 과정이 편향되어 있으면 모집단을 제대로 대표하지 못한다.",
+    "general": "표본추출은 모집단의 특성을 추정하기 위한 출발점이며, 대표성은 임의추출과 편향 통제를 통해 확보된다.",
+    "studentGeneral": "조사 결과를 믿기 전에 모집단이 누구인지, 표본이 어떻게 뽑혔는지, 빠진 집단이나 치우친 방식이 없는지 확인해야 한다.",
+    "questions": [
+      "모집단과 표본은 조사 목적에 따라 어떻게 정해지는가?",
+      "임의추출은 대표성을 확보하는 데 왜 중요한가?",
+      "표본 크기가 크면 편향 문제가 항상 해결되는가?",
+      "여론조사, 학교 설문, 소비자 조사에서 표본추출 방법은 결론에 어떤 영향을 주는가?"
+    ],
+    "products": [
+      "모집단-표본 정의표",
+      "편향 사례 분석지",
+      "표본추출 설계 제안서"
+    ],
+    "data": "조사 주제별 모집단, 표본틀, 추출 방법, 예상 편향, 보완 방안을 표로 정리하고 조사 문항과 표본추출 방식의 적절성을 평가한다.",
+    "modeling": "학교 안에서 간단한 설문을 설계하고 편의표본과 임의표본의 결과가 어떻게 달라질 수 있는지 비교한다.",
+    "uncertainty": "표본조사는 항상 표본오차와 비표본오차를 포함하므로 결과를 모집단의 정확한 값으로 단정하지 않아야 한다.",
+    "misconception": "응답자가 많으면 표본은 무조건 믿을 수 있다고 생각한다.",
+    "correction": "온라인 자발 응답 조사처럼 표본 크기는 크지만 편향이 생기는 사례를 분석해 대표성과 크기를 구분하게 한다.",
+    "deepDive": "실제 여론조사 기사 하나를 골라 모집단, 표본 크기, 추출 방법, 조사 기간, 오차 범위를 검토하고 결과 해석의 타당성을 평가한다.",
+    "career": "사회조사, 통계청, 마케팅 리서치, 공중보건, 교육평가, 데이터 저널리즘",
+    "sample": "조사 목적에 맞는 모집단과 표본을 구분하고, 표본추출 방법이 대표성에 미치는 영향을 편향 사례로 분석함. 표본 수가 많으면 항상 신뢰할 수 있다는 판단을 수정하고, 임의추출 여부와 빠진 집단의 존재를 근거로 조사 결과의 해석 가능성과 한계를 설명함.",
+    "source": "표본과 통계적 추정 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 표본과 통계적 추정",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "모집단, 표본, 표본추출, 임의추출의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "대표성과 편향 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-11 / 토의·토론 / 모집단과 표본의 뜻을 안다. / 표본추출의 방법을 설명한다."
+    ],
+    "tool": "확률과 통계-11 / 토의·토론 / 모집단과 표본의 뜻을 안다. / 표본추출의 방법을 설명한다.",
+    "levels": {
+      "A": "모집단과 표본의 뜻을 이해하고, 표본추출의 방법을 설명할 수 있다.",
+      "B": "모집단과 표본의 뜻을 이해하고, 표본추출의 방법을 설명할 수 있다.",
+      "C": "모집단과 표본의 뜻을 알고, 간단한 상황에서 표본추출의 방법을 설명할 수 있다.",
+      "D": "모집단과 표본의 뜻을 알고, 간단한 상황에서 표본추출의 방법을 설명할 수 있다.",
+      "E": "모집단과 표본의 뜻을 안다."
+    }
+  },
+  {
+    "code": "[12확통03-06]",
+    "standard": "표본평균과 모평균, 표본비율과 모비율의 관계를 이해하고 설명할 수 있다.",
+    "domain": "표본과 통계적 추정",
+    "title": "표본통계량은 모집단 값을 향한 흔들리는 추정이다",
+    "type": "추정 원리",
+    "period": "2차시",
+    "lens": "표본변동성과 추정",
+    "concept": "표본평균, 모평균, 표본비율, 모비율, 표본분포",
+    "formula": "X̄≈μ, p̂≈p; 표본 크기 증가 → 변동성 감소",
+    "related": "통계량, 모수, 표본평균, 표본비율, 표본분포, 표본오차, 신뢰",
+    "phenomenon": "같은 모집단에서 여러 표본을 뽑으면 표본평균과 표본비율은 매번 조금씩 달라지지만, 표본 크기가 커질수록 흔들림이 줄어드는 경향이 있다.",
+    "conflict": "표본평균이나 표본비율은 하나의 고정된 진실이 아니라 표본에 따라 달라지는 확률변수라는 점을 이해해야 추정의 의미가 살아난다.",
+    "general": "표본평균과 표본비율은 모집단의 모평균과 모비율을 추정하는 통계량이며, 표본변동성을 고려해야 추정 결과를 합리적으로 해석할 수 있다.",
+    "studentGeneral": "표본으로 모집단을 추정할 때는 표본통계량이 표본마다 달라질 수 있음을 인정하고, 표본 크기와 변동성을 함께 해석해야 한다.",
+    "questions": [
+      "모평균과 표본평균, 모비율과 표본비율은 각각 무엇을 나타내는가?",
+      "표본을 다시 뽑으면 표본평균과 표본비율이 달라지는 이유는 무엇인가?",
+      "표본 크기가 커지면 추정의 변동성은 어떻게 달라지는가?",
+      "여론조사 결과의 오차범위나 실험 평균값을 해석할 때 표본변동성은 왜 중요한가?"
+    ],
+    "products": [
+      "모수-통계량 비교표",
+      "반복 표본추출 시뮬레이션 기록지",
+      "표본 크기별 변동성 그래프"
+    ],
+    "data": "공학 도구로 같은 모집단에서 여러 표본을 반복 추출하고 표본평균 또는 표본비율의 분포를 만들어 중심과 퍼짐을 비교한다.",
+    "modeling": "표본 크기를 20, 50, 100 등으로 바꾸어 표본통계량의 산포가 줄어드는 과정을 시각화하고 추정의 안정성을 설명한다.",
+    "uncertainty": "표본통계량 하나만으로 모집단 값을 단정할 수 없으며, 표본추출 방법과 표본 크기에 따라 추정의 신뢰도가 달라진다.",
+    "misconception": "한 번 구한 표본평균이 곧 모평균이라고 생각한다.",
+    "correction": "같은 모집단에서 여러 표본을 뽑아 표본평균이 달라지는 모습을 확인하고, 표본평균이 모평균을 향한 추정값임을 설명하게 한다.",
+    "deepDive": "학교 설문 자료를 이용해 표본 크기별 표본비율의 변동을 시뮬레이션하고, 결과를 여론조사 해석 방식과 연결한다.",
+    "career": "통계학, 사회조사, 보건 연구, 시장조사, 데이터 과학, 정책 평가",
+    "sample": "반복 표본추출 시뮬레이션을 통해 표본평균과 표본비율이 표본마다 달라지는 확률변수임을 확인하고, 표본 크기가 커질수록 분포의 퍼짐이 줄어드는 현상을 그래프로 설명함. 표본통계량을 모수와 동일시하던 판단을 수정하고, 추정에는 표본변동성이 함께 해석되어야 함을 제시함.",
+    "source": "표본과 통계적 추정 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 표본과 통계적 추정",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "표본평균, 모평균, 표본비율, 모비율, 표본분포의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "표본변동성과 추정 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [
+      "확률과 통계-12 / 실험·실습 / 표본의 크기에 따른 표본비율의 분포를 정규분포와 관련지어 설명한다. / 표본비율의 분포를 이용하여 확률을 계산한다."
+    ],
+    "tool": "확률과 통계-12 / 실험·실습 / 표본의 크기에 따른 표본비율의 분포를 정규분포와 관련지어 설명한다. / 표본비율의 분포를 이용하여 확률을 계산한다.",
+    "levels": {
+      "A": "표본평균과 모평균, 표본비율과 모비율의 관계 및 모평균과 모비율을 추정하는 수학적 원리를 이해하고 설명할 수 있다.",
+      "B": "표본평균과 모평균, 표본비율과 모비율의 관계 및 모평균과 모비율을 추정하는 수학적 원리를 이해한다.",
+      "C": "표본평균과 모평균, 표본비율과 모비율의 관계를 알고, 모평균과 모비율을 추정할 수 있다.",
+      "D": "표본평균과 모평균, 표본비율과 모비율의 관계를 안다.",
+      "E": "표본평균과 모평균, 표본비율과 모비율의 관계를 부분적으로 안다."
+    }
+  },
+  {
+    "code": "[12확통03-07]",
+    "standard": "공학 도구를 이용하여 모평균 및 모비율을 추정하고 그 결과를 해석할 수 있다.",
+    "domain": "표본과 통계적 추정",
+    "title": "공학 도구로 신뢰구간을 만들고 해석하기",
+    "type": "자료 기반 추정",
+    "period": "2차시",
+    "lens": "불확실성을 포함한 판단",
+    "concept": "모평균 추정, 모비율 추정, 신뢰구간, 공학 도구",
+    "formula": "추정값 ± 오차한계; confidence interval",
+    "related": "신뢰도, 신뢰구간, 오차한계, 표본평균, 표본비율, 결과 해석, 공학 도구",
+    "phenomenon": "표본 하나에서 얻은 평균이나 비율은 모집단 값을 정확히 알려 주지는 않지만, 신뢰구간은 그 불확실성을 범위로 표현한다.",
+    "conflict": "신뢰구간을 “모수가 이 구간에 있을 확률”이라고 단순 해석하면 반복 표본추출 관점의 의미를 놓칠 수 있다.",
+    "general": "통계적 추정은 표본 자료에서 얻은 추정값과 오차한계를 함께 제시하여 불확실성을 포함한 합리적 판단을 가능하게 한다.",
+    "studentGeneral": "공학 도구로 신뢰구간을 구한 뒤에는 추정값, 신뢰수준, 오차한계, 자료 수집 방법, 해석 한계를 함께 설명해야 한다.",
+    "questions": [
+      "신뢰구간은 단일 추정값과 무엇이 다른 정보를 제공하는가?",
+      "오차한계는 표본 크기와 자료 변동성에 따라 어떻게 달라지는가?",
+      "신뢰구간 해석에서 흔히 생기는 오해는 무엇인가?",
+      "실생활 자료로 모평균이나 모비율을 추정할 때 결과를 어떻게 책임 있게 제시할 수 있는가?"
+    ],
+    "products": [
+      "공학 도구 추정 결과표",
+      "신뢰구간 해석 카드",
+      "자료 기반 의사결정 보고서"
+    ],
+    "data": "실생활 자료를 수집하거나 공개자료를 선택해 표본 크기, 표본평균 또는 표본비율, 신뢰수준, 신뢰구간, 해석 문장을 한 표에 정리한다.",
+    "modeling": "스프레드시트나 통계 도구로 신뢰구간을 계산하고 표본 크기와 신뢰수준을 바꿨을 때 구간 폭이 어떻게 변하는지 비교한다.",
+    "uncertainty": "신뢰구간은 표본추출 방법이 적절하다는 전제 위에서 해석해야 하며, 편향된 표본에서는 좁은 구간도 신뢰로운 결론이 아닐 수 있다.",
+    "misconception": "신뢰도 95%는 이번에 구한 구간 안에 모수가 있을 확률이 정확히 95%라는 뜻이라고 생각한다.",
+    "correction": "반복 표본추출로 만든 여러 신뢰구간 중 약 95%가 모수를 포함한다는 시뮬레이션을 통해 신뢰수준의 의미를 해석하게 한다.",
+    "deepDive": "공개 통계자료를 활용해 모평균 또는 모비율을 추정하고, 표본추출 방법·표본 크기·신뢰수준이 정책 판단에 미치는 영향을 비판적으로 검토한다.",
+    "career": "통계청, 데이터 과학, 공중보건, 선거 여론조사, 시장조사, 정책 평가, 연구 방법론",
+    "sample": "공학 도구를 활용해 실생활 자료의 모비율 신뢰구간을 계산하고, 추정값과 오차한계를 함께 제시함. 신뢰수준을 단일 구간에 대한 확률로 오해하던 부분을 반복 표본추출 관점으로 수정하고, 표본추출 방식의 편향 가능성과 결과 해석의 한계를 함께 설명함.",
+    "source": "표본과 통계적 추정 관련 교과서 예제, 공학 도구 모의실험, 실제·가상 자료표, 표·식·그림 변환 자료, 의사결정 맥락 자료",
+    "scale": "범위: 조건 분류-자료 구조화-확률 모델링-추정 해석-합리적 의사결정 / 맥락: 표본과 통계적 추정",
+    "safe": "실생활 자료와 공학 도구 결과를 사용할 때 출처, 표본추출 방법, 표본 크기, 단위, 개인정보 비식별, 해석 한계를 함께 확인한다.",
+    "evidence": [
+      "모평균 추정, 모비율 추정, 신뢰구간, 공학 도구의 조건과 적용 가능성을 명확히 구분함",
+      "표·식·그림·언어 설명 사이의 표현 변환을 수행함",
+      "불확실성을 포함한 판단 관점에서 계산 결과를 해석하고 한계를 설명함",
+      "오개념을 반례, 모의실험, 표본 설계, 조건 비교로 수정함"
+    ],
+    "official": [],
+    "tool": "[12확통03-07] 성취기준 기반 개념기반탐구 과제",
+    "levels": {
+      "A": "공학 도구를 이용하여 실생활 자료에서 모평균 및 모비율을 추정하고 그 결과를 해석하여 설명할 수 있다.",
+      "B": "공학 도구를 이용하여 실생활 자료에서 모평균 및 모비율을 추정하고 그 결과를 해석하여 설명할 수 있다.",
+      "C": "공학 도구를 이용하여 실생활 자료에서 모평균 및 모비율을 추정하고, 그 결과를 해석할 수 있다.",
+      "D": "공학 도구를 이용하여 실생활 자료에서 모평균 및 모비율을 추정하고, 그 결과를 해석할 수 있다.",
+      "E": "안내된 절차에 따라 공학 도구를 이용하여 모평균 또는 모비율을 추정하고, 그 결과를 부분적으로 해석할 수 있다."
+    }
+  }
+];
+window.DATA=DATA;
+const TABS=[['overview','수업 한눈에 보기','01'],['cbi','개념기반탐구 설계','02'],['lesson','수업방법 상세안','03'],['worksheet','활동지·자료처리','04'],['assessment','평가·피드백','05'],['record','학생부 기록·심화탐구','06']];
+const DOMAIN_KEY={'경우의 수 구조화':'atmo','확률과 의사결정':'green','조건부확률과 독립':'geo','확률분포와 기대':'astro','분포 모델과 근사':'gold','표본과 통계적 추정':'red'};
+let current=0, tab='overview';
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+function cls(d){return 'domain-'+(DOMAIN_KEY[d]||'atmo');} function accent(d){return 'accent-'+(DOMAIN_KEY[d]||'atmo');}
+function openView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button[data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===id));window.scrollTo({top:0,behavior:'smooth'});} document.querySelectorAll('.nav button[data-view]').forEach(b=>b.onclick=()=>openView(b.dataset.view));
+function pills(arr,solid){return '<div class="pills">'+(arr||[]).map(x=>'<span class="pill'+(solid?' solid':'')+'">'+esc(x)+'</span>').join('')+'</div>';}
+function formula(x){return '<div class="formula-strip"><span class="math-expr">'+esc(x.formula)+'</span><span class="pill solid">'+esc(x.lens)+'</span></div>';}
+function block(title,body,hint){return '<div class="blk"><div class="blk-h"><span>'+esc(title)+'</span>'+(hint?'<span class="hint">'+esc(hint)+'</span>':'')+'</div>'+body+'</div>';}
+function filtered(){const q=(document.getElementById('search').value||'').toLowerCase();const d=document.getElementById('domain').value;const t=document.getElementById('type').value;return DATA.filter(x=>(d==='전체 영역'||x.domain===d)&&(t==='전체 수업 유형'||x.type.includes(t))&&[x.code,x.title,x.standard,x.concept,x.formula,x.related,x.products.join(' '),x.evidence.join(' ')].join(' ').toLowerCase().includes(q));}
+function renderList(){const arr=filtered();if(arr.length&&!arr.includes(DATA[current])) current=DATA.indexOf(arr[0]);document.getElementById('list-meta').textContent=arr.length+' / '+DATA.length+' STANDARDS';document.getElementById('list').innerHTML=arr.map(x=>{const i=DATA.indexOf(x);return '<button class="std-item '+(i===current?'on':'')+'" onclick="select('+i+')"><div><span class="code">'+esc(x.code)+'</span><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span>'+(x.official.length?'<span class="chip">평가도구</span>':'')+'</div><span class="std-title">'+esc(x.title)+'</span><span class="std-text">'+esc(x.standard)+'</span></button>';}).join('')||'<div class="card" style="margin:1rem">검색 결과가 없습니다.</div>';renderDetail();}
+function select(i){current=i;tab='overview';renderList();if(window.innerWidth<=1180)document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'});} function setTab(t){tab=t;renderDetail();}
+function steps(arr){return '<div class="steps">'+arr.map(x=>'<div class="step"><span>'+esc(x)+'</span></div>').join('')+'</div>';}
+function rubric(x){const L=x.levels||{};return '<div class="rubric">'+['A','B','C','D','E'].map(k=>'<div class="lv-row"><div class="lv '+k+'">'+k+'</div><div class="lv-text">'+esc(L[k]||'성취수준 자료를 확인해 보완한다.')+'</div></div>').join('')+'</div>';}
+function processLine(){return '<div class="process-line"><div><b>관찰</b>자료·식·그래프에서 패턴과 조건을 찾는다.</div><div><b>표현</b>표, 식, 그래프, 언어 설명으로 바꾼다.</div><div><b>전략</b>법칙, 모델, 증명 방법을 선택한다.</div><div><b>검증</b>계산, 반례, 그래프, 단위로 확인한다.</div><div><b>일반화</b>새 문제에 적용할 기준을 문장화한다.</div></div>';}
+function tableRows(x){return '<div class="lesson-hd"><div>단계</div><div>교사 활동(Teaching)</div><div>학생 활동(Learning)</div><div>산출물</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 01</span>도입<br>수학적 현상 발견</div><div>교사는 다음 현상을 제시하고 정답보다 설명이 필요한 구조를 찾게 한다.<br><b>'+esc(x.phenomenon)+'</b></div><div>학생은 처음 떠오른 풀이, 조건, 그래프 모양, 패턴을 분리해 기록한다.</div><div>초기 전략 카드<br>조건 관찰표</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 02</span>정의·조건 설정</div><div>교사는 핵심 개념과 적용 조건을 확인하고, 오개념이 생길 수 있는 경계 사례를 제시한다.</div><div>학생은 '+esc(x.concept)+'의 정의, 조건, 관련 개념을 수식과 말로 정리한다.</div><div>정의-조건표<br>개념 연결도</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 03</span>표현 변환·탐구</div><div>교사는 식·표·그래프·언어 설명 사이의 변환이 정확한지 질문한다.</div><div>학생은 '+esc(x.data)+'</div><div>'+esc(x.products[0])+'</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 04</span>전략 선택·검증</div><div>교사는 계산 결과를 반례, 그래프, 단위, 정의로 검증하게 한다.</div><div>학생은 '+esc(x.modeling)+'</div><div>전략 선택표<br>검증 기록</div></div>'+
+'<div class="lesson-row"><div><span class="stage-n">STEP 05</span>일반화·전이</div><div>교사는 다른 값, 다른 그래프, 다른 실생활 조건, 다른 명제에 같은 기준을 적용하게 한다.</div><div>학생은 최종 풀이의 조건과 한계를 설명하고 새로운 문제에 적용할 기준을 제시한다.</div><div>일반화 문장<br>전이 문제</div></div>';}
+function recordGuide(x){return block('대학이 읽는 탐구력 포인트 — 세특 문장화 안내','<div class="cards3"><div class="card accent-atmo"><h4>정의와 조건</h4><p>산출물명보다 학생이 어떤 조건을 확인하고 어떤 오개념을 수정했는지 기록합니다. 핵심 수식: <span class="math-expr">'+esc(x.formula)+'</span></p></div><div class="card accent-green"><h4>표현 변환과 전략</h4><p>'+esc(x.data)+'</p><p><b>관찰 단서:</b> '+esc(x.evidence.slice(0,3).join(' / '))+'</p></div><div class="card accent-astro"><h4>검증과 전이</h4><p>'+esc(x.uncertainty)+'</p><p><b>전이 질문:</b> '+esc(x.questions[3])+'</p></div></div>','계산량보다 사고 과정, 조건 확인, 검증 장면을 남깁니다');}
+function panel(x){const qs=x.questions;const panels={};
+panels.overview=block('성취기준 원문','<div class="std-full"><b>'+esc(x.code)+'</b>'+esc(x.standard)+'</div>'+formula(x))+'<div class="cards"><div class="card '+accent(x.domain)+'"><h4><span class="icon">i</span>수업 개요</h4><p><b>제목 :</b> '+esc(x.title)+'</p><p><b>유형 :</b> '+esc(x.type)+'</p><p><b>권장 차시 :</b> '+esc(x.period)+'</p><p><b>핵심 개념 :</b> '+esc(x.concept)+'</p><p><b>개념 렌즈 :</b> '+esc(x.lens)+'</p><p><b>평가 연결 :</b> '+esc(x.tool)+'</p></div><div class="card accent-green"><h4><span class="icon">∑</span>핵심 산출물</h4>'+pills(x.products)+'</div></div>'+block('교사 관찰 포인트 — 학생부 기록 근거가 될 수행 단서',pills(x.evidence),'수업 중 즉시 메모를 권장합니다');
+panels.cbi=block('개념 형성의 흐름','<div class="cards"><div class="card accent-gold"><h4>현상(Phenomenon)</h4><p>'+esc(x.phenomenon)+'</p></div><div class="card '+accent(x.domain)+'"><h4>개념 갈등(Conflict)</h4><p>'+esc(x.conflict)+'</p></div></div><div class="general" style="margin-top:.9rem"><div class="gen-row"><b>교사용 일반화 진술</b><p>'+esc(x.general)+'</p></div><div class="gen-row"><b>학생용 일반화 진술</b><p>'+esc(x.studentGeneral)+'</p></div></div>'+processLine(),'CBI 모형')+block('탐구 질문 4종 — 사실에서 전이까지','<div class="q-grid"><div class="q fact"><b>Factual · 사실적 질문</b><p>'+esc(qs[0])+'</p></div><div class="q concept"><b>Conceptual · 개념적 질문</b><p>'+esc(qs[1])+'</p></div><div class="q debate"><b>Debatable · 논쟁적 질문</b><p>'+esc(qs[2])+'</p></div><div class="q transfer"><b>Transfer · 전이 질문</b><p>'+esc(qs[3])+'</p></div></div>')+block('핵심 개념과 관련 개념','<div class="card"><p><b>핵심 개념 :</b> '+esc(x.concept)+'</p><p><b>수식·표현 :</b> <span class="math-expr">'+esc(x.formula)+'</span></p><p><b>관련 개념 :</b> '+esc(x.related)+'</p></div>');
+panels.lesson=block('차시별·단계별 수업방법',tableRows(x),'정의-표현-전략-검증-일반화')+block('교사 발문 세트 — 즉시 사용 가능','<div class="cards"><div class="card accent-atmo"><h4>탐구 전</h4><ul><li>이 문제에서 먼저 확인해야 할 정의와 조건은 무엇인가?</li><li>식, 표, 그래프, 말 설명 중 어떤 표현이 구조를 가장 잘 보여 주는가?</li><li>계산 전에 예상되는 결과의 범위나 그래프 모양은 무엇인가?</li></ul></div><div class="card accent-gold"><h4>탐구 중</h4><ul><li>지금 적용한 법칙의 조건은 모두 만족하는가?</li><li>다른 표현으로 바꾸면 같은 구조가 유지되는가?</li><li>반례, 그래프, 단위, 대입 검산 중 어떤 방법으로 확인할 수 있는가?</li></ul></div><div class="card accent-astro"><h4>탐구 후</h4><ul><li>오늘의 풀이 전략을 한 문장으로 일반화하면 무엇인가?</li><li>학생부 기록 근거로 남길 수 있는 전략 선택과 검증 장면은 무엇인가?</li><li>새로운 문제에서 같은 개념을 적용할 때 조심할 조건은 무엇인가?</li></ul></div></div>')+block('오개념·실패 상황 대처·안전','<div class="cards3"><div class="card accent-red"><h4>예상 오개념</h4><p>'+esc(x.misconception)+'</p><p><b>피드백 :</b> '+esc(x.correction)+'</p></div><div class="card accent-gold"><h4>실패 상황 대처</h4><p>학생이 계산 결과에만 머물면 적용 조건, 표현 변환, 검증 방법 중 하나를 반드시 표시하게 합니다.</p></div><div class="card accent-green"><h4>공학 도구·자료 윤리</h4><p>'+esc(x.safe)+'</p></div></div>');
+panels.worksheet=block('학생 활동지 문항 — 실제 기록용',steps(['오늘의 수학적 현상에서 설명해야 할 구조나 조건을 쓰시오.',qs[1],'핵심 수식 또는 표현을 쓰고 각 기호의 의미와 조건을 설명하시오: '+x.formula,x.data,x.modeling,'계산 결과를 검증할 방법을 두 가지 이상 제시하시오.',x.uncertainty,qs[3]]))+block('자료 처리 안내 — 수식·그래프·모델·증명','<div class="card accent-atmo"><h4>자료 출처</h4><p>'+esc(x.source)+'</p></div><div class="card accent-geo" style="margin-top:.8rem"><h4>분석 범위</h4><p>'+esc(x.scale)+'</p></div><div class="card accent-green" style="margin-top:.8rem"><h4>표현 변환</h4><p>'+esc(x.data)+'</p></div><div class="card accent-gold" style="margin-top:.8rem"><h4>조건·한계</h4><p>'+esc(x.uncertainty)+'</p><p><b>수학 문장 틀 :</b> “<b>'+esc(x.concept)+'</b> 개념은 <span class="math-expr">'+esc(x.formula)+'</span>로 표현되며, 이 문제에서는 <b>'+esc(x.lens)+'</b> 관점에서 조건을 확인하고 표현을 변환할 때 풀이가 정당화된다.”</p></div>');
+panels.assessment=block('수행평가 과제','<div class="card '+accent(x.domain)+'"><h4>'+esc(x.title)+'</h4><p>핵심 산출물(<b>'+esc(x.products[0])+'</b>)을 제출하고, 성취기준 원문에 도달했음을 정의·조건 확인, 표현 변환, 전략 선택, 검증 또는 증명 과정으로 설명한다.</p></div>')+block('평가 요소','<div class="cards3"><div class="card accent-atmo"><h4>지식·이해</h4><p>'+esc(x.concept)+'와 관련 조건의 정확한 설명</p></div><div class="card accent-green"><h4>과정·기능</h4><p>표·그림·식 변환, 공학 도구 활용, 조건 분류, 모의실험, 표본 설계, 추정 결과 해석</p></div><div class="card accent-astro"><h4>가치·태도</h4><p>수학적 정확성, 논리성, 검증 태도, 유용성 인식, 끈기 있는 문제해결</p></div></div>')+block('성취수준 기반 5단계 루브릭',rubric(x),'A-E 성취수준 근거')+block('피드백 방향','<div class="card"><p><b>보충 :</b> 공식 암기나 단순 계산에 머물지 말고 정의, 조건, 표현 변환 중 하나를 근거로 설명하게 한다.</p><p><b>심화 :</b> 반례 탐색, 그래프 일반화, 실생활 모델링 한계, 조건 분류, 모의실험 검증, 표본 설계, 분포 모델의 한계, 추정 결과 해석으로 확장하게 한다.</p></div>');
+panels.record='<div class="record"><b>학생부 기록 — 정답보다 “수학적 사고의 증거”가 먼저</b><p>'+esc(x.evidence.join(' / '))+'</p></div>'+block('관찰 가능한 수행 증거 정리','<div class="cards"><div class="card accent-green"><h4>기록 가능한 산출물</h4>'+pills(x.products)+'</div><div class="card accent-gold"><h4>권장 기록 소재</h4><p>「'+esc(x.title)+'」 수업에서 <b>'+esc(x.concept)+'</b> 개념을 정의와 조건 중심으로 설명하고, <span class="math-expr">'+esc(x.formula)+'</span> 표현을 활용해 전략 선택, 검증, 일반화 과정을 구체화함.</p></div></div>')+block('세부능력 및 특기사항 기록 예시','<div class="sample-record">'+esc(x.sample)+'</div>','그대로 복사하지 말고 학생 개별 수행에 맞춰 가공')+recordGuide(x)+block('심화 탐구 주제 — 자기주도 탐구로의 확장','<div class="card accent-astro"><h4>심화탐구 제안</h4><p>'+esc(x.deepDive)+'</p></div><div class="card" style="margin-top:.7rem"><h4>전이 질문</h4><p style="font-family:Fraunces,serif">'+esc(x.questions[3])+'</p></div><div class="card" style="margin-top:.7rem"><h4>연계 진로 분야</h4>'+pills(x.career.split(', '))+'</div>');
+return panels[tab]||panels.overview;}
+function renderDetail(){const x=DATA[current];const tabbar=TABS.map(t=>'<button class="'+(tab===t[0]?'on':'')+'" onclick="setTab(\''+t[0]+'\')"><span class="t-n">'+t[2]+'</span>'+t[1]+'</button>').join('');document.getElementById('detail').innerHTML='<div class="detail-hd"><div class="chip-row"><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span><span class="chip">'+esc(x.code)+'</span>'+(x.official.length?'<span class="chip">평가도구</span>':'<span class="chip">CBI 탐구</span>')+'<span class="chip">'+esc(x.period)+'</span></div><h2>'+esc(x.title)+'</h2><div class="std-full"><b>성취기준 원문</b>'+esc(x.standard)+'</div>'+formula(x)+'</div><div class="tabbar">'+tabbar+'</div><div class="panel">'+panel(x)+'</div>';}
+function renderMatrix(){document.getElementById('matrixBody').innerHTML=DATA.map((x,i)=>'<tr><td><span class="chip '+cls(x.domain)+'">'+esc(x.domain)+'</span></td><td class="mcode" onclick="openStandard('+i+')">'+esc(x.code)+'</td><td><b style="color:var(--ink);font-family:Fraunces,serif">'+esc(x.title)+'</b></td><td>'+esc(x.type)+'</td><td>'+esc(x.concept)+'</td><td><span class="math-expr">'+esc(x.formula)+'</span></td><td>'+esc(x.evidence.join(' / '))+'</td></tr>').join('');}
+function openStandard(i){current=i;tab='overview';openView('standards');renderList();}
+function downloadCSV(){const rows=[['영역','코드','성취기준','수업제목','유형','차시','핵심개념','수식표현','개념렌즈','산출물','관찰증거','심화탐구','연계진로']];DATA.forEach(x=>rows.push([x.domain,x.code,x.standard,x.title,x.type,x.period,x.concept,x.formula,x.lens,x.products.join('; '),x.evidence.join(' / '),x.deepDive,x.career]));const csv=rows.map(r=>r.map(v=>'"'+String(v).split('"').join('""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));a.download='확률과통계_수업설계_매트릭스_충남교육청.csv';a.click();}
+document.getElementById('search').addEventListener('input',renderList);document.getElementById('domain').addEventListener('change',renderList);document.getElementById('type').addEventListener('change',renderList);renderList();renderMatrix();document.addEventListener('keydown',function(e){if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;if(e.key==='ArrowDown'&&document.getElementById('standards').classList.contains('active')){e.preventDefault();const arr=filtered();const idx=arr.indexOf(DATA[current]);if(idx>=0&&idx<arr.length-1)select(DATA.indexOf(arr[idx+1]));}if(e.key==='ArrowUp'&&document.getElementById('standards').classList.contains('active')){e.preventDefault();const arr=filtered();const idx=arr.indexOf(DATA[current]);if(idx>0)select(DATA.indexOf(arr[idx-1]));}});(function(){const fab=document.getElementById('fabHome');if(!fab)return;let ticking=false;function onScroll(){if(window.scrollY>240)fab.classList.add('visible');else fab.classList.remove('visible');ticking=false;}window.addEventListener('scroll',function(){if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});})();
+</script>
