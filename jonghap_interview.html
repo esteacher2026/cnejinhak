@@ -11,152 +11,238 @@
   </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>학생부종합전형 면접평가 비교</title>
+  <title>학생부종합전형 면접평가 비교 · 2027</title>
   <script src="jonghap_interview_data.js"></script>
   <style>
     :root{
-      --bg:#f4f6f8;--surface:#fff;--ink:#111827;--muted:#667085;--line:#d9e0e8;
-      --navy:#123247;--navy2:#0f2534;--teal:#0f766e;--teal-soft:#d9f3ef;
-      --blue:#2563eb;--blue-soft:#e8f0ff;--amber:#b45309;--amber-soft:#fff4d8;
-      --red:#b42318;--red-soft:#fee4e2;--green:#15803d;--green-soft:#dcfce7;
-      --violet:#7c3aed;--violet-soft:#ede9fe;--shadow:0 14px 32px rgba(15,23,42,.08);
-      --radius:8px;--safe-bottom:env(safe-area-inset-bottom,0px);
-      --bar1:#2563eb;--bar2:#0f766e;--bar3:#b45309;--bar4:#7c3aed;--bar5:#475467;--bar6:#0e7490;
+      --bg:#eef2f6; --surface:#fff; --ink:#15233076; --line:#dbe3ec;
+      --text:#1b2b39; --muted:#5b6b7b; --faint:#8595a4;
+      --navy:#123247; --navy2:#0f2534; --teal:#0f766e; --teal-deep:#0b5c55;
+      --accent:#0f766e;
+      --good:#15803d; --good-soft:#e3f6e8; --warn:#b45309; --warn-soft:#fdf0d9;
+      --red:#b42318; --red-soft:#fde7e4; --gray:#64748b; --gray-soft:#eef2f6;
+      --c-acad:#2563eb; --c-major:#0f766e; --c-char:#b45309; --c-comm:#7c3aed; --c-apt:#0891b2; --c-etc:#64748b;
+      --shadow:0 10px 30px rgba(15,32,48,.10); --shadow-sm:0 2px 8px rgba(15,32,48,.06);
+      --r:12px; --r-sm:9px; --safe:env(safe-area-inset-bottom,0px);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    html,body{overflow-x:hidden}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.45;-webkit-text-size-adjust:100%}
-    button,input,select{font:inherit}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+      font-size:15px;line-height:1.6;-webkit-text-size-adjust:100%;word-break:keep-all}
+    button,input,select{font:inherit;color:inherit}
     button{cursor:pointer}
-    .app{width:min(1440px,100%);margin:0 auto;padding:16px 16px calc(36px + var(--safe-bottom))}
-    .topbar{display:flex;align-items:center;margin-bottom:12px}
-    .home{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 13px;border:1px solid #b9c8d8;border-radius:999px;background:var(--navy);color:#fff;text-decoration:none;font-size:13px;font-weight:900}
-    .home svg,.icon{width:16px;height:16px;flex:0 0 16px}
-    header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;padding:22px 24px;border-radius:var(--radius);background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff;box-shadow:var(--shadow)}
-    .eyebrow{margin:0 0 6px;color:#b6d3dd;font-size:12px;font-weight:900;letter-spacing:0}
-    h1{margin:0;font-size:clamp(26px,4vw,42px);line-height:1.1;letter-spacing:0}
-    header p{margin:10px 0 0;max-width:900px;color:#d6e4ea;font-size:14px;word-break:keep-all}
-    .meta-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-    .meta-pill{display:inline-flex;align-items:center;min-height:28px;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:12px;font-weight:850;color:#fff}
-    .summary-box{min-width:260px;padding:14px;border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);background:rgba(255,255,255,.08)}
-    .summary-box b{display:block;font-size:22px;line-height:1.1}
-    .summary-box span{display:block;margin-top:5px;color:#c9d8de;font-size:12px;font-weight:750}
-    .workspace{display:grid;grid-template-columns:360px minmax(0,1fr);gap:12px;margin-top:12px;align-items:start}
-    .panel{min-width:0;background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 10px 24px rgba(15,23,42,.05)}
-    .controls{position:sticky;top:10px;z-index:10;padding:14px}
-    .field{display:grid;gap:6px;margin-bottom:10px}
-    .field label{color:#344054;font-size:12px;font-weight:900}
-    input[type="search"],select{width:100%;height:42px;border:1px solid #cbd5e1;border-radius:var(--radius);background:#fff;padding:0 11px;color:#111827;outline:none}
-    input[type="search"]:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.12)}
-    .checks{display:grid;gap:8px;margin-top:10px}
-    .check{display:flex;align-items:center;gap:8px;min-height:38px;padding:8px 9px;border:1px solid #e2e8f0;border-radius:var(--radius);background:#f8fafc;color:#344054;font-size:12.5px;font-weight:850}
-    .check input{width:18px;height:18px;accent-color:var(--teal)}
-    .filter-actions{display:flex;gap:8px;margin-top:12px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:0 12px;border:1px solid transparent;border-radius:var(--radius);background:var(--navy);color:#fff;font-size:12.5px;font-weight:900}
-    .btn.secondary{background:#fff;color:#344054;border-color:#cbd5e1}
-    .btn.teal{background:var(--teal)}
-    .btn.warn{background:#fff;color:#92400e;border-color:#f3c36b}
-    .btn:disabled{opacity:.45;cursor:not-allowed}
-    .status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
-    .stat{padding:9px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#f8fafc}
-    .stat span{display:block;color:#667085;font-size:11px;font-weight:850}
-    .stat b{display:block;margin-top:2px;font-size:19px;font-variant-numeric:tabular-nums}
-    .compare-tray{margin-top:12px;padding:12px;border:1px solid #c7e8e2;border-radius:var(--radius);background:#f2fbf9}
-    .tray-title{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;margin-bottom:8px}
-    .tray-title b{font-size:13px}
-    .compare-tags{display:flex;gap:6px;flex-wrap:wrap}
-    .tag{display:inline-flex;align-items:center;gap:6px;max-width:100%;min-height:28px;padding:4px 8px;border-radius:999px;background:#fff;border:1px solid #cbd5e1;color:#344054;font-size:12px;font-weight:800}
-    .tag button{border:0;background:transparent;color:#667085;padding:0;line-height:1;font-size:16px}
-    .main{display:grid;gap:12px}
-    .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px}
-    .toolbar h2{margin:0;font-size:17px;letter-spacing:0}
-    .toolbar p{margin:2px 0 0;color:#667085;font-size:12px}
-    .list{display:grid;gap:8px;padding:0 12px 12px;max-height:540px;overflow:auto}
-    .uni-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff;text-align:left}
-    .uni-row.active{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.10)}
-    .uni-row:hover{border-color:#b6c5d6}
-    .uni-main{display:block;width:100%;border:0;background:transparent;color:inherit;padding:0;text-align:left}
-    .uni-name{font-size:14.5px;font-weight:900;letter-spacing:0;word-break:keep-all}
-    .uni-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
-    .badge{display:inline-flex;align-items:center;min-height:22px;padding:3px 7px;border-radius:999px;background:#f1f5f9;color:#475467;font-size:11px;font-weight:850}
-    .badge.good{background:var(--green-soft);color:#166534}.badge.teal{background:var(--teal-soft);color:#115e59}.badge.blue{background:var(--blue-soft);color:#1d4ed8}.badge.warn{background:var(--amber-soft);color:#92400e}.badge.red{background:var(--red-soft);color:#991b1b}.badge.violet{background:var(--violet-soft);color:#5b21b6}
-    .row-actions{display:flex;gap:6px}
-    .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid #cbd5e1;border-radius:var(--radius);background:#fff;color:#344054}
-    .icon-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
-    .detail{padding:16px}
-    .detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-    .detail h2{margin:0;font-size:22px;letter-spacing:0;word-break:keep-all}
-    .detail-sub{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-    .empty{padding:28px 18px;text-align:center;color:#667085}
-    .empty b{display:block;color:#111827;font-size:16px;margin-bottom:5px}
-    .section-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}
-    .kpi{padding:12px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fbfcfe}
-    .kpi span{display:block;color:#667085;font-size:11.5px;font-weight:900}
-    .kpi b{display:block;margin-top:4px;font-size:16px;line-height:1.25;word-break:keep-all}
-    .block{margin-top:14px}
-    .block-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}
-    .block-title h3{margin:0;font-size:16px}
-    .block-title span{color:#667085;font-size:12px;font-weight:750}
-    .interview-list{display:grid;gap:10px}
-    .interview-card{padding:12px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff}
-    .interview-card.special{background:#fffaf0;border-color:#f4cf8e}
-    .interview-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}
-    .interview-title b{font-size:14px;word-break:keep-all}
-    .fact-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
-    .fact{min-width:0;border-left:3px solid #d7e1eb;padding-left:8px}
-    .fact span{display:block;color:#667085;font-size:11px;font-weight:900}
-    .fact b{display:block;margin-top:2px;color:#1f2937;font-size:12.5px;line-height:1.35;word-break:keep-all}
-    .ratio-list{display:grid;gap:8px}
-    .stack{height:28px;display:flex;overflow:hidden;border-radius:6px;background:#eef2f7;border:1px solid #e4eaf1}
-    .seg{display:flex;align-items:center;justify-content:center;min-width:32px;color:#fff;font-size:11px;font-weight:900;white-space:nowrap}
-    .legend{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-    .legend-item{display:inline-flex;align-items:center;gap:5px;color:#475467;font-size:11.5px;font-weight:800}
-    .swatch{width:10px;height:10px;border-radius:3px;background:#667085}
-    details.fold{margin-top:9px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fbfcfe}
-    details.fold summary{padding:10px 11px;cursor:pointer;font-size:12.5px;font-weight:900;color:#344054}
-    .fold-body{padding:0 11px 11px;white-space:pre-wrap;color:#344054;font-size:12.5px;max-height:320px;overflow:auto}
-    .table-wrap{overflow:auto;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff}
-    table{width:100%;border-collapse:collapse;font-size:12px;min-width:760px}
-    th,td{padding:8px 9px;border-bottom:1px solid #edf1f5;border-right:1px solid #edf1f5;text-align:left;vertical-align:top}
-    th{background:#f1f5f9;color:#344054;font-weight:900}
-    td{color:#1f2937}
-    tr.special-row td{background:#fffaf0}
-    .text-box{max-height:360px;overflow:auto;padding:12px;border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff;white-space:pre-wrap;color:#344054;font-size:12.5px}
-    .compare-panel{padding:16px}
-    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
-    .compare-card{border:1px solid #e4eaf1;border-radius:var(--radius);background:#fff;padding:12px}
-    .compare-card h3{margin:0 0 8px;font-size:16px;word-break:keep-all}
-    .factor-list{display:grid;gap:6px;margin-top:8px}
-    .factor-row{display:grid;grid-template-columns:96px 1fr 54px;gap:8px;align-items:center;font-size:12px;color:#344054}
-    .mini-bar{height:8px;border-radius:999px;background:#e4eaf1;overflow:hidden}
-    .mini-bar i{display:block;height:100%;background:var(--teal)}
-    .note{margin:10px 0 0;padding:10px;border-radius:var(--radius);background:#f8fafc;border:1px solid #e4eaf1;color:#475467;font-size:12px;word-break:keep-all}
-    .footer-credit{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:14px;padding:15px 18px;border-top:1px solid #cfd8e3;color:#475467}
-    .credit-label{display:block;margin-bottom:3px;color:#667085;font-size:11px;font-weight:900}
-    .credit-main{margin:0;color:#123247;font-size:13px;font-weight:850;word-break:keep-all}
-    .credit-main b{font-weight:950}
-    .credit-source{margin:0;color:#667085;font-size:12px;font-weight:850;white-space:nowrap}
-    .toast{position:fixed;left:50%;bottom:calc(18px + var(--safe-bottom));transform:translateX(-50%) translateY(16px);opacity:0;z-index:100;pointer-events:none;padding:10px 14px;border-radius:999px;background:#111827;color:#fff;box-shadow:var(--shadow);transition:opacity .18s,transform .18s;font-size:12.5px;font-weight:850}
-    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-    @media(max-width:980px){
-      header{grid-template-columns:1fr}.summary-box{min-width:0}
-      .workspace{grid-template-columns:1fr}.controls{position:static}.list{max-height:none}
-      .section-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .fact-list{grid-template-columns:1fr}
+    a{color:inherit}
+    .app{width:min(1380px,100%);margin:0 auto;padding:14px 16px calc(40px + var(--safe))}
+
+    /* ---------- top + header ---------- */
+    .topbar{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .home{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 15px;border-radius:999px;
+      background:var(--navy);color:#fff;text-decoration:none;font-size:13.5px;font-weight:800;box-shadow:var(--shadow-sm)}
+    .home svg{width:17px;height:17px}
+    header{padding:24px 26px;border-radius:var(--r);color:#fff;box-shadow:var(--shadow);
+      background:radial-gradient(120% 140% at 0% 0%,#15506b 0%,var(--navy) 45%,var(--navy2) 100%)}
+    .eyebrow{margin:0;color:#9fd0db;font-size:12.5px;font-weight:800;letter-spacing:.04em}
+    h1{margin:6px 0 0;font-size:clamp(24px,3.4vw,34px);line-height:1.15;font-weight:850;letter-spacing:-.01em}
+    .lead{margin:10px 0 0;max-width:760px;color:#cfe0e8;font-size:14px}
+    .meta-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .meta-pill{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;
+      background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);font-size:12.5px;font-weight:700;color:#eaf3f6}
+    .meta-pill b{font-weight:850;color:#fff}
+
+    /* ---------- filter bar ---------- */
+    .filters{position:sticky;top:8px;z-index:30;margin-top:14px;padding:14px;background:var(--surface);
+      border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm)}
+    .filter-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .filter-row + .filter-row{margin-top:11px}
+    .search{position:relative;flex:1 1 280px;min-width:0}
+    .search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--faint)}
+    .search input{width:100%;height:46px;padding:0 14px 0 40px;border:1px solid #cdd9e4;border-radius:10px;background:#fff;outline:none}
+    .search input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.14)}
+    select{height:42px;padding:0 32px 0 12px;border:1px solid #cdd9e4;border-radius:10px;background:#fff
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235b6b7b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
+      -webkit-appearance:none;appearance:none;outline:none;font-weight:600;color:var(--text)}
+    select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.14)}
+    .chips{display:flex;gap:7px;flex-wrap:wrap}
+    .chip{height:38px;padding:0 14px;border:1px solid #cdd9e4;border-radius:999px;background:#fff;
+      font-size:13px;font-weight:750;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+    .chip:hover{border-color:#9fb2c4}
+    .chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+    .chip .dot{width:9px;height:9px;border-radius:50%;background:currentColor}
+    .seg-label{font-size:12px;font-weight:800;color:var(--faint);margin-right:2px;align-self:center}
+    .toggle{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px;border:1px solid #dde5ee;
+      border-radius:999px;background:#f6f9fc;font-size:12.5px;font-weight:700;color:var(--muted)}
+    .toggle input{width:17px;height:17px;accent-color:var(--teal)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:42px;padding:0 15px;
+      border:1px solid transparent;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:800}
+    .btn svg{width:16px;height:16px}
+    .btn.ghost{background:#fff;color:var(--muted);border-color:#cdd9e4}
+    .btn.ghost:hover{border-color:#9fb2c4;color:var(--text)}
+    .spacer{flex:1 1 auto}
+
+    /* ---------- workspace ---------- */
+    .workspace{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:14px;margin-top:14px;align-items:start}
+    .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm)}
+
+    /* list pane */
+    .list-pane{position:sticky;top:152px;display:flex;flex-direction:column;max-height:calc(100vh - 168px)}
+    .list-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+    .list-head h2{margin:0;font-size:15px;font-weight:800}
+    .list-head .count{font-size:12.5px;color:var(--muted);font-weight:700}
+    .list-head .count b{color:var(--teal);font-weight:850;font-variant-numeric:tabular-nums}
+    .list{overflow:auto;padding:9px;display:flex;flex-direction:column;gap:8px}
+    .uni-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start;padding:11px 12px;
+      border:1px solid #e6ecf3;border-radius:var(--r-sm);background:#fff;cursor:pointer;transition:border-color .12s,box-shadow .12s,background .12s}
+    .uni-row:hover{border-color:#aebfd0;background:#fbfdff}
+    .uni-row.active{border-color:var(--teal);background:#f1fbf9;box-shadow:0 0 0 2px rgba(15,118,110,.18)}
+    .uni-name{font-size:15px;font-weight:800;letter-spacing:-.01em}
+    .uni-line{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px}
+    .uni-factors{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+    .fchip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--muted);
+      background:#f4f7fa;border:1px solid #e6ecf3;border-radius:999px;padding:2px 8px}
+    .fchip .dot{width:8px;height:8px;border-radius:50%}
+    .cmp-btn{flex:0 0 auto;width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid #cdd9e4;border-radius:10px;background:#fff;color:var(--muted)}
+    .cmp-btn svg{width:18px;height:18px}
+    .cmp-btn:hover{border-color:#9fb2c4;color:var(--text)}
+    .cmp-btn.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+    .badge{display:inline-flex;align-items:center;gap:5px;height:23px;padding:0 9px;border-radius:999px;
+      background:#eef2f6;color:#4b5b6b;font-size:11.5px;font-weight:800;white-space:nowrap}
+    .badge.good{background:var(--good-soft);color:var(--good)}
+    .badge.warn{background:var(--warn-soft);color:var(--warn)}
+    .badge.red{background:var(--red-soft);color:var(--red)}
+    .badge.gray{background:var(--gray-soft);color:var(--gray)}
+    .badge.line{background:#fff;border:1px solid #d6e0ea;color:var(--muted)}
+    .badge .dot{width:7px;height:7px;border-radius:50%}
+
+    /* detail pane */
+    .detail{padding:20px 22px;min-height:60vh}
+    .detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+      padding-bottom:16px;border-bottom:1px solid var(--line)}
+    .back-btn{display:none;align-items:center;gap:5px;height:34px;padding:0 11px;border:1px solid #cdd9e4;
+      border-radius:9px;background:#fff;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:10px}
+    .back-btn svg{width:16px;height:16px}
+    .detail h2{margin:0;font-size:23px;font-weight:850;letter-spacing:-.02em}
+    .detail-sub{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+    .detail-cmp{flex:0 0 auto}
+
+    .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}
+    .kpi{padding:13px 14px;border:1px solid #e6ecf3;border-radius:var(--r-sm);background:#f9fbfd}
+    .kpi span{display:block;color:var(--faint);font-size:11.5px;font-weight:800;letter-spacing:.02em}
+    .kpi b{display:block;margin-top:4px;font-size:17px;font-weight:850;line-height:1.25}
+
+    .block{margin-top:16px;border:1px solid #e1e9f1;border-radius:var(--r);overflow:hidden}
+    .block.special{border-color:#eccf9c}
+    .block-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:13px 15px;background:#f5f8fb;border-bottom:1px solid #e6edf4}
+    .block.special .block-head{background:#fdf7ec;border-bottom-color:#f0dcb4}
+    .block-head h3{margin:0;font-size:15.5px;font-weight:850}
+    .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:14px 15px}
+    .fact{padding-left:11px;border-left:3px solid #d2deea}
+    .fact:nth-child(1){border-left-color:var(--c-major)}
+    .fact:nth-child(2){border-left-color:var(--c-acad)}
+    .fact:nth-child(3){border-left-color:var(--c-char)}
+    .fact span{display:block;color:var(--faint);font-size:11.5px;font-weight:800}
+    .fact b{display:block;margin-top:2px;font-size:13.5px;font-weight:750;line-height:1.4}
+
+    .ratio-wrap{padding:4px 15px 14px}
+    .ratio-cap{font-size:12px;font-weight:800;color:var(--faint);margin-bottom:7px}
+    .ratio-bar{display:flex;height:30px;border-radius:8px;overflow:hidden;background:#eef2f6;border:1px solid #e1e9f1}
+    .ratio-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:850;
+      min-width:0;white-space:nowrap;overflow:hidden}
+    .ratio-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:9px}
+    .ratio-legend .item{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--muted)}
+    .ratio-legend .sw{width:11px;height:11px;border-radius:3px}
+    .ratio-legend b{color:var(--text);font-weight:850}
+
+    .factor-cards{display:grid;gap:10px;padding:0 15px 15px}
+    .fcard{border:1px solid #e6ecf3;border-left-width:4px;border-radius:var(--r-sm);padding:12px 14px;background:#fff}
+    .fcard-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+    .fcard-top .fname{font-size:14.5px;font-weight:850}
+    .fcard-top .cat{font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px}
+    .fcard-top .pct{margin-left:auto;font-size:15px;font-weight:850;font-variant-numeric:tabular-nums}
+    .fcard .items{margin:8px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
+    .fcard .items b{color:var(--faint);font-weight:800;font-size:11px;display:block;margin-bottom:1px}
+    .qlist{margin:9px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+    .qlist li{position:relative;padding:8px 11px 8px 30px;background:#f7fafc;border:1px solid #e9eff5;border-radius:8px;
+      font-size:13px;line-height:1.5;color:#2b3a48}
+    .qlist li::before{content:"Q";position:absolute;left:10px;top:8px;width:15px;height:15px;border-radius:50%;
+      background:var(--teal);color:#fff;font-size:10px;font-weight:850;display:flex;align-items:center;justify-content:center}
+    .qcap{font-size:11.5px;font-weight:800;color:var(--faint);margin:11px 0 0}
+
+    details.fold{margin-top:14px;border:1px solid #e6ecf3;border-radius:var(--r-sm);background:#f9fbfd}
+    details.fold summary{padding:12px 14px;cursor:pointer;font-size:13px;font-weight:800;color:var(--muted);list-style:none;display:flex;align-items:center;gap:8px}
+    details.fold summary::-webkit-details-marker{display:none}
+    details.fold summary::before{content:"";width:8px;height:8px;border-right:2px solid var(--faint);border-bottom:2px solid var(--faint);transform:rotate(-45deg);transition:transform .15s}
+    details.fold[open] summary::before{transform:rotate(45deg)}
+    .fold-body{padding:0 14px 14px;white-space:pre-wrap;color:#3a4856;font-size:12.5px;line-height:1.55;max-height:340px;overflow:auto}
+    .note{margin:16px 0 0;padding:12px 14px;border-radius:var(--r-sm);background:#f4f7fa;border:1px solid #e6ecf3;
+      color:var(--muted);font-size:12.5px;line-height:1.55}
+    .empty{padding:48px 20px;text-align:center;color:var(--muted)}
+    .empty svg{width:42px;height:42px;color:#b9c7d5;margin-bottom:10px}
+    .empty b{display:block;color:var(--text);font-size:16px;font-weight:800;margin-bottom:4px}
+
+    /* ---------- compare ---------- */
+    .cmp-fab{position:fixed;right:20px;bottom:calc(20px + var(--safe));z-index:60;display:none;align-items:center;gap:9px;
+      height:52px;padding:0 20px 0 17px;border:0;border-radius:999px;background:var(--teal);color:#fff;
+      font-size:14px;font-weight:850;box-shadow:0 12px 28px rgba(15,118,110,.4)}
+    .cmp-fab.show{display:inline-flex}
+    .cmp-fab svg{width:20px;height:20px}
+    .cmp-fab .n{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;
+      border-radius:999px;background:rgba(255,255,255,.25);font-size:12.5px;font-weight:850}
+    .overlay{position:fixed;inset:0;z-index:70;background:rgba(15,32,48,.5);backdrop-filter:blur(2px);
+      display:none;align-items:flex-end;justify-content:center}
+    .overlay.show{display:flex}
+    .modal{width:min(1100px,100%);max-height:88vh;background:var(--surface);border-radius:18px 18px 0 0;
+      display:flex;flex-direction:column;box-shadow:0 -10px 40px rgba(0,0,0,.25);animation:slideup .22s ease}
+    @keyframes slideup{from{transform:translateY(30px);opacity:.6}to{transform:translateY(0);opacity:1}}
+    @media(min-width:780px){.overlay{align-items:center}.modal{border-radius:18px}}
+    .modal-head{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--line)}
+    .modal-head h3{margin:0;font-size:17px;font-weight:850}
+    .modal-head .x{margin-left:auto;width:36px;height:36px;border-radius:9px;border:1px solid #cdd9e4;background:#fff;
+      display:inline-flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)}
+    .modal-body{overflow:auto;padding:18px 20px}
+    .cmp-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+    .cmp-table th,.cmp-table td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #eaf0f5}
+    .cmp-table thead th{position:sticky;top:0;background:#f5f8fb;font-size:13.5px;font-weight:850;border-bottom:2px solid #e1e9f1}
+    .cmp-table thead th:first-child{color:var(--faint);font-size:12px;font-weight:800}
+    .cmp-table tbody th{font-size:12px;font-weight:800;color:var(--faint);white-space:nowrap;background:#fbfdfe;width:100px}
+    .cmp-rm{margin-left:6px;border:0;background:transparent;color:var(--faint);font-size:15px}
+    .cmp-bar{display:flex;height:24px;border-radius:6px;overflow:hidden;background:#eef2f6;border:1px solid #e1e9f1;margin-bottom:6px}
+    .cmp-bar i{display:flex;align-items:center;justify-content:center;color:#fff;font-size:10.5px;font-weight:850;min-width:0;white-space:nowrap}
+    .cmp-leg{font-size:11.5px;color:var(--muted);line-height:1.5}
+
+    /* ---------- footer + toast ---------- */
+    footer{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:18px;
+      padding:16px 20px;border-top:1px solid #cfd9e3;color:var(--muted)}
+    .credit-label{display:block;color:var(--faint);font-size:11px;font-weight:800;margin-bottom:2px}
+    .credit-main{margin:0;color:var(--navy);font-size:13.5px;font-weight:800}
+    .credit-src{margin:0;font-size:12.5px;font-weight:700}
+    .credit-src a{color:var(--teal)}
+    .toast{position:fixed;left:50%;bottom:calc(24px + var(--safe));transform:translate(-50%,18px);opacity:0;z-index:100;
+      pointer-events:none;padding:11px 18px;border-radius:999px;background:var(--navy2);color:#fff;
+      font-size:13px;font-weight:750;box-shadow:var(--shadow);transition:opacity .2s,transform .2s}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    /* ---------- responsive ---------- */
+    @media(max-width:900px){
+      .app{padding:10px 11px calc(30px + var(--safe))}
+      .workspace{grid-template-columns:1fr}
+      .filters{position:static}
+      .list-pane{position:static;max-height:none}
+      .list{max-height:62vh}
+      .detail-pane{display:none}
+      body.show-detail .list-pane{display:none}
+      body.show-detail .detail-pane{display:block}
+      .back-btn{display:inline-flex}
+      .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .facts{grid-template-columns:1fr}
+      .detail{padding:16px 15px}
+      footer{flex-direction:column;align-items:flex-start;gap:8px}
     }
-    @media(max-width:640px){
-      .app{padding:10px 8px calc(26px + var(--safe-bottom))}
-      header{padding:18px 16px}.footer-credit{display:grid;gap:8px;padding:13px 8px}.credit-source{white-space:normal}
-      .meta-strip{display:grid;grid-template-columns:minmax(0,1fr)}
-      .meta-pill{justify-content:center;min-width:0;text-align:center;white-space:normal;line-height:1.2}
-      .summary-box{width:100%}
-      .toolbar,.detail-head{flex-direction:column;align-items:stretch}
-      .section-grid{grid-template-columns:1fr}
-      .uni-row{grid-template-columns:1fr}.row-actions{justify-content:flex-end}
-      .filter-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-      .filter-actions .btn{width:100%;min-width:0;padding-left:8px;padding-right:8px}
-      .status,.compare-tray{min-width:0}
+    @media(max-width:520px){
+      .meta-strip{display:grid;grid-template-columns:1fr 1fr}
+      .meta-pill{justify-content:center}
     }
   </style>
 </head>
@@ -170,426 +256,406 @@
     </div>
 
     <header>
-      <div>
-        <p class="eyebrow">2027학생부종합전형</p>
-        <h1>면접평가 기준 비교</h1>
-        <p>대학별 면접 진행방법, 면접시간, 출제방식, 평가요소와 문항 예시를 원문 기준으로 정리했습니다.</p>
-        <div class="meta-strip">
-          <span class="meta-pill" id="metaUniversities">전체 대학 -</span>
-          <span class="meta-pill" id="metaSections">면접평가 확인 -</span>
-          <span class="meta-pill" id="metaSummary">요약 행 -</span>
-          <span class="meta-pill" id="metaFactors">평가요소 -</span>
-        </div>
-      </div>
-      <div class="summary-box">
-        <b>면접 준비용</b>
-        <span>학생부종합전형 주요사항 중 [면접평가] 구간을 비교형 자료로 정리했습니다.</span>
+      <p class="eyebrow">2027학년도 학생부종합전형</p>
+      <h1>면접평가 기준 비교</h1>
+      <p class="lead">대학별 면접 진행방법·면접시간·출제방식과 평가요소 비율, 실제 면접문항 예시를 어디가(adiga) 원문 기준으로 정리했습니다.</p>
+      <div class="meta-strip">
+        <span class="meta-pill">전체 대학 <b id="mUni">–</b></span>
+        <span class="meta-pill">면접 실시 <b id="mInterview">–</b></span>
+        <span class="meta-pill">전형 묶음 <b id="mBlocks">–</b></span>
+        <span class="meta-pill">평가요소 <b id="mFactors">–</b></span>
       </div>
     </header>
 
-    <main class="workspace">
-      <aside class="panel controls" aria-label="검색과 필터">
-        <div class="field">
-          <label for="q">대학명·면접 키워드 검색</label>
-          <input id="q" type="search" placeholder="예: 서울, 개별면접, 10분, 학업역량" autocomplete="off" />
-        </div>
-        <div class="field">
-          <label for="region">지역</label>
-          <select id="region"></select>
-        </div>
-        <div class="field">
-          <label for="statusFilter">면접 상태</label>
-          <select id="statusFilter"></select>
-        </div>
-        <div class="field">
-          <label for="method">면접 방식</label>
-          <select id="method"></select>
-        </div>
-        <div class="field">
-          <label for="factor">평가요소</label>
-          <select id="factor"></select>
-        </div>
-        <div class="checks">
-          <label class="check"><input id="onlyData" type="checkbox" checked /> 면접평가 구간 있는 대학만</label>
-          <label class="check"><input id="hideSpecial" type="checkbox" checked /> 특별전형 행 기본 숨김</label>
-        </div>
-        <div class="filter-actions">
-          <button class="btn secondary" id="resetBtn" type="button">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/></svg>
-            초기화
-          </button>
-          <button class="btn teal" id="compareJump" type="button">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-            비교
-          </button>
-        </div>
-        <div class="status">
-          <div class="stat"><span>검색 결과</span><b id="resultCount">-</b></div>
-          <div class="stat"><span>선택 비교</span><b id="compareCount">0</b></div>
-        </div>
-        <div class="compare-tray">
-          <div class="tray-title"><b>비교 대학</b><button class="btn secondary" id="clearCompare" type="button">비우기</button></div>
-          <div class="compare-tags" id="compareTags"></div>
-        </div>
-      </aside>
-
-      <section class="main">
-        <section class="panel">
-          <div class="toolbar">
-            <div>
-              <h2>대학 목록</h2>
-              <p id="listNote">자료를 불러오는 중입니다.</p>
-            </div>
-            <select id="sort">
-              <option value="name">대학명순</option>
-              <option value="status">면접 상태순</option>
-              <option value="region">지역순</option>
-              <option value="recruitment">종합 모집인원순</option>
-            </select>
-          </div>
-          <div class="list" id="list"></div>
-        </section>
-
-        <section class="panel detail" id="detail"></section>
-
-        <section class="panel compare-panel" id="comparePanel">
-          <div class="block-title">
-            <h3>대학 비교</h3>
-            <span>선택한 대학 기준</span>
-          </div>
-          <div id="compareBody"></div>
-        </section>
-      </section>
-    </main>
-    <footer class="footer-credit">
-      <div>
-        <span class="credit-label">제작:</span>
-        <p class="credit-main"><b>충청남도교육청진로융합교육원</b> 교육연구사 정재연</p>
+    <!-- filters -->
+    <div class="filters">
+      <div class="filter-row">
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+          <input id="q" type="search" placeholder="대학명·면접 키워드 검색 (예: 개별면접, 10분, 학업역량, 봉사활동)" autocomplete="off" />
+        </label>
+        <select id="sort" aria-label="정렬">
+          <option value="name">대학명순</option>
+          <option value="status">면접 상태순</option>
+          <option value="region">지역순</option>
+          <option value="recruitment">모집인원 많은순</option>
+        </select>
       </div>
-      <p class="credit-source">출처: 대입정보포털(adiga)</p>
+      <div class="filter-row">
+        <span class="seg-label">상태</span>
+        <div class="chips" id="statusChips"></div>
+        <span class="spacer"></span>
+        <select id="region" aria-label="지역"></select>
+        <select id="factor" aria-label="평가요소"></select>
+        <select id="method" aria-label="면접 방식"></select>
+      </div>
+      <div class="filter-row">
+        <label class="toggle"><input id="onlyData" type="checkbox" checked /> 면접 정보 있는 대학만</label>
+        <label class="toggle"><input id="hideSpecial" type="checkbox" checked /> 특별전형 묶음 숨김</label>
+        <span class="spacer"></span>
+        <button class="btn ghost" id="resetBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/></svg>
+          필터 초기화
+        </button>
+      </div>
+    </div>
+
+    <!-- workspace -->
+    <div class="workspace">
+      <section class="panel list-pane">
+        <div class="list-head">
+          <h2>대학 목록</h2>
+          <span class="count"><b id="resultCount">0</b>개 · <span id="listNote">–</span></span>
+        </div>
+        <div class="list" id="list"></div>
+      </section>
+
+      <section class="panel detail-pane">
+        <div class="detail" id="detail"></div>
+      </section>
+    </div>
+
+    <footer>
+      <div>
+        <span class="credit-label">제작</span>
+        <p class="credit-main">충청남도교육청진로융합교육원 교육연구사 정재연</p>
+      </div>
+      <p class="credit-src">출처: 대입정보포털 <a id="srcLink" href="https://www.adiga.kr" target="_blank" rel="noopener">어디가(adiga)</a> · 2027학년도</p>
     </footer>
   </div>
+
+  <!-- compare -->
+  <button class="cmp-fab" id="cmpFab" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+    대학 비교 <span class="n" id="cmpN">0</span>
+  </button>
+  <div class="overlay" id="overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="대학 비교">
+      <div class="modal-head">
+        <h3>면접평가 비교</h3>
+        <button class="btn ghost" id="cmpClear" type="button" style="height:36px">비우기</button>
+        <button class="x" id="cmpClose" type="button" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body" id="cmpBody"></div>
+    </div>
+  </div>
+
   <div class="toast" id="toast"></div>
 
   <script>
     const DATA = window.JONGHAP_INTERVIEW_EVAL_DATA;
-    const state = { q:"", region:"", status:"", method:"", factor:"", onlyData:true, hideSpecial:true, sort:"name", selected:null, compare:[] };
-    const statusRank = {"면접 실시":1,"부분 실시":2,"면접 없음":3,"구간 없음":4};
-    const colorMap = {"학업역량":"#2563eb","진로·전공역량":"#0f766e","인성·공동체":"#b45309","의사소통":"#7c3aed","적성·창의":"#0e7490","기타":"#475467"};
-    const els = {};
+    const CAT = {
+      "학업역량":"var(--c-acad)", "진로·전공역량":"var(--c-major)", "인성·공동체":"var(--c-char)",
+      "의사소통":"var(--c-comm)", "적성·창의":"var(--c-apt)", "기타":"var(--c-etc)"
+    };
+    const CAT_SOFT = {
+      "학업역량":"#e8f0ff", "진로·전공역량":"#d9f3ef", "인성·공동체":"#fdf0d9",
+      "의사소통":"#efe9fd", "적성·창의":"#e0f4f8", "기타":"#eef2f6"
+    };
+    const STATUS_CLASS = {"면접 실시":"good","부분 실시":"warn","면접 없음":"red","구간 없음":"gray"};
+    const STATUS_RANK = {"면접 실시":1,"부분 실시":2,"면접 없음":3,"구간 없음":4};
+    const state = { q:"", region:"", status:"", factor:"", method:"",
+      onlyData:true, hideSpecial:true, sort:"name", selected:null, compare:[] };
+    const mq = window.matchMedia("(max-width:900px)");
+    const $ = id => document.getElementById(id);
+    const el = {};
 
-    function $(id){ return document.getElementById(id); }
-    function esc(value){
-      return String(value ?? "").replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-    }
-    function short(value, limit=54){
-      const text = String(value || "").trim();
-      return text.length > limit ? `${text.slice(0, limit - 1)}…` : text;
-    }
-    function codeLabel(code){ return String(code).padStart(7,"0"); }
-    function toast(message){
-      const el = $("toast"); el.textContent = message; el.classList.add("show");
-      clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove("show"), 1700);
-    }
-    function statusClass(status){
-      if(status === "면접 실시") return "good";
-      if(status === "부분 실시") return "warn";
-      if(status === "면접 없음") return "red";
-      return "";
-    }
-    function visibleSummaries(uni){
-      const rows = uni.summaries || [];
-      return state.hideSpecial ? rows.filter(row => !row.special) : rows;
-    }
-    function visibleFactors(uni, summary){
-      let rows = uni.factors || [];
-      if(state.hideSpecial) rows = rows.filter(row => !row.special);
-      if(summary){
-        const same = rows.filter(row => String(row.tableNo) === String(summary.tableNo) && row.admission === summary.admission);
-        if(same.length) return same;
-        const sameTable = rows.filter(row => String(row.tableNo) === String(summary.tableNo));
-        if(sameTable.length) return sameTable;
-      }
-      return rows;
-    }
-    function visibleTables(uni){
-      return (uni.tables || []).map(table => ({
-        ...table,
-        rows: state.hideSpecial ? table.rows.filter(row => !row.special) : table.rows
-      })).filter(table => table.rows.length);
-    }
-    function hasFactor(uni, factor){
-      if(!factor) return true;
-      return (uni.factors || []).some(row => row.name === factor || row.standard === factor) || uni.searchText.includes(factor);
-    }
-    function hasMethod(uni, method){
-      if(!method) return true;
-      const text = `${uni.primaryProcess || ""} ${uni.primarySource || ""} ${(uni.summaries || []).map(row => `${row.process} ${row.source}`).join(" ")}`;
-      if(method === "다대다/그룹") return /다대다|그룹|집단/.test(text);
-      if(method === "서류기반") return /서류|학교생활기록부|학생부/.test(text);
-      return text.includes(method.replace("/그룹", ""));
-    }
+    const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const cut = (v,n=22) => { const t=String(v||"").trim(); return t.length>n ? t.slice(0,n-1)+"…" : t; };
+    const catColor = s => CAT[s] || "var(--c-etc)";
+    function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast._); toast._=setTimeout(()=>t.classList.remove("show"),1700); }
+    function uniByCode(code){ return DATA.universities.find(u => u.code === code); }
+    function blocksOf(uni){ return state.hideSpecial ? (uni.blocks||[]).filter(b=>!b.special) : (uni.blocks||[]); }
+    function primaryBlock(uni){ const b = blocksOf(uni); return b[0] || (uni.blocks||[])[0] || null; }
+
+    /* ---------------- filtering ---------------- */
+    function hasCategory(uni, cat){ return (uni.blocks||[]).some(b => (b.factors||[]).some(f => f.standard === cat)); }
     function filtered(){
       const q = state.q.trim().toLowerCase();
-      let rows = DATA.universities.filter(uni => {
-        if(state.onlyData && !uni.hasSection) return false;
-        if(state.region && uni.region !== state.region) return false;
-        if(state.status && uni.status !== state.status) return false;
-        if(state.method && !hasMethod(uni, state.method)) return false;
-        if(state.factor && !hasFactor(uni, state.factor)) return false;
-        if(q && !uni.searchText.toLowerCase().includes(q) && !uni.name.toLowerCase().includes(q)) return false;
+      let rows = DATA.universities.filter(u => {
+        if(state.onlyData && !u.hasSection) return false;
+        if(state.region && u.region !== state.region) return false;
+        if(state.status && u.status !== state.status) return false;
+        if(state.method && !(u.methods||[]).includes(state.method)) return false;
+        if(state.factor && !hasCategory(u, state.factor)) return false;
+        if(q && !(u.searchText||"").toLowerCase().includes(q) && !u.name.toLowerCase().includes(q)) return false;
         return true;
       });
-      rows.sort((a,b) => {
-        if(state.sort === "status") return (statusRank[a.status] || 9) - (statusRank[b.status] || 9) || a.name.localeCompare(b.name, "ko");
-        if(state.sort === "region") return (a.region || "").localeCompare(b.region || "", "ko") || a.name.localeCompare(b.name, "ko");
-        if(state.sort === "recruitment") return (Number(b.recruitment) || 0) - (Number(a.recruitment) || 0) || a.name.localeCompare(b.name, "ko");
-        return a.name.localeCompare(b.name, "ko");
+      const byName = (a,b)=>a.name.localeCompare(b.name,"ko");
+      rows.sort((a,b)=>{
+        if(state.sort==="status") return (STATUS_RANK[a.status]||9)-(STATUS_RANK[b.status]||9) || byName(a,b);
+        if(state.sort==="region") return (a.region||"").localeCompare(b.region||"","ko") || byName(a,b);
+        if(state.sort==="recruitment") return (Number(b.recruitment)||0)-(Number(a.recruitment)||0) || byName(a,b);
+        return byName(a,b);
       });
       return rows;
     }
-    function init(){
-      if(!DATA){ document.body.innerHTML = "<p>데이터 파일을 불러오지 못했습니다.</p>"; return; }
-      ["q","region","statusFilter","method","factor","onlyData","hideSpecial","sort"].forEach(id => els[id] = $(id));
-      $("metaUniversities").textContent = `전체 대학 ${DATA.meta.universities.toLocaleString()}개`;
-      $("metaSections").textContent = `면접평가 확인 ${DATA.meta.hasSection.toLocaleString()}개`;
-      $("metaSummary").textContent = `요약 ${DATA.meta.summaryRows.toLocaleString()}행`;
-      $("metaFactors").textContent = `평가요소 ${DATA.meta.factorRows.toLocaleString()}행`;
-      els.region.innerHTML = `<option value="">전체 지역</option>` + DATA.regions.map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join("");
-      els.statusFilter.innerHTML = `<option value="">전체 상태</option>` + DATA.statuses.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join("");
-      els.method.innerHTML = `<option value="">전체 방식</option>` + DATA.methods.map(m => `<option value="${esc(m)}">${esc(m)}</option>`).join("");
-      els.factor.innerHTML = `<option value="">전체 평가요소</option>` + DATA.factorFilters.map(f => `<option value="${esc(f)}">${esc(f)}</option>`).join("");
-      const first = DATA.universities.find(u => u.hasSection && u.status !== "구간 없음") || DATA.universities[0];
-      state.selected = first ? first.code : null;
-      bind();
-      render();
-    }
-    function bind(){
-      els.q.addEventListener("input", e => { state.q = e.target.value; renderList(); });
-      els.region.addEventListener("change", e => { state.region = e.target.value; renderList(); });
-      els.statusFilter.addEventListener("change", e => { state.status = e.target.value; renderList(); });
-      els.method.addEventListener("change", e => { state.method = e.target.value; renderList(); });
-      els.factor.addEventListener("change", e => { state.factor = e.target.value; renderList(); });
-      els.onlyData.addEventListener("change", e => { state.onlyData = e.target.checked; renderList(); });
-      els.hideSpecial.addEventListener("change", e => { state.hideSpecial = e.target.checked; renderDetail(); renderCompare(); renderList(); });
-      els.sort.addEventListener("change", e => { state.sort = e.target.value; renderList(); });
-      $("resetBtn").addEventListener("click", () => {
-        Object.assign(state, { q:"", region:"", status:"", method:"", factor:"", onlyData:true, hideSpecial:true, sort:"name" });
-        els.q.value = ""; els.region.value = ""; els.statusFilter.value = ""; els.method.value = ""; els.factor.value = "";
-        els.onlyData.checked = true; els.hideSpecial.checked = true; els.sort.value = "name";
-        render();
-      });
-      $("clearCompare").addEventListener("click", () => { state.compare = []; renderCompare(); renderList(); });
-      $("compareJump").addEventListener("click", () => $("comparePanel").scrollIntoView({behavior:"smooth", block:"start"}));
-    }
-    function render(){ renderList(); renderDetail(); renderCompare(); }
+
+    /* ---------------- list ---------------- */
     function renderList(){
       const rows = filtered();
       $("resultCount").textContent = rows.length.toLocaleString();
-      const statusText = state.status || "전체 상태";
-      $("listNote").textContent = `${DATA.meta.sourceYear}학년도 기준 · ${statusText}`;
+      $("listNote").textContent = `${DATA.meta.sourceYear}학년도 기준`;
       const list = $("list");
       if(!rows.length){
-        list.innerHTML = `<div class="empty"><b>검색 결과가 없습니다.</b><span>검색어와 필터를 조정해 주세요.</span></div>`;
+        list.innerHTML = `<div class="empty"><b>검색 결과가 없습니다.</b><span>검색어나 필터를 조정해 보세요.</span></div>`;
         return;
       }
-      list.innerHTML = rows.map(uni => rowHtml(uni)).join("");
-      list.querySelectorAll("[data-open]").forEach(btn => btn.addEventListener("click", () => { state.selected = btn.dataset.open; renderList(); renderDetail(); }));
-      list.querySelectorAll("[data-compare]").forEach(btn => btn.addEventListener("click", e => { e.stopPropagation(); toggleCompare(btn.dataset.compare); }));
+      if(state.selected && !rows.some(r=>r.code===state.selected)){ /* keep selection even if filtered out */ }
+      list.innerHTML = rows.map(rowHtml).join("");
+    }
+    function factorMiniChips(uni){
+      const tf = (uni.topFactors||[]).slice(0,3);
+      if(!tf.length) return "";
+      return `<div class="uni-factors">${tf.map(f=>{
+        const pct = f.value!=null ? `${f.ratio}%`.replace("%%","%") : "";
+        return `<span class="fchip"><span class="dot" style="background:${catColor(f.standard)}"></span>${esc(cut(f.name,9))}${pct?` <b style="color:var(--text)">${esc(f.value)}</b>`:""}</span>`;
+      }).join("")}</div>`;
     }
     function rowHtml(uni){
-      const selected = uni.code === state.selected;
+      const sc = STATUS_CLASS[uni.status] || "gray";
       const compared = state.compare.includes(uni.code);
-      const top = uni.topFactors && uni.topFactors[0] ? `${uni.topFactors[0].name} ${uni.topFactors[0].raw}` : (uni.primaryTime || "원문 확인");
-      return `
-        <article class="uni-row ${selected ? "active" : ""}">
-          <button class="uni-main" data-open="${esc(uni.code)}" type="button">
-            <div>
-              <div class="uni-name">${esc(uni.name)}</div>
-              <div class="uni-meta">
-                <span class="badge">${esc(uni.region || "-")}</span>
-                <span class="badge ${statusClass(uni.status)}">${esc(uni.status)}</span>
-                <span class="badge blue">${esc(short(uni.primaryTime || "-", 24))}</span>
-                <span class="badge teal">${esc(short(uni.primaryProcess || "-", 28))}</span>
-                <span class="badge violet">${esc(short(top, 28))}</span>
-              </div>
-            </div>
-          </button>
-          <div class="row-actions">
-            <button class="icon-btn ${compared ? "active" : ""}" data-compare="${esc(uni.code)}" type="button" aria-label="비교 선택">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-            </button>
+      const time = uni.primaryTime ? `<span class="badge line">⏱ ${esc(cut(uni.primaryTime,16))}</span>` : "";
+      return `<article class="uni-row ${uni.code===state.selected?"active":""}" data-code="${esc(uni.code)}">
+        <div>
+          <div class="uni-name">${esc(uni.name)}</div>
+          <div class="uni-line">
+            <span class="badge gray">${esc(uni.region||"-")}</span>
+            <span class="badge ${sc}"><span class="dot" style="background:currentColor"></span>${esc(uni.status)}</span>
+            ${time}
           </div>
-        </article>`;
+          ${factorMiniChips(uni)}
+        </div>
+        <button class="cmp-btn ${compared?"on":""}" data-compare="${esc(uni.code)}" type="button" aria-label="비교 담기" title="비교 담기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+        </button>
+      </article>`;
     }
-    function currentUni(){ return DATA.universities.find(uni => uni.code === state.selected) || DATA.universities[0]; }
+    function syncListState(){
+      $("list").querySelectorAll(".uni-row").forEach(r=>r.classList.toggle("active", r.dataset.code===state.selected));
+      $("list").querySelectorAll("[data-compare]").forEach(b=>b.classList.toggle("on", state.compare.includes(b.dataset.compare)));
+    }
+    function select(code, fromUser){
+      state.selected = code;
+      syncListState();
+      renderDetail();
+      if(fromUser && mq.matches){ document.body.classList.add("show-detail"); window.scrollTo({top:0,behavior:"smooth"}); }
+      updateHash();
+    }
+
+    /* ---------------- detail ---------------- */
+    function ratioBar(factors){
+      const f = factors.filter(x => x.value != null && Number(x.value) > 0);
+      if(f.length < 1) return "";
+      const total = f.reduce((s,x)=>s+Number(x.value),0) || 100;
+      const segs = f.map(x=>{
+        const w = (Number(x.value)/total)*100;
+        return `<div class="ratio-seg" style="flex:${Number(x.value)} 0 0;background:${catColor(x.standard)}" title="${esc(x.name)} ${esc(x.value)}">${w>=11?esc(x.value):""}</div>`;
+      }).join("");
+      const leg = f.map(x=>`<span class="item"><span class="sw" style="background:${catColor(x.standard)}"></span>${esc(x.name)} <b>${esc(x.value)}%</b></span>`).join("");
+      return `<div class="ratio-wrap"><div class="ratio-cap">평가요소 비율</div>
+        <div class="ratio-bar">${segs}</div><div class="ratio-legend">${leg}</div></div>`;
+    }
+    function factorCard(f){
+      const color = catColor(f.standard);
+      const pct = f.value!=null ? `${esc(f.value)}%` : "";
+      const items = f.items ? `<p class="items"><b>평가항목</b>${esc(f.items)}</p>` : "";
+      const qs = (f.questions||[]);
+      const qhtml = qs.length ? `<p class="qcap">면접문항 예시</p><ul class="qlist">${qs.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>` : "";
+      return `<div class="fcard" style="border-left-color:${color}">
+        <div class="fcard-top">
+          <span class="fname">${esc(f.name)}</span>
+          <span class="cat" style="background:${CAT_SOFT[f.standard]||'#eef2f6'};color:${color}">${esc(f.standard)}</span>
+          ${pct?`<span class="pct" style="color:${color}">${pct}</span>`:""}
+        </div>
+        ${items}${qhtml}
+      </div>`;
+    }
+    function blockHtml(b, idx){
+      const facts = `<div class="facts">
+        <div class="fact"><span>진행방법</span><b>${esc(b.process||"–")}</b></div>
+        <div class="fact"><span>면접시간</span><b>${esc(b.time||"–")}</b></div>
+        <div class="fact"><span>출제방식</span><b>${esc(b.source||"–")}</b></div>
+      </div>`;
+      const factors = b.factors||[];
+      const cards = factors.length ? `<div class="factor-cards">${factors.map(factorCard).join("")}</div>` : "";
+      const qtext = (!factors.length && b.questionsText) ? `<div class="ratio-wrap"><p class="qcap">면접 관련 원문</p><div class="fold-body" style="max-height:200px">${esc(b.questionsText)}</div></div>` : "";
+      return `<div class="block ${b.special?"special":""}">
+        <div class="block-head">
+          <h3>${esc(b.admission||"공통")}</h3>
+          ${b.special?'<span class="badge warn">특별전형</span>':''}
+        </div>
+        ${facts}${ratioBar(factors)}${cards}${qtext}
+      </div>`;
+    }
     function renderDetail(){
-      const uni = currentUni();
-      if(!uni){ $("detail").innerHTML = `<div class="empty"><b>대학을 선택해 주세요.</b></div>`; return; }
+      const uni = uniByCode(state.selected);
+      const d = $("detail");
+      if(!uni){ d.innerHTML = `<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg><b>대학을 선택해 주세요.</b><span>왼쪽 목록에서 대학을 누르면 면접평가 상세가 표시됩니다.</span></div>`; return; }
+      const blocks = blocksOf(uni);
+      const sc = STATUS_CLASS[uni.status]||"gray";
       const compared = state.compare.includes(uni.code);
-      $("detail").innerHTML = `
+      const factorCount = blocks.reduce((s,b)=>s+(b.factors||[]).length,0);
+      const head = `
+        ${mq.matches?`<button class="back-btn" id="backBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 목록</button>`:""}
         <div class="detail-head">
           <div>
             <h2>${esc(uni.name)}</h2>
             <div class="detail-sub">
-              <span class="badge">${esc(uni.region || "-")}</span>
-              <span class="badge blue">대학코드 ${codeLabel(uni.code)}</span>
-              <span class="badge teal">학생부종합 모집 ${esc(uni.recruitment || "-")}명</span>
-              <span class="badge ${statusClass(uni.status)}">${esc(uni.status)}</span>
+              <span class="badge gray">${esc(uni.region||"-")}</span>
+              <span class="badge ${sc}"><span class="dot" style="background:currentColor"></span>${esc(uni.status)}</span>
+              <span class="badge line">학종 모집 ${esc(uni.recruitment||"-")}명</span>
+              ${(uni.methods||[]).map(m=>`<span class="badge line">${esc(m)}</span>`).join("")}
             </div>
           </div>
-          <button class="btn ${compared ? "warn" : "teal"}" id="detailCompare" type="button">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-            ${compared ? "비교 해제" : "비교 선택"}
+          <button class="btn detail-cmp ${compared?"ghost":""}" id="detailCmp" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+            ${compared?"비교 담김":"비교 담기"}
           </button>
-        </div>
-        ${uni.hasSection ? detailBody(uni) : `<div class="empty"><b>[면접평가] 구간이 확인되지 않았습니다.</b><span>어디가 응답 원문 기준으로 해당 구간이 없거나 빈 항목입니다.</span></div>`}
-      `;
-      $("detailCompare").addEventListener("click", () => toggleCompare(uni.code));
-    }
-    function detailBody(uni){
-      const summaries = visibleSummaries(uni);
-      const factors = visibleFactors(uni);
-      const tables = visibleTables(uni);
-      const mainSummary = summaries[0] || {};
-      return `
-        <div class="section-grid">
+        </div>`;
+      let body;
+      if(!uni.hasSection || (!blocks.length && !(uni.blocks||[]).length)){
+        body = `<div class="empty"><b>면접평가 정보가 없습니다.</b><span>어디가 원문 기준 [면접평가] 구간이 없거나 비어 있는 대학입니다.</span></div>`;
+      } else {
+        const kpis = `<div class="kpis">
           <div class="kpi"><span>면접 상태</span><b>${esc(uni.status)}</b></div>
-          <div class="kpi"><span>면접 전형 묶음</span><b>${summaries.length.toLocaleString()}개</b></div>
-          <div class="kpi"><span>대표 면접시간</span><b>${esc(mainSummary.time || uni.primaryTime || "-")}</b></div>
-          <div class="kpi"><span>평가요소 행</span><b>${factors.length.toLocaleString()}행</b></div>
-        </div>
-        <div class="block">
-          <div class="block-title"><h3>면접평가 요약</h3><span>${summaries.length ? "전형별 정리" : "원문 기준"}</span></div>
-          ${summaries.length ? `<div class="interview-list">${summaries.map(summary => summaryHtml(uni, summary)).join("")}</div>` : `<p class="note">${esc(short(uni.sectionText || "면접평가 원문이 비어 있습니다.", 260))}</p>`}
-        </div>
-        <div class="block">
-          <div class="block-title"><h3>평가요소·배점</h3><span>${factors.length ? "자동 추출" : "원문 확인"}</span></div>
-          ${factors.length ? factorGroupHtml(factors) : `<p class="note">평가요소와 배점이 정형 표로 분리되지 않았습니다. 면접평가 요약 또는 원문을 확인하세요.</p>`}
-        </div>
-        <div class="block">
-          <div class="block-title"><h3>면접평가 원문 표</h3><span>${tables.length.toLocaleString()}개 표</span></div>
-          ${renderTables(tables)}
-        </div>
-        <details class="fold">
-          <summary>원문 구간 보기</summary>
-          <div class="fold-body">${esc(uni.sectionText || "원문 텍스트 없음")}</div>
-        </details>
-        <p class="note">자료 기준: ${esc(DATA.meta.sourceLabel)}. 평가요소 분류와 그래프는 비교 편의를 위한 보조 정보이며, 대학 원문을 우선 기준으로 확인하세요.</p>
-      `;
-    }
-    function summaryHtml(uni, summary){
-      const factors = visibleFactors(uni, summary);
-      return `<article class="interview-card ${summary.special ? "special" : ""}">
-        <div class="interview-title">
-          <b>${esc(summary.admission || "공통/원문 기준")}</b>
-          ${summary.special ? '<span class="badge warn">특별전형</span>' : ''}
-        </div>
-        <div class="fact-list">
-          <div class="fact"><span>진행방법</span><b>${esc(summary.process || "-")}</b></div>
-          <div class="fact"><span>면접시간</span><b>${esc(summary.time || "-")}</b></div>
-          <div class="fact"><span>출제방식</span><b>${esc(summary.source || "-")}</b></div>
-        </div>
-        ${factors.length ? factorStackHtml(factors) : ""}
-        ${summary.detail ? `<details class="fold"><summary>평가내용</summary><div class="fold-body">${esc(summary.detail)}</div></details>` : ""}
-        ${summary.questions ? `<details class="fold"><summary>면접문항 예시</summary><div class="fold-body">${esc(summary.questions)}</div></details>` : ""}
-      </article>`;
-    }
-    function factorStackHtml(factors){
-      const cleaned = factors.filter(f => f.value !== null && f.value !== undefined && Number(f.value) > 0);
-      if(!cleaned.length) return "";
-      const total = cleaned.reduce((sum,f)=>sum + Number(f.value || 0), 0) || 100;
-      const segments = cleaned.map((f,idx) => {
-        const w = Math.max(6, Math.round((Number(f.value) / total) * 100));
-        const color = colorMap[f.standard] || `var(--bar${(idx % 6) + 1})`;
-        return `<span class="seg" style="width:${w}%;background:${color}" title="${esc(f.name)} ${esc(f.raw)}">${esc(f.raw)}</span>`;
-      }).join("");
-      const legend = cleaned.map((f,idx) => {
-        const color = colorMap[f.standard] || `var(--bar${(idx % 6) + 1})`;
-        return `<span class="legend-item"><i class="swatch" style="background:${color}"></i>${esc(f.name)} ${esc(f.raw)}</span>`;
-      }).join("");
-      return `<div class="stack">${segments}</div><div class="legend">${legend}</div>`;
-    }
-    function factorGroupHtml(factors){
-      const grouped = new Map();
-      factors.forEach(f => {
-        const key = `${f.tableNo}||${f.admission || "공통"}`;
-        if(!grouped.has(key)) grouped.set(key, []);
-        grouped.get(key).push(f);
-      });
-      return `<div class="interview-list">${Array.from(grouped.entries()).map(([key, rows]) => {
-        const admission = key.split("||")[1] || "공통";
-        return `<article class="interview-card">
-          <div class="interview-title"><b>${esc(admission)}</b></div>
-          ${factorStackHtml(rows)}
-        </article>`;
-      }).join("")}</div>`;
-    }
-    function renderTables(tables){
-      if(!tables.length) return `<div class="empty"><b>표 데이터가 없습니다.</b></div>`;
-      return tables.map((table, idx) => {
-        const rows = table.rows || [];
-        if(!rows.length) return "";
-        const body = rows.map((row, rIdx) => {
-          const tag = rIdx === 0 ? "th" : "td";
-          return `<tr class="${row.special ? "special-row" : ""}">${row.cells.map(cell => `<${tag}>${esc(cell)}</${tag}>`).join("")}</tr>`;
-        }).join("");
-        return `<div class="block">
-          <div class="block-title"><h3>원문표 ${idx + 1}</h3><span>표 ${esc(table.tableNo)}</span></div>
-          <div class="table-wrap"><table>${body}</table></div>
+          <div class="kpi"><span>전형 묶음</span><b>${blocks.length}개</b></div>
+          <div class="kpi"><span>대표 면접시간</span><b>${esc((primaryBlock(uni)||{}).time || uni.primaryTime || "–")}</b></div>
+          <div class="kpi"><span>평가요소</span><b>${factorCount}개</b></div>
         </div>`;
-      }).join("");
+        const blockHtmls = blocks.length ? blocks.map(blockHtml).join("")
+          : `<div class="note">표시할 전형 묶음이 없습니다. ‘특별전형 묶음 숨김’을 해제하면 특별전형 정보를 볼 수 있습니다.</div>`;
+        const raw = uni.raw ? `<details class="fold"><summary>어디가 원문 보기</summary><div class="fold-body">${esc(uni.raw)}</div></details>` : "";
+        body = kpis + blockHtmls + raw +
+          `<p class="note">평가요소 분류·비율 그래프는 비교 편의를 위한 보조 정보입니다. 최종 지원 전 반드시 각 대학 모집요강 원문을 확인하세요.</p>`;
+      }
+      d.innerHTML = head + body;
+      d.scrollIntoView ? null : null;
+      const back = $("backBtn"); if(back) back.onclick = ()=>{ document.body.classList.remove("show-detail"); };
+      $("detailCmp").onclick = ()=>toggleCompare(uni.code);
     }
+
+    /* ---------------- compare ---------------- */
     function toggleCompare(code){
-      const index = state.compare.indexOf(code);
-      if(index >= 0) state.compare.splice(index, 1);
-      else {
-        if(state.compare.length >= 3){ toast("비교는 3개 대학까지 가능합니다."); return; }
-        state.compare.push(code);
-      }
-      renderCompare(); renderList(); renderDetail();
+      const i = state.compare.indexOf(code);
+      if(i>=0) state.compare.splice(i,1);
+      else { if(state.compare.length>=3){ toast("비교는 최대 3개 대학까지 가능합니다."); return; } state.compare.push(code); }
+      syncListState(); renderCompareFab(); renderDetail(); renderCompareModal(); updateHash();
     }
-    function renderCompare(){
-      $("compareCount").textContent = state.compare.length;
-      const tags = $("compareTags");
-      if(!state.compare.length) tags.innerHTML = `<span class="badge">선택 없음</span>`;
-      else tags.innerHTML = state.compare.map(code => {
-        const uni = DATA.universities.find(u => u.code === code);
-        return `<span class="tag">${esc(uni ? uni.name : code)} <button type="button" data-remove="${esc(code)}" aria-label="비교 제거">×</button></span>`;
+    function renderCompareFab(){
+      const fab = $("cmpFab"); $("cmpN").textContent = state.compare.length;
+      fab.classList.toggle("show", state.compare.length>0);
+    }
+    function cmpMiniBar(uni){
+      const b = primaryBlock(uni); const f = (b&&b.factors||[]).filter(x=>x.value!=null&&x.value>0);
+      if(!f.length) return `<span class="cmp-leg">평가요소 비율 정보 없음</span>`;
+      const total = f.reduce((s,x)=>s+Number(x.value),0)||100;
+      const bar = f.map(x=>{const w=(x.value/total)*100;return `<i style="flex:${x.value} 0 0;background:${catColor(x.standard)}" title="${esc(x.name)}">${w>=14?esc(x.value):""}</i>`;}).join("");
+      const leg = f.map(x=>`${esc(x.name)} ${esc(x.value)}%`).join(" · ");
+      return `<div class="cmp-bar">${bar}</div><span class="cmp-leg">${esc(leg)}</span>`;
+    }
+    function renderCompareModal(){
+      const body = $("cmpBody");
+      if(!state.compare.length){ body.innerHTML = `<div class="empty"><b>비교할 대학이 없습니다.</b><span>목록이나 상세에서 비교 아이콘을 눌러 담아 주세요.</span></div>`; return; }
+      const unis = state.compare.map(uniByCode).filter(Boolean);
+      const rows = [
+        ["지역", u=>esc(u.region||"-")],
+        ["면접 상태", u=>{const sc=STATUS_CLASS[u.status]||"gray";return `<span class="badge ${sc}">${esc(u.status)}</span>`;}],
+        ["면접시간", u=>esc((primaryBlock(u)||{}).time||u.primaryTime||"–")],
+        ["진행방법", u=>esc((primaryBlock(u)||{}).process||u.primaryProcess||"–")],
+        ["출제방식", u=>esc((primaryBlock(u)||{}).source||u.primarySource||"–")],
+        ["면접 방식", u=>(u.methods||[]).map(m=>`<span class="badge line">${esc(m)}</span>`).join(" ")||"–"],
+        ["평가요소 비율", u=>cmpMiniBar(u)],
+      ];
+      body.innerHTML = `<table class="cmp-table"><thead><tr><th>항목</th>${unis.map(u=>`<th>${esc(u.name)}<button class="cmp-rm" data-rm="${esc(u.code)}" title="제거">×</button></th>`).join("")}</tr></thead>
+        <tbody>${rows.map(([label,fn])=>`<tr><th>${label}</th>${unis.map(u=>`<td>${fn(u)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+      body.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>toggleCompare(b.dataset.rm));
+    }
+    function openCompare(){ renderCompareModal(); $("overlay").classList.add("show"); }
+    function closeCompare(){ $("overlay").classList.remove("show"); }
+
+    /* ---------------- hash / deep-link ---------------- */
+    function updateHash(){
+      const parts = [];
+      if(state.selected) parts.push("u="+state.selected);
+      if(state.compare.length) parts.push("c="+state.compare.join(","));
+      history.replaceState(null,"", parts.length?("#"+parts.join("&")):location.pathname+location.search);
+    }
+    function readHash(){
+      const h = location.hash.replace(/^#/,""); if(!h) return;
+      const p = new URLSearchParams(h.replace(/&/g,"&"));
+      const u = p.get("u"); const c = p.get("c");
+      if(c) state.compare = c.split(",").filter(x=>uniByCode(x)).slice(0,3);
+      if(u && uniByCode(u)) state.selected = u;
+    }
+
+    /* ---------------- init ---------------- */
+    function fillSelect(sel, list, allLabel){
+      sel.innerHTML = `<option value="">${allLabel}</option>` + list.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
+    }
+    function buildStatusChips(){
+      const items = [["","전체"]].concat(DATA.statuses.map(s=>[s,s]));
+      $("statusChips").innerHTML = items.map(([v,label])=>{
+        const cls = v?(STATUS_CLASS[v]||"gray"):"";
+        const dot = v?`<span class="dot" style="background:var(--${cls==='gray'?'gray':cls==='good'?'good':cls==='warn'?'warn':cls==='red'?'red':'gray'})"></span>`:"";
+        return `<button class="chip ${state.status===v?"on":""}" data-status="${esc(v)}" type="button">${dot}${esc(label)}</button>`;
       }).join("");
-      tags.querySelectorAll("[data-remove]").forEach(btn => btn.addEventListener("click", () => toggleCompare(btn.dataset.remove)));
-      const body = $("compareBody");
-      if(!state.compare.length){
-        body.innerHTML = `<div class="empty"><b>비교 대학이 없습니다.</b><span>대학 목록에서 비교 아이콘을 선택해 주세요.</span></div>`;
-        return;
-      }
-      const cards = state.compare.map(code => DATA.universities.find(u => u.code === code)).filter(Boolean).map(compareCard).join("");
-      body.innerHTML = `<div class="compare-grid">${cards}</div>`;
+      $("statusChips").querySelectorAll("[data-status]").forEach(b=>b.onclick=()=>{
+        state.status=b.dataset.status;
+        $("statusChips").querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.status===state.status));
+        renderList();
+      });
     }
-    function compareCard(uni){
-      const summaries = visibleSummaries(uni);
-      const summary = summaries[0] || {};
-      const factors = visibleFactors(uni, summary);
-      const factorRows = factors.length ? factors.slice(0, 5).map(f => {
-        const total = factors.reduce((sum,item)=>sum + Number(item.value || 0), 0) || 100;
-        const w = f.value ? Math.max(6, Math.round((Number(f.value) / total) * 100)) : 6;
-        return `<div class="factor-row">
-          <span>${esc(f.name)}</span>
-          <span class="mini-bar"><i style="width:${w}%;background:${colorMap[f.standard] || '#0f766e'}"></i></span>
-          <b>${esc(f.raw)}</b>
-        </div>`;
-      }).join("") : `<p class="note">평가요소 자동 추출 없음</p>`;
-      return `<article class="compare-card">
-        <h3>${esc(uni.name)}</h3>
-        <div class="detail-sub">
-          <span class="badge">${esc(uni.region || "-")}</span>
-          <span class="badge ${statusClass(uni.status)}">${esc(uni.status)}</span>
-          <span class="badge blue">${esc(short(summary.time || uni.primaryTime || "-", 24))}</span>
-        </div>
-        <p class="note"><b>진행방법</b> ${esc(summary.process || uni.primaryProcess || "-")}</p>
-        <p class="note"><b>출제방식</b> ${esc(summary.source || uni.primarySource || "-")}</p>
-        <div class="factor-list">${factorRows}</div>
-      </article>`;
+    function init(){
+      if(!DATA){ document.body.innerHTML="<p style='padding:40px'>데이터 파일(jonghap_interview_data.js)을 불러오지 못했습니다.</p>"; return; }
+      ["q","region","factor","method","onlyData","hideSpecial","sort"].forEach(id=>el[id]=$(id));
+      $("mUni").textContent = DATA.meta.universities.toLocaleString()+"개";
+      $("mInterview").textContent = (DATA.meta.interviewUnis||DATA.meta.statusCounts?.["면접 실시"]||0).toLocaleString()+"개";
+      $("mBlocks").textContent = (DATA.meta.blockRows||0).toLocaleString()+"개";
+      $("mFactors").textContent = (DATA.meta.factorRows||0).toLocaleString()+"개";
+      if(DATA.meta.sourceUrl) $("srcLink").href = DATA.meta.sourceUrl;
+
+      fillSelect(el.region, DATA.regions, "전체 지역");
+      fillSelect(el.factor, DATA.factorFilters, "전체 평가요소");
+      fillSelect(el.method, DATA.methods, "전체 면접 방식");
+      buildStatusChips();
+
+      readHash();
+      if(!state.selected){
+        const first = DATA.universities.find(u=>u.hasSection && u.status!=="구간 없음") || DATA.universities[0];
+        state.selected = first ? first.code : null;
+      }
+      bind();
+      renderList(); renderDetail(); renderCompareFab();
+    }
+    function bind(){
+      el.q.addEventListener("input", e=>{ state.q=e.target.value; renderList(); });
+      el.region.addEventListener("change", e=>{ state.region=e.target.value; renderList(); });
+      el.factor.addEventListener("change", e=>{ state.factor=e.target.value; renderList(); });
+      el.method.addEventListener("change", e=>{ state.method=e.target.value; renderList(); });
+      el.sort.addEventListener("change", e=>{ state.sort=e.target.value; renderList(); });
+      el.onlyData.addEventListener("change", e=>{ state.onlyData=e.target.checked; renderList(); });
+      el.hideSpecial.addEventListener("change", e=>{ state.hideSpecial=e.target.checked; renderList(); renderDetail(); renderCompareModal(); });
+      $("resetBtn").addEventListener("click", ()=>{
+        Object.assign(state,{q:"",region:"",status:"",factor:"",method:"",onlyData:true,hideSpecial:true,sort:"name"});
+        el.q.value=""; el.region.value=""; el.factor.value=""; el.method.value=""; el.sort.value="name";
+        el.onlyData.checked=true; el.hideSpecial.checked=true;
+        $("statusChips").querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.status===""));
+        renderList();
+      });
+      // event delegation on the list
+      $("list").addEventListener("click", e=>{
+        const cmp = e.target.closest("[data-compare]");
+        if(cmp){ e.stopPropagation(); toggleCompare(cmp.dataset.compare); return; }
+        const row = e.target.closest(".uni-row");
+        if(row) select(row.dataset.code, true);
+      });
+      $("cmpFab").addEventListener("click", openCompare);
+      $("cmpClose").addEventListener("click", closeCompare);
+      $("overlay").addEventListener("click", e=>{ if(e.target===$("overlay")) closeCompare(); });
+      $("cmpClear").addEventListener("click", ()=>{ state.compare=[]; syncListState(); renderCompareFab(); renderCompareModal(); renderDetail(); updateHash(); });
+      document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeCompare(); });
+      mq.addEventListener("change", ()=>renderDetail());
     }
     document.addEventListener("DOMContentLoaded", init);
   </script>
