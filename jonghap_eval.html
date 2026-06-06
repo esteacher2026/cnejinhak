@@ -29,12 +29,9 @@
     button,input,select{font:inherit}
     button{cursor:pointer}
     .app{width:min(1440px,100%);margin:0 auto;padding:16px 16px calc(36px + var(--safe-bottom))}
-    .topbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;margin-bottom:12px;padding:8px 10px;border:1px solid #dbe3ea;border-radius:999px;background:rgba(255,255,255,.88);box-shadow:0 8px 20px rgba(15,23,42,.05);backdrop-filter:blur(8px)}
+    .topbar{display:flex;align-items:center;margin-bottom:12px}
     .home{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 13px;border:1px solid #b9c8d8;border-radius:999px;background:var(--navy);color:#fff;text-decoration:none;font-size:13px;font-weight:900}
     .home svg,.icon{width:16px;height:16px;flex:0 0 16px}
-    .producer{min-width:0;color:#475467;font-size:12.5px;font-weight:750;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .producer b{color:#123247;font-weight:950}
-    .source-link{display:inline-flex;align-items:center;gap:7px;color:#155e75;text-decoration:none;font-size:12.5px;font-weight:850;white-space:nowrap}
     header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;padding:22px 24px;border-radius:var(--radius);background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff;box-shadow:var(--shadow)}
     .eyebrow{margin:0 0 6px;color:#b6d3dd;font-size:12px;font-weight:900;letter-spacing:.02em}
     h1{margin:0;font-size:clamp(26px,4vw,42px);line-height:1.1;letter-spacing:0}
@@ -130,6 +127,11 @@
     .mini-bar{height:8px;border-radius:999px;background:#e4eaf1;overflow:hidden}
     .mini-bar i{display:block;height:100%;background:var(--teal)}
     .note{margin:10px 0 0;padding:10px;border-radius:var(--radius);background:#f8fafc;border:1px solid #e4eaf1;color:#475467;font-size:12px;word-break:keep-all}
+    .footer-credit{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:14px;padding:15px 18px;border-top:1px solid #cfd8e3;color:#475467}
+    .credit-label{display:block;margin-bottom:3px;color:#667085;font-size:11px;font-weight:900}
+    .credit-main{margin:0;color:#123247;font-size:13px;font-weight:850;word-break:keep-all}
+    .credit-main b{font-weight:950}
+    .credit-source{margin:0;color:#667085;font-size:12px;font-weight:850;white-space:nowrap}
     .toast{position:fixed;left:50%;bottom:calc(18px + var(--safe-bottom));transform:translateX(-50%) translateY(16px);opacity:0;z-index:100;pointer-events:none;padding:10px 14px;border-radius:999px;background:#111827;color:#fff;box-shadow:var(--shadow);transition:opacity .18s,transform .18s;font-size:12.5px;font-weight:850}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     @media(max-width:980px){
@@ -138,7 +140,7 @@
     }
     @media(max-width:640px){
       .app{padding:10px 8px calc(26px + var(--safe-bottom))}
-      header{padding:18px 16px}.topbar{grid-template-columns:1fr;gap:6px;border-radius:12px;align-items:start}.home{justify-self:start}.source-link{display:none}.producer{text-align:left;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.35;font-size:11.5px}
+      header{padding:18px 16px}.footer-credit{display:grid;gap:8px;padding:13px 8px}.credit-source{white-space:normal}
       .meta-strip{display:grid;grid-template-columns:minmax(0,1fr)}
       .meta-pill{justify-content:center;min-width:0;text-align:center;white-space:normal;line-height:1.2}
       .summary-box{width:100%}
@@ -158,16 +160,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>
         메인
       </a>
-      <div class="producer">제작: <b>충청남도교육청진로융합교육원</b> 교육연구사 정재연</div>
-      <a class="source-link" href="https://www.adiga.kr/uct/acd/ade/criteriaAndResultView.do?menuId=PCUCTACD2000" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-        어디가 원자료
-      </a>
     </div>
 
     <header>
       <div>
-        <p class="eyebrow">ADIGA 2027 · 학생부종합전형</p>
+        <p class="eyebrow">2027학생부종합전형</p>
         <h1>서류평가 기준 비교</h1>
         <p>대학별 서류평가 내용과 전형별 평가요소 비율을 원문 표 기준으로 확인하고, 필요한 대학만 골라 비교합니다.</p>
         <div class="meta-strip">
@@ -247,6 +244,13 @@
         </section>
       </section>
     </main>
+    <footer class="footer-credit">
+      <div>
+        <span class="credit-label">제작:</span>
+        <p class="credit-main"><b>충청남도교육청진로융합교육원</b> 교육연구사 정재연</p>
+      </div>
+      <p class="credit-source">출처: 대입정보포털(adiga)</p>
+    </footer>
   </div>
   <div class="toast" id="toast"></div>
 
