@@ -14,7 +14,7 @@
   <meta name="description" content="대학별 학생부종합전형 서류평가 내용과 전형별 평가요소 비율을 어디가 원문 기준으로 비교합니다." />
   <title>서류평가 기준 비교 · 학생부종합전형 2027</title>
   <!-- 데이터 갱신 시 ?v= 값을 함께 올려 캐시를 무효화하세요 (예: 빌드 날짜) -->
-  <script src="jonghapdoc_eval_data.js?v=20260607"></script>
+  <script src="jonghapdoc_eval_data.js?v=20260607b"></script>
   <style>
     :root{
       --bg:#eef1f6; --surface:#fff;
@@ -228,6 +228,7 @@
     td{color:var(--ink-soft)}
     tr:last-child td{border-bottom:0}
     tr.special-row td{background:#fffdf6}
+    td.cat-cell{background:#f8fafc;font-weight:700;color:var(--ink);vertical-align:top;word-break:keep-all}
     .cell-list{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:3px}
     .cell-list li{padding-left:2px}
     .table-note{margin-top:8px}
@@ -429,7 +430,9 @@
 
     function regularRatios(uni){
       const ratios = uni.parsedRatios || [];
-      return state.hideSpecial ? ratios.filter(r => !r.special) : ratios;
+      if(!state.hideSpecial) return ratios;
+      const regular = ratios.filter(r => !r.special);
+      return regular.length ? regular : ratios; // 전부 특별전형이면 숨기지 않고 모두 표시
     }
     function visibleRows(table){
       return state.hideSpecial ? table.rows.filter(r => !r.special) : table.rows;
@@ -705,21 +708,39 @@
     function cellHtml(raw){
       const t = clean(String(raw ?? "").replace(/\r/g,""));
       if(!t) return "";
-      if(/^[-·]/.test(t)){
-        const items = t.split(/\s*[-·]\s*/).map(s=>s.trim()).filter(Boolean);
+      if((t.match(/[○●◦◯]/g) || []).length >= 2){
+        const items = t.split(/\s*[○●◦◯]\s*/).map(s=>s.trim()).filter(Boolean);
+        if(items.length >= 2) return `<ul class="cell-list">${items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>`;
+      }
+      if(/^[-·▪■]/.test(t)){
+        const items = t.split(/\s*[-·▪■]\s*/).map(s=>s.trim()).filter(Boolean);
         if(items.length >= 2) return `<ul class="cell-list">${items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>`;
       }
       return esc(t);
     }
     function renderTables(tables, kind){
       if(!tables.length) return `<div class="empty"><b>표 데이터가 없습니다.</b></div>`;
+      const merge = kind === "content" || kind === "raw";
       const html = tables.map((table, idx) => {
         const rows = visibleRows(table);
         if(!rows.length) return "";
-        const body = rows.map((row, rIdx) => {
-          if(rIdx === 0) return `<tr>${row.cells.map(c=>`<th scope="col">${esc(clean(c))}</th>`).join("")}</tr>`;
-          return `<tr class="${row.special ? "special-row" : ""}">${row.cells.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`;
-        }).join("");
+        const bodyRows = rows.slice(1);
+        let body = `<tr>${rows[0].cells.map(c=>`<th scope="col">${esc(clean(c))}</th>`).join("")}</tr>`;
+        bodyRows.forEach((row, i) => {
+          let tds = "";
+          row.cells.forEach((c, ci) => {
+            if(merge && ci === 0){
+              const prev = i > 0 ? bodyRows[i-1].cells[0] : null;
+              if(i > 0 && clean(prev) === clean(c) && clean(c) !== "") return; // 위 칸 rowspan에 병합됨
+              let span = 1;
+              while(i + span < bodyRows.length && clean(bodyRows[i+span].cells[0]) === clean(c) && clean(c) !== "") span++;
+              tds += `<td class="cat-cell"${span > 1 ? ` rowspan="${span}"` : ""}>${cellHtml(c)}</td>`;
+            } else {
+              tds += `<td>${cellHtml(c)}</td>`;
+            }
+          });
+          body += `<tr class="${row.special ? "special-row" : ""}">${tds}</tr>`;
+        });
         const kindLabel = kind === "ratio" ? "비율표" : kind === "content" ? "내용표" : "원문 표";
         const caption = tables.length > 1 ? `<div class="block-title" style="margin-bottom:8px"><h3 style="font-size:13.5px">${kindLabel} ${idx+1}</h3><span class="hint">${esc(table.context || "")}</span></div>` : "";
         return `<div style="margin-top:${idx ? "12px" : "0"}">${caption}<div class="table-wrap"><table>${body}</table></div></div>`;
