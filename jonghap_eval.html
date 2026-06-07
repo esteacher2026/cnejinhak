@@ -13,7 +13,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="대학별 학생부종합전형 서류평가 내용과 전형별 평가요소 비율을 어디가 원문 기준으로 비교합니다." />
   <title>서류평가 기준 비교 · 학생부종합전형 2027</title>
-  <script src="jonghapdoc_eval_data.js"></script>
+  <!-- 데이터 갱신 시 ?v= 값을 함께 올려 캐시를 무효화하세요 (예: 빌드 날짜) -->
+  <script src="jonghapdoc_eval_data.js?v=20260607"></script>
   <style>
     :root{
       --bg:#eef1f6; --surface:#fff;
@@ -232,6 +233,21 @@
     .table-note{margin-top:8px}
 
     .text-box{max-height:340px;overflow:auto;padding:14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;white-space:pre-wrap;color:var(--ink-soft);font-size:12.5px;line-height:1.7}
+
+    /* 원문 자동 구조화 아웃라인 */
+    .outline{display:flex;flex-direction:column;gap:12px}
+    .outline-intro{padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fbfcff}
+    .outline-intro p{margin:0 0 6px;color:var(--ink-soft);font-size:13px;line-height:1.6;word-break:keep-all}
+    .outline-intro p:last-child{margin-bottom:0}
+    .ogroup{border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;background:#fff}
+    .ocat{padding:9px 13px;background:var(--brand-soft);color:var(--brand-ink);font-weight:800;font-size:13.5px;border-bottom:1px solid #e1e6f9;word-break:keep-all}
+    .oitem{padding:10px 14px;border-bottom:1px solid var(--line-soft)}
+    .oitem:last-child{border-bottom:0}
+    .oname{font-weight:700;font-size:13px;color:var(--ink);word-break:keep-all}
+    .odesc{margin:4px 0 0;color:var(--ink-soft);font-size:12.5px;line-height:1.65;word-break:keep-all}
+    .oname+.odesc{margin-top:5px}
+    .obul{margin:7px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:4px;color:var(--ink-soft);font-size:12.5px;line-height:1.55}
+    .obul li{word-break:keep-all}
 
     details.source{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;overflow:hidden}
     details.source>summary{padding:12px 14px;cursor:pointer;font-size:13px;font-weight:800;color:var(--ink-soft);list-style:none;display:flex;align-items:center;gap:8px}
@@ -647,8 +663,8 @@
           <div class="block-title"><h3>전형별 평가요소 비율</h3><span class="hint">${ratios.length ? "그래프 + 원표" : "원표 기준"}</span></div>
           ${ratios.length
             ? `<div class="ratio-list">${ratios.map(ratioHtml).join("")}</div>`
-            : `<p class="note inline">이 대학은 비율표 형식이 일정하지 않아 자동 그래프를 만들지 않았습니다. 아래 원표를 기준으로 확인해 주세요.</p>`}
-          ${renderTables(uni.ratioTables, "ratio")}
+            : `<p class="note inline">이 대학은 비율표 형식이 일정하지 않아 자동 그래프를 만들지 않았습니다. 아래 원문 표를 기준으로 확인해 주세요.</p>`}
+          ${renderTables(uni.ratioTables, ratios.length ? "ratio" : "raw")}
         </div>
         <div class="block">
           <div class="block-title"><h3>서류평가 내용</h3><span class="hint">대학 원문 표</span></div>
@@ -704,15 +720,85 @@
           if(rIdx === 0) return `<tr>${row.cells.map(c=>`<th scope="col">${esc(clean(c))}</th>`).join("")}</tr>`;
           return `<tr class="${row.special ? "special-row" : ""}">${row.cells.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`;
         }).join("");
-        const caption = tables.length > 1 ? `<div class="block-title" style="margin-bottom:8px"><h3 style="font-size:13.5px">${kind === "ratio" ? "비율표" : "내용표"} ${idx+1}</h3><span class="hint">${esc(table.context || "")}</span></div>` : "";
+        const kindLabel = kind === "ratio" ? "비율표" : kind === "content" ? "내용표" : "원문 표";
+        const caption = tables.length > 1 ? `<div class="block-title" style="margin-bottom:8px"><h3 style="font-size:13.5px">${kindLabel} ${idx+1}</h3><span class="hint">${esc(table.context || "")}</span></div>` : "";
         return `<div style="margin-top:${idx ? "12px" : "0"}">${caption}<div class="table-wrap"><table>${body}</table></div></div>`;
       }).join("");
       return html || `<div class="empty"><b>표시할 행이 없습니다.</b><p>특별전형 숨김을 해제하면 더 볼 수 있습니다.</p></div>`;
     }
+    // ---------- 서류평가 내용 원문 구조화 (contentTables 없을 때) ----------
+    const C_ITEM = /^\s*[○●◦◯▪■◆▶▷▸‣•]\s*/;
+    const C_DASH = /^\s*[-–·ㆍ∙]\s+/;
+    const C_CAT_SUFFIX = /(역량|소양|적합성|가능성|의식|인성|태도|능력|정신|성장)$/;
+    const C_CAT_KNOWN = new Set(["인성","발전가능성","공동체","리더십","나눔과 배려","협업능력","자기주도성","성실성"]);
+    const C_SKIP = new Set(["평가요소","평가내용","평가항목","세부 평가내용","평가방향","평가요소 의미","평가내용 평가내용","구분","내용","평가 내용","세부 내용"]);
+
+    function isCatLine(t){
+      if(!t || t.length > 18) return false;
+      if(C_ITEM.test(t) || C_DASH.test(t)) return false;
+      if(/[.?!]$/.test(t)) return false;
+      if(/(다|음|함|임|됨|는가|한가|인가)$/.test(t)) return false;
+      if(/[()%]/.test(t)) return false;
+      if(/\d/.test(t)) return false;
+      if(/\s/.test(t) && t.length > 10) return false;
+      return C_CAT_SUFFIX.test(t) || C_CAT_KNOWN.has(t);
+    }
+    function contentPortion(sectionText){
+      let s = String(sectionText || "");
+      const cut = s.search(/2\s*\)\s*전형별|전형별\s*서류평가|서류평가\s*평가요소(?:별)?\s*비율|평가요소별\s*비율/);
+      if(cut >= 0) s = s.slice(0, cut);
+      const start = s.search(/1\s*\)\s*서류평가\s*내용|서류평가\s*내용/);
+      if(start >= 0) s = s.slice(start);
+      return s.replace(/^\s*\[?서류평가\]?\s*/, "").replace(/^\s*1\s*\)\s*서류평가\s*내용\s*/, "").replace(/^\s*평가\s*내용\s*/, "").trim();
+    }
+    function parseContentOutline(sectionText){
+      const portion = contentPortion(sectionText);
+      if(!portion || portion.length < 4) return null;
+      const lines = portion.split(/\n/).map(x => x.trim()).filter(Boolean);
+      const groups = []; let g = null, it = null; const intro = [];
+      const stripDot = s => s.replace(/^[·•∙ㆍ]\s*/, "").trim();
+      const newGroup = name => { g = { category: name || "", items: [] }; groups.push(g); it = null; };
+      for(const line of lines){
+        if(C_SKIP.has(line)) continue;
+        if(C_ITEM.test(line)){ if(!g) newGroup(""); it = { name: line.replace(C_ITEM, "").trim(), desc: "", bullets: [] }; g.items.push(it); continue; }
+        if(C_DASH.test(line)){
+          const b = stripDot(line.replace(C_DASH, "").trim()); if(!b) continue;
+          if(it) it.bullets.push(b);
+          else { if(!g) newGroup(""); if(!g.items.length){ it = { name: "", desc: "", bullets: [] }; g.items.push(it); } g.items[g.items.length - 1].bullets.push(b); }
+          continue;
+        }
+        if(isCatLine(line)){ newGroup(line); continue; }
+        if(it){ it.desc = (it.desc ? it.desc + " " : "") + line; }
+        else if(g){ it = { name: "", desc: line, bullets: [] }; g.items.push(it); }
+        else intro.push(line);
+      }
+      const itemsTotal = groups.reduce((s, x) => s + x.items.length, 0);
+      if(!itemsTotal && !intro.length) return null;
+      return { intro, groups, itemsTotal };
+    }
     function renderContentText(uni){
-      const text = uni.sectionText || "";
-      const split = text.split("2) 전형별 서류평가 평가요소 비율")[0] || text;
-      return `<div class="text-box">${esc(split.trim() || "서류평가 내용 원문 없음")}</div>`;
+      const parsed = parseContentOutline(uni.sectionText);
+      if(!parsed){
+        const text = (uni.sectionText || "").split("2) 전형별 서류평가 평가요소 비율")[0] || "";
+        return text.trim() ? `<div class="text-box">${esc(text.trim())}</div>` : `<div class="empty"><b>서류평가 내용 원문이 없습니다.</b></div>`;
+      }
+      let html = `<div class="outline">`;
+      if(parsed.intro.length) html += `<div class="outline-intro">${parsed.intro.map(p => `<p>${esc(p)}</p>`).join("")}</div>`;
+      parsed.groups.forEach(gp => {
+        html += `<div class="ogroup">`;
+        if(gp.category) html += `<div class="ocat">${esc(gp.category)}</div>`;
+        gp.items.forEach(item => {
+          if(!item.name && !item.desc && !item.bullets.length) return;
+          html += `<div class="oitem">`;
+          if(item.name) html += `<div class="oname">${esc(item.name)}</div>`;
+          if(item.desc) html += `<p class="odesc">${esc(item.desc)}</p>`;
+          if(item.bullets.length) html += `<ul class="obul">${item.bullets.map(b => `<li>${esc(b)}</li>`).join("")}</ul>`;
+          html += `</div>`;
+        });
+        html += `</div>`;
+      });
+      html += `</div><p class="note">원문 텍스트를 자동으로 구조화한 내용입니다. 정확한 항목·표기는 아래 ‘원문 구간 전체 보기’를 확인하세요.</p>`;
+      return html;
     }
 
     /* ---------- compare ---------- */
