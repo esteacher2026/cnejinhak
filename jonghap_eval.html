@@ -278,7 +278,11 @@
     .empty b{display:block;color:var(--ink);font-size:15.5px;font-weight:800;margin-bottom:5px}
     .empty p{margin:0;font-size:13px}
 
-    .foot{margin-top:18px;padding:14px 6px 0;color:var(--faint);font-size:12px;text-align:center;line-height:1.7}
+    .foot{margin-top:22px;padding:18px 12px 0;border-top:1px solid var(--line);color:var(--faint);font-size:12px;text-align:center;line-height:1.7}
+    .foot-note{margin:0 auto;max-width:680px;color:var(--muted);word-break:keep-all}
+    .foot-credit{display:flex;flex-direction:column;gap:5px;align-items:center;margin-top:13px}
+    .foot-credit span{color:var(--muted);font-size:12.5px;font-weight:600;word-break:keep-all}
+    .foot-credit b{display:inline-flex;align-items:center;height:19px;padding:0 8px;margin-right:7px;border-radius:999px;background:var(--brand-soft);color:var(--brand-ink);font-size:11px;font-weight:800;letter-spacing:.02em}
     .foot a{color:var(--muted);font-weight:700}
 
     /* toast */
@@ -472,8 +476,12 @@
       const hashed = decodeURIComponent((location.hash || "").slice(1));
       state.selected = (hashed && uniByCode(hashed)) ? hashed : (DATA.universities.find(u => u.hasSection) || DATA.universities[0]).code;
 
-      const d = (DATA.meta.generatedAt || "").slice(0,10);
-      $("foot").innerHTML = `자료 기준: <a href="${esc(DATA.meta.sourceUrl)}" target="_blank" rel="noopener">${esc(DATA.meta.sourceLabel)}</a>${d ? ` · ${esc(d)} 기준` : ""}<br>표준분류와 그래프는 비교 편의를 위한 보조 정보입니다. 최종 확인은 각 대학 모집요강을 참고하세요.`;
+      $("foot").innerHTML = `
+        <p class="foot-note">표준분류와 그래프는 비교 편의를 위한 보조 정보입니다. 최종 확인은 각 대학 모집요강을 참고하세요.</p>
+        <div class="foot-credit">
+          <span><b>제작</b>충청남도교육청진로융합교육원 교육연구사 정재연</span>
+          <span><b>출처</b>대입정보포털 어디가(adiga)</span>
+        </div>`;
 
       bind();
       renderList();
