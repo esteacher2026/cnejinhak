@@ -14,7 +14,7 @@
   <meta name="description" content="대학별 학생부종합전형 서류평가 내용과 전형별 평가요소 비율을 어디가 원문 기준으로 비교합니다." />
   <title>서류평가 기준 비교 · 학생부종합전형 2027</title>
   <!-- 데이터 갱신 시 ?v= 값을 함께 올려 캐시를 무효화하세요 (예: 빌드 날짜) -->
-  <script src="jonghapdoc_eval_data.js?v=20260607b"></script>
+  <script src="jonghapdoc_eval_data.js?v=20260607c"></script>
   <style>
     :root{
       --bg:#eef1f6; --surface:#fff;
@@ -659,11 +659,10 @@
           <div class="kpi"><span>평가요소 비율 원표</span><b>${ratioRows.toLocaleString()}행</b></div>
         </div>
         <div class="block">
-          <div class="block-title"><h3>전형별 평가요소 비율</h3><span class="hint">${ratios.length ? "그래프 + 원표" : "원표 기준"}</span></div>
+          <div class="block-title"><h3>전형별 평가요소 비율</h3><span class="hint">${ratios.length ? "그래프" : "원문 표 기준"}</span></div>
           ${ratios.length
             ? `<div class="ratio-list">${ratios.map(ratioHtml).join("")}</div>`
-            : `<p class="note inline">이 대학은 비율표 형식이 일정하지 않아 자동 그래프를 만들지 않았습니다. 아래 원문 표를 기준으로 확인해 주세요.</p>`}
-          ${renderTables(uni.ratioTables, ratios.length ? "ratio" : "raw")}
+            : `<p class="note inline">자동 그래프를 만들 수 있는 비율표 형식이 아닙니다. 아래 원문 표를 참고해 주세요.</p>${renderTables(uni.ratioTables, "raw")}`}
         </div>
         <div class="block">
           <div class="block-title"><h3>서류평가 내용</h3><span class="hint">대학 원문 표</span></div>
@@ -714,7 +713,11 @@
       if(!tables.length) return `<div class="empty"><b>표 데이터가 없습니다.</b></div>`;
       const merge = kind === "content" || kind === "raw";
       const html = tables.map((table, idx) => {
-        const rows = visibleRows(table);
+        let rows = visibleRows(table);
+        if(kind === "raw" || kind === "ratio"){
+          const maxCols = rows.reduce((m, r) => Math.max(m, r.cells.length), 0);
+          if(maxCols >= 4) rows = rows.filter(r => r.cells.length > 2); // 뭉친 blob·래퍼(구분/내용) 행 제거
+        }
         if(!rows.length) return "";
         const bodyRows = rows.slice(1);
         let body = `<tr>${rows[0].cells.map(c=>`<th scope="col">${esc(clean(c))}</th>`).join("")}</tr>`;
