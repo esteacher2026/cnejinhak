@@ -413,7 +413,7 @@
     /* ---------- helpers ---------- */
     function $(id){ return document.getElementById(id); }
     function esc(v){ return String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-    function clean(v){ return String(v ?? "").replace(/\s+/g," ").trim(); }
+    function clean(v){ return String(v ?? "").replace(/\s+/g," ").replace(/\s*및\s*/g," 및 ").trim(); }
     function codeLabel(code){ return String(code).padStart(7,"0"); }
     function factorColor(standard, idx){ return FACTOR_COLOR[standard] || PALETTE[idx % PALETTE.length]; }
     function recruitDisplay(rec){
@@ -807,16 +807,16 @@
         return text.trim() ? `<div class="text-box">${esc(text.trim())}</div>` : `<div class="empty"><b>서류평가 내용 원문이 없습니다.</b></div>`;
       }
       let html = `<div class="outline">`;
-      if(parsed.intro.length) html += `<div class="outline-intro">${parsed.intro.map(p => `<p>${esc(p)}</p>`).join("")}</div>`;
+      if(parsed.intro.length) html += `<div class="outline-intro">${parsed.intro.map(p => `<p>${esc(clean(p))}</p>`).join("")}</div>`;
       parsed.groups.forEach(gp => {
         html += `<div class="ogroup">`;
-        if(gp.category) html += `<div class="ocat">${esc(gp.category)}</div>`;
+        if(gp.category) html += `<div class="ocat">${esc(clean(gp.category))}</div>`;
         gp.items.forEach(item => {
           if(!item.name && !item.desc && !item.bullets.length) return;
           html += `<div class="oitem">`;
-          if(item.name) html += `<div class="oname">${esc(item.name)}</div>`;
-          if(item.desc) html += `<p class="odesc">${esc(item.desc)}</p>`;
-          if(item.bullets.length) html += `<ul class="obul">${item.bullets.map(b => `<li>${esc(b)}</li>`).join("")}</ul>`;
+          if(item.name) html += `<div class="oname">${esc(clean(item.name))}</div>`;
+          if(item.desc) html += `<p class="odesc">${esc(clean(item.desc))}</p>`;
+          if(item.bullets.length) html += `<ul class="obul">${item.bullets.map(b => `<li>${esc(clean(b))}</li>`).join("")}</ul>`;
           html += `</div>`;
         });
         html += `</div>`;
