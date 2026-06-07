@@ -156,6 +156,7 @@
     .ratio-legend b{color:var(--text);font-weight:850}
 
     .factor-cards{display:grid;gap:10px;padding:0 15px 15px}
+    .block-q{padding:0 15px 15px}
     .fcard{border:1px solid #e6ecf3;border-left-width:4px;border-radius:var(--r-sm);padding:12px 14px;background:#fff}
     .fcard-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
     .fcard-top .fname{font-size:14.5px;font-weight:850}
@@ -479,13 +480,15 @@
       </div>`;
       const factors = b.factors||[];
       const cards = factors.length ? `<div class="factor-cards">${factors.map(factorCard).join("")}</div>` : "";
+      const bq = (b.questions && b.questions.length)
+        ? `<div class="block-q"><p class="qcap">면접문항 예시</p><ul class="qlist">${b.questions.map(q=>`<li>${esc(q)}</li>`).join("")}</ul></div>` : "";
       const qtext = (!factors.length && b.questionsText) ? `<div class="ratio-wrap"><p class="qcap">면접 관련 원문</p><div class="fold-body" style="max-height:200px">${esc(b.questionsText)}</div></div>` : "";
       return `<div class="block ${b.special?"special":""}">
         <div class="block-head">
           <h3>${esc(b.admission||"공통")}</h3>
           ${b.special?'<span class="badge warn">특별전형</span>':''}
         </div>
-        ${facts}${ratioBar(factors)}${cards}${qtext}
+        ${facts}${ratioBar(factors)}${cards}${bq}${qtext}
       </div>`;
     }
     function renderDetail(){
