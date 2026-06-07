@@ -321,15 +321,11 @@
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>
         메인
       </a>
-      <a class="source-link" href="https://www.adiga.kr/uct/acd/ade/criteriaAndResultView.do?menuId=PCUCTACD2000" target="_blank" rel="noopener">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-        <span>어디가 원자료</span>
-      </a>
     </div>
 
     <header class="hero">
       <div class="hero-main">
-        <span class="eyebrow">ADIGA 2027 · 학생부종합전형</span>
+        <span class="eyebrow">2027학생부종합전형</span>
         <h1>서류평가 기준 비교</h1>
         <p>대학별 서류평가 내용과 전형별 평가요소 비율을 어디가 원문 표 기준으로 확인하고, 필요한 대학만 골라 나란히 비교합니다.</p>
       </div>
@@ -477,7 +473,7 @@
       state.selected = (hashed && uniByCode(hashed)) ? hashed : (DATA.universities.find(u => u.hasSection) || DATA.universities[0]).code;
 
       const d = (DATA.meta.generatedAt || "").slice(0,10);
-      $("foot").innerHTML = `자료 기준: <a href="${esc(DATA.meta.sourceUrl)}" target="_blank" rel="noopener">${esc(DATA.meta.sourceLabel)}</a>${d ? ` · ${esc(d)} 기준` : ""}<br>표준분류와 그래프는 비교 편의를 위한 보조 정보입니다. 최종 확인은 각 대학 원문 표를 우선하세요.`;
+      $("foot").innerHTML = `자료 기준: <a href="${esc(DATA.meta.sourceUrl)}" target="_blank" rel="noopener">${esc(DATA.meta.sourceLabel)}</a>${d ? ` · ${esc(d)} 기준` : ""}<br>표준분류와 그래프는 비교 편의를 위한 보조 정보입니다. 최종 확인은 각 대학 모집요강을 참고하세요.`;
 
       bind();
       renderList();
@@ -673,10 +669,6 @@
           <div class="block-title"><h3>서류평가 내용</h3><span class="hint">대학 원문 표</span></div>
           ${uni.contentTables.length ? renderTables(uni.contentTables, "content") : renderContentText(uni)}
         </div>
-        <details class="source">
-          <summary>원문 구간 전체 보기</summary>
-          <div class="source-text">${esc(uni.sectionText || "원문 텍스트 없음")}</div>
-        </details>
       `;
     }
 
@@ -818,7 +810,7 @@
         });
         html += `</div>`;
       });
-      html += `</div><p class="note">원문 텍스트를 자동으로 구조화한 내용입니다. 정확한 항목·표기는 아래 ‘원문 구간 전체 보기’를 확인하세요.</p>`;
+      html += `</div><p class="note">원문 텍스트를 자동으로 구조화한 내용입니다. 최종 확인은 각 대학 모집요강을 참고하세요.</p>`;
       return html;
     }
 
