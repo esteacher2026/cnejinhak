@@ -27,7 +27,7 @@ const state = {
 };
 
 // 단일 등급 필터: 입력 등급 ±GRADE_BAND 범위의 2026 70%컷만 표시.
-const GRADE_BAND = 0.5;
+const GRADE_BAND = 0.3;
 
 let lastView = [];
 
