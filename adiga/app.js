@@ -27,7 +27,7 @@ const state = {
 };
 
 // 단일 등급 필터: 입력 등급 ±GRADE_BAND 범위의 2026 70%컷만 표시.
-const GRADE_BAND = 0.3;
+const GRADE_BAND = 0.2;
 
 let lastView = [];
 
@@ -605,7 +605,6 @@ function renderDetail(record) {
           <span>수시 입결</span>
         </div>
         ${renderCompTable(record)}
-        <p class="detail-note">70%·50%컷은 어디가 CSV(정확). 2024·2025 모집·경쟁·충원은 수시 XLSX의 같은 계열 대표값(참고), 2026은 선택 전형 기준입니다.</p>
       </section>
     </aside>
   `;
