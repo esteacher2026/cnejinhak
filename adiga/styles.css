@@ -270,6 +270,12 @@ button:disabled {
   font-weight: 700;
 }
 
+.field-hint {
+  color: var(--muted-2);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
 .control,
 .select {
   width: 100%;

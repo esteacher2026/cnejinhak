@@ -19,13 +19,15 @@ const state = {
   major: "",
   regions: new Set(),
   tracks: new Set(),
-  cutMin: "",
-  cutMax: "",
+  grade: "",
   sort: "cut70",
   pageSize: 80,
   page: 1,
   selectedId: null,
 };
+
+// 단일 등급 필터: 입력 등급 ±GRADE_BAND 범위의 2026 70%컷만 표시.
+const GRADE_BAND = 0.5;
 
 let lastView = [];
 
@@ -160,8 +162,9 @@ function passesText(record, value, fields) {
 }
 
 function filteredRecords() {
-  const cutMin = toNumber(state.cutMin);
-  const cutMax = toNumber(state.cutMax);
+  const grade = toNumber(state.grade);
+  const lo = grade === null ? null : grade - GRADE_BAND;
+  const hi = grade === null ? null : grade + GRADE_BAND;
   const queryTokens = tokenize(state.query);
 
   return DATA.records.filter((record) => {
@@ -170,10 +173,11 @@ function filteredRecords() {
     if (!passesText(record, state.major, ["major", "program"])) return false;
     if (state.regions.size && !state.regions.has(record.region)) return false;
     if (state.tracks.size && !state.tracks.has(record.track)) return false;
-    // 컷 범위는 표시되는 2026 등급(자료없음은 제외) 기준.
-    const cut70 = metricValue(record, 2026, "grade70");
-    if (cutMin !== null && (cut70 === null || cut70 < cutMin)) return false;
-    if (cutMax !== null && (cut70 === null || cut70 > cutMax)) return false;
+    // 등급 필터: 입력 등급 ±0.5의 2026 70%컷만(자료없음 제외).
+    if (grade !== null) {
+      const cut70 = metricValue(record, 2026, "grade70");
+      if (cut70 === null || cut70 < lo || cut70 > hi) return false;
+    }
     return true;
   });
 }
@@ -287,11 +291,9 @@ function renderFilterPanel() {
       </div>
       <div class="field-grid">
         <div class="field">
-          <label>70%컷 범위</label>
-          <div class="range-row">
-            <input id="cutMin" class="control" type="number" min="1" max="9" step="0.01" value="${escapeAttr(state.cutMin)}" placeholder="최저" />
-            <input id="cutMax" class="control" type="number" min="1" max="9" step="0.01" value="${escapeAttr(state.cutMax)}" placeholder="최고" />
-          </div>
+          <label for="grade">내신 등급</label>
+          <input id="grade" class="control" type="number" min="1" max="9" step="0.01" value="${escapeAttr(state.grade)}" placeholder="예: 3.5" inputmode="decimal" />
+          <span class="field-hint">입력 등급 ±${GRADE_BAND} 범위의 70%컷만 표시</span>
         </div>
         <div class="field">
           <span class="label">중심전형</span>
@@ -335,7 +337,7 @@ function option(value, label, selected) {
 const debouncedRender = debounce(renderDynamic, 160);
 
 function bindStaticEvents() {
-  for (const id of ["query", "university", "major", "cutMin", "cutMax"]) {
+  for (const id of ["query", "university", "major", "grade"]) {
     document.querySelector(`#${id}`).addEventListener("input", (event) => {
       state[id] = event.target.value;
       state.page = 1;
@@ -442,8 +444,7 @@ function resetState() {
     query: "",
     university: "",
     major: "",
-    cutMin: "",
-    cutMax: "",
+    grade: "",
     sort: "cut70",
     page: 1,
     selectedId: null,
