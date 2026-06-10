@@ -24,10 +24,14 @@
   <meta name="description" content="교사를 위한 대입 전형, 학생부, 과목 선택, 전공 탐색, 면접, 대입 일정 정보 자료실" />
   <meta name="author" content="EST" />
 
+  <link rel="canonical" href="https://jinhak.esteacher.kr/" />
+
   <!-- Open Graph -->
   <meta property="og:title" content="EST 진학정보실" />
   <meta property="og:description" content="대입 전형, 학생부, 과목 선택, 전공 탐색, 면접, 대입 일정을 한눈에 보는 진학 정보 자료실" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jinhak.esteacher.kr/" />
+  <meta property="og:image" content="https://jinhak.esteacher.kr/favicon-192x192.png" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:site_name" content="EST 진학정보실" />
 
@@ -35,6 +39,18 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="EST 진학정보실" />
   <meta name="twitter:description" content="교사를 위한 진학 정보 자료실" />
+  <meta name="twitter:image" content="https://jinhak.esteacher.kr/favicon-192x192.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "EST 진학정보실",
+    "url": "https://jinhak.esteacher.kr/",
+    "description": "교사를 위한 대입 전형, 학생부, 과목 선택, 전공 탐색, 면접, 대입 일정 정보 자료실",
+    "inLanguage": "ko"
+  }
+  </script>
 
   <meta name="theme-color" content="#102a4c" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0a1628" media="(prefers-color-scheme: dark)" />
@@ -56,7 +72,7 @@
 
   <!-- Pretendard: 한글 본문에 적합한 모던 sans-serif -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" as="style" crossorigin
+  <link rel="stylesheet" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
   <style>
@@ -483,6 +499,9 @@
 
     section { padding: 44px 0; }
 
+    /* 고정 헤더에 가려지지 않도록 앵커 착지 지점을 내림 */
+    section[id] { scroll-margin-top: 92px; }
+
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -534,9 +553,13 @@
     [data-theme="dark"] h2 { color: var(--ink); }
 
     .section-desc {
+      margin: 0;
       color: var(--muted);
       font-size: 0.96rem;
       font-weight: 500;
+    }
+    @media (max-width: 920px) {
+      .section-head .section-desc { margin-top: 10px; }
     }
 
     /* ============================================================
@@ -787,6 +810,10 @@
       border-radius: 3px;
       background: rgba(180, 137, 50, 0.28);
       color: inherit;
+    }
+    [data-theme="dark"] mark {
+      background: rgba(212, 169, 85, 0.42);
+      color: #fff;
     }
 
     /* ============================================================
@@ -1088,11 +1115,24 @@
       .nav {
         align-items: flex-start;
         flex-direction: column;
-        padding: 14px 0;
-        gap: 10px;
+        padding: 12px 0 10px;
+        gap: 8px;
       }
-      .nav-actions { width: 100%; justify-content: space-between; }
-      .nav-links a { padding: 7px 10px; font-size: 0.9rem; }
+      .nav-actions { width: 100%; justify-content: space-between; flex-wrap: nowrap; }
+      /* 링크 줄바꿈 대신 가로 스크롤 — 헤더 높이를 두 줄로 고정 */
+      .nav-links {
+        flex: 1 1 auto;
+        min-width: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { padding: 7px 10px; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; }
+      .theme-toggle { flex-shrink: 0; }
+      .brand-mark { width: 40px; height: 40px; border-radius: 12px; }
+
+      section[id] { scroll-margin-top: 128px; }
 
       .hero { padding-top: 28px; }
       .hero-box { padding: 26px 20px; border-radius: 22px; }
@@ -1378,16 +1418,11 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W57H5V7P"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
   <a class="skip-link" href="#main">본문으로 이동</a>
   <div class="topline" aria-hidden="true"></div>
 
   <header class="topbar">
-    <div class="wrap nav" aria-label="주요 메뉴">
+    <div class="wrap nav">
       <a class="brand" href="index.html" aria-label="EST 진학정보실 홈">
         <span class="brand-mark" aria-hidden="true">ES</span>
         <span>
@@ -1423,7 +1458,8 @@
             <span class="eyebrow">교사를 위한 진학 자료실</span>
             <h1>대입 정보를 정리한 진학정보실</h1>
             <p class="lead">
-              학생들 지도에만 활용해주시기 바랍니다.
+              대입 전형·학생부·과목 선택·수업·통계 자료를 한곳에 모았습니다.
+              학생 지도 목적으로만 활용해 주시기 바랍니다.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#admission">진학자료 바로 보기</a>
@@ -1728,7 +1764,7 @@
             <span class="section-label label-support">SUPPORT</span>
             <h2>함께 보면 좋은 자료</h2>
           </div>
-          <p class="section-desc" style="margin-top: 10px;">진학자료를 보완하는 진로, 과학, 교육 정보 등</p>
+          <p class="section-desc">진학자료를 보완하는 진로, 과학, 교육 정보 등</p>
         </div>
 
         <div class="support-grid" id="supportGrid">
@@ -1828,7 +1864,7 @@
             <span class="section-label label-instructional">INSTRUCTIONAL MATERIALS</span>
             <h2>수업자료</h2>
           </div>
-          <p class="section-desc" style="margin-top: 10px;">현장 수업에서 바로 활용할 수 있는 수업자료</p>
+          <p class="section-desc">현장 수업에서 바로 활용할 수 있는 수업자료</p>
         </div>
 
         <div class="instructional-grid" id="instructionalGrid">
@@ -1946,7 +1982,7 @@
             <span class="section-label label-statistics">STATISTICS</span>
             <h2>통계 자료</h2>
           </div>
-          <p class="section-desc" style="margin-top: 10px;">진학 지도에 활용할 수 있는 각종 통계 자료를 제공합니다.</p>
+          <p class="section-desc">진학 지도에 활용할 수 있는 각종 통계 자료를 제공합니다.</p>
         </div>
 
         <div class="stats-grid" id="statsGrid">
@@ -2141,14 +2177,16 @@
           return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
         });
       }
-      function highlight(text, query) {
-        if (!query) return escapeHTML(text);
-        var re = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+      // 띄어쓰기로 구분한 여러 키워드를 모두 포함(AND)하는 자료를 찾는다.
+      function highlight(text, terms) {
+        if (!terms.length) return escapeHTML(text);
+        var re = new RegExp('(' + terms.map(escapeRegExp).join('|') + ')', 'gi');
         return escapeHTML(text).replace(re, '<mark>$1</mark>');
       }
 
       function applyFilters() {
         var q = activeQuery.trim().toLowerCase();
+        var terms = q ? q.split(/\s+/) : [];
         var totalVisible = 0;
         var perSection = { admission: 0, support: 0, instructional: 0, statistics: 0 };
 
@@ -2156,15 +2194,15 @@
           var inScope = activeScope === 'all' || e.section === activeScope;
           var inCategory = e.section !== 'admission' || activeCategory === 'all' || e.category === activeCategory;
           var haystack = (e.h3Text + ' ' + e.pText + ' ' + e.keywords).toLowerCase();
-          var matchQuery = !q || haystack.indexOf(q) !== -1;
+          var matchQuery = terms.every(function (t) { return haystack.indexOf(t) !== -1; });
           var visible = inScope && inCategory && matchQuery;
 
           if (visible) {
             e.card.classList.remove('is-hidden');
             totalVisible += 1;
             perSection[e.section] += 1;
-            if (e.h3) e.h3.innerHTML = highlight(e.h3Text, q);
-            if (e.p) e.p.innerHTML = highlight(e.pText, q);
+            if (e.h3) e.h3.innerHTML = highlight(e.h3Text, terms);
+            if (e.p) e.p.innerHTML = highlight(e.pText, terms);
           } else {
             e.card.classList.add('is-hidden');
             if (e.h3) e.h3.textContent = e.h3Text;
@@ -2229,7 +2267,46 @@
             globalResult.innerHTML = '<strong>' + entries.length + '</strong>개 전체 자료';
           }
         }
+
+        updateURL();
       }
+
+      // 검색어·필터 상태를 주소창에 보존 — 새로고침해도 유지되고 링크로 공유 가능
+      function updateURL() {
+        try {
+          var params = new URLSearchParams();
+          if (activeQuery.trim()) params.set('q', activeQuery.trim());
+          if (activeScope !== 'all') params.set('scope', activeScope);
+          if (activeCategory !== 'all') params.set('cat', activeCategory);
+          var qs = params.toString();
+          history.replaceState(null, '', qs ? '?' + qs : location.pathname);
+        } catch (e) {}
+      }
+
+      // 페이지 진입 시 주소의 상태 복원
+      try {
+        var initParams = new URLSearchParams(location.search);
+        var q0 = initParams.get('q') || '';
+        var scope0 = initParams.get('scope') || 'all';
+        var cat0 = initParams.get('cat') || 'all';
+        if (q0) {
+          searchInput.value = q0;
+          activeQuery = q0;
+          searchClear.classList.add('visible');
+        }
+        var hasScope = false;
+        scopeChips.forEach(function (c) { if (c.dataset.scope === scope0) hasScope = true; });
+        if (hasScope && scope0 !== 'all') {
+          activeScope = scope0;
+          scopeChips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.scope === scope0 ? 'true' : 'false'); });
+        }
+        var hasCat = false;
+        categoryChips.forEach(function (c) { if (c.dataset.filter === cat0) hasCat = true; });
+        if (hasCat && cat0 !== 'all') {
+          activeCategory = cat0;
+          categoryChips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === cat0 ? 'true' : 'false'); });
+        }
+      } catch (e) {}
 
       // Search input (debounced)
       var debounceTimer;
