@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 예체능계열 비실기전형 안내</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#fff; --ink:#1c2530; --muted:#697586; --line:#e3e8ef;
+  --brand:#0f4c75; --brand2:#3282b8; --accent:#e85d75;
+  --g-음악:#7c3aed; --g-미술:#db2777; --g-체육:#2563eb;
+  --g-연기연출:#ea580c; --g-응용예술:#0d9488; --g-전공자율:#64748b;
+  --ok:#0d9488; --warn:#b45309; --shadow:0 1px 3px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--brand2);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+
+/* header */
+header{background:linear-gradient(135deg,#0f4c75,#1b6ca8);color:#fff;position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.brand{font-weight:800;font-size:1.12rem;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.brand .yr{background:rgba(255,255,255,.18);border-radius:7px;padding:2px 9px;font-size:.82rem;font-weight:700}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+nav.tabs button{background:transparent;border:0;color:rgba(255,255,255,.82);font-size:.95rem;font-weight:600;
+  padding:8px 14px;border-radius:9px;cursor:pointer;transition:.15s}
+nav.tabs button:hover{background:rgba(255,255,255,.12);color:#fff}
+nav.tabs button.on{background:#fff;color:var(--brand)}
+
+/* views */
+.view{display:none;padding:26px 0 60px;animation:fade .25s}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2.sec{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin:4px 0 4px}
+.lead{color:var(--muted);margin:0 0 22px;font-size:.96rem}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin-bottom:18px}
+.panel h3{margin:0 0 14px;font-size:1.08rem;font-weight:750;letter-spacing:-.01em}
+
+/* stat cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.card .lab{font-size:.82rem;color:var(--muted);font-weight:600}
+.card .big{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-top:3px}
+.card .sub{font-size:.82rem;color:var(--muted);margin-top:2px}
+.delta{font-weight:700;font-size:.82rem;border-radius:6px;padding:1px 7px;display:inline-block}
+.delta.up{color:#047857;background:#d1fae5}.delta.down{color:#b91c1c;background:#fee2e2}.delta.zero{color:#475569;background:#eef2f6}
+
+/* bars */
+.barrow{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:12px;margin:9px 0}
+.barrow .nm{font-weight:700;font-size:.92rem;display:flex;align-items:center;gap:7px}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.track{background:#eef2f6;border-radius:8px;height:26px;position:relative;overflow:hidden}
+.fill{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;
+  padding-right:8px;color:#fff;font-size:.8rem;font-weight:700;min-width:30px;transition:width .6s}
+.barrow .meta{font-size:.85rem;color:var(--muted);white-space:nowrap;min-width:120px;text-align:right}
+.splitbar{display:flex;height:40px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.splitbar>div{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem}
+
+/* warn box */
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:13px 16px;font-size:.88rem;color:#7c4a03}
+.note b{color:#92400e}
+.note.blue{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
+.note.blue b{color:#1e3a8a}
+
+/* 계열 chips/tabs */
+.gtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.gtab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 16px;font-weight:700;
+  font-size:.92rem;cursor:pointer;color:var(--ink);transition:.15s;display:flex;align-items:center;gap:7px}
+.gtab:hover{border-color:var(--muted)}
+.gtab.on{color:#fff;border-color:transparent}
+
+/* narrative */
+.para{font-size:.95rem;line-height:1.85;margin:0 0 6px}
+.subh{font-weight:750;font-size:1rem;margin:18px 0 8px;display:flex;align-items:center;gap:8px}
+.subh .tag{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;color:#fff}
+ul.bul{margin:6px 0 0;padding-left:4px;list-style:none}
+ul.bul li{position:relative;padding:6px 0 6px 20px;font-size:.92rem;border-bottom:1px dashed var(--line)}
+ul.bul li:last-child{border-bottom:0}
+ul.bul li::before{content:"";position:absolute;left:3px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--brand2)}
+
+/* explorer */
+.filters{display:flex;flex-direction:column;gap:12px}
+.frow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.flab{font-size:.8rem;font-weight:700;color:var(--muted);min-width:54px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:6px 14px;font-size:.88rem;font-weight:600;cursor:pointer;color:var(--ink)}
+.seg button.on{background:var(--brand);color:#fff}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px;font-size:.85rem;
+  font-weight:600;cursor:pointer;transition:.12s;color:var(--ink)}
+.chip.on{color:#fff;border-color:transparent}
+.chip.opton{background:var(--brand);color:#fff;border-color:transparent}
+select,input[type=text]{border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:.9rem;font-family:inherit;background:#fff;color:var(--ink)}
+input[type=text]{min-width:230px}
+.searchbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.count{font-size:.92rem;color:var(--muted)}
+.count b{color:var(--brand);font-size:1.05rem}
+.btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 13px;font-size:.85rem;font-weight:600;cursor:pointer;color:var(--muted)}
+.btn:hover{border-color:var(--muted)}
+
+/* table */
+.tablewrap{overflow:auto;max-height:74vh;border:1px solid var(--line);border-radius:12px;background:#fff}
+table.ex{border-collapse:collapse;width:100%;font-size:.88rem;min-width:760px}
+table.ex thead th{position:sticky;top:0;z-index:3;background:#eef2f6;text-align:left;padding:11px 12px;font-weight:700;
+  font-size:.8rem;color:#475569;border-bottom:2px solid var(--line);white-space:nowrap;box-shadow:0 1px 0 var(--line)}
+table.ex td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.ex tbody tr:nth-child(even) td{background:#fafbfc}
+table.ex tr:hover td{background:#eef4fb}
+.uni{font-weight:700}
+.gline{display:inline-block;width:4px;height:14px;border-radius:2px;margin-right:7px;vertical-align:-2px}
+.mu{color:var(--muted);font-size:.82rem}
+.badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px}
+.b{font-size:.7rem;font-weight:700;padding:1px 7px;border-radius:5px;white-space:nowrap}
+.b.min{background:#fef3c7;color:#92400e}.b.itv{background:#e0e7ff;color:#3730a3}
+.b.att{background:#dcfce7;color:#166534}.b.doc{background:#fae8ff;color:#86198f}
+.b.gun{background:#1e293b;color:#fff}
+.b.sg{background:#f1f5f9;color:#475569}
+.inwon{font-weight:800;font-size:1rem;text-align:right;white-space:nowrap}
+.method{font-size:.84rem}
+.reflect{font-size:.78rem;color:var(--muted);margin-top:3px}
+.pill{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;color:#fff}
+
+/* Q&A */
+.qa{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:10px;background:#fff}
+.qa summary{padding:15px 18px;font-weight:700;cursor:pointer;list-style:none;display:flex;gap:11px;align-items:flex-start}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .qn{background:var(--brand);color:#fff;border-radius:7px;width:26px;height:26px;flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800}
+.qa .ans{padding:0 18px 16px 55px;font-size:.93rem;color:#334155}
+.qa[open] summary{border-bottom:1px solid var(--line);background:#f8fafc}
+.qa .qnote{margin-top:10px;font-size:.82rem;color:#7c4a03;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:8px 11px}
+
+footer{border-top:1px solid var(--line);background:#fff;padding:22px 0;color:var(--muted);font-size:.82rem}
+footer .src{margin-top:6px;line-height:1.6}
+
+@media(max-width:860px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .barrow{grid-template-columns:72px 1fr;}.barrow .meta{grid-column:2;text-align:left;min-width:0}
+}
+@media(max-width:560px){.hbar{flex-direction:column;align-items:flex-start;gap:8px}
+  nav.tabs button{padding:7px 10px;font-size:.88rem}}
+@media print{
+  header{position:static}nav.tabs,.filters,.searchbar .btn,.cta{display:none!important}
+  .view{display:block!important;page-break-before:always}.view:first-of-type{page-break-before:avoid}
+  body{background:#fff}.panel,.card{box-shadow:none}
+}
+.cta{display:inline-flex;align-items:center;gap:7px;background:var(--brand);color:#fff;border:0;border-radius:10px;
+  padding:10px 18px;font-weight:700;font-size:.92rem;cursor:pointer;margin-top:4px}
+.cta:hover{background:#0c3e60}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hbar">
+    <div class="brand"><span class="yr">2027</span> 예체능계열 비실기전형 안내</div>
+    <nav class="tabs" id="tabs">
+      <button data-v="overview" class="on">개관</button>
+      <button data-v="explorer">모집단위 탐색기</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- 개관 -->
+  <section class="view on" id="overview"></section>
+  <!-- 탐색기 -->
+  <section class="view" id="explorer"></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>제작 · <b id="f제작"></b></div>
+    <div class="src" id="f출처"></div>
+  </div>
+</footer>
+
+<script src="2027yeche_data.js"></script>
+<script>
+const D = window.YECHE;
+const GYE = ['음악','미술','체육','연기연출','응용예술','전공자율'];
+const GLAB = {음악:'음악',미술:'미술',체육:'체육',연기연출:'연기/연출',응용예술:'응용예술',전공자율:'전공자율선택제'};
+const GCOL = {음악:'#7c3aed',미술:'#db2777',체육:'#2563eb',연기연출:'#ea580c',응용예술:'#0d9488',전공자율:'#64748b'};
+const TYLAB = {학생부교과:'교과',학생부종합:'종합',논술:'논술',수능:'수능'};
+const TYFULL = {학생부교과:'학생부교과',학생부종합:'학생부종합',논술:'논술',수능:'수능전형'};
+const REGION_ORDER = ['서울','인천','경기','강원','대전','세종','충남','충북','대구','경북','부산','울산','경남','광주','전남','전북','제주'];
+const fmt = n => (n==null?'':n.toLocaleString('ko-KR'));
+const esc = s => (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function deltaHTML(d){const c=d>0?'up':d<0?'down':'zero';const s=d>0?'▲'+d:d<0?'▼'+Math.abs(d):'–';return `<span class="delta ${c}">${s}</span>`;}
+
+/* ---------- 개관 ---------- */
+function renderOverview(){
+  const o=D.overview, t=o.total;
+  const maxG = Math.max(...GYE.map(g=>seriesTotal(g)));
+  const barsG = GYE.map(g=>{
+    const su=find(o.계열_수시,g), js=find(o.계열_정시,g);
+    const tot=(su?.인원||0)+(js?.인원||0);
+    const w=Math.max(4,Math.round(tot/maxG*100));
+    return `<div class="barrow"><div class="nm"><span class="dot" style="background:${GCOL[g]}"></span>${GLAB[g]}</div>
+      <div class="track"><div class="fill" style="width:${w}%;background:${GCOL[g]}">${fmt(tot)}</div></div>
+      <div class="meta">수시 ${fmt(su?.인원||0)} · 정시 ${fmt(js?.인원||0)}</div></div>`;
+  }).join('');
+  const byType={학생부교과:{c:0,n:0},학생부종합:{c:0,n:0},논술:{c:0,n:0},수능:{c:0,n:0}};
+  D.records.forEach(r=>{const x=byType[r.전형유형];if(x){x.c++;x.n+=r.인원;}});
+  const maxT=Math.max(...Object.values(byType).map(x=>x.c));
+  const TLAB2={학생부교과:'교과',학생부종합:'종합',논술:'논술',수능:'수능'};
+  const barsT=['학생부교과','학생부종합','논술','수능'].map(k=>{const x=byType[k],w=Math.max(3,Math.round(x.c/maxT*100));
+    return `<div class="barrow"><div class="nm">${TLAB2[k]}</div><div class="track"><div class="fill" style="width:${w}%;background:var(--brand2)">${x.c}</div></div><div class="meta">${x.c}개 · ${fmt(x.n)}명</div></div>`;}).join('');
+  const expUni = new Set(D.records.map(r=>r.대학)).size;
+  document.getElementById('overview').innerHTML = `
+   <h2 class="sec">${esc(D.meta.제목)}</h2>
+   <p class="lead">${esc(D.meta.부제)} · 전체 모집인원 기준 현황과 ‘실기고사를 치르지 않는’ 비실기전형(${fmt(D.records.length)}개 모집단위)을 한곳에서.</p>
+   <div class="cards">
+     <div class="card"><div class="lab">예체능 전체 모집인원</div><div class="big">${fmt(t.합계)}</div><div class="sub">전체 대입의 ${t.전체비중}% · 전년대비 ${deltaHTML(t.전년대비)}</div></div>
+     <div class="card"><div class="lab">수시모집</div><div class="big" style="color:var(--g-체육)">${fmt(t.수시)}</div><div class="sub">${t.비율.수시}%</div></div>
+     <div class="card"><div class="lab">정시모집</div><div class="big" style="color:var(--g-연기연출)">${fmt(t.정시)}</div><div class="sub">${t.비율.정시}%</div></div>
+     <div class="card"><div class="lab">수시 : 정시</div><div class="big">약 3.5 : 1</div><div class="sub">수시 비중이 절대적</div></div>
+   </div>
+   <div class="panel">
+     <h3>모집시기 비중</h3>
+     <div class="splitbar">
+       <div style="width:${t.비율.수시}%;background:var(--g-체육)">수시 ${t.비율.수시}%</div>
+       <div style="width:${t.비율.정시}%;background:var(--g-연기연출)">정시 ${t.비율.정시}%</div>
+     </div>
+     <div style="display:flex;gap:24px;margin-top:14px;font-size:.86rem;color:var(--muted);flex-wrap:wrap">
+       <span>수시 — 수도권 ${fmt(o.지역.수시.수도권)} · 비수도권 ${fmt(o.지역.수시.비수도권)}</span>
+       <span>정시 — 수도권 ${fmt(o.지역.정시.수도권)} · 비수도권 ${fmt(o.지역.정시.비수도권)}</span>
+     </div>
+   </div>
+   <div class="panel">
+     <h3>계열별 모집인원 (수시＋정시)</h3>
+     ${barsG}
+   </div>
+   <div class="panel">
+     <h3>비실기전형 구성 — 모집단위 ${fmt(D.records.length)}개</h3>
+     ${barsT}
+     <div class="mu" style="margin-top:8px;font-size:.83rem">교과·종합·논술은 수시, 수능은 정시 기준. 아래 ‘모집단위 탐색기’에서 계열·지역·수능최저 등으로 검색하세요.</div>
+   </div>
+   <div class="note"><b>읽는 법 — 요약 인원과 모집단위 합계의 차이</b><br>${esc(D.meta.주의)}</div>
+   <div style="margin-top:18px;text-align:center">
+     <button class="cta" onclick="go('explorer')">비실기 모집단위 ${fmt(D.records.length)}개 · ${expUni}개교 탐색하기 →</button>
+   </div>
+   <div class="note blue" style="margin-top:18px"><b>출처</b> ${esc(D.meta.출처)}</div>`;
+}
+const find=(arr,g)=>arr.find(x=>x.계열===g);
+const seriesTotal=g=>{const o=D.overview;return (find(o.계열_수시,g)?.인원||0)+(find(o.계열_정시,g)?.인원||0);};
+
+/* ---------- 계열별 해설 ---------- */
+let curG='미술';
+function renderSeries(){
+  const tabs=GYE.map(g=>`<button class="gtab ${g===curG?'on':''}" style="${g===curG?`background:${GCOL[g]}`:''}" onclick="curG='${g}';renderSeries()">
+     <span class="dot" style="background:${g===curG?'#fff':GCOL[g]}"></span>${GLAB[g]}</button>`).join('');
+  const o=D.overview, g=curG;
+  const su=find(o.계열_수시,g), js=find(o.계열_정시,g);
+  const ys=o.유형_수시[g]||{}, yj=o.유형_정시[g]||{};
+  const yrow=(obj,keys)=>keys.map(k=>obj[k]?`<span class="b sg" style="font-size:.8rem;padding:3px 10px">${TYFULL[k]||k} <b>${fmt(obj[k].인)}</b>명·${obj[k].교}교</span>`:'').join(' ');
+  const nar=(sigi)=> (D.narrative[sigi]||{})[g];
+  const bulSec=(sigi,ty)=>{
+    const arr=(D.narrative.bullets||{})[`${sigi}|${ty}|${g}`];
+    if(!arr||!arr.length) return '';
+    return `<div class="subh"><span class="tag" style="background:${GCOL[g]}">${TYFULL[ty]}</span></div>
+      <ul class="bul">${arr.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>`;
+  };
+  document.getElementById('series').innerHTML = `
+    <h2 class="sec">계열별 해설</h2>
+    <p class="lead">지망 계열을 선택하면 모집인원 현황·전형유형별 분석·비실기 전략이 한 화면에 모입니다.</p>
+    <div class="gtabs">${tabs}</div>
+    <div class="panel" style="border-top:4px solid ${GCOL[g]}">
+      <h3>${GLAB[g]}계열 모집인원</h3>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;margin-bottom:14px">
+        <div><div class="mu">수시</div><div style="font-size:1.5rem;font-weight:800">${fmt(su?.인원)} ${su?deltaHTML(su.증감):''}</div></div>
+        <div><div class="mu">정시</div><div style="font-size:1.5rem;font-weight:800">${fmt(js?.인원)} ${js?deltaHTML(js.증감):''}</div></div>
+      </div>
+      <div class="mu" style="margin-bottom:4px">수시 전형유형별</div>
+      <div style="margin-bottom:10px">${yrow(ys,['학생부교과','학생부종합','논술','실기실적'])}</div>
+      <div class="mu" style="margin-bottom:4px">정시 전형유형별</div>
+      <div>${yrow(yj,['학생부교과','실기실적','수능'])}</div>
+    </div>
+    ${nar('수시')?`<div class="panel"><h3>수시 전형유형별 분석</h3><p class="para">${esc(nar('수시'))}</p></div>`:''}
+    ${nar('정시')?`<div class="panel"><h3>정시 전형유형별 분석</h3><p class="para">${esc(nar('정시'))}</p></div>`:''}
+    <div class="panel"><h3>비실기전형 전략 포인트</h3>
+      ${bulSec('수시','학생부교과')}${bulSec('수시','학생부종합')}${bulSec('수시','논술')}${bulSec('정시','수능')||''}
+      ${(!hasBullets(g))?'<p class="mu">해당 계열의 추가 전략 메모가 없습니다.</p>':''}
+    </div>
+    <div style="text-align:center"><button class="cta" onclick="openSeriesInExplorer('${g}')">탐색기에서 ${GLAB[g]}계열 모집단위 보기 →</button></div>`;
+}
+function hasBullets(g){return ['수시|학생부교과','수시|학생부종합','수시|논술','정시|수능'].some(p=>(D.narrative.bullets||{})[`${p}|${g}`]);}
+
+/* ---------- 탐색기 ---------- */
+const F={시기:'all',계열:new Set(),전형유형:new Set(),지역:'all',수능최저:false,면접:false,출결:false,서류:false,q:'',sort:'인원'};
+function renderExplorerShell(){
+  const regions=REGION_ORDER.filter(r=>D.records.some(x=>x.지역===r));
+  const gchips=GYE.map(g=>`<button class="chip" data-g="${g}" style="${F.계열.has(g)?`background:${GCOL[g]};border-color:transparent;color:#fff`:''}">${GLAB[g]}</button>`).join('');
+  const tychips=['학생부교과','학생부종합','논술','수능'].map(t=>`<button class="chip" data-ty="${t}" style="${F.전형유형.has(t)?'background:#0f4c75;border-color:transparent;color:#fff':''}">${TYFULL[t]}</button>`).join('');
+  document.getElementById('explorer').innerHTML=`
+    <h2 class="sec">비실기 모집단위 탐색기</h2>
+    <p class="lead">실기고사를 치르지 않는 ${fmt(D.records.length)}개 모집단위(일반·지역인재·독자기준). 계열·시기·전형·지역·수능최저로 좁혀 보세요.</p>
+    <div class="panel"><div class="filters">
+      <div class="frow"><span class="flab">시기</span>
+        <div class="seg" id="segSigi">
+          <button data-s="all" class="on">전체</button><button data-s="수시">수시</button><button data-s="정시">정시</button>
+        </div></div>
+      <div class="frow"><span class="flab">계열</span>${gchips}</div>
+      <div class="frow"><span class="flab">전형</span>${tychips}</div>
+      <div class="frow"><span class="flab">지역</span>
+        <select id="selReg"><option value="all">전체 지역</option>${regions.map(r=>`<option value="${r}">${r}</option>`).join('')}</select>
+        <span class="flab" style="min-width:0;margin-left:10px">옵션</span>
+        <button class="chip" data-opt="수능최저">수능최저 있음</button>
+        <button class="chip" data-opt="면접">면접</button>
+        <button class="chip" data-opt="출결">출결 반영</button>
+        <button class="chip" data-opt="서류">서류평가</button>
+      </div>
+    </div></div>
+    <div class="searchbar" style="margin-bottom:12px">
+      <input type="text" id="q" placeholder="대학명·모집단위·전형명 검색 (예: 홍익대, 디자인)">
+      <div style="display:flex;gap:10px;align-items:center">
+        <select id="selSort"><option value="인원">인원 많은순</option><option value="대학">대학명순</option><option value="지역">지역순</option></select>
+        <button class="btn" id="reset">필터 초기화</button>
+      </div>
+    </div>
+    <div class="searchbar" style="margin-bottom:10px"><div class="count" id="count"></div>
+      <div class="mu" style="font-size:.78rem">정시 반영비율 (NN)=선택·택 반영 / “–”=미반영</div></div>
+    <div class="tablewrap"><table class="ex"><thead><tr>
+      <th>계열·구분</th><th>지역·대학</th><th>모집단위</th><th>전형명</th><th style="text-align:right">인원</th><th>전형방법 / 수능 반영</th><th>수능최저</th>
+    </tr></thead><tbody id="rows"></tbody></table></div>`;
+  // events
+  document.getElementById('segSigi').onclick=e=>{if(e.target.dataset.s){F.시기=e.target.dataset.s;
+    [...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b.dataset.s===F.시기));applyFilters();}};
+  document.querySelectorAll('#explorer .chip[data-g]').forEach(c=>c.onclick=()=>{toggle(F.계열,c.dataset.g);
+    c.style.cssText=F.계열.has(c.dataset.g)?`background:${GCOL[c.dataset.g]};border-color:transparent;color:#fff`:'';applyFilters();});
+  document.querySelectorAll('#explorer .chip[data-ty]').forEach(c=>c.onclick=()=>{toggle(F.전형유형,c.dataset.ty);
+    c.style.cssText=F.전형유형.has(c.dataset.ty)?'background:#0f4c75;border-color:transparent;color:#fff':'';applyFilters();});
+  document.querySelectorAll('#explorer .chip[data-opt]').forEach(c=>c.onclick=()=>{const k=c.dataset.opt;F[k]=!F[k];
+    c.classList.toggle('opton',F[k]);applyFilters();});
+  document.getElementById('selReg').onchange=e=>{F.지역=e.target.value;applyFilters();};
+  document.getElementById('selSort').onchange=e=>{F.sort=e.target.value;applyFilters();};
+  document.getElementById('q').oninput=e=>{F.q=e.target.value.trim();applyFilters();};
+  document.getElementById('reset').onclick=resetFilters;
+  applyFilters();
+}
+const toggle=(set,v)=>set.has(v)?set.delete(v):set.add(v);
+function resetFilters(){F.시기='all';F.계열.clear();F.전형유형.clear();F.지역='all';F.수능최저=F.면접=F.출결=F.서류=false;F.q='';F.sort='인원';renderExplorerShell();}
+function applyFilters(){
+  let rs=D.records.filter(r=>
+    (F.시기==='all'||r.시기===F.시기)&&
+    (F.계열.size===0||F.계열.has(r.계열))&&
+    (F.전형유형.size===0||F.전형유형.has(r.전형유형))&&
+    (F.지역==='all'||r.지역===F.지역)&&
+    (!F.수능최저||r.수능최저적용)&&(!F.면접||r.면접)&&(!F.출결||r.출결)&&(!F.서류||r.서류)&&
+    (!F.q||(r.대학+r.모집단위+r.전형명).toLowerCase().includes(F.q.toLowerCase())));
+  rs.sort((a,b)=> F.sort==='인원'? b.인원-a.인원 : F.sort==='대학'? a.대학.localeCompare(b.대학,'ko') :
+    (REGION_ORDER.indexOf(a.지역)-REGION_ORDER.indexOf(b.지역))||a.대학.localeCompare(b.대학,'ko'));
+  const unis=new Set(rs.map(r=>r.대학)).size, sum=rs.reduce((s,r)=>s+r.인원,0);
+  document.getElementById('count').innerHTML=`<b>${fmt(rs.length)}</b>개 모집단위 · ${unis}개교 · 합계 <b>${fmt(sum)}</b>명`;
+  document.getElementById('rows').innerHTML = rs.length? rs.map(rowHTML).join('') :
+    `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--muted)">조건에 맞는 모집단위가 없습니다.</td></tr>`;
+}
+function reflectHTML(r){
+  if(!r.반영) return '';
+  const v=r.반영, parts=[];
+  [['국','국'],['수','수'],['영','영'],['탐','탐']].forEach(([k,l])=>{const x=(v[k]||'').trim();if(x&&x!=='-')parts.push(l+x);});
+  let s=parts.join('·');
+  if(v.탐구수&&v.탐구수.trim())s+=` · 탐구${v.탐구수}`;
+  if(v.한국사&&v.한국사.trim())s+=` · 한국사 ${v.한국사}`;
+  return s?`<div class="reflect">수능 반영 ${esc(s)}</div>`:'';
+}
+function rowHTML(r){
+  const badges=[];
+  if(r.수능최저적용)badges.push('<span class="b min">수능최저</span>');
+  if(r.면접)badges.push('<span class="b itv">면접</span>');
+  if(r.출결)badges.push('<span class="b att">출결</span>');
+  if(r.서류)badges.push('<span class="b doc">서류</span>');
+  const gun = r.모집군?`<span class="b gun">${r.모집군}군</span> `:'';
+  return `<tr>
+    <td><div style="display:flex;align-items:center;gap:6px;font-weight:700"><span class="gline" style="background:${GCOL[r.계열]}"></span>${GLAB[r.계열]}</div>
+        <div class="badges"><span class="b sg">${r.시기}</span><span class="b sg">${TYLAB[r.전형유형]}</span></div></td>
+    <td><div class="mu">${esc(r.지역)}</div><div class="uni">${esc(r.대학)}</div></td>
+    <td>${esc(r.모집단위)}${badges.length?`<div class="badges">${badges.join('')}</div>`:''}</td>
+    <td>${esc(r.전형명)||'<span class="mu">-</span>'}</td>
+    <td class="inwon">${gun}${fmt(r.인원)}</td>
+    <td><div class="method">${esc(r.전형방법)||'-'}</div>${reflectHTML(r)}</td>
+    <td>${r.수능최저적용?`<span class="b min">${esc(r.수능최저)}</span>`:'<span class="mu">없음</span>'}</td>
+  </tr>`;
+}
+function openSeriesInExplorer(g){resetFilters();F.계열.add(g);go('explorer');renderExplorerShell();}
+
+/* ---------- Q&A ---------- */
+function renderQA(){
+  document.getElementById('qa').innerHTML=`
+   <h2 class="sec">자주 묻는 질문</h2>
+   <p class="lead">예체능 비실기전형 상담에서 자주 나오는 5가지.</p>
+   ${D.qa.map((x,i)=>`<details class="qa" ${i===0?'open':''}>
+     <summary><span class="qn">${i+1}</span><span>${esc(x.q)}</span></summary>
+     <div class="ans">${esc(x.a)}${x.note?`<div class="qnote"><b>참고</b> ${esc(x.note)}</div>`:''}</div>
+   </details>`).join('')}`;
+}
+
+/* ---------- nav ---------- */
+function go(v){
+  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+document.getElementById('tabs').onclick=e=>{if(e.target.dataset.v)go(e.target.dataset.v);};
+
+/* ---------- init ---------- */
+document.getElementById('f제작').textContent=D.meta.제작;
+document.getElementById('f출처').innerHTML=esc(D.meta.출처)+' · 갱신 '+esc(D.meta.갱신);
+renderOverview();renderExplorerShell();
+</script>
+</body>
+</html>
