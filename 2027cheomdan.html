@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>계약학과 · 첨단학과 안내 | 2027 대입정보 119</title>
+<meta name="description" content="2027학년도 계약학과(기업체취업형·조기취업형·군의무복무형)와 첨단학과를 한눈에 비교·탐색하는 진학상담 가이드. 출처: 대입정보 119.">
+<link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css">
+<style>
+:root{
+  --accent:#6C5CE7; --accent-weak:#EEEDFB; --accent-mid:#AFA9EC; --accent-deep:#3C3489;
+  --bg:#F6F7FB; --surface:#FFFFFF; --surface-2:#F4F5F9;
+  --text:#1C1D27; --muted:#65677A; --hint:#9A9CAD; --line:#E6E7EF; --line-2:#D8DAE6;
+  --ok:#0F6E56; --ok-bg:#E1F5EE; --warn:#854F0B; --warn-bg:#FAEEDA;
+  --radius:14px; --radius-sm:9px; --maxw:1120px;
+  --su-gyo:#5DCAA5; --su-jong:#7F77DD; --su-non:#EF9F27; --su-sil:#D4537E;
+  --su-ga:#378ADD; --su-na:#85B7EB; --su-da:#B5D4F4; --su-gun:#B4B2A9;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-weight:600;color:var(--text);margin:0}
+button{font-family:inherit;cursor:pointer}
+
+/* ── Header ── */
+header.hd{background:linear-gradient(180deg,#fff, #fbfbfe);border-bottom:1px solid var(--line)}
+.hd-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:22px 0 14px;flex-wrap:wrap}
+.hd-title{font-size:23px;font-weight:700;letter-spacing:-.02em}
+.hd-title .dot{color:var(--accent)}
+.hd-sub{font-size:13.5px;color:var(--muted);margin-top:4px}
+.hd-actions{display:flex;flex-direction:column;align-items:flex-end;gap:9px}
+.homebtn{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--accent-deep);
+  background:var(--accent-weak);border:1px solid var(--accent-mid);border-radius:9px;padding:7px 14px;text-decoration:none;white-space:nowrap}
+.homebtn:hover{background:#E4E2F8;text-decoration:none}
+.homebtn i{font-size:16px}
+.badge{font-size:12px;padding:5px 11px;border-radius:999px;background:var(--warn-bg);color:var(--warn);
+  white-space:nowrap;font-weight:500;border:1px solid #F2DCB0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 0 20px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;position:relative;overflow:hidden}
+.stat .lab{font-size:12px;color:var(--muted)}
+.stat .val{font-size:23px;font-weight:700;letter-spacing:-.02em;margin-top:2px}
+.stat .val small{font-size:13px;font-weight:600;color:var(--muted);margin-left:2px}
+.stat .sub{font-size:11.5px;color:var(--hint);margin-top:1px}
+.stat .accent-edge{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+
+/* ── Tabs ── */
+nav.tabs{position:sticky;top:0;z-index:50;background:rgba(246,247,251,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabrow{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabrow::-webkit-scrollbar{display:none}
+.tab{padding:13px 15px;font-size:14.5px;color:var(--muted);background:none;border:none;border-bottom:2.5px solid transparent;white-space:nowrap;font-weight:500}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.tab i{font-style:normal;margin-right:5px;opacity:.8}
+
+/* ── Sections ── */
+main{padding:24px 0 64px}
+section.panel{display:none}
+section.panel.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.lead{font-size:14.5px;color:var(--muted);max-width:760px;margin:0 0 20px}
+.sec-title{font-size:18px;font-weight:700;margin:30px 0 6px;letter-spacing:-.01em}
+.sec-title:first-child{margin-top:4px}
+.sec-desc{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+/* ── Cards generic ── */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.grid{display:grid;gap:14px}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+.cols-auto{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+
+/* chips & tags */
+.chip{font-size:12.5px;padding:5px 12px;border:1px solid var(--line-2);border-radius:999px;background:var(--surface);color:var(--muted);white-space:nowrap;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{border-color:var(--accent-mid);color:var(--text)}
+.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chip .ct{font-size:11px;opacity:.7}
+.chip.on .ct{opacity:.85}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;white-space:nowrap;font-weight:600;display:inline-block}
+.tag-co{background:var(--ok-bg);color:var(--ok)}
+.pill{font-size:11.5px;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted);font-weight:500;border:1px solid var(--line)}
+
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line-2);border-radius:10px;padding:9px 13px}
+.search input{border:none;outline:none;flex:1;font-size:14px;background:none;color:var(--text);font-family:inherit}
+.search i{font-style:normal;color:var(--hint)}
+.chiprow{display:flex;gap:7px;flex-wrap:wrap}
+.toolbtn{font-size:13px;padding:8px 13px;border:1px solid var(--line-2);border-radius:9px;background:var(--surface);color:var(--muted);font-weight:500}
+.toolbtn:hover{border-color:var(--accent-mid);color:var(--text)}
+.toolbtn.on{background:var(--accent-weak);color:var(--accent-deep);border-color:var(--accent-mid)}
+
+/* breakdown bar */
+.bar{display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--surface-2)}
+.bar span{display:block}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:8px}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+.legend .sw{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+.count{font-size:13px;color:var(--hint);margin-left:auto}
+.empty{text-align:center;color:var(--hint);padding:40px;font-size:14px}
+
+footer.ft{border-top:1px solid var(--line);padding:22px 0 40px;margin-top:30px;color:var(--hint);font-size:12.5px;background:var(--surface)}
+.ft b{color:var(--muted);font-weight:600}
+.disc{background:var(--warn-bg);border:1px solid #F2DCB0;color:#6B4309;border-radius:10px;padding:12px 15px;font-size:13px;margin:18px 0}
+.disc b{font-weight:700}
+
+@media(max-width:780px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .cols-2,.cols-3{grid-template-columns:1fr}
+  .hd-title{font-size:20px}
+}
+
+/* ── Overview: tree ── */
+.tree{margin:6px 0 8px}
+.tnode{background:var(--surface);border:1px solid var(--line-2);border-radius:11px;padding:11px 15px;font-weight:600;font-size:15px}
+.tnode span{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px}
+.tnode.root{border-color:var(--accent-mid);background:var(--accent-weak);max-width:560px}
+.tbranch{display:grid;grid-template-columns:1fr 1.4fr;gap:14px;margin-top:12px}
+.tnode.hi{border-color:var(--accent-mid)}
+.tkids{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.tkid{border:1px solid var(--line);border-left:3px solid var(--c);border-radius:8px;padding:8px 11px;background:var(--surface)}
+.tkid b{font-size:13.5px;display:block}
+.tkid span{font-size:11.5px;color:var(--muted)}
+/* type cards */
+.tcards{margin-top:4px}
+.tcard{display:flex;flex-direction:column}
+.tc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.tc-head h3{font-size:16.5px}
+.tc-scale{font-size:12.5px;color:var(--accent-deep);font-weight:600;margin-top:3px}
+.tc-sum{font-size:13.5px;color:var(--text);margin:11px 0 13px;line-height:1.6}
+.tc-dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:12.5px}
+.tc-dl dt{color:var(--accent-deep);font-weight:600;white-space:nowrap}
+.tc-dl dd{margin:0;color:var(--muted);line-height:1.55}
+.tc-dl dt.cau{color:var(--warn)}
+.tc-dl dd.cau{color:#6B4309}
+.tc-univs{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line-2)}
+
+/* ── Gicheop cards ── */
+.gcard{display:flex;flex-direction:column;gap:2px}
+.g-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.g-head h3{font-size:15px}
+.g-head .gd{font-weight:500;color:var(--muted);font-size:13.5px}
+.g-meta{font-size:12.5px;color:var(--muted);margin-top:3px}
+.g-meta b{color:var(--text)}
+.g-det{margin-top:12px}
+.g-det summary{font-size:12.5px;color:var(--accent);cursor:pointer;font-weight:500;list-style:none;display:flex;align-items:center;gap:5px}
+.g-det summary::-webkit-details-marker{display:none}
+.g-det summary i{transition:transform .2s}
+.g-det[open] summary i{transform:rotate(180deg)}
+.expand-hint{font-size:11.5px;color:var(--hint);margin-top:10px}
+.g-note{font-size:11px;color:#6B4309;background:var(--warn-bg);border-radius:7px;padding:6px 9px;margin-top:9px;line-height:1.5}
+.g-note i{color:var(--warn)}
+table.dt{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+table.dt th{text-align:left;color:var(--muted);font-weight:600;padding:5px 7px;border-bottom:1px solid var(--line-2);font-size:11.5px}
+table.dt td{padding:6px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+table.dt td.num{text-align:right;font-weight:600;white-space:nowrap}
+table.dt td.mth{color:var(--muted);font-size:11.5px}
+table.dt td.min{color:#6B4309;font-size:11px;max-width:140px}
+table.dt .dash{color:var(--hint)}
+.minflag{color:var(--warn)}
+.tblscroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.fulltbl{width:100%;min-width:720px;border-collapse:collapse;font-size:12px;background:var(--surface)}
+.fulltbl th{background:var(--surface-2);text-align:left;padding:8px 9px;font-size:11.5px;color:var(--muted);font-weight:600;position:sticky;top:48px}
+.fulltbl td{padding:7px 9px;border-top:1px solid var(--line);vertical-align:top}
+.fulltbl td.num{text-align:right;font-weight:600}
+.fulltbl td.mth,.fulltbl td.min{color:var(--muted);font-size:11.5px}
+
+/* ── Jogi ── */
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:4px 0 8px}
+.fstep{flex:1;min-width:200px;display:flex;gap:11px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.fnum{width:26px;height:26px;flex:none;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.fstep b{font-size:14px}
+.fdesc{font-size:12.5px;color:var(--text);margin-top:2px}
+.fsub{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+.farrow{display:flex;align-items:center;color:var(--accent-mid);font-size:20px}
+.warnbox{background:var(--warn-bg);border:1px solid #F2DCB0;color:#6B4309;border-radius:11px;padding:12px 15px;font-size:13px;margin-top:8px}
+.warnbox i{color:var(--warn)}
+.jcard{display:flex;flex-direction:column}
+.j-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.j-head h3{font-size:15.5px}
+.j-total{font-size:13px;color:var(--muted);margin:6px 0 11px}
+.j-total b{color:var(--text);font-size:15px}
+.upills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.upill{font-size:12px;padding:4px 10px;border-radius:7px;background:var(--surface-2);border:1px solid var(--line);color:var(--text);display:inline-flex;align-items:center;gap:6px}
+.upill i{width:7px;height:7px;border-radius:50%;background:var(--c);display:inline-block}
+.upill b{color:var(--accent-deep)}
+.j-method{font-size:12.5px;color:var(--muted);background:var(--surface-2);border-radius:8px;padding:8px 11px;display:flex;gap:7px;align-items:flex-start}
+.j-method i{color:var(--accent);margin-top:1px}
+.firms{margin-top:11px}
+.firms summary{font-size:12.5px;color:var(--accent);cursor:pointer;font-weight:500;list-style:none;display:flex;align-items:center;gap:5px}
+.firms summary::-webkit-details-marker{display:none}
+.firms summary i{transition:transform .2s}.firms[open] summary i{transform:rotate(180deg)}
+.firm{margin-top:9px;padding-top:9px;border-top:1px solid var(--line)}
+.fdept{font-size:12.5px;font-weight:600;display:flex;gap:7px;align-items:center;margin-bottom:3px}
+.flist{font-size:11.5px;color:var(--muted);line-height:1.6}
+
+/* ── Cheomdan ── */
+.fldlabel{font-size:12px;font-weight:600;color:var(--hint);margin:4px 0 7px;letter-spacing:.02em}
+.fchip.on{background:var(--fcol,var(--accent));border-color:var(--fcol,var(--accent))}
+.fdot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.ccard{display:flex;flex-direction:column}
+.c-head h3{font-size:15.5px}
+.c-meta{font-size:12.5px;color:var(--muted);margin-top:3px}
+.dpills{display:flex;flex-wrap:wrap;gap:6px;margin:11px 0 13px}
+.dpill{font-size:11.5px;padding:3px 9px 3px 8px;border-radius:7px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+.dpill i{width:6px;height:6px;border-radius:50%;background:var(--c);display:inline-block;flex:none}
+.dpill.hit{background:#fff;border-color:var(--c);color:var(--text);font-weight:500;box-shadow:0 0 0 1px var(--c)}
+.c-adm{margin-top:auto}
+.c-admrow{display:flex;gap:12px;font-size:12px;color:var(--muted);margin-top:7px}
+.c-admrow .c-tot{margin-left:auto;color:var(--text);font-weight:600}
+.c-noadm{font-size:12px;color:var(--hint)}
+.teuk-grp{margin:14px 0}
+.teuk-grp h4{font-size:13.5px;color:var(--accent-deep);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.teuk-list{display:flex;flex-wrap:wrap;gap:6px}
+.teuk-band{font-size:14px;font-weight:700;color:var(--text);padding:7px 12px;background:var(--accent-weak);border-radius:8px;display:inline-block;margin-bottom:4px}
+.teuk-band.bat{background:var(--ok-bg);color:var(--ok);margin-top:18px}
+
+/* ── QnA ── */
+.qaccordion{display:flex;flex-direction:column;gap:9px}
+.qa{background:var(--surface);border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.qa summary{padding:14px 16px;font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;display:flex;align-items:center;gap:9px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary i{margin-left:auto;color:var(--hint);transition:transform .2s}
+.qa[open] summary i{transform:rotate(180deg)}
+.qa[open] summary{border-bottom:1px solid var(--line)}
+.qn{background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:2px 9px;border-radius:6px;flex:none}
+.qbody{padding:13px 16px 16px;font-size:13.5px;color:var(--muted);line-height:1.7}
+.checklist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.checklist li{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--muted)}
+.checklist li b{color:var(--text);font-weight:600}
+.srcbox{display:flex;flex-direction:column;gap:9px}
+.srow{display:flex;gap:12px;font-size:13px}
+.slab{flex:none;width:42px;color:var(--accent-deep);font-weight:600}
+.srow span:last-child{color:var(--muted)}
+
+/* print */
+@media print{
+  nav.tabs,.filterbar,.toolbtn,.hd-top .badge,.expand-hint{display:none!important}
+  section.panel{display:block!important}
+  body{background:#fff;font-size:11pt}
+  .card{break-inside:avoid;border-color:#bbb}
+  .stat{border-color:#bbb}
+  a{color:var(--text)}
+}
+</style>
+</head>
+<body>
+<header class="hd">
+  <div class="wrap">
+    <div class="hd-top">
+      <div>
+        <div class="hd-title">계약학과 <span class="dot">·</span> 첨단학과 <span class="dot">안내</span></div>
+        <div class="hd-sub" id="hdsub"></div>
+      </div>
+      <div class="hd-actions">
+        <a class="homebtn" href="index.html"><i class="ti ti-home" aria-hidden="true"></i> 메인</a>
+        <div class="badge" id="hdbadge"></div>
+      </div>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow"></div></div></nav>
+
+<main><div class="wrap">
+  <section class="panel" data-tab="overview" id="p-overview"></section>
+  <section class="panel" data-tab="gicheop"  id="p-gicheop"></section>
+  <section class="panel" data-tab="jogi"     id="p-jogi"></section>
+  <section class="panel" data-tab="cheomdan" id="p-cheomdan"></section>
+  <section class="panel" data-tab="qna"      id="p-qna"></section>
+</div></main>
+
+<footer class="ft"><div class="wrap" id="footer"></div></footer>
+
+<script>
+const DATA = {"meta": {"title": "2027학년도 대입정보 119", "chapter": "Ⅳ. 계열별 전형 분석과 준비 · 5장 계약학과, 첨단학과 (p.558~574)", "publisher": "한국대학교육협의회 대학입학정보포털 '어디가'", "basis": "2027학년도 대학입학전형 시행계획 기준", "caution": "모집인원·전형방법·수능최저학력기준은 변동될 수 있으므로 반드시 2027학년도 각 대학 모집요강에서 최종 확인해야 합니다.", "note_2026": "첨단학과 개설 목록과 조기취업형 참여기업은 2026학년도 모집요강 기준 예시이며, 2027학년도에 달라질 수 있습니다."}, "gyeyak_intro": "계약학과는 국가·지방자치단체 또는 산업체와 대학이 계약을 체결하여 정원 외로 특별 교육과정을 운영하는 학위과정입니다. 산업 현장에서 요구하는 전문 인력을 체계적으로 양성하기 위한 제도로, 대학 교육과 산업 수요를 직접 연결하는 것이 핵심 목적입니다.", "tree": {"재교육형": {"target": "현재 산업체 재직자", "desc": "산업체 직원의 업무 역량 향상을 위해 기업이 교육을 의뢰하는 형태. 재직 중인 사람이 지원합니다.", "highschool": false}, "채용조건형": {"target": "고등학교 졸업(예정)자", "desc": "채용을 조건으로 학자금 지원 계약을 맺고, 특별 교육과정을 이수하면 졸업 후 취업이 보장되는 형태. 신입학으로 선발합니다.", "highschool": true, "children": ["조기취업형", "군의무복무형", "기업체취업형"]}}, "types": [{"key": "jogi", "name": "조기취업형", "tag": "일·학습 병행", "scale": "7개 대학 · 25개 모집단위 · 920명", "summary": "3년 교육과정으로 4년제 학사학위를 취득하고, 2학년부터 협약 기업에 재직하며 학점을 인정받는 형태.", "operate": "1학년은 대학에서 전일제 수업으로 전공기초와 현장실무 기본교육을 이수합니다. 2~3학년에는 협약 기업에 재직자 신분으로 근무하면서 야간·주말 수업을 병행합니다. 4년 과정을 3년 내에 이수하므로 방학 중에도 학기가 진행됩니다.", "cost": "1학년 등록금은 정부의 희망사다리 장학금으로 전액 지원되어 본인 부담이 없습니다. 2~3학년은 기업과 지자체가 50% 이상을 부담하고, 재직 중 임금을 받으므로 실제 본인 부담은 적은 편입니다.", "caution": "졸업 시까지 고용계약을 체결한 기업과 고용을 유지해야 하며, 본인 사유로 퇴직하면 대학에서 제적 처리됩니다. 학업과 근무를 함께 감당할 수 있는지 충분히 검토해야 합니다.", "select": "대부분 수시 학생부종합전형(동의대는 학생부교과)으로 선발하고, 정시에서는 수시 미충원 이월 인원만 선발합니다."}, {"key": "gunmu", "name": "군의무복무형", "tag": "장교 임관", "scale": "5개 대학 · 265명", "summary": "육군·해군·공군에서 첨단 분야 관련 업무를 수행하는 장교를 양성하는 형태.", "operate": "고려대, 세종대, 아주대(수원), 충남대(대전), 한양대(ERICA)에서 선발합니다. 다른 대학의 군사학과·해병대군사학과처럼 졸업 후 장교로 임관하지만, 병과가 지정된다는 차이가 있습니다.", "cost": "군 가산복무를 전제로 한 장학 지원이 이루어집니다(대학별 상이).", "caution": "임관 및 의무복무가 전제되므로 진로 방향이 군 첨단 분야와 맞는지 신중히 판단해야 합니다. 세부 선발 인원·전형은 대학별 모집요강에서 확인이 필요합니다.", "select": "대학별로 전형 방법이 다르므로 각 대학 모집요강을 확인해야 합니다.", "universities": ["고려대", "세종대", "아주대(수원)", "충남대(대전)", "한양대(ERICA)"]}, {"key": "gicheop", "name": "기업체취업형", "tag": "졸업 후 채용 연계", "scale": "13개 대학 · 18개 학과 · 790명", "summary": "대기업과 대학이 협약하여 기업이 필요로 하는 인재를 선발하고, 기업 장학금 지원과 졸업 후 취업 연계를 제공하는 형태.", "operate": "특히 반도체 분야를 중심으로 삼성전자·SK하이닉스 등 주요 대기업이 참여합니다. 재학 중 기업의 장학 지원을 받을 수 있고 졸업 후 해당 기업으로의 취업이 연계됩니다.", "cost": "참여 기업의 장학금을 지원받습니다(기업·학과별 상이).", "caution": "수시모집 중심으로 선발하며 면접 비중이 높은 편입니다. 단순 성적뿐 아니라 전공 적합성·면접 준비·진로 의지까지 함께 준비해야 합니다.", "select": "수시 학생부종합전형 비중이 가장 크고, 일부 대학은 교과·논술·정시도 운영합니다."}], "cheomdan_intro": "첨단학과는 인공지능(AI)·빅데이터·반도체·미래자동차 등 4차 산업혁명 관련 신기술 분야 인재를 양성하기 위해, 정부의 입학정원 규제 완화 정책('첨단 분야 모집단위별 입학정원 기준고시' 제정안 및 '인력양성 특정분야 고시' 개정안, 2020.8.7.)에 따라 확대된 모집단위입니다. 전국 다수 대학이 AI·ICT·바이오·나노기술 등 첨단 분야 학과를 신설하여 미래 산업 수요에 대응하고 있습니다.", "cheomdan_tip": "같은 첨단 분야라도 대학마다 교과·종합·논술·정시 비중과 교육과정 성격이 다릅니다. 학과 이름만 보지 말고, 대학별 전형유형·모집시기별 규모·전공 성격을 구체적으로 확인하여 자신의 강점에 맞는 전형을 선택하는 것이 중요합니다.", "teukseonghwa": {"intro": "반도체 특성화대학은 지역(수도권/비수도권)과 유형(단독형/동반성장형)으로 구분됩니다. 동반성장형은 두 대학이 복수학위 등 협업을 토대로 공동교육과정을 운영합니다.", "semiconductor": {"수도권 단독형": ["서울대", "성균관대(수원)", "가천대(성남)", "서강대", "연세대"], "수도권 동반성장형": ["명지대(용인)–호서대(아산)", "고려대–인제대(김해)", "아주대(수원)–국립한밭대(대전)", "인하대(인천)–강원대(춘천)", "한국공학대(시흥)–국립공주대(천안)"], "비수도권 단독형": ["경북대(대구)", "고려대(세종)", "부산대(부산)"], "비수도권 동반성장형": ["전북대(전주)–전남대(광주)", "충북대(청주)–충남대(대전)–한국기술교육대(천안)", "경상국립대(진주)–국립부경대(부산)", "국립금오공과대(구미)–영남대(경산)"]}, "battery": {"intro": "이차전지 특성화대학은 이차전지 주전공 및 융합전공으로 제조·공정, 소재·부품 분야 인재를 양성합니다.", "list": ["국립부경대(부산)", "전남대(광주)", "한양대(ERICA)"]}}, "earlyuniv": "https://earlyuniv.kr/", "qna": [{"q": "계약학과란 무엇인가요?", "a": "계약학과는 국가·지방자치단체 또는 산업체 등과의 계약에 의해 정원 외로 특별 교육과정을 설치·운영하는 학위과정으로, 크게 '재교육형'과 '채용조건형'으로 구분됩니다. 재교육형은 산업체 직원의 업무 향상을 위해 교육을 의뢰하는 형태로 현재 산업체에 재직 중인 사람이 지원할 수 있습니다. 채용조건형은 채용을 조건으로 학자금 지원 계약을 체결하고 특별 교육과정을 이수하면 졸업 후 취업이 보장되는 형태로, 고등학교 졸업(예정)자를 대상으로 신입학 선발을 합니다."}, {"q": "첨단학과란 무엇인가요?", "a": "첨단학과는 인공지능(AI)·빅데이터·미래자동차 등 4차 산업 첨단분야의 입학정원을 늘릴 수 있도록 규제를 완화하는 '첨단(신기술) 분야 모집단위별 입학정원 기준고시' 제정안과 '인력양성 특정분야 고시' 개정안(2020.8.7.)에 의해 만들어진 학과를 의미합니다. 2022학년도 기준 65곳의 대학에 설립되어 있으며 이후 추가로 설치된 곳도 있습니다."}, {"q": "조기취업형 계약학과는 어떻게 운영되나요?", "a": "조기취업형 계약학과는 3년 교육과정을 통해 4년제 학사학위를 취득하도록 설계된 과정입니다. 1학년에는 대학에서 전일제로 수업을 받고, 2학년부터는 협약 기업에 재직자 신분으로 근무하면서 야간·주말 수업을 병행합니다. 1학년 등록금은 정부 장학금으로 지원되며, 이후에는 기업과 지방자치단체가 비용의 상당 부분을 부담하는 경우가 많습니다. 다만 졸업 전까지 기업과의 고용계약을 유지해야 하므로 학업과 근무를 함께 감당할 수 있는지 충분히 검토해야 합니다."}, {"q": "기업체취업형 계약학과의 특징은 무엇인가요?", "a": "기업체취업형 계약학과는 대학과 기업이 협약하여 해당 산업에 필요한 인재를 선발·양성하는 제도입니다. 학생은 재학 중 기업의 장학 지원을 받을 수 있고, 졸업 후 해당 기업으로의 취업이 연계된다는 점이 큰 특징입니다. 특히 반도체 분야를 중심으로 삼성전자·SK하이닉스 등 주요 기업과 연계된 학과가 운영되며, 수시모집 중심으로 선발하고 면접 비중이 높은 편입니다. 따라서 단순한 성적뿐 아니라 전공 적합성·면접 준비·진로 의지까지 함께 준비해야 합니다."}, {"q": "계약학과 지원 시 유의해야 할 점은 무엇인가요?", "a": "계약학과는 대학마다 모집시기·전형유형·선발인원·수능최저학력기준·면접 반영 방식이 서로 다르므로 반드시 대학별 모집요강을 확인해야 합니다. 특히 조기취업형은 학업과 취업이 동시에 이루어지고, 기업체취업형은 졸업 후 취업 연계가 전제되므로, 단순히 취업 보장만 보고 지원하기보다 교육과정·근무 여건·참여기업·본인의 적성과 진로 방향을 함께 살펴보는 것이 중요합니다."}, {"q": "첨단학과 지원 시 어떤 점을 확인해야 하나요?", "a": "첨단학과는 인공지능·빅데이터·반도체·미래자동차 등 미래 산업과 관련된 분야 중심으로 확대된 모집단위이며, 대학별로 개설 학과와 모집인원이 매우 다양합니다. 따라서 학과 이름만 보고 지원하기보다 대학별 전형유형·모집시기별 규모·전공의 성격·교육과정 차이를 구체적으로 확인해야 합니다. 같은 첨단 분야라도 대학마다 교과·종합·논술·정시 비중이 다르므로 자신의 강점에 맞는 전형을 선택하는 것이 중요합니다."}], "checklist": ["모집요강 확인 — 시행계획 인원은 변동될 수 있으니 최종 모집요강의 인원·전형·수능최저를 반드시 확인했는가?", "전형 적합성 — 교과/종합/논술/정시 중 내 강점에 맞는 전형을 선택했는가?", "면접 준비 — 기업체취업형·조기취업형은 면접 비중이 높다. 전공 적합성과 진로 의지를 설명할 수 있는가?", "참여기업 확인 — (조기취업형) 같은 학과라도 참여기업이 다양하다. 지원 기업을 알아보았는가?", "근무·학업 병행 — (조기취업형) 야간·주말 수업과 재직을 병행할 수 있는가? 중도 퇴직 시 제적 조건을 이해했는가?", "진로 방향 — 취업 보장만이 아니라 교육과정·근무 여건·적성과의 적합성을 종합적으로 검토했는가?"], "gicheop": [{"region": "서울", "univ": "고려대", "dept": "반도체공학과", "company": "SK하이닉스", "total": 40, "breakdown": {"교과": 0, "종합": 28, "논술": 0, "실기": 0, "정시가": 12, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "학업우수", "quota": 14, "method": "서류100", "suneung_min": "국,수,영,탐(1) 4개 합 8, 한 4"}, {"phase": "수시", "jeonhyeong": "계열적합", "quota": 14, "method": "1단계(5배수): 서류100 2단계: 1단계60+면접40", "suneung_min": ""}, {"phase": "정시 가", "jeonhyeong": "일반", "quota": 12, "method": "수능100", "suneung_min": ""}], "detail_total": 40}, {"region": "서울", "univ": "고려대", "dept": "스마트모빌리티학과", "company": "현대자동차", "total": 50, "breakdown": {"교과": 0, "종합": 30, "논술": 0, "실기": 0, "정시가": 20, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "학업우수", "quota": 10, "method": "서류100", "suneung_min": "국,수,영,탐(1) 4개 합 8, 한 4"}, {"phase": "수시", "jeonhyeong": "계열적합", "quota": 20, "method": "1단계(5배수): 서류100 2단계: 1단계60+면접40", "suneung_min": ""}, {"phase": "정시 가", "jeonhyeong": "일반", "quota": 20, "method": "수능100", "suneung_min": ""}], "detail_total": 50}, {"region": "서울", "univ": "고려대", "dept": "차세대통신학과", "company": "삼성전자", "total": 30, "breakdown": {"교과": 0, "종합": 20, "논술": 0, "실기": 0, "정시가": 10, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "학업우수", "quota": 10, "method": "서류100", "suneung_min": "국,수,영,탐(1) 4개 합 8, 한 4"}, {"phase": "수시", "jeonhyeong": "계열적합", "quota": 10, "method": "1단계(5배수): 서류100 2단계: 1단계60+면접40", "suneung_min": ""}, {"phase": "정시 가", "jeonhyeong": "일반", "quota": 10, "method": "수능100", "suneung_min": ""}], "detail_total": 30}, {"region": "서울", "univ": "서강대", "dept": "시스템반도체공학과", "company": "SK하이닉스", "total": 30, "breakdown": {"교과": 3, "종합": 14, "논술": 3, "실기": 0, "정시가": 0, "정시나": 10, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "지역균형", "quota": 3, "method": "교과100", "suneung_min": "국,수,영,탐/직(1) 중 3개 각 3, 한 4"}, {"phase": "수시", "jeonhyeong": "일반", "quota": 14, "method": "서류100", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "논술", "quota": 3, "method": "논술100", "suneung_min": "국,수,영,탐/직(1) 중 3개 합 7, 한 4"}, {"phase": "정시 나", "jeonhyeong": "일반", "quota": 10, "method": "수능100", "suneung_min": ""}], "detail_total": 30}, {"region": "서울", "univ": "숭실대", "dept": "정보보호학과", "company": "LG유플러스", "total": 20, "breakdown": {"교과": 0, "종합": 8, "논술": 0, "실기": 4, "정시가": 0, "정시나": 0, "정시다": 8, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "SSU미래인재(면접형)", "quota": 8, "method": "1단계(3배수): 서류100 2단계: 1단계50+면접50", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "실기/실적(정보보호특기자)", "quota": 4, "method": "1단계(3배수): 서류100 2단계: 1단계50+면접50", "suneung_min": ""}, {"phase": "정시 다", "jeonhyeong": "일반", "quota": 8, "method": "수능100", "suneung_min": ""}], "detail_total": 20}, {"region": "서울", "univ": "연세대", "dept": "디스플레이융합공학과", "company": "LG디스플레이", "total": 30, "breakdown": {"교과": 5, "종합": 14, "논술": 4, "실기": 0, "정시가": 7, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "추천형", "quota": 5, "method": "교과100", "suneung_min": "국,수(미/기),과(1) 중 2개 합 5(수 포함), 영 3, 한 4"}, {"phase": "수시", "jeonhyeong": "활동우수형", "quota": 14, "method": "1단계(4배수): 서류100 2단계: 1단계60+면접40", "suneung_min": "국,수(미/기),과(1) 중 2개 합 5(수 포함), 영 3, 한 4"}, {"phase": "수시", "jeonhyeong": "논술", "quota": 4, "method": "논술100", "suneung_min": ""}, {"phase": "정시 가", "jeonhyeong": "일반", "quota": 7, "method": "수능95+교과5", "suneung_min": ""}], "detail_total": 30}, {"region": "서울", "univ": "연세대", "dept": "시스템반도체공학과", "company": "삼성전자", "total": 100, "breakdown": {"교과": 20, "종합": 43, "논술": 12, "실기": 0, "정시가": 25, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "추천형", "quota": 20, "method": "교과100", "suneung_min": "국,수(미/기),과(1) 중 2개 합 5등급(수 포함), 영 3, 한 4"}, {"phase": "수시", "jeonhyeong": "활동우수형", "quota": 38, "method": "1단계(4배수): 서류100 2단계: 1단계60+면접40", "suneung_min": "국,수(미/기),과(1) 중 2개 합 5(수 포함), 영 3, 한 4"}, {"phase": "수시", "jeonhyeong": "기회균형", "quota": 5, "method": "1단계(3배수): 서류100 2단계: 1단계60+면접40", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "논술", "quota": 12, "method": "논술100", "suneung_min": ""}, {"phase": "정시 가", "jeonhyeong": "일반", "quota": 25, "method": "수능95+교과5", "suneung_min": ""}], "detail_total": 100}, {"region": "서울", "univ": "한양대", "dept": "반도체공학과", "company": "SK하이닉스", "total": 40, "breakdown": {"교과": 6, "종합": 22, "논술": 4, "실기": 0, "정시가": 0, "정시나": 8, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "추천형", "quota": 6, "method": "교과90+서류10", "suneung_min": "국,수,영,탐(1) 중 3개 합 7"}, {"phase": "수시", "jeonhyeong": "서류형", "quota": 22, "method": "서류100", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "논술", "quota": 4, "method": "논술90+서류10", "suneung_min": "국,수,영,탐(1) 중 3개 합 7"}, {"phase": "정시 나", "jeonhyeong": "일반", "quota": 8, "method": "수능90+서류10", "suneung_min": ""}], "detail_total": 40}, {"region": "경기", "univ": "가천대(성남)", "dept": "클라우드공학과", "company": "카카오엔터프라이즈", "total": 30, "breakdown": {"교과": 7, "종합": 7, "논술": 7, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 9, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "학생부우수자", "quota": 7, "method": "교과100", "suneung_min": "국,수(미/기),영,과(절사) 중 2개 합 4"}, {"phase": "수시", "jeonhyeong": "가천바람개비", "quota": 7, "method": "1단계(5배수): 서류100 2단계: 1단계50+면접50", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "논술", "quota": 7, "method": "논술100", "suneung_min": "국,수(미/기),영,과(절사) 중 2개 합 4"}, {"phase": "정시 다", "jeonhyeong": "일반전형1", "quota": 9, "method": "수능100", "suneung_min": ""}], "detail_total": 30}, {"region": "경기", "univ": "성균관대(수원)", "dept": "반도체시스템공학과", "company": "삼성전자", "total": 70, "breakdown": {"교과": 0, "종합": 45, "논술": 10, "실기": 0, "정시가": 15, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "서류형-탐구인재", "quota": 15, "method": "서류100", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "서류형-융합인재", "quota": 5, "method": "서류100", "suneung_min": "국,수,영,탐(2) 중 3개 합 6(제2외국어/한문을 탐구1과목 대체 가능)"}, {"phase": "수시", "jeonhyeong": "면접형-과학인재", "quota": 25, "method": "1단계(7배수): 서류100 2단계: 1단계70+면접30", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "논술우수-수리형", "quota": 10, "method": "논술100", "suneung_min": "국,수,영,탐(2) 중 3개 합 5(제2외국어/한문을 탐구1과목 대체 가능)"}, {"phase": "정시 가", "jeonhyeong": "일반", "quota": 15, "method": "수능100", "suneung_min": ""}], "detail_total": 70}, {"region": "경기", "univ": "성균관대(수원)", "dept": "지능형소프트웨어학과", "company": "삼성전자", "total": 50, "breakdown": {"교과": 0, "종합": 30, "논술": 5, "실기": 0, "정시가": 0, "정시나": 15, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "서류형-탐구인재", "quota": 15, "method": "서류100", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "서류형-융합인재", "quota": 5, "method": "서류100", "suneung_min": "국,수,영,탐(2) 중 3개 합 6(제2외국어/한문을 탐구1과목 대체 가능)"}, {"phase": "수시", "jeonhyeong": "면접형-과학인재", "quota": 15, "method": "1단계(7배수): 서류100 2단계: 1단계70+면접30", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "논술우수-수리형", "quota": 5, "method": "논술100", "suneung_min": "국,수,영,탐(2) 중 3개 합 5(제2외국어/한문을 탐구1과목 대체 가능)"}, {"phase": "정시 나", "jeonhyeong": "일반", "quota": 15, "method": "수능100", "suneung_min": ""}], "detail_total": 55}, {"region": "경기", "univ": "성균관대(수원)", "dept": "배터리학과", "company": "삼성SDI", "total": 30, "breakdown": {"교과": 0, "종합": 20, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 10, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "서류형-탐구인재", "quota": 10, "method": "서류100", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "면접형-과학인재", "quota": 10, "method": "1단계(7배수): 서류100 2단계: 1단계70+면접30", "suneung_min": ""}, {"phase": "정시 다", "jeonhyeong": "일반", "quota": 10, "method": "수능100", "suneung_min": ""}], "detail_total": 30}, {"region": "경북", "univ": "포항공과대(포항)", "dept": "반도체공학과", "company": "삼성전자", "total": 40, "breakdown": {"교과": 0, "종합": 40, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "반도체공학인재", "quota": 40, "method": "1단계(3배수):서류100 2단계: 1단계67+면접33", "suneung_min": ""}], "detail_total": 40}, {"region": "대구", "univ": "경북대(대구)", "dept": "모바일공학전공", "company": "삼성전자", "total": 30, "breakdown": {"교과": 0, "종합": 5, "논술": 15, "실기": 0, "정시가": 10, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "모바일과학인재", "quota": 5, "method": "1단계(5배수): 서류100 2단계: 1단계50+면접50", "suneung_min": "수(미/기),과(절사) 합 3"}, {"phase": "수시", "jeonhyeong": "AAT", "quota": 15, "method": "논술70+교과30", "suneung_min": "수(미/기),과(절사) 합 3"}, {"phase": "정시 가", "jeonhyeong": "일반", "quota": 10, "method": "수능100", "suneung_min": "수(미/기),과(절사) 합 3"}], "detail_total": 30}, {"region": "대구", "univ": "DGIST", "dept": "반도체공학과", "company": "삼성전자", "total": 30, "breakdown": {"교과": 0, "종합": 27, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "군외": 3}, "detail": [{"phase": "수시", "jeonhyeong": "일반", "quota": 25, "method": "서류100", "suneung_min": ""}, {"phase": "정시", "jeonhyeong": "수능우수자", "quota": 5, "method": "수능100", "suneung_min": ""}], "detail_total": 30}, {"region": "광주", "univ": "GIST", "dept": "반도체공학과", "company": "삼성전자", "total": 30, "breakdown": {"교과": 0, "종합": 25, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "군외": 5}, "detail": [{"phase": "수시", "jeonhyeong": "일반", "quota": 25, "method": "1단계(5~6배수):서류100 2단계:1단계60+면접40", "suneung_min": ""}, {"phase": "정시", "jeonhyeong": "수능우수자", "quota": 5, "method": "수능100", "suneung_min": ""}], "detail_total": 30}, {"region": "대전", "univ": "KAIST", "dept": "반도체시스템공학과", "company": "삼성전자", "total": 100, "breakdown": {"교과": 0, "종합": 100, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "군외": 0}, "detail": [{"phase": "수시", "jeonhyeong": "창의도전", "quota": 20, "method": "서류100", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "학교장추천", "quota": 10, "method": "서류100", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "일반", "quota": 60, "method": "1단계:서류100 2단계:1단계40+면접60", "suneung_min": ""}, {"phase": "수시", "jeonhyeong": "고른기회", "quota": 5, "method": "1단계:서류100 2단계:1단계40+면접60", "suneung_min": ""}, {"phase": "정시", "jeonhyeong": "수능우수자", "quota": 5, "method": "수능100", "suneung_min": ""}], "detail_total": 100}, {"region": "울산", "univ": "UNIST", "dept": "반도체공학과", "company": "삼성전자", "total": 40, "breakdown": {"교과": 0, "종합": 35, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "군외": 5}, "detail": [{"phase": "수시", "jeonhyeong": "일반", "quota": 35, "method": "서류100", "suneung_min": ""}, {"phase": "정시", "jeonhyeong": "수능우수자", "quota": 5, "method": "수능100", "suneung_min": ""}], "detail_total": 40}], "jogi": [{"region": "", "univ": "가천대(성남)", "phase": "수시 (정시 나)", "units": [{"dept": "게임·영상학과", "quota": 30, "tags": ["콘텐츠·디자인"]}, {"dept": "미래자동차학과", "quota": 40, "tags": ["모빌리티·자동차"]}, {"dept": "바이오의료기기학과", "quota": 35, "tags": ["바이오·헬스"]}, {"dept": "반도체·디스플레이학과", "quota": 115, "tags": ["반도체·디스플레이"]}, {"dept": "반도체설계학과", "quota": 40, "tags": ["반도체·디스플레이"]}], "total": 260, "method": "1단계(5배수): 서류100 2단계: 1단계50+면접50"}, {"region": "경기", "univ": "한국공학대(시흥)", "phase": "수시 (정시 가)", "units": [{"dept": "스마트그린소재공학과", "quota": 25, "tags": ["신소재·나노", "스마트팜·농산업"]}, {"dept": "스마트전자공학과", "quota": 30, "tags": ["전기·전자·통신"]}, {"dept": "AI소프트웨어학과", "quota": 40, "tags": ["인공지능·SW"]}, {"dept": "IT융합디자인공학과", "quota": 25, "tags": ["콘텐츠·디자인"]}], "total": 120, "method": "1단계(5배수): 서류100 2단계: 면접100"}, {"region": "경기", "univ": "한양대(ERICA)", "phase": "수시 (정시 다)", "units": [{"dept": "스마트융합공학부", "quota": 150, "tags": ["기타·융합"]}], "total": 150, "method": "1단계(4배수): 서류100 2단계: 1단계10+면접90"}, {"region": "충남", "univ": "순천향대(아산)", "phase": "수시 (정시 나)", "units": [{"dept": "스마트모빌리티공학과", "quota": 40, "tags": ["모빌리티·자동차"]}, {"dept": "스마트팩토리공학과", "quota": 50, "tags": ["기타·융합"]}, {"dept": "융합바이오공학과", "quota": 40, "tags": ["바이오·헬스"]}], "total": 130, "method": "1단계(5배수): 서류100 2단계: 1단계10+면접90"}, {"region": "경북", "univ": "경일대(경산)", "phase": "수시 (정시 나)", "units": [{"dept": "방위산업시스템학과", "quota": 15, "tags": ["보안·국방"]}, {"dept": "스마트전력인프라학과", "quota": 13, "tags": ["스마트시티·건설", "전기·전자·통신"]}, {"dept": "스마트팩토리융합학과", "quota": 18, "tags": ["기타·융합"]}, {"dept": "스마트푸드테크학과", "quota": 19, "tags": ["스마트팜·농산업"]}, {"dept": "스마트경영공학과", "quota": 10, "tags": ["금융·경영"]}, {"dept": "에너지솔루션학과", "quota": 15, "tags": ["에너지·배터리"]}], "total": 90, "method": "1단계(7배수): 서류100 2단계: 면접100"}, {"region": "부산", "univ": "동의대(부산)", "phase": "수시 (정시 나)", "units": [{"dept": "미래모빌리티학과", "quota": 34, "tags": ["모빌리티·자동차"]}, {"dept": "소프트웨어융합학과", "quota": 33, "tags": ["인공지능·SW"]}, {"dept": "스마트호스피탈리티학과", "quota": 33, "tags": ["기타·융합"]}], "total": 100, "method": "1단계(5배수): 교과100 2단계: 면접100"}, {"region": "전남", "univ": "전남대(여수)", "phase": "수시 (정시 나)", "units": [{"dept": "기계IT융합공학과", "quota": 20, "tags": ["기계·제조"]}, {"dept": "스마트융합공정공학과", "quota": 25, "tags": ["기타·융합"]}, {"dept": "스마트전기제어공학과", "quota": 25, "tags": ["전기·전자·통신"]}], "total": 70, "method": "서류60+면접40"}], "jogi_firms": {"가천대(성남)": [{"dept": "바이오의료기기학과", "companies": "미라클스코프(주), 대호메디케어(주), 뉴로소나, 뉴셀파마코리아(주), ㈜킨더윌알파, ㈜에 이치앤아비즈, ㈜피에스캠, ㈜아이티씨, 유니코스(주), 특허법인 아이퍼스, 텐텍(주), ㈜ 큐라코, 아이티컨버젼스㈜, ㈜딥슨바이오, ㈜리솔, ㈜움틀, ㈜패션지오, ㈜엠셀, 메타트 윈헬스케어(주), ㈜아노소닉, ㈜페이스캠 등", "n": 21}, {"dept": "게임영상학과", "companies": "㈜에이앤게임즈, ㈜라우드코퍼레이션, 마상소프트, ㈜뉴솔트, ㈜디캐릭, 아이티동아, 딜 리셔스게임즈, ㈜디지포레, ㈜큐게임즈, ㈜투바이트, ㈜시니스트, ㈜방송마켓, 홍익과학 기술, ㈜아트노바, ㈜레포르게임즈 등", "n": 15}, {"dept": "반도체디스플레이학과", "companies": "㈜엠플리튜드코리아, ㈜에이펙트, 서울엔지니어링㈜, ㈜비에스피, ㈜중우엠텍, ㈜두진, ㈜플렉시고, ㈜아인테크놀러지, ㈜에이치엔에스하이텍, ㈜아이씨에이치, ㈜엘티씨, 성진 종합전기㈜, ㈜엔스펙트라, ㈜인포비온, ㈜티오에스, 에이피시스템㈜, ㈜에드워드코리 아, ㈜티엔에스엔지니어링, ㈜에스지유테크, ㈜비엔씨테크, ㈜와이시스템즈, 엘에스이 ㈜, 티이엠씨씨엔에스㈜ 등", "n": 23}, {"dept": "반도체설계학과", "companies": "센트롤테크놀러지㈜, ㈜에티포스, ㈜픽셀플러스, 유정시스템㈜, ㈜스카이칩스, ㈜라닉 스, ㈜자람테크놀로지, 쓰리에이로직스㈜, ㈜에임퓨처, ㈜에이빅파트너스 등", "n": 10}, {"dept": "미래자동차학과", "companies": "㈜맥케이, 씨비아이주식회사, ㈜아성프라텍, ㈜한국제어, ㈜데이터누리, 하이테크노㈜, ㈜길앤에스, ㈜엠피에스코리아, 코리아웨코스타㈜, 씨엔비스㈜ 등", "n": 10}], "한양대(ERICA)": [{"dept": "건축IT융합학과", "companies": "㈜빔파트너스구조기술사사무소, ㈜아리수엔지니어링, ㈜케이디엔지니어링건축사사무 소, ㈜연우테크놀러지, ㈜아키탑케이엘종합건축사사무소, ㈜청연이엔지, ㈜태성에스엔 아이, 한국인프라비아이엠협동조합, ㈜비아이엠팩토리, ㈜엔알비, ㈜고덕종합건설, ㈜페 식스에스씨, ㈜종합건축사사무소 선기획, 대평엔지니어링㈜, ㈜가야건설 등", "n": 15}, {"dept": "로봇융합전공", "companies": "위고로보틱스㈜, ㈜브릴스, ㈜케이에스디엔에스, ㈜고영로보틱스, 삼위정밀, ㈜로아스, ㈜한국알앤디드, ㈜한국제어, ㈜유니아이, ㈜하이버스이앤씨, ㈜엠알티인터내셔널, ㈜오 성시스템, 로듀 등", "n": 13}, {"dept": "소재·부품융합전공", "companies": "㈜써켐, 삼원산업(주), 씨바이아이(주), ㈜에스케이, ㈜한국알앤드디, ㈜플라스탈, 세미랩 코리아(주), ㈜파크시스템스 등", "n": 8}, {"dept": "스마트ICT융합전공", "companies": "㈜로드피아, ㈜글로벌스탠다드테크놀로지, ㈜연우테크놀러지, ㈜애버커스, ㈜코스펙이 노랩, ㈜디테크게엠배하, 중앙경영연구원, ㈜아이퀘스트, ㈜이노가드 등", "n": 9}, {"dept": "지속가능건축융합전공", "companies": "㈜스튜디오미콘, 고려산업케이알㈜, ㈜케미콘, ㈜실크로드시앤티, ㈜지에스코, 대주산업 (주), ㈜삼표산업, 그리너스, 제스트(주), 아주산업(주), ㈜드림구조 등", "n": 11}]}, "cheomdan": [{"region": "서울", "univ": "경희대", "depts": [{"name": "빅데이터응용학과", "tags": ["데이터·통계"]}, {"name": "미래정보디스플레이학부", "tags": ["반도체·디스플레이"]}, {"name": "반도체공학과", "tags": ["반도체·디스플레이"]}, {"name": "스마트팜학과", "tags": ["스마트팜·농산업"]}, {"name": "인공지능학과", "tags": ["인공지능·SW"]}], "n_depts": 5, "admission": {"교과": 19, "종합": 66, "논술": 24, "실기": 0, "정시가": 90, "정시나": 0, "정시다": 0, "수시": 109, "정시": 90, "합계": 199}}, {"region": "서울", "univ": "고려대", "depts": [{"name": "데이터과학과", "tags": ["데이터·통계"]}, {"name": "스마트보안학부", "tags": ["보안·국방"]}, {"name": "융합에너지공학과", "tags": ["에너지·배터리"]}, {"name": "전기전자공학부", "tags": ["전기·전자·통신"]}, {"name": "통계학과", "tags": ["데이터·통계"]}, {"name": "화공생명공학과", "tags": ["바이오·헬스", "신소재·나노"]}, {"name": "신소재공학부", "tags": ["신소재·나노"]}, {"name": "컴퓨터학과", "tags": ["인공지능·SW"]}, {"name": "바이오의공학부", "tags": ["바이오·헬스"]}, {"name": "수학과", "tags": ["수리·기초과학"]}, {"name": "물리학과", "tags": ["수리·기초과학"]}, {"name": "인공지능학과", "tags": ["인공지능·SW"]}], "n_depts": 12, "admission": {"교과": 165, "종합": 394, "논술": 87, "실기": 0, "정시가": 358, "정시나": 0, "정시다": 0, "수시": 646, "정시": 358, "합계": 1004}}, {"region": "서울", "univ": "광운대", "depts": [{"name": "반도체시스템공학부", "tags": ["반도체·디스플레이"]}, {"name": "로봇학부(AI로봇전공)", "tags": ["인공지능·SW", "로봇"]}, {"name": "경영학부(빅데이터전공)", "tags": ["데이터·통계", "금융·경영"]}], "n_depts": 3, "admission": {"교과": 18, "종합": 66, "논술": 18, "실기": 0, "정시가": 70, "정시나": 0, "정시다": 0, "수시": 102, "정시": 70, "합계": 172}}, {"region": "서울", "univ": "국민대", "depts": [{"name": "AI빅데이터융합경영학과", "tags": ["인공지능·SW", "데이터·통계", "금융·경영"]}, {"name": "인공지능학부", "tags": ["인공지능·SW"]}, {"name": "AI디자인학과", "tags": ["인공지능·SW", "콘텐츠·디자인"]}, {"name": "미래모빌리티학과", "tags": ["모빌리티·자동차"]}], "n_depts": 4, "admission": {"교과": 29, "종합": 68, "논술": 11, "실기": 4, "정시가": 23, "정시나": 0, "정시다": 13, "수시": 112, "정시": 36, "합계": 148}}, {"region": "서울", "univ": "덕성여대", "depts": [{"name": "가상현실융합학과", "tags": ["콘텐츠·디자인"]}, {"name": "데이터사이언스학과", "tags": ["데이터·통계"]}, {"name": "AI신약학과", "tags": ["인공지능·SW", "바이오·헬스"]}], "n_depts": 3, "admission": {"교과": 30, "종합": 45, "논술": 0, "실기": 0, "정시가": 45, "정시나": 0, "정시다": 0, "수시": 75, "정시": 45, "합계": 120}}, {"region": "서울", "univ": "동국대", "depts": [{"name": "컴퓨터·AI학부", "tags": ["인공지능·SW"]}, {"name": "기계로봇에너지공학과", "tags": ["에너지·배터리", "로봇", "기계·제조"]}, {"name": "시스템반도체학부", "tags": ["반도체·디스플레이"]}, {"name": "의료인공지능공학과", "tags": ["인공지능·SW", "바이오·헬스"]}, {"name": "지능형네트워크융합학과", "tags": ["인공지능·SW", "전기·전자·통신"]}, {"name": "융합환경과학과", "tags": ["스마트시티·건설"]}, {"name": "에너지신소재공학과", "tags": ["에너지·배터리", "신소재·나노"]}], "n_depts": 7, "admission": {"교과": 54, "종합": 165, "논술": 53, "실기": 0, "정시가": 97, "정시나": 111, "정시다": 0, "수시": 272, "정시": 208, "합계": 480}}, {"region": "서울", "univ": "동덕여대", "depts": [{"name": "데이터사이언스전공", "tags": ["데이터·통계"]}], "n_depts": 1, "admission": {"교과": 5, "종합": 6, "논술": 9, "실기": 0, "정시가": 30, "정시나": 0, "정시다": 0, "수시": 20, "정시": 30, "합계": 50}}, {"region": "서울", "univ": "삼육대", "depts": [{"name": "데이터클라우드공학과", "tags": ["데이터·통계"]}], "n_depts": 1, "admission": {"교과": 4, "종합": 15, "논술": 6, "실기": 0, "정시가": 5, "정시나": 0, "정시다": 0, "수시": 25, "정시": 5, "합계": 30}}, {"region": "서울", "univ": "상명대", "depts": [{"name": "지능데이터융합학부(핀테크전공/빅데이터융합전공/스마트생산전공)", "tags": ["인공지능·SW", "데이터·통계", "기계·제조", "금융·경영"]}, {"name": "지능데이터융합학부(휴먼지능정보공학전공)", "tags": ["인공지능·SW", "데이터·통계"]}], "n_depts": 2, "admission": {"교과": 35, "종합": 21, "논술": 8, "실기": 0, "정시가": 0, "정시나": 56, "정시다": 0, "수시": 64, "정시": 56, "합계": 120}}, {"region": "서울", "univ": "서강대", "depts": [{"name": "인공지능학과", "tags": ["인공지능·SW"]}, {"name": "반도체공학과", "tags": ["반도체·디스플레이"]}], "n_depts": 2, "admission": {"교과": 6, "종합": 26, "논술": 3, "실기": 0, "정시가": 0, "정시나": 23, "정시다": 0, "수시": 35, "정시": 23, "합계": 58}}, {"region": "서울", "univ": "서경대", "depts": [{"name": "아트앤테크놀로지학과", "tags": ["콘텐츠·디자인"]}, {"name": "스포츠앤테크놀로지학과", "tags": ["콘텐츠·디자인"]}], "n_depts": 2, "admission": {"교과": 10, "종합": 0, "논술": 10, "실기": 30, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 50, "정시": 0, "합계": 50}}, {"region": "서울", "univ": "서울과학기술대", "depts": [{"name": "인공지능응용학과", "tags": ["인공지능·SW"]}, {"name": "지능형반도체공학과", "tags": ["반도체·디스플레이"]}, {"name": "미래에너지융합학과", "tags": ["에너지·배터리"]}], "n_depts": 3, "admission": {"교과": 56, "종합": 49, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 36, "수시": 105, "정시": 36, "합계": 141}}, {"region": "서울", "univ": "서울대", "depts": [{"name": "통계학과", "tags": ["데이터·통계"]}, {"name": "전기정보공학부", "tags": ["전기·전자·통신"]}, {"name": "컴퓨터공학부", "tags": ["인공지능·SW"]}, {"name": "첨단융합공학부", "tags": ["기타·융합"]}, {"name": "스마트시스템과학과", "tags": ["인공지능·SW"]}, {"name": "산업공학과", "tags": ["금융·경영"]}], "n_depts": 6, "admission": {"교과": 0, "종합": 336, "논술": 0, "실기": 0, "정시가": 0, "정시나": 180, "정시다": 0, "수시": 336, "정시": 180, "합계": 516}}, {"region": "서울", "univ": "서울시립대", "depts": [{"name": "신소재공학과", "tags": ["신소재·나노"]}, {"name": "인공지능학과", "tags": ["인공지능·SW"]}, {"name": "융합응용화학과", "tags": ["신소재·나노"]}, {"name": "첨단융합학부(융합바이오헬스전공)", "tags": ["바이오·헬스"]}, {"name": "첨단융합학부(첨단인공지능전공)", "tags": ["인공지능·SW"]}, {"name": "첨단융합학부(지능형반도체전공)", "tags": ["반도체·디스플레이"]}], "n_depts": 6, "admission": {"교과": 17, "종합": 32, "논술": 7, "실기": 0, "정시가": 24, "정시나": 11, "정시다": 0, "수시": 56, "정시": 35, "합계": 91}}, {"region": "서울", "univ": "서울여대", "depts": [{"name": "데이터사이언스학과", "tags": ["데이터·통계"]}, {"name": "첨단미디어디자인전공", "tags": ["콘텐츠·디자인"]}, {"name": "바이오헬스융합학과", "tags": ["바이오·헬스"]}], "n_depts": 3, "admission": {"교과": 17, "종합": 43, "논술": 0, "실기": 0, "정시가": 18, "정시나": 0, "정시다": 28, "수시": 60, "정시": 46, "합계": 106}}, {"region": "서울", "univ": "성신여대", "depts": [{"name": "수리통계데이터사이언스학부(수학/핀테크전공)", "tags": ["데이터·통계", "금융·경영", "수리·기초과학"]}, {"name": "수리통계데이터사이언스학부(통계학/빅데이터사이언스전공)", "tags": ["데이터·통계"]}, {"name": "화학·에너지융합학부(화학/스마트에너지전공)", "tags": ["에너지·배터리", "신소재·나노"]}, {"name": "AI융합학부(AI/지능형IoT전공)", "tags": ["인공지능·SW"]}, {"name": "바이오신약의과학부(바이오신약/글로벌의과학전공)", "tags": ["바이오·헬스"]}, {"name": "바이오헬스융합학부(바이오헬스서비스/식품영양학전공)", "tags": ["바이오·헬스"]}], "n_depts": 6, "admission": {"교과": 28, "종합": 159, "논술": 37, "실기": 0, "정시가": 58, "정시나": 0, "정시다": 0, "수시": 224, "정시": 58, "합계": 282}}, {"region": "서울", "univ": "세종대", "depts": [{"name": "스마트생명산업융합학과", "tags": ["바이오·헬스"]}, {"name": "인공지능데이터사이언스학과", "tags": ["인공지능·SW", "데이터·통계"]}, {"name": "AI로봇학과", "tags": ["인공지능·SW", "로봇"]}, {"name": "우주항공드론학부(지능형드론융합전공)", "tags": ["모빌리티·자동차"]}, {"name": "지능정보융합학과", "tags": ["인공지능·SW", "데이터·통계"]}, {"name": "콘텐츠소프트웨어학과", "tags": ["인공지능·SW", "콘텐츠·디자인"]}, {"name": "양자지능정보학과", "tags": ["인공지능·SW", "보안·국방"]}], "n_depts": 7, "admission": {"교과": 145, "종합": 158, "논술": 104, "실기": 0, "정시가": 146, "정시나": 51, "정시다": 30, "수시": 407, "정시": 227, "합계": 634}}, {"region": "서울", "univ": "숙명여대", "depts": [{"name": "인공지능공학부", "tags": ["인공지능·SW"]}, {"name": "첨단소재·전자융합공학부(지능형전자시스템전공)", "tags": ["신소재·나노", "전기·전자·통신"]}, {"name": "첨단소재·전자융합공학부(신소재물리전공)", "tags": ["신소재·나노", "전기·전자·통신", "수리·기초과학"]}, {"name": "소프트웨어학부(컴퓨터과학전공)", "tags": ["인공지능·SW"]}, {"name": "소프트웨어학부(데이터사이언스전공)", "tags": ["인공지능·SW", "데이터·통계"]}], "n_depts": 5, "admission": {"교과": 36, "종합": 68, "논술": 26, "실기": 0, "정시가": 53, "정시나": 0, "정시다": 0, "수시": 130, "정시": 53, "합계": 183}}, {"region": "서울", "univ": "숭실대", "depts": [{"name": "AI융합학부", "tags": ["인공지능·SW"]}], "n_depts": 1, "admission": {"교과": 7, "종합": 19, "논술": 6, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 16, "수시": 32, "정시": 16, "합계": 48}}, {"region": "서울", "univ": "연세대", "depts": [{"name": "첨단컴퓨팅학부(인공지능학과)", "tags": ["인공지능·SW"]}, {"name": "첨단컴퓨팅학부(인공지능시스템학과)", "tags": ["인공지능·SW"]}, {"name": "지능형반도체전공", "tags": ["반도체·디스플레이"]}, {"name": "모빌리티시스템전공", "tags": ["모빌리티·자동차"]}], "n_depts": 4, "admission": {"교과": 31, "종합": 60, "논술": 21, "실기": 0, "정시가": 74, "정시나": 0, "정시다": 0, "수시": 112, "정시": 74, "합계": 186}}, {"region": "서울", "univ": "이화여대", "depts": [{"name": "융합전자반도체공학부(지능형반도체공학전공)", "tags": ["반도체·디스플레이", "전기·전자·통신"]}, {"name": "인공지능데이터사이언스학부", "tags": ["인공지능·SW", "데이터·통계"]}, {"name": "융합전자반도체공학부(전자전기공학전공)", "tags": ["반도체·디스플레이", "전기·전자·통신"]}], "n_depts": 3, "admission": {"교과": 31, "종합": 73, "논술": 14, "실기": 0, "정시가": 0, "정시나": 37, "정시다": 73, "수시": 118, "정시": 110, "합계": 228}}, {"region": "서울", "univ": "중앙대", "depts": [{"name": "AI학과", "tags": ["인공지능·SW"]}, {"name": "지능형반도체공학과", "tags": ["반도체·디스플레이"]}, {"name": "산업보안학과", "tags": ["보안·국방"]}], "n_depts": 3, "admission": {"교과": 6, "종합": 38, "논술": 12, "실기": 0, "정시가": 19, "정시나": 26, "정시다": 0, "수시": 56, "정시": 45, "합계": 101}}, {"region": "서울", "univ": "한국외국어대", "depts": [{"name": "Language & AI융합학부", "tags": ["인공지능·SW"]}, {"name": "Social Science & AI융합학부", "tags": ["인공지능·SW"]}], "n_depts": 2, "admission": {"교과": 10, "종합": 42, "논술": 22, "실기": 0, "정시가": 12, "정시나": 0, "정시다": 12, "수시": 74, "정시": 24, "합계": 98}}, {"region": "서울", "univ": "한성대", "depts": [{"name": "미래모빌리티학과", "tags": ["모빌리티·자동차"]}], "n_depts": 1, "admission": {"교과": 20, "종합": 5, "논술": 0, "실기": 0, "정시가": 0, "정시나": 15, "정시다": 0, "수시": 25, "정시": 15, "합계": 40}}, {"region": "서울", "univ": "한양대", "depts": [{"name": "에너지공학과", "tags": ["에너지·배터리"]}, {"name": "미래자동차공학과", "tags": ["모빌리티·자동차"]}, {"name": "융합전자공학부", "tags": ["전기·전자·통신"]}, {"name": "컴퓨터소프트웨어학부", "tags": ["인공지능·SW"]}, {"name": "전기·생체공학부(전기공학전공)", "tags": ["전기·전자·통신"]}, {"name": "전기·생체공학부(바이오메디컬공학전공)", "tags": ["바이오·헬스", "전기·전자·통신"]}, {"name": "유기나노공학과", "tags": ["신소재·나노"]}, {"name": "데이터사이언스학부", "tags": ["데이터·통계"]}], "n_depts": 8, "admission": {"교과": 48, "종합": 153, "논술": 29, "실기": 0, "정시가": 26, "정시나": 215, "정시다": 0, "수시": 230, "정시": 241, "합계": 471}}, {"region": "서울", "univ": "홍익대", "depts": [{"name": "산업·데이터공학과", "tags": ["데이터·통계"]}], "n_depts": 1, "admission": {"교과": 11, "종합": 17, "논술": 14, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 28, "수시": 42, "정시": 28, "합계": 70}}, {"region": "인천", "univ": "안양대(강화)", "depts": [{"name": "스마트시티공학과", "tags": ["스마트시티·건설"]}], "n_depts": 1, "admission": {"교과": 27, "종합": 5, "논술": 0, "실기": 0, "정시가": 0, "정시나": 3, "정시다": 0, "수시": 32, "정시": 3, "합계": 35}}, {"region": "인천", "univ": "인천대(인천)", "depts": [{"name": "바이오-로봇시스템공학과", "tags": ["바이오·헬스", "로봇"]}, {"name": "데이터과학과", "tags": ["데이터·통계"]}, {"name": "에너지화학공학과", "tags": ["에너지·배터리", "신소재·나노"]}, {"name": "스마트물류공학전공", "tags": ["금융·경영"]}], "n_depts": 4, "admission": {"교과": 16, "종합": 35, "논술": 0, "실기": 0, "정시가": 25, "정시나": 0, "정시다": 7, "수시": 51, "정시": 32, "합계": 83}}, {"region": "인천", "univ": "인하대(인천)", "depts": [{"name": "인공지능공학과", "tags": ["인공지능·SW"]}, {"name": "데이터사이언스학과", "tags": ["데이터·통계"]}, {"name": "스마트모빌리티공학과", "tags": ["모빌리티·자동차"]}, {"name": "디자인테크놀러지학과", "tags": ["콘텐츠·디자인"]}, {"name": "반도체시스템공학과", "tags": ["반도체·디스플레이"]}, {"name": "이차전지융합학과", "tags": ["에너지·배터리"]}, {"name": "첨단바이오의약학과", "tags": ["바이오·헬스"]}, {"name": "에너지화학공학과", "tags": ["에너지·배터리", "신소재·나노"]}, {"name": "데이터과학과", "tags": ["데이터·통계"]}], "n_depts": 9, "admission": {"교과": 47, "종합": 155, "논술": 45, "실기": 0, "정시가": 48, "정시나": 25, "정시다": 95, "수시": 247, "정시": 168, "합계": 415}}, {"region": "경기", "univ": "가천대(성남)", "depts": [{"name": "인공지능학과", "tags": ["인공지능·SW"]}, {"name": "스마트보안학과", "tags": ["보안·국방"]}, {"name": "시스템반도체학과", "tags": ["반도체·디스플레이"]}, {"name": "스마트시티학과", "tags": ["스마트시티·건설"]}, {"name": "기계공학부(스마트팩토리전공)", "tags": ["기계·제조"]}, {"name": "금융·빅데이터학부", "tags": ["데이터·통계", "금융·경영"]}, {"name": "화공생명배터리공학부", "tags": ["바이오·헬스", "에너지·배터리", "신소재·나노"]}, {"name": "바이오로직스학과", "tags": ["바이오·헬스"]}], "n_depts": 8, "admission": {"교과": 100, "종합": 107, "논술": 228, "실기": 0, "정시가": 134, "정시나": 69, "정시다": 112, "수시": 435, "정시": 315, "합계": 750}}, {"region": "경기", "univ": "가톨릭대(성신)", "depts": [{"name": "인공지능학과", "tags": ["인공지능·SW"]}, {"name": "데이터사이언스학과", "tags": ["데이터·통계"]}, {"name": "바이오메디컬소프트웨어학과", "tags": ["인공지능·SW", "바이오·헬스"]}, {"name": "바이오로직스공학부", "tags": ["바이오·헬스"]}, {"name": "AI의공학과", "tags": ["인공지능·SW", "바이오·헬스"]}], "n_depts": 5, "admission": {"교과": 24, "종합": 64, "논술": 14, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 102, "정시": 0, "합계": 102}}, {"region": "경기", "univ": "강남대(용인)", "depts": [{"name": "인공지능융합공학부", "tags": ["인공지능·SW"]}], "n_depts": 1, "admission": {"교과": 15, "종합": 15, "논술": 23, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 43, "수시": 53, "정시": 43, "합계": 96}}, {"region": "경기", "univ": "경기대(수원)", "depts": [{"name": "AI컴퓨터공학부(인공지능전공)", "tags": ["인공지능·SW"]}, {"name": "AI컴퓨터공학부(SW안전보안전공)", "tags": ["인공지능·SW", "보안·국방"]}], "n_depts": 2, "admission": {"교과": 52, "종합": 92, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 106, "수시": 144, "정시": 106, "합계": 250}}, {"region": "경기", "univ": "경희대(국제)", "depts": [{"name": "스마트팜과학과", "tags": ["스마트팜·농산업"]}, {"name": "컴퓨터공학부(인공지능학과)", "tags": ["인공지능·SW"]}, {"name": "전자정보공학부(반도체공학과)", "tags": ["반도체·디스플레이", "전기·전자·통신"]}], "n_depts": 3, "admission": {"교과": 12, "종합": 26, "논술": 14, "실기": 0, "정시가": 34, "정시나": 15, "정시다": 0, "수시": 52, "정시": 49, "합계": 101}}, {"region": "경기", "univ": "단국대(죽전)", "depts": [{"name": "인공지능학과", "tags": ["인공지능·SW"]}], "n_depts": 1, "admission": null}, {"region": "경기", "univ": "대진대(포천)", "depts": [{"name": "스마트모빌리티전공", "tags": ["모빌리티·자동차"]}, {"name": "스마트융합보안학과", "tags": ["보안·국방"]}], "n_depts": 2, "admission": {"교과": 48, "종합": 22, "논술": 0, "실기": 0, "정시가": 0, "정시나": 39, "정시다": 0, "수시": 70, "정시": 39, "합계": 109}}, {"region": "경기", "univ": "동양대(동두천)", "depts": [{"name": "AI빅데이터융합학과", "tags": ["인공지능·SW", "데이터·통계"]}], "n_depts": 1, "admission": {"교과": 50, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 50, "정시": 0, "합계": 50}}, {"region": "경기", "univ": "서울신학대(부천)", "depts": [{"name": "컴퓨터공학과", "tags": ["인공지능·SW"]}, {"name": "AI융합학과", "tags": ["인공지능·SW"]}], "n_depts": 2, "admission": {"교과": 44, "종합": 10, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 10, "수시": 54, "정시": 10, "합계": 64}}, {"region": "경기", "univ": "성균관대(수원)", "depts": [{"name": "반도체융합공학과", "tags": ["반도체·디스플레이"]}, {"name": "에너지학과", "tags": ["에너지·배터리"]}, {"name": "양자정보공학과", "tags": ["보안·국방"]}, {"name": "바이오신약/규제과학과", "tags": ["바이오·헬스"]}], "n_depts": 4, "admission": {"교과": 36, "종합": 123, "논술": 10, "실기": 0, "정시가": 18, "정시나": 16, "정시다": 78, "수시": 169, "정시": 112, "합계": 281}}, {"region": "경기", "univ": "아주대(수원)", "depts": [{"name": "첨단신소재공학과", "tags": ["신소재·나노"]}, {"name": "지능형반도체공학과", "tags": ["반도체·디스플레이"]}, {"name": "미래모빌리티공학과", "tags": ["모빌리티·자동차"]}, {"name": "첨단바이오융합대학", "tags": ["바이오·헬스"]}], "n_depts": 4, "admission": {"교과": 57, "종합": 144, "논술": 27, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 109, "수시": 228, "정시": 109, "합계": 337}}, {"region": "경기", "univ": "을지대(성남)", "depts": [{"name": "첨단학부(빅데이터인공지능전공)", "tags": ["인공지능·SW", "데이터·통계"]}], "n_depts": 1, "admission": {"교과": 7, "종합": 10, "논술": 13, "실기": 0, "정시가": 0, "정시나": 10, "정시다": 0, "수시": 30, "정시": 10, "합계": 40}}, {"region": "경기", "univ": "중앙대(다빈치)", "depts": [{"name": "첨단소재공학과", "tags": ["신소재·나노"]}], "n_depts": 1, "admission": {"교과": 7, "종합": 12, "논술": 6, "실기": 0, "정시가": 0, "정시나": 15, "정시다": 0, "수시": 25, "정시": 15, "합계": 40}}, {"region": "경기", "univ": "평택대(평택)", "depts": [{"name": "스마트모빌리티학과", "tags": ["모빌리티·자동차"]}, {"name": "ICT융합학부(미디어디자인학과)", "tags": ["전기·전자·통신", "콘텐츠·디자인"]}, {"name": "ICT융합학부(스마트콘텐츠학과)", "tags": ["전기·전자·통신", "콘텐츠·디자인"]}, {"name": "지능형반도체학과", "tags": ["반도체·디스플레이"]}], "n_depts": 4, "admission": {"교과": 132, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 12, "정시다": 0, "수시": 132, "정시": 12, "합계": 144}}, {"region": "경기", "univ": "한국공학대(시흥)", "depts": [{"name": "반도체시스템전공", "tags": ["반도체·디스플레이"]}, {"name": "미래에너지시스템전공", "tags": ["에너지·배터리"]}], "n_depts": 2, "admission": {"교과": 24, "종합": 20, "논술": 0, "실기": 0, "정시가": 0, "정시나": 24, "정시다": 0, "수시": 44, "정시": 24, "합계": 68}}, {"region": "경기", "univ": "한국항공대(고양)", "depts": [{"name": "스마트드론공학과", "tags": ["모빌리티·자동차"]}, {"name": "AI자율주행시스템공학과", "tags": ["인공지능·SW", "모빌리티·자동차"]}], "n_depts": 2, "admission": {"교과": 23, "종합": 26, "논술": 21, "실기": 0, "정시가": 0, "정시나": 11, "정시다": 9, "수시": 70, "정시": 20, "합계": 90}}, {"region": "경기", "univ": "한신대(오산)", "depts": [{"name": "AI시스템반도체학과", "tags": ["반도체·디스플레이", "인공지능·SW"]}], "n_depts": 1, "admission": {"교과": 17, "종합": 0, "논술": 10, "실기": 0, "정시가": 5, "정시나": 0, "정시다": 0, "수시": 27, "정시": 5, "합계": 32}}, {"region": "경기", "univ": "한양대(ERICA)", "depts": [{"name": "인공지능학과", "tags": ["인공지능·SW"]}, {"name": "로봇공학과", "tags": ["로봇"]}, {"name": "차세대반도체융합공학부(신소재·반도체공학전공)", "tags": ["반도체·디스플레이", "신소재·나노"]}, {"name": "차세대반도체융합공학부(반도체·디스플레이공학전공)", "tags": ["반도체·디스플레이"]}, {"name": "바이오신약융합학부(학부모집)", "tags": ["바이오·헬스"]}, {"name": "바이오신약융합학부(분자의약전공)", "tags": ["바이오·헬스"]}, {"name": "바이오신약융합학부(바이오나노공학전공)", "tags": ["바이오·헬스", "신소재·나노"]}, {"name": "국방지능정보융합공학부(지능정보양자공학전공)", "tags": ["인공지능·SW", "데이터·통계", "보안·국방"]}], "n_depts": 8, "admission": {"교과": 105, "종합": 107, "논술": 0, "실기": 0, "정시가": 57, "정시나": 83, "정시다": 0, "수시": 212, "정시": 140, "합계": 352}}, {"region": "경기", "univ": "화성의과학대(화성)", "depts": [{"name": "바이오헬스케어학과", "tags": ["바이오·헬스"]}], "n_depts": 1, "admission": {"교과": 34, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 3, "수시": 34, "정시": 3, "합계": 37}}, {"region": "강원", "univ": "강원대(춘천)", "depts": [{"name": "AI융합학과", "tags": ["인공지능·SW"]}, {"name": "디지털밀리터리학과", "tags": ["보안·국방"]}, {"name": "배터리융합공학과", "tags": ["에너지·배터리"]}, {"name": "반도체물리학과", "tags": ["반도체·디스플레이", "수리·기초과학"]}, {"name": "스마트팜융합바이오시스템공학과", "tags": ["바이오·헬스", "스마트팜·농산업"]}, {"name": "스마트산업공학과", "tags": ["금융·경영"]}], "n_depts": 6, "admission": {"교과": 47, "종합": 55, "논술": 0, "실기": 0, "정시가": 6, "정시나": 20, "정시다": 0, "수시": 102, "정시": 26, "합계": 128}}, {"region": "강원", "univ": "국립강릉원주대(강릉)", "depts": [{"name": "전자·반도체공학부(전자공학전공/반도체공학전공)", "tags": ["반도체·디스플레이", "전기·전자·통신"]}, {"name": "신소재·생명화학공학부(세라믹신소재공학전공/신소재금속공학전공/생명화학공학전공)", "tags": ["바이오·헬스", "신소재·나노"]}, {"name": "스마트인프라공학부(건설환경전공/스마트공간정보전공)", "tags": ["스마트시티·건설"]}], "n_depts": 3, "admission": {"교과": 96, "종합": 43, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 6, "수시": 139, "정시": 6, "합계": 145}}, {"region": "강원", "univ": "연세대(미래)", "depts": [{"name": "AI반도체학부", "tags": ["반도체·디스플레이", "인공지능·SW"]}, {"name": "AI보건정보관리학과", "tags": ["인공지능·SW", "바이오·헬스"]}, {"name": "데이터사이언스학부", "tags": ["데이터·통계"]}], "n_depts": 3, "admission": {"교과": 30, "종합": 44, "논술": 12, "실기": 0, "정시가": 28, "정시나": 0, "정시다": 0, "수시": 86, "정시": 28, "합계": 114}}, {"region": "강원", "univ": "한라대(원주)", "depts": [{"name": "AI정보보안학과", "tags": ["인공지능·SW", "보안·국방"]}, {"name": "미래모빌리티공학과", "tags": ["모빌리티·자동차"]}], "n_depts": 2, "admission": {"교과": 46, "종합": 11, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 4, "수시": 57, "정시": 4, "합계": 61}}, {"region": "강원", "univ": "한림대(춘천)", "depts": [{"name": "인공지능융합학부", "tags": ["인공지능·SW"]}, {"name": "반도체·디스플레이스쿨", "tags": ["반도체·디스플레이"]}], "n_depts": 2, "admission": {"교과": 58, "종합": 46, "논술": 0, "실기": 0, "정시가": 12, "정시나": 18, "정시다": 0, "수시": 104, "정시": 30, "합계": 134}}, {"region": "대전", "univ": "건양대(대전)", "depts": [{"name": "인공지능학과", "tags": ["인공지능·SW"]}], "n_depts": 1, "admission": {"교과": 35, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 5, "정시다": 0, "수시": 35, "정시": 5, "합계": 40}}, {"region": "대전", "univ": "국립한밭대(대전)", "depts": [{"name": "모바일융합공학과", "tags": ["전기·전자·통신"]}, {"name": "인공지능소프트웨어학과", "tags": ["인공지능·SW"]}, {"name": "지능미디어공학과", "tags": ["인공지능·SW", "콘텐츠·디자인"]}, {"name": "반도체시스템공학과", "tags": ["반도체·디스플레이"]}], "n_depts": 4, "admission": {"교과": 70, "종합": 20, "논술": 0, "실기": 0, "정시가": 0, "정시나": 12, "정시다": 0, "수시": 90, "정시": 12, "합계": 102}}, {"region": "대전", "univ": "목원대(대전)", "depts": [{"name": "생물산업학부(반려동물전공/생명과학전공)", "tags": ["바이오·헬스"]}, {"name": "AI응용학과", "tags": ["인공지능·SW"]}], "n_depts": 2, "admission": {"교과": 50, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 50, "정시": 0, "합계": 50}}, {"region": "대전", "univ": "충남대(대전)", "depts": [{"name": "스마트시티건축공학과", "tags": ["스마트시티·건설"]}, {"name": "자율운항시스템공학과", "tags": ["모빌리티·자동차"]}, {"name": "인공지능학과", "tags": ["인공지능·SW"]}, {"name": "생명정보융합학과", "tags": ["데이터·통계", "바이오·헬스"]}, {"name": "반도체융합학과", "tags": ["반도체·디스플레이"]}, {"name": "에너지공학과", "tags": ["에너지·배터리"]}, {"name": "정보통신융합학부", "tags": ["전기·전자·통신"]}], "n_depts": 7, "admission": {"교과": 95, "종합": 84, "논술": 0, "실기": 0, "정시가": 9, "정시나": 51, "정시다": 0, "수시": 179, "정시": 60, "합계": 239}}, {"region": "대전", "univ": "한남대(대전)", "depts": [{"name": "기계공학과", "tags": ["기계·제조"]}, {"name": "AI융합학과", "tags": ["인공지능·SW"]}, {"name": "빅데이터응용학과", "tags": ["데이터·통계"]}, {"name": "바이오제약공학과", "tags": ["바이오·헬스"]}], "n_depts": 4, "admission": {"교과": 97, "종합": 33, "논술": 0, "실기": 0, "정시가": 4, "정시나": 0, "정시다": 5, "수시": 130, "정시": 9, "합계": 139}}, {"region": "세종", "univ": "고려대(세종)", "depts": [{"name": "인공지능사이버보안학과", "tags": ["인공지능·SW", "보안·국방"]}, {"name": "빅데이터사이언스학부", "tags": ["데이터·통계"]}, {"name": "미래모빌리티학과", "tags": ["모빌리티·자동차"]}, {"name": "지능형반도체공학과", "tags": ["반도체·디스플레이"]}, {"name": "스마트도시학부", "tags": ["스마트시티·건설"]}, {"name": "디지털헬스케어공학과", "tags": ["바이오·헬스"]}, {"name": "첨단융합신약학과", "tags": ["바이오·헬스"]}], "n_depts": 7, "admission": {"교과": 64, "종합": 94, "논술": 56, "실기": 6, "정시가": 46, "정시나": 31, "정시다": 15, "수시": 220, "정시": 92, "합계": 312}}, {"region": "충남", "univ": "건양대(논산)", "depts": [{"name": "반도체공학과", "tags": ["반도체·디스플레이"]}], "n_depts": 1, "admission": {"교과": 25, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 25, "정시": 0, "합계": 25}}, {"region": "충남", "univ": "국립공주대(천안)", "depts": [{"name": "데이터정보물리학과", "tags": ["데이터·통계", "수리·기초과학"]}, {"name": "인공지능학부", "tags": ["인공지능·SW"]}, {"name": "미래자동차공학과", "tags": ["모빌리티·자동차"]}, {"name": "지능형모빌리티공학과", "tags": ["모빌리티·자동차"]}, {"name": "스마트정보기술공학과", "tags": ["인공지능·SW"]}, {"name": "도시·교통공학과", "tags": ["스마트시티·건설"]}, {"name": "그린스마트건축공학과", "tags": ["스마트시티·건설", "스마트팜·농산업"]}, {"name": "스마트팜공학과", "tags": ["스마트팜·농산업"]}, {"name": "수산생명의학과", "tags": ["바이오·헬스"]}, {"name": "스마트인프라공학과", "tags": ["스마트시티·건설"]}, {"name": "디자인컨버전스학과", "tags": ["콘텐츠·디자인"]}], "n_depts": 11, "admission": {"교과": 172, "종합": 78, "논술": 0, "실기": 0, "정시가": 10, "정시나": 0, "정시다": 0, "수시": 250, "정시": 10, "합계": 260}}, {"region": "충남", "univ": "남서울대(천안)", "depts": [{"name": "가상현실학과", "tags": ["콘텐츠·디자인"]}, {"name": "스마트팜학과", "tags": ["스마트팜·농산업"]}], "n_depts": 2, "admission": {"교과": 91, "종합": 8, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 2, "수시": 99, "정시": 2, "합계": 101}}, {"region": "충남", "univ": "백석대(천안)", "depts": [{"name": "첨단IT학부(빅데이터/핀테크/IoT/AR·VR전공)", "tags": ["데이터·통계", "콘텐츠·디자인", "금융·경영"]}], "n_depts": 1, "admission": {"교과": 123, "종합": 20, "논술": 0, "실기": 0, "정시가": 2, "정시나": 0, "정시다": 0, "수시": 143, "정시": 2, "합계": 145}}, {"region": "충남", "univ": "상명대(천안)", "depts": [{"name": "디자인학부(AR·VR미디어디자인전공)", "tags": ["콘텐츠·디자인"]}, {"name": "그린스마트시티학과", "tags": ["스마트시티·건설", "스마트팜·농산업"]}, {"name": "AI미디어콘텐츠전공", "tags": ["인공지능·SW", "콘텐츠·디자인"]}, {"name": "AI모빌리티공학과", "tags": ["인공지능·SW", "모빌리티·자동차"]}], "n_depts": 4, "admission": {"교과": 36, "종합": 29, "논술": 0, "실기": 14, "정시가": 0, "정시나": 43, "정시다": 0, "수시": 79, "정시": 43, "합계": 122}}, {"region": "충남", "univ": "선문대(아산)", "depts": [{"name": "AI소프트웨어학과", "tags": ["인공지능·SW"]}, {"name": "컴퓨터공학부", "tags": ["인공지능·SW"]}], "n_depts": 2, "admission": {"교과": 125, "종합": 24, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 149, "정시": 0, "합계": 149}}, {"region": "충남", "univ": "순천향대(아산)", "depts": [{"name": "의생명융합학부(바이오의약전공)", "tags": ["바이오·헬스"]}, {"name": "의생명융합학부(헬스케어융합전공)", "tags": ["바이오·헬스"]}, {"name": "탄소중립학과", "tags": ["에너지·배터리"]}], "n_depts": 3, "admission": {"교과": 37, "종합": 37, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 30, "수시": 74, "정시": 30, "합계": 104}}, {"region": "충북", "univ": "국립한국교통대(의왕)", "depts": [{"name": "AI·데이터공학부", "tags": ["인공지능·SW", "데이터·통계"]}], "n_depts": 1, "admission": {"교과": 7, "종합": 29, "논술": 0, "실기": 0, "정시가": 12, "정시나": 0, "정시다": 0, "수시": 36, "정시": 12, "합계": 48}}, {"region": "충북", "univ": "극동대(음성)", "depts": [{"name": "항공모빌리티학과", "tags": ["모빌리티·자동차"]}], "n_depts": 1, "admission": {"교과": 48, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 48, "정시": 0, "합계": 48}}, {"region": "충북", "univ": "세명대(제천)", "depts": [{"name": "동물보건학과", "tags": ["바이오·헬스"]}], "n_depts": 1, "admission": {"교과": 39, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 1, "정시다": 0, "수시": 39, "정시": 1, "합계": 40}}, {"region": "충북", "univ": "청주대(청주)", "depts": [{"name": "데이터사이언스학과", "tags": ["데이터·통계"]}, {"name": "인공지능소프트웨어학과", "tags": ["인공지능·SW"]}, {"name": "디지털보안학과", "tags": ["보안·국방"]}], "n_depts": 3, "admission": {"교과": 124, "종합": 0, "논술": 0, "실기": 0, "정시가": 12, "정시나": 0, "정시다": 0, "수시": 124, "정시": 12, "합계": 136}}, {"region": "충북", "univ": "충북대(청주)", "depts": [{"name": "지능로봇공학과", "tags": ["로봇"]}, {"name": "반도체공학부", "tags": ["반도체·디스플레이"]}, {"name": "정보통신공학부", "tags": ["전기·전자·통신"]}, {"name": "소프트웨어학부", "tags": ["인공지능·SW"]}, {"name": "전기공학부", "tags": ["전기·전자·통신"]}, {"name": "바이오헬스학부", "tags": ["바이오·헬스"]}], "n_depts": 6, "admission": {"교과": 104, "종합": 118, "논술": 0, "실기": 0, "정시가": 0, "정시나": 54, "정시다": 0, "수시": 222, "정시": 54, "합계": 276}}, {"region": "대구", "univ": "경북대(대구)", "depts": [{"name": "전자공학부", "tags": ["전기·전자·통신"]}, {"name": "에너지공학부(신재생에너지공학전공/에너지변화전공)", "tags": ["에너지·배터리"]}, {"name": "우주공학부", "tags": ["모빌리티·자동차"]}, {"name": "스마트생물산업기계공학과", "tags": ["바이오·헬스", "기계·제조"]}, {"name": "스마트모빌리티공학과", "tags": ["모빌리티·자동차"]}, {"name": "혁신신약학과", "tags": ["바이오·헬스"]}, {"name": "금속재료공학과", "tags": ["신소재·나노"]}, {"name": "신소재공학과", "tags": ["신소재·나노"]}, {"name": "기계공학부", "tags": ["기계·제조"]}, {"name": "전자공학부(인공지능전공)", "tags": ["인공지능·SW", "전기·전자·통신"]}, {"name": "로봇공학과", "tags": ["로봇"]}, {"name": "컴퓨터학부(인공지능컴퓨팅전공)", "tags": ["인공지능·SW"]}, {"name": "의생명융합공학과", "tags": ["바이오·헬스"]}, {"name": "농업토목공학과", "tags": ["스마트시티·건설", "스마트팜·농산업"]}], "n_depts": 14, "admission": {"교과": 158, "종합": 131, "논술": 118, "실기": 0, "정시가": 90, "정시나": 62, "정시다": 0, "수시": 407, "정시": 152, "합계": 559}}, {"region": "경북", "univ": "국립경국대(안동)", "depts": [{"name": "스마트모빌리티공학과", "tags": ["모빌리티·자동차"]}], "n_depts": 1, "admission": {"교과": 32, "종합": 8, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 40, "정시": 0, "합계": 40}}, {"region": "경북", "univ": "국립금오공과대(구미)", "depts": [{"name": "컴퓨터공학부(인공지능공학전공)", "tags": ["인공지능·SW"]}, {"name": "기계공학부(스마트모빌리티전공)", "tags": ["모빌리티·자동차", "기계·제조"]}], "n_depts": 2, "admission": {"교과": 38, "종합": 26, "논술": 0, "실기": 0, "정시가": 5, "정시나": 10, "정시다": 0, "수시": 64, "정시": 15, "합계": 79}}, {"region": "경북", "univ": "대구한의대(경산)", "depts": [{"name": "재활치료학부", "tags": ["바이오·헬스"]}], "n_depts": 1, "admission": {"교과": 32, "종합": 7, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 39, "정시": 0, "합계": 39}}, {"region": "경북", "univ": "영남대(경산)", "depts": [{"name": "차세대반도체학과", "tags": ["반도체·디스플레이"]}], "n_depts": 1, "admission": {"교과": 10, "종합": 8, "논술": 0, "실기": 0, "정시가": 0, "정시나": 5, "정시다": 0, "수시": 18, "정시": 5, "합계": 23}}, {"region": "부산", "univ": "국립부경대(부산)", "depts": [{"name": "나노융합반도체공학부", "tags": ["반도체·디스플레이", "신소재·나노"]}, {"name": "디지털금융학과", "tags": ["금융·경영"]}, {"name": "스마트모빌리티공학과", "tags": ["모빌리티·자동차"]}], "n_depts": 3, "admission": {"교과": 68, "종합": 22, "논술": 0, "실기": 0, "정시가": 0, "정시나": 19, "정시다": 11, "수시": 90, "정시": 30, "합계": 120}}, {"region": "부산", "univ": "동서대(부산)", "depts": [{"name": "소프트웨어학과", "tags": ["인공지능·SW"]}, {"name": "디지털금융학과", "tags": ["금융·경영"]}], "n_depts": 2, "admission": {"교과": 13, "종합": 3, "논술": 0, "실기": 0, "정시가": 0, "정시나": 1, "정시다": 0, "수시": 16, "정시": 1, "합계": 17}}, {"region": "부산", "univ": "동아대(부산)", "depts": [{"name": "AI학과", "tags": ["인공지능·SW"]}], "n_depts": 1, "admission": {"교과": 28, "종합": 29, "논술": 0, "실기": 0, "정시가": 0, "정시나": 10, "정시다": 0, "수시": 57, "정시": 10, "합계": 67}}, {"region": "부산", "univ": "동의대(부산)", "depts": [{"name": "인공지능학과", "tags": ["인공지능·SW"]}], "n_depts": 1, "admission": null}, {"region": "부산", "univ": "부산대(부산)", "depts": [{"name": "전기전자공학부(반도체공학전공)", "tags": ["반도체·디스플레이", "전기·전자·통신"]}, {"name": "고분자공학과", "tags": ["신소재·나노"]}, {"name": "유기소재시스템공학과", "tags": ["신소재·나노"]}, {"name": "재료공학부", "tags": ["신소재·나노"]}, {"name": "전기전자공학부(전자공학전공)", "tags": ["전기·전자·통신"]}, {"name": "산업공학과", "tags": ["금융·경영"]}, {"name": "나노에너지공학과", "tags": ["에너지·배터리", "신소재·나노"]}, {"name": "나노메카트로닉스공학과", "tags": ["신소재·나노", "기계·제조"]}, {"name": "광메카트로닉스공학과", "tags": ["기계·제조"]}, {"name": "의생명융합공학부", "tags": ["바이오·헬스"]}, {"name": "정보컴퓨터공학부(컴퓨터공학전공)", "tags": ["인공지능·SW"]}, {"name": "정보컴퓨터공학부(인공지능전공)", "tags": ["인공지능·SW"]}], "n_depts": 12, "admission": {"교과": 130, "종합": 154, "논술": 64, "실기": 0, "정시가": 96, "정시나": 119, "정시다": 0, "수시": 348, "정시": 215, "합계": 563}}, {"region": "울산", "univ": "울산대(울산)", "depts": [{"name": "ICT융합학부(AI융합)", "tags": ["인공지능·SW", "전기·전자·통신"]}, {"name": "신소재·반도체융합학부(나노반도체공학)", "tags": ["반도체·디스플레이", "신소재·나노"]}], "n_depts": 2, "admission": {"교과": 30, "종합": 24, "논술": 0, "실기": 0, "정시가": 4, "정시나": 0, "정시다": 0, "수시": 54, "정시": 4, "합계": 58}}, {"region": "경남", "univ": "경상국립대(진주)", "depts": [{"name": "항공우주공학부", "tags": ["모빌리티·자동차"]}, {"name": "AI정보공학과", "tags": ["인공지능·SW"]}, {"name": "나노·신소재공학부(고분자공학전공)", "tags": ["신소재·나노"]}, {"name": "나노·신소재공학부(금속재료공학전공)", "tags": ["신소재·나노"]}, {"name": "나노·신소재공학부(세라믹공학전공)", "tags": ["신소재·나노"]}, {"name": "스마트유통물류학과", "tags": ["금융·경영"]}, {"name": "항노화신소재과학과", "tags": ["바이오·헬스", "신소재·나노"]}, {"name": "반도체공학과", "tags": ["반도체·디스플레이"]}, {"name": "제어로봇공학과", "tags": ["로봇"]}, {"name": "전자공학부", "tags": ["전기·전자·통신"]}, {"name": "화학공학과", "tags": ["신소재·나노"]}, {"name": "식품자원경제학과", "tags": ["바이오·헬스"]}, {"name": "스마트농산업학과", "tags": ["스마트팜·농산업"]}, {"name": "스마트에너지기계공학과", "tags": ["에너지·배터리", "기계·제조"]}], "n_depts": 14, "admission": {"교과": 320, "종합": 145, "논술": 0, "실기": 0, "정시가": 0, "정시나": 55, "정시다": 98, "수시": 465, "정시": 153, "합계": 618}}, {"region": "경남", "univ": "국립창원대(창원)", "depts": [{"name": "기계공학부(스마트제조융합전공)", "tags": ["기계·제조"]}, {"name": "지능로봇융합공학과", "tags": ["로봇"]}], "n_depts": 2, "admission": {"교과": 47, "종합": 12, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 15, "수시": 59, "정시": 15, "합계": 74}}, {"region": "경남", "univ": "창신대(창원)", "depts": [{"name": "디지털도시건설학과", "tags": ["스마트시티·건설"]}], "n_depts": 1, "admission": {"교과": 14, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 14, "정시": 0, "합계": 14}}, {"region": "광주", "univ": "광주여대(광주)", "depts": [{"name": "AI미디어콘텐츠학과", "tags": ["인공지능·SW", "콘텐츠·디자인"]}], "n_depts": 1, "admission": {"교과": 25, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 25, "정시": 0, "합계": 25}}, {"region": "광주", "univ": "전남대(광주)", "depts": [{"name": "빅데이터융합학과", "tags": ["데이터·통계"]}, {"name": "융합바이오시스템기계공학과", "tags": ["바이오·헬스", "기계·제조"]}, {"name": "미래모빌리티융합학과", "tags": ["모빌리티·자동차"]}, {"name": "전자컴퓨터공학부", "tags": ["인공지능·SW", "전기·전자·통신"]}, {"name": "인공지능학부", "tags": ["인공지능·SW"]}, {"name": "기계공학부", "tags": ["기계·제조"]}], "n_depts": 6, "admission": {"교과": 180, "종합": 153, "논술": 0, "실기": 0, "정시가": 107, "정시나": 18, "정시다": 0, "수시": 333, "정시": 125, "합계": 458}}, {"region": "광주", "univ": "조선대(광주)", "depts": [{"name": "첨단에너지공학과", "tags": ["에너지·배터리"]}, {"name": "AI소프트웨어학부(인공지능공학과)", "tags": ["인공지능·SW"]}], "n_depts": 2, "admission": {"교과": 42, "종합": 25, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 67, "정시": 0, "합계": 67}}, {"region": "전남", "univ": "국립목포해양대(목포)", "depts": [{"name": "첨단해양모빌리티학과", "tags": ["모빌리티·자동차"]}], "n_depts": 1, "admission": {"교과": 24, "종합": 0, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 24, "정시": 0, "합계": 24}}, {"region": "전남", "univ": "국립순천대(순천)", "depts": [{"name": "첨단신소재공학전공", "tags": ["신소재·나노"]}, {"name": "융합바이오시스템기계공학과", "tags": ["바이오·헬스", "기계·제조"]}, {"name": "인공지능공학전공", "tags": ["인공지능·SW"]}], "n_depts": 3, "admission": {"교과": 118, "종합": 69, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 187, "정시": 0, "합계": 187}}, {"region": "전남", "univ": "전남대(여수)", "depts": [{"name": "석유화학소재공학과", "tags": ["신소재·나노"]}, {"name": "스마트수산자원관리학과", "tags": ["바이오·헬스"]}, {"name": "의공학부", "tags": ["바이오·헬스"]}], "n_depts": 3, "admission": {"교과": 72, "종합": 27, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 5, "수시": 99, "정시": 5, "합계": 104}}, {"region": "전북", "univ": "국립군산대(군산)", "depts": [{"name": "이차전지·에너지학부", "tags": ["에너지·배터리"]}, {"name": "스마트오션모빌리티공학과", "tags": ["모빌리티·자동차"]}, {"name": "바이오헬스학과", "tags": ["바이오·헬스"]}, {"name": "스마트시티학과", "tags": ["스마트시티·건설"]}], "n_depts": 4, "admission": {"교과": 92, "종합": 27, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 119, "정시": 0, "합계": 119}}, {"region": "전북", "univ": "전북대(전주)", "depts": [{"name": "이차전지공학과", "tags": ["에너지·배터리"]}, {"name": "첨단방위산업학과", "tags": ["보안·국방"]}, {"name": "신소재공학부(정보소재공학전공)", "tags": ["신소재·나노"]}, {"name": "양자시스템공학과", "tags": ["보안·국방"]}, {"name": "전자공학부", "tags": ["전기·전자·통신"]}, {"name": "컴퓨터인공지능학부", "tags": ["인공지능·SW"]}, {"name": "항공우주공학과", "tags": ["모빌리티·자동차"]}, {"name": "물리학과", "tags": ["수리·기초과학"]}, {"name": "반도체과학기술학과", "tags": ["반도체·디스플레이"]}, {"name": "통계학과", "tags": ["데이터·통계"]}], "n_depts": 10, "admission": {"교과": 15, "종합": 4, "논술": 0, "실기": 0, "정시가": 7, "정시나": 0, "정시다": 0, "수시": 19, "정시": 7, "합계": 26}}, {"region": "전북", "univ": "전주대(전주)", "depts": [{"name": "IT금융학과", "tags": ["금융·경영"]}, {"name": "인공지능학과", "tags": ["인공지능·SW"]}], "n_depts": 2, "admission": {"교과": 19, "종합": 10, "논술": 0, "실기": 0, "정시가": 0, "정시나": 0, "정시다": 0, "수시": 29, "정시": 0, "합계": 29}}, {"region": "제주", "univ": "제주대(제주)", "depts": [{"name": "바이오메디컬정보학과", "tags": ["바이오·헬스"]}, {"name": "데이터사이언스학과", "tags": ["데이터·통계"]}, {"name": "소프트웨어학부인공지능전공", "tags": ["인공지능·SW"]}], "n_depts": 3, "admission": {"교과": 23, "종합": 20, "논술": 0, "실기": 0, "정시가": 0, "정시나": 28, "정시다": 0, "수시": 43, "정시": 28, "합계": 71}}], "field_order": ["인공지능·SW", "바이오·헬스", "데이터·통계", "반도체·디스플레이", "신소재·나노", "모빌리티·자동차", "전기·전자·통신", "에너지·배터리", "콘텐츠·디자인", "보안·국방", "금융·경영", "기계·제조", "스마트시티·건설", "스마트팜·농산업", "로봇", "수리·기초과학", "기타·융합"], "stats": {"gicheop_total": 790, "gicheop_univ": 13, "gicheop_dept": 18, "jogi_total": 920, "jogi_unit": 25, "jogi_univ": 7, "gunmu_total": 265, "gunmu_univ": 5, "cheomdan_total": 15401, "cheomdan_univ": 95}};
+// ─────────────────────────── helpers ───────────────────────────
+const $ = s => document.querySelector(s);
+const h = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nf = n => (n||0).toLocaleString('ko-KR');
+const FIELD_COLOR = {
+  '반도체·디스플레이':'#7F77DD','인공지능·SW':'#2F7FD1','데이터·통계':'#1D9E75',
+  '모빌리티·자동차':'#D85A30','바이오·헬스':'#D4537E','에너지·배터리':'#BA7517',
+  '신소재·나노':'#5C8C1E','로봇':'#534AB7','보안·국방':'#5F5E5A','스마트시티·건설':'#8A6D2F',
+  '스마트팜·농산업':'#3B6D11','전기·전자·통신':'#185FA5','기계·제조':'#A6431F',
+  '콘텐츠·디자인':'#A33A5C','금융·경영':'#0F6E56','수리·기초과학':'#3C3489','기타·융합':'#8A8C9C'};
+const fc = f => FIELD_COLOR[f]||'#8A8C9C';
+const SEG = [['교과','--su-gyo'],['종합','--su-jong'],['논술','--su-non'],['실기','--su-sil'],
+  ['정시가','--su-ga'],['정시나','--su-na'],['정시다','--su-da'],['군외','--su-gun']];
+
+function barHTML(obj,total){
+  if(!total) return '';
+  let s='<div class="bar">';
+  for(const [k,v] of SEG){ const val=obj[k]||0; if(val>0) s+=`<span style="width:${val/total*100}%;background:var(${v})" title="${k} ${val}명"></span>`; }
+  return s+'</div>';
+}
+function legendHTML(obj){
+  return '<div class="legend">'+SEG.filter(([k])=>obj[k]>0).map(([k,v])=>
+    `<i><span class="sw" style="background:var(${v})"></span>${k} ${obj[k]}</i>`).join('')+'</div>';
+}
+
+// ─────────────────────────── header ───────────────────────────
+const st = DATA.stats;
+$('#hdsub').textContent = `계약학과·첨단학과를 한눈에 비교·탐색`;
+$('#hdbadge').textContent = `${DATA.meta.basis} · 변동 가능`;
+$('#stats').innerHTML = [
+  ['기업체취업형 계약학과', st.gicheop_total, `${st.gicheop_univ}개 대학 · ${st.gicheop_dept}개 학과`],
+  ['조기취업형 계약학과', st.jogi_total, `${st.jogi_univ}개 대학 · ${st.jogi_unit}개 모집단위`],
+  ['군의무복무형 계약학과', st.gunmu_total, `${st.gunmu_univ}개 대학 (장교 임관)`],
+  ['첨단학과 모집인원', st.cheomdan_total, `${st.cheomdan_univ}개 대학`],
+].map(([l,v,s])=>`<div class="stat"><div class="accent-edge"></div><div class="lab">${l}</div>
+  <div class="val">${nf(v)}<small>명</small></div><div class="sub">${s}</div></div>`).join('');
+
+$('#footer').innerHTML = `<div><b>제작</b> 충청남도교육청진로융합교육원 교육연구사 정재연</div>
+  <div style="margin-top:6px"><b>출처</b> 2027학년도 대입정보 119, 대학발표 시행계획</div>`;
+
+// ─────────────────────────── tabs ───────────────────────────
+const TABS = [['overview','한눈에','ti-layout-grid'],['gicheop','기업체취업형','ti-building-factory-2'],
+  ['jogi','조기취업형','ti-briefcase'],['cheomdan','첨단학과 탐색','ti-cpu'],['qna','Q&A · 상담','ti-help-circle']];
+$('#tabrow').innerHTML = TABS.map(([id,label])=>`<button class="tab" data-go="${id}">${label}</button>`).join('');
+function go(tab){
+  if(!TABS.some(t=>t[0]===tab)) tab='overview';
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.go===tab));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.dataset.tab===tab));
+  if(location.hash.slice(1)!==tab) history.replaceState(null,'',`#${tab}`);
+  window.scrollTo({top:0,behavior:'instant'});
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]'); if(b){go(b.dataset.go);}});
+
+// ─────────────────────────── OVERVIEW ───────────────────────────
+function renderOverview(){
+  const T=DATA.types;
+  const tree=`
+   <div class="tree">
+     <div class="tnode root">계약학과<span>국가·지자체·산업체와 대학의 계약으로 운영하는 정원 외 학위과정</span></div>
+     <div class="tbranch">
+       <div class="tcol">
+         <div class="tnode">재교육형<span>현재 산업체 재직자 대상 · 업무역량 향상</span></div>
+       </div>
+       <div class="tcol">
+         <div class="tnode hi">채용조건형<span>고교 졸업(예정)자 대상 · 졸업 후 취업 보장</span></div>
+         <div class="tkids">
+           ${T.map(t=>`<div class="tkid" style="--c:${t.key==='gicheop'?'#6C5CE7':t.key==='jogi'?'#1D9E75':'#BA7517'}">
+             <b>${h(t.name)}</b><span>${h(t.scale)}</span></div>`).join('')}
+         </div>
+       </div>
+     </div>
+   </div>`;
+
+  const cards=T.map(t=>`
+   <div class="card tcard" id="type-${t.key}">
+     <div class="tc-head">
+       <div><h3>${h(t.name)}</h3><div class="tc-scale">${h(t.scale)}</div></div>
+       <span class="pill">${h(t.tag)}</span>
+     </div>
+     <p class="tc-sum">${h(t.summary)}</p>
+     <dl class="tc-dl">
+       <dt>운영 방식</dt><dd>${h(t.operate)}</dd>
+       <dt>학비 · 지원</dt><dd>${h(t.cost)}</dd>
+       <dt>선발</dt><dd>${h(t.select)}</dd>
+       <dt class="cau">유의할 점</dt><dd class="cau">${h(t.caution)}</dd>
+     </dl>
+     ${t.universities?`<div class="tc-univs">${t.universities.map(u=>`<span class="pill">${h(u)}</span>`).join('')}</div>`:''}
+   </div>`).join('');
+
+  $('#p-overview').innerHTML = `
+    <p class="lead">${h(DATA.gyeyak_intro)}</p>
+    <h2 class="sec-title">계약학과의 분류</h2>
+    <p class="sec-desc">계약학과는 크게 재교육형과 채용조건형으로 나뉘며, 고등학생이 지원하는 채용조건형은 다시 세 가지로 구분됩니다.</p>
+    ${tree}
+    <h2 class="sec-title">채용조건형 세 가지 유형 비교</h2>
+    <p class="sec-desc">대상은 모두 고교 졸업(예정)자이지만 운영 방식·학비·취업 연계 구조가 다릅니다.</p>
+    <div class="grid cols-3 tcards">${cards}</div>
+    <div class="disc"><b>※ 안내</b> 모든 모집인원·전형은 ${h(DATA.meta.basis)}이며, ${h(DATA.meta.caution)}</div>`;
+}
+
+// ─────────────────────────── GICHEOP (기업체취업형) ───────────────────────────
+const G = DATA.gicheop;
+const companyCounts = (()=>{const m={}; G.forEach(c=>m[c.company]=(m[c.company]||0)+1); return m;})();
+let gFilter={company:'전체',q:'',table:false};
+function renderGicheopControls(){
+  const comps=Object.entries(companyCounts).sort((a,b)=>b[1]-a[1]);
+  const chips=[`<button class="chip ${gFilter.company==='전체'?'on':''}" data-co="전체">전체 <span class="ct">${G.length}</span></button>`]
+    .concat(comps.map(([c,n])=>`<button class="chip ${gFilter.company===c?'on':''}" data-co="${h(c)}">${h(c)} <span class="ct">${n}</span></button>`)).join('');
+  return `<div class="filterbar">
+      <div class="search"><i class="ti ti-search"></i><input id="gq" placeholder="대학·학과·기업 검색" value="${h(gFilter.q)}"></div>
+      <button class="toolbtn ${gFilter.table?'on':''}" id="gtable">${gFilter.table?'카드 보기':'전체 표 보기'}</button>
+    </div>
+    <div class="chiprow" style="margin-bottom:16px">${chips}</div>`;
+}
+function gicheopCards(list){
+  if(!list.length) return '<div class="empty">조건에 맞는 학과가 없습니다.</div>';
+  return '<div class="grid cols-auto">'+list.map((c,i)=>{
+    const det=c.detail||[];
+    const rows=det.map(d=>`<tr><td>${h(d.phase)}</td><td class="jn">${h(d.jeonhyeong)}${d.suneung_min?` <span class="minflag" title="수능최저: ${h(d.suneung_min)}"><i class="ti ti-alert-triangle"></i></span>`:''}</td>
+        <td class="num">${d.quota}</td><td class="mth">${h(d.method)}</td><td class="min">${d.suneung_min?h(d.suneung_min):'<span class="dash">–</span>'}</td></tr>`).join('');
+    return `<div class="card gcard">
+      <div class="g-head">
+        <div><h3>${h(c.univ)} <span class="gd">${h(c.dept)}</span></h3>
+          <div class="g-meta">${h(c.region)} · 총 <b>${c.total}</b>명</div></div>
+        <span class="tag tag-co">${h(c.company)}</span>
+      </div>
+      ${barHTML(c.breakdown,c.total)}
+      ${legendHTML(c.breakdown)}
+      ${det.length&&c.detail_total!==c.total?`<div class="g-note"><i class="ti ti-info-circle"></i> 원문상 요약표 합계(${c.total}명)와 전형별 상세 합계(${c.detail_total}명)가 다릅니다. 모집요강에서 확인하세요.</div>`:''}
+      ${det.length?`<details class="g-det"><summary>전형별 상세 ${det.length}개 <i class="ti ti-chevron-down"></i></summary>
+        <table class="dt"><thead><tr><th>시기</th><th>전형</th><th>인원</th><th>방법</th><th>수능최저</th></tr></thead><tbody>${rows}</tbody></table>
+        </details>`:'<div class="expand-hint">상세 전형 정보 없음</div>'}
+    </div>`;
+  }).join('')+'</div>';
+}
+function gicheopTable(list){
+  const rows=[];
+  list.forEach(c=>{(c.detail.length?c.detail:[{phase:'',jeonhyeong:'',quota:c.total,method:'',suneung_min:''}]).forEach((d,i)=>{
+    rows.push(`<tr><td>${i?'':h(c.region)}</td><td>${i?'':h(c.univ)}</td><td>${i?'':h(c.dept)}</td><td>${i?'':`<span class="tag tag-co">${h(c.company)}</span>`}</td>
+      <td>${h(d.phase)}</td><td>${h(d.jeonhyeong)}</td><td class="num">${d.quota||''}</td><td class="mth">${h(d.method)}</td><td class="min">${h(d.suneung_min)||'<span class="dash">–</span>'}</td></tr>`);
+  });});
+  return `<div class="tblscroll"><table class="fulltbl"><thead><tr><th>지역</th><th>대학</th><th>학과</th><th>기업</th><th>시기</th><th>전형</th><th>인원</th><th>전형방법</th><th>수능최저학력기준</th></tr></thead><tbody>${rows.join('')}</tbody></table></div>`;
+}
+function renderGicheop(){
+  let list=G.filter(c=>gFilter.company==='전체'||c.company===gFilter.company);
+  if(gFilter.q){const q=gFilter.q.toLowerCase(); list=list.filter(c=>(c.univ+c.dept+c.company).toLowerCase().includes(q));}
+  $('#p-gicheop').innerHTML = `
+    <p class="lead">대기업과 대학이 협약하여 기업이 필요로 하는 인재를 선발하고, <b>기업 장학금</b>과 <b>졸업 후 취업 연계</b>를 제공하는 유형입니다. 반도체 분야를 중심으로 삼성전자·SK하이닉스 등이 참여하며, 수시모집·면접 비중이 높습니다.</p>
+    ${renderGicheopControls()}
+    <div class="count" style="margin:0 0 12px">${list.length}개 학과 · ${nf(list.reduce((s,c)=>s+c.total,0))}명</div>
+    ${gFilter.table?gicheopTable(list):gicheopCards(list)}
+    <div class="disc"><b>※</b> 일부 대학은 2027학년도 인원 미확정으로 2026학년도 모집요강을 기초로 안내된 값입니다. 수능최저·전형방법은 모집요강에서 확인하세요.</div>`;
+}
+
+// ─────────────────────────── JOGI (조기취업형) ───────────────────────────
+function renderJogi(){
+  const flow=`<div class="flow">
+    ${[['1학년','대학 전일제 수업','전공기초·현장실무 기본교육 · 등록금 국비(희망사다리) 전액'],
+       ['2~3학년','협약기업 재직 + 야간·주말 수업','재직자 신분 학점 인정 · 기업/지자체가 학비 50%+ 부담 · 임금 수령'],
+       ['졸업','3년 내 4년제 학사 취득','대졸자 신분 임금 재계약']].map((s,i)=>`
+       <div class="fstep"><div class="fnum">${i+1}</div><div><b>${s[0]}</b><div class="fdesc">${s[1]}</div><div class="fsub">${s[2]}</div></div></div>
+       ${i<2?'<div class="farrow"><i class="ti ti-arrow-right"></i></div>':''}`).join('')}
+    </div>
+    <div class="warnbox"><i class="ti ti-alert-triangle"></i> 졸업 시까지 고용계약을 유지해야 하며, 본인 사유로 퇴직하면 <b>대학에서 제적</b> 처리됩니다. 4년 과정을 3년에 이수하므로 방학 중에도 학기가 진행됩니다.</div>`;
+
+  const cards=DATA.jogi.map(s=>{
+    const firms=DATA.jogi_firms[s.univ]||[];
+    const units=s.units.map(u=>`<span class="upill" style="--c:${fc(u.tags[0])}"><i></i>${h(u.dept)} <b>${u.quota}</b></span>`).join('');
+    const firmBlock=firms.length?`<details class="firms"><summary>참여기업 예시 (${firms.length}개 학과) <i class="ti ti-chevron-down"></i></summary>
+      ${firms.map(f=>`<div class="firm"><div class="fdept">${h(f.dept)} <span class="pill">${f.n}곳</span></div><div class="flist">${h(f.companies)}</div></div>`).join('')}</details>`:'';
+    return `<div class="card jcard">
+      <div class="j-head"><h3>${h(s.univ)}</h3><span class="pill">${h(s.phase)}</span></div>
+      <div class="j-total">${s.units.length}개 모집단위 · 총 <b>${s.total}</b>명</div>
+      <div class="upills">${units}</div>
+      <div class="j-method"><i class="ti ti-clipboard-list"></i> ${h(s.method)}</div>
+      ${firmBlock}
+    </div>`;
+  }).join('');
+
+  $('#p-jogi').innerHTML = `
+    <p class="lead">3년 교육과정으로 4년제 학사학위를 취득하고, 2학년부터 협약 기업에 재직하며 학점을 인정받는 <b>일·학습 병행</b> 유형입니다. 대부분 수시 학생부종합으로 선발하고, 정시에서는 수시 미충원 인원만 선발합니다.</p>
+    <h2 class="sec-title">어떻게 운영되나요</h2>
+    ${flow}
+    <h2 class="sec-title">대학별 모집 현황</h2>
+    <p class="sec-desc">학과 옆 숫자는 모집인원입니다. 참여기업은 2026학년도 모집요강 기준 예시이며 매년 달라질 수 있습니다.</p>
+    <div class="grid cols-2">${cards}</div>
+    <div class="disc"><b><i class="ti ti-external-link"></i> 참여기업 확인</b> 대학별 참여기업은 계약학과 선도대학 종합포털 <a href="${h(DATA.earlyuniv)}" target="_blank" rel="noopener">${h(DATA.earlyuniv)}</a>에서 확인할 수 있습니다.</div>`;
+}
+
+// ─────────────────────────── CHEOMDAN (첨단학과 탐색) ───────────────────────────
+const C = DATA.cheomdan;
+const REGION_ORDER=['서울','경기','인천','강원','대전','세종','충남','충북','대구','경북','부산','울산','경남','광주','전남','전북','제주'];
+const regions=[...new Set(C.map(c=>c.region))].sort((a,b)=>REGION_ORDER.indexOf(a)-REGION_ORDER.indexOf(b));
+let cFilter={field:'전체',region:'전체',q:'',sort:'name'};
+function deptMatches(dep){return cFilter.field==='전체'||dep.tags.includes(cFilter.field);}
+function cardPass(c){
+  if(cFilter.region!=='전체'&&c.region!==cFilter.region) return false;
+  if(cFilter.field!=='전체'&&!c.depts.some(deptMatches)) return false;
+  if(cFilter.q){const q=cFilter.q.toLowerCase(); if(!(c.univ.toLowerCase().includes(q)||c.depts.some(d=>d.name.toLowerCase().includes(q)))) return false;}
+  return true;
+}
+function renderCheomdanControls(){
+  const fields=['전체',...DATA.field_order];
+  const fc1=fields.map(f=>{const n=f==='전체'?C.reduce((s,c)=>s+c.n_depts,0):C.reduce((s,c)=>s+c.depts.filter(d=>d.tags.includes(f)).length,0);
+    const col=f==='전체'?'':fc(f);
+    return `<button class="chip fchip ${cFilter.field===f?'on':''}" data-field="${h(f)}" ${col?`style="--fcol:${col}"`:''}>${col?`<span class="fdot" style="background:${col}"></span>`:''}${h(f)} <span class="ct">${n}</span></button>`;}).join('');
+  const rg=['전체',...regions].map(r=>`<button class="chip ${cFilter.region===r?'on':''}" data-region="${h(r)}">${h(r)}</button>`).join('');
+  return `<div class="filterbar">
+      <div class="search"><i class="ti ti-search"></i><input id="cq" placeholder="대학·학과 검색" value="${h(cFilter.q)}"></div>
+      <button class="toolbtn ${cFilter.sort==='name'?'on':''}" data-sort="name">가나다순</button>
+      <button class="toolbtn ${cFilter.sort==='quota'?'on':''}" data-sort="quota">모집인원순</button>
+    </div>
+    <div class="fldlabel">분야</div><div class="chiprow" style="margin-bottom:12px">${fc1}</div>
+    <div class="fldlabel">지역</div><div class="chiprow" style="margin-bottom:16px">${rg}</div>`;
+}
+function cheomdanCards(list){
+  if(!list.length) return '<div class="empty">조건에 맞는 대학이 없습니다.</div>';
+  return '<div class="grid cols-2">'+list.map(c=>{
+    const depts=[...c.depts].sort((a,b)=>{const am=deptMatches(a),bm=deptMatches(b); return am===bm?0:am?-1:1;});
+    const pills=depts.map(d=>{const on=cFilter.field!=='전체'&&deptMatches(d);
+      return `<span class="dpill ${on?'hit':''}" style="--c:${fc(d.tags[0])}" title="${h(d.tags.join(', '))}"><i></i>${h(d.name)}</span>`;}).join('');
+    const a=c.admission;
+    const adm=a?`${barHTML(a,a.합계)}<div class="c-admrow"><span>수시 ${a.수시}</span><span>정시 ${a.정시}</span><span class="c-tot">합계 ${nf(a.합계)}명</span></div>`:'<div class="c-noadm">전형유형별 모집인원 미상</div>';
+    return `<div class="card ccard">
+      <div class="c-head"><div><h3>${h(c.univ)}</h3><div class="c-meta">${h(c.region)} · 개설 ${c.n_depts}개 학과</div></div></div>
+      ${c.depts.length?`<div class="dpills">${pills}</div>`:''}
+      <div class="c-adm">${adm}</div>
+    </div>`;
+  }).join('')+'</div>';
+}
+function teukHTML(){
+  const T=DATA.teukseonghwa, s=T.semiconductor;
+  const grp=(title,arr,icon)=>`<div class="teuk-grp"><h4><i class="ti ${icon}"></i> ${title}</h4><div class="teuk-list">${arr.map(x=>`<span class="pill">${h(x)}</span>`).join('')}</div></div>`;
+  return `<h2 class="sec-title">그 외 반도체 · 이차전지 특성화대학</h2>
+    <p class="sec-desc">${h(T.intro)}</p>
+    <div class="card">
+      <div class="teuk-band">반도체 특성화대학</div>
+      ${grp('수도권 단독형',s['수도권 단독형'],'ti-building')}
+      ${grp('수도권 동반성장형',s['수도권 동반성장형'],'ti-arrows-join')}
+      ${grp('비수도권 단독형',s['비수도권 단독형'],'ti-building')}
+      ${grp('비수도권 동반성장형',s['비수도권 동반성장형'],'ti-arrows-join')}
+      <div class="teuk-band bat">이차전지 특성화대학</div>
+      <p class="sec-desc" style="margin:10px 0 8px">${h(T.battery.intro)}</p>
+      <div class="teuk-list">${T.battery.list.map(x=>`<span class="pill">${h(x)}</span>`).join('')}</div>
+    </div>`;
+}
+function renderCheomdan(){
+  let list=C.filter(cardPass);
+  list.sort(cFilter.sort==='quota'
+    ? (a,b)=>((b.admission?.합계)||0)-((a.admission?.합계)||0)
+    : (a,b)=>a.univ.localeCompare(b.univ,'ko'));
+  const totDept=list.reduce((s,c)=>s+(cFilter.field==='전체'?c.n_depts:c.depts.filter(deptMatches).length),0);
+  $('#p-cheomdan').innerHTML = `
+    <p class="lead">${h(DATA.cheomdan_intro)}</p>
+    ${renderCheomdanControls()}
+    <div class="count" style="margin:0 0 12px">${list.length}개 대학 · ${cFilter.field==='전체'?'개설':'해당 분야'} ${totDept}개 학과</div>
+    ${cheomdanCards(list)}
+    <div class="disc" style="margin-top:20px"><b>※ 분야 분류 안내</b> 분야 태그는 학과명을 키워드로 자동 분류한 것으로 참고용입니다. 개설 학과 목록은 2026학년도 모집요강 기준이며, 전형유형별 모집인원은 ${h(DATA.meta.basis)}입니다(기준 시점이 다를 수 있음). ${h(DATA.cheomdan_tip)}</div>
+    ${teukHTML()}`;
+}
+
+// ─────────────────────────── QNA ───────────────────────────
+function renderQna(){
+  const acc=DATA.qna.map((x,i)=>`<details class="qa" ${i===0?'open':''}><summary><span class="qn">Q${i+1}</span> ${h(x.q)} <i class="ti ti-chevron-down"></i></summary><div class="qbody">${h(x.a)}</div></details>`).join('');
+  const chk=DATA.checklist.map(c=>{const[t,...r]=c.split(' — ');return `<li><b>${h(t)}</b>${r.length?' — '+h(r.join(' — ')):''}</li>`;}).join('');
+  $('#p-qna').innerHTML = `
+    <h2 class="sec-title">자주 묻는 질문</h2>
+    <p class="sec-desc">상담에서 자주 나오는 6가지 질문입니다.</p>
+    <div class="qaccordion">${acc}</div>
+    <h2 class="sec-title">지원 전 체크리스트</h2>
+    <p class="sec-desc">계약학과·첨단학과 지원을 검토할 때 함께 확인하면 좋은 항목입니다.</p>
+    <ul class="checklist">${chk}</ul>
+    <h2 class="sec-title">출처 및 기준</h2>
+    <div class="card srcbox">
+      <div class="srow"><span class="slab">자료</span><span>${h(DATA.meta.title)} — ${h(DATA.meta.chapter)}</span></div>
+      <div class="srow"><span class="slab">발행</span><span>${h(DATA.meta.publisher)}</span></div>
+      <div class="srow"><span class="slab">기준</span><span>${h(DATA.meta.basis)}</span></div>
+      <div class="srow"><span class="slab">유의</span><span>${h(DATA.meta.caution)}</span></div>
+      <div class="srow"><span class="slab"></span><span>${h(DATA.meta.note_2026)}</span></div>
+    </div>`;
+}
+
+// ─────────────────────────── events ───────────────────────────
+document.addEventListener('click',e=>{
+  const co=e.target.closest('[data-co]'); if(co){gFilter.company=co.dataset.co; renderGicheop(); return;}
+  if(e.target.closest('#gtable')){gFilter.table=!gFilter.table; renderGicheop(); return;}
+  const fl=e.target.closest('[data-field]'); if(fl){cFilter.field=fl.dataset.field; renderCheomdan(); return;}
+  const rg=e.target.closest('[data-region]'); if(rg){cFilter.region=rg.dataset.region; renderCheomdan(); return;}
+  const so=e.target.closest('[data-sort]'); if(so){cFilter.sort=so.dataset.sort; renderCheomdan(); return;}
+});
+document.addEventListener('input',e=>{
+  if(e.target.id==='gq'){gFilter.q=e.target.value; const v=e.target; renderGicheop(); const n=$('#gq'); if(n){n.focus();n.setSelectionRange(v.value.length,v.value.length);}}
+  if(e.target.id==='cq'){cFilter.q=e.target.value; renderCheomdan(); const n=$('#cq'); if(n){n.focus();n.setSelectionRange(e.target.value.length,e.target.value.length);}}
+});
+
+// ─────────────────────────── init ───────────────────────────
+renderOverview(); renderGicheop(); renderJogi(); renderCheomdan(); renderQna();
+go(location.hash.slice(1)||'overview');
+window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
+</script>
+</body>
+</html>
