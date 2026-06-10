@@ -14,6 +14,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="고등학생을 위한 학생부종합전형 대비 사회교과 심화 탐구활동 가이드. 360개 주제, 21개 분석 기법, 12개 전공 트랙으로 구성된 실천형 웹 가이드.">
 <meta name="theme-color" content="#10203b">
+<link rel="canonical" href="https://jinhak.esteacher.kr/socialtam.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="사회교과 연계 심화 탐구활동 가이드">
+<meta property="og:description" content="360개 사회교과 탐구 주제, 21개 분석 기법, 12개 전공 트랙, 24개 AI 프롬프트, 탐구 설계서 빌더까지 담은 학생부종합전형 대비 실천형 웹 가이드">
+<meta property="og:url" content="https://jinhak.esteacher.kr/socialtam.html">
+<meta property="og:site_name" content="EST 진학정보실">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="사회교과 연계 심화 탐구활동 가이드">
+<meta name="twitter:description" content="360개 사회교과 탐구 주제, 21개 분석 기법, 12개 전공 트랙, 탐구 설계서 빌더까지 담은 실천형 웹 가이드">
 <title>사회교과 연계 심화 탐구활동 가이드</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,6 +156,8 @@ header {
 }
 .icon-btn:hover { background:var(--blue); color:#fff; border-color:var(--blue); transform:translateY(-1px) }
 .icon-btn svg { width:18px; height:18px }
+.nav-toggle { display:none; font-size:1.1rem; line-height:1 }
+.mobile-menu { display:none }
 
 /* Hero */
 .hero {
@@ -674,6 +686,12 @@ td b { color:var(--navy) }
 }
 .close:hover { background:var(--blue); transform:rotate(90deg) }
 .modal-body { padding:26px 32px 32px }
+.modal-foot {
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  padding:14px 32px 20px; border-top:1px solid var(--line);
+}
+.modal-foot button:disabled { opacity:.35; cursor:default; pointer-events:none }
+.modal-pos { font-size:.82rem; color:var(--muted); font-weight:600; letter-spacing:.02em }
 
 .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px }
 .detail-section {
@@ -729,9 +747,32 @@ td b { color:var(--navy) }
   background:var(--line); vertical-align:middle; margin:0 14px;
 }
 
+/* Source quick links */
+.src-links { margin-top:26px }
+.src-links h3 { margin:0 0 4px; font-size:1.05rem; letter-spacing:-.02em; color:var(--navy) }
+.src-links .src-sub { margin:0; font-size:.88rem; color:var(--muted) }
+.src-chip-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-top:14px }
+.src-chip {
+  display:flex; flex-direction:column; gap:3px;
+  padding:12px 14px; border:1px solid var(--line); border-radius:14px;
+  background:var(--paper); box-shadow:var(--shadow-sm);
+  font-weight:700; font-size:.88rem; color:var(--navy);
+  transition:.18s ease;
+}
+.src-chip span { font-size:.72rem; font-weight:600; color:var(--muted) }
+.src-chip:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); box-shadow:var(--shadow) }
+@media (max-width: 980px) { .src-chip-grid { grid-template-columns:repeat(2, 1fr) } }
+@media (max-width: 480px) { .src-chip-grid { grid-template-columns:1fr } }
+
+/* Scroll reveal */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1) }
+.reveal.in { opacity:1; transform:none }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none } }
+
 /* Print styles */
 @media print {
-  header, .float-actions, .filter-panel, .nav-tools, .hero-actions, .progress-bar, #scrollTop, .modal { display:none !important }
+  header, .float-actions, .filter-panel, .nav-tools, .hero-actions, .progress-bar, #scrollTop, .modal, .modal-foot { display:none !important }
+  .reveal { opacity:1 !important; transform:none !important }
   body { background:#fff; color:#000 }
   .card, .topic-card { break-inside:avoid; box-shadow:none; border:1px solid #ccc }
   main { max-width:100%; padding:0 12px }
@@ -757,6 +798,11 @@ td b { color:var(--navy) }
   .nav { padding:12px 16px }
   .brand-text small { display:none }
   .navlinks { display:none }
+  .nav-toggle { display:grid; place-items:center }
+  .mobile-menu { display:none; flex-direction:column; gap:2px; padding:4px 16px 14px; border-top:1px solid var(--line-soft) }
+  .mobile-menu.open { display:flex }
+  .mobile-menu a { padding:12px 14px; border-radius:12px; font-weight:600; font-size:.93rem; color:var(--ink-soft) }
+  .mobile-menu a:hover, .mobile-menu a:focus-visible { background:color-mix(in srgb, var(--blue) 8%, transparent); color:var(--blue) }
   .footer-inner { grid-template-columns:1fr; text-align:left }
   .footer-meta { text-align:left }
 }
@@ -769,6 +815,7 @@ td b { color:var(--navy) }
   .timeline-item { grid-template-columns:1fr }
   .modal-head { padding:22px; border-radius:24px 24px 0 0 }
   .modal-body { padding:20px }
+  .modal-foot { padding:12px 20px 18px }
   .modal-title { font-size:1.35rem }
   .modal { padding:12px }
   .float-actions { right:14px; bottom:14px }
@@ -810,6 +857,7 @@ td b { color:var(--navy) }
       <a href="#builder">설계서 빌더</a>
     </div>
     <div class="nav-tools">
+      <button class="icon-btn nav-toggle" id="navToggle" type="button" title="메뉴" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">☰</button>
       <button class="icon-btn" id="themeToggle" title="다크/라이트 모드 전환" aria-label="테마 전환">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
           <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
@@ -822,6 +870,16 @@ td b { color:var(--navy) }
       </button>
     </div>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#roadmap">로드맵</a>
+    <a href="#courses">교과 연결</a>
+    <a href="#sources">자료 원천</a>
+    <a href="#methods">탐구 기법</a>
+    <a href="#library">주제 라이브러리</a>
+    <a href="#prompts">AI 프롬프트</a>
+    <a href="#diagnose">자기 진단</a>
+    <a href="#builder">설계서 빌더</a>
+  </div>
 </header>
 
 <section id="top" class="hero" aria-label="대문">
@@ -959,6 +1017,40 @@ td b { color:var(--navy) }
           <tr><td><b>직접 수집 자료</b></td><td>설문, 인터뷰, 현장 관찰, 사진 기록, 동선 기록, 체크리스트</td><td>인식 조사, 생활세계 관찰, 지역문제 진단, 당사자 관점 분석</td><td>익명성, 자발 참여, 표본 편향, 질문 문항의 중립성 확인</td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="src-links">
+      <h3>🔗 자료 출처 바로가기 28선</h3>
+      <p class="src-sub">클릭하면 새 창에서 열립니다. 자료를 사용할 때는 수집 일자, 지표 정의, 출처를 함께 기록하세요.</p>
+      <div class="src-chip-grid">
+        <a class="src-chip" href="https://kosis.kr" target="_blank" rel="noopener">KOSIS 국가통계포털<span>공공통계 · 인구·고용·복지</span></a>
+        <a class="src-chip" href="https://www.index.go.kr" target="_blank" rel="noopener">지표누리(e-나라지표)<span>공공통계 · 국가 주요 지표</span></a>
+        <a class="src-chip" href="https://ecos.bok.or.kr" target="_blank" rel="noopener">한국은행 ECOS<span>경제통계 · 금리·물가·환율</span></a>
+        <a class="src-chip" href="https://mdis.kostat.go.kr" target="_blank" rel="noopener">통계청 MDIS<span>마이크로데이터 · 심화 분석</span></a>
+        <a class="src-chip" href="https://sgis.kostat.go.kr" target="_blank" rel="noopener">SGIS 통계지리정보<span>공간분석 · 지역 통계 지도</span></a>
+        <a class="src-chip" href="https://www.vworld.kr" target="_blank" rel="noopener">V-WORLD<span>공간정보 · 지도·항공영상</span></a>
+        <a class="src-chip" href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털<span>개방 데이터 · 전 분야</span></a>
+        <a class="src-chip" href="https://stat.molit.go.kr" target="_blank" rel="noopener">국토교통 통계누리<span>교통·주택·도시 통계</span></a>
+        <a class="src-chip" href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터<span>법령분석 · 법률·시행령</span></a>
+        <a class="src-chip" href="https://glaw.scourt.go.kr" target="_blank" rel="noopener">대법원 종합법률정보<span>판례분석 · 판결문 검색</span></a>
+        <a class="src-chip" href="https://www.ccourt.go.kr" target="_blank" rel="noopener">헌법재판소<span>판례분석 · 헌재 결정례</span></a>
+        <a class="src-chip" href="https://likms.assembly.go.kr/bill" target="_blank" rel="noopener">의안정보시스템<span>정책분석 · 법안·심사 경과</span></a>
+        <a class="src-chip" href="https://www.elis.go.kr" target="_blank" rel="noopener">자치법규정보시스템<span>법령분석 · 조례·규칙</span></a>
+        <a class="src-chip" href="https://www.easylaw.go.kr" target="_blank" rel="noopener">찾기쉬운 생활법령<span>법령분석 · 생활 속 법률</span></a>
+        <a class="src-chip" href="https://www.archives.go.kr" target="_blank" rel="noopener">국가기록원<span>사료비판 · 공공 기록물</span></a>
+        <a class="src-chip" href="https://db.history.go.kr" target="_blank" rel="noopener">한국사데이터베이스<span>사료비판 · 한국사 사료</span></a>
+        <a class="src-chip" href="https://www.emuseum.go.kr" target="_blank" rel="noopener">e뮤지엄<span>역사·문화 · 박물관 소장품</span></a>
+        <a class="src-chip" href="https://www.heritage.go.kr" target="_blank" rel="noopener">국가유산포털<span>역사·문화 · 문화유산 정보</span></a>
+        <a class="src-chip" href="https://www.bigkinds.or.kr" target="_blank" rel="noopener">빅카인즈<span>내용분석 · 뉴스 빅데이터</span></a>
+        <a class="src-chip" href="https://likms.assembly.go.kr/record" target="_blank" rel="noopener">국회회의록<span>담론분석 · 회의록 전문</span></a>
+        <a class="src-chip" href="https://info.nec.go.kr" target="_blank" rel="noopener">선거통계시스템<span>정치분석 · 중앙선관위</span></a>
+        <a class="src-chip" href="https://data.oecd.org" target="_blank" rel="noopener">OECD Data<span>국제비교 · 회원국 지표</span></a>
+        <a class="src-chip" href="https://data.un.org" target="_blank" rel="noopener">UN Data<span>국제비교 · 세계 통계</span></a>
+        <a class="src-chip" href="https://data.worldbank.org" target="_blank" rel="noopener">World Bank Open Data<span>국제비교 · 개발·경제 지표</span></a>
+        <a class="src-chip" href="https://ourworldindata.org" target="_blank" rel="noopener">Our World in Data<span>국제비교 · 시각화 자료</span></a>
+        <a class="src-chip" href="https://www.riss.kr" target="_blank" rel="noopener">RISS 학술연구정보<span>문헌분석 · 논문·학술지</span></a>
+        <a class="src-chip" href="https://www.nkis.re.kr" target="_blank" rel="noopener">국가정책연구포털 NKIS<span>문헌분석 · 정책 보고서</span></a>
+        <a class="src-chip" href="https://www.kdi.re.kr" target="_blank" rel="noopener">KDI 한국개발연구원<span>경제·정책 연구 자료</span></a>
+      </div>
     </div>
   </section>
 
@@ -1292,6 +1384,11 @@ td b { color:var(--navy) }
       <button class="close" id="closeModal" aria-label="닫기">×</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot">
+      <button class="btn small outline" id="prevTopicBtn" type="button">← 이전 주제</button>
+      <span class="modal-pos" id="modalPos" aria-live="polite"></span>
+      <button class="btn small outline" id="nextTopicBtn" type="button">다음 주제 →</button>
+    </div>
   </div>
 </div>
 
@@ -9559,12 +9656,38 @@ $('#loadMoreBtn').addEventListener('click', () => {
 
 renderTopics(true);
 
+/* #topic=id 해시 딥링크 → 해당 주제 모달 자동 열기 */
+if (location.hash.indexOf('#topic=') === 0) {
+  const deepId = Number(location.hash.slice(7));
+  if (TOPICS.some(t => t.id === deepId)) setTimeout(() => openTopic(deepId), 80);
+}
+
 /* --- 모달 --- */
 let lastFocused = null;
-function openTopic(id) {
+let modalList = [];
+let modalIndex = -1;
+
+function updateModalNav() {
+  $('#prevTopicBtn').disabled = modalIndex <= 0;
+  $('#nextTopicBtn').disabled = modalIndex < 0 || modalIndex >= modalList.length - 1;
+  $('#modalPos').textContent = modalIndex >= 0 ? `${modalIndex + 1} / ${modalList.length}` : '';
+}
+
+function stepTopic(dir) {
+  const next = modalIndex + dir;
+  if (next < 0 || next >= modalList.length) return;
+  openTopic(modalList[next].id, modalList);
+  $('#topicModal').scrollTop = 0;
+}
+
+function openTopic(id, list) {
   const t = TOPICS.find(x => x.id === id);
   if (!t) return;
-  lastFocused = document.activeElement;
+  modalList = list || filterTopics();
+  modalIndex = modalList.findIndex(x => x.id === id);
+  if (modalIndex < 0) { modalList = TOPICS; modalIndex = TOPICS.findIndex(x => x.id === id); }
+  updateModalNav();
+  if (!$('#topicModal').classList.contains('open')) lastFocused = document.activeElement;
   $('#modalBadges').innerHTML = `<span class="badge">${escapeHtml(t.field)}</span><span class="badge teal">${escapeHtml(t.course)}</span><span class="badge gold">${gradeLabel(t.grade)}</span><span class="badge">${escapeHtml(t.method)}</span>`;
   $('#modalTitle').textContent = t.title;
   const steps = METHOD_STEPS[t.method] || [];
@@ -9630,8 +9753,10 @@ function openTopic(id) {
     <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
       <button class="btn dark" type="button" onclick="prefillBuilder(${t.id})">이 주제로 설계서 작성</button>
       <button class="btn outline" type="button" onclick="copyTopic(${t.id})">📋 주제 정보 복사</button>
+      <button class="btn outline" type="button" onclick="copyTopicLink(${t.id})">🔗 공유 링크 복사</button>
       <button class="btn outline" type="button" onclick="toggleFavoriteInModal(${t.id})" id="modalFavBtn">${isFav ? '⭐ 즐겨찾기 해제' : '☆ 즐겨찾기 추가'}</button>
     </div>`;
+  history.replaceState(null, '', '#topic=' + t.id);
   $('#topicModal').classList.add('open');
   document.body.classList.add('modal-open');
   setTimeout(() => $('#closeModal').focus(), 50);
@@ -9646,13 +9771,24 @@ window.toggleFavoriteInModal = function(id) {
 function closeModal() {
   $('#topicModal').classList.remove('open');
   document.body.classList.remove('modal-open');
+  if (location.hash.indexOf('#topic=') === 0) history.replaceState(null, '', location.pathname + location.search);
   if (lastFocused) lastFocused.focus();
 }
 $('#closeModal').addEventListener('click', closeModal);
+$('#prevTopicBtn').addEventListener('click', () => stepTopic(-1));
+$('#nextTopicBtn').addEventListener('click', () => stepTopic(1));
 $('#topicModal').addEventListener('click', (e) => { if (e.target.id === 'topicModal') closeModal(); });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && $('#topicModal').classList.contains('open')) closeModal();
+  if (!$('#topicModal').classList.contains('open')) return;
+  if (e.key === 'Escape') closeModal();
+  else if (e.key === 'ArrowLeft') stepTopic(-1);
+  else if (e.key === 'ArrowRight') stepTopic(1);
 });
+
+window.copyTopicLink = function(id) {
+  const url = location.origin + location.pathname + '#topic=' + id;
+  navigator.clipboard.writeText(url).then(() => toast('이 주제의 공유 링크를 복사했습니다'));
+};
 
 /* --- 빌더 prefill, 복사 --- */
 window.prefillBuilder = function(id) {
@@ -9931,6 +10067,38 @@ $('#scrollTop').addEventListener('click', () => window.scrollTo({ top: 0, behavi
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(id => { const s = document.getElementById(id); if (s) obs.observe(s); });
+})();
+
+/* --- 스크롤 등장 애니메이션 --- */
+(function revealObserver() {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const els = $$('main > section');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+  els.forEach(el => { el.classList.add('reveal'); obs.observe(el); });
+})();
+
+/* --- 모바일 메뉴 --- */
+(function mobileMenu() {
+  const toggle = $('#navToggle');
+  const menu = $('#mobileMenu');
+  if (!toggle || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    toggle.textContent = open ? '✕' : '☰';
+  }
+  toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) setOpen(false);
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth > 980) setOpen(false); });
 })();
 
 /* --- 키보드 단축키 --- */
