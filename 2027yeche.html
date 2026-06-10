@@ -25,6 +25,10 @@ header{background:linear-gradient(135deg,#0f4c75,#1b6ca8);color:#fff;position:st
 .hbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
 .brand{font-weight:800;font-size:1.12rem;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
 .brand .yr{background:rgba(255,255,255,.18);border-radius:7px;padding:2px 9px;font-size:.82rem;font-weight:700}
+.hleft{display:flex;align-items:center;gap:12px;min-width:0}
+.homebtn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.16);color:#fff;
+  border-radius:8px;padding:6px 12px;font-size:.86rem;font-weight:700;white-space:nowrap;flex:none;border:1px solid rgba(255,255,255,.25)}
+.homebtn:hover{background:rgba(255,255,255,.32)}
 nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
 nav.tabs button{background:transparent;border:0;color:rgba(255,255,255,.82);font-size:.95rem;font-weight:600;
   padding:8px 14px;border-radius:9px;cursor:pointer;transition:.15s}
@@ -155,7 +159,10 @@ footer .src{margin-top:6px;line-height:1.6}
 <body>
 <header>
   <div class="wrap hbar">
-    <div class="brand"><span class="yr">2027</span> 예체능계열 비실기전형 안내</div>
+    <div class="hleft">
+      <a class="homebtn" href="index.html" title="진학정보실 메인으로">⌂ 메인</a>
+      <div class="brand"><span class="yr">2027</span> 예체능계열 비실기전형 안내</div>
+    </div>
     <nav class="tabs" id="tabs">
       <button data-v="overview" class="on">개관</button>
       <button data-v="explorer">모집단위 탐색기</button>
@@ -241,8 +248,7 @@ function renderOverview(){
    <div class="note"><b>읽는 법 — 요약 인원과 모집단위 합계의 차이</b><br>${esc(D.meta.주의)}</div>
    <div style="margin-top:18px;text-align:center">
      <button class="cta" onclick="go('explorer')">비실기 모집단위 ${fmt(D.records.length)}개 · ${expUni}개교 탐색하기 →</button>
-   </div>
-   <div class="note blue" style="margin-top:18px"><b>출처</b> ${esc(D.meta.출처)}</div>`;
+   </div>`;
 }
 const find=(arr,g)=>arr.find(x=>x.계열===g);
 const seriesTotal=g=>{const o=D.overview;return (find(o.계열_수시,g)?.인원||0)+(find(o.계열_정시,g)?.인원||0);};
@@ -407,7 +413,7 @@ document.getElementById('tabs').onclick=e=>{if(e.target.dataset.v)go(e.target.da
 
 /* ---------- init ---------- */
 document.getElementById('f제작').textContent=D.meta.제작;
-document.getElementById('f출처').innerHTML=esc(D.meta.출처)+' · 갱신 '+esc(D.meta.갱신);
+document.getElementById('f출처').innerHTML='출처 · '+esc(D.meta.출처)+' · 갱신 '+esc(D.meta.갱신);
 renderOverview();renderExplorerShell();
 </script>
 </body>
