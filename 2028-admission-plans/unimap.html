@@ -360,6 +360,26 @@ const REGION_VIEW = {"서울": [37.566, 126.978, 11], "부산": [35.18, 129.07, 
 const REGIONS = ["서울","인천","경기","강원","대전","세종","충북","충남","대구","경북","부산","울산","경남","광주","전남","전북","제주"];
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function colorVar(t){return t==='국립'?'nat':t==='공립'?'pub':'pri';}
+function fileIcon(size){
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>`;
+}
+function docItems(value, label){
+  if(!value)return [];
+  return (Array.isArray(value)?value:[value]).map(item=>{
+    if(typeof item==='string')return {href:item,label};
+    return {href:item.href||item.url||item.u||'',label:item.label||label};
+  }).filter(item=>item.href);
+}
+function popupDocLinks(value, label){
+  return docItems(value,label).map(item=>
+    `<a class="p-pdf" href="${esc(item.href)}" target="_blank" rel="noopener">
+       ${fileIcon(14)}
+       ${esc(item.label)}</a>`).join('');
+}
+function cardDocLinks(value, cls, label){
+  return docItems(value,label).map(item=>
+    `<a class="${cls}" href="${esc(item.href)}" target="_blank" rel="noopener">${fileIcon(13)}${esc(item.label)}</a>`).join('');
+}
 
 /* ========== MAP VIEW ========== */
 const KOREA_BOUNDS = L.latLngBounds([32.9,124.4],[38.8,131.3]);
@@ -378,20 +398,11 @@ function popHTML(d){
   const cv=colorVar(d.type);
   const pdfs=d.campuses.filter(c=>c.u).map(c=>
     `<a class="p-pdf" href="${esc(c.u)}" target="_blank" rel="noopener">
-       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+       ${fileIcon(14)}
        ${esc(c.c)} 시행계획 PDF</a>`).join('');
-  const admission=d.admission?
-    `<a class="p-pdf" href="${esc(d.admission)}" target="_blank" rel="noopener">
-       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-       2027 수시모집요강</a>`:'';
-  const report=d.report?
-    `<a class="p-pdf" href="${esc(d.report)}" target="_blank" rel="noopener">
-       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-       선행학습 영향평가 보고서</a>`:'';
-  const jonghap=d.jonghap?
-    `<a class="p-pdf" href="${esc(d.jonghap)}" target="_blank" rel="noopener">
-       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-       학생부종합전형 가이드북</a>`:'';
+  const admission=popupDocLinks(d.admission,'2027 수시모집요강');
+  const report=popupDocLinks(d.report,'선행학습 영향평가 보고서');
+  const jonghap=popupDocLinks(d.jonghap,'학생부종합전형 가이드북');
   return `<div class="pop-in">
     <div class="pop-hd">${emblemEl(d,'lg')}<div class="p-hd-txt"><div class="p-nm">${esc(d.name)}</div>
       <div class="p-meta"><span class="p-badge" style="background:var(--${cv}-soft);color:var(--${cv})">${d.type}</span><span class="p-reg">${esc(d.region)}</span></div></div></div>
@@ -470,14 +481,11 @@ function cardHTML(d){
   const cv=colorVar(d.type);
   const multiC=d.campuses.filter(c=>c.u).length>1;
   const pdfs=d.campuses.filter(c=>c.u).map(c=>
-    `<a class="ua-pdf" href="${esc(c.u)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>${multiC?esc(c.c)+' ':''}2028 시행계획</a>`).join('');
+    `<a class="ua-pdf" href="${esc(c.u)}" target="_blank" rel="noopener">${fileIcon(13)}${multiC?esc(c.c)+' ':''}2028 시행계획</a>`).join('');
   const soon=d.campuses.some(c=>!c.u)?`<span class="ua-soon">시행계획 준비중</span>`:'';
-  const admission=d.admission?
-    `<a class="ua-guide" href="${esc(d.admission)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>수시모집요강</a>`:'';
-  const report=d.report?
-    `<a class="ua-report" href="${esc(d.report)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>선행학습 보고서</a>`:'';
-  const jonghap=d.jonghap?
-    `<a class="ua-jonghap" href="${esc(d.jonghap)}" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>학종 가이드북</a>`:'';
+  const admission=cardDocLinks(d.admission,'ua-guide','수시모집요강');
+  const report=cardDocLinks(d.report,'ua-report','선행학습 보고서');
+  const jonghap=cardDocLinks(d.jonghap,'ua-jonghap','학종 가이드북');
   return `<div class="ucard ${d.added?'added':''}">
     <div class="ucard-head">${emblemEl(d,'md')}<div class="ucard-head-txt">
       <div class="ucard-top"><span class="badge ${d.type}">${d.type}</span><span class="ucard-reg">${esc(d.region)} · ${d.campuses.map(c=>esc(c.c)).join(', ')}</span></div>

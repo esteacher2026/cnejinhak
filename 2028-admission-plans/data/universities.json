@@ -101,7 +101,8 @@
         "u": "files/2028-admission-plan-007.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-005.pdf"
+    "admission": "files/2027-admission-guide-005.pdf",
+    "report": "files/2026-prior-learning-004.pdf"
   },
   {
     "name": "감리교신학대학교",
@@ -214,7 +215,8 @@
         "u": "files/2028-admission-plan-015.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-011.pdf"
+    "admission": "files/2027-admission-guide-011.pdf",
+    "report": "files/2026-prior-learning-147.pdf"
   },
   {
     "name": "건양대학교",
@@ -281,7 +283,8 @@
         "u": "files/2028-admission-plan-020.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-013.pdf"
+    "admission": "files/2027-admission-guide-013.pdf",
+    "report": "files/2026-prior-learning-010.pdf"
   },
   {
     "name": "경남대학교",
@@ -335,7 +338,8 @@
         "u": "files/2028-admission-plan-024.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-015.pdf"
+    "admission": "files/2027-admission-guide-015.pdf",
+    "report": "files/2026-prior-learning-012.pdf"
   },
   {
     "name": "경북대학교",
@@ -454,7 +458,8 @@
       }
     ],
     "admission": "files/2027-admission-guide-022.pdf",
-    "jonghap": "files/2027-jonghap-guide-002.pdf"
+    "jonghap": "files/2027-jonghap-guide-002.pdf",
+    "report": "files/2026-prior-learning-151.pdf"
   },
   {
     "name": "계명대학교",
@@ -503,7 +508,8 @@
         "u": "files/2028-admission-plan-033.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-025.pdf"
+    "admission": "files/2027-admission-guide-025.pdf",
+    "report": "files/2026-prior-learning-152.pdf"
   },
   {
     "name": "고신대학교",
@@ -550,7 +556,8 @@
         "c": "본교",
         "u": "files/2028-admission-plan-037.pdf"
       }
-    ]
+    ],
+    "admission": "files/2027-admission-guide-191.hwp"
   },
   {
     "name": "광운대학교",
@@ -599,7 +606,8 @@
         "u": "files/2028-admission-plan-040.pdf"
       }
     ],
-    "report": "files/2026-prior-learning-022.pdf"
+    "report": "files/2026-prior-learning-022.pdf",
+    "admission": "files/2027-admission-guide-192.hwp"
   },
   {
     "name": "광주대학교",
@@ -789,8 +797,34 @@
         "u": "files/2028-admission-plan-053.pdf"
       }
     ],
-    "report": "files/2026-prior-learning-030.pdf",
-    "admission": "files/2027-admission-guide-038.pdf"
+    "report": [
+      {
+        "label": "창원캠퍼스 선행학습 보고서",
+        "href": "files/2026-prior-learning-030.pdf"
+      },
+      {
+        "label": "남해캠퍼스 선행학습 보고서",
+        "href": "files/2026-prior-learning-153.pdf"
+      }
+    ],
+    "admission": [
+      {
+        "label": "창원캠퍼스 수시모집요강",
+        "href": "files/2027-admission-guide-038.pdf"
+      },
+      {
+        "label": "거창캠퍼스 수시모집요강",
+        "href": "files/2027-admission-guide-193.pdf"
+      },
+      {
+        "label": "남해캠퍼스 수시모집요강",
+        "href": "files/2027-admission-guide-194.pdf"
+      },
+      {
+        "label": "남해 전형기간 자율화",
+        "href": "files/2027-admission-guide-195.pdf"
+      }
+    ]
   },
   {
     "name": "국립한국교통대학교",
@@ -941,7 +975,8 @@
         "u": "files/2028-admission-plan-062.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-046.pdf"
+    "admission": "files/2027-admission-guide-046.pdf",
+    "report": "files/2026-prior-learning-154.pdf"
   },
   {
     "name": "남서울대학교",
@@ -1073,7 +1108,8 @@
         "u": "files/2028-admission-plan-070.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-053.pdf"
+    "admission": "files/2027-admission-guide-053.pdf",
+    "report": "files/2026-prior-learning-155.hwp"
   },
   {
     "name": "대신대학교",
@@ -1154,7 +1190,8 @@
         "u": "files/2028-admission-plan-075.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-056.pdf"
+    "admission": "files/2027-admission-guide-056.pdf",
+    "report": "files/2026-prior-learning-156.hwp"
   },
   {
     "name": "덕성여자대학교",
@@ -1358,7 +1395,8 @@
         "u": "files/2028-admission-plan-087.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-067.pdf"
+    "admission": "files/2027-admission-guide-067.pdf",
+    "report": "files/2026-prior-learning-055.pdf"
   },
   {
     "name": "목원대학교",
@@ -1557,7 +1595,8 @@
         "u": "files/2028-admission-plan-099.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-078.pdf"
+    "admission": "files/2027-admission-guide-078.pdf",
+    "report": "files/2026-prior-learning-063.pdf"
   },
   {
     "name": "상지대학교",
@@ -1590,7 +1629,8 @@
         "u": "files/2028-admission-plan-101.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-080.pdf"
+    "admission": "files/2027-admission-guide-080.pdf",
+    "report": "files/2026-prior-learning-157.pdf"
   },
   {
     "name": "서경대학교",
@@ -1657,7 +1697,8 @@
         "u": "files/2028-admission-plan-105.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-084.pdf"
+    "admission": "files/2027-admission-guide-084.pdf",
+    "report": "files/2026-prior-learning-158.pdf"
   },
   {
     "name": "서울대학교",
@@ -1726,7 +1767,8 @@
         "u": "files/2028-admission-plan-109.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-088.pdf"
+    "admission": "files/2027-admission-guide-088.pdf",
+    "report": "files/2026-prior-learning-145.pdf"
   },
   {
     "name": "서울장신대학교",
@@ -1793,7 +1835,8 @@
         "u": "files/2028-admission-plan-113.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-092.pdf"
+    "admission": "files/2027-admission-guide-092.pdf",
+    "report": "files/2026-prior-learning-146.hwp"
   },
   {
     "name": "성결대학교",
@@ -1860,7 +1903,17 @@
         "u": "files/2028-admission-plan-117.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-096.pdf"
+    "admission": "files/2027-admission-guide-096.pdf",
+    "jonghap": [
+      {
+        "label": "학생부위주전형 가이드북",
+        "href": "files/2027-jonghap-guide-014.pdf"
+      },
+      {
+        "label": "농어촌 입학정보 안내서",
+        "href": "files/2027-jonghap-guide-015.pdf"
+      }
+    ]
   },
   {
     "name": "세명대학교",
@@ -2448,7 +2501,8 @@
         "u": "files/2028-admission-plan-154.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-125.pdf"
+    "admission": "files/2027-admission-guide-125.pdf",
+    "report": "files/2026-prior-learning-096.pdf"
   },
   {
     "name": "이화여자대학교",
@@ -2536,7 +2590,8 @@
       }
     ],
     "report": "files/2026-prior-learning-099.pdf",
-    "admission": "files/2027-admission-guide-130.pdf"
+    "admission": "files/2027-admission-guide-130.pdf",
+    "jonghap": "files/2027-jonghap-guide-016.pdf"
   },
   {
     "name": "장로회신학대학교",
@@ -2637,7 +2692,9 @@
         "u": "files/2028-admission-plan-166.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-135.pdf"
+    "admission": "files/2027-admission-guide-135.pdf",
+    "jonghap": "files/2027-jonghap-guide-017.pdf",
+    "report": "files/2026-prior-learning-148.pdf"
   },
   {
     "name": "제주국제대학교",
@@ -2684,7 +2741,8 @@
         "u": "files/2028-admission-plan-169.pdf"
       }
     ],
-    "report": "files/2026-prior-learning-104.pdf"
+    "report": "files/2026-prior-learning-104.pdf",
+    "admission": "files/2027-admission-guide-189.pdf"
   },
   {
     "name": "중부대학교",
@@ -2994,7 +3052,8 @@
         "u": "files/2028-admission-plan-188.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-150.pdf"
+    "admission": "files/2027-admission-guide-150.pdf",
+    "report": "files/2026-prior-learning-149.pdf"
   },
   {
     "name": "한경국립대학교",
@@ -3044,7 +3103,8 @@
         "u": "files/2028-admission-plan-191.pdf"
       }
     ],
-    "admission": "files/2027-admission-guide-153.pdf"
+    "admission": "files/2027-admission-guide-153.pdf",
+    "report": "files/2026-prior-learning-150.hwp"
   },
   {
     "name": "한국기술교육대학교",
@@ -3428,7 +3488,16 @@
     ],
     "report": "files/2026-prior-learning-131.pdf",
     "admission": "files/2027-admission-guide-174.pdf",
-    "jonghap": "files/2027-jonghap-guide-013.pdf"
+    "jonghap": [
+      {
+        "label": "학생부종합 가이드북",
+        "href": "files/2027-jonghap-guide-013.pdf"
+      },
+      {
+        "label": "미술계열 가이드북",
+        "href": "files/2027-jonghap-guide-018.pdf"
+      }
+    ]
   },
   {
     "name": "홍익대학교",
@@ -3445,7 +3514,17 @@
       }
     ],
     "admission": "files/2027-admission-guide-174.pdf",
-    "jonghap": "files/2027-jonghap-guide-013.pdf"
+    "jonghap": [
+      {
+        "label": "학생부종합 가이드북",
+        "href": "files/2027-jonghap-guide-013.pdf"
+      },
+      {
+        "label": "미술계열 가이드북",
+        "href": "files/2027-jonghap-guide-018.pdf"
+      }
+    ],
+    "report": "files/2026-prior-learning-131.pdf"
   },
   {
     "name": "한국과학기술원(KAIST)",
@@ -3544,7 +3623,8 @@
         "c": "본교"
       }
     ],
-    "report": "files/2026-prior-learning-137.pdf"
+    "report": "files/2026-prior-learning-137.pdf",
+    "admission": "files/2027-admission-guide-190.pdf"
   },
   {
     "name": "한국에너지공과대학교",
