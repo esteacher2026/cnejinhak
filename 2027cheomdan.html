@@ -274,7 +274,6 @@ table.dt .dash{color:var(--hint)}
   <section class="panel" data-tab="gicheop"  id="p-gicheop"></section>
   <section class="panel" data-tab="jogi"     id="p-jogi"></section>
   <section class="panel" data-tab="cheomdan" id="p-cheomdan"></section>
-  <section class="panel" data-tab="qna"      id="p-qna"></section>
 </div></main>
 
 <footer class="ft"><div class="wrap" id="footer"></div></footer>
@@ -323,7 +322,7 @@ $('#footer').innerHTML = `<div><b>제작</b> 충청남도교육청진로융합�
 
 // ─────────────────────────── tabs ───────────────────────────
 const TABS = [['overview','한눈에','ti-layout-grid'],['gicheop','기업체취업형','ti-building-factory-2'],
-  ['jogi','조기취업형','ti-briefcase'],['cheomdan','첨단학과 탐색','ti-cpu'],['qna','Q&A · 상담','ti-help-circle']];
+  ['jogi','조기취업형','ti-briefcase'],['cheomdan','첨단학과 탐색','ti-cpu']];
 $('#tabrow').innerHTML = TABS.map(([id,label])=>`<button class="tab" data-go="${id}">${label}</button>`).join('');
 function go(tab){
   if(!TABS.some(t=>t[0]===tab)) tab='overview';
@@ -542,27 +541,6 @@ function renderCheomdan(){
     ${teukHTML()}`;
 }
 
-// ─────────────────────────── QNA ───────────────────────────
-function renderQna(){
-  const acc=DATA.qna.map((x,i)=>`<details class="qa" ${i===0?'open':''}><summary><span class="qn">Q${i+1}</span> ${h(x.q)} <i class="ti ti-chevron-down"></i></summary><div class="qbody">${h(x.a)}</div></details>`).join('');
-  const chk=DATA.checklist.map(c=>{const[t,...r]=c.split(' — ');return `<li><b>${h(t)}</b>${r.length?' — '+h(r.join(' — ')):''}</li>`;}).join('');
-  $('#p-qna').innerHTML = `
-    <h2 class="sec-title">자주 묻는 질문</h2>
-    <p class="sec-desc">상담에서 자주 나오는 6가지 질문입니다.</p>
-    <div class="qaccordion">${acc}</div>
-    <h2 class="sec-title">지원 전 체크리스트</h2>
-    <p class="sec-desc">계약학과·첨단학과 지원을 검토할 때 함께 확인하면 좋은 항목입니다.</p>
-    <ul class="checklist">${chk}</ul>
-    <h2 class="sec-title">출처 및 기준</h2>
-    <div class="card srcbox">
-      <div class="srow"><span class="slab">자료</span><span>${h(DATA.meta.title)} — ${h(DATA.meta.chapter)}</span></div>
-      <div class="srow"><span class="slab">발행</span><span>${h(DATA.meta.publisher)}</span></div>
-      <div class="srow"><span class="slab">기준</span><span>${h(DATA.meta.basis)}</span></div>
-      <div class="srow"><span class="slab">유의</span><span>${h(DATA.meta.caution)}</span></div>
-      <div class="srow"><span class="slab"></span><span>${h(DATA.meta.note_2026)}</span></div>
-    </div>`;
-}
-
 // ─────────────────────────── events ───────────────────────────
 document.addEventListener('click',e=>{
   const co=e.target.closest('[data-co]'); if(co){gFilter.company=co.dataset.co; renderGicheop(); return;}
@@ -577,7 +555,7 @@ document.addEventListener('input',e=>{
 });
 
 // ─────────────────────────── init ───────────────────────────
-renderOverview(); renderGicheop(); renderJogi(); renderCheomdan(); renderQna();
+renderOverview(); renderGicheop(); renderJogi(); renderCheomdan();
 go(location.hash.slice(1)||'overview');
 window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
 </script>
