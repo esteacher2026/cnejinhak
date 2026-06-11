@@ -1,0 +1,542 @@
+{
+  "target": "2027-admission-guide PDFs over 2MB",
+  "threshold": 190,
+  "results": [
+    {
+      "file": "2027-admission-guide-002.pdf",
+      "status": "compressed",
+      "pages": 104,
+      "old_bytes": 4089341,
+      "new_bytes": 1726588,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-007.pdf",
+      "status": "compressed",
+      "pages": 72,
+      "old_bytes": 2907937,
+      "new_bytes": 1440691,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-010.pdf",
+      "status": "compressed",
+      "pages": 88,
+      "old_bytes": 15052701,
+      "new_bytes": 1511391,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-011.pdf",
+      "status": "compressed",
+      "pages": 64,
+      "old_bytes": 2825482,
+      "new_bytes": 1152371,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-012.pdf",
+      "status": "compressed",
+      "pages": 80,
+      "old_bytes": 6742745,
+      "new_bytes": 1513888,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-013.pdf",
+      "status": "compressed",
+      "pages": 90,
+      "old_bytes": 3120691,
+      "new_bytes": 1727414,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-014.pdf",
+      "status": "compressed",
+      "pages": 72,
+      "old_bytes": 5473864,
+      "new_bytes": 1242026,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-015.pdf",
+      "status": "compressed",
+      "pages": 48,
+      "old_bytes": 6831721,
+      "new_bytes": 869326,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-016.pdf",
+      "status": "compressed",
+      "pages": 114,
+      "old_bytes": 2159731,
+      "new_bytes": 2057057,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-021.pdf",
+      "status": "compressed",
+      "pages": 41,
+      "old_bytes": 26596552,
+      "new_bytes": 892516,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-022.pdf",
+      "status": "compressed",
+      "pages": 136,
+      "old_bytes": 20869695,
+      "new_bytes": 2704160,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-023.pdf",
+      "status": "compressed",
+      "pages": 61,
+      "old_bytes": 12898380,
+      "new_bytes": 1362139,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-027.pdf",
+      "status": "compressed",
+      "pages": 64,
+      "old_bytes": 3309699,
+      "new_bytes": 1115237,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-031.pdf",
+      "status": "compressed",
+      "pages": 98,
+      "old_bytes": 2375706,
+      "new_bytes": 2014568,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-032.pdf",
+      "status": "compressed",
+      "pages": 36,
+      "old_bytes": 5632377,
+      "new_bytes": 726130,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-034.pdf",
+      "status": "compressed",
+      "pages": 84,
+      "old_bytes": 63633704,
+      "new_bytes": 1727675,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-037.pdf",
+      "status": "compressed",
+      "pages": 81,
+      "old_bytes": 3941623,
+      "new_bytes": 1531111,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-038.pdf",
+      "status": "compressed",
+      "pages": 115,
+      "old_bytes": 5932246,
+      "new_bytes": 2259428,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-043.pdf",
+      "status": "compressed",
+      "pages": 24,
+      "old_bytes": 26419851,
+      "new_bytes": 451621,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-048.pdf",
+      "status": "compressed",
+      "pages": 96,
+      "old_bytes": 8572550,
+      "new_bytes": 1436925,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-050.pdf",
+      "status": "compressed",
+      "pages": 36,
+      "old_bytes": 6188013,
+      "new_bytes": 578268,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-051.pdf",
+      "status": "compressed",
+      "pages": 50,
+      "old_bytes": 6269765,
+      "new_bytes": 1046144,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-058.pdf",
+      "status": "compressed",
+      "pages": 130,
+      "old_bytes": 2641158,
+      "new_bytes": 2362645,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-059.pdf",
+      "status": "compressed",
+      "pages": 63,
+      "old_bytes": 2483906,
+      "new_bytes": 1110978,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-060.pdf",
+      "status": "compressed",
+      "pages": 32,
+      "old_bytes": 5041755,
+      "new_bytes": 705896,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-061.pdf",
+      "status": "compressed",
+      "pages": 30,
+      "old_bytes": 3084449,
+      "new_bytes": 556351,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-063.pdf",
+      "status": "compressed",
+      "pages": 119,
+      "old_bytes": 2463690,
+      "new_bytes": 2047623,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-069.pdf",
+      "status": "compressed",
+      "pages": 40,
+      "old_bytes": 10215676,
+      "new_bytes": 703838,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-072.pdf",
+      "status": "compressed",
+      "pages": 35,
+      "old_bytes": 11791918,
+      "new_bytes": 655781,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-074.pdf",
+      "status": "compressed",
+      "pages": 51,
+      "old_bytes": 8859288,
+      "new_bytes": 968495,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-076.pdf",
+      "status": "compressed",
+      "pages": 76,
+      "old_bytes": 8636812,
+      "new_bytes": 1322388,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-086.pdf",
+      "status": "compressed",
+      "pages": 55,
+      "old_bytes": 2772178,
+      "new_bytes": 1197423,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-088.pdf",
+      "status": "compressed",
+      "pages": 100,
+      "old_bytes": 22133509,
+      "new_bytes": 1942330,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-089.pdf",
+      "status": "compressed",
+      "pages": 14,
+      "old_bytes": 10902643,
+      "new_bytes": 243258,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-091.pdf",
+      "status": "compressed",
+      "pages": 8,
+      "old_bytes": 3080220,
+      "new_bytes": 160680,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-093.pdf",
+      "status": "compressed",
+      "pages": 30,
+      "old_bytes": 7091743,
+      "new_bytes": 1018092,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-095.pdf",
+      "status": "compressed",
+      "pages": 77,
+      "old_bytes": 9022138,
+      "new_bytes": 1187266,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-097.pdf",
+      "status": "compressed",
+      "pages": 46,
+      "old_bytes": 3090904,
+      "new_bytes": 1048767,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-101.pdf",
+      "status": "compressed",
+      "pages": 88,
+      "old_bytes": 3952732,
+      "new_bytes": 1021535,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-104.pdf",
+      "status": "compressed",
+      "pages": 91,
+      "old_bytes": 2998196,
+      "new_bytes": 1507458,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-119.pdf",
+      "status": "compressed",
+      "pages": 67,
+      "old_bytes": 2175832,
+      "new_bytes": 1190090,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-130.pdf",
+      "status": "compressed",
+      "pages": 70,
+      "old_bytes": 2465666,
+      "new_bytes": 1314064,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-133.pdf",
+      "status": "compressed",
+      "pages": 138,
+      "old_bytes": 4898605,
+      "new_bytes": 2707962,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-135.pdf",
+      "status": "compressed",
+      "pages": 70,
+      "old_bytes": 7796733,
+      "new_bytes": 1149721,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-138.pdf",
+      "status": "compressed",
+      "pages": 123,
+      "old_bytes": 12554034,
+      "new_bytes": 2070079,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-145.pdf",
+      "status": "compressed",
+      "pages": 45,
+      "old_bytes": 9452040,
+      "new_bytes": 784150,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-147.pdf",
+      "status": "compressed",
+      "pages": 40,
+      "old_bytes": 8780971,
+      "new_bytes": 616119,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-150.pdf",
+      "status": "compressed",
+      "pages": 62,
+      "old_bytes": 20794262,
+      "new_bytes": 631280,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-151.pdf",
+      "status": "compressed",
+      "pages": 71,
+      "old_bytes": 2745495,
+      "new_bytes": 1223633,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-153.pdf",
+      "status": "compressed",
+      "pages": 80,
+      "old_bytes": 2712995,
+      "new_bytes": 1358906,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-154.pdf",
+      "status": "compressed",
+      "pages": 43,
+      "old_bytes": 3559809,
+      "new_bytes": 733391,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-156.pdf",
+      "status": "compressed",
+      "pages": 51,
+      "old_bytes": 2201312,
+      "new_bytes": 1102931,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-160.pdf",
+      "status": "compressed",
+      "pages": 73,
+      "old_bytes": 2610112,
+      "new_bytes": 1378983,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-163.pdf",
+      "status": "compressed",
+      "pages": 120,
+      "old_bytes": 28085068,
+      "new_bytes": 1944133,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-165.pdf",
+      "status": "compressed",
+      "pages": 58,
+      "old_bytes": 2131526,
+      "new_bytes": 1125984,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-167.pdf",
+      "status": "compressed",
+      "pages": 52,
+      "old_bytes": 20404186,
+      "new_bytes": 1091697,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-169.pdf",
+      "status": "compressed",
+      "pages": 116,
+      "old_bytes": 25883835,
+      "new_bytes": 2072775,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-174.pdf",
+      "status": "compressed",
+      "pages": 142,
+      "old_bytes": 5463590,
+      "new_bytes": 1951718,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-175.pdf",
+      "status": "compressed",
+      "pages": 36,
+      "old_bytes": 76764706,
+      "new_bytes": 1584793,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-176.pdf",
+      "status": "compressed",
+      "pages": 60,
+      "old_bytes": 12346855,
+      "new_bytes": 907556,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-177.pdf",
+      "status": "compressed",
+      "pages": 37,
+      "old_bytes": 100597115,
+      "new_bytes": 1316181,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-178.pdf",
+      "status": "compressed",
+      "pages": 72,
+      "old_bytes": 39465899,
+      "new_bytes": 1464460,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-180.pdf",
+      "status": "compressed",
+      "pages": 89,
+      "old_bytes": 62243192,
+      "new_bytes": 1525019,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-181.pdf",
+      "status": "compressed",
+      "pages": 48,
+      "old_bytes": 8145949,
+      "new_bytes": 505117,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-183.pdf",
+      "status": "compressed",
+      "pages": 72,
+      "old_bytes": 98702069,
+      "new_bytes": 1495182,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-184.pdf",
+      "status": "compressed",
+      "pages": 44,
+      "old_bytes": 30562894,
+      "new_bytes": 848227,
+      "dpi": 120
+    },
+    {
+      "file": "2027-admission-guide-185.pdf",
+      "status": "compressed",
+      "pages": 35,
+      "old_bytes": 2378099,
+      "new_bytes": 691366,
+      "dpi": 120
+    }
+  ]
+}
