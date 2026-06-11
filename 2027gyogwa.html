@@ -76,6 +76,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
     body {
       margin: 0;
       font-family: var(--sans);
@@ -153,11 +154,6 @@
       color: var(--ink-600);
       font-size: 15px;
       line-height: 1.65;
-    }
-    .deck .drop {
-      float: left; font-family: var(--serif); font-weight: 900;
-      font-size: 38px; line-height: 0.9; padding: 6px 8px 0 0;
-      color: var(--ink-900);
     }
     .masthead-side { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; min-width: 280px; }
     .credit-card {
@@ -321,7 +317,7 @@
       gap: 12px;
     }
     .filter-grid.row-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 12px;
     }
     .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
@@ -558,6 +554,7 @@
       grid-template-columns: 22px 1.6fr 1fr 0.9fr 0.9fr auto;
       gap: 12px; align-items: center;
       padding: 12px 14px;
+      cursor: pointer;
     }
     .adm-row .save-star {
       width: 22px; height: 22px;
@@ -912,7 +909,7 @@
     }
     @media print {
       body { background: #fff; }
-      .toolbar, .filters, .actions, .side, .adm-actions, .save-star, .ico-btn { display: none !important; }
+      .toolbar, .filters, .actions, .side, .adm-actions, .save-star, .ico-btn, .floating-actions { display: none !important; }
       .masthead { padding-top: 10px; }
       .panel, .filters { box-shadow: none; border-radius: 0; }
       .group-list { max-height: none; overflow: visible; }
@@ -996,6 +993,24 @@
     [data-theme="dark"] table.data tr:hover td { background: var(--ink-100); }
     [data-theme="dark"] .modal { background: var(--paper-2); }
     [data-theme="dark"] .modal-backdrop { background: rgba(0,0,0,0.7); }
+    /* 다크모드 보정: 라이트 색이 하드코딩된 요소들 */
+    [data-theme="dark"] .uni-monogram,
+    [data-theme="dark"] table.data .uni-cell .mono { background: var(--ink-200); color: var(--ink-900); }
+    [data-theme="dark"] .uni-header.is-open .uni-monogram { background: var(--brand); color: var(--paper); }
+    [data-theme="dark"] .chip.active { background: var(--brand); border-color: var(--brand); color: var(--paper); }
+    [data-theme="dark"] .ico-btn.is-on { background: var(--brand); border-color: var(--brand); color: var(--paper); }
+    [data-theme="dark"] .uni-header.is-open .chev { background: var(--brand); border-color: var(--brand); color: var(--paper); }
+    [data-theme="dark"] .badge.dark { background: var(--ink-200); color: var(--ink-900); }
+    [data-theme="dark"] .adm-detail { background: linear-gradient(180deg, var(--ink-50), var(--paper-2)); }
+    [data-theme="dark"] .footer-note { background: rgba(18, 32, 54, 0.6); }
+    [data-theme="dark"] .badge.brand { border-color: rgba(126, 180, 255, 0.28); }
+    [data-theme="dark"] .badge.gold { border-color: rgba(212, 169, 85, 0.32); }
+    [data-theme="dark"] .badge.emerald { border-color: rgba(94, 234, 212, 0.25); }
+    [data-theme="dark"] .badge.rust { border-color: rgba(251, 146, 60, 0.3); }
+    [data-theme="dark"] .badge.crimson { border-color: rgba(248, 113, 113, 0.3); }
+    [data-theme="dark"] .csat-tag.has { border-color: rgba(251, 146, 60, 0.3); }
+    [data-theme="dark"] .csat-tag.none { border-color: rgba(94, 234, 212, 0.25); }
+    [data-theme="dark"] .active-filter { border-color: rgba(126, 180, 255, 0.3); }
 
     /* =========================
        THEME TOGGLE BUTTON
@@ -1121,8 +1136,8 @@
           <span class="eyebrow"><span class="rule"></span>The Admissions Compendium</span>
           <h1 class="headline">학생부교과전형, <em>한 화면</em>에서<br>검색하고 비교하다</h1>
           <p class="deck">
-            <span class="drop">A</span>전국 대학의 학생부교과전형 기본정보·교과별 반영방법·진로선택 반영방법을 하나로 묶었습니다. 
-            대학명 표기 차이는 공백과 캠퍼스 괄호 기준으로 정규화했고, 전형명은 일치·포함 관계를 우선해 매칭합니다.
+            전국 대학의 학생부교과전형 기본정보와 교과별·진로선택 과목 반영방법을 한 화면에 묶었습니다.
+            조건으로 거른 뒤 전형을 펼쳐 상세를 확인하고, ★로 저장해 비교하거나 CSV로 내려받아 활용하세요.
           </p>
         </div>
         <div class="masthead-side">
@@ -1133,6 +1148,7 @@
           <div class="actions">
             <a class="btn ghost" href="index.html"><svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6.5L7 2l5 4.5M3.5 6v6h3V8.5h3V12h3V6"/></svg>메인페이지</a>
             <button class="btn ghost" id="resetTopBtn"><svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 7a5 5 0 109-3M11 2v3H8"/></svg>전체 초기화</button>
+            <button class="btn ghost" id="shareBtn" title="현재 탭·필터가 담긴 주소를 복사합니다"><svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="3" r="1.8"/><circle cx="3" cy="7" r="1.8"/><circle cx="11" cy="11" r="1.8"/><path d="M4.6 6.2l4.8-2.4M4.6 7.8l4.8 2.4"/></svg>필터 링크 복사</button>
             <button class="btn" id="downloadBtn"><svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10"/></svg>현재 결과 CSV</button>
             <button class="theme-toggle" type="button" id="themeToggle" aria-label="다크/라이트 모드 전환" title="다크/라이트 모드">
               <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1161,6 +1177,14 @@
           <button class="tab" data-tab="universities">
             <svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5l5-3 5 3M3 5v7h8V5"/></svg>
             대학별 요약
+          </button>
+          <button class="tab" data-tab="subjects">
+            <svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 2h6.5a2.5 2.5 0 012.5 2.5V12H5a2.5 2.5 0 01-2.5-2.5V2z"/><path d="M5 5h3.5M5 7.5h3.5"/></svg>
+            교과 반영
+          </button>
+          <button class="tab" data-tab="careers">
+            <svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="5.5"/><path d="M9.4 4.6L8.1 8.1 4.6 9.4 5.9 5.9z"/></svg>
+            진로선택
           </button>
           <button class="tab" data-tab="compare">
             <svg class="ico" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3h10M2 7h10M2 11h10"/><circle cx="4" cy="3" r="1.2" fill="currentColor"/><circle cx="8" cy="7" r="1.2" fill="currentColor"/><circle cx="11" cy="11" r="1.2" fill="currentColor"/></svg>
@@ -1211,6 +1235,7 @@
                   <option value="출결">출결 포함</option>
                   <option value="단계별">단계별 전형</option>
                   <option value="인적성">인적성 면접</option>
+                  <option value="봉사">봉사 포함</option>
                 </select>
               </div>
             </div>
@@ -1231,10 +1256,13 @@
               <label for="careerMethodFilter">진로선택 반영방법</label>
               <div class="input-wrap"><select id="careerMethodFilter"></select></div>
             </div>
+            <div class="field">
+              <label for="unitFilter">모집단위 키워드</label>
+              <div class="input-wrap"><input id="unitFilter" type="search" value="" placeholder="예: 간호, 의예, 자연"></div>
+            </div>
           </div>
           <div class="hidden-filter-controls" aria-hidden="true" style="display:none;">
             <select id="admissionFilter"><option value="all">전체 전형</option></select>
-            <input id="unitFilter" type="hidden" value="">
             <input id="quotaMin" type="hidden" value="">
             <input id="quotaMax" type="hidden" value="">
           </div>
@@ -1242,6 +1270,18 @@
             <input id="includeLinked" type="checkbox" checked>
             <span>교과·진로선택 본문까지 검색</span>
           </label>
+          <div class="chips-row" role="group" aria-label="빠른 필터">
+            <span class="chips-label">빠른 필터</span>
+            <button class="chip" type="button" data-quick="csat-no">수능최저 없음</button>
+            <button class="chip" type="button" data-quick="csat-yes">수능최저 있음</button>
+            <button class="chip" type="button" data-quick="method-교과100">교과 100%</button>
+            <button class="chip" type="button" data-quick="method-면접">면접 포함</button>
+            <button class="chip" type="button" data-quick="unit-간호">간호</button>
+            <button class="chip" type="button" data-quick="unit-의예">의예</button>
+            <button class="chip" type="button" data-quick="unit-교육">교육</button>
+            <button class="chip" type="button" data-quick="unit-인문">인문</button>
+            <button class="chip" type="button" data-quick="unit-자연">자연</button>
+          </div>
           <div class="active-filters" id="activeFilters"></div>
           <button class="filter-collapse-btn" type="button" id="filterCollapseBtn" aria-expanded="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
@@ -1372,7 +1412,9 @@
       </section>
 
       <p class="footer-note">
-        본자료는 참고용이며, 최종 사항은 각 대학 모집요강을 반드시 확인하세요.
+        <b>이용 안내</b> · 본 자료는 대입정보119(한국대학교육협의회) 공개 자료를 재구성한 2027학년도 수시 학생부교과전형 참고자료입니다.
+        교과·진로선택 반영방법은 대학명(공백·캠퍼스 괄호 정규화)과 전형명(일치·포함 관계 우선)을 기준으로 자동 매칭한 것이어서 실제와 다를 수 있습니다.
+        모집인원·전형방법·수능최저 등 최종 사항은 반드시 각 대학 모집요강 원문을 확인하세요.
       </p>
     </div>
   </main>
@@ -1435,6 +1477,7 @@
       lastUniRows: [],
       lastSubjectResults: [],
       lastCareerResults: [],
+      lastFilterSig: '',
     };
 
     /* ====================== UTILS ====================== */
@@ -1564,7 +1607,7 @@
       const csatYes = BASE.filter(b => b.csatStatus === '있음').length;
       const csatNo = BASE.filter(b => b.csatStatus === '없음').length;
       const stats = [
-        { label: '전형 행', value: fmt(BASE.length), suffix: '건', sub: '대학 × 전형 × 모집단위' },
+        { label: '수록 전형', value: fmt(BASE.length), suffix: '건', sub: '대학 × 전형 × 모집단위' },
         { label: '대학·캠퍼스', value: fmt(uniSet.size), suffix: '개', sub: `전형명 ${fmt(admSet.size)}종` },
         { label: '총 모집인원', value: fmt(totalQuota), suffix: '명', sub: '학생부교과전형 합계' },
         { label: '수능최저 있음', value: fmt(csatYes), suffix: '건', sub: `없음 ${fmt(csatNo)}건` },
@@ -1620,6 +1663,14 @@
         return a.university.localeCompare(b.university, 'ko');
       });
 
+      // 필터가 바뀌어 결과가 몇 개 대학으로 좁혀지면 자동으로 펼쳐 준다
+      const f = getFilter();
+      const sig = JSON.stringify([f.q, f.region, f.university, f.admission, f.csat, f.method, f.unit, f.careerMethod]);
+      if (sig !== state.lastFilterSig) {
+        state.lastFilterSig = sig;
+        if (groups.length <= 3 && activeFilterCount(f) > 0) groups.forEach(g => state.openedUni.add(g.university));
+      }
+
       const groupList = $('groupList');
       if (!groups.length) {
         groupList.innerHTML = `
@@ -1651,7 +1702,7 @@
       const methodSummary = [...g.methods].slice(0, 3).join(' · ');
       return `
         <div class="uni-group ${isOpen ? 'is-open' : ''}" data-uni="${esc(g.university)}">
-          <div class="uni-header ${isOpen ? 'is-open' : ''}" data-action="toggle-uni" data-uni="${esc(g.university)}">
+          <div class="uni-header ${isOpen ? 'is-open' : ''}" data-action="toggle-uni" data-uni="${esc(g.university)}" role="button" tabindex="0" aria-expanded="${isOpen}">
             <div class="uni-monogram">${esc(mono)}</div>
             <div class="uni-info">
               <div class="uni-name">${esc(g.university)} <span class="region-tag">${esc(g.region)}</span></div>
@@ -1686,7 +1737,7 @@
       const linkedCareers = (r.careerIds || []).map(id => careerById.get(id)).filter(Boolean);
       return `
         <div class="adm-card ${isSaved ? 'is-saved' : ''} ${isExpanded ? 'is-expanded' : ''}" data-id="${esc(r.id)}">
-          <div class="adm-row" data-action="toggle-detail" data-id="${esc(r.id)}">
+          <div class="adm-row" data-action="toggle-detail" data-id="${esc(r.id)}" role="button" tabindex="0" aria-expanded="${isExpanded}">
             <button class="save-star ${isSaved ? 'is-on' : ''}" data-action="toggle-select" data-id="${esc(r.id)}" title="관심 전형으로 저장">★</button>
             <div class="adm-title-block">
               <div class="adm-title"><span class="adm-name">${esc(r.admission)}</span></div>
@@ -1755,9 +1806,12 @@
     function renderDonut(rows) {
       const tagCount = new Map();
       rows.forEach(r => (r.methodTags || []).forEach(t => tagCount.set(t, (tagCount.get(t) || 0) + 1)));
-      const arr = [...tagCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
+      const sorted = [...tagCount.entries()].sort((a, b) => b[1] - a[1]);
+      const arr = sorted.slice(0, 4);
+      const restSum = sorted.slice(4).reduce((a, [, v]) => a + v, 0);
+      if (restSum > 0) arr.push(['기타', restSum]);
       const total = arr.reduce((a, [, v]) => a + v, 0) || 1;
-      const colors = ['#1d3a8a', '#b08538', '#0f7a5a', '#b3431b', '#a51d2d'];
+      const colors = ['#1d3a8a', '#b08538', '#0f7a5a', '#b3431b', '#6b7591'];
       const circ = 2 * Math.PI * 38;
 
       let offset = 0;
@@ -2006,16 +2060,15 @@
       });
 
       // Chip active states
-      const chipMap = {
-        'csat-no': f.csat === 'no', 'csat-yes': f.csat === 'yes',
-        'method-교과100': f.method === '교과100', 'method-면접': f.method === '면접',
-        'unit-간호': f.unit === '간호', 'unit-의예': f.unit === '의예',
-        'unit-인문': f.unit === '인문', 'unit-자연': f.unit === '자연',
-        'unit-공학': f.unit === '공학', 'unit-경영': f.unit === '경영',
-      };
       document.querySelectorAll('.chip').forEach(c => {
-        const v = c.dataset.quick;
-        c.classList.toggle('active', !!chipMap[v]);
+        const v = c.dataset.quick || '';
+        let on = false;
+        if (v === 'csat-no') on = f.csat === 'no';
+        else if (v === 'csat-yes') on = f.csat === 'yes';
+        else if (v.startsWith('method-')) on = f.method === v.slice(7);
+        else if (v.startsWith('unit-')) on = f.unit === v.slice(5);
+        c.classList.toggle('active', on);
+        c.setAttribute('aria-pressed', String(on));
       });
     }
 
@@ -2034,9 +2087,11 @@
     }
 
     /* ====================== MODAL ====================== */
+    let lastFocusEl = null;
     function openModal(id) {
       const r = baseById.get(id);
       if (!r) return;
+      lastFocusEl = document.activeElement;
       $('modalTitle').textContent = `${r.university} · ${r.admission}`;
       $('modalSub').textContent = `${r.region} · ${r.unit || '모집단위 미기재'} · ${fmt(r.quota)}명 모집`;
       const linkedSubjects = (r.subjectAllIds || []).map(id => subjectById.get(id)).filter(Boolean);
@@ -2087,8 +2142,13 @@
         </div>
       `;
       $('modalBackdrop').classList.add('active');
+      $('modalCloseBtn').focus();
     }
-    function closeModal() { $('modalBackdrop').classList.remove('active'); }
+    function closeModal() {
+      $('modalBackdrop').classList.remove('active');
+      if (lastFocusEl && document.contains(lastFocusEl)) { try { lastFocusEl.focus(); } catch (e) {} }
+      lastFocusEl = null;
+    }
 
     /* ====================== CSV ====================== */
     function csvEscape(v) {
@@ -2147,6 +2207,39 @@
       }
     }
 
+    /* ====================== URL STATE (딥링크) ====================== */
+    const HASH_KEYS = [['q','q'],['region','regionFilter'],['uni','universityFilter'],['adm','admissionFilter'],['csat','csatFilter'],['method','methodFilter'],['unit','unitFilter'],['career','careerMethodFilter']];
+    function readHash() {
+      if (!location.hash || location.hash.length < 2) return;
+      let p;
+      try { p = new URLSearchParams(location.hash.slice(1)); } catch (e) { return; }
+      const tab = p.get('tab');
+      if (tab && document.querySelector(`.tab[data-tab="${tab}"]`)) state.tab = tab;
+      HASH_KEYS.forEach(([key, id]) => {
+        const v = p.get(key);
+        if (v == null) return;
+        const el = $(id); if (!el) return;
+        if (el.tagName === 'SELECT') {
+          if ([...el.options].some(o => o.value === v)) el.value = v;
+        } else el.value = v;
+      });
+    }
+    function syncHash() {
+      const f = getFilter();
+      const p = new URLSearchParams();
+      if (state.tab !== 'search') p.set('tab', state.tab);
+      if (f.q) p.set('q', f.q);
+      if (f.region !== 'all') p.set('region', f.region);
+      if (f.university !== 'all') p.set('uni', f.university);
+      if (f.admission !== 'all') p.set('adm', f.admission);
+      if (f.csat !== 'all') p.set('csat', f.csat);
+      if (f.method !== 'all') p.set('method', f.method);
+      if (f.unit) p.set('unit', f.unit);
+      if (f.careerMethod !== 'all') p.set('career', f.careerMethod);
+      const s = p.toString();
+      try { history.replaceState(null, '', s ? '#' + s : location.pathname + location.search); } catch (e) {}
+    }
+
     /* ====================== TABS ====================== */
     function switchTab(tab) {
       state.tab = tab;
@@ -2164,6 +2257,7 @@
       $('selectedCount').textContent = state.selected.size;
       $('savedHeadCount').textContent = state.selected.size;
       renderActiveFilters();
+      syncHash();
     }
 
     /* ====================== ACTIONS ====================== */
@@ -2197,12 +2291,13 @@
     }
 
     function bindEvents() {
-      // Filter inputs
+      // Filter inputs (텍스트 입력은 디바운스)
+      let renderTimer = null;
+      const renderSoon = () => { clearTimeout(renderTimer); renderTimer = setTimeout(renderAll, 150); };
       ['q','regionFilter','universityFilter','admissionFilter','csatFilter','methodFilter','unitFilter','careerMethodFilter','quotaMin','quotaMax','includeLinked'].forEach(id => {
         const el = $(id);
-        el.addEventListener(el.tagName === 'INPUT' && el.type !== 'checkbox' ? 'input' : 'change', () => {
-          renderAll();
-        });
+        const isText = el.tagName === 'INPUT' && el.type !== 'checkbox';
+        el.addEventListener(isText ? 'input' : 'change', isText ? renderSoon : () => renderAll());
       });
       document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
 
@@ -2212,6 +2307,23 @@
       $('downloadBtn').addEventListener('click', () => {
         const { type, rows } = activeRowsForDownload();
         downloadCsv(type, rows, `2027_학생부교과전형_${state.tab}_결과.csv`);
+      });
+      $('shareBtn').addEventListener('click', async () => {
+        syncHash();
+        const url = location.href;
+        const btn = $('shareBtn');
+        const done = () => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '복사 완료 ✓';
+          setTimeout(() => { btn.innerHTML = orig; }, 1600);
+        };
+        try { await navigator.clipboard.writeText(url); done(); }
+        catch (e) {
+          const area = document.createElement('textarea'); area.value = url;
+          document.body.appendChild(area); area.select();
+          try { document.execCommand('copy'); done(); } catch (e2) { prompt('아래 주소를 복사하세요', url); }
+          area.remove();
+        }
       });
       $('downloadSubjectBtn').addEventListener('click', () => downloadCsv('subjects', state.lastSubjectResults, '2027_교과별반영방법.csv'));
       $('downloadCareerBtn').addEventListener('click', () => downloadCsv('careers', state.lastCareerResults, '2027_진로선택반영방법.csv'));
@@ -2241,6 +2353,15 @@
 
       // Chip
       document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => applyQuick(c.dataset.quick)));
+
+      // Keyboard activation for clickable rows (uni-header, adm-row)
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const t = e.target;
+        if (!t || !t.matches || !t.matches('[data-action][role="button"]')) return;
+        e.preventDefault();
+        t.click();
+      });
 
       // Global delegation
       document.addEventListener('click', (e) => {
@@ -2290,9 +2411,10 @@
     function init() {
       loadSelection();
       initFilterOptions();
+      readHash();
       renderGlobalStats();
       bindEvents();
-      renderAll();
+      switchTab(state.tab);
       initUiUpgrades();
     }
 
