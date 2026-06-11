@@ -2,7 +2,7 @@
  * 대학발표 입시결과 조회
  * 대학이 발표한 2024·2025·2026 수시 입결의 70%컷·50%컷을
  * 모집단위별로 3개년 비교하는 데이터 조회 도구. (참고용, 판정/추천 없음)
- * ※ 모집인원·경쟁률은 과거연도(2024/2025) 원자료에 없어 다루지 않음.
+ * 모집·경쟁·충원은 상세 패널에서 참고 표기(2024/25는 보조 XLSX 계열대표).
  */
 let DATA = { metadata: {}, records: [] };
 const DATA_URL = "./data/admission-data.json";
@@ -19,6 +19,8 @@ const state = {
   major: "",
   regions: new Set(),
   tracks: new Set(),
+  domains: new Set(),
+  field: "",
   grade: "",
   sort: "cut70",
   pageSize: 80,
@@ -173,6 +175,8 @@ function filteredRecords() {
     if (!passesText(record, state.major, ["major", "program"])) return false;
     if (state.regions.size && !state.regions.has(record.region)) return false;
     if (state.tracks.size && !state.tracks.has(record.track)) return false;
+    if (state.domains.size && !state.domains.has(record.domain || "미분류")) return false;
+    if (state.field && (record.field || "미분류") !== state.field) return false;
     // 등급 필터: 입력 등급 ±0.5의 2026 70%컷만(자료없음 제외).
     if (grade !== null) {
       const cut70 = metricValue(record, 2026, "grade70");
@@ -302,6 +306,19 @@ function renderFilterPanel() {
           </div>
         </div>
         <div class="field">
+          <span class="label">인문/자연</span>
+          <div class="check-list compact">
+            ${distributionChecks("domain", DATA.metadata.distributions?.domains || [])}
+          </div>
+        </div>
+        <div class="field">
+          <label for="field">계열</label>
+          <select id="field" class="select">
+            ${fieldOptions()}
+          </select>
+          <span class="field-hint">대학어디가 소계열 분류 기준</span>
+        </div>
+        <div class="field">
           <span class="label">지역</span>
           <div class="check-list">
             ${distributionChecks("region", DATA.metadata.distributions?.regions || [])}
@@ -312,10 +329,12 @@ function renderFilterPanel() {
   `;
 }
 
+const FILTER_SETS = { region: () => state.regions, track: () => state.tracks, domain: () => state.domains };
+
 function distributionChecks(type, items) {
   return items
     .map((item) => {
-      const set = type === "region" ? state.regions : state.tracks;
+      const set = FILTER_SETS[type]();
       const checked = set.has(item.name) ? "checked" : "";
       return `
         <label class="check-item">
@@ -325,6 +344,15 @@ function distributionChecks(type, items) {
         </label>
       `;
     })
+    .join("");
+}
+
+// 계열(소계열) 드롭다운 — 건수 많은 순(메타 분포 순서 유지).
+function fieldOptions() {
+  const items = DATA.metadata.distributions?.fields || [];
+  const head = `<option value="" ${state.field === "" ? "selected" : ""}>전체 계열</option>`;
+  return head + items
+    .map((item) => option(item.name, `${item.name} (${formatNumber(item.count, 0)})`, state.field))
     .join("");
 }
 
@@ -352,13 +380,16 @@ function bindStaticEvents() {
   });
 
   document.querySelector(".sidebar").addEventListener("change", (event) => {
-    const checkbox = event.target;
-    if (checkbox.matches("[data-filter='region']")) {
-      toggleSet(state.regions, checkbox.value, checkbox.checked);
+    const target = event.target;
+    if (target.matches("#field")) {
+      state.field = target.value;
       state.page = 1;
       renderDynamic();
-    } else if (checkbox.matches("[data-filter='track']")) {
-      toggleSet(state.tracks, checkbox.value, checkbox.checked);
+      return;
+    }
+    const type = target.dataset?.filter;
+    if (type && FILTER_SETS[type]) {
+      toggleSet(FILTER_SETS[type](), target.value, target.checked);
       state.page = 1;
       renderDynamic();
     }
@@ -444,6 +475,7 @@ function resetState() {
     query: "",
     university: "",
     major: "",
+    field: "",
     grade: "",
     sort: "cut70",
     page: 1,
@@ -451,6 +483,7 @@ function resetState() {
   });
   state.regions.clear();
   state.tracks.clear();
+  state.domains.clear();
   mount();
 }
 
@@ -584,6 +617,8 @@ function renderDetail(record) {
           <div class="chip-row">
             ${trackTag(record)}
             <span class="chip">${escapeHtml(record.region)}</span>
+            ${record.domain ? `<span class="chip">${escapeHtml(record.domain)}</span>` : ""}
+            ${record.field ? `<span class="chip">${escapeHtml(record.field)}</span>` : ""}
           </div>
           <h2>${escapeHtml(record.university)} ${escapeHtml(record.major)}</h2>
           <p>${escapeHtml(record.program)}</p>
