@@ -1,15 +1,6 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0VB6E0J6MB');
-</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>계약학과 · 첨단학과 안내 | 2027 대입정보 119</title>
@@ -281,7 +272,6 @@ table.dt .dash{color:var(--hint)}
 <main><div class="wrap">
   <section class="panel" data-tab="overview" id="p-overview"></section>
   <section class="panel" data-tab="gicheop"  id="p-gicheop"></section>
-  <section class="panel" data-tab="jogi"     id="p-jogi"></section>
   <section class="panel" data-tab="cheomdan" id="p-cheomdan"></section>
 </div></main>
 
@@ -331,7 +321,7 @@ $('#footer').innerHTML = `<div><b>제작</b> 충청남도교육청진로융합�
 
 // ─────────────────────────── tabs ───────────────────────────
 const TABS = [['overview','한눈에','ti-layout-grid'],['gicheop','기업체취업형','ti-building-factory-2'],
-  ['jogi','조기취업형','ti-briefcase'],['cheomdan','첨단학과 탐색','ti-cpu']];
+  ['cheomdan','첨단학과 탐색','ti-cpu']];
 $('#tabrow').innerHTML = TABS.map(([id,label])=>`<button class="tab" data-go="${id}">${label}</button>`).join('');
 function go(tab){
   if(!TABS.some(t=>t[0]===tab)) tab='overview';
@@ -443,41 +433,6 @@ function renderGicheop(){
     <div class="disc"><b>※</b> 일부 대학은 2027학년도 인원 미확정으로 2026학년도 모집요강을 기초로 안내된 값입니다. 수능최저·전형방법은 모집요강에서 확인하세요.</div>`;
 }
 
-// ─────────────────────────── JOGI (조기취업형) ───────────────────────────
-function renderJogi(){
-  const flow=`<div class="flow">
-    ${[['1학년','대학 전일제 수업','전공기초·현장실무 기본교육 · 등록금 국비(희망사다리) 전액'],
-       ['2~3학년','협약기업 재직 + 야간·주말 수업','재직자 신분 학점 인정 · 기업/지자체가 학비 50%+ 부담 · 임금 수령'],
-       ['졸업','3년 내 4년제 학사 취득','대졸자 신분 임금 재계약']].map((s,i)=>`
-       <div class="fstep"><div class="fnum">${i+1}</div><div><b>${s[0]}</b><div class="fdesc">${s[1]}</div><div class="fsub">${s[2]}</div></div></div>
-       ${i<2?'<div class="farrow"><i class="ti ti-arrow-right"></i></div>':''}`).join('')}
-    </div>
-    <div class="warnbox"><i class="ti ti-alert-triangle"></i> 졸업 시까지 고용계약을 유지해야 하며, 본인 사유로 퇴직하면 <b>대학에서 제적</b> 처리됩니다. 4년 과정을 3년에 이수하므로 방학 중에도 학기가 진행됩니다.</div>`;
-
-  const cards=DATA.jogi.map(s=>{
-    const firms=DATA.jogi_firms[s.univ]||[];
-    const units=s.units.map(u=>`<span class="upill" style="--c:${fc(u.tags[0])}"><i></i>${h(u.dept)} <b>${u.quota}</b></span>`).join('');
-    const firmBlock=firms.length?`<details class="firms"><summary>참여기업 예시 (${firms.length}개 학과) <i class="ti ti-chevron-down"></i></summary>
-      ${firms.map(f=>`<div class="firm"><div class="fdept">${h(f.dept)} <span class="pill">${f.n}곳</span></div><div class="flist">${h(f.companies)}</div></div>`).join('')}</details>`:'';
-    return `<div class="card jcard">
-      <div class="j-head"><h3>${h(s.univ)}</h3><span class="pill">${h(s.phase)}</span></div>
-      <div class="j-total">${s.units.length}개 모집단위 · 총 <b>${s.total}</b>명</div>
-      <div class="upills">${units}</div>
-      <div class="j-method"><i class="ti ti-clipboard-list"></i> ${h(s.method)}</div>
-      ${firmBlock}
-    </div>`;
-  }).join('');
-
-  $('#p-jogi').innerHTML = `
-    <p class="lead">3년 교육과정으로 4년제 학사학위를 취득하고, 2학년부터 협약 기업에 재직하며 학점을 인정받는 <b>일·학습 병행</b> 유형입니다. 대부분 수시 학생부종합으로 선발하고, 정시에서는 수시 미충원 인원만 선발합니다.</p>
-    <h2 class="sec-title">어떻게 운영되나요</h2>
-    ${flow}
-    <h2 class="sec-title">대학별 모집 현황</h2>
-    <p class="sec-desc">학과 옆 숫자는 모집인원입니다. 참여기업은 2026학년도 모집요강 기준 예시이며 매년 달라질 수 있습니다.</p>
-    <div class="grid cols-2">${cards}</div>
-    <div class="disc"><b><i class="ti ti-external-link"></i> 참여기업 확인</b> 대학별 참여기업은 계약학과 선도대학 종합포털 <a href="${h(DATA.earlyuniv)}" target="_blank" rel="noopener">${h(DATA.earlyuniv)}</a>에서 확인할 수 있습니다.</div>`;
-}
-
 // ─────────────────────────── CHEOMDAN (첨단학과 탐색) ───────────────────────────
 const C = DATA.cheomdan;
 const REGION_ORDER=['서울','경기','인천','강원','대전','세종','충남','충북','대구','경북','부산','울산','경남','광주','전남','전북','제주'];
@@ -564,7 +519,7 @@ document.addEventListener('input',e=>{
 });
 
 // ─────────────────────────── init ───────────────────────────
-renderOverview(); renderGicheop(); renderJogi(); renderCheomdan();
+renderOverview(); renderGicheop(); renderCheomdan();
 go(location.hash.slice(1)||'overview');
 window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
 </script>
