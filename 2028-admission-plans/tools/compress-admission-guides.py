@@ -16,7 +16,20 @@ from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES_DIR = ROOT / "files"
-TARGET_RE = re.compile(r"^2027-admission-guide-\d+\.pdf$", re.IGNORECASE)
+TARGETS = {
+    "admission": {
+        "label": "2027 admission guides",
+        "pattern": r"^2027-admission-guide-\d+\.pdf$",
+    },
+    "plan": {
+        "label": "2028 admission plans",
+        "pattern": r"^2028-admission-plan-\d+\.pdf$",
+    },
+    "prior-learning": {
+        "label": "2026 prior-learning reports",
+        "pattern": r"^2026-prior-learning-\d+\.pdf$",
+    },
+}
 TWO_MB = 2 * 1024 * 1024
 SOFT_MAX_MB = 4 * 1024 * 1024
 
@@ -100,9 +113,17 @@ def compress_one(src: Path, threshold: int) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--target",
+        action="append",
+        choices=sorted(TARGETS),
+        default=[],
+        help="PDF group to compress. Defaults to admission.",
+    )
     parser.add_argument("--threshold", type=int, default=190)
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--offset", type=int, default=0)
+    parser.add_argument("--report", default="compression-report.json")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -111,9 +132,15 @@ def main() -> int:
     except Exception:
         pass
 
+    target_names = args.target or ["admission"]
+    target_patterns = [re.compile(TARGETS[name]["pattern"], re.IGNORECASE) for name in target_names]
     files = sorted(
         path for path in FILES_DIR.iterdir()
-        if path.is_file() and TARGET_RE.match(path.name) and path.stat().st_size > TWO_MB
+        if (
+            path.is_file()
+            and path.stat().st_size > TWO_MB
+            and any(pattern.match(path.name) for pattern in target_patterns)
+        )
     )
     if args.offset:
         files = files[args.offset:]
@@ -123,6 +150,7 @@ def main() -> int:
     if args.dry_run:
         summary = {
             "mode": "dry-run",
+            "targets": target_names,
             "count": len(files),
             "total_mb": round(sum(path.stat().st_size for path in files) / 1024 / 1024, 2),
             "files": [path.name for path in files],
@@ -139,9 +167,16 @@ def main() -> int:
         print(f"  -> {result['status']} {after_mb:.2f} MB dpi={result['dpi']}", flush=True)
         results.append(result)
 
-    report_path = ROOT / "tools" / "compression-report.json"
+    report_path = ROOT / "tools" / args.report
     report = {
-        "target": "2027-admission-guide PDFs over 2MB",
+        "targets": [
+            {
+                "name": name,
+                "label": TARGETS[name]["label"],
+                "pattern": TARGETS[name]["pattern"],
+            }
+            for name in target_names
+        ],
         "threshold": args.threshold,
         "results": results,
     }
