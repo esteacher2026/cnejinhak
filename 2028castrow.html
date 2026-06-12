@@ -88,7 +88,7 @@ mark{background:#fef3c7;color:#92400e;border-radius:3px;padding:0 2px}
 
 /* ============ FILTER BAR ============ */
 .filters{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:79px;z-index:50;box-shadow:0 1px 2px rgba(15,23,42,.03)}
-.filters .wrap{padding-top:12px;padding-bottom:12px}
+.filters .wrap{padding-top:12px;padding-bottom:12px;position:relative}
 .type-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
 .type-tab{border:1px solid var(--line2);background:#fff;border-radius:999px;padding:8px 16px;font-weight:800;color:#334155;font-size:13px}
 .type-tab:hover{border-color:var(--brand);color:var(--brand);background:var(--brandTint)}
@@ -118,8 +118,8 @@ mark{background:#fef3c7;color:#92400e;border-radius:3px;padding:0 2px}
 .active-chip.kind-pattern:hover{background:#6d28d9}
 .active-chip.kind-tag{background:var(--teal)}
 .active-chip.kind-tag:hover{background:#0c5e58}
-.active-chip.kind-region{background:var(--ink2)}
-.active-chip.kind-region:hover{background:var(--ink)}
+.active-chip.kind-region,.active-chip.kind-region-all{background:var(--ink2)}
+.active-chip.kind-region:hover,.active-chip.kind-region-all:hover{background:var(--ink)}
 .active-chip.kind-type{background:#475569}
 .active-chip.kind-type:hover{background:#334155}
 .active-chip.kind-q{background:var(--amber)}
@@ -127,10 +127,23 @@ mark{background:#fef3c7;color:#92400e;border-radius:3px;padding:0 2px}
 .active-clear{border:1px dashed var(--line2);background:transparent;color:var(--muted);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:800;margin-left:4px}
 .active-clear:hover{border-color:var(--red);color:var(--red);background:var(--redSoft)}
 
-.filter-panel{background:var(--soft);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-top:8px}
-.filter-panel-section{padding:8px 0;border-bottom:1px dashed var(--line)}
-.filter-panel-section:last-child{border-bottom:0;padding-bottom:0}
-.filter-panel-section:first-child{padding-top:0}
+.filter-panel{position:absolute;left:26px;right:26px;top:calc(100% - 6px);z-index:90;background:#fff;border:1px solid var(--line2);border-radius:var(--r);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;max-height:min(58vh,520px);overflow:hidden}
+.fp-body{overflow:auto;padding:14px 16px;overscroll-behavior:contain}
+.fp-foot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 16px;border-top:1px solid var(--line);background:var(--soft);flex:0 0 auto}
+.fp-count{font-size:12.5px;font-weight:800;color:#475569}
+.fp-count b{color:var(--brand);font-size:15px;margin:0 1px}
+.fp-foot .sp{margin-left:auto}
+.fp-note{margin:0 0 11px;font-size:12px;color:#475569;background:var(--brandTint);border:1px solid var(--brandSoft);border-radius:8px;padding:8px 11px;word-break:keep-all;line-height:1.55}
+.fp-note b{color:var(--brand2)}
+.btn-primary{border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:var(--rs);padding:7px 14px;font-size:12.5px;font-weight:800}
+.btn-primary:hover{background:var(--brand2);border-color:var(--brand2)}
+.ccnt{font-size:10.5px;font-weight:800;color:var(--muted2);margin-left:4px}
+.chip.on .ccnt{color:rgba(255,255,255,.78)}
+.chip.zero{opacity:.42}
+.region-quick{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px;padding-bottom:11px;border-bottom:1px dashed var(--line)}
+.region-quick .rq{border:1px solid var(--line2);background:var(--soft);border-radius:8px;padding:5px 11px;font-size:12px;font-weight:800;color:#475569}
+.region-quick .rq:hover{border-color:var(--ink2);color:var(--ink);background:#fff}
+.region-quick .rq.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .filter-line{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
 .filter-label{width:74px;flex:0 0 auto;color:var(--muted);font-size:11px;font-weight:900;letter-spacing:.06em;padding-top:6px}
 .chip-host{display:flex;gap:6px;flex-wrap:wrap;align-items:center;flex:1;min-width:0}
@@ -168,6 +181,7 @@ mark{background:#fef3c7;color:#92400e;border-radius:3px;padding:0 2px}
 .btn-plain{border:1px solid var(--line);background:#fff;border-radius:var(--rs);padding:7px 11px;font-size:12.5px;font-weight:800;color:#475569}
 .btn-plain:hover{border-color:var(--brand);color:var(--brand);background:var(--brandTint)}
 .btn-danger:hover{border-color:var(--red);color:var(--red);background:var(--redSoft)}
+.btn-plain:disabled{opacity:.45;cursor:not-allowed}
 
 /* ============ TOOLBAR ============ */
 .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 0 13px}
@@ -364,6 +378,7 @@ body:has(.compare-bar.show) .fab-home{bottom:82px}
   .compact-row{grid-template-columns:1fr}
   .univ-group-head{align-items:flex-start;flex-direction:column;gap:6px}
   .tag-group-grid{grid-template-columns:1fr}
+  .filter-panel{left:16px;right:16px;max-height:min(72vh,560px)}
   .preset-btn{font-size:12px;padding:6px 11px}
   .nav-btn{font-size:12.5px;padding:8px 11px}
   .compare-bar .wrap{flex-wrap:wrap}
@@ -480,19 +495,30 @@ body:has(.compare-bar.show) .fab-home{bottom:82px}
     <div id="active-summary" class="active-summary empty"></div>
 
     <div id="filter-panel-region" class="filter-panel" hidden>
-      <div class="filter-line">
-        <span class="filter-label">지역 선택</span>
-        <div id="region-chips" class="chip-host"></div>
+      <div class="fp-body">
+        <div id="region-quick" class="region-quick"></div>
+        <div class="filter-line">
+          <span class="filter-label">지역 선택</span>
+          <div id="region-chips" class="chip-host"></div>
+        </div>
       </div>
+      <div class="fp-foot" data-facet="regions"></div>
     </div>
 
     <div id="filter-panel-pattern" class="filter-panel" hidden>
-      <div class="pattern-group-tabs" id="pattern-group-tabs"></div>
-      <div id="pattern-sub-area"></div>
+      <div class="fp-body">
+        <p class="fp-note"><b>등급 패턴</b>은 여러 개 선택하면 <b>OR</b>(하나라도 해당)로 넓게 적용됩니다. 예: 3합6 + 3합7 = 두 조건 합집합. <b>탐구·선택조건·모집단위연동</b> 패턴은 <b>AND</b>로 함께 좁혀집니다. 칩의 숫자는 현재 다른 조건 기준 결과 건수입니다.</p>
+        <div class="pattern-group-tabs" id="pattern-group-tabs"></div>
+        <div id="pattern-sub-area"></div>
+      </div>
+      <div class="fp-foot" data-facet="patterns"></div>
     </div>
 
     <div id="filter-panel-tag" class="filter-panel" hidden>
-      <div class="tag-group-grid" id="tag-group-grid"></div>
+      <div class="fp-body">
+        <div class="tag-group-grid" id="tag-group-grid"></div>
+      </div>
+      <div class="fp-foot" data-facet="tags"></div>
     </div>
   </div>
 </section>
@@ -571,6 +597,18 @@ const byId=new Map(DATA.minimums.map(m=>[m.id,m]));
 const changeById=new Map(DATA.changes.map(c=>[c.id,c]));
 const LS_FAV='min2028.fav.v3', LS_COMPARE='min2028.compare.v3';
 
+/* 빠른 매칭·카운트용 Set 사전계산 */
+for(const m of DATA.minimums){
+  m._pat=new Set(m.patterns||[]);
+  m._tag=new Set([...(m.tags||[]),...(m.specialTags||[])]);
+}
+/* 패턴 의미 그룹: 등급 패턴끼리는 OR, 탐구·조건성 패턴은 AND로 결합 */
+function patBucket(p){
+  if(p.startsWith('탐구'))return '탐구';
+  if(p==='선택조건'||p==='모집단위연동')return p;
+  return '등급';
+}
+
 /* ---------- 패턴 분류 ---------- */
 const PATTERN_GROUPS = [
   {key:'2합', label:'2합', exact:[], range:[], special:[]},
@@ -616,6 +654,18 @@ const PRESETS = {
   'english-2':     {label:'영어 2등급↑',      tags:['영어2','영어1']},
 };
 
+/* ---------- 지역 권역 빠른선택 ---------- */
+const SUDOGWON=['서울','경기','인천'];
+const REGION_QUICK=[
+  ['수도권',()=>SUDOGWON],
+  ['수도권외',()=>DATA.filters.regions.filter(r=>!SUDOGWON.includes(r))],
+  ['충청권',()=>['대전','세종','충남','충북']],
+  ['호남권',()=>['광주','전남','전북']],
+  ['영남권',()=>['부산','대구','울산','경남','경북']],
+  ['강원·제주',()=>['강원','제주']],
+];
+function sameSet(set,arr){return set.size===arr.length&&arr.every(v=>set.has(v))}
+
 /* ---------- State ---------- */
 const State={
   view:'search',type:'all',q:'',
@@ -656,19 +706,35 @@ function init(){
 
 /* ---------- 칩 렌더링 ---------- */
 function renderRegionChips(){
+  const counts=facetCounts('regions');
+  const qh=$('#region-quick');
+  qh.innerHTML=REGION_QUICK.map(([label,fn])=>
+    `<button class="rq ${sameSet(State.regions,fn())?'on':''}" data-rq="${esc(label)}">${esc(label)}</button>`
+  ).join('')+`<button class="rq" data-rq="__clear">전체 해제</button>`;
+  qh.querySelectorAll('[data-rq]').forEach(b=>b.addEventListener('click',()=>{
+    const k=b.dataset.rq;
+    if(k==='__clear'){State.regions.clear();}
+    else{
+      const entry=REGION_QUICK.find(([l])=>l===k);
+      const arr=entry[1]();
+      if(sameSet(State.regions,arr))State.regions.clear();
+      else State.regions=new Set(arr);
+    }
+    State.preset=null;updatePresetButtons();
+    afterFilterChange();
+  }));
   const host=$('#region-chips');
-  host.innerHTML=DATA.filters.regions.map(r=>
-    `<button class="chip kind-region ${State.regions.has(r)?'on':''}" data-region="${esc(r)}">${esc(r)}</button>`
-  ).join('');
+  host.innerHTML=DATA.filters.regions.map(r=>chipHTML(r,'region',counts)).join('');
   host.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>{
     const v=b.dataset.region;
     if(State.regions.has(v))State.regions.delete(v);else State.regions.add(v);
     State.preset=null;updatePresetButtons();
-    renderRegionChips();afterFilterChange();
+    afterFilterChange();
   }));
 }
 
 function renderPatternUI(){
+  const counts=facetCounts('patterns');
   const tabHost=$('#pattern-group-tabs');
   tabHost.innerHTML=PATTERN_GROUPS.map(g=>{
     const totalInGroup=g.exact.length+g.range.length+g.special.length;
@@ -686,19 +752,19 @@ function renderPatternUI(){
   if(g.special.length){
     html+=`<div class="pattern-sub-group">
       <div class="pattern-sub-title"><span class="pip"></span>전체 묶음 <span class="hint">해당 합산 방식 전부</span></div>
-      <div class="chip-host">${g.special.map(p=>chipHTML(p,'pattern')).join('')}</div>
+      <div class="chip-host">${g.special.map(p=>chipHTML(p,'pattern',counts)).join('')}</div>
     </div>`;
   }
   if(g.exact.length){
     html+=`<div class="pattern-sub-group">
-      <div class="pattern-sub-title"><span class="pip"></span>정확값 <span class="hint">예: 3합6 = 정확히 합 6</span></div>
-      <div class="chip-host">${g.exact.map(p=>chipHTML(p,'pattern')).join('')}</div>
+      <div class="pattern-sub-title"><span class="pip"></span>정확값 <span class="hint">예: 3합6 = 정확히 합 6 · 여러 개 선택 시 OR</span></div>
+      <div class="chip-host">${g.exact.map(p=>chipHTML(p,'pattern',counts)).join('')}</div>
     </div>`;
   }
   if(g.range.length){
     html+=`<div class="pattern-sub-group">
       <div class="pattern-sub-title"><span class="pip"></span>범위값 <span class="hint">예: 3합≤7 = 합 7 이내 모두</span></div>
-      <div class="chip-host">${g.range.map(p=>chipHTML(p,'pattern')).join('')}</div>
+      <div class="chip-host">${g.range.map(p=>chipHTML(p,'pattern',counts)).join('')}</div>
     </div>`;
   }
   sub.innerHTML=html;
@@ -706,24 +772,26 @@ function renderPatternUI(){
     const v=b.dataset.pattern;
     if(State.patterns.has(v))State.patterns.delete(v);else State.patterns.add(v);
     State.preset=null;updatePresetButtons();
-    renderPatternUI();afterFilterChange();
+    afterFilterChange();
   }));
 }
 
-function chipHTML(value,kind){
+function chipHTML(value,kind,counts){
   let setRef;
   if(kind==='pattern')setRef=State.patterns;
   else if(kind==='tag')setRef=State.tags;
   else setRef=State.regions;
   const on=setRef.has(value);
-  return `<button class="chip kind-${kind} ${on?'on':''}" data-${kind}="${esc(value)}">${esc(value)}</button>`;
+  const n=counts?(counts.get(value)||0):null;
+  return `<button class="chip kind-${kind} ${on?'on':''} ${n===0?'zero':''}" data-${kind}="${esc(value)}">${esc(value)}${n===null?'':`<span class="ccnt">${n}</span>`}</button>`;
 }
 
 function renderTagGroups(){
+  const counts=facetCounts('tags');
   const host=$('#tag-group-grid');
   host.innerHTML=TAG_GROUPS.map(g=>{
     const avail=g.tags.filter(t=>DATA.filters.tags.includes(t));
-    const chips=avail.map(t=>chipHTML(t,'tag')).join('');
+    const chips=avail.map(t=>chipHTML(t,'tag',counts)).join('');
     return `<div class="tag-group-card">
       <div class="tag-group-title"><span class="ic ${g.tone}"></span>${esc(g.label)}${g.hint?`<span class="hint">${esc(g.hint)}</span>`:''}</div>
       <div class="chip-host">${chips||'<span style="color:var(--muted2);font-size:12px">해당 태그 없음</span>'}</div>
@@ -733,7 +801,7 @@ function renderTagGroups(){
     const v=b.dataset.tag;
     if(State.tags.has(v))State.tags.delete(v);else State.tags.add(v);
     State.preset=null;updatePresetButtons();
-    renderTagGroups();afterFilterChange();
+    afterFilterChange();
   }));
 }
 
@@ -742,7 +810,12 @@ function renderActiveSummary(){
   const host=$('#active-summary');
   const items=[];
   if(State.type!=='all')items.push({kind:'type',label:State.type+'전형',value:State.type});
-  State.regions.forEach(v=>items.push({kind:'region',label:v,value:v}));
+  if(State.regions.size>=7){
+    const quick=REGION_QUICK.find(([,fn])=>sameSet(State.regions,fn()));
+    items.push({kind:'region-all',label:quick?`${quick[0]} (지역 ${State.regions.size}곳)`:`지역 ${State.regions.size}곳`,value:'__all'});
+  }else{
+    State.regions.forEach(v=>items.push({kind:'region',label:v,value:v}));
+  }
   State.patterns.forEach(v=>items.push({kind:'pattern',label:v,value:v}));
   State.tags.forEach(v=>items.push({kind:'tag',label:v,value:v}));
   if(State.q)items.push({kind:'q',label:'"'+State.q+'"',value:State.q});
@@ -756,9 +829,10 @@ function renderActiveSummary(){
   host.querySelectorAll('.active-chip').forEach(b=>b.addEventListener('click',()=>{
     const k=b.dataset.kind,v=b.dataset.value;
     if(k==='type'){State.type='all';syncTypeTabs();}
-    else if(k==='region'){State.regions.delete(v);renderRegionChips();}
-    else if(k==='pattern'){State.patterns.delete(v);renderPatternUI();}
-    else if(k==='tag'){State.tags.delete(v);renderTagGroups();}
+    else if(k==='region'){State.regions.delete(v);}
+    else if(k==='region-all'){State.regions.clear();}
+    else if(k==='pattern'){State.patterns.delete(v);}
+    else if(k==='tag'){State.tags.delete(v);}
     else if(k==='q'){State.q='';$('#q').value='';$('#search-bar').classList.remove('has-value');}
     State.preset=null;updatePresetButtons();
     afterFilterChange();
@@ -775,7 +849,6 @@ function resetAllFilters(){
   State.regions.clear();State.patterns.clear();State.tags.clear();
   State.preset=null;
   $('#q').value='';$('#search-bar').classList.remove('has-value');
-  renderRegionChips();renderPatternUI();renderTagGroups();
   syncTypeTabs();updatePresetButtons();
   afterFilterChange();
 }
@@ -791,11 +864,53 @@ function renderFilterToggleCounts(){
     b.dataset.count=String(n);
     b.querySelector('.dot').textContent=n;
     b.classList.toggle('open',State.openPanel===t);
+    b.setAttribute('aria-expanded',State.openPanel===t?'true':'false');
   });
   ['region','pattern','tag'].forEach(k=>{
     const panel=$('#filter-panel-'+k);
     if(panel)panel.hidden=State.openPanel!==k;
   });
+}
+
+/* ---------- 열린 패널 갱신 (fp-body 스크롤 유지) ---------- */
+function renderOpenPanel(){
+  if(!State.openPanel)return;
+  const panel=$('#filter-panel-'+State.openPanel);
+  const body=panel?panel.querySelector('.fp-body'):null;
+  const st=body?body.scrollTop:0;
+  if(State.openPanel==='region')renderRegionChips();
+  else if(State.openPanel==='pattern')renderPatternUI();
+  else renderTagGroups();
+  renderPanelFoot();
+  if(body)body.scrollTop=st;
+}
+function renderPanelFoot(){
+  if(!State.openPanel)return;
+  const foot=$('#filter-panel-'+State.openPanel)?.querySelector('.fp-foot');
+  if(!foot)return;
+  const n=filteredMinimums().length;
+  const facet=foot.dataset.facet;
+  const selN=facet==='regions'?State.regions.size:facet==='patterns'?State.patterns.size:State.tags.size;
+  foot.innerHTML=`<span class="fp-count">현재 조건 결과 <b>${n.toLocaleString()}</b>건</span>
+    <span class="sp"></span>
+    <button class="btn-plain fp-clear" ${selN?'':'disabled'}>이 조건 해제${selN?` (${selN})`:''}</button>
+    <button class="btn-primary fp-apply">결과 보기</button>`;
+  foot.querySelector('.fp-clear').addEventListener('click',()=>{
+    if(facet==='regions')State.regions.clear();
+    else if(facet==='patterns')State.patterns.clear();
+    else State.tags.clear();
+    State.preset=null;updatePresetButtons();
+    afterFilterChange();
+  });
+  foot.querySelector('.fp-apply').addEventListener('click',()=>{closePanel();scrollToResults();});
+}
+function closePanel(){State.openPanel=null;renderFilterToggleCounts();}
+function scrollToResults(){
+  const tb=document.querySelector('.toolbar');if(!tb)return;
+  const headH=document.querySelector('.header').getBoundingClientRect().height;
+  const filtH=document.querySelector('#filters').getBoundingClientRect().height;
+  const y=window.scrollY+tb.getBoundingClientRect().top-headH-filtH-6;
+  if(y>window.scrollY+30)window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
 }
 
 function updatePresetButtons(){
@@ -826,6 +941,7 @@ function afterFilterChange(){
   renderActiveSummary();
   renderFilterToggleCounts();
   updateTypeTabCounts();
+  renderOpenPanel();
   renderAll();
   updateURL();
 }
@@ -843,38 +959,52 @@ function applyPreset(key){
     DATA.filters.regions.forEach(r=>{if(!p.regionsExclude.includes(r))State.regions.add(r);});
   }
   State.preset=key;updatePresetButtons();
-  renderRegionChips();renderPatternUI();renderTagGroups();
   toast(`프리셋: ${p.label}`);
   afterFilterChange();
 }
 
 /* ---------- 필터링 / 정렬 ---------- */
-function filteredMinimums(ignoreType){
-  let arr=DATA.minimums.filter(m=>{
-    if(!ignoreType&&State.type!=='all'&&m.type!==State.type)return false;
-    if(State.regions.size&&!State.regions.has(m.region))return false;
-    if(State.patterns.size&&![...State.patterns].every(v=>(m.patterns||[]).includes(v)))return false;
-    if(State.tags.size){
-      const tagsSel=[...State.tags];
-      const orGroups={};
-      const others=[];
-      for(const t of tagsSel){
-        let grouped=false;
-        for(let i=0;i<OR_TAG_PATTERNS.length;i++){
-          if(OR_TAG_PATTERNS[i].test(t)){(orGroups[i]=orGroups[i]||[]).push(t);grouped=true;break}
-        }
-        if(!grouped)others.push(t);
+/* skip: 'type'|'regions'|'patterns'|'tags'|null — 해당 패싯을 제외하고 조건 구성 */
+function buildCtx(skip){
+  const ctx={skip:skip||null};
+  if(skip!=='patterns'&&State.patterns.size){
+    const b={};
+    for(const p of State.patterns)(b[patBucket(p)]??=[]).push(p);
+    ctx.patBuckets=Object.values(b);
+  }
+  if(skip!=='tags'&&State.tags.size){
+    const orGroups={};const others=[];
+    for(const t of State.tags){
+      let grouped=false;
+      for(let i=0;i<OR_TAG_PATTERNS.length;i++){
+        if(OR_TAG_PATTERNS[i].test(t)){(orGroups[i]=orGroups[i]||[]).push(t);grouped=true;break}
       }
-      const matchOthers=others.every(v=>(m.tags||[]).includes(v)||(m.specialTags||[]).includes(v));
-      if(!matchOthers)return false;
-      for(const grp of Object.values(orGroups)){
-        const matchAny=grp.some(v=>(m.tags||[]).includes(v));
-        if(!matchAny)return false;
-      }
+      if(!grouped)others.push(t);
     }
-    if(State.q&&!hasAllTokens(m.searchText,State.q))return false;
-    return true;
-  });
+    ctx.tagOthers=others;ctx.tagOrGroups=Object.values(orGroups);
+  }
+  return ctx;
+}
+function matchItem(m,ctx){
+  if(ctx.skip!=='type'&&State.type!=='all'&&m.type!==State.type)return false;
+  if(ctx.skip!=='regions'&&State.regions.size&&!State.regions.has(m.region))return false;
+  if(ctx.patBuckets){
+    for(const grp of ctx.patBuckets){
+      if(!grp.some(p=>m._pat.has(p)))return false;
+    }
+  }
+  if(ctx.tagOthers){
+    if(!ctx.tagOthers.every(v=>m._tag.has(v)))return false;
+    for(const grp of ctx.tagOrGroups){
+      if(!grp.some(v=>m._tag.has(v)))return false;
+    }
+  }
+  if(State.q&&!hasAllTokens(m.searchText,State.q))return false;
+  return true;
+}
+function filteredMinimums(ignoreType){
+  const ctx=buildCtx(ignoreType?'type':null);
+  let arr=DATA.minimums.filter(m=>matchItem(m,ctx));
   if(!ignoreType){
     arr.sort((a,b)=>{
       if(State.sort==='seats')return (b.seats||0)-(a.seats||0);
@@ -883,6 +1013,18 @@ function filteredMinimums(ignoreType){
     });
   }
   return arr;
+}
+/* 패싯 카운트: 자신을 제외한 다른 조건 기준으로 각 값의 결과 건수 */
+function facetCounts(facet){
+  const ctx=buildCtx(facet);
+  const counts=new Map();
+  for(const m of DATA.minimums){
+    if(!matchItem(m,ctx))continue;
+    if(facet==='regions')counts.set(m.region,(counts.get(m.region)||0)+1);
+    else if(facet==='patterns')for(const p of m._pat)counts.set(p,(counts.get(p)||0)+1);
+    else for(const t of m._tag)counts.set(t,(counts.get(t)||0)+1);
+  }
+  return counts;
 }
 
 /* ---------- 메인 렌더 ---------- */
@@ -1079,9 +1221,9 @@ function renderGuide(){
   $('#content').innerHTML=`<div class="guide-grid">
     <article class="guide-card"><h3><span class="num">1</span>검색과 단축키</h3><p>상단 검색창에 대학명, 전형명, 학과, 최저기준을 입력하면 실시간 자동완성이 표시됩니다. <span class="kbd">/</span> 키로 검색창에 빠르게 이동할 수 있고, <span class="kbd">Esc</span> 로 모달과 자동완성을 닫을 수 있습니다.</p></article>
     <article class="guide-card"><h3><span class="num">2</span>빠른 프리셋 8종</h3><p>의약계열, 2합≤5, 3합≤7, 3합≤10, 사·과 자유, 수학포함, 수도권외, 영어 2등급↑ 등 자주 쓰는 조건을 한 번에 적용합니다. 같은 프리셋을 다시 누르면 해제됩니다.</p></article>
-    <article class="guide-card"><h3><span class="num">3</span>최저패턴 81개</h3><p>최저패턴 토글을 열면 <b>2합 · 3합 · 4합 · 각등급·개수</b> 4개 그룹 탭으로 분류되어 표시됩니다. 각 그룹 안에서 <b>정확값</b>(예: 3합6)과 <b>범위값</b>(예: 3합≤7)을 분리해서 선택할 수 있어 의도에 맞는 패턴을 빠르게 찾을 수 있습니다.</p></article>
+    <article class="guide-card"><h3><span class="num">3</span>최저패턴 81개</h3><p>최저패턴 토글을 열면 <b>2합 · 3합 · 4합 · 각등급·개수</b> 4개 그룹 탭으로 분류되어 표시됩니다. 등급 패턴은 여러 개 선택해도 <b>OR</b>(하나라도 해당)로 넓게 적용되어, 3합6과 3합7을 함께 고르면 두 조건의 합집합이 표시됩니다. 탐구·선택조건 패턴은 <b>AND</b>로 함께 좁혀지며, 각 칩의 숫자는 현재 조건 기준 결과 건수입니다.</p></article>
     <article class="guide-card"><h3><span class="num">4</span>조건 태그 그룹</h3><p>조건 태그는 반영영역·영어·한국사·계열 4개 그룹으로 묶여 있습니다. 영어와 한국사 등급은 <b>OR</b>로 처리되어, 영어1·영어2를 함께 선택하면 둘 중 하나만 만족해도 결과에 포함됩니다.</p></article>
-    <article class="guide-card"><h3><span class="num">5</span>활성 필터 칩</h3><p>지금 적용된 모든 조건은 필터 영역 아래에 색깔 칩으로 한눈에 표시됩니다. 칩의 × 를 누르면 해당 조건만 해제되고, <b>전체 해제</b> 버튼으로 모든 필터를 한 번에 초기화할 수 있습니다.</p></article>
+    <article class="guide-card"><h3><span class="num">5</span>활성 필터 칩과 패널</h3><p>적용된 모든 조건은 필터 영역 아래에 색깔 칩으로 표시되고, 칩의 × 로 해당 조건만 해제할 수 있습니다. 필터 패널은 화면 위에 떠서 열리며 아래쪽의 <b>현재 조건 결과 건수</b>를 보면서 조건을 고른 뒤 <b>결과 보기</b>로 닫으면 됩니다. 지역을 7곳 이상 선택하면 <b>지역 N곳</b> 묶음 칩으로 요약됩니다.</p></article>
     <article class="guide-card"><h3><span class="num">6</span>전형별 실시간 카운트</h3><p>지역·패턴·태그 필터를 적용하면 상단의 전체·교과·종합·논술 탭에 해당 조건을 만족하는 건수가 실시간으로 표시됩니다. 어느 전형에 항목이 몰려있는지 즉시 확인할 수 있습니다.</p></article>
     <article class="guide-card"><h3><span class="num">7</span>대학별 보기와 접기</h3><p>대학별 보기 탭에서 대학 헤더를 클릭하면 그 대학의 항목이 접힙니다. 상단의 <b>모두 펼치기 / 모두 접기</b> 버튼으로 전체를 일괄 제어할 수 있어 상담 자료 정리에 유용합니다.</p></article>
     <article class="guide-card"><h3><span class="num">8</span>비교함 (최대 5개)</h3><p>각 카드의 ≡ 버튼으로 비교함에 담은 항목을 표 형식으로 나란히 비교합니다. 전형요소, 최저적용, 최저패턴, 변화사항까지 한 화면에서 확인할 수 있습니다.</p></article>
@@ -1090,7 +1232,8 @@ function renderGuide(){
   </div>`;
 }
 
-function empty(title,body){return `<div class="empty"><div class="big">○</div><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`}
+function empty(title,body){return `<div class="empty"><div class="big">○</div><h3>${esc(title)}</h3><p>${esc(body)}</p><p style="margin-top:16px"><button class="btn-plain btn-danger" onclick="window.__resetFilters()">필터 초기화</button></p></div>`}
+window.__resetFilters=()=>resetAllFilters();
 
 function bindItemButtons(host){
   host.querySelectorAll('[data-act="fav"]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();toggleFav(b.dataset.id)}));
@@ -1217,7 +1360,12 @@ function bindEvents(){
     const t=b.dataset.target;
     State.openPanel=(State.openPanel===t)?null:t;
     renderFilterToggleCounts();
+    renderOpenPanel();
   }));
+  // 패널 밖 클릭 시 닫기 (필터 영역 내부 클릭은 유지)
+  document.addEventListener('pointerdown',e=>{
+    if(State.openPanel&&!e.target.closest('#filters'))closePanel();
+  });
   $('#sort').addEventListener('change',()=>{State.sort=$('#sort').value;renderAll();updateURL();});
   $$('.mode-btn').forEach(b=>b.addEventListener('click',()=>{State.mode=b.dataset.mode;renderAll();updateURL();}));
   $('#filter-reset').addEventListener('click',resetAllFilters);
