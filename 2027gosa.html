@@ -19,8 +19,9 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Malgun Gothic','맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:14px;line-height:1.55}
-button{font-family:inherit;font-size:13px;cursor:pointer;border:1px solid var(--line2);background:var(--card);color:var(--tx);border-radius:8px;padding:6px 11px}
-button:hover{border-color:var(--tx3)}
+button,.btnlike{font-family:inherit;font-size:13px;cursor:pointer;border:1px solid var(--line2);background:var(--card);color:var(--tx);border-radius:8px;padding:6px 11px}
+button:hover,.btnlike:hover{border-color:var(--tx3)}
+.btnlike{display:inline-flex;align-items:center;text-decoration:none}
 input,select{font-family:inherit;font-size:13px;border:1px solid var(--line2);border-radius:8px;padding:6px 9px;background:var(--card);color:var(--tx)}
 input:focus,select:focus,button:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
 a{color:var(--acc)}
@@ -221,6 +222,7 @@ footer .wrap{padding:14px 16px;font-size:12px;color:var(--tx2);line-height:1.8}
         <div class="hd-sub" id="hdSub"></div>
       </div>
       <div style="display:flex;gap:6px">
+        <a class="btnlike noprint" href="index.html">메인</a>
         <button data-act="print" class="noprint">인쇄</button>
         <button data-act="help" class="noprint" style="border-color:var(--acc);color:var(--acc)">안내·유의사항</button>
       </div>
@@ -330,7 +332,7 @@ footer .wrap{padding:14px 16px;font-size:12px;color:var(--tx2);line-height:1.8}
 </main>
 <footer>
   <div class="wrap">
-    제작 충청남도교육청진로융합교육원 교육연구사 정재연 · 출처 대입정보포털 어디가(www.adiga.kr) 대학별 전형일정(2026-06-12 수집)<br>
+    제작 충청남도교육청진로융합교육원 교육연구사 정재연 · 출처 대입정보포털, 대학별 모집요강<br>
     본 자료는 참고용입니다. 고사 시간·장소, 변경 사항은 반드시 각 대학 수시 모집요강과 입학처 공지로 확인하시기 바랍니다.
   </div>
 </footer>
@@ -339,7 +341,7 @@ footer .wrap{padding:14px 16px;font-size:12px;color:var(--tx2);line-height:1.8}
     <h2>안내 및 유의사항</h2>
     <h3>자료 범위</h3>
     <ul>
-      <li>대입정보포털 <b>어디가(adiga.kr)</b>의 2027학년도 수시 대학별 전형일정 자료(<b>2026-06-12 수집</b>) 기준입니다.</li>
+      <li>2027학년도 수시 대학별 전형일정 자료(<b>2026-06-12 수집</b>) 기준입니다.</li>
       <li><b>대학별고사(논술·면접·실기)를 시행하는 전형만</b> 수록됩니다. 서류 100%·교과 정량 전형 등 고사가 없는 전형은 일정 자체가 없어 포함되지 않습니다.</li>
       <li>전 일정은 시행 대학 기준이며, 수집 시점 이후 대학 사정으로 변경될 수 있습니다.</li>
     </ul>
@@ -347,7 +349,7 @@ footer .wrap{padding:14px 16px;font-size:12px;color:var(--tx2);line-height:1.8}
     <ul>
       <li><b>고사 시간·고사장 정보는 없습니다.</b> 같은 날이라도 오전/오후가 다를 수 있으므로, 일정이 겹치는 경우 반드시 모집요강을 확인하세요.</li>
       <li>기간으로 표시된 일정(예: 10/1~10/11)은 그 기간 중 모집단위·수험생별로 지정 시행됨을 뜻합니다.</li>
-      <li><b>합격자 발표일은 어디가 표기 원문</b>으로, 대학에 따라 단계별 발표 또는 최종 발표가 섞여 있습니다. 참고용으로만 활용하세요.</li>
+      <li><b>합격자 발표일은 대입정보포털 표기 원문</b>으로, 대학에 따라 단계별 발표 또는 최종 발표가 섞여 있습니다. 참고용으로만 활용하세요.</li>
       <li>본 도구는 어떤 판정·유불리 해석도 하지 않습니다.</li>
     </ul>
     <h3>상담 모드</h3>
@@ -546,10 +548,10 @@ function evDetailHTML(e) {
   return `<div class="row"><span class="lb">전형</span>${esc(P.full)}</div>
     <div class="row"><span class="lb">고사일</span><b>${exam}</b></div>
     <div class="row"><span class="lb">원서접수</span>${app}</div>
-    <div class="row"><span class="lb">발표(어디가)</span>${ann}</div>
+    <div class="row"><span class="lb">발표일</span>${ann}</div>
     <div class="row"><span class="lb">모집단위 ${e.m.length}</span>
       <div class="units">${e.m.map(mi => `<span>${esc(DB.units[mi])}</span>`).join("")}</div></div>
-    <div class="acts"><a href="${adigaURL(e.c)}" target="_blank" rel="noopener">어디가 상세 ↗</a>
+    <div class="acts"><a href="${adigaURL(e.c)}" target="_blank" rel="noopener">대입정보포털 상세 ↗</a>
       <button data-act="pick-add" data-ei="${e.i}">상담 모드에 담기 +</button></div>`;
 }
 
@@ -721,7 +723,7 @@ function renderCsSheet() {
         <span class="badge b-t${e.t}">${TY[e.t]}</span><span class="badge b-gray">${CATS[P.cat]}</span>
         <span class="badge ${e.d1 < SUN ? "b-acc" : "b-gray"}">${e.d1 < SUN ? "수능 전" : "수능 후"}</span></div>
       <div style="font-size:12.5px;color:var(--tx2)">${esc(P.name)}</div>
-      <div class="dt">${dates} <span style="color:var(--tx3)">· 발표(어디가) ${esc(e.ann || "-")}</span></div>
+      <div class="dt">${dates} <span style="color:var(--tx3)">· 발표일 ${esc(e.ann || "-")}</span></div>
       <input data-memo="${pi}" value="${esc(pk.memo || "")}" placeholder="메모 (지원 모집단위, 고사 시간 등)">
     </div>`;
   }).join("") + "</div>";
@@ -746,7 +748,7 @@ function renderCsSheet() {
   st.picks.forEach((pk, pi) => pickEvents(pk).forEach(e => rows.push({ pi, e })));
   rows.sort((a, b) => a.e.d1 - b.e.d1);
   html += `<div class="card" style="margin-top:10px"><b style="font-size:13.5px">시간순 일정</b>
-    <table class="cs-tbl" style="margin-top:6px"><tr><th>고사일</th><th>수능</th><th>지원</th><th>대학·전형</th><th>유형</th><th>발표(어디가)</th></tr>`
+    <table class="cs-tbl" style="margin-top:6px"><tr><th>고사일</th><th>수능</th><th>지원</th><th>대학·전형</th><th>유형</th><th>발표일</th></tr>`
     + rows.map(({ pi, e }) => {
       let cf = false; eachDay(e.d1, e.d2, d => { if (dmap.get(d) && dmap.get(d).size > 1) cf = true; });
       return `<tr class="${cf ? "cf" : ""}"><td><b>${fmtMDW(e.d1)}</b>${e.d1 !== e.d2 ? "~" + fmtMD(e.d2) : ""}</td>
@@ -782,7 +784,7 @@ function exportCSV() {
   const pad = n => String(n).padStart(2, "0");
   const iso = n => `${Y}-${pad(n / 100 | 0)}-${pad(n % 100)}`;
   const qv = v => `"${String(v).replace(/"/g, '""')}"`;
-  const head = ["시작일", "종료일", "요일", "수능전후", "유형", "차수", "대학", "지역", "전형구분", "전형명", "전형경로", "모집단위수", "모집단위", "인터넷원서접수", "현장원서접수", "합격자발표(어디가표기)", "어디가URL"];
+  const head = ["시작일", "종료일", "요일", "수능전후", "유형", "차수", "대학", "지역", "전형구분", "전형명", "전형경로", "모집단위수", "모집단위", "인터넷원서접수", "현장원서접수", "합격자발표(포털표기)", "상세URL"];
   const lines = [head.map(qv).join(",")];
   F.slice().sort((a, b) => a.d1 - b.d1).forEach(e => {
     lines.push([iso(e.d1), iso(e.d2), WD[dow(e.d1)], e.d1 < SUN ? "수능전" : "수능후", TY[e.t], e.st + "차",
@@ -873,7 +875,7 @@ $("#csStu").addEventListener("change", e => { CS.cur = +e.target.value; saveCS()
 (function boot() {
   const refs = E.reduce((s, e) => s + e.m.length, 0);
   const shorts = new Set(UNIS.map(u => u.short));
-  $("#hdSub").innerHTML = `논술·면접·실기 일정 <b>${E.length.toLocaleString()}</b>건 · <b>${shorts.size}</b>개교(캠퍼스 ${UNIS.length}) · 모집단위 연계 ${refs.toLocaleString()}건 — 어디가 ${DB.meta.collected} 수집 기준`;
+  $("#hdSub").innerHTML = `논술·면접·실기 일정 <b>${E.length.toLocaleString()}</b>건 · <b>${shorts.size}</b>개교(캠퍼스 ${UNIS.length}) · 모집단위 연계 ${refs.toLocaleString()}건 — ${DB.meta.collected} 수집 기준`;
   initRegions();
   refilter();
   renderFilterUI();
