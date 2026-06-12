@@ -29,6 +29,9 @@ header h1 small{font-weight:600;font-size:13px;opacity:.75;margin-left:8px}
 .tabbtn{appearance:none;border:0;background:rgba(255,255,255,.10);color:#dbe7f5;padding:9px 16px;font-size:13.5px;font-weight:700;border-radius:9px 9px 0 0;cursor:pointer}
 .tabbtn:hover{background:rgba(255,255,255,.2)}
 .tabbtn.on{background:var(--bg);color:var(--navy)}
+.hd-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.mainbtn{flex:0 0 auto;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);border-radius:999px;padding:6px 18px;font-size:13px;font-weight:700;margin-top:3px}
+.mainbtn:hover{background:rgba(255,255,255,.28)}
 
 /* ── 필터 ── */
 #filters{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:14px 0 12px;padding:10px 14px;box-shadow:0 1px 2px rgba(22,54,95,.05)}
@@ -170,7 +173,7 @@ main{min-height:60vh}
   .fextra input[type=search]{width:150px}
 }
 @media print{
-  header .tabs,#filters,#stats,.morebtn,#cmpfab,#toast,.toolbar,.uvtop,#gradeLegend{display:none!important}
+  header .tabs,#filters,#stats,.morebtn,#cmpfab,#toast,.toolbar,.uvtop,#gradeLegend,.mainbtn{display:none!important}
   header{background:#fff;color:#000;padding:0}
   header h1,.sub{color:#000}
   .badge{border-color:#999;color:#333}
@@ -185,8 +188,13 @@ main{min-height:60vh}
 <body>
 <header>
   <div class="wrap">
-    <h1>전문대학 간호·보건 6개 학과 3개년 입시결과 <small>2024~2026학년도</small><span class="badge">참고용</span></h1>
-    <div class="sub">간호 · 물리치료 · 방사선 · 응급구조 · 임상병리 · 치위생 — 전문대학포털(procollege.kr) 공시자료 기반 · 모집시기·전형별 경쟁률과 합격자 성적</div>
+    <div class="hd-top">
+      <div>
+        <h1>전문대학 간호·보건 6개 학과 3개년 입시결과 <small>2024~2026학년도</small><span class="badge">참고용</span></h1>
+        <div class="sub">간호 · 물리치료 · 방사선 · 응급구조 · 임상병리 · 치위생 — 전문대학포털(procollege.kr) 공시자료 기반 · 모집시기·전형별 경쟁률과 합격자 성적</div>
+      </div>
+      <a class="mainbtn" href="index.html">메인</a>
+    </div>
     <nav class="tabs">
       <button class="tabbtn" data-tab="ex">탐색</button>
       <button class="tabbtn" data-tab="tr">3개년 추이</button>
