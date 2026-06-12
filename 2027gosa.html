@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0VB6E0J6MB');
-</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2027학년도 수시 대학별고사 일정 캘린더</title>
@@ -550,7 +541,8 @@ function evItemHTML(e, opts = {}) {
 function evDetailHTML(e) {
   const P = PATHS[e.p];
   const l2 = linkedSt2(e);
-  const exam = `${e.st}차 ${fmtMDW(e.d1)}${e.d1 !== e.d2 ? " ~ " + fmtMDW(e.d2) : ""}`
+  const stPre = l2.length ? "1차 " : e.st === 2 ? "2차 " : "";
+  const exam = `${stPre}${fmtMDW(e.d1)}${e.d1 !== e.d2 ? " ~ " + fmtMDW(e.d2) : ""}`
     + l2.map(x => ` · 2차 ${fmtMDW(x.d1)}${x.d1 !== x.d2 ? " ~ " + fmtMDW(x.d2) : ""}`).join("");
   const app = e.app ? `인터넷 ${fmtMD(e.app[0])}~${fmtMD(e.app[1])}` + (e.os ? ` · 현장 ${e.os}` : "") : "-";
   const ann = e.ann ? esc(e.ann) + (e.ann.includes(" / ") ? ' <span style="color:var(--tx3)">(모집단위별 상이)</span>' : "") : "-";
@@ -723,7 +715,7 @@ function renderCsSheet() {
   /* 픽 카드 */
   html += '<div class="picks" style="margin-top:10px">' + st.picks.map((pk, pi) => {
     const e = E[pk.e], u = UNIS[e.u], P = PATHS[e.p], l2 = linkedSt2(e);
-    const dates = `${e.st}차 <b>${fmtMDW(e.d1)}${e.d1 !== e.d2 ? "~" + fmtMD(e.d2) : ""}</b>`
+    const dates = `${l2.length ? "1차 " : e.st === 2 ? "2차 " : ""}<b>${fmtMDW(e.d1)}${e.d1 !== e.d2 ? "~" + fmtMD(e.d2) : ""}</b>`
       + l2.map(x => ` · 2차 <b>${fmtMDW(x.d1)}${x.d1 !== x.d2 ? "~" + fmtMD(x.d2) : ""}</b>`).join("");
     return `<div class="pk" style="border-left-color:${PKC[pi]}">
       <button class="x noprint" data-act="pick-del" data-pi="${pi}" title="빼기">×</button>
