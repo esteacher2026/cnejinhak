@@ -74,21 +74,14 @@
     .btn.small{min-height:32px;padding:6px 9px;font-size:13px}
     .btn.danger{color:var(--red);border-color:#ffd2cc;background:#fff}
     .wrap{max-width:var(--max);margin:0 auto;padding:20px 18px 70px}
-    .tool-head{
-      display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:14px;align-items:stretch;
-    }
-    .hero,.source-panel,.panel{
+    .tool-head{display:block}
+    .hero,.panel{
       background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 1px 0 rgba(17,24,39,.03);
     }
     .hero{padding:22px}
     .eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--primary);font-weight:900;font-size:13px;margin-bottom:8px}
     h1{font-size:clamp(25px,3.2vw,42px);line-height:1.15;margin:0;letter-spacing:0}
     .hero-lead{margin:12px 0 0;color:#344054;font-size:17px;max-width:840px}
-    .source-panel{padding:16px;display:flex;flex-direction:column;gap:12px}
-    .source-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-    .source-title strong{font-size:16px}
-    .source-title span{font-size:12px;color:var(--muted);font-weight:800}
-    .source-panel ul{margin:0;padding-left:18px;color:#475467;font-size:13px}
     .stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
     .stat{
       border:1px solid var(--line2);border-radius:8px;background:#fbfcfe;padding:12px;
@@ -213,7 +206,7 @@
     .related-card b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .related-card span{display:block;color:#667085;font-size:12px;margin-top:3px}
     @media (max-width:1080px){
-      .tool-head,.layout,.dashboard{grid-template-columns:1fr}
+      .layout,.dashboard{grid-template-columns:1fr}
       .filters{position:static;max-height:none}
       .search-grid{grid-template-columns:1fr 1fr}
       .search-grid .btn{grid-column:auto}
@@ -256,16 +249,6 @@
         <p class="hero-lead">학과명, 학교명, 지역, 계열, 교과목, 관련 직업, 상담 주제를 한 번에 검색하고 2027학년도 모집인원을 같이 확인할 수 있습니다.</p>
         <div class="stat-grid" id="statGrid" aria-label="자료 요약"></div>
       </div>
-      <aside class="source-panel" aria-label="자료 기준">
-        <div class="source-title">
-          <strong>자료 기준과 해석</strong>
-          <span id="generatedDate">업데이트 확인 중</span>
-        </div>
-        <ul id="sourceNotes">
-          <li>자료를 불러오는 중입니다.</li>
-        </ul>
-        <button class="btn green" id="downloadAllBtn" type="button">전체 정리 CSV 다운로드</button>
-      </aside>
     </section>
 
     <section class="panel search-panel" aria-label="통합 검색">
@@ -539,8 +522,6 @@
         ['검토 플래그', nf.format(AUDIT.reviewNeeded || 0) + '건', '0명·중복·추정 포함']
       ];
       $('statGrid').innerHTML = stats.map(([label,value,note]) => `<div class="stat"><span>${esc(label)}</span><b>${esc(value)}</b><small>${esc(note)}</small></div>`).join('');
-      $('generatedDate').textContent = (AUDIT.generatedDate || '2026-06-12') + ' 업데이트';
-      $('sourceNotes').innerHTML = (AUDIT.sourceNotes || []).map(note => '<li>' + esc(note) + '</li>').join('');
     }
     function renderDashboard(){
       const fields = (AUDIT.fieldSummary || []).slice(0, 9);
@@ -903,7 +884,6 @@
     $('resetBtn').addEventListener('click', resetAll);
     $('moreBtn').addEventListener('click', () => { state.page += 1; renderResults(); });
     $('exportBtn').addEventListener('click', () => downloadCsv(state.current.map(x => x.r), '2027대학_학과검색_현재결과.csv'));
-    $('downloadAllBtn').addEventListener('click', () => downloadCsv(DATA, '2027대학_개설학과_모집인원_정리.csv'));
     $('copySummaryBtn').addEventListener('click', async () => {
       const text = `${summarizeFilters()}\n검색 결과 ${nf.format(state.current.length)}건, 대표 모집인원 ${nf.format(state.current.reduce((s,x)=>s+x.r.capacity,0))}명`;
       await copyText(text);
