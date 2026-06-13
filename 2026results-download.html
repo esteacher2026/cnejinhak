@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2026 대학별 입시결과 원문 다운로드</title>
-  <meta name="description" content="2026학년도 대학별 입시결과 원문 PDF, 엑셀, 한글, 압축 파일을 대학별로 검색하고 다운로드합니다.">
+  <meta name="description" content="2026학년도 대학별 입시결과 원문 PDF·엑셀·한글 파일을 대학명이나 지역으로 검색해 바로 내려받습니다.">
   <link rel="canonical" href="https://jinhak.esteacher.kr/2026results-download.html">
   <style>
     :root {
-      --bg: #f6f8fb;
+      --bg: #f5f7fb;
       --paper: #ffffff;
       --paper-2: #fbfcfe;
       --ink: #111827;
@@ -25,9 +25,11 @@
       --green-soft: #e7f6f3;
       --red: #b42318;
       --red-soft: #fff0ee;
-      --max: 1180px;
-      --radius: 8px;
-      --shadow: 0 12px 28px rgba(16, 42, 76, .08);
+      --violet: #5b3bb3;
+      --violet-soft: #efeaff;
+      --max: 1080px;
+      --radius: 10px;
+      --stick: 56px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -39,9 +41,10 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
       line-height: 1.55;
       word-break: keep-all;
+      -webkit-text-size-adjust: 100%;
     }
     a { color: inherit; }
-    button, input, select { font: inherit; }
+    button, input { font: inherit; }
     .skip {
       position: absolute;
       left: -9999px;
@@ -51,24 +54,16 @@
       overflow: hidden;
     }
     .skip:focus {
-      left: 16px;
-      top: 16px;
-      width: auto;
-      height: auto;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      background: var(--ink);
-      color: #fff;
-      z-index: 1000;
+      left: 16px; top: 16px; width: auto; height: auto;
+      padding: 10px 14px; border-radius: var(--radius);
+      background: var(--ink); color: #fff; z-index: 1000;
     }
     .topline {
       height: 5px;
       background: linear-gradient(90deg, var(--navy), var(--blue), var(--gold));
     }
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       background: rgba(255, 255, 255, .94);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(14px);
@@ -76,413 +71,240 @@
     .topbar-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 10px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
     }
-    .brand {
-      min-width: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
+    .brand { min-width: 0; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand-mark {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      background: var(--navy);
-      color: #fff;
-      font-weight: 900;
-      font-size: 13px;
-      flex: 0 0 auto;
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 9px; background: var(--navy); color: #fff;
+      font-weight: 900; font-size: 12px; letter-spacing: -.02em; flex: 0 0 auto;
     }
-    .brand-title {
-      display: block;
-      font-size: 16px;
-      font-weight: 900;
-      letter-spacing: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .brand-title { display: block; font-size: 15px; font-weight: 900; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-sub { display: block; margin-top: 1px; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .top-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .btn {
+      min-height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 8px 13px; border: 1px solid var(--line); border-radius: 9px;
+      background: #fff; color: var(--ink); text-decoration: none; cursor: pointer;
+      font-weight: 800; font-size: 13px; white-space: nowrap;
+      transition: border-color .15s, box-shadow .15s, background .15s, transform .04s;
     }
-    .brand-sub {
-      display: block;
-      margin-top: 1px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
+    .btn:hover { border-color: #b8c2d2; box-shadow: 0 6px 14px rgba(17, 24, 39, .08); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+    .btn.primary:hover { background: #0d655e; border-color: #0d655e; }
+    .btn.ghost { background: #fff; }
+    .btn.small { min-height: 34px; padding: 7px 11px; font-size: 12.5px; }
+    .btn:focus-visible, input:focus-visible, .rchip:focus-visible {
+      outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(36, 87, 166, .18);
     }
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 20px 18px 80px; }
+    h1, h2, p { margin-top: 0; }
+
+    /* hero */
+    .hero { padding: 4px 2px 0; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--blue); font-size: 13px; font-weight: 900; margin-bottom: 8px;
     }
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 22px 18px 72px;
+    .eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 999px; background: var(--gold); }
+    h1 {
+      margin-bottom: 8px; color: var(--navy);
+      font-size: clamp(24px, 3.4vw, 36px); line-height: 1.18; font-weight: 900;
     }
-    .panel, .hero, .uni-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .lead { max-width: 720px; margin-bottom: 0; color: var(--text); font-size: 15.5px; }
+
+    /* filter bar */
+    .filterbar {
+      position: sticky; top: var(--stick); z-index: 40;
+      margin: 16px 0 0;
+      padding: 14px; background: var(--paper);
+      border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 1px 0 rgba(17, 24, 39, .03);
+      display: grid; gap: 12px;
+    }
+    .filterbar.stuck { box-shadow: 0 14px 26px rgba(16, 42, 76, .12); }
+    .search { position: relative; }
+    .search .ico {
+      position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+      width: 20px; height: 20px; color: var(--muted); pointer-events: none;
+    }
+    .search input {
+      width: 100%; height: 52px;
+      border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink);
+      padding: 0 46px; font-size: 16px; outline: none;
+    }
+    .search input::placeholder { color: #9aa6b8; }
+    .search .clear {
+      position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; display: none; place-items: center;
+      border: 0; border-radius: 9px; background: #eef1f6; color: var(--muted);
+      cursor: pointer; font-size: 16px; line-height: 1;
+    }
+    .search .clear:hover { background: #e2e7ef; color: var(--ink); }
+    .search.has-value .clear { display: grid; }
+
+    .region-label {
+      display: block; margin-bottom: -2px;
+      color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .01em;
+    }
+    .region-row {
+      display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto;
+      padding-bottom: 2px; -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+    }
+    .region-row::-webkit-scrollbar { height: 6px; }
+    .region-row::-webkit-scrollbar-thumb { background: #d6deea; border-radius: 999px; }
+    .rchip {
+      flex: 0 0 auto; white-space: nowrap;
+      min-height: 36px; padding: 7px 14px;
+      border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--text);
+      cursor: pointer; font-weight: 800; font-size: 13px;
+      transition: border-color .15s, background .15s, color .15s;
+    }
+    .rchip:hover { border-color: #b8c2d2; }
+    .rchip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+    /* result bar (reset only, no counts) */
+    .resultbar { display: flex; justify-content: flex-end; align-items: center; margin: 14px 2px 0; }
+    .resultbar[hidden] { display: none; }
+    .linkbtn {
+      border: 0; background: none; cursor: pointer;
+      color: var(--blue); font-weight: 800; font-size: 13px;
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 2px;
+    }
+    .linkbtn:hover { text-decoration: underline; }
+
+    /* results */
+    .results { margin-top: 12px; display: grid; gap: 12px; }
+    .uni-card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+      padding: 16px; display: grid; gap: 12px;
       box-shadow: 0 1px 0 rgba(17, 24, 39, .03);
     }
-    .hero {
-      padding: clamp(18px, 3vw, 28px);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
-      gap: 18px;
-      align-items: stretch;
+    .uni-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .uni-name { margin: 0; color: var(--navy); font-size: 19px; line-height: 1.25; font-weight: 900; }
+    .uni-regions { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+    .rbadge {
+      display: inline-flex; align-items: center; min-height: 22px; padding: 2px 8px;
+      border-radius: 999px; background: var(--blue-soft); color: var(--blue);
+      font-size: 11.5px; font-weight: 800;
     }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 8px;
+    .file-list { display: grid; gap: 8px; }
+    .file-item {
+      display: flex; align-items: center; gap: 12px; justify-content: space-between;
+      padding: 11px 12px; border: 1px solid var(--line-soft); border-radius: 11px; background: var(--paper-2);
     }
-    .eyebrow::before {
-      content: "";
-      width: 22px;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--gold);
+    .file-main { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .ftype {
+      flex: 0 0 auto; width: 46px; height: 46px; border-radius: 10px;
+      display: grid; place-items: center; font-size: 11px; font-weight: 900; letter-spacing: .02em;
     }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 {
-      margin-bottom: 10px;
-      color: var(--navy);
-      font-size: clamp(26px, 3.6vw, 42px);
-      line-height: 1.16;
-      letter-spacing: 0;
-      font-weight: 900;
-    }
-    .lead {
-      max-width: 780px;
-      margin-bottom: 0;
-      color: var(--text);
-      font-size: 16px;
-    }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-    .stat {
-      min-height: 86px;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid var(--line-soft);
-      border-radius: var(--radius);
-      background: var(--paper-2);
-    }
-    .stat span {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-    }
-    .stat b {
-      font-size: 26px;
-      line-height: 1.1;
-      font-variant-numeric: tabular-nums;
-    }
-    .controls {
-      margin-top: 14px;
-      padding: 14px;
-      display: grid;
-      gap: 12px;
-    }
-    .control-row {
-      display: grid;
-      grid-template-columns: minmax(260px, 1fr) minmax(150px, 190px) minmax(132px, 160px) minmax(132px, 160px);
-      gap: 10px;
-      align-items: end;
-    }
-    .field {
-      min-width: 0;
-      display: grid;
-      gap: 6px;
-    }
-    label {
-      color: #344054;
-      font-size: 12px;
-      font-weight: 900;
-    }
-    input, select {
-      width: 100%;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--ink);
-      padding: 0 11px;
-      outline: none;
-    }
-    input:focus, select:focus, .btn:focus-visible, .chip:focus-visible {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(36, 87, 166, .14);
-      outline: none;
-    }
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-    .chip, .btn {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px 11px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--ink);
-      text-decoration: none;
-      cursor: pointer;
-      font-weight: 850;
-      font-size: 13px;
-    }
-    .chip:hover, .btn:hover {
-      border-color: #b8c2d2;
-      box-shadow: 0 8px 18px rgba(17, 24, 39, .08);
-    }
-    .chip[aria-pressed="true"], .btn.primary {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #fff;
-    }
-    .btn.light {
-      background: #f8fafc;
-    }
-    .btn.green {
-      background: var(--green);
-      border-color: var(--green);
-      color: #fff;
-    }
-    .btn.small {
-      min-height: 34px;
-      padding: 7px 10px;
-    }
-    .meta-strip {
-      margin-top: 14px;
-      padding: 12px 14px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 12px;
-      align-items: center;
-    }
-    .summary strong {
-      display: block;
-      font-size: 17px;
-    }
-    .summary span {
-      display: block;
-      margin-top: 2px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .results {
-      margin-top: 14px;
-      display: grid;
-      gap: 10px;
-    }
-    .uni-card {
-      padding: 14px;
-      display: grid;
-      gap: 12px;
-    }
-    .uni-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 12px;
-      align-items: start;
-    }
-    .uni-title {
-      margin: 0;
-      color: var(--navy);
-      font-size: 20px;
-      line-height: 1.25;
-      letter-spacing: 0;
-    }
-    .uni-meta {
-      margin-top: 6px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-      padding: 3px 7px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #fff;
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 800;
-    }
-    .badge.type-pdf { background: var(--red-soft); border-color: #ffd2cc; color: var(--red); }
-    .badge.type-xlsx { background: var(--green-soft); border-color: #bde4dd; color: var(--green); }
-    .badge.type-hwp { background: var(--blue-soft); border-color: #cbdcff; color: var(--blue); }
-    .badge.type-zip, .badge.type-png { background: var(--gold-soft); border-color: #f4da9b; color: #7a4300; }
-    .file-list {
-      display: grid;
-      gap: 8px;
-    }
-    .file-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 12px;
-      align-items: center;
-      padding: 10px;
-      border: 1px solid var(--line-soft);
-      border-radius: var(--radius);
-      background: var(--paper-2);
-    }
-    .file-title {
-      min-width: 0;
-      display: grid;
-      gap: 6px;
-    }
-    .file-title strong {
-      overflow-wrap: anywhere;
-      font-size: 14px;
-      line-height: 1.35;
-    }
-    .file-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 7px;
-      flex-wrap: wrap;
-    }
-    mark {
-      padding: 0 2px;
-      border-radius: 4px;
-      background: #fff2a8;
-    }
+    .ftype.pdf { background: var(--red-soft); color: var(--red); }
+    .ftype.xlsx, .ftype.xls { background: var(--green-soft); color: var(--green); }
+    .ftype.hwp { background: var(--blue-soft); color: var(--blue); }
+    .ftype.zip { background: var(--gold-soft); color: #7a4300; }
+    .ftype.png { background: var(--violet-soft); color: var(--violet); }
+    .ftype.file { background: #eef1f6; color: var(--muted); }
+    .file-text { min-width: 0; }
+    .file-label { font-size: 14px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+    .file-tags { margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; }
+    .tag-susi { background: var(--blue-soft); color: var(--blue); }
+    .tag-jeongsi { background: var(--gold-soft); color: #7a4300; }
+    .tag-both { background: var(--green-soft); color: var(--green); }
+    .file-actions { flex: 0 0 auto; display: flex; gap: 7px; }
+
+    mark { padding: 0 1px; border-radius: 3px; background: #fff2a8; color: inherit; }
+
     .empty {
-      padding: 34px 18px;
-      text-align: center;
-      color: var(--muted);
-      border: 1px dashed #c8cfdb;
-      border-radius: var(--radius);
-      background: #fff;
+      padding: 40px 18px; text-align: center; color: var(--muted);
+      border: 1px dashed #c8cfdb; border-radius: 14px; background: #fff; display: grid; gap: 12px; justify-items: center;
     }
-    .notice {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 13px;
+    .empty strong { color: var(--ink); font-size: 16px; }
+
+    .note { margin-top: 16px; color: var(--muted); font-size: 12.5px; }
+    footer { margin-top: 26px; color: var(--muted); font-size: 13px; }
+    footer strong { color: var(--text); }
+
+    .totop {
+      position: fixed; right: 18px; bottom: 18px; z-index: 60;
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 1px solid var(--line); background: #fff; color: var(--navy);
+      cursor: pointer; font-size: 20px; line-height: 1;
+      box-shadow: 0 10px 24px rgba(16, 42, 76, .18);
+      display: grid; place-items: center;
     }
-    footer {
-      margin-top: 26px;
-      color: var(--muted);
-      font-size: 13px;
+    .totop[hidden] { display: none; }
+    .totop:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+    @media (min-width: 760px) {
+      .region-row { flex-wrap: wrap; overflow: visible; }
     }
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .control-row { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 759px) {
+      .filterbar { position: static; }
     }
-    @media (max-width: 640px) {
-      .topbar-inner { padding: 9px 12px; }
+    @media (max-width: 560px) {
+      .topbar-inner { padding: 9px 13px; }
       .brand-sub { display: none; }
-      .top-actions .btn.light { display: none; }
-      .wrap { padding: 14px 12px 62px; }
-      .hero { padding: 16px; }
-      .control-row { grid-template-columns: 1fr; }
-      .meta-strip, .uni-head, .file-row { grid-template-columns: 1fr; }
-      .file-actions { justify-content: stretch; }
-      .file-actions .btn { flex: 1 1 120px; }
-      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .top-actions .btn.ghost { display: none; }
+      .wrap { padding: 14px 13px 76px; }
+      .filterbar { padding: 12px; border-radius: 12px; }
+      .search input { height: 48px; font-size: 15.5px; }
+      .file-item { flex-direction: column; align-items: stretch; gap: 11px; }
+      .file-actions .btn { flex: 1; }
     }
   </style>
 </head>
 <body>
   <a class="skip" href="#results">본문으로 바로가기</a>
   <div class="topline" aria-hidden="true"></div>
+
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html" aria-label="EST 진학정보실 메인으로 이동">
         <span class="brand-mark">2026</span>
         <span>
-          <span class="brand-title">대학별 입시결과 원문 다운로드</span>
+          <span class="brand-title">입시결과 원문 다운로드</span>
           <span class="brand-sub">대학 발표 원문 파일 모음</span>
         </span>
       </a>
       <nav class="top-actions" aria-label="상단 이동">
-        <a class="btn light" href="#filters">필터</a>
-        <a class="btn" href="index.html">메인</a>
+        <a class="btn ghost small" href="index.html">메인</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero" aria-labelledby="pageTitle">
+      <span class="eyebrow">2026학년도 대학 발표 원문</span>
+      <h1 id="pageTitle">대학별 입시결과 원문 다운로드</h1>
+      <p class="lead">대학명이나 지역으로 검색해 2026학년도 입시결과 원문 파일(PDF·엑셀·한글)을 바로 내려받으세요.</p>
+    </section>
+
+    <section class="filterbar" id="filters" aria-label="검색 및 지역 필터">
+      <div class="search" id="search">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+          <path d="m20 20-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <input id="q" type="search" autocomplete="off" enterkeyhint="search"
+               placeholder="대학명·파일명 검색 (예: 충남대, 수시, 정시)" aria-label="통합 검색">
+        <button class="clear" id="clearSearch" type="button" aria-label="검색어 지우기">✕</button>
+      </div>
       <div>
-        <span class="eyebrow">2026학년도 대학 발표 원문</span>
-        <h1 id="pageTitle">대학별 입시결과 파일을 바로 찾고 내려받습니다.</h1>
-        <p class="lead">대학명·지역·전형·파일형식으로 2026학년도 입시결과 원문을 빠르게 찾을 수 있습니다.</p>
-        <p class="notice">대학별 발표 원문을 그대로 연결한 자료입니다.</p>
-      </div>
-      <div class="stat-grid" id="statGrid" aria-label="자료 요약"></div>
-    </section>
-
-    <section class="panel controls" id="filters" aria-label="검색 및 필터">
-      <div class="control-row">
-        <div class="field">
-          <label for="q">통합 검색</label>
-          <input id="q" type="search" autocomplete="off" placeholder="대학명, 파일명, 지역 입력">
-        </div>
-        <div class="field">
-          <label for="region">지역</label>
-          <select id="region"></select>
-        </div>
-        <div class="field">
-          <label for="fileType">파일형식</label>
-          <select id="fileType"></select>
-        </div>
-        <div class="field">
-          <label for="sort">정렬</label>
-          <select id="sort">
-            <option value="university">대학명순</option>
-            <option value="region">지역순</option>
-            <option value="count">파일 많은순</option>
-          </select>
-        </div>
-      </div>
-      <div class="chip-row" id="categoryChips" aria-label="전형 필터">
-        <button class="chip" type="button" data-category="all" aria-pressed="true">전체</button>
-        <button class="chip" type="button" data-category="수시" aria-pressed="false">수시</button>
-        <button class="chip" type="button" data-category="정시" aria-pressed="false">정시</button>
-        <button class="chip" type="button" data-category="수시+정시" aria-pressed="false">수시+정시</button>
-        <button class="chip" type="button" data-category="기타" aria-pressed="false">기타</button>
+        <span class="region-label" id="regionLabel">지역</span>
+        <div class="region-row" id="regionRow" role="group" aria-labelledby="regionLabel"></div>
       </div>
     </section>
 
-    <section class="panel meta-strip" aria-live="polite">
-      <div class="summary">
-        <strong id="resultTitle">검색 결과</strong>
-        <span id="resultSummary">자료를 계산하는 중입니다.</span>
-      </div>
-      <button class="btn small" type="button" id="resetBtn">초기화</button>
-    </section>
+    <div class="resultbar" id="resultbar" hidden>
+      <button class="linkbtn" id="resetBtn" type="button">↺ 전체 보기로 초기화</button>
+    </div>
 
-    <section class="results" id="results" aria-label="대학별 파일 목록"></section>
+    <section class="results" id="results" aria-live="polite" aria-label="대학별 입시결과 파일 목록"></section>
+
+    <p class="note">각 파일은 대학이 발표한 입시결과 원문을 그대로 연결한 자료이며, Google Drive에서 미리보기·다운로드됩니다.</p>
 
     <footer>
       <strong>EST 진학정보실</strong>
@@ -490,31 +312,32 @@
     </footer>
   </main>
 
+  <button class="totop" id="toTop" type="button" aria-label="맨 위로" hidden>↑</button>
+
   <script src="2026results-download-data.js"></script>
   <script>
     (function () {
       'use strict';
 
       var raw = Array.isArray(window.RESULT_FILES_2026) ? window.RESULT_FILES_2026 : [];
-      var state = { query: '', region: '', type: '', category: 'all', sort: 'university' };
-      var nf = new Intl.NumberFormat('ko-KR');
+      var state = { query: '', region: '' };
       var categoryOrder = { '수시': 1, '정시': 2, '수시+정시': 3, '기타': 4 };
+      var regionOrder = ['서울', '경기·인천', '강원·제주', '충북', '충남·대전·세종', '전북', '광주·전남', '경북·대구·울산', '부산·경남', '교대'];
+      var currentTerms = [];
 
       function $(id) { return document.getElementById(id); }
-      function cleanTitle(title) {
-        return String(title || '').replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+      function cleanTitle(t) {
+        return String(t || '').replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
       }
-      function esc(text) {
-        return String(text == null ? '' : text).replace(/[&<>"']/g, function (c) {
+      function esc(t) {
+        return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) {
           return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
         });
       }
-      function norm(text) {
-        return cleanTitle(text).toLowerCase().replace(/\s+/g, '');
-      }
+      function norm(t) { return cleanTitle(t).toLowerCase().replace(/\s+/g, ''); }
       function highlight(text, terms) {
         var safe = esc(text);
-        terms.filter(function (t) { return t.length >= 2; }).slice(0, 5).forEach(function (term) {
+        (terms || []).filter(function (t) { return t.length >= 2; }).slice(0, 5).forEach(function (term) {
           var pattern = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
           safe = safe.replace(new RegExp(pattern, 'gi'), function (m) { return '<mark>' + m + '</mark>'; });
         });
@@ -522,14 +345,18 @@
       }
       function fileType(item) {
         if (item.type) return String(item.type).toUpperCase();
-        var title = cleanTitle(item.title).toLowerCase();
-        if (title.endsWith('.pdf')) return 'PDF';
-        if (title.endsWith('.xlsx') || title.endsWith('.xls')) return 'XLSX';
-        if (title.endsWith('.hwp')) return 'HWP';
-        if (title.endsWith('.zip')) return 'ZIP';
-        if (title.endsWith('.png')) return 'PNG';
+        var t = cleanTitle(item.title).toLowerCase();
+        if (t.endsWith('.pdf')) return 'PDF';
+        if (t.endsWith('.xlsx') || t.endsWith('.xls')) return 'XLSX';
+        if (t.endsWith('.hwp')) return 'HWP';
+        if (t.endsWith('.zip')) return 'ZIP';
+        if (t.endsWith('.png')) return 'PNG';
         return 'FILE';
       }
+      function typeShort(type) {
+        return { PDF: 'PDF', XLSX: 'XLS', XLS: 'XLS', HWP: 'HWP', ZIP: 'ZIP', PNG: 'IMG' }[type] || 'FILE';
+      }
+      function canPreview(type) { return type === 'PDF' || type === 'XLSX' || type === 'XLS' || type === 'PNG'; }
       function category(title) {
         var text = cleanTitle(title);
         var hasSusi = /수시/.test(text);
@@ -539,6 +366,7 @@
         if (hasJeongsi) return '정시';
         return '기타';
       }
+      function catSlug(c) { return { '수시': 'susi', '정시': 'jeongsi', '수시+정시': 'both' }[c] || 'etc'; }
       function inferUniversity(item) {
         if (item.university) return item.university;
         var text = cleanTitle(item.title).replace(/\.[^.]+$/, '');
@@ -566,173 +394,206 @@
         if (m) return m[1];
         return text.split(/\s+/)[0] || '대학명 미확인';
       }
+      function fileLabel(f) {
+        var base = cleanTitle(f.title)
+          .replace(/\.(pdf|xlsx?|hwp|zip|png)$/i, '')
+          .replace(/\(\s*2026\s*/g, '(')
+          .replace(/\(\s*\)/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        var t = base.replace(/^2026(?:학년도)?\s+(?![-~])/, '').trim();
+        if (f.university && f.university !== '대학명 미확인' && t.indexOf(f.university) === 0) {
+          var after = t.charAt(f.university.length);
+          if (after === '' || /[\s·,()\[\]]/.test(after)) {
+            t = t.slice(f.university.length).replace(/^[\s·,]+/, '').trim();
+          }
+        }
+        if (!t || t === f.university || !/[가-힣A-Za-z0-9]/.test(t)) t = '입시결과';
+        return t;
+      }
       function previewUrl(id) {
         return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing';
       }
       function downloadUrl(id) {
         return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id);
       }
+      function unique(list) {
+        var seen = {}, out = [];
+        list.forEach(function (x) { if (x && !seen[x]) { seen[x] = 1; out.push(x); } });
+        return out;
+      }
+      function regionRank(r) { var i = regionOrder.indexOf(r); return i < 0 ? 999 : i; }
+      function sortRegions(arr) {
+        return arr.slice().sort(function (a, b) { return regionRank(a) - regionRank(b) || a.localeCompare(b, 'ko'); });
+      }
 
-      var seen = new Set();
-      var files = raw.map(function (item, idx) {
+      // build file list (dedupe by id)
+      var seen = {};
+      var files = [];
+      raw.forEach(function (item) {
         var id = String(item.id || '').trim();
+        if (!id || seen[id]) return;
         var title = cleanTitle(item.title);
+        if (!title) return;
+        seen[id] = 1;
         var type = fileType(item);
         var cat = category(title);
-        var university = inferUniversity(item);
-        return {
-          id: id,
-          index: idx,
-          title: title,
-          type: type,
-          category: cat,
-          university: university,
-          region: item.region || '기타',
-          search: norm([university, item.region, title, type, cat].join(' '))
-        };
-      }).filter(function (item) {
-        var key = item.id;
-        if (!key || !item.title) return false;
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
+        var uni = inferUniversity(item);
+        var region = item.region || '기타';
+        files.push({
+          id: id, title: title, type: type, category: cat, university: uni, region: region,
+          label: '', search: norm([uni, region, title, type, cat].join(' '))
+        });
       });
+      files.forEach(function (f) { f.label = fileLabel(f); });
 
-      function unique(list) {
-        return Array.from(new Set(list)).filter(Boolean).sort(function (a, b) { return a.localeCompare(b, 'ko'); });
+      function buildRegionChips() {
+        var regions = sortRegions(unique(files.map(function (f) { return f.region; })));
+        var html = ['<button class="rchip" type="button" data-region="" aria-pressed="true">전체</button>'];
+        regions.forEach(function (r) {
+          html.push('<button class="rchip" type="button" data-region="' + esc(r) + '" aria-pressed="false">' + esc(r) + '</button>');
+        });
+        $('regionRow').innerHTML = html.join('');
       }
-      function populateFilters() {
-        var regionOptions = ['<option value="">전체 지역</option>'].concat(unique(files.map(function (f) { return f.region; })).map(function (r) {
-          return '<option value="' + esc(r) + '">' + esc(r) + '</option>';
-        }));
-        $('region').innerHTML = regionOptions.join('');
 
-        var typeOptions = ['<option value="">전체 형식</option>'].concat(unique(files.map(function (f) { return f.type; })).map(function (t) {
-          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
-        }));
-        $('fileType').innerHTML = typeOptions.join('');
-      }
-      function renderStats() {
-        var universityCount = unique(files.map(function (f) { return f.university; })).length;
-        var pdfCount = files.filter(function (f) { return f.type === 'PDF'; }).length;
-        var xlsxCount = files.filter(function (f) { return f.type === 'XLSX'; }).length;
-        $('statGrid').innerHTML = [
-          ['대학', universityCount + '개'],
-          ['파일', files.length + '개'],
-          ['PDF', pdfCount + '개'],
-          ['엑셀', xlsxCount + '개']
-        ].map(function (s) {
-          return '<div class="stat"><span>' + esc(s[0]) + '</span><b>' + esc(s[1]) + '</b></div>';
-        }).join('');
-      }
-      function filteredFiles() {
+      function filtered() {
         var q = norm(state.query);
         return files.filter(function (f) {
           if (state.region && f.region !== state.region) return false;
-          if (state.type && f.type !== state.type) return false;
-          if (state.category !== 'all' && f.category !== state.category) return false;
           if (q && f.search.indexOf(q) === -1) return false;
           return true;
         });
       }
-      function groupByUniversity(items) {
-        var map = new Map();
+
+      function group(items) {
+        var map = {};
         items.forEach(function (f) {
-          if (!map.has(f.university)) map.set(f.university, []);
-          map.get(f.university).push(f);
+          if (!map[f.university]) map[f.university] = [];
+          map[f.university].push(f);
         });
-        var groups = Array.from(map.entries()).map(function (entry) {
-          var list = entry[1].sort(function (a, b) {
-            return (categoryOrder[a.category] || 9) - (categoryOrder[b.category] || 9) || a.title.localeCompare(b.title, 'ko');
+        var groups = Object.keys(map).map(function (u) {
+          var list = map[u].sort(function (a, b) {
+            return (categoryOrder[a.category] || 9) - (categoryOrder[b.category] || 9) || a.label.localeCompare(b.label, 'ko');
           });
-          return {
-            university: entry[0],
-            files: list,
-            regions: unique(list.map(function (f) { return f.region; }))
-          };
+          return { university: u, files: list, regions: sortRegions(unique(list.map(function (f) { return f.region; }))) };
         });
-        groups.sort(function (a, b) {
-          if (state.sort === 'count') return b.files.length - a.files.length || a.university.localeCompare(b.university, 'ko');
-          if (state.sort === 'region') return a.regions.join(',').localeCompare(b.regions.join(','), 'ko') || a.university.localeCompare(b.university, 'ko');
-          return a.university.localeCompare(b.university, 'ko');
-        });
+        groups.sort(function (a, b) { return a.university.localeCompare(b.university, 'ko'); });
         return groups;
       }
+
+      function renderRow(f) {
+        var catTag = f.category !== '기타'
+          ? '<span class="file-tags"><span class="tag tag-' + catSlug(f.category) + '">' + esc(f.category) + '</span></span>'
+          : '';
+        var prevBtn = canPreview(f.type)
+          ? '<a class="btn ghost small" href="' + previewUrl(f.id) + '" target="_blank" rel="noopener">미리보기</a>'
+          : '';
+        return '' +
+          '<div class="file-item">' +
+            '<div class="file-main">' +
+              '<span class="ftype ' + esc(f.type.toLowerCase()) + '">' + esc(typeShort(f.type)) + '</span>' +
+              '<div class="file-text">' +
+                '<div class="file-label">' + highlight(f.label, currentTerms) + '</div>' +
+                catTag +
+              '</div>' +
+            '</div>' +
+            '<div class="file-actions">' +
+              prevBtn +
+              '<a class="btn primary small" href="' + downloadUrl(f.id) + '">다운로드</a>' +
+            '</div>' +
+          '</div>';
+      }
+
+      function renderCard(g) {
+        return '' +
+          '<article class="uni-card">' +
+            '<div class="uni-head">' +
+              '<h2 class="uni-name">' + highlight(g.university, currentTerms) + '</h2>' +
+              '<div class="uni-regions">' +
+                g.regions.map(function (r) { return '<span class="rbadge">' + esc(r) + '</span>'; }).join('') +
+              '</div>' +
+            '</div>' +
+            '<div class="file-list">' + g.files.map(renderRow).join('') + '</div>' +
+          '</article>';
+      }
+
       function render() {
-        var terms = cleanTitle(state.query).split(/\s+/).filter(Boolean);
-        var matched = filteredFiles();
-        var groups = groupByUniversity(matched);
-        $('resultTitle').textContent = '검색 결과';
-        $('resultSummary').textContent = nf.format(groups.length) + '개 대학 · ' + nf.format(matched.length) + '개 파일 표시';
+        currentTerms = cleanTitle(state.query).split(/\s+/).filter(Boolean);
+        var groups = group(filtered());
+        $('resultbar').hidden = !(state.query || state.region);
 
         if (!groups.length) {
-          $('results').innerHTML = '<div class="empty"><strong>검색 결과가 없습니다.</strong><br>검색어를 줄이거나 필터를 초기화해 보세요.</div>';
+          $('results').innerHTML = '' +
+            '<div class="empty">' +
+              '<strong>검색 결과가 없습니다.</strong>' +
+              '<span>검색어를 줄이거나 다른 지역을 선택해 보세요.</span>' +
+              '<button class="btn" type="button" data-reset>전체 보기로 초기화</button>' +
+            '</div>';
           return;
         }
-        $('results').innerHTML = groups.map(function (group) {
-          var fileRows = group.files.map(function (f) {
-            var typeClass = 'type-' + f.type.toLowerCase();
-            return '' +
-              '<div class="file-row">' +
-                '<div class="file-title">' +
-                  '<strong>' + highlight(f.title, terms) + '</strong>' +
-                  '<div class="uni-meta">' +
-                    '<span class="badge ' + esc(typeClass) + '">' + esc(f.type) + '</span>' +
-                    '<span class="badge">' + esc(f.category) + '</span>' +
-                  '</div>' +
-                '</div>' +
-                '<div class="file-actions">' +
-                  '<a class="btn small" href="' + previewUrl(f.id) + '" target="_blank" rel="noopener">미리보기</a>' +
-                  '<a class="btn small green" href="' + downloadUrl(f.id) + '">다운로드</a>' +
-                '</div>' +
-              '</div>';
-          }).join('');
-          return '' +
-            '<article class="uni-card">' +
-              '<div class="uni-head">' +
-                '<div>' +
-                  '<h2 class="uni-title">' + highlight(group.university, terms) + '</h2>' +
-                  '<div class="uni-meta">' +
-                    group.regions.map(function (r) { return '<span class="badge">' + esc(r) + '</span>'; }).join('') +
-                    '<span class="badge">' + nf.format(group.files.length) + '개 파일</span>' +
-                  '</div>' +
-                '</div>' +
-              '</div>' +
-              '<div class="file-list">' + fileRows + '</div>' +
-            '</article>';
-        }).join('');
-      }
-      function bind() {
-        $('q').addEventListener('input', function (e) { state.query = e.target.value; render(); });
-        $('region').addEventListener('change', function (e) { state.region = e.target.value; render(); });
-        $('fileType').addEventListener('change', function (e) { state.type = e.target.value; render(); });
-        $('sort').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
-        $('categoryChips').addEventListener('click', function (e) {
-          var btn = e.target.closest('[data-category]');
-          if (!btn) return;
-          state.category = btn.dataset.category;
-          document.querySelectorAll('#categoryChips .chip').forEach(function (chip) {
-            chip.setAttribute('aria-pressed', chip === btn ? 'true' : 'false');
-          });
-          render();
-        });
-        $('resetBtn').addEventListener('click', function () {
-          state = { query: '', region: '', type: '', category: 'all', sort: 'university' };
-          $('q').value = '';
-          $('region').value = '';
-          $('fileType').value = '';
-          $('sort').value = 'university';
-          document.querySelectorAll('#categoryChips .chip').forEach(function (chip) {
-            chip.setAttribute('aria-pressed', chip.dataset.category === 'all' ? 'true' : 'false');
-          });
-          render();
-          $('q').focus();
-        });
+        $('results').innerHTML = groups.map(renderCard).join('');
       }
 
-      populateFilters();
-      renderStats();
+      function setRegionPressed() {
+        Array.prototype.forEach.call($('regionRow').children, function (c) {
+          c.setAttribute('aria-pressed', c.getAttribute('data-region') === state.region ? 'true' : 'false');
+        });
+      }
+      function resetAll() {
+        state.query = '';
+        state.region = '';
+        $('q').value = '';
+        $('search').classList.remove('has-value');
+        setRegionPressed();
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        $('q').focus();
+      }
+
+      function bind() {
+        var q = $('q');
+        q.addEventListener('input', function (e) {
+          state.query = e.target.value;
+          $('search').classList.toggle('has-value', !!e.target.value);
+          render();
+        });
+        $('clearSearch').addEventListener('click', function () {
+          state.query = '';
+          q.value = '';
+          $('search').classList.remove('has-value');
+          render();
+          q.focus();
+        });
+        $('regionRow').addEventListener('click', function (e) {
+          var b = e.target.closest('[data-region]');
+          if (!b) return;
+          state.region = b.getAttribute('data-region');
+          setRegionPressed();
+          render();
+        });
+        $('resetBtn').addEventListener('click', resetAll);
+        $('results').addEventListener('click', function (e) {
+          if (e.target.closest('[data-reset]')) resetAll();
+        });
+
+        var tt = $('toTop');
+        var fb = $('filters');
+        window.addEventListener('scroll', function () {
+          tt.hidden = window.scrollY < 500;
+          if (fb) fb.classList.toggle('stuck', window.scrollY > 8);
+        }, { passive: true });
+        tt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      }
+
+      function setStick() {
+        var tb = document.querySelector('.topbar');
+        document.documentElement.style.setProperty('--stick', (tb ? tb.offsetHeight : 56) + 'px');
+      }
+
+      buildRegionChips();
       bind();
+      setStick();
+      window.addEventListener('resize', setStick);
       render();
     })();
   </script>
