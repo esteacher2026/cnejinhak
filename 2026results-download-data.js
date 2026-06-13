@@ -1,5 +1,5 @@
 // 2026 대학별 입시결과 원문 다운로드 데이터
-// 실제 원본 파일은 Google Drive에 두고, GitHub Pages에는 가벼운 메타데이터만 둡니다.
+// 실제 원본 파일은 외부 저장소에 두고, GitHub Pages에는 가벼운 메타데이터만 둡니다.
 window.RESULT_FILES_2026 = [
   { region: "경북·대구·울산", id: "1WvD-x_6Skr6kDd594IlLcQrRz39sNGHu", title: "2026 국립경국대 수시모집 입시 결과.xlsx", type: "XLSX" },
   { region: "경북·대구·울산", id: "1NQSgG0kXY6SkqRcpfEo9TfwA5J0-4aLh", title: "2026 울산대 수시결과(교과).xlsx", type: "XLSX" },
