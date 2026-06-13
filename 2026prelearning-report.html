@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 선행학습영향평가 결과보고서 원문 다운로드</title>
+  <meta name="description" content="2026학년도 대학별 선행학습영향평가 결과보고서 원문 PDF·HWP·XLSX·ZIP 자료를 대학명과 지역으로 검색해 내려받습니다.">
+  <link rel="canonical" href="https://jinhak.esteacher.kr/2026prelearning-report.html">
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #fff;
+      --paper-soft: #fbfcfe;
+      --ink: #111827;
+      --text: #344054;
+      --muted: #667085;
+      --line: #d9e0ea;
+      --line-soft: #edf1f6;
+      --navy: #17345f;
+      --navy-2: #102746;
+      --navy-soft: #eaf1fb;
+      --green: #0f766e;
+      --green-soft: #e7f6f3;
+      --gold: #9a6700;
+      --gold-soft: #fff7df;
+      --red: #b42318;
+      --red-soft: #fff0ee;
+      --violet: #5b3bb3;
+      --violet-soft: #efeaff;
+      --max: 1120px;
+      --radius: 10px;
+      --stick: 56px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      word-break: keep-all;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      z-index: 1000;
+    }
+    .topline { height: 5px; background: linear-gradient(90deg, var(--navy), var(--green), #d19a2a); }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 9px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .brand {
+      min-width: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+    .brand-title {
+      display: block;
+      overflow: hidden;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .brand-sub {
+      display: block;
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .btn {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background .15s, border-color .15s, box-shadow .15s, transform .04s;
+    }
+    .btn:hover { border-color: #b8c3d3; box-shadow: 0 6px 14px rgba(21, 31, 48, .08); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { border-color: var(--green); background: var(--green); color: #fff; }
+    .btn.primary:hover { border-color: #0d655e; background: #0d655e; }
+    .btn.small { min-height: 34px; padding: 7px 11px; font-size: 12.5px; }
+    .btn:focus-visible, input:focus-visible, select:focus-visible, .chip:focus-visible {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(23, 52, 95, .18);
+    }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 80px;
+    }
+    h1, h2, p { margin-top: 0; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(270px, 430px);
+      gap: 24px;
+      align-items: end;
+      padding: 6px 0 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--navy);
+    }
+    h1 {
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: clamp(24px, 3.5vw, 38px);
+      line-height: 1.17;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: 15.5px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      min-height: 88px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .stat b {
+      display: block;
+      margin-top: 7px;
+      color: var(--navy);
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .panel {
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+    .filters {
+      display: grid;
+      grid-template-columns: minmax(230px, 1.4fr) repeat(5, minmax(128px, 1fr));
+      gap: 10px;
+      align-items: end;
+      padding: 15px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .control {
+      width: 100%;
+      min-height: 42px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 15px 15px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .chip {
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .chip[aria-pressed="true"] {
+      border-color: var(--navy);
+      background: var(--navy-soft);
+      color: var(--navy);
+    }
+    .result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .result-head h2 {
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+    .summary {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .results {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 15px;
+    }
+    .uni-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper-soft);
+    }
+    .uni-head {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line-soft);
+      background: #fff;
+    }
+    .uni-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .uni-title strong {
+      min-width: 0;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .badge.type-pdf { background: var(--navy-soft); color: var(--navy); }
+    .badge.type-hwp { background: var(--green-soft); color: var(--green); }
+    .badge.type-xlsx { background: var(--violet-soft); color: var(--violet); }
+    .badge.type-zip { background: var(--gold-soft); color: var(--gold); }
+    .badge.kind-report { background: var(--green-soft); color: var(--green); }
+    .badge.kind-card { background: var(--navy-soft); color: var(--navy); }
+    .badge.kind-extra { background: var(--gold-soft); color: var(--gold); }
+    .badge.kind-check { background: var(--red-soft); color: var(--red); }
+    .file-list {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+    }
+    .file-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .file-title {
+      min-width: 0;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 750;
+      overflow-wrap: anywhere;
+    }
+    .file-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    mark {
+      padding: 0 2px;
+      border-radius: 3px;
+      background: #fff0a8;
+      color: inherit;
+    }
+    .empty {
+      grid-column: 1 / -1;
+      padding: 42px 18px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 850;
+    }
+    @media (max-width: 1020px) {
+      .hero { grid-template-columns: 1fr; }
+      .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .field.search { grid-column: 1 / -1; }
+      .results { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar-inner { align-items: flex-start; }
+      .brand-sub { display: none; }
+      .top-actions { display: none; }
+      .wrap { padding: 16px 12px 54px; }
+      .hero { padding-top: 2px; }
+      .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stat { min-height: 74px; padding: 12px; }
+      .stat b { font-size: 22px; }
+      .filters { grid-template-columns: 1fr; padding: 12px; }
+      .chips { padding: 10px 12px 12px; }
+      .result-head { align-items: flex-start; padding: 12px; }
+      .results { padding: 12px; }
+      .file-row { grid-template-columns: 1fr; }
+      .file-actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#results">본문으로 바로가기</a>
+  <div class="topline" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="EST 진학정보실 메인으로 이동">
+        <span class="brand-mark">2026</span>
+        <span>
+          <span class="brand-title">선행학습영향평가 결과보고서 원문 다운로드</span>
+          <span class="brand-sub">대학별 보고서·문항카드·부속자료 모음</span>
+        </span>
+      </a>
+      <nav class="top-actions" aria-label="페이지 이동">
+        <a class="btn" href="#filters">필터</a>
+        <a class="btn" href="index.html">메인</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <span class="eyebrow">2026학년도 대학별고사</span>
+        <h1 id="pageTitle">선행학습영향평가 결과보고서를 대학별로 찾고 내려받습니다.</h1>
+        <p class="lead">대학별 선행학습영향평가 결과보고서와 문항카드, 일부 부속자료를 지역·분류·파일 형식으로 빠르게 확인할 수 있습니다.</p>
+      </div>
+      <div class="stat-grid" id="statGrid" aria-label="자료 요약"></div>
+    </section>
+
+    <section class="panel" id="filters" aria-label="검색 및 필터">
+      <div class="filters">
+        <div class="field search">
+          <label for="q">검색</label>
+          <input class="control" id="q" type="search" autocomplete="off" placeholder="대학명, 파일명, 문항카드">
+        </div>
+        <div class="field">
+          <label for="region">지역</label>
+          <select class="control" id="region"></select>
+        </div>
+        <div class="field">
+          <label for="schoolType">분류</label>
+          <select class="control" id="schoolType"></select>
+        </div>
+        <div class="field">
+          <label for="fileType">형식</label>
+          <select class="control" id="fileType"></select>
+        </div>
+        <div class="field">
+          <label for="kind">자료 구분</label>
+          <select class="control" id="kind"></select>
+        </div>
+        <div class="field">
+          <label for="sort">정렬</label>
+          <select class="control" id="sort">
+            <option value="university">대학명순</option>
+            <option value="region">지역순</option>
+            <option value="files">자료 많은 순</option>
+          </select>
+        </div>
+      </div>
+      <div class="chips" id="kindChips" aria-label="자료 구분 바로 선택">
+        <button class="chip" type="button" data-kind="all" aria-pressed="true">전체</button>
+        <button class="chip" type="button" data-kind="보고서" aria-pressed="false">보고서</button>
+        <button class="chip" type="button" data-kind="보고서+문항카드" aria-pressed="false">보고서+문항카드</button>
+        <button class="chip" type="button" data-kind="부속자료" aria-pressed="false">부속자료</button>
+        <button class="chip" type="button" data-kind="확인필요" aria-pressed="false">확인필요</button>
+      </div>
+      <div class="result-head">
+        <div>
+          <h2>검색 결과</h2>
+          <div class="summary" id="resultSummary" aria-live="polite"></div>
+        </div>
+        <button class="btn" id="resetBtn" type="button">초기화</button>
+      </div>
+      <div class="results" id="results"></div>
+    </section>
+  </main>
+
+  <script src="2026prelearning-report-data.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var raw = Array.isArray(window.PRELEARNING_REPORTS_2026) ? window.PRELEARNING_REPORTS_2026 : [];
+      var state = { query: '', region: '', schoolType: '', fileType: '', kind: '', quickKind: 'all', sort: 'university' };
+      var nf = new Intl.NumberFormat('ko-KR');
+      var regionOrder = ['서울', '경기·인천', '강원·제주', '충남·대전·세종', '충북', '경북·대구·울산', '경남·부산', '전남·광주', '전북', '교육대', '이공계특성화', '특수대학'];
+      var typeOrder = { 'PDF': 1, 'HWP': 2, 'XLSX': 3, 'ZIP': 4 };
+      var kindOrder = { '보고서': 1, '보고서+문항카드': 2, '부속자료': 3, '확인필요': 4 };
+
+      function $(id) { return document.getElementById(id); }
+      function clean(text) {
+        return String(text == null ? '' : text).replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+      function cleanId(text) {
+        return String(text == null ? '' : text).replace(/\s+/g, '').trim();
+      }
+      function esc(text) {
+        return String(text == null ? '' : text).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      function norm(text) {
+        return clean(text).toLowerCase().replace(/\s+/g, '');
+      }
+      function unique(list, orderMap) {
+        return Array.from(new Set(list)).filter(Boolean).sort(function (a, b) {
+          if (orderMap) return (orderMap[a] || 99) - (orderMap[b] || 99) || a.localeCompare(b, 'ko');
+          var ai = regionOrder.indexOf(a);
+          var bi = regionOrder.indexOf(b);
+          if (ai !== -1 || bi !== -1) return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+          return a.localeCompare(b, 'ko');
+        });
+      }
+      function classify(item) {
+        var title = clean(item.title);
+        if (/2025학년도/.test(title)) return '확인필요';
+        if (/논술|문제지|답안지|면접문항|실기고사|기출문제|문항별 적용 교과|실시 결과|자료|\.xlsx|\.zip/i.test(title)) return '부속자료';
+        if (/문항카드/.test(title)) return '보고서+문항카드';
+        return '보고서';
+      }
+      function kindClass(kind) {
+        return kind === '보고서' ? 'kind-report' : kind === '보고서+문항카드' ? 'kind-card' : kind === '확인필요' ? 'kind-check' : 'kind-extra';
+      }
+      function highlight(text, terms) {
+        var safe = esc(text);
+        terms.filter(function (t) { return t.length >= 2; }).slice(0, 5).forEach(function (term) {
+          var pattern = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          safe = safe.replace(new RegExp(pattern, 'gi'), function (m) { return '<mark>' + m + '</mark>'; });
+        });
+        return safe;
+      }
+      function previewUrl(id) {
+        return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing';
+      }
+      function downloadUrl(id) {
+        return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id);
+      }
+
+      var seen = new Set();
+      var files = raw.map(function (item, idx) {
+        var id = cleanId(item.id);
+        var title = clean(item.title);
+        var type = clean(item.type || title.split('.').pop()).toUpperCase();
+        var kind = classify(item);
+        return {
+          id: id,
+          index: idx,
+          region: clean(item.region),
+          schoolType: clean(item.schoolType),
+          university: clean(item.university),
+          title: title,
+          type: type,
+          kind: kind,
+          search: norm([item.region, item.schoolType, item.university, title, type, kind].join(' '))
+        };
+      }).filter(function (item) {
+        if (!item.id || !item.title || !item.university) return false;
+        if (seen.has(item.id)) return false;
+        seen.add(item.id);
+        return true;
+      });
+
+      function setOptions() {
+        $('region').innerHTML = ['<option value="">전체 지역</option>'].concat(unique(files.map(function (f) { return f.region; })).map(function (r) {
+          return '<option value="' + esc(r) + '">' + esc(r) + '</option>';
+        })).join('');
+        $('schoolType').innerHTML = ['<option value="">전체 분류</option>'].concat(unique(files.map(function (f) { return f.schoolType; })).map(function (t) {
+          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+        })).join('');
+        $('fileType').innerHTML = ['<option value="">전체 형식</option>'].concat(unique(files.map(function (f) { return f.type; }), typeOrder).map(function (t) {
+          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+        })).join('');
+        $('kind').innerHTML = ['<option value="">전체 구분</option>'].concat(unique(files.map(function (f) { return f.kind; }), kindOrder).map(function (k) {
+          return '<option value="' + esc(k) + '">' + esc(k) + '</option>';
+        })).join('');
+      }
+
+      function setStats() {
+        var universityCount = new Set(files.map(function (f) { return f.university; })).size;
+        var reportCount = files.filter(function (f) { return f.kind === '보고서' || f.kind === '보고서+문항카드'; }).length;
+        var extraCount = files.filter(function (f) { return f.kind === '부속자료' || f.kind === '확인필요'; }).length;
+        $('statGrid').innerHTML = [
+          ['대학·기관', universityCount + '개'],
+          ['자료', nf.format(files.length) + '개'],
+          ['보고서', nf.format(reportCount) + '개'],
+          ['부속자료', nf.format(extraCount) + '개']
+        ].map(function (s) {
+          return '<div class="stat"><span>' + esc(s[0]) + '</span><b>' + esc(s[1]) + '</b></div>';
+        }).join('');
+      }
+
+      function filteredFiles() {
+        var q = norm(state.query);
+        return files.filter(function (f) {
+          if (state.region && f.region !== state.region) return false;
+          if (state.schoolType && f.schoolType !== state.schoolType) return false;
+          if (state.fileType && f.type !== state.fileType) return false;
+          if (state.kind && f.kind !== state.kind) return false;
+          if (state.quickKind !== 'all' && f.kind !== state.quickKind) return false;
+          if (q && f.search.indexOf(q) === -1) return false;
+          return true;
+        });
+      }
+
+      function groupFiles(list) {
+        var map = new Map();
+        list.forEach(function (file) {
+          if (!map.has(file.university)) {
+            map.set(file.university, { university: file.university, files: [], regions: new Set(), types: new Set(), kinds: new Set(), schoolTypes: new Set() });
+          }
+          var group = map.get(file.university);
+          group.files.push(file);
+          group.regions.add(file.region);
+          group.types.add(file.type);
+          group.kinds.add(file.kind);
+          group.schoolTypes.add(file.schoolType);
+        });
+        var groups = Array.from(map.values()).map(function (group) {
+          group.regions = unique(Array.from(group.regions));
+          group.types = unique(Array.from(group.types), typeOrder);
+          group.kinds = unique(Array.from(group.kinds), kindOrder);
+          group.schoolTypes = unique(Array.from(group.schoolTypes));
+          group.files.sort(function (a, b) {
+            return (kindOrder[a.kind] || 99) - (kindOrder[b.kind] || 99) || (typeOrder[a.type] || 99) - (typeOrder[b.type] || 99) || a.title.localeCompare(b.title, 'ko');
+          });
+          return group;
+        });
+        groups.sort(function (a, b) {
+          if (state.sort === 'files') return b.files.length - a.files.length || a.university.localeCompare(b.university, 'ko');
+          if (state.sort === 'region') {
+            return regionOrder.indexOf(a.regions[0]) - regionOrder.indexOf(b.regions[0]) || a.university.localeCompare(b.university, 'ko');
+          }
+          return a.university.localeCompare(b.university, 'ko');
+        });
+        return groups;
+      }
+
+      function render() {
+        var matched = filteredFiles();
+        var groups = groupFiles(matched);
+        $('resultSummary').textContent = nf.format(groups.length) + '개 대학·기관 · ' + nf.format(matched.length) + '개 자료 표시';
+        if (!groups.length) {
+          $('results').innerHTML = '<div class="empty">조건에 맞는 자료가 없습니다.</div>';
+          return;
+        }
+        var terms = clean(state.query).split(/\s+/).filter(Boolean);
+        $('results').innerHTML = groups.map(function (group) {
+          var badges = []
+            .concat(group.regions.map(function (r) { return '<span class="badge">' + esc(r) + '</span>'; }))
+            .concat(group.schoolTypes.map(function (t) { return '<span class="badge">' + esc(t) + '</span>'; }))
+            .concat(group.types.map(function (t) { return '<span class="badge type-' + esc(t.toLowerCase()) + '">' + esc(t) + '</span>'; }))
+            .concat(group.kinds.map(function (k) { return '<span class="badge ' + kindClass(k) + '">' + esc(k) + '</span>'; }))
+            .concat(['<span class="badge">' + nf.format(group.files.length) + '개 자료</span>'])
+            .join('');
+          var rows = group.files.map(function (file) {
+            var previewText = file.type === 'ZIP' ? '열기' : '미리보기';
+            return [
+              '<div class="file-row">',
+              '  <div class="file-title">' + highlight(file.title, terms) + '</div>',
+              '  <div class="file-actions">',
+              '    <a class="btn small" href="' + previewUrl(file.id) + '" target="_blank" rel="noopener">' + previewText + '</a>',
+              '    <a class="btn primary small" href="' + downloadUrl(file.id) + '" target="_blank" rel="noopener">다운로드</a>',
+              '  </div>',
+              '</div>'
+            ].join('');
+          }).join('');
+          return [
+            '<article class="uni-card">',
+            '  <div class="uni-head">',
+            '    <div class="uni-title"><strong>' + highlight(group.university, terms) + '</strong></div>',
+            '    <div class="badges">' + badges + '</div>',
+            '  </div>',
+            '  <div class="file-list">' + rows + '</div>',
+            '</article>'
+          ].join('');
+        }).join('');
+      }
+
+      function updateChips() {
+        Array.prototype.forEach.call($('kindChips').querySelectorAll('.chip'), function (chip) {
+          chip.setAttribute('aria-pressed', chip.getAttribute('data-kind') === state.quickKind ? 'true' : 'false');
+        });
+      }
+      function bind() {
+        $('q').addEventListener('input', function (e) { state.query = e.target.value; render(); });
+        $('region').addEventListener('change', function (e) { state.region = e.target.value; render(); });
+        $('schoolType').addEventListener('change', function (e) { state.schoolType = e.target.value; render(); });
+        $('fileType').addEventListener('change', function (e) { state.fileType = e.target.value; render(); });
+        $('kind').addEventListener('change', function (e) { state.kind = e.target.value; render(); });
+        $('sort').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
+        $('kindChips').addEventListener('click', function (e) {
+          var button = e.target.closest('.chip');
+          if (!button) return;
+          state.quickKind = button.getAttribute('data-kind') || 'all';
+          updateChips();
+          render();
+        });
+        $('resetBtn').addEventListener('click', function () {
+          state = { query: '', region: '', schoolType: '', fileType: '', kind: '', quickKind: 'all', sort: 'university' };
+          $('q').value = '';
+          $('region').value = '';
+          $('schoolType').value = '';
+          $('fileType').value = '';
+          $('kind').value = '';
+          $('sort').value = 'university';
+          updateChips();
+          render();
+          $('q').focus();
+        });
+      }
+
+      setOptions();
+      setStats();
+      bind();
+      render();
+    })();
+  </script>
+</body>
+</html>
