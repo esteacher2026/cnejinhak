@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2027 수시모집요강 원문 다운로드</title>
-  <meta name="description" content="2027학년도 대학별 수시모집요강 원문 PDF와 HWP 파일을 지역과 대학명으로 검색하고 다운로드합니다.">
+  <meta name="description" content="2027학년도 대학별 수시모집요강 원문 PDF·한글 파일을 대학명이나 지역으로 검색해 바로 내려받습니다.">
   <link rel="canonical" href="https://jinhak.esteacher.kr/2027susi-download.html">
   <style>
     :root {
-      --bg: #f7f8fb;
+      --bg: #f7f6f8;
       --paper: #ffffff;
-      --paper-soft: #fbfcfe;
+      --paper-2: #fcfbfd;
       --ink: #111827;
       --text: #344054;
       --muted: #667085;
-      --line: #d7dfec;
-      --line-soft: #edf1f7;
+      --line: #ddd6e1;
+      --line-soft: #efeaf2;
       --burgundy: #8c2a4f;
       --burgundy-2: #6d1f3c;
       --burgundy-soft: #f8ecf0;
@@ -23,400 +23,215 @@
       --blue-soft: #eaf2ff;
       --green: #0f766e;
       --green-soft: #e7f6f3;
-      --gold: #9a6b16;
-      --gold-soft: #fff6db;
-      --slate: #475467;
-      --shadow: 0 12px 28px rgba(21, 31, 48, .08);
-      --radius: 8px;
-      --max: 1180px;
+      --red: #b42318;
+      --red-soft: #fff0ee;
+      --gold-soft: #fff7df;
+      --max: 1080px;
+      --radius: 10px;
+      --stick: 56px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      min-height: 100vh;
       background: var(--bg);
-      color: var(--text);
+      color: var(--ink);
       font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.55;
-      letter-spacing: 0;
+      word-break: keep-all;
+      -webkit-text-size-adjust: 100%;
     }
-    a { color: inherit; text-decoration: none; }
-    button, input, select { font: inherit; }
-    mark { background: #fff1a7; color: inherit; padding: 0 2px; border-radius: 3px; }
-
+    a { color: inherit; }
+    button, input { font: inherit; }
     .skip {
-      position: absolute;
-      top: -42px;
-      left: 16px;
-      z-index: 20;
-      padding: 9px 12px;
-      background: var(--ink);
-      color: white;
-      border-radius: 6px;
+      position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
     }
-    .skip:focus { top: 12px; }
-
-    .topline { height: 4px; background: linear-gradient(90deg, var(--burgundy), var(--blue), var(--green)); }
+    .skip:focus {
+      left: 16px; top: 16px; width: auto; height: auto;
+      padding: 10px 14px; border-radius: var(--radius);
+      background: var(--ink); color: #fff; z-index: 1000;
+    }
+    .topline { height: 5px; background: linear-gradient(90deg, var(--burgundy), var(--blue), var(--green)); }
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(215, 223, 236, .95);
-      background: rgba(255, 255, 255, .93);
-      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
     }
     .topbar-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      max-width: var(--max); margin: 0 auto; padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
     }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      min-width: 0;
-      gap: 12px;
-      font-weight: 800;
-      color: var(--ink);
-    }
+    .brand { min-width: 0; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      flex: 0 0 auto;
-      border-radius: 7px;
-      background: var(--burgundy);
-      color: white;
-      font-size: 15px;
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 9px; background: var(--burgundy); color: #fff;
+      font-weight: 900; font-size: 12px; letter-spacing: -.02em; flex: 0 0 auto;
     }
-    .brand-title, .brand-sub { display: block; }
-    .brand-title { font-size: 16px; line-height: 1.25; }
-    .brand-sub { margin-top: 2px; color: var(--muted); font-size: 12px; font-weight: 700; }
-    .top-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-    }
+    .brand-title { display: block; font-size: 15px; font-weight: 900; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-sub { display: block; margin-top: 1px; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .top-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 38px;
-      padding: 8px 13px;
-      border: 1px solid transparent;
-      border-radius: 7px;
-      background: var(--burgundy);
-      color: white;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+      min-height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 8px 13px; border: 1px solid var(--line); border-radius: 9px;
+      background: #fff; color: var(--ink); text-decoration: none; cursor: pointer;
+      font-weight: 800; font-size: 13px; white-space: nowrap;
+      transition: border-color .15s, box-shadow .15s, background .15s, transform .04s;
     }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(140, 42, 79, .16); }
-    .btn.light {
-      background: white;
-      color: var(--burgundy);
-      border-color: var(--line);
+    .btn:hover { border-color: #c3b6cb; box-shadow: 0 6px 14px rgba(21, 31, 48, .08); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+    .btn.primary:hover { background: #0d655e; border-color: #0d655e; }
+    .btn.ghost { background: #fff; }
+    .btn.small { min-height: 34px; padding: 7px 11px; font-size: 12.5px; }
+    .btn:focus-visible, input:focus-visible, .rchip:focus-visible {
+      outline: none; border-color: var(--burgundy); box-shadow: 0 0 0 3px rgba(140, 42, 79, .18);
     }
-    .btn.small {
-      min-height: 34px;
-      padding: 7px 11px;
-      font-size: 13px;
-    }
-    .btn.green { background: var(--green); }
-    .btn.ghost {
-      background: var(--paper);
-      color: var(--text);
-      border-color: var(--line);
-    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 20px 18px 80px; }
+    h1, h2, p { margin-top: 0; }
 
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 26px 18px 44px;
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(270px, 420px);
-      gap: 28px;
-      align-items: end;
-      padding: 24px 0 22px;
-      border-bottom: 1px solid var(--line);
-    }
+    .hero { padding: 4px 2px 0; }
     .eyebrow {
-      display: inline-flex;
-      margin-bottom: 10px;
-      padding: 5px 9px;
-      border: 1px solid #ecc5d2;
-      border-radius: 6px;
-      background: var(--burgundy-soft);
-      color: var(--burgundy);
-      font-size: 13px;
-      font-weight: 900;
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--burgundy); font-size: 13px; font-weight: 900; margin-bottom: 8px;
     }
-    h1 {
-      margin: 0;
-      color: var(--ink);
-      font-size: clamp(31px, 4vw, 54px);
-      line-height: 1.08;
-      letter-spacing: 0;
-      text-wrap: balance;
-    }
-    .lead {
-      max-width: 720px;
-      margin: 15px 0 0;
-      color: var(--text);
-      font-size: 17px;
-    }
-    .notice {
-      display: inline-flex;
-      margin: 16px 0 0;
-      padding: 8px 11px;
-      border: 1px solid #f2d99f;
-      border-radius: 7px;
-      background: var(--gold-soft);
-      color: #68470d;
-      font-size: 14px;
-      font-weight: 800;
-    }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-    .stat {
-      min-height: 86px;
-      padding: 15px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-    .stat span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .stat b {
-      display: block;
-      margin-top: 6px;
-      color: var(--ink);
-      font-size: 27px;
-      line-height: 1;
-    }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 999px; background: var(--burgundy); }
+    h1 { margin-bottom: 8px; color: var(--ink); font-size: clamp(24px, 3.4vw, 36px); line-height: 1.18; font-weight: 900; }
+    .lead { max-width: 720px; margin-bottom: 0; color: var(--text); font-size: 15.5px; }
 
-    .panel {
-      margin-top: 20px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .filterbar {
+      position: sticky; top: var(--stick); z-index: 40;
+      margin: 16px 0 0; padding: 14px; background: var(--paper);
+      border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 1px 0 rgba(21, 31, 48, .03);
+      display: grid; gap: 12px;
     }
-    .filters {
-      padding: 16px;
-      display: grid;
-      grid-template-columns: minmax(240px, 1.35fr) repeat(4, minmax(140px, 1fr));
-      gap: 10px;
-      align-items: end;
-      border-bottom: 1px solid var(--line-soft);
+    .filterbar.stuck { box-shadow: 0 14px 26px rgba(21, 31, 48, .12); }
+    .search { position: relative; }
+    .search .ico {
+      position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+      width: 20px; height: 20px; color: var(--muted); pointer-events: none;
     }
-    .field label {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--slate);
-      font-size: 13px;
-      font-weight: 900;
+    .search input {
+      width: 100%; height: 52px;
+      border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink);
+      padding: 0 46px; font-size: 16px; outline: none;
     }
-    .control {
-      width: 100%;
-      min-height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 7px;
-      background: white;
-      color: var(--ink);
-      padding: 9px 11px;
-      outline: none;
+    .search input::placeholder { color: #a99fb0; }
+    .search .clear {
+      position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; display: none; place-items: center;
+      border: 0; border-radius: 9px; background: #f0ebf3; color: var(--muted);
+      cursor: pointer; font-size: 16px; line-height: 1;
     }
-    .control:focus {
-      border-color: var(--burgundy);
-      box-shadow: 0 0 0 3px rgba(140, 42, 79, .13);
-    }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 12px 16px 16px;
-      border-bottom: 1px solid var(--line-soft);
-    }
-    .chip {
-      min-height: 34px;
-      padding: 7px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: white;
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 900;
-      cursor: pointer;
-    }
-    .chip[aria-pressed="true"] {
-      border-color: var(--burgundy);
-      background: var(--burgundy);
-      color: white;
-    }
+    .search .clear:hover { background: #e7def0; color: var(--ink); }
+    .search.has-value .clear { display: grid; }
 
-    .result-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px;
-      border-bottom: 1px solid var(--line-soft);
+    .region-label { display: block; margin-bottom: -2px; color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .01em; }
+    .region-row {
+      display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto;
+      padding-bottom: 2px; -webkit-overflow-scrolling: touch; scrollbar-width: thin;
     }
-    .result-head h2 {
-      margin: 0;
-      color: var(--ink);
-      font-size: 18px;
+    .region-row::-webkit-scrollbar { height: 6px; }
+    .region-row::-webkit-scrollbar-thumb { background: #ddd2e3; border-radius: 999px; }
+    .rchip {
+      flex: 0 0 auto; white-space: nowrap;
+      min-height: 36px; padding: 7px 14px;
+      border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--text);
+      cursor: pointer; font-weight: 800; font-size: 13px;
+      transition: border-color .15s, background .15s, color .15s;
     }
-    .summary {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 800;
+    .rchip:hover { border-color: #c3b6cb; }
+    .rchip[aria-pressed="true"] { background: var(--burgundy); border-color: var(--burgundy); color: #fff; }
+
+    .resultbar { display: flex; justify-content: flex-end; align-items: center; margin: 14px 2px 0; }
+    .resultbar[hidden] { display: none; }
+    .linkbtn {
+      border: 0; background: none; cursor: pointer; color: var(--burgundy); font-weight: 800; font-size: 13px;
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 2px;
     }
-    .results {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      padding: 16px;
-    }
+    .linkbtn:hover { text-decoration: underline; }
+
+    .results { margin-top: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .uni-card {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper-soft);
-      overflow: hidden;
+      background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+      padding: 16px; display: grid; gap: 12px; align-content: start;
+      box-shadow: 0 1px 0 rgba(21, 31, 48, .03);
     }
-    .uni-head {
-      padding: 13px 14px;
-      border-bottom: 1px solid var(--line-soft);
-      background: white;
+    .uni-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .uni-name { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.25; font-weight: 900; overflow-wrap: anywhere; }
+    .uni-regions { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+    .rbadge {
+      display: inline-flex; align-items: center; min-height: 22px; padding: 2px 8px;
+      border-radius: 999px; background: var(--burgundy-soft); color: var(--burgundy); font-size: 11.5px; font-weight: 800;
     }
-    .uni-title {
-      margin: 0;
-      color: var(--ink);
-      font-size: 17px;
-      line-height: 1.3;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+    .rbadge.kind { background: var(--gold-soft); color: #7a4300; }
+    .file-list { display: grid; gap: 8px; }
+    .file-item {
+      display: flex; align-items: center; gap: 12px; justify-content: space-between;
+      padding: 11px 12px; border: 1px solid var(--line-soft); border-radius: 11px; background: var(--paper-2);
     }
-    .uni-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
+    .file-main { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .ftype {
+      flex: 0 0 auto; width: 46px; height: 46px; border-radius: 10px;
+      display: grid; place-items: center; font-size: 11px; font-weight: 900; letter-spacing: .02em;
     }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 25px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: var(--blue-soft);
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 900;
-    }
-    .badge.type-pdf { background: var(--burgundy-soft); color: var(--burgundy); }
-    .badge.type-hwp { background: var(--green-soft); color: var(--green); }
-    .file-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 12px;
-    }
-    .file-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 10px;
-      align-items: center;
-      padding: 10px;
-      border: 1px solid var(--line-soft);
-      border-radius: 7px;
-      background: white;
-    }
-    .file-title {
-      min-width: 0;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 800;
-      overflow-wrap: anywhere;
-    }
-    .file-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 6px;
-    }
+    .ftype.pdf { background: var(--red-soft); color: var(--red); }
+    .ftype.hwp { background: var(--blue-soft); color: var(--blue); }
+    .ftype.file { background: #eef1f6; color: var(--muted); }
+    .file-text { min-width: 0; }
+    .file-label { font-size: 14px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+    .file-actions { flex: 0 0 auto; display: flex; gap: 7px; }
+
+    mark { padding: 0 1px; border-radius: 3px; background: #ffe69a; color: inherit; }
+
     .empty {
       grid-column: 1 / -1;
-      padding: 42px 18px;
-      border: 1px dashed var(--line);
-      border-radius: var(--radius);
-      background: white;
-      text-align: center;
-      color: var(--muted);
-      font-weight: 800;
+      padding: 40px 18px; text-align: center; color: var(--muted);
+      border: 1px dashed #ccc2d2; border-radius: 14px; background: #fff; display: grid; gap: 12px; justify-items: center;
     }
-    .footer-note {
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-    }
+    .empty strong { color: var(--ink); font-size: 16px; }
 
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; }
-      .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .field.search { grid-column: 1 / -1; }
+    .note { margin-top: 16px; color: var(--muted); font-size: 12.5px; }
+    footer { margin-top: 20px; color: var(--muted); font-size: 13px; }
+    footer strong { color: var(--text); }
+
+    .totop {
+      position: fixed; right: 18px; bottom: 18px; z-index: 60;
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 1px solid var(--line); background: #fff; color: var(--burgundy);
+      cursor: pointer; font-size: 20px; line-height: 1;
+      box-shadow: 0 10px 24px rgba(21, 31, 48, .18); display: grid; place-items: center;
+    }
+    .totop[hidden] { display: none; }
+    .totop:hover { background: var(--burgundy); color: #fff; border-color: var(--burgundy); }
+
+    @media (min-width: 760px) {
+      .region-row { flex-wrap: wrap; overflow: visible; }
+    }
+    @media (max-width: 880px) {
       .results { grid-template-columns: 1fr; }
     }
-    @media (max-width: 640px) {
-      .topbar-inner { align-items: flex-start; }
-      .brand-mark { width: 38px; height: 38px; }
-      .top-actions { display: none; }
-      .wrap { padding: 20px 12px 36px; }
-      .hero { padding-top: 16px; }
-      .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stat { min-height: 74px; padding: 12px; }
-      .stat b { font-size: 22px; }
-      .filters { grid-template-columns: 1fr; padding: 12px; }
-      .chips { padding: 10px 12px 12px; }
-      .result-head {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 13px 12px;
-      }
-      .results { padding: 12px; }
-      .file-row { grid-template-columns: 1fr; }
-      .file-actions { justify-content: flex-start; }
+    @media (max-width: 759px) {
+      .filterbar { position: static; }
+    }
+    @media (max-width: 560px) {
+      .topbar-inner { padding: 9px 13px; }
+      .brand-sub { display: none; }
+      .top-actions .btn.ghost { display: none; }
+      .wrap { padding: 14px 13px 76px; }
+      .filterbar { padding: 12px; border-radius: 12px; }
+      .search input { height: 48px; font-size: 15.5px; }
+      .file-item { flex-direction: column; align-items: stretch; gap: 11px; }
+      .file-actions .btn { flex: 1; }
     }
   </style>
 </head>
 <body>
   <a class="skip" href="#results">본문으로 바로가기</a>
   <div class="topline" aria-hidden="true"></div>
+
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html" aria-label="EST 진학정보실 메인으로 이동">
@@ -427,70 +242,49 @@
         </span>
       </a>
       <nav class="top-actions" aria-label="상단 이동">
-        <a class="btn light" href="#filters">필터</a>
-        <a class="btn" href="index.html">메인</a>
+        <a class="btn ghost small" href="index.html">메인</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero" aria-labelledby="pageTitle">
+      <span class="eyebrow">2027학년도 수시모집요강</span>
+      <h1 id="pageTitle">대학별 수시모집요강 원문 다운로드</h1>
+      <p class="lead">대학명이나 지역으로 검색해 2027학년도 수시모집요강 원문 파일(PDF·한글)을 바로 내려받으세요.</p>
+    </section>
+
+    <section class="filterbar" id="filters" aria-label="검색 및 지역 필터">
+      <div class="search" id="search">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+          <path d="m20 20-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <input id="q" type="search" autocomplete="off" enterkeyhint="search"
+               placeholder="대학명·파일명 검색 (예: 서울대, 한양대, 교대)" aria-label="통합 검색">
+        <button class="clear" id="clearSearch" type="button" aria-label="검색어 지우기">✕</button>
+      </div>
       <div>
-        <span class="eyebrow">2027학년도 수시모집 원문</span>
-        <h1 id="pageTitle">대학별 수시모집요강을 바로 찾고 내려받습니다.</h1>
-        <p class="lead">대학별 2027학년도 수시모집요강 원문을 지역과 대학명으로 빠르게 찾을 수 있습니다.</p>
-        <p class="notice">대학별 발표 원문을 그대로 연결한 자료입니다.</p>
+        <span class="region-label" id="regionLabel">지역·분류</span>
+        <div class="region-row" id="regionRow" role="group" aria-labelledby="regionLabel"></div>
       </div>
-      <div class="stat-grid" id="statGrid" aria-label="자료 요약"></div>
     </section>
 
-    <section class="panel" id="filters" aria-label="검색 및 필터">
-      <div class="filters">
-        <div class="field search">
-          <label for="q">검색</label>
-          <input class="control" id="q" type="search" autocomplete="off" placeholder="대학명, 캠퍼스, 파일명">
-        </div>
-        <div class="field">
-          <label for="region">지역</label>
-          <select class="control" id="region"></select>
-        </div>
-        <div class="field">
-          <label for="schoolType">분류</label>
-          <select class="control" id="schoolType"></select>
-        </div>
-        <div class="field">
-          <label for="fileType">형식</label>
-          <select class="control" id="fileType"></select>
-        </div>
-        <div class="field">
-          <label for="sort">정렬</label>
-          <select class="control" id="sort">
-            <option value="university">대학명순</option>
-            <option value="region">지역순</option>
-            <option value="count">자료 많은 순</option>
-          </select>
-        </div>
-      </div>
-      <div class="chips" id="typeChips" aria-label="분류 바로 선택">
-        <button class="chip" type="button" data-type="all" aria-pressed="true">전체</button>
-        <button class="chip" type="button" data-type="일반대" aria-pressed="false">일반대</button>
-        <button class="chip" type="button" data-type="교육대" aria-pressed="false">교육대</button>
-        <button class="chip" type="button" data-type="이공계특성화" aria-pressed="false">이공계특성화</button>
-        <button class="chip" type="button" data-type="특수대학" aria-pressed="false">특수대학</button>
-      </div>
+    <div class="resultbar" id="resultbar" hidden>
+      <button class="linkbtn" id="resetBtn" type="button">↺ 전체 보기로 초기화</button>
+    </div>
 
-      <div class="result-head">
-        <div>
-          <h2 id="resultTitle">검색 결과</h2>
-          <div class="summary" id="resultSummary" aria-live="polite"></div>
-        </div>
-        <button class="btn ghost" id="resetBtn" type="button">초기화</button>
-      </div>
-      <div class="results" id="results"></div>
-    </section>
+    <section class="results" id="results" aria-live="polite" aria-label="대학별 수시모집요강 파일 목록"></section>
 
-    <p class="footer-note">자료는 대학 발표 원문 기준이며, 전형 세부사항은 모집요강 원문과 대학 입학처 공지를 함께 확인해 주세요.</p>
+    <p class="note">각 파일은 대학이 발표한 수시모집요강 원문을 그대로 연결한 자료이며, Google Drive에서 미리보기·다운로드됩니다. 전형 세부사항은 모집요강 원문과 대학 입학처 공지를 함께 확인해 주세요.</p>
+
+    <footer>
+      <strong>EST 진학정보실</strong>
+      <span> · Created by 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+    </footer>
   </main>
+
+  <button class="totop" id="toTop" type="button" aria-label="맨 위로" hidden>↑</button>
 
   <script src="2027susi-download-data.js"></script>
   <script>
@@ -498,213 +292,229 @@
       'use strict';
 
       var raw = Array.isArray(window.SUSI_GUIDES_2027) ? window.SUSI_GUIDES_2027 : [];
-      var state = { query: '', region: '', schoolType: '', fileType: '', quickType: 'all', sort: 'university' };
-      var nf = new Intl.NumberFormat('ko-KR');
+      var state = { query: '', region: '' };
       var regionOrder = ['서울', '경기·인천', '강원', '충청', '영남', '호남·제주', '교육대', '이공계특성화', '특수대학'];
-      var typeOrder = { '일반대': 1, '교육대': 2, '이공계특성화': 3, '특수대학': 4 };
+      var currentTerms = [];
 
       function $(id) { return document.getElementById(id); }
-      function clean(text) {
-        return String(text == null ? '' : text).replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
-      }
-      function cleanId(text) {
-        return String(text == null ? '' : text).replace(/\s+/g, '').trim();
-      }
-      function esc(text) {
-        return String(text == null ? '' : text).replace(/[&<>"']/g, function (c) {
+      function clean(t) { return String(t == null ? '' : t).replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim(); }
+      function esc(t) {
+        return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) {
           return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
         });
       }
-      function norm(text) {
-        return clean(text).toLowerCase().replace(/\s+/g, '');
-      }
-      function unique(list) {
-        return Array.from(new Set(list)).filter(Boolean).sort(function (a, b) {
-          var ai = regionOrder.indexOf(a);
-          var bi = regionOrder.indexOf(b);
-          if (ai !== -1 || bi !== -1) return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-          return a.localeCompare(b, 'ko');
-        });
-      }
+      function norm(t) { return clean(t).toLowerCase().replace(/\s+/g, ''); }
       function highlight(text, terms) {
         var safe = esc(text);
-        terms.filter(function (t) { return t.length >= 2; }).slice(0, 5).forEach(function (term) {
+        (terms || []).filter(function (t) { return t.length >= 2; }).slice(0, 5).forEach(function (term) {
           var pattern = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
           safe = safe.replace(new RegExp(pattern, 'gi'), function (m) { return '<mark>' + m + '</mark>'; });
         });
         return safe;
       }
-      function previewUrl(id) {
-        return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing';
+      function fileType(item) {
+        if (item.type) return String(item.type).toUpperCase();
+        var t = clean(item.title).toLowerCase();
+        if (t.endsWith('.pdf')) return 'PDF';
+        if (t.endsWith('.hwp') || t.endsWith('.hwpx')) return 'HWP';
+        return 'FILE';
       }
-      function downloadUrl(id) {
-        return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id);
+      function canPreview(type) { return type === 'PDF'; }
+      function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+      function fileLabel(f) {
+        var t = clean(f.title).replace(/\.(pdf|hwpx?|docx?|pptx?|zip|png)$/i, '');
+        t = t.replace(/2027\s*학년도/g, ' ').replace(/2027/g, ' ').replace(/\s+/g, ' ').trim();
+        var uni = f.university || '';
+        var variants = [uni, uni.replace(/\(.*?\)/g, '').trim()];
+        variants.forEach(function (u) {
+          if (!u) return;
+          var re = /대$/.test(u) ? new RegExp('^' + escRe(u) + '(?:학교|학원|학)?') : new RegExp('^' + escRe(u));
+          t = t.replace(re, '').replace(/^[\s·,_\-「」]+/, '').trim();
+        });
+        // drop a leading campus qualifier left over from the university name (parenthetical or "OO캠퍼스")
+        t = t.replace(/^\([^)]*\)\s*/, '').replace(/^[가-힣A-Za-z]+캠퍼스\s*/, '').trim();
+        t = t.replace(/\b\d{6,8}\b/g, ' ').replace(/\bVF\b/gi, ' ')
+             .replace(/신입생|신입학/g, ' ').replace(/[「」]/g, ' ')
+             .replace(/\s+/g, ' ').replace(/^[\s·,_\-]+|[\s·,_\-]+$/g, '').trim();
+        var unbalanced = /[)\]」]/.test(t) && !/[([「]/.test(t);
+        if (!t || !/[가-힣A-Za-z0-9]/.test(t) || (uni && uni.indexOf(t) !== -1) || unbalanced) t = '수시모집요강';
+        return t;
+      }
+      function previewUrl(id) { return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing'; }
+      function downloadUrl(id) { return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id); }
+      function unique(list) {
+        var seen = {}, out = [];
+        list.forEach(function (x) { if (x && !seen[x]) { seen[x] = 1; out.push(x); } });
+        return out;
+      }
+      function regionRank(r) { var i = regionOrder.indexOf(r); return i < 0 ? 999 : i; }
+      function sortRegions(arr) {
+        return arr.slice().sort(function (a, b) { return regionRank(a) - regionRank(b) || a.localeCompare(b, 'ko'); });
       }
 
-      var seen = new Set();
-      var files = raw.map(function (item, idx) {
-        var id = cleanId(item.id);
+      var seen = {};
+      var files = [];
+      raw.forEach(function (item) {
+        var id = String(item.id || '').replace(/\s+/g, '').trim();
+        if (!id || seen[id]) return;
         var title = clean(item.title);
-        var type = clean(item.type || title.split('.').pop()).toUpperCase();
         var university = clean(item.university);
-        var region = clean(item.region || '기타');
-        var schoolType = clean(item.schoolType || '일반대');
-        return {
-          id: id,
-          index: idx,
-          title: title,
-          type: type,
-          university: university,
-          region: region,
-          schoolType: schoolType,
-          search: norm([university, region, schoolType, title, type].join(' '))
-        };
-      }).filter(function (item) {
-        if (!item.id || !item.title || !item.university) return false;
-        if (seen.has(item.id)) return false;
-        seen.add(item.id);
-        return true;
+        if (!title || !university) return;
+        seen[id] = 1;
+        var type = fileType(item);
+        var region = clean(item.region) || '기타';
+        var schoolType = clean(item.schoolType) || '일반대';
+        files.push({
+          id: id, title: title, type: type, university: university, region: region, schoolType: schoolType,
+          label: '', search: norm([university, region, schoolType, title, type].join(' '))
+        });
       });
+      files.forEach(function (f) { f.label = fileLabel(f); });
 
-      function populateFilters() {
-        $('region').innerHTML = ['<option value="">전체 지역</option>'].concat(unique(files.map(function (f) { return f.region; })).map(function (r) {
-          return '<option value="' + esc(r) + '">' + esc(r) + '</option>';
-        })).join('');
-
-        $('schoolType').innerHTML = ['<option value="">전체 분류</option>'].concat(unique(files.map(function (f) { return f.schoolType; })).sort(function (a, b) {
-          return (typeOrder[a] || 99) - (typeOrder[b] || 99) || a.localeCompare(b, 'ko');
-        }).map(function (t) {
-          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
-        })).join('');
-
-        $('fileType').innerHTML = ['<option value="">전체 형식</option>'].concat(unique(files.map(function (f) { return f.type; })).map(function (t) {
-          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
-        })).join('');
+      function buildRegionChips() {
+        var regions = sortRegions(unique(files.map(function (f) { return f.region; })));
+        var html = ['<button class="rchip" type="button" data-region="" aria-pressed="true">전체</button>'];
+        regions.forEach(function (r) {
+          html.push('<button class="rchip" type="button" data-region="' + esc(r) + '" aria-pressed="false">' + esc(r) + '</button>');
+        });
+        $('regionRow').innerHTML = html.join('');
       }
-      function renderStats() {
-        var universityCount = unique(files.map(function (f) { return f.university; })).length;
-        var pdfCount = files.filter(function (f) { return f.type === 'PDF'; }).length;
-        var hwpCount = files.filter(function (f) { return f.type === 'HWP'; }).length;
-        $('statGrid').innerHTML = [
-          ['대학·기관', universityCount + '개'],
-          ['자료', files.length + '개'],
-          ['PDF', pdfCount + '개'],
-          ['HWP', hwpCount + '개']
-        ].map(function (s) {
-          return '<div class="stat"><span>' + esc(s[0]) + '</span><b>' + esc(s[1]) + '</b></div>';
-        }).join('');
-      }
-      function filteredFiles() {
+
+      function filtered() {
         var q = norm(state.query);
         return files.filter(function (f) {
           if (state.region && f.region !== state.region) return false;
-          if (state.schoolType && f.schoolType !== state.schoolType) return false;
-          if (state.quickType !== 'all' && f.schoolType !== state.quickType) return false;
-          if (state.fileType && f.type !== state.fileType) return false;
           if (q && f.search.indexOf(q) === -1) return false;
           return true;
         });
       }
-      function groupByUniversity(items) {
-        var map = new Map();
+
+      function group(items) {
+        var map = {};
         items.forEach(function (f) {
-          if (!map.has(f.university)) map.set(f.university, []);
-          map.get(f.university).push(f);
+          if (!map[f.university]) map[f.university] = [];
+          map[f.university].push(f);
         });
-        var groups = Array.from(map.entries()).map(function (entry) {
-          var list = entry[1].sort(function (a, b) {
-            return a.title.localeCompare(b.title, 'ko') || a.index - b.index;
+        var groups = Object.keys(map).map(function (u) {
+          var list = map[u].sort(function (a, b) { return a.label.localeCompare(b.label, 'ko'); });
+          var regions = sortRegions(unique(list.map(function (f) { return f.region; })));
+          var kinds = unique(list.map(function (f) { return f.schoolType; })).filter(function (st) {
+            return st && st !== '일반대' && regions.indexOf(st) === -1;
           });
-          return {
-            university: entry[0],
-            files: list,
-            regions: unique(list.map(function (f) { return f.region; })),
-            types: unique(list.map(function (f) { return f.type; })),
-            schoolTypes: unique(list.map(function (f) { return f.schoolType; }))
-          };
+          return { university: u, files: list, regions: regions, kinds: kinds };
         });
-        groups.sort(function (a, b) {
-          if (state.sort === 'count') return b.files.length - a.files.length || a.university.localeCompare(b.university, 'ko');
-          if (state.sort === 'region') return a.regions.join(',').localeCompare(b.regions.join(','), 'ko') || a.university.localeCompare(b.university, 'ko');
-          return a.university.localeCompare(b.university, 'ko');
-        });
+        groups.sort(function (a, b) { return a.university.localeCompare(b.university, 'ko'); });
         return groups;
       }
+
+      function renderRow(f) {
+        var prevBtn = canPreview(f.type)
+          ? '<a class="btn ghost small" href="' + previewUrl(f.id) + '" target="_blank" rel="noopener">미리보기</a>'
+          : '';
+        return '' +
+          '<div class="file-item">' +
+            '<div class="file-main">' +
+              '<span class="ftype ' + esc(f.type.toLowerCase()) + '">' + esc(f.type) + '</span>' +
+              '<div class="file-text"><div class="file-label">' + highlight(f.label, currentTerms) + '</div></div>' +
+            '</div>' +
+            '<div class="file-actions">' +
+              prevBtn +
+              '<a class="btn primary small" href="' + downloadUrl(f.id) + '" target="_blank" rel="noopener">다운로드</a>' +
+            '</div>' +
+          '</div>';
+      }
+
+      function renderCard(g) {
+        var badges = g.regions.map(function (r) { return '<span class="rbadge">' + esc(r) + '</span>'; })
+          .concat(g.kinds.map(function (k) { return '<span class="rbadge kind">' + esc(k) + '</span>'; }))
+          .join('');
+        return '' +
+          '<article class="uni-card">' +
+            '<div class="uni-head">' +
+              '<h2 class="uni-name">' + highlight(g.university, currentTerms) + '</h2>' +
+              '<div class="uni-regions">' + badges + '</div>' +
+            '</div>' +
+            '<div class="file-list">' + g.files.map(renderRow).join('') + '</div>' +
+          '</article>';
+      }
+
       function render() {
-        var terms = clean(state.query).split(/\s+/).filter(Boolean);
-        var matched = filteredFiles();
-        var groups = groupByUniversity(matched);
-        $('resultSummary').textContent = nf.format(groups.length) + '개 대학·기관 · ' + nf.format(matched.length) + '개 자료 표시';
+        currentTerms = clean(state.query).split(/\s+/).filter(Boolean);
+        var groups = group(filtered());
+        $('resultbar').hidden = !(state.query || state.region);
 
         if (!groups.length) {
-          $('results').innerHTML = '<div class="empty"><strong>검색 결과가 없습니다.</strong><br>검색어를 줄이거나 필터를 초기화해 보세요.</div>';
+          $('results').innerHTML = '' +
+            '<div class="empty">' +
+              '<strong>검색 결과가 없습니다.</strong>' +
+              '<span>검색어를 줄이거나 다른 지역을 선택해 보세요.</span>' +
+              '<button class="btn" type="button" data-reset>전체 보기로 초기화</button>' +
+            '</div>';
           return;
         }
-
-        $('results').innerHTML = groups.map(function (group) {
-          var badges = []
-            .concat(group.regions.map(function (r) { return '<span class="badge">' + esc(r) + '</span>'; }))
-            .concat(group.schoolTypes.map(function (t) { return '<span class="badge">' + esc(t) + '</span>'; }))
-            .concat(group.types.map(function (t) { return '<span class="badge type-' + esc(t.toLowerCase()) + '">' + esc(t) + '</span>'; }))
-            .concat(['<span class="badge">' + nf.format(group.files.length) + '개 자료</span>'])
-            .join('');
-          var rows = group.files.map(function (file) {
-            return [
-              '<div class="file-row">',
-              '  <div class="file-title">' + highlight(file.title, terms) + '</div>',
-              '  <div class="file-actions">',
-              '    <a class="btn small" href="' + previewUrl(file.id) + '" target="_blank" rel="noopener">미리보기</a>',
-              '    <a class="btn small green" href="' + downloadUrl(file.id) + '" target="_blank" rel="noopener">다운로드</a>',
-              '  </div>',
-              '</div>'
-            ].join('');
-          }).join('');
-          return [
-            '<article class="uni-card">',
-            '  <div class="uni-head">',
-            '    <h3 class="uni-title">' + highlight(group.university, terms) + '</h3>',
-            '    <div class="uni-meta">' + badges + '</div>',
-            '  </div>',
-            '  <div class="file-list">' + rows + '</div>',
-            '</article>'
-          ].join('');
-        }).join('');
+        $('results').innerHTML = groups.map(renderCard).join('');
       }
+
+      function setRegionPressed() {
+        Array.prototype.forEach.call($('regionRow').children, function (c) {
+          c.setAttribute('aria-pressed', c.getAttribute('data-region') === state.region ? 'true' : 'false');
+        });
+      }
+      function resetAll() {
+        state.query = '';
+        state.region = '';
+        $('q').value = '';
+        $('search').classList.remove('has-value');
+        setRegionPressed();
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        $('q').focus();
+      }
+
       function bind() {
-        $('q').addEventListener('input', function (e) { state.query = e.target.value; render(); });
-        $('region').addEventListener('change', function (e) { state.region = e.target.value; render(); });
-        $('schoolType').addEventListener('change', function (e) { state.schoolType = e.target.value; render(); });
-        $('fileType').addEventListener('change', function (e) { state.fileType = e.target.value; render(); });
-        $('sort').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
-
-        document.querySelectorAll('#typeChips .chip').forEach(function (chip) {
-          chip.addEventListener('click', function () {
-            state.quickType = chip.dataset.type;
-            document.querySelectorAll('#typeChips .chip').forEach(function (item) {
-              item.setAttribute('aria-pressed', item === chip ? 'true' : 'false');
-            });
-            render();
-          });
-        });
-
-        $('resetBtn').addEventListener('click', function () {
-          state = { query: '', region: '', schoolType: '', fileType: '', quickType: 'all', sort: 'university' };
-          $('q').value = '';
-          $('region').value = '';
-          $('schoolType').value = '';
-          $('fileType').value = '';
-          $('sort').value = 'university';
-          document.querySelectorAll('#typeChips .chip').forEach(function (chip) {
-            chip.setAttribute('aria-pressed', chip.dataset.type === 'all' ? 'true' : 'false');
-          });
+        var q = $('q');
+        q.addEventListener('input', function (e) {
+          state.query = e.target.value;
+          $('search').classList.toggle('has-value', !!e.target.value);
           render();
-          $('q').focus();
         });
+        $('clearSearch').addEventListener('click', function () {
+          state.query = '';
+          q.value = '';
+          $('search').classList.remove('has-value');
+          render();
+          q.focus();
+        });
+        $('regionRow').addEventListener('click', function (e) {
+          var b = e.target.closest('[data-region]');
+          if (!b) return;
+          state.region = b.getAttribute('data-region');
+          setRegionPressed();
+          render();
+        });
+        $('resetBtn').addEventListener('click', resetAll);
+        $('results').addEventListener('click', function (e) {
+          if (e.target.closest('[data-reset]')) resetAll();
+        });
+
+        var tt = $('toTop');
+        var fb = $('filters');
+        window.addEventListener('scroll', function () {
+          tt.hidden = window.scrollY < 500;
+          if (fb) fb.classList.toggle('stuck', window.scrollY > 8);
+        }, { passive: true });
+        tt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
       }
 
-      populateFilters();
-      renderStats();
+      function setStick() {
+        var tb = document.querySelector('.topbar');
+        document.documentElement.style.setProperty('--stick', (tb ? tb.offsetHeight : 56) + 'px');
+      }
+
+      buildRegionChips();
       bind();
+      setStick();
+      window.addEventListener('resize', setStick);
       render();
     })();
   </script>
