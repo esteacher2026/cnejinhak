@@ -123,7 +123,7 @@ tr.det>td{background:#f6f9fd!important;cursor:default;padding:12px 16px;text-ali
 .uvhead .meta{font-size:12.5px;color:var(--mut)}
 .regtag{display:inline-block;background:var(--soft);border:1px solid var(--line);color:var(--navy);border-radius:6px;padding:1px 8px;font-size:11.5px;font-weight:700;margin-right:6px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;content-visibility:auto;contain-intrinsic-size:0 300px}
 .card h3{margin:0;padding:9px 14px;font-size:14px;background:var(--soft);border-bottom:1px solid var(--line2);color:var(--navy);display:flex;align-items:center;gap:8px}
 .gtag{font-size:10.5px;border-radius:5px;padding:1px 7px;font-weight:700}
 .card table{width:100%;border-collapse:collapse;font-size:12px}
@@ -191,6 +191,7 @@ main{min-height:60vh}
   table.dt th{position:static;background:#eee!important;color:#000;-webkit-print-color-adjust:exact}
   #printinfo{display:block;font-size:11px;color:#333;margin:6px 0;border:1px solid #ccc;border-radius:6px;padding:6px 10px}
   tr.det{display:none}
+  .cards .card{content-visibility:visible}
 }
 </style>
 </head>
@@ -338,7 +339,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const NF=n=>n.toLocaleString('ko-KR');
 
-const S={tab:'ex',g:-1,y:2,t:-1,s:-1,d:-1,reg:new Set(),q:'',grade:null,sc:'',sd:1,n:800,tn:600,only3:false,trs:'0',univ:-1,cmp:[]};
+const S={tab:'ex',g:-1,y:2,t:-1,s:-1,d:-1,reg:new Set(),q:'',grade:null,sc:'',sd:1,n:400,tn:300,only3:false,trs:'0',univ:-1,cmp:[]};
 
 /* ── 행 접근 ── */
 const uOf=r=>D.u[r[2]];
@@ -612,11 +613,14 @@ function renderCmp(){
   h+='</tbody></table></div><div class="tfoot-note">– = 해당 연도 자료 없음(미모집 또는 미공시) · 자세한 기준은 「활용 안내」 참고</div>';
   body.innerHTML=h;
 }
+function syncCmpChecks(){
+  document.querySelectorAll('#extbl .cmpck').forEach(cb=>{cb.checked=S.cmp.includes(cb.dataset.key)});
+}
 function addCmp(key){
   if(S.cmp.includes(key)){S.cmp=S.cmp.filter(k=>k!==key);toast('비교에서 제외했습니다');}
-  else if(S.cmp.length>=4){toast('비교는 최대 4건까지 담을 수 있습니다');return}
+  else if(S.cmp.length>=4){toast('비교는 최대 4건까지 담을 수 있습니다');}
   else{S.cmp.push(key);toast('비교에 담았습니다 ('+S.cmp.length+'/4)')}
-  renderCmp();if(S.tab==='ex')renderEx();
+  renderCmp();if(S.tab==='ex')syncCmpChecks();
   updateHash();
 }
 
@@ -706,7 +710,7 @@ function go(){
   renderCmp();
   updateHash();
 }
-function onFilterChange(){S.n=800;S.tn=600;go()}
+function onFilterChange(){S.n=400;S.tn=300;go()}
 
 /* ── 이벤트 ── */
 document.addEventListener('click',e=>{
@@ -735,7 +739,7 @@ document.addEventListener('click',e=>{
   const tr2=e.target.closest('#trtbl tbody tr[data-i]');
   if(tr2){const r=R[+tr2.dataset.i];S.univ=r[2];S.tab='uv';go();window.scrollTo({top:0});return}
 });
-$('#q').addEventListener('input',()=>{S.q=$('#q').value;S.n=800;S.tn=600;S.tab==='tr'?renderTr():renderEx();updateHash()});
+$('#q').addEventListener('input',()=>{S.q=$('#q').value;S.n=400;S.tn=300;S.tab==='tr'?renderTr():renderEx();updateHash()});
 $('#grade').addEventListener('input',()=>{const v=parseFloat($('#grade').value);S.grade=(!isNaN(v)&&v>=1&&v<=9)?v:null;if(S.tab==='ex')renderEx();updateHash()});
 $('#btn-reset').addEventListener('click',()=>{S.g=-1;S.y=2;S.t=-1;S.s=-1;S.d=-1;S.reg.clear();S.q='';S.grade=null;S.sc='';S.sd=1;S.only3=false;S.trs='0';onFilterChange()});
 $('#btn-link').addEventListener('click',()=>{
@@ -743,10 +747,10 @@ $('#btn-link').addEventListener('click',()=>{
     navigator.clipboard.writeText(location.href).then(()=>toast('현재 화면 링크를 복사했습니다')).catch(()=>toast('복사 실패 — 주소창에서 직접 복사해 주세요'));
   }else toast('이 환경에서는 자동 복사가 안 됩니다 — 주소창에서 직접 복사해 주세요');
 });
-$('#more-ex').addEventListener('click',()=>{S.n+=800;renderEx()});
-$('#more-tr').addEventListener('click',()=>{S.tn+=600;renderTr()});
-$('#only3').addEventListener('change',()=>{S.only3=$('#only3').checked;S.tn=600;renderTr();updateHash()});
-$('#trsort').addEventListener('change',()=>{S.trs=$('#trsort').value;S.tn=600;renderTr();updateHash()});
+$('#more-ex').addEventListener('click',()=>{S.n+=400;renderEx()});
+$('#more-tr').addEventListener('click',()=>{S.tn+=300;renderTr()});
+$('#only3').addEventListener('change',()=>{S.only3=$('#only3').checked;S.tn=300;renderTr();updateHash()});
+$('#trsort').addEventListener('change',()=>{S.trs=$('#trsort').value;S.tn=300;renderTr();updateHash()});
 $('#uvsel').addEventListener('change',()=>{S.univ=+$('#uvsel').value;renderUv();updateHash()});
 $('#gotoCmp').addEventListener('click',()=>{S.tab='cmp';go();window.scrollTo({top:0})});
 $('#clrCmp').addEventListener('click',()=>{S.cmp=[];renderCmp();if(S.tab==='ex')renderEx();updateHash()});
