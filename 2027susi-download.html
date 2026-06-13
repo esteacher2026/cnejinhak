@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2027 수시모집요강 원문 다운로드</title>
+  <meta name="description" content="2027학년도 대학별 수시모집요강 원문 PDF와 HWP 파일을 지역과 대학명으로 검색하고 다운로드합니다.">
+  <link rel="canonical" href="https://jinhak.esteacher.kr/2027susi-download.html">
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --paper-soft: #fbfcfe;
+      --ink: #111827;
+      --text: #344054;
+      --muted: #667085;
+      --line: #d7dfec;
+      --line-soft: #edf1f7;
+      --burgundy: #8c2a4f;
+      --burgundy-2: #6d1f3c;
+      --burgundy-soft: #f8ecf0;
+      --blue: #2457a6;
+      --blue-soft: #eaf2ff;
+      --green: #0f766e;
+      --green-soft: #e7f6f3;
+      --gold: #9a6b16;
+      --gold-soft: #fff6db;
+      --slate: #475467;
+      --shadow: 0 12px 28px rgba(21, 31, 48, .08);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    mark { background: #fff1a7; color: inherit; padding: 0 2px; border-radius: 3px; }
+
+    .skip {
+      position: absolute;
+      top: -42px;
+      left: 16px;
+      z-index: 20;
+      padding: 9px 12px;
+      background: var(--ink);
+      color: white;
+      border-radius: 6px;
+    }
+    .skip:focus { top: 12px; }
+
+    .topline { height: 4px; background: linear-gradient(90deg, var(--burgundy), var(--blue), var(--green)); }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(215, 223, 236, .95);
+      background: rgba(255, 255, 255, .93);
+      backdrop-filter: blur(12px);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 7px;
+      background: var(--burgundy);
+      color: white;
+      font-size: 15px;
+    }
+    .brand-title, .brand-sub { display: block; }
+    .brand-title { font-size: 16px; line-height: 1.25; }
+    .brand-sub { margin-top: 2px; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 13px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      background: var(--burgundy);
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(140, 42, 79, .16); }
+    .btn.light {
+      background: white;
+      color: var(--burgundy);
+      border-color: var(--line);
+    }
+    .btn.small {
+      min-height: 34px;
+      padding: 7px 11px;
+      font-size: 13px;
+    }
+    .btn.green { background: var(--green); }
+    .btn.ghost {
+      background: var(--paper);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 18px 44px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(270px, 420px);
+      gap: 28px;
+      align-items: end;
+      padding: 24px 0 22px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 5px 9px;
+      border: 1px solid #ecc5d2;
+      border-radius: 6px;
+      background: var(--burgundy-soft);
+      color: var(--burgundy);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(31px, 4vw, 54px);
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    .lead {
+      max-width: 720px;
+      margin: 15px 0 0;
+      color: var(--text);
+      font-size: 17px;
+    }
+    .notice {
+      display: inline-flex;
+      margin: 16px 0 0;
+      padding: 8px 11px;
+      border: 1px solid #f2d99f;
+      border-radius: 7px;
+      background: var(--gold-soft);
+      color: #68470d;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      min-height: 86px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .stat b {
+      display: block;
+      margin-top: 6px;
+      color: var(--ink);
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .panel {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .filters {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(240px, 1.35fr) repeat(4, minmax(140px, 1fr));
+      gap: 10px;
+      align-items: end;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .control {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: white;
+      color: var(--ink);
+      padding: 9px 11px;
+      outline: none;
+    }
+    .control:focus {
+      border-color: var(--burgundy);
+      box-shadow: 0 0 0 3px rgba(140, 42, 79, .13);
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 16px 16px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .chip {
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .chip[aria-pressed="true"] {
+      border-color: var(--burgundy);
+      background: var(--burgundy);
+      color: white;
+    }
+
+    .result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .result-head h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 18px;
+    }
+    .summary {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .results {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 16px;
+    }
+    .uni-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper-soft);
+      overflow: hidden;
+    }
+    .uni-head {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line-soft);
+      background: white;
+    }
+    .uni-title {
+      margin: 0;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.3;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .uni-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .badge.type-pdf { background: var(--burgundy-soft); color: var(--burgundy); }
+    .badge.type-hwp { background: var(--green-soft); color: var(--green); }
+    .file-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+    }
+    .file-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line-soft);
+      border-radius: 7px;
+      background: white;
+    }
+    .file-title {
+      min-width: 0;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+    .file-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    .empty {
+      grid-column: 1 / -1;
+      padding: 42px 18px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: white;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .footer-note {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .field.search { grid-column: 1 / -1; }
+      .results { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar-inner { align-items: flex-start; }
+      .brand-mark { width: 38px; height: 38px; }
+      .top-actions { display: none; }
+      .wrap { padding: 20px 12px 36px; }
+      .hero { padding-top: 16px; }
+      .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stat { min-height: 74px; padding: 12px; }
+      .stat b { font-size: 22px; }
+      .filters { grid-template-columns: 1fr; padding: 12px; }
+      .chips { padding: 10px 12px 12px; }
+      .result-head {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 13px 12px;
+      }
+      .results { padding: 12px; }
+      .file-row { grid-template-columns: 1fr; }
+      .file-actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#results">본문으로 바로가기</a>
+  <div class="topline" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="EST 진학정보실 메인으로 이동">
+        <span class="brand-mark">2027</span>
+        <span>
+          <span class="brand-title">수시모집요강 원문 다운로드</span>
+          <span class="brand-sub">대학 발표 원문 파일 모음</span>
+        </span>
+      </a>
+      <nav class="top-actions" aria-label="상단 이동">
+        <a class="btn light" href="#filters">필터</a>
+        <a class="btn" href="index.html">메인</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <span class="eyebrow">2027학년도 수시모집 원문</span>
+        <h1 id="pageTitle">대학별 수시모집요강을 바로 찾고 내려받습니다.</h1>
+        <p class="lead">대학별 2027학년도 수시모집요강 원문을 지역과 대학명으로 빠르게 찾을 수 있습니다.</p>
+        <p class="notice">대학별 발표 원문을 그대로 연결한 자료입니다.</p>
+      </div>
+      <div class="stat-grid" id="statGrid" aria-label="자료 요약"></div>
+    </section>
+
+    <section class="panel" id="filters" aria-label="검색 및 필터">
+      <div class="filters">
+        <div class="field search">
+          <label for="q">검색</label>
+          <input class="control" id="q" type="search" autocomplete="off" placeholder="대학명, 캠퍼스, 파일명">
+        </div>
+        <div class="field">
+          <label for="region">지역</label>
+          <select class="control" id="region"></select>
+        </div>
+        <div class="field">
+          <label for="schoolType">분류</label>
+          <select class="control" id="schoolType"></select>
+        </div>
+        <div class="field">
+          <label for="fileType">형식</label>
+          <select class="control" id="fileType"></select>
+        </div>
+        <div class="field">
+          <label for="sort">정렬</label>
+          <select class="control" id="sort">
+            <option value="university">대학명순</option>
+            <option value="region">지역순</option>
+            <option value="count">자료 많은 순</option>
+          </select>
+        </div>
+      </div>
+      <div class="chips" id="typeChips" aria-label="분류 바로 선택">
+        <button class="chip" type="button" data-type="all" aria-pressed="true">전체</button>
+        <button class="chip" type="button" data-type="일반대" aria-pressed="false">일반대</button>
+        <button class="chip" type="button" data-type="교육대" aria-pressed="false">교육대</button>
+        <button class="chip" type="button" data-type="이공계특성화" aria-pressed="false">이공계특성화</button>
+        <button class="chip" type="button" data-type="특수대학" aria-pressed="false">특수대학</button>
+      </div>
+
+      <div class="result-head">
+        <div>
+          <h2 id="resultTitle">검색 결과</h2>
+          <div class="summary" id="resultSummary" aria-live="polite"></div>
+        </div>
+        <button class="btn ghost" id="resetBtn" type="button">초기화</button>
+      </div>
+      <div class="results" id="results"></div>
+    </section>
+
+    <p class="footer-note">자료는 대학 발표 원문 기준이며, 전형 세부사항은 모집요강 원문과 대학 입학처 공지를 함께 확인해 주세요.</p>
+  </main>
+
+  <script src="2027susi-download-data.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var raw = Array.isArray(window.SUSI_GUIDES_2027) ? window.SUSI_GUIDES_2027 : [];
+      var state = { query: '', region: '', schoolType: '', fileType: '', quickType: 'all', sort: 'university' };
+      var nf = new Intl.NumberFormat('ko-KR');
+      var regionOrder = ['서울', '경기·인천', '강원', '충청', '영남', '호남·제주', '교육대', '이공계특성화', '특수대학'];
+      var typeOrder = { '일반대': 1, '교육대': 2, '이공계특성화': 3, '특수대학': 4 };
+
+      function $(id) { return document.getElementById(id); }
+      function clean(text) {
+        return String(text == null ? '' : text).replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+      function cleanId(text) {
+        return String(text == null ? '' : text).replace(/\s+/g, '').trim();
+      }
+      function esc(text) {
+        return String(text == null ? '' : text).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      function norm(text) {
+        return clean(text).toLowerCase().replace(/\s+/g, '');
+      }
+      function unique(list) {
+        return Array.from(new Set(list)).filter(Boolean).sort(function (a, b) {
+          var ai = regionOrder.indexOf(a);
+          var bi = regionOrder.indexOf(b);
+          if (ai !== -1 || bi !== -1) return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+          return a.localeCompare(b, 'ko');
+        });
+      }
+      function highlight(text, terms) {
+        var safe = esc(text);
+        terms.filter(function (t) { return t.length >= 2; }).slice(0, 5).forEach(function (term) {
+          var pattern = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          safe = safe.replace(new RegExp(pattern, 'gi'), function (m) { return '<mark>' + m + '</mark>'; });
+        });
+        return safe;
+      }
+      function previewUrl(id) {
+        return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing';
+      }
+      function downloadUrl(id) {
+        return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id);
+      }
+
+      var seen = new Set();
+      var files = raw.map(function (item, idx) {
+        var id = cleanId(item.id);
+        var title = clean(item.title);
+        var type = clean(item.type || title.split('.').pop()).toUpperCase();
+        var university = clean(item.university);
+        var region = clean(item.region || '기타');
+        var schoolType = clean(item.schoolType || '일반대');
+        return {
+          id: id,
+          index: idx,
+          title: title,
+          type: type,
+          university: university,
+          region: region,
+          schoolType: schoolType,
+          search: norm([university, region, schoolType, title, type].join(' '))
+        };
+      }).filter(function (item) {
+        if (!item.id || !item.title || !item.university) return false;
+        if (seen.has(item.id)) return false;
+        seen.add(item.id);
+        return true;
+      });
+
+      function populateFilters() {
+        $('region').innerHTML = ['<option value="">전체 지역</option>'].concat(unique(files.map(function (f) { return f.region; })).map(function (r) {
+          return '<option value="' + esc(r) + '">' + esc(r) + '</option>';
+        })).join('');
+
+        $('schoolType').innerHTML = ['<option value="">전체 분류</option>'].concat(unique(files.map(function (f) { return f.schoolType; })).sort(function (a, b) {
+          return (typeOrder[a] || 99) - (typeOrder[b] || 99) || a.localeCompare(b, 'ko');
+        }).map(function (t) {
+          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+        })).join('');
+
+        $('fileType').innerHTML = ['<option value="">전체 형식</option>'].concat(unique(files.map(function (f) { return f.type; })).map(function (t) {
+          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+        })).join('');
+      }
+      function renderStats() {
+        var universityCount = unique(files.map(function (f) { return f.university; })).length;
+        var pdfCount = files.filter(function (f) { return f.type === 'PDF'; }).length;
+        var hwpCount = files.filter(function (f) { return f.type === 'HWP'; }).length;
+        $('statGrid').innerHTML = [
+          ['대학·기관', universityCount + '개'],
+          ['자료', files.length + '개'],
+          ['PDF', pdfCount + '개'],
+          ['HWP', hwpCount + '개']
+        ].map(function (s) {
+          return '<div class="stat"><span>' + esc(s[0]) + '</span><b>' + esc(s[1]) + '</b></div>';
+        }).join('');
+      }
+      function filteredFiles() {
+        var q = norm(state.query);
+        return files.filter(function (f) {
+          if (state.region && f.region !== state.region) return false;
+          if (state.schoolType && f.schoolType !== state.schoolType) return false;
+          if (state.quickType !== 'all' && f.schoolType !== state.quickType) return false;
+          if (state.fileType && f.type !== state.fileType) return false;
+          if (q && f.search.indexOf(q) === -1) return false;
+          return true;
+        });
+      }
+      function groupByUniversity(items) {
+        var map = new Map();
+        items.forEach(function (f) {
+          if (!map.has(f.university)) map.set(f.university, []);
+          map.get(f.university).push(f);
+        });
+        var groups = Array.from(map.entries()).map(function (entry) {
+          var list = entry[1].sort(function (a, b) {
+            return a.title.localeCompare(b.title, 'ko') || a.index - b.index;
+          });
+          return {
+            university: entry[0],
+            files: list,
+            regions: unique(list.map(function (f) { return f.region; })),
+            types: unique(list.map(function (f) { return f.type; })),
+            schoolTypes: unique(list.map(function (f) { return f.schoolType; }))
+          };
+        });
+        groups.sort(function (a, b) {
+          if (state.sort === 'count') return b.files.length - a.files.length || a.university.localeCompare(b.university, 'ko');
+          if (state.sort === 'region') return a.regions.join(',').localeCompare(b.regions.join(','), 'ko') || a.university.localeCompare(b.university, 'ko');
+          return a.university.localeCompare(b.university, 'ko');
+        });
+        return groups;
+      }
+      function render() {
+        var terms = clean(state.query).split(/\s+/).filter(Boolean);
+        var matched = filteredFiles();
+        var groups = groupByUniversity(matched);
+        $('resultSummary').textContent = nf.format(groups.length) + '개 대학·기관 · ' + nf.format(matched.length) + '개 자료 표시';
+
+        if (!groups.length) {
+          $('results').innerHTML = '<div class="empty"><strong>검색 결과가 없습니다.</strong><br>검색어를 줄이거나 필터를 초기화해 보세요.</div>';
+          return;
+        }
+
+        $('results').innerHTML = groups.map(function (group) {
+          var badges = []
+            .concat(group.regions.map(function (r) { return '<span class="badge">' + esc(r) + '</span>'; }))
+            .concat(group.schoolTypes.map(function (t) { return '<span class="badge">' + esc(t) + '</span>'; }))
+            .concat(group.types.map(function (t) { return '<span class="badge type-' + esc(t.toLowerCase()) + '">' + esc(t) + '</span>'; }))
+            .concat(['<span class="badge">' + nf.format(group.files.length) + '개 자료</span>'])
+            .join('');
+          var rows = group.files.map(function (file) {
+            return [
+              '<div class="file-row">',
+              '  <div class="file-title">' + highlight(file.title, terms) + '</div>',
+              '  <div class="file-actions">',
+              '    <a class="btn small" href="' + previewUrl(file.id) + '" target="_blank" rel="noopener">미리보기</a>',
+              '    <a class="btn small green" href="' + downloadUrl(file.id) + '" target="_blank" rel="noopener">다운로드</a>',
+              '  </div>',
+              '</div>'
+            ].join('');
+          }).join('');
+          return [
+            '<article class="uni-card">',
+            '  <div class="uni-head">',
+            '    <h3 class="uni-title">' + highlight(group.university, terms) + '</h3>',
+            '    <div class="uni-meta">' + badges + '</div>',
+            '  </div>',
+            '  <div class="file-list">' + rows + '</div>',
+            '</article>'
+          ].join('');
+        }).join('');
+      }
+      function bind() {
+        $('q').addEventListener('input', function (e) { state.query = e.target.value; render(); });
+        $('region').addEventListener('change', function (e) { state.region = e.target.value; render(); });
+        $('schoolType').addEventListener('change', function (e) { state.schoolType = e.target.value; render(); });
+        $('fileType').addEventListener('change', function (e) { state.fileType = e.target.value; render(); });
+        $('sort').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
+
+        document.querySelectorAll('#typeChips .chip').forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            state.quickType = chip.dataset.type;
+            document.querySelectorAll('#typeChips .chip').forEach(function (item) {
+              item.setAttribute('aria-pressed', item === chip ? 'true' : 'false');
+            });
+            render();
+          });
+        });
+
+        $('resetBtn').addEventListener('click', function () {
+          state = { query: '', region: '', schoolType: '', fileType: '', quickType: 'all', sort: 'university' };
+          $('q').value = '';
+          $('region').value = '';
+          $('schoolType').value = '';
+          $('fileType').value = '';
+          $('sort').value = 'university';
+          document.querySelectorAll('#typeChips .chip').forEach(function (chip) {
+            chip.setAttribute('aria-pressed', chip.dataset.type === 'all' ? 'true' : 'false');
+          });
+          render();
+          $('q').focus();
+        });
+      }
+
+      populateFilters();
+      renderStats();
+      bind();
+      render();
+    })();
+  </script>
+</body>
+</html>
