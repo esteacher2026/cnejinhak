@@ -130,10 +130,14 @@ tr.det>td{background:#f6f9fd!important;cursor:default;padding:12px 16px;text-ali
 .card th{background:#fafcff;color:var(--mut);font-size:11px;font-weight:700;padding:5px 6px;border-bottom:1px solid var(--line2);white-space:nowrap}
 .card td{padding:6px;border-bottom:1px solid var(--line2);text-align:center;vertical-align:top}
 .card tr:last-child td{border-bottom:0}
-.l1{font-size:11px;color:var(--mut)}
-.l1 b{font-size:12.5px;color:var(--tx)}
-.l2{font-size:11px;color:var(--mut)}
-.l3{font-size:10.5px;color:var(--teal)}
+.uvm{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:11px;line-height:1.5}
+.uvm+.uvm{margin-top:1px}
+.uvm .k{color:var(--mut);font-size:10px;white-space:nowrap}
+.uvm .v{font-variant-numeric:tabular-nums;color:var(--tx);text-align:right;white-space:nowrap}
+.uvm.hd{border-bottom:1px dashed var(--line2);padding-bottom:2px;margin-bottom:2px}
+.uvm.hd .v{color:var(--navy);font-weight:700;font-size:13px}
+.uvm.dim .k,.uvm.dim .v{color:#9aa6b6}
+.uvm.sn .k{color:#2f8a99}.uvm.sn .v{color:var(--teal)}
 .addc{appearance:none;border:1px solid var(--line);background:#fff;color:var(--mut);border-radius:6px;width:22px;height:22px;font-size:13px;line-height:1;cursor:pointer}
 .addc:hover{color:var(--pri);border-color:var(--pri)}
 .hint{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:40px 20px;text-align:center;color:var(--mut);font-size:13.5px}
@@ -180,6 +184,11 @@ main{min-height:60vh}
   table.dt{font-size:12px}
   .cards{grid-template-columns:1fr}
   .fextra input[type=search]{width:150px}
+  .card{overflow-x:auto}
+  .card td,.card th{padding:5px 5px}
+  .uvm{gap:5px;font-size:10px}
+  .uvm .k{font-size:9px}
+  .uvm.hd .v{font-size:11.5px}
 }
 @media print{
   header .tabs,#filters,#stats,.morebtn,#cmpfab,#toast,.toolbar,.uvtop,#gradeLegend,.mainbtn{display:none!important}
@@ -350,6 +359,7 @@ const zn=v=>(v===0||v==null)?null:v;
 function fmtZ(v){return v==null?'<span class="mut">–</span>':v===0?'<span class="z" title="0 = 미입력 또는 지원자 없음 (원자료 표기 그대로)">0</span>':esc(String(v))}
 function bdg(b){return b==null?'<i class="bb b0" title="점수산출기준 미표기(원자료)">·</i>':b===0?'<i class="bb b1">등급</i>':'<i class="bb b2">백분위</i>'}
 function snCell(r,fi){const v=r[fi];if(v==null)return '<span class="mut">–</span>';return fmtZ(v)+(r[3]===2?bdg(r[8]):'')}
+function kvSpan(k,v,cls){return '<div class="uvm'+(cls?' '+cls:'')+'"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>'}
 const rnd=v=>Math.round(v*100)/100;
 
 /* ── 필터링 ── */
@@ -552,7 +562,7 @@ function renderUv(){
     cards.get(ck).add(r[3]+'-'+r[7]);}
   const years=[...new Set(idxs.map(i=>Y[R[i][0]]))].sort();
   let h='<div class="uvhead"><h2>'+udispOld(S.univ)+'</h2><div class="meta"><span class="regtag">'+D.r[u.r]+'</span>간호·보건 6개 학과군 모집단위 '+NF(idxs.length)+'행 · 수록 연도 '+years.join('·')+(u.o?' · '+esc(u.o)+'는 교명 변경 전 표기('+u.oy.join('·')+')':'')+'</div>'+
-    '<div class="meta" style="margin-top:4px">각 칸 — <b>정원* · 경쟁률</b> / 평균 · 최저(학생부 등급) / <span style="color:var(--teal)">수능(정시: 평균/최저, 기준 병기)</span> · <span class="z">0</span>=미입력/지원없음 · –=자료 없음</div></div>';
+    '<div class="meta" style="margin-top:4px"><span class="z">0</span>=미입력 또는 지원자 없음 · –=자료 없음 · 합격자 평균·최저의 <b>내신</b>=학생부 등급(작을수록 상위), <span style="color:var(--teal)">수능</span>은 정시에만 <i class="bb b1">등급</i><i class="bb b2">백분위</i> 병기</div></div>';
   const ckeys=[...cards.keys()].sort((a,b)=>{
     const[a1,a2,a3]=a.split('|').map(Number),[b1,b2,b3]=b.split('|').map(Number);
     return a1-b1||D.m[a2].localeCompare(D.m[b2],'ko')||a3-b3;});
@@ -568,8 +578,9 @@ function renderUv(){
         const i=lk.get(m+'|'+d+'|'+t+'|'+s+'|'+y);
         if(i==null){cells+='<td><span class="mut">–</span></td>';continue}
         const r=R[i];
-        cells+='<td><div class="l1">'+fmtZ(r[5])+' · <b>'+fmtZ(r[9])+'</b></div><div class="l2">'+fmtZ(r[11])+' · '+fmtZ(r[13])+'</div>'+
-          (r[3]===2&&(r[10]!=null||r[12]!=null)?'<div class="l3">수능 '+fmtZ(r[10])+(r[10]!=null?bdg(r[8]):'')+' / '+fmtZ(r[12])+'</div>':'')+'</td>';
+        cells+='<td>'+kvSpan('경쟁률',fmtZ(r[9]),'hd')+kvSpan('정원',fmtZ(r[5]),'dim')+
+          kvSpan('내신 평균',fmtZ(r[11]))+kvSpan('내신 최저',fmtZ(r[13]))+
+          (r[3]===2&&(r[10]!=null||r[12]!=null)?kvSpan('수능 평균',fmtZ(r[10])+(r[10]!=null?bdg(r[8]):''),'sn')+kvSpan('수능 최저',fmtZ(r[12]),'sn'):'')+'</td>';
       }
       rowsH+='<tr><td style="white-space:nowrap">'+D.t[t]+'</td><td style="white-space:nowrap">'+D.s[s]+'</td>'+cells+'<td><button class="addc b-cmp" data-key="'+key+'" title="비교에 담기">+</button></td></tr>';
     }
