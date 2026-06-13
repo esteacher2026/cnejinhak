@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2027 학생부종합전형 가이드북 원문 다운로드</title>
+  <meta name="description" content="2027학년도 대학별 학생부종합전형·학생부위주전형 가이드북 PDF 원문을 대학명, 지역, 자료 유형으로 검색하고 내려받습니다.">
+  <link rel="canonical" href="https://jinhak.esteacher.kr/2027hakjong-guide.html">
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --paper: #ffffff;
+      --ink: #111827;
+      --text: #334155;
+      --muted: #64748b;
+      --line: #dbe2ea;
+      --line-soft: #edf1f6;
+      --burgundy: #8c2a4f;
+      --burgundy-soft: #f8ecf0;
+      --blue: #1d4f91;
+      --blue-soft: #e9f2ff;
+      --green: #0f766e;
+      --green-soft: #e7f6f3;
+      --amber: #a16207;
+      --amber-soft: #fff7df;
+      --red: #b42318;
+      --red-soft: #fff0ee;
+      --max: 1080px;
+      --radius: 8px;
+      --stick: 56px;
+    }
+    * { box-sizing: border-box; letter-spacing: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      word-break: keep-all;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      z-index: 1000;
+    }
+    .topline { height: 5px; background: linear-gradient(90deg, var(--burgundy), var(--blue), var(--green)); }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 9px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .brand {
+      min-width: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--burgundy);
+      color: #fff;
+      font-weight: 900;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+    .brand-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 900;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-sub {
+      display: block;
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .btn {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: border-color .15s, box-shadow .15s, background .15s, transform .04s;
+    }
+    .btn:hover { border-color: #b9c4d0; box-shadow: 0 6px 14px rgba(17, 24, 39, .08); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+    .btn.primary:hover { background: #0d655e; border-color: #0d655e; }
+    .btn.small { min-height: 34px; padding: 7px 11px; font-size: 12.5px; }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 20px 18px 80px;
+    }
+    h1, h2, p { margin-top: 0; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: end;
+      padding: 4px 2px 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--burgundy);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--burgundy);
+    }
+    h1 {
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+    .lead {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: 15.5px;
+    }
+    .stats {
+      min-width: 300px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .stat {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 1px 0 rgba(17, 24, 39, .03);
+    }
+    .stat strong {
+      display: block;
+      color: var(--burgundy);
+      font-size: 24px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
+    .stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 800;
+    }
+    .filterbar {
+      position: sticky;
+      top: var(--stick);
+      z-index: 40;
+      margin: 16px 0 0;
+      padding: 14px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 0 rgba(17, 24, 39, .03);
+      display: grid;
+      gap: 12px;
+    }
+    .filterbar > *,
+    .control-grid > *,
+    .hero > * { min-width: 0; }
+    .filterbar.stuck { box-shadow: 0 14px 26px rgba(17, 24, 39, .12); }
+    .search { position: relative; }
+    .search .ico {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+    .search input {
+      width: 100%;
+      height: 52px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      padding: 0 46px;
+      font-size: 16px;
+      outline: none;
+    }
+    .search input::placeholder { color: #9aa6b8; }
+    .search .clear {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      display: none;
+      place-items: center;
+      border: 0;
+      border-radius: var(--radius);
+      background: #eef1f6;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .search .clear:hover { background: #e2e7ef; color: var(--ink); }
+    .search.has-value .clear { display: grid; }
+    .search input:focus-visible,
+    .chip:focus-visible,
+    .btn:focus-visible,
+    select:focus-visible {
+      outline: none;
+      border-color: var(--burgundy);
+      box-shadow: 0 0 0 3px rgba(140, 42, 79, .16);
+    }
+    .control-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(190px, 240px);
+      gap: 12px;
+      align-items: end;
+    }
+    .label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .chip-row {
+      max-width: 100%;
+      min-width: 0;
+      display: flex;
+      gap: 8px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .chip-row::-webkit-scrollbar { height: 6px; }
+    .chip-row::-webkit-scrollbar-thumb { background: #d6deea; border-radius: 999px; }
+    .chip {
+      flex: 0 0 auto;
+      min-height: 36px;
+      padding: 7px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: border-color .15s, background .15s, color .15s;
+    }
+    .chip:hover { border-color: #b9c4d0; }
+    .chip[aria-pressed="true"] { background: var(--burgundy); border-color: var(--burgundy); color: #fff; }
+    .select-wrap select {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 10px;
+      font-weight: 800;
+      outline: none;
+    }
+    .resultbar {
+      margin: 14px 2px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .resultbar p { margin: 0; }
+    .linkbtn {
+      border: 0;
+      background: none;
+      color: var(--burgundy);
+      cursor: pointer;
+      font-weight: 900;
+      padding: 4px 2px;
+      white-space: nowrap;
+    }
+    .linkbtn:hover { text-decoration: underline; }
+    .results {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .uni-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      box-shadow: 0 1px 0 rgba(17, 24, 39, .03);
+    }
+    .uni-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .uni-name {
+      margin: 0;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.28;
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+    .badges {
+      display: inline-flex;
+      justify-content: flex-end;
+      gap: 6px;
+      flex-wrap: wrap;
+      flex: 0 0 auto;
+      max-width: 52%;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 23px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--burgundy-soft);
+      color: var(--burgundy);
+      font-size: 11.5px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .badge.type { background: var(--blue-soft); color: var(--blue); }
+    .badge.special { background: var(--amber-soft); color: var(--amber); }
+    .file-list {
+      display: grid;
+      border-top: 1px solid var(--line-soft);
+    }
+    .file-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .file-main {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 11px;
+      align-items: center;
+    }
+    .filetype {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--red-soft);
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .file-title {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.36;
+      overflow-wrap: anywhere;
+    }
+    .file-meta {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .file-actions {
+      display: flex;
+      gap: 7px;
+      flex: 0 0 auto;
+    }
+    mark {
+      padding: 0 1px;
+      border-radius: 3px;
+      background: #ffe69a;
+      color: inherit;
+    }
+    .empty {
+      grid-column: 1 / -1;
+      padding: 40px 18px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed #c6cfdb;
+      border-radius: var(--radius);
+      background: #fff;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+    .empty strong { color: var(--ink); font-size: 16px; }
+    .note {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    footer {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer strong { color: var(--text); }
+    .totop {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--burgundy);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, .18);
+      display: grid;
+      place-items: center;
+    }
+    .totop[hidden] { display: none; }
+    .totop:hover { background: var(--burgundy); color: #fff; border-color: var(--burgundy); }
+    @media (min-width: 760px) {
+      .chip-row { flex-wrap: wrap; overflow: visible; }
+    }
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; align-items: start; }
+      .stats { min-width: 0; max-width: 520px; }
+      .results { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 759px) {
+      .filterbar { position: static; }
+      .control-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .topbar-inner { padding: 9px 13px; }
+      .brand-mark { width: 34px; height: 34px; font-size: 11px; }
+      .brand-title { font-size: 14px; }
+      .brand-sub { display: none; }
+      .wrap { padding: 16px 13px 72px; }
+      h1 { font-size: 25px; }
+      .lead { font-size: 14.5px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+      .stat { padding: 10px; }
+      .stat strong { font-size: 21px; }
+      .filterbar { padding: 12px; }
+      .search input { height: 48px; font-size: 15px; }
+      .uni-card { padding: 14px; }
+      .uni-head { display: grid; gap: 8px; }
+      .badges { justify-content: flex-start; max-width: none; }
+      .file-row { grid-template-columns: 1fr; gap: 8px; }
+      .file-actions { justify-content: flex-end; flex-wrap: wrap; }
+      .top-actions .btn { padding-inline: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#results">자료 목록으로 바로가기</a>
+  <div class="topline" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="EST 진학정보실 홈">
+        <span class="brand-mark">EST</span>
+        <span>
+          <span class="brand-title">2027 학생부종합전형 가이드북</span>
+          <span class="brand-sub">대학별 원문 다운로드</span>
+        </span>
+      </a>
+      <div class="top-actions">
+        <a class="btn" href="index.html">홈</a>
+        <button class="btn" id="topReset" type="button">초기화</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <div class="eyebrow">2027대입 자료실</div>
+        <h1 id="pageTitle">2027 학생부종합전형 가이드북 원문 다운로드</h1>
+        <p class="lead">대학별 학생부종합전형, 학생부위주전형, 특화 안내 자료를 한 화면에서 검색하고 원문 PDF로 확인할 수 있습니다.</p>
+      </div>
+      <div class="stats" aria-label="자료 요약">
+        <div class="stat"><strong id="statSchools">0</strong><span>대학·기관</span></div>
+        <div class="stat"><strong id="statFiles">0</strong><span>전체 자료</span></div>
+        <div class="stat"><strong id="statHakjong">0</strong><span>학생부종합</span></div>
+        <div class="stat"><strong id="statPdf">0</strong><span>PDF 원문</span></div>
+      </div>
+    </section>
+
+    <section class="filterbar" id="filters" aria-label="자료 검색과 필터">
+      <div class="search" id="search">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+          <path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="대학명·자료명 검색" aria-label="통합 검색">
+        <button class="clear" id="clearSearch" type="button" aria-label="검색어 지우기">×</button>
+      </div>
+      <div>
+        <span class="label" id="regionLabel">지역</span>
+        <div class="chip-row" id="regionRow" role="group" aria-labelledby="regionLabel"></div>
+      </div>
+      <div class="control-grid">
+        <div>
+          <span class="label" id="guideLabel">자료 유형</span>
+          <div class="chip-row" id="guideRow" role="group" aria-labelledby="guideLabel"></div>
+        </div>
+        <label class="select-wrap">
+          <span class="label">정렬</span>
+          <select id="sorter" aria-label="정렬 방식">
+            <option value="name">대학명 가나다순</option>
+            <option value="region">지역순</option>
+            <option value="count">자료 많은 순</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <div class="resultbar">
+      <p id="summary">자료를 불러오는 중입니다.</p>
+      <button class="linkbtn" id="resetBtn" type="button">전체 보기</button>
+    </div>
+
+    <section class="results" id="results" aria-live="polite" aria-label="대학별 학생부종합전형 가이드북 목록"></section>
+
+    <p class="note">각 자료는 대학이 발표한 원문으로 연결됩니다. 전형 세부사항은 원문과 대학 입학처 공지를 함께 확인해 주세요.</p>
+
+    <footer>
+      <strong>EST 진학정보실</strong>
+      <span> · Created by 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+    </footer>
+  </main>
+
+  <button class="totop" id="toTop" type="button" aria-label="맨 위로" hidden>↑</button>
+
+  <script src="2027hakjong-guide-data.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var raw = Array.isArray(window.HAKJONG_GUIDES_2027) ? window.HAKJONG_GUIDES_2027 : [];
+      var regionOrder = ['서울', '경기·인천', '강원', '충청', '영남', '호남', '호남·제주', '제주'];
+      var specialTypes = ['농어촌 안내', '미술계열전형'];
+      var state = { query: '', region: '', guide: '', sort: 'name' };
+      var currentTerms = [];
+
+      function $(id) { return document.getElementById(id); }
+      function clean(text) {
+        return String(text == null ? '' : text).replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+      function esc(text) {
+        return String(text == null ? '' : text).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      function norm(text) { return clean(text).toLowerCase().replace(/\s+/g, ''); }
+      function escRe(text) { return String(text).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+      function unique(list) {
+        var seen = {};
+        var out = [];
+        list.forEach(function (item) {
+          if (item && !seen[item]) {
+            seen[item] = true;
+            out.push(item);
+          }
+        });
+        return out;
+      }
+      function regionRank(region) {
+        var i = regionOrder.indexOf(region);
+        return i < 0 ? 999 : i;
+      }
+      function sortRegions(list) {
+        return unique(list).sort(function (a, b) {
+          return regionRank(a) - regionRank(b) || a.localeCompare(b, 'ko');
+        });
+      }
+      function guideAlias(type) {
+        if (type === '학생부종합전형') return '학생부종합 학종 종합전형';
+        if (type === '학생부위주전형') return '학생부위주 학생부 중심';
+        if (type === '학생부전형') return '학생부전형 학생부교과 학생부종합';
+        if (type === '농어촌 안내') return '농어촌 특별전형';
+        if (type === '미술계열전형') return '미술 미대 예체능';
+        return '';
+      }
+      function fileType(item) {
+        if (item.type) return clean(item.type).toUpperCase();
+        return /\.pdf$/i.test(clean(item.title)) ? 'PDF' : 'FILE';
+      }
+      function fileLabel(file) {
+        var text = clean(file.title).replace(/\.(pdf|hwpx?|docx?|pptx?|zip)$/i, '');
+        text = text.replace(/2027\s*학년도/g, ' ').replace(/2026\s*/g, ' ').replace(/2027/g, ' ');
+        [file.university, file.university.replace(/\(.*?\)/g, '').trim()].forEach(function (name) {
+          if (!name) return;
+          text = text.replace(new RegExp('^' + escRe(name) + '(?:학교)?'), ' ');
+        });
+        text = text.replace(/성신여자대학교/g, ' ').replace(/한양대\s*\(에리카\)/gi, ' ');
+        text = text.replace(/[_「」]/g, ' ').replace(/\b\d{6,8}\b/g, ' ');
+        text = text.replace(/\s+/g, ' ').replace(/^[\s·,_-]+|[\s·,_-]+$/g, '').trim();
+        if (!text || !/[가-힣A-Za-z0-9]/.test(text)) text = file.guideType || '가이드북';
+        return text;
+      }
+      function highlight(text, terms) {
+        var safe = esc(text);
+        (terms || []).filter(function (term) { return term.length >= 2; }).slice(0, 5).forEach(function (term) {
+          safe = safe.replace(new RegExp(escRe(term), 'gi'), function (match) {
+            return '<mark>' + match + '</mark>';
+          });
+        });
+        return safe;
+      }
+      function previewUrl(id) {
+        return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing';
+      }
+      function downloadUrl(id) {
+        return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id);
+      }
+
+      var seenIds = {};
+      var files = raw.map(function (item) {
+        var id = String(item.id || '').replace(/\s+/g, '').trim();
+        var title = clean(item.title);
+        var university = clean(item.university);
+        var region = clean(item.region) || '기타';
+        var guideType = clean(item.guideType) || '가이드북';
+        var type = fileType(item);
+        return {
+          id: id,
+          title: title,
+          university: university,
+          region: region,
+          guideType: guideType,
+          type: type,
+          label: '',
+          search: norm([university, region, guideType, guideAlias(guideType), title, type].join(' '))
+        };
+      }).filter(function (file) {
+        if (!file.id || !file.title || !file.university || seenIds[file.id]) return false;
+        seenIds[file.id] = true;
+        return true;
+      });
+      files.forEach(function (file) { file.label = fileLabel(file); });
+
+      function guideMatch(file) {
+        if (!state.guide) return true;
+        if (state.guide === '특화자료') return specialTypes.indexOf(file.guideType) >= 0;
+        return file.guideType === state.guide;
+      }
+      function filtered() {
+        var tokens = clean(state.query).split(/\s+/).filter(Boolean).map(norm);
+        return files.filter(function (file) {
+          if (state.region && file.region !== state.region) return false;
+          if (!guideMatch(file)) return false;
+          if (tokens.length && !tokens.every(function (token) { return file.search.indexOf(token) >= 0; })) return false;
+          return true;
+        });
+      }
+      function group(items) {
+        var map = {};
+        items.forEach(function (file) {
+          if (!map[file.university]) map[file.university] = [];
+          map[file.university].push(file);
+        });
+        var groups = Object.keys(map).map(function (university) {
+          var list = map[university].sort(function (a, b) {
+            return a.guideType.localeCompare(b.guideType, 'ko') || a.label.localeCompare(b.label, 'ko');
+          });
+          return {
+            university: university,
+            files: list,
+            regions: sortRegions(list.map(function (file) { return file.region; })),
+            guideTypes: unique(list.map(function (file) { return file.guideType; }))
+          };
+        });
+        groups.sort(function (a, b) {
+          if (state.sort === 'region') {
+            return regionRank(a.regions[0]) - regionRank(b.regions[0]) || a.university.localeCompare(b.university, 'ko');
+          }
+          if (state.sort === 'count') {
+            return b.files.length - a.files.length || a.university.localeCompare(b.university, 'ko');
+          }
+          return a.university.localeCompare(b.university, 'ko');
+        });
+        return groups;
+      }
+      function renderChipRow(id, items, dataName, currentValue) {
+        var html = ['<button class="chip" type="button" data-' + dataName + '="" aria-pressed="' + (currentValue ? 'false' : 'true') + '">전체</button>'];
+        items.forEach(function (item) {
+          html.push('<button class="chip" type="button" data-' + dataName + '="' + esc(item.value) + '" aria-pressed="' + (currentValue === item.value ? 'true' : 'false') + '">' + esc(item.label) + '</button>');
+        });
+        $(id).innerHTML = html.join('');
+      }
+      function buildChips() {
+        renderChipRow('regionRow', sortRegions(files.map(function (file) { return file.region; })).map(function (region) {
+          return { value: region, label: region };
+        }), 'region', state.region);
+
+        renderChipRow('guideRow', [
+          { value: '학생부종합전형', label: '학생부종합전형' },
+          { value: '학생부위주전형', label: '학생부위주전형' },
+          { value: '학생부전형', label: '학생부전형' },
+          { value: '특화자료', label: '특화자료' }
+        ], 'guide', state.guide);
+      }
+      function updateStats() {
+        var universities = unique(files.map(function (file) { return file.university; }));
+        $('statSchools').textContent = universities.length;
+        $('statFiles').textContent = files.length;
+        $('statHakjong').textContent = files.filter(function (file) { return file.guideType === '학생부종합전형'; }).length;
+        $('statPdf').textContent = files.filter(function (file) { return file.type === 'PDF'; }).length;
+      }
+      function badgeClass(type) {
+        return specialTypes.indexOf(type) >= 0 ? 'badge special' : 'badge type';
+      }
+      function renderRow(file) {
+        return '' +
+          '<div class="file-row">' +
+            '<div class="file-main">' +
+              '<span class="filetype">' + esc(file.type) + '</span>' +
+              '<div>' +
+                '<div class="file-title">' + highlight(file.label, currentTerms) + '</div>' +
+                '<div class="file-meta">' + esc(file.guideType) + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="file-actions">' +
+              '<a class="btn small" href="' + previewUrl(file.id) + '" target="_blank" rel="noopener">미리보기</a>' +
+              '<a class="btn primary small" href="' + downloadUrl(file.id) + '" target="_blank" rel="noopener">다운로드</a>' +
+            '</div>' +
+          '</div>';
+      }
+      function renderCard(groupItem) {
+        var badges = groupItem.regions.map(function (region) {
+          return '<span class="badge">' + esc(region) + '</span>';
+        }).concat(groupItem.guideTypes.map(function (type) {
+          return '<span class="' + badgeClass(type) + '">' + esc(type) + '</span>';
+        })).join('');
+        return '' +
+          '<article class="uni-card">' +
+            '<div class="uni-head">' +
+              '<h2 class="uni-name">' + highlight(groupItem.university, currentTerms) + '</h2>' +
+              '<div class="badges">' + badges + '</div>' +
+            '</div>' +
+            '<div class="file-list">' + groupItem.files.map(renderRow).join('') + '</div>' +
+          '</article>';
+      }
+      function render() {
+        currentTerms = clean(state.query).split(/\s+/).filter(Boolean);
+        var items = filtered();
+        var groups = group(items);
+        $('summary').textContent = groups.length + '개 대학·기관 · ' + items.length + '개 자료 표시';
+        $('resetBtn').hidden = !(state.query || state.region || state.guide || state.sort !== 'name');
+        if (!groups.length) {
+          $('results').innerHTML = '' +
+            '<div class="empty">' +
+              '<strong>검색 결과가 없습니다.</strong>' +
+              '<span>검색어를 줄이거나 다른 조건을 선택해 보세요.</span>' +
+              '<button class="btn" type="button" data-reset>전체 보기</button>' +
+            '</div>';
+          return;
+        }
+        $('results').innerHTML = groups.map(renderCard).join('');
+      }
+      function setPressed(containerId, dataName, value) {
+        Array.prototype.forEach.call($(containerId).children, function (button) {
+          button.setAttribute('aria-pressed', button.getAttribute('data-' + dataName) === value ? 'true' : 'false');
+        });
+      }
+      function resetAll(focusSearch) {
+        state.query = '';
+        state.region = '';
+        state.guide = '';
+        state.sort = 'name';
+        $('q').value = '';
+        $('search').classList.remove('has-value');
+        $('sorter').value = state.sort;
+        setPressed('regionRow', 'region', state.region);
+        setPressed('guideRow', 'guide', state.guide);
+        render();
+        if (focusSearch) $('q').focus();
+      }
+      function bind() {
+        $('q').addEventListener('input', function (event) {
+          state.query = event.target.value;
+          $('search').classList.toggle('has-value', !!state.query);
+          render();
+        });
+        $('clearSearch').addEventListener('click', function () {
+          state.query = '';
+          $('q').value = '';
+          $('search').classList.remove('has-value');
+          render();
+          $('q').focus();
+        });
+        $('regionRow').addEventListener('click', function (event) {
+          var button = event.target.closest('[data-region]');
+          if (!button) return;
+          state.region = button.getAttribute('data-region');
+          setPressed('regionRow', 'region', state.region);
+          render();
+        });
+        $('guideRow').addEventListener('click', function (event) {
+          var button = event.target.closest('[data-guide]');
+          if (!button) return;
+          state.guide = button.getAttribute('data-guide');
+          setPressed('guideRow', 'guide', state.guide);
+          render();
+        });
+        $('sorter').addEventListener('change', function (event) {
+          state.sort = event.target.value;
+          render();
+        });
+        $('resetBtn').addEventListener('click', function () { resetAll(true); });
+        $('topReset').addEventListener('click', function () { resetAll(true); });
+        $('results').addEventListener('click', function (event) {
+          if (event.target.closest('[data-reset]')) resetAll(true);
+        });
+        var toTop = $('toTop');
+        var filters = $('filters');
+        window.addEventListener('scroll', function () {
+          toTop.hidden = window.scrollY < 500;
+          filters.classList.toggle('stuck', window.scrollY > 8);
+        }, { passive: true });
+        toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      }
+      function setStick() {
+        var topbar = document.querySelector('.topbar');
+        document.documentElement.style.setProperty('--stick', (topbar ? topbar.offsetHeight : 56) + 'px');
+      }
+
+      updateStats();
+      buildChips();
+      bind();
+      setStick();
+      window.addEventListener('resize', setStick);
+      render();
+    })();
+  </script>
+</body>
+</html>
