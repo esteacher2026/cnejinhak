@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 대학별 입시결과 원문 다운로드</title>
+  <meta name="description" content="2026학년도 대학별 입시결과 원문 PDF, 엑셀, 한글, 압축 파일을 대학별로 검색하고 Google Drive에서 다운로드합니다.">
+  <link rel="canonical" href="https://jinhak.esteacher.kr/2026results-download.html">
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --paper-2: #fbfcfe;
+      --ink: #111827;
+      --text: #344054;
+      --muted: #667085;
+      --line: #d8e1ee;
+      --line-soft: #edf1f7;
+      --navy: #102a4c;
+      --blue: #2457a6;
+      --blue-soft: #eaf2ff;
+      --gold: #b48932;
+      --gold-soft: #fff7df;
+      --green: #0f766e;
+      --green-soft: #e7f6f3;
+      --red: #b42318;
+      --red-soft: #fff0ee;
+      --max: 1180px;
+      --radius: 8px;
+      --shadow: 0 12px 28px rgba(16, 42, 76, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      z-index: 1000;
+    }
+    .topline {
+      height: 5px;
+      background: linear-gradient(90deg, var(--navy), var(--blue), var(--gold));
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .brand {
+      min-width: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      flex: 0 0 auto;
+    }
+    .brand-title {
+      display: block;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-sub {
+      display: block;
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 72px;
+    }
+    .panel, .hero, .uni-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 0 rgba(17, 24, 39, .03);
+    }
+    .hero {
+      padding: clamp(18px, 3vw, 28px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: clamp(26px, 3.6vw, 42px);
+      line-height: 1.16;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+    .lead {
+      max-width: 780px;
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      min-height: 86px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: var(--paper-2);
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .stat b {
+      font-size: 26px;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+    }
+    .controls {
+      margin-top: 14px;
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+    .control-row {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) minmax(150px, 190px) minmax(132px, 160px) minmax(132px, 160px);
+      gap: 10px;
+      align-items: end;
+    }
+    .field {
+      min-width: 0;
+      display: grid;
+      gap: 6px;
+    }
+    label {
+      color: #344054;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    input, select {
+      width: 100%;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      padding: 0 11px;
+      outline: none;
+    }
+    input:focus, select:focus, .btn:focus-visible, .chip:focus-visible {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(36, 87, 166, .14);
+      outline: none;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .chip, .btn {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 850;
+      font-size: 13px;
+    }
+    .chip:hover, .btn:hover {
+      border-color: #b8c2d2;
+      box-shadow: 0 8px 18px rgba(17, 24, 39, .08);
+    }
+    .chip[aria-pressed="true"], .btn.primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+    .btn.light {
+      background: #f8fafc;
+    }
+    .btn.green {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .btn.small {
+      min-height: 34px;
+      padding: 7px 10px;
+    }
+    .meta-strip {
+      margin-top: 14px;
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .summary strong {
+      display: block;
+      font-size: 17px;
+    }
+    .summary span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .results {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+    .uni-card {
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+    .uni-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: start;
+    }
+    .uni-title {
+      margin: 0;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .uni-meta {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 7px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .badge.type-pdf { background: var(--red-soft); border-color: #ffd2cc; color: var(--red); }
+    .badge.type-xlsx { background: var(--green-soft); border-color: #bde4dd; color: var(--green); }
+    .badge.type-hwp { background: var(--blue-soft); border-color: #cbdcff; color: var(--blue); }
+    .badge.type-zip, .badge.type-png { background: var(--gold-soft); border-color: #f4da9b; color: #7a4300; }
+    .file-list {
+      display: grid;
+      gap: 8px;
+    }
+    .file-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: var(--paper-2);
+    }
+    .file-title {
+      min-width: 0;
+      display: grid;
+      gap: 6px;
+    }
+    .file-title strong {
+      overflow-wrap: anywhere;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .file-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    mark {
+      padding: 0 2px;
+      border-radius: 4px;
+      background: #fff2a8;
+    }
+    .empty {
+      padding: 34px 18px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed #c8cfdb;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .notice {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .control-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar-inner { padding: 9px 12px; }
+      .brand-sub { display: none; }
+      .top-actions .btn.light { display: none; }
+      .wrap { padding: 14px 12px 62px; }
+      .hero { padding: 16px; }
+      .control-row { grid-template-columns: 1fr; }
+      .meta-strip, .uni-head, .file-row { grid-template-columns: 1fr; }
+      .file-actions { justify-content: stretch; }
+      .file-actions .btn { flex: 1 1 120px; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#results">본문으로 바로가기</a>
+  <div class="topline" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="EST 진학정보실 메인으로 이동">
+        <span class="brand-mark">2026</span>
+        <span>
+          <span class="brand-title">대학별 입시결과 원문 다운로드</span>
+          <span class="brand-sub">Google Drive 원문 파일 연결</span>
+        </span>
+      </a>
+      <nav class="top-actions" aria-label="상단 이동">
+        <a class="btn light" href="#filters">필터</a>
+        <a class="btn" href="index.html">메인</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <span class="eyebrow">2026학년도 대학 발표 원문</span>
+        <h1 id="pageTitle">대학별 입시결과 파일을 바로 찾고 내려받습니다.</h1>
+        <p class="lead">파일은 Google Drive에 보관하고, 이 페이지는 대학명·지역·전형·파일형식으로 빠르게 찾는 목록 역할만 합니다.</p>
+        <p class="notice">다운로드 권한은 Google Drive 공유 설정을 따릅니다.</p>
+      </div>
+      <div class="stat-grid" id="statGrid" aria-label="자료 요약"></div>
+    </section>
+
+    <section class="panel controls" id="filters" aria-label="검색 및 필터">
+      <div class="control-row">
+        <div class="field">
+          <label for="q">통합 검색</label>
+          <input id="q" type="search" autocomplete="off" placeholder="대학명, 파일명, 지역 입력">
+        </div>
+        <div class="field">
+          <label for="region">지역</label>
+          <select id="region"></select>
+        </div>
+        <div class="field">
+          <label for="fileType">파일형식</label>
+          <select id="fileType"></select>
+        </div>
+        <div class="field">
+          <label for="sort">정렬</label>
+          <select id="sort">
+            <option value="university">대학명순</option>
+            <option value="region">지역순</option>
+            <option value="count">파일 많은순</option>
+          </select>
+        </div>
+      </div>
+      <div class="chip-row" id="categoryChips" aria-label="전형 필터">
+        <button class="chip" type="button" data-category="all" aria-pressed="true">전체</button>
+        <button class="chip" type="button" data-category="수시" aria-pressed="false">수시</button>
+        <button class="chip" type="button" data-category="정시" aria-pressed="false">정시</button>
+        <button class="chip" type="button" data-category="수시+정시" aria-pressed="false">수시+정시</button>
+        <button class="chip" type="button" data-category="기타" aria-pressed="false">기타</button>
+      </div>
+    </section>
+
+    <section class="panel meta-strip" aria-live="polite">
+      <div class="summary">
+        <strong id="resultTitle">검색 결과</strong>
+        <span id="resultSummary">자료를 계산하는 중입니다.</span>
+      </div>
+      <button class="btn small" type="button" id="resetBtn">초기화</button>
+    </section>
+
+    <section class="results" id="results" aria-label="대학별 파일 목록"></section>
+
+    <footer>
+      <strong>EST 진학정보실</strong>
+      <span> · Created by 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+    </footer>
+  </main>
+
+  <script src="2026results-download-data.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var raw = Array.isArray(window.RESULT_FILES_2026) ? window.RESULT_FILES_2026 : [];
+      var state = { query: '', region: '', type: '', category: 'all', sort: 'university' };
+      var nf = new Intl.NumberFormat('ko-KR');
+      var categoryOrder = { '수시': 1, '정시': 2, '수시+정시': 3, '기타': 4 };
+
+      function $(id) { return document.getElementById(id); }
+      function cleanTitle(title) {
+        return String(title || '').replace(/\+/g, ' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+      function esc(text) {
+        return String(text == null ? '' : text).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      function norm(text) {
+        return cleanTitle(text).toLowerCase().replace(/\s+/g, '');
+      }
+      function highlight(text, terms) {
+        var safe = esc(text);
+        terms.filter(function (t) { return t.length >= 2; }).slice(0, 5).forEach(function (term) {
+          var pattern = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          safe = safe.replace(new RegExp(pattern, 'gi'), function (m) { return '<mark>' + m + '</mark>'; });
+        });
+        return safe;
+      }
+      function fileType(item) {
+        if (item.type) return String(item.type).toUpperCase();
+        var title = cleanTitle(item.title).toLowerCase();
+        if (title.endsWith('.pdf')) return 'PDF';
+        if (title.endsWith('.xlsx') || title.endsWith('.xls')) return 'XLSX';
+        if (title.endsWith('.hwp')) return 'HWP';
+        if (title.endsWith('.zip')) return 'ZIP';
+        if (title.endsWith('.png')) return 'PNG';
+        return 'FILE';
+      }
+      function category(title) {
+        var text = cleanTitle(title);
+        var hasSusi = /수시/.test(text);
+        var hasJeongsi = /정시/.test(text);
+        if (hasSusi && hasJeongsi) return '수시+정시';
+        if (hasSusi) return '수시';
+        if (hasJeongsi) return '정시';
+        return '기타';
+      }
+      function inferUniversity(item) {
+        if (item.university) return item.university;
+        var text = cleanTitle(item.title).replace(/\.[^.]+$/, '');
+        text = text
+          .replace(/^\s*2026학년도\s*/i, '')
+          .replace(/^\s*2026\s*[-~]\s*202[4-6]\s*/i, '')
+          .replace(/^\s*202[4-6]\s*[-~]\s*2026\s*/i, '')
+          .replace(/^\s*2026\s*/i, '')
+          .replace(/\(2026\)/g, '')
+          .replace(/\(공지용\)/g, '')
+          .replace(/\(최종\)/g, '')
+          .trim();
+        var known = [
+          '서울과학기술대', '한국기술교육대학교', '한국전통문화대', '국립한국교통대', '국립공주대학교',
+          '국립금오공대', '국립목포대', '국립목포해양대', '국립창원대', '경상국립대',
+          '한경국립대', '국립인천대', '국립군산대', '국립한밭대', '국립부경대', '국립경국대',
+          '부산외국어대', '목포해양대', '한국교원대', '한국공학대', '한국항공대',
+          '한국해양대', '가톨릭관동대', '대구한의대', '상명대학교', '나사렛대학교',
+          '중앙대학교', '성균관대학교', '충북대학교'
+        ];
+        for (var i = 0; i < known.length; i += 1) {
+          if (text.indexOf(known[i]) !== -1) return known[i];
+        }
+        var m = text.match(/([가-힣A-Za-z]+(?:대학교|교육대학교|과학기술대|시립대|교대|여대|외대|공대|해양대|전통문화대|대))/);
+        if (m) return m[1];
+        return text.split(/\s+/)[0] || '대학명 미확인';
+      }
+      function previewUrl(id) {
+        return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing';
+      }
+      function downloadUrl(id) {
+        return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(id);
+      }
+
+      var seen = new Set();
+      var files = raw.map(function (item, idx) {
+        var id = String(item.id || '').trim();
+        var title = cleanTitle(item.title);
+        var type = fileType(item);
+        var cat = category(title);
+        var university = inferUniversity(item);
+        return {
+          id: id,
+          index: idx,
+          title: title,
+          type: type,
+          category: cat,
+          university: university,
+          region: item.region || '기타',
+          search: norm([university, item.region, title, type, cat].join(' '))
+        };
+      }).filter(function (item) {
+        var key = item.id;
+        if (!key || !item.title) return false;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+
+      function unique(list) {
+        return Array.from(new Set(list)).filter(Boolean).sort(function (a, b) { return a.localeCompare(b, 'ko'); });
+      }
+      function populateFilters() {
+        var regionOptions = ['<option value="">전체 지역</option>'].concat(unique(files.map(function (f) { return f.region; })).map(function (r) {
+          return '<option value="' + esc(r) + '">' + esc(r) + '</option>';
+        }));
+        $('region').innerHTML = regionOptions.join('');
+
+        var typeOptions = ['<option value="">전체 형식</option>'].concat(unique(files.map(function (f) { return f.type; })).map(function (t) {
+          return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+        }));
+        $('fileType').innerHTML = typeOptions.join('');
+      }
+      function renderStats() {
+        var universityCount = unique(files.map(function (f) { return f.university; })).length;
+        var pdfCount = files.filter(function (f) { return f.type === 'PDF'; }).length;
+        var xlsxCount = files.filter(function (f) { return f.type === 'XLSX'; }).length;
+        $('statGrid').innerHTML = [
+          ['대학', universityCount + '개'],
+          ['파일', files.length + '개'],
+          ['PDF', pdfCount + '개'],
+          ['엑셀', xlsxCount + '개']
+        ].map(function (s) {
+          return '<div class="stat"><span>' + esc(s[0]) + '</span><b>' + esc(s[1]) + '</b></div>';
+        }).join('');
+      }
+      function filteredFiles() {
+        var q = norm(state.query);
+        return files.filter(function (f) {
+          if (state.region && f.region !== state.region) return false;
+          if (state.type && f.type !== state.type) return false;
+          if (state.category !== 'all' && f.category !== state.category) return false;
+          if (q && f.search.indexOf(q) === -1) return false;
+          return true;
+        });
+      }
+      function groupByUniversity(items) {
+        var map = new Map();
+        items.forEach(function (f) {
+          if (!map.has(f.university)) map.set(f.university, []);
+          map.get(f.university).push(f);
+        });
+        var groups = Array.from(map.entries()).map(function (entry) {
+          var list = entry[1].sort(function (a, b) {
+            return (categoryOrder[a.category] || 9) - (categoryOrder[b.category] || 9) || a.title.localeCompare(b.title, 'ko');
+          });
+          return {
+            university: entry[0],
+            files: list,
+            regions: unique(list.map(function (f) { return f.region; }))
+          };
+        });
+        groups.sort(function (a, b) {
+          if (state.sort === 'count') return b.files.length - a.files.length || a.university.localeCompare(b.university, 'ko');
+          if (state.sort === 'region') return a.regions.join(',').localeCompare(b.regions.join(','), 'ko') || a.university.localeCompare(b.university, 'ko');
+          return a.university.localeCompare(b.university, 'ko');
+        });
+        return groups;
+      }
+      function render() {
+        var terms = cleanTitle(state.query).split(/\s+/).filter(Boolean);
+        var matched = filteredFiles();
+        var groups = groupByUniversity(matched);
+        $('resultTitle').textContent = '검색 결과';
+        $('resultSummary').textContent = nf.format(groups.length) + '개 대학 · ' + nf.format(matched.length) + '개 파일 표시';
+
+        if (!groups.length) {
+          $('results').innerHTML = '<div class="empty"><strong>검색 결과가 없습니다.</strong><br>검색어를 줄이거나 필터를 초기화해 보세요.</div>';
+          return;
+        }
+        $('results').innerHTML = groups.map(function (group) {
+          var fileRows = group.files.map(function (f) {
+            var typeClass = 'type-' + f.type.toLowerCase();
+            return '' +
+              '<div class="file-row">' +
+                '<div class="file-title">' +
+                  '<strong>' + highlight(f.title, terms) + '</strong>' +
+                  '<div class="uni-meta">' +
+                    '<span class="badge ' + esc(typeClass) + '">' + esc(f.type) + '</span>' +
+                    '<span class="badge">' + esc(f.category) + '</span>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="file-actions">' +
+                  '<a class="btn small" href="' + previewUrl(f.id) + '" target="_blank" rel="noopener">미리보기</a>' +
+                  '<a class="btn small green" href="' + downloadUrl(f.id) + '">다운로드</a>' +
+                '</div>' +
+              '</div>';
+          }).join('');
+          return '' +
+            '<article class="uni-card">' +
+              '<div class="uni-head">' +
+                '<div>' +
+                  '<h2 class="uni-title">' + highlight(group.university, terms) + '</h2>' +
+                  '<div class="uni-meta">' +
+                    group.regions.map(function (r) { return '<span class="badge">' + esc(r) + '</span>'; }).join('') +
+                    '<span class="badge">' + nf.format(group.files.length) + '개 파일</span>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="file-list">' + fileRows + '</div>' +
+            '</article>';
+        }).join('');
+      }
+      function bind() {
+        $('q').addEventListener('input', function (e) { state.query = e.target.value; render(); });
+        $('region').addEventListener('change', function (e) { state.region = e.target.value; render(); });
+        $('fileType').addEventListener('change', function (e) { state.type = e.target.value; render(); });
+        $('sort').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
+        $('categoryChips').addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-category]');
+          if (!btn) return;
+          state.category = btn.dataset.category;
+          document.querySelectorAll('#categoryChips .chip').forEach(function (chip) {
+            chip.setAttribute('aria-pressed', chip === btn ? 'true' : 'false');
+          });
+          render();
+        });
+        $('resetBtn').addEventListener('click', function () {
+          state = { query: '', region: '', type: '', category: 'all', sort: 'university' };
+          $('q').value = '';
+          $('region').value = '';
+          $('fileType').value = '';
+          $('sort').value = 'university';
+          document.querySelectorAll('#categoryChips .chip').forEach(function (chip) {
+            chip.setAttribute('aria-pressed', chip.dataset.category === 'all' ? 'true' : 'false');
+          });
+          render();
+          $('q').focus();
+        });
+      }
+
+      populateFilters();
+      renderStats();
+      bind();
+      render();
+    })();
+  </script>
+</body>
+</html>
