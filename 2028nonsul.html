@@ -98,24 +98,9 @@
     .low .l27{font-size:12px;color:var(--muted);margin-top:3px;padding-top:3px;border-top:1px dashed #E0E9F2}
     .low .l27:before{content:"2027 ";font-weight:900;color:#8294A8}
     .none-low{color:#8294A8;font-weight:800}
-    /* 환산점수 */
-    .hw-grade{background:#F8FBFF}
-    .hw-ach{background:#F6FCF8}
-    .hw-sep{border-left:2px solid #D3E2F0!important}
-    table.hw thead tr:first-child th{border-bottom:1px solid #D3E2F0}
-    table.hw .subhead th{top:41px}
-    .table-wrap.tall table.hw tr.group-row td{top:82px}
-    .undisclosed{color:#94A3B8;font-style:normal;font-weight:700;text-align:center}
-    /* 내신 산출 방식 */
-    .c-grade{color:var(--navy);font-weight:800}
-    .c-ach{color:#176B2E;font-weight:800}
-    .c-both{color:#7C5CC4;font-weight:800}
-    .c-qual{color:#9A4D00;font-weight:800}
-    .c-x{color:#94A3B8;font-weight:700}
     .subj{font-size:13px;font-weight:700;color:#33475F}
     .ctr{text-align:center}
     th.ctr{text-align:center}
-    .rev td{background:#FFE9EE!important;font-weight:1000}
     .search-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0}
     .search-bar input{flex:1 1 280px;max-width:420px;border:1px solid #C9D6E4;border-radius:999px;padding:11px 18px;font-size:16px;background:#fff}
     .search-bar .count{font-weight:900;color:var(--muted);font-size:14px}
@@ -128,7 +113,24 @@
 
     @media(max-width:960px){html{scroll-padding-top:112px}.hero-grid,.grid-2{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.grid-3,.grid-4{grid-template-columns:1fr}.topbar-inner{flex-wrap:wrap;align-items:center;gap:8px 10px;padding:10px 14px}.brand{min-width:0;flex:1 1 auto}.brand-mark{width:36px;height:36px;font-size:20px}.main-link-top{margin-left:auto;padding:8px 13px}.nav{order:3;width:100%;margin-left:0;gap:4px;-webkit-overflow-scrolling:touch}.nav a{padding:7px 10px}.hero{padding-top:38px}.section{padding:38px 0}.section-head{display:block}.scroll-hint{display:block}}
     @media(max-width:560px){.container{padding:0 14px}.stat-grid{grid-template-columns:1fr}.hero h1{font-size:34px}.hero p.lead{font-size:17px}.hero-actions .btn{width:100%;justify-content:center}.card{padding:18px}.floating-tools{right:12px;bottom:12px;display:grid}.tool-btn{width:44px;height:44px}.tool-main{width:auto;height:44px;padding:0 14px;font-size:13px}.search-bar input{flex:1 1 100%;max-width:none}}
-    @media print{.topbar,.floating-tools,.hero-actions,.btn,.tabs,.search-bar,.scroll-hint{display:none!important}body{background:#fff;color:#000}.hero{background:#fff;color:#000;padding:20px 0}.hero p.lead{color:#000}.hero-panel{border:1px solid #ccc;background:#fff;color:#000;box-shadow:none}.stat,.card,details{box-shadow:none;break-inside:avoid}.section{padding:20px 0}.section h2{color:#000}.table-wrap{overflow:visible}.table-wrap.tall{max-height:none}table{min-width:0;font-size:11px}thead th{background:#ddd;color:#000;position:static}tr.group-row td{background:#eee!important;color:#000;position:static}.warning,.note,.success,.amber{border:1px solid #aaa;background:#fff;color:#000}.tabpanel{display:block!important}.seg{color:#000}}
+    /* 결과 없음 / 필터 초기화 */
+    .empty-row td{text-align:center;color:var(--muted);font-weight:800;padding:34px 12px}
+    .clear-f{display:none;border:1px solid #FFD0DA;background:var(--rose);color:var(--red);border-radius:999px;padding:9px 13px;font-weight:900;cursor:pointer;align-items:center;gap:6px}
+    .clear-f:hover{background:#FFE3E9}
+    /* 상세 모달 */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(7,30,55,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
+    .modal-backdrop.open{display:flex}
+    .modal{background:#fff;border-radius:20px;max-width:560px;width:100%;max-height:88vh;overflow:auto;box-shadow:0 30px 80px rgba(7,59,109,.35);animation:modalpop .18s ease}
+    @keyframes modalpop{from{transform:translateY(14px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+    .modal-head{position:sticky;top:0;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;padding:18px 20px;display:flex;align-items:flex-start;gap:12px;z-index:5}
+    .modal-head h3{margin:0;font-size:23px;color:#fff;line-height:1.2}
+    .modal-head .sub{font-size:13px;opacity:.92;margin-top:5px;font-weight:700}
+    .modal-close{margin-left:auto;flex:none;background:rgba(255,255,255,.2);border:0;color:#fff;width:34px;height:34px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer}
+    .modal-close:hover,.modal-close:focus{background:rgba(255,255,255,.34)}
+    .modal-body{padding:18px 20px}
+    .modal-body h4{margin:18px 0 8px;color:var(--navy);font-size:15px}.modal-body h4:first-child{margin-top:0}
+    .modal-body table{min-width:0}
+    @media print{.topbar,.floating-tools,.hero-actions,.btn,.tabs,.search-bar,.scroll-hint,.clear-f,.modal-backdrop{display:none!important}body{background:#fff;color:#000}.hero{background:#fff;color:#000;padding:20px 0}.hero p.lead{color:#000}.hero-panel{border:1px solid #ccc;background:#fff;color:#000;box-shadow:none}.stat,.card,details{box-shadow:none;break-inside:avoid}.section{padding:20px 0}.section h2{color:#000}.table-wrap{overflow:visible}.table-wrap.tall{max-height:none}table{min-width:0;font-size:11px}thead th{background:#ddd;color:#000;position:static}tr.group-row td{background:#eee!important;color:#000;position:static}.warning,.note,.success,.amber{border:1px solid #aaa;background:#fff;color:#000}.tabpanel{display:block!important}.seg{color:#000}}
 </style>
 </head>
 <body>
@@ -137,7 +139,7 @@
   <a class="brand" href="#top"><span class="brand-mark">28</span><span>2028 논술전형</span></a>
   <nav class="nav" aria-label="섹션 내비게이션">
     <a href="#feature">주요 특징</a><a href="#quota">모집인원</a><a href="#csat">수능최저</a>
-    <a href="#method">전형방법</a><a href="#type">논술유형</a><a href="#prep">대비 방안</a>
+    <a href="#type">논술유형</a><a href="#prep">대비 방안</a>
     <a class="main-link-top" href="index.html">메인</a>
   </nav>
 </div></header>
@@ -182,18 +184,21 @@
 </div></section>
 <section class="section" id="quota"><div class="container">
   <div class="section-head"><div><h2>대학별 종합 비교</h2>
-    <p class="desc">모집인원·수능최저·전형방법·논술유형을 한 표에서 검색·필터·정렬. 행의 "상세"로 수능최저 전체 기준 확인.</p></div></div>
+    <p class="desc">모집인원·수능최저·전형방법·논술유형을 한 표에서 검색·필터·정렬. 행의 "상세"로 대학별 전형 정보를 한눈에 확인.</p></div></div>
   <div class="search-bar">
     <input id="q" type="search" placeholder="대학명·전형명 검색" aria-label="대학 검색">
+    <button class="clear-f" id="clearF" type="button">✕ 필터 초기화</button>
     <button class="tab" id="csvBtn" type="button">CSV 내보내기</button>
   </div>
   <div class="tabs" id="filters" role="group" aria-label="필터">
     <button class="tab" data-f="track:인문">인문</button><button class="tab" data-f="track:자연">자연</button>
     <button class="tab" data-f="csat:y">수능최저 적용</button><button class="tab" data-f="csat:n">수능최저 미적용</button>
-    <button class="tab" data-f="sb:논술100">논술 100%</button><button class="tab" data-f="medi:y">의약학 실시</button>
+    <button class="tab" data-f="sb:논술100">논술 100%</button><button class="tab" data-f="reflect:y">학생부 반영</button><button class="tab" data-f="medi:y">의약학 실시</button>
     <button class="tab" data-f="region:서울">서울</button><button class="tab" data-f="region:경기·인천">경기·인천</button><button class="tab" data-f="region:지방">지방</button>
   </div>
-  <div class="legend"><span id="metrics"></span><span class="small muted" style="margin-left:10px">· '수능최저 적용' 필터는 의약학 포함 모집단위 기준(상단 27·18은 의약학 제외 논술 기준)</span></div>
+  <div class="legend"><span id="metrics" aria-live="polite"></span><span class="small muted" style="margin-left:10px">· '수능최저 적용' 필터는 의약학 포함 모집단위 기준(상단 27·18은 의약학 제외 논술 기준)</span></div>
+  <div class="legend" style="margin-top:2px"><span class="small muted">전형방법 막대:</span><span><i style="background:var(--navy)"></i>논술</span><span><i style="background:var(--teal)"></i>교과</span><span><i style="background:var(--muted)"></i>기타(출결)</span><span class="small muted" style="margin-left:6px">· 일부 대학은 학생부 함께 반영, 나머지 논술 100% (위 '학생부 반영' 필터로 확인)</span></div>
+  <p class="scroll-hint">← 표를 좌우로 밀어 전체 항목을 볼 수 있어요</p>
   <div class="table-wrap tall"><table id="cmpTable"><thead><tr>
     <th>대학</th><th>지역</th><th class="ctr sortable" data-k="q" style="cursor:pointer">모집인원<span id="sortArrow"></span><br>(28→27)</th>
     <th>수능최저</th><th>전형방법</th><th>논술유형</th><th></th>
@@ -202,6 +207,12 @@
     <div class="details-body">
       <p class="small muted">의예 109(−79)·치의예 16·한의예 35(+3)·약학 87(−24)·수의예 9. 괄호는 2027 대비 증감.</p>
       <div class="table-wrap"><table><thead><tr><th>학과</th><th>대학</th><th class="ctr">2028</th><th class="ctr">2027</th></tr></thead><tbody id="mediBody"></tbody></table></div>
+    </div></details>
+  <details style="margin-top:12px"><summary>학생부교과 등급별 환산점수 (학생부 반영 대학)</summary>
+    <div class="details-body">
+      <p class="small muted">학생부를 함께 반영하는 대학의 교과 등급별 환산점수. 4등급부터 감점 폭이 커지며, 아주대·서울과학기술대·한성대는 4등급 감점이 상대적으로 작다.</p>
+      <div class="table-wrap"><table><thead><tr><th>반영</th><th>대학</th><th class="ctr">1등급</th><th class="ctr">2등급</th><th class="ctr">3등급</th><th class="ctr">4등급</th><th class="ctr">5등급</th></tr></thead><tbody id="hwanBody"></tbody></table></div>
+      <div class="amber" style="margin-top:12px"><b>특이 산출</b> 서강대(등급평균 자체환산)·홍익대/홍익대(세종)(성취도 A–E 환산)·숙명여대(등급+성취도)·광운대(공통·일반선택=등급, 진로선택=성취도)·동국대(영역별 등급·성취도).</div>
     </div></details>
 </div></section>
 
@@ -217,15 +228,6 @@
   <div class="table-wrap tall"><table><thead><tr><th>대학</th><th>모집단위(계열)</th><th>반영 영역</th><th>등급 기준</th><th>비고</th></tr></thead><tbody id="csatBody"></tbody></table></div>
 </div></section>
 
-<section class="section" id="method"><div class="container">
-  <div class="section-head"><div><h2>전형요소별 반영 비율</h2>
-    <p class="desc">실시 46개교 중 22개교가 학생부를 함께 반영. 나머지는 논술 100%.</p></div></div>
-  <div class="legend"><span><i style="background:var(--navy)"></i>논술</span><span><i style="background:var(--teal)"></i>교과</span><span><i style="background:var(--muted)"></i>기타(출결)</span></div>
-  <div class="table-wrap"><table><thead><tr><th>대학</th><th>구성</th><th>비율</th></tr></thead><tbody id="methodBody"></tbody></table></div>
-  <h3 style="margin:26px 0 10px;color:var(--navy)">학생부교과 등급별 환산점수</h3>
-  <div class="table-wrap"><table><thead><tr><th>반영</th><th>대학</th><th class="ctr">1등급</th><th class="ctr">2등급</th><th class="ctr">3등급</th><th class="ctr">4등급</th><th class="ctr">5등급</th></tr></thead><tbody id="hwanBody"></tbody></table></div>
-  <div class="amber" style="margin-top:12px"><b>특이</b> 서강대(등급평균 자체환산)·홍익대/홍익대(세종)(성취도 A–E 환산)·숙명여대(등급+성취도)·광운대(공통·일반선택=등급, 진로선택=성취도)·동국대(영역별 등급·성취도). 4등급부터 감점 폭이 커지며, 아주대·서울과기대·한성대는 4등급 감점이 상대적으로 작다.</div>
-</div></section>
 <section class="section" id="type"><div class="container">
   <div class="section-head"><div><h2>논술고사 유형</h2>
     <p class="desc">인문=언어논술 중심, 자연=수리논술 중심(+ 일부 과학논술). 2026 수시 모집요강 기준.</p></div></div>
@@ -251,6 +253,13 @@
   <button class="tool-btn" id="toTop" title="맨 위로">↑</button>
   <button class="tool-btn" id="toPrint" title="인쇄">⎙</button>
   <a class="tool-main" href="index.html">메인</a>
+</div>
+<div class="modal-backdrop" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-head"><div><h3 id="modalTitle"></h3><div class="sub" id="modalSub"></div></div>
+      <button class="modal-close" id="modalClose" type="button" aria-label="닫기">×</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
 </div>
 <footer class="footer"><div class="container">
   <p><b>2028 대입 논술전형</b> · 자료 출처: 2028 대학입학전형 시행계획, 쎈(SEN)진학 자료집</p>
@@ -623,20 +632,49 @@ function passes(u){ const q=$('#q').value.trim();
     if(k==='track'&&!u.track.includes(v)) return false;
     if(k==='csat'&&((v==='y')!==!!u.csat)) return false;
     if(k==='sb'&&u.sb.ratio!==v) return false;
+    if(k==='reflect'&&u.sb.ratio==='논술100') return false;
     if(k==='medi'&&!u.medi) return false;
     if(k==='region'&&u.region!==v) return false; }
   return true; }
 function render(){ let list=UNIS.filter(u=>!u.noQuota&&passes(u));
   if(sortDir) list=[...list].sort((a,b)=>sortDir*((a.quota[0]||0)-(b.quota[0]||0)));
-  $('#cmpBody').innerHTML=list.map(rowHTML).join('');
+  $('#cmpBody').innerHTML=list.length?list.map(rowHTML).join('')
+    :'<tr class="empty-row"><td colspan="7">조건에 맞는 대학이 없습니다. 검색어나 필터를 조정해 보세요.</td></tr>';
   $('#metrics').textContent=`조건 충족 ${list.length}개교 · 합계 ${list.reduce((s,u)=>s+(u.quota[0]||0),0).toLocaleString()}명`;
-  const sa=document.getElementById('sortArrow'); if(sa) sa.textContent=sortDir===-1?' ▼':sortDir===1?' ▲':''; }
+  const sa=document.getElementById('sortArrow'); if(sa) sa.textContent=sortDir===-1?' ▼':sortDir===1?' ▲':'';
+  const sth=document.querySelector('[data-k="q"]'); if(sth) sth.setAttribute('aria-sort',sortDir===-1?'descending':sortDir===1?'ascending':'none');
+  const cf=document.getElementById('clearF'); if(cf) cf.style.display=(activeF.size||$('#q').value.trim())?'inline-flex':'none'; }
 $('#q').addEventListener('input',render);
 $('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-f]'); if(!b)return;
-  const f=b.dataset.f; if(activeF.has(f)){activeF.delete(f);b.classList.remove('active');}else{activeF.add(f);b.classList.add('active');} render();});
-document.querySelector('[data-k="q"]').addEventListener('click',()=>{ sortDir = sortDir===-1?1:(sortDir===1?0:-1); render();});
+  const f=b.dataset.f; const on=!activeF.has(f);
+  if(on){activeF.add(f);}else{activeF.delete(f);}
+  b.classList.toggle('active',on); b.setAttribute('aria-pressed',on); render();});
+document.querySelectorAll('#filters .tab').forEach(t=>t.setAttribute('aria-pressed','false'));
+const sortTh=document.querySelector('[data-k="q"]');
+sortTh.setAttribute('role','button'); sortTh.setAttribute('tabindex','0');
+sortTh.addEventListener('click',()=>{ sortDir = sortDir===-1?1:(sortDir===1?0:-1); render();});
+sortTh.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();sortTh.click();} });
+document.getElementById('clearF').onclick=()=>{ activeF.clear(); $('#q').value='';
+  document.querySelectorAll('#filters .tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-pressed','false');}); render(); };
+/* ===== 대학별 상세 모달 ===== */
+function openModal(name){ const u=UNIS.find(x=>x.name===name); if(!u) return;
+  const trend=`<span class="n28">${u.quota[0]??'–'}명</span> <span class="muted small">· 2027 ${u.quota[1]??'–'} · 2026 ${u.quota[2]??'–'}</span> ${diff(u)}`;
+  const method=`${methodBar(u)}<div class="mlabel">${u.sb.ratio.replace('논술','논술 ')}${u.sb.parts.slice(1).map(p=>` · ${p[0]} ${p[1]}`).join('')}</div>`;
+  const csat=u.csat?`<div class="table-wrap"><table><thead><tr><th>모집단위</th><th>반영</th><th>기준</th></tr></thead><tbody>${u.csat.map(c=>`<tr><td class="subj">${c.unit}</td><td>${c.area}</td><td>${c.rule}${c.math?' <span class="tag orange">수학</span>':''}${c.note?`<div class="small muted">${c.note}</div>`:''}</td></tr>`).join('')}</tbody></table></div>`:'<span class="none-low">수능최저 미적용</span>';
+  $('#modalTitle').textContent=u.name;
+  $('#modalSub').textContent=`${u.region} · ${u.jeon} · ${u.track.join('/')}${u.medi?' · 의약학 실시':''}`;
+  $('#modalBody').innerHTML=`<h4>모집인원</h4><div>${trend}</div>
+    <h4>전형방법</h4><div>${method}</div>
+    <h4>수능최저학력기준</h4>${csat}
+    <h4>논술고사 유형</h4><div class="mtext">인문: ${u.type?.인문||'–'}<br>자연: ${u.type?.자연||'–'}</div>`;
+  const m=document.getElementById('modal'); m.classList.add('open'); m.setAttribute('aria-hidden','false');
+  document.getElementById('modalClose').focus(); }
+function closeModal(){ const m=document.getElementById('modal'); m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }
+document.getElementById('modalClose').onclick=closeModal;
+document.getElementById('modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
+addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 $('#cmpBody').addEventListener('click',e=>{const b=e.target.closest('.detailBtn'); if(!b)return;
-  document.getElementById('csat')?.scrollIntoView({behavior:'smooth'});});
+  openModal(b.dataset.n);});
 $('#csvBtn').onclick=()=>{ const rows=UNIS.filter(u=>!u.noQuota&&passes(u));
   const head=['대학','지역','2028','2027','2026','증감','수능최저','전형방법','논술(인문)','논술(자연)'];
   const esc=s=>`"${String(s??'').replace(/"/g,'""')}"`;
@@ -659,12 +697,10 @@ function csatRows(filter){ return UNIS.flatMap(u=>{
   }).join(''); }
 $('#csatBody').innerHTML=csatRows('all');
 $('#csatTabs').addEventListener('click',e=>{const b=e.target.closest('[data-csf]');if(!b)return;
-  $('#csatTabs').querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));b.classList.add('active');
+  $('#csatTabs').querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+  b.classList.add('active');b.setAttribute('aria-selected','true');
   $('#csatBody').innerHTML=csatRows(b.dataset.csf);});
 
-$('#methodBody').innerHTML=UNIS.filter(u=>u.sb.parts.length>1||u.sb.ratio!=='논술100')
-  .sort((a,b)=>a.sb.parts[0][1]-b.sb.parts[0][1])
-  .map(u=>`<tr><td><span class="uni">${u.name}</span></td><td>${methodBar(u)}</td><td class="mtext">${u.sb.ratio.replace('논술','논술 ')}${u.sb.parts.slice(1).map(p=>` · ${p[0]} ${p[1]}`).join('')}</td></tr>`).join('');
 $('#hwanBody').innerHTML=HWAN.flatMap(g=>g.rows.map((r,i)=>
   `<tr><td>${i===0?`<span class="uni">${g.r}</span>`:''}</td><td>${r[0]}</td>${r[1].map(v=>`<td class="ctr num-cell">${v}</td>`).join('')}</tr>`)).join('');
 
@@ -695,13 +731,20 @@ $('#tp-na').innerHTML=`<div class="grid-2">${cardList(TYPE_NA)}</div>
   <h3 style="margin:22px 0 10px;color:var(--navy)">과학논술 실시 대학·출제 범위</h3>
   <div class="table-wrap"><table><thead><tr><th>대학</th><th>출제 범위</th></tr></thead><tbody>${SCIENCE.map(r=>`<tr><td class="uni">${r[0]}</td><td class="small">${r[1]}</td></tr>`).join('')}</tbody></table></div>`;
 $('#typeTabs').addEventListener('click',e=>{const b=e.target.closest('[data-tp]');if(!b)return;
-  $('#typeTabs').querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));b.classList.add('active');
+  $('#typeTabs').querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+  b.classList.add('active');b.setAttribute('aria-selected','true');
   $('#tp-in').classList.toggle('active',b.dataset.tp==='in');$('#tp-na').classList.toggle('active',b.dataset.tp==='na');});
+document.querySelectorAll('#csatTabs .tab,#typeTabs .tab').forEach(t=>{t.setAttribute('role','tab');t.setAttribute('aria-selected',t.classList.contains('active'));});
 
 const CHECK=['지망 대학 모의논술·기출 풀어보기','수능최저 충족 여부 모의평가로 점검','지원 대학 논술 일정 겹침 확인','계열별 출제 유형(언어/수리/과학) 파악','학생부 반영 여부·환산점수 확인','약술형/논술형 등 형식별 답안 연습'];
 $('#checklist').innerHTML=CHECK.map((c,i)=>`<label class="checkitem"><input type="checkbox" data-c="${i}"><b>${c}</b></label>`).join('');
-$('#checklist').addEventListener('change',()=>{const all=$('#checklist').querySelectorAll('input');
-  const done=[...all].filter(x=>x.checked).length; $('#pbar').style.width=(done/all.length*100)+'%';});
+const CKEY='nonsul28_check';
+function syncBar(){const all=[...$('#checklist').querySelectorAll('input')];
+  const done=all.filter(x=>x.checked); $('#pbar').style.width=(done.length/all.length*100)+'%';
+  try{localStorage.setItem(CKEY,JSON.stringify(done.map(x=>+x.dataset.c)));}catch(e){} }
+try{const saved=JSON.parse(localStorage.getItem(CKEY)||'[]');
+  $('#checklist').querySelectorAll('input').forEach(x=>{if(saved.includes(+x.dataset.c))x.checked=true;});}catch(e){}
+$('#checklist').addEventListener('change',syncBar); syncBar();
 
   const ft=document.getElementById('floatTools');
   addEventListener('scroll',()=>{ft.classList.toggle('is-visible',scrollY>320)});
