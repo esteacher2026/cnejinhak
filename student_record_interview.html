@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>학생부 활동·탐구 면접 질문 생성 - 충청남도교육청</title>
+  <meta name="description" content="학생부에 기록된 활동명과 지원 분야를 바탕으로 활동 경험, 탐구 과정, 협력·소통, 성찰을 묻는 면접 예상문항 30개를 생성합니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="학생부 활동·탐구 면접 질문 생성 - 충청남도교육청" />
+  <meta property="og:description" content="학생부 활동명과 지원 분야를 입력하면 활동 경험과 탐구 과정에 맞춘 면접 예상문항을 생성합니다." />
+  <meta property="og:url" content="https://jinhak.esteacher.kr/student_record_interview.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="학생부 활동·탐구 면접 질문 생성 - 충청남도교육청" />
+  <meta name="twitter:description" content="학생부 활동명과 지원 분야를 입력하면 활동 경험과 탐구 과정에 맞춘 면접 예상문항을 생성합니다." />
+  <link rel="stylesheet" href="student_record_interview_styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <nav class="utility-bar" aria-label="상단 바로가기">
+      <a class="main-link" href="index.html">메인</a>
+      <span class="credit">제작 : 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+    </nav>
+
+    <header class="topbar">
+      <p class="eyebrow">학교생활기록부 기반 활동·탐구 역량평가</p>
+      <h1>학생부 활동·탐구 면접 질문 생성</h1>
+      <p class="top-lead">학생부에 적힌 활동명과 지원 분야를 입력하면 활동 경험, 탐구 질문, 방법 선택, 협력 과정, 성찰과 후속 탐구를 중심으로 심층 문항을 구성합니다.</p>
+    </header>
+
+    <main class="workspace">
+      <section class="control-panel" aria-label="면접 준비 도구">
+        <div class="panel-head">
+          <h2>면접 준비</h2>
+          <button class="icon-btn" id="resetBtn" type="button" title="초기화" aria-label="초기화">↺</button>
+        </div>
+
+        <div class="mode-tabs" role="tablist" aria-label="면접 준비 모드">
+          <button class="mode-tab on" data-mode="generate" type="button">활동명 입력</button>
+          <button class="mode-tab" data-mode="mock" type="button">모의면접</button>
+        </div>
+
+        <div class="mode-panel on" id="mode-generate">
+          <label class="field">
+            <span>활동명</span>
+            <textarea id="keywordInput" rows="3" spellcheck="false" placeholder="예: 기후변화에 따른 이상기온 자료 분석 탐구">바이오 플라스틱 제작 및 생분해성 비교 실험</textarea>
+            <em class="field-hint">권장 형식: 대상·문제 + 방법 + 활동 유형. 끝을 탐구, 실험, 분석 보고서, 프로젝트, 활동, 봉사활동처럼 마무리하면 문항이 더 자연스럽습니다.</em>
+          </label>
+          <p class="activity-feedback" id="activityFeedback"></p>
+
+          <label class="field">
+            <span>지원 분야</span>
+            <input id="majorInput" type="text" value="환경공학·생명과학 계열" />
+          </label>
+
+          <div class="control-grid">
+            <label class="field">
+              <span>계열</span>
+              <select id="trackSelect">
+                <option value="">전체</option>
+                <option value="인문">인문·사회</option>
+                <option value="자연">자연·공학</option>
+                <option value="의약">의약·보건</option>
+                <option value="예체능">예술·체육</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>중심 평가요소</span>
+              <select id="focusSelect"></select>
+            </label>
+          </div>
+
+          <div class="option-row">
+            <label><input id="genericToggle" type="checkbox" /> 기본 질문 포함</label>
+            <label><input id="hardToggle" type="checkbox" checked /> 심층 꼬리질문 강화</label>
+          </div>
+
+          <button class="primary-btn" id="generateBtn" type="button">30문항 생성</button>
+        </div>
+
+        <div class="mode-panel" id="mode-mock">
+          <div class="control-grid">
+            <label class="field">
+              <span>준비시간(초)</span>
+              <input id="prepSeconds" type="number" min="5" max="300" value="30" />
+            </label>
+            <label class="field">
+              <span>답변시간(초)</span>
+              <input id="answerSeconds" type="number" min="10" max="600" value="90" />
+            </label>
+          </div>
+          <button class="primary-btn" id="startMockBtn" type="button">생성 문항으로 시작</button>
+          <div class="mock-card">
+            <div class="mock-top">
+              <span id="mockProgress">문항 1 / 30</span>
+              <b id="mockTimer">00:30</b>
+            </div>
+            <p class="mock-stage" id="mockStage">준비</p>
+            <p class="mock-question" id="mockQuestion">먼저 문항을 생성한 뒤 모의면접을 시작하세요.</p>
+            <div class="mock-actions">
+              <button class="tool-btn" id="skipStageBtn" type="button">단계 건너뛰기</button>
+              <button class="tool-btn" id="nextMockBtn" type="button">다음 문항</button>
+            </div>
+          </div>
+          <label class="field">
+            <span>답변 메모</span>
+            <textarea id="mockNotes" rows="4" spellcheck="false" placeholder="답변 키워드, 부족했던 근거, 다음에 보완할 점을 적어보세요."></textarea>
+          </label>
+          <div class="mock-checks">
+            <label><input type="checkbox" /> 탐구 질문을 분명히 말했다</label>
+            <label><input type="checkbox" /> 방법 선택의 이유를 말했다</label>
+            <label><input type="checkbox" /> 근거와 한계를 함께 말했다</label>
+            <label><input type="checkbox" /> 후속 탐구로 마무리했다</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="result-panel" aria-label="생성 결과">
+        <div class="result-toolbar">
+          <div>
+            <p class="eyebrow">Generated Set</p>
+            <h2 id="resultTitle">바이오 플라스틱 제작 및 생분해성 비교 실험 면접 예상문항</h2>
+          </div>
+          <div class="toolbar-actions">
+            <button class="tool-btn" id="copyBtn" type="button">복사</button>
+            <button class="tool-btn" id="downloadBtn" type="button">TXT</button>
+            <button class="tool-btn" id="printBtn" type="button">인쇄</button>
+          </div>
+        </div>
+
+        <div class="intent-strip" id="intentStrip"></div>
+        <div class="question-list" id="questionList"></div>
+      </section>
+    </main>
+
+    <section class="answer-section">
+      <div class="answer-panel">
+        <div class="panel-head">
+          <h2>답변 설계</h2>
+          <span id="selectedQuestionLabel">Q1</span>
+        </div>
+        <p id="selectedQuestionText" class="selected-question"></p>
+        <div class="answer-frame" id="answerFrame"></div>
+      </div>
+      <div class="mini-dashboard">
+        <h2>질문 분포</h2>
+        <div id="categoryChart" class="category-chart"></div>
+      </div>
+    </section>
+
+    <section class="tabs-panel">
+      <div class="tabs" role="tablist">
+        <button class="tab on" data-tab="universities" type="button">대학별 평가기준</button>
+        <button class="tab" data-tab="rubric" type="button">평가 루브릭</button>
+      </div>
+
+      <div class="tab-body on" id="tab-universities">
+        <div class="university-layout">
+          <aside>
+            <input id="universitySearch" type="search" placeholder="대학명 검색" />
+            <div id="universityList" class="university-list"></div>
+          </aside>
+          <article id="universityDetail" class="university-detail"></article>
+        </div>
+      </div>
+
+      <div class="tab-body" id="tab-rubric">
+        <div id="rubricGrid" class="rubric-grid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="student_record_interview_data.js"></script>
+  <script src="student_record_interview_app.js"></script>
+</body>
+</html>
