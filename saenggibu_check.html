@@ -23,6 +23,9 @@
   header.page{margin-bottom:18px}
   header.page h1{font-size:23px; margin:0 0 4px; letter-spacing:-.02em}
   header.page p{margin:0; color:var(--muted); font-size:13.5px}
+  .home-btn{display:inline-flex; align-items:center; gap:6px; padding:7px 13px; margin-bottom:12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:13px; text-decoration:none; transition:.12s}
+  .home-btn:hover{border-color:var(--brand); color:var(--brand)}
+  .home-btn svg{flex-shrink:0}
   .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
 
   .limits{display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:14px 16px; margin-bottom:14px}
@@ -118,8 +121,12 @@
 <body>
 <div class="wrap">
   <header class="page">
+    <a class="home-btn" href="index.html" aria-label="메인으로 이동">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+      메인
+    </a>
     <h1>생기부 글자수·점검 도우미</h1>
-    <p>NEIS 바이트 기준 글자수 + 맞춤법·띄어쓰기·외래어 표기 + 기재금지 항목 자동 점검 · 모든 처리는 이 브라우저 안에서만 수행되며 입력 내용은 전송되지 않습니다.</p>
+    <p>NEIS 바이트 기준 글자수 계산 + 기재금지 항목 자동 점검 + 자주 틀리는 표현 보조 점검 · 모든 처리는 이 브라우저 안에서만 수행되며 입력 내용은 전송되지 않습니다.</p>
   </header>
 
   <div class="card limits">
@@ -145,7 +152,7 @@
 
   <div class="card editwrap">
     <div class="toolbar">
-      <button class="btn primary" id="checkBtn">맞춤법·점검 실행</button>
+      <button class="btn primary" id="checkBtn">점검 실행</button>
       <button class="btn" id="sampleBtn">예시 넣기</button>
       <button class="btn" id="copyBtn">복사</button>
       <button class="btn" id="clearBtn">지우기</button>
@@ -173,14 +180,14 @@
     <summary>글자수 계산·점검 기준 자세히 보기</summary>
     <div class="inner">
       <b>글자수(바이트) 계산</b> — NEIS는 바이트 기준으로 한도를 적용합니다. <code>한글 3바이트</code>, <code>영문·숫자·공백 1바이트</code>, <code>줄바꿈(엔터) 2바이트</code>. 따라서 ‘세특 500자’는 실제로는 <b>1,500바이트</b> 한도이며, NEIS 입력 시 처리 차이로 바이트가 더 늘 수 있으니 한도보다 <b>5~10바이트 여유</b>를 권장합니다. <b>2026학년도부터</b> 진로활동 500자(1,500B)·행동특성 및 종합의견 300자(900B)로 축소되었습니다(자율·동아리·교과세특은 500자).<br><br>
-      <b>점검 항목</b> — ① 맞춤법·표준어·외래어 표기(예: 됬→됐, 역활→역할, 리더쉽→리더십) ② 띄어쓰기(예: 할수있다→할 수 있다, 에대한→에 대한) ③ 기재금지 항목 자동 탐지(공인어학시험·교외 수상·모의고사 성적·논문·해외활동 등) ④ 기재요령 보조(명사형 종결, 외국어·개인정보 표현).<br><br>
+      <b>점검 항목</b> — ① 기재금지 항목 자동 탐지(공인어학시험·교외 수상·모의고사 성적·논문·해외활동 등) ② 기재요령 보조(명사형 종결, 외국어·개인정보 표현) ③ 자주 틀리는 맞춤법·표현 예시 점검(예: 됬→됐, 역활→역할, 리더쉽→리더십, 할수있다→할 수 있다). <b>③은 미리 등록해 둔 대표 오류 사례만 잡아내는 보조 기능</b>이며, 맞춤법·띄어쓰기를 빠짐없이 검사하지는 못합니다.<br><br>
       <b>유의</b> — 규칙기반 보조 도구로, 문맥에 따라 잘못 잡거나 못 잡을 수 있습니다. 최종 판단은 당해연도 「학교생활기록부 기재요령」과 NEIS 실제 화면을 기준으로 하세요. 더 정밀한 맞춤법 교정은 <a href="https://speller.cs.pusan.ac.kr/" target="_blank" rel="noopener">부산대 한국어 맞춤법 검사기</a>에서 교차 확인할 수 있습니다(외부 사이트이므로 개인정보가 포함되지 않도록 유의).
     </div>
   </details>
 
   <footer>
-    충청남도교육청진로융합교육원 · 진학정보실 &nbsp;|&nbsp; 기재금지 조항 출처: 「학교생활기록부 작성 시 유의사항」
-    <div class="disc">본 도구는 생기부 작성을 돕기 위한 보조용입니다. 글자수·맞춤법·기재금지 점검 결과는 참고용이며, 공식 기준은 NEIS와 당해연도 학교생활기록부 기재요령을 따릅니다. 입력한 내용은 외부로 전송·저장되지 않습니다.</div>
+    충청남도교육청진로융합교육원 교육연구사 정재연 &nbsp;|&nbsp; 기재금지 조항 출처: 「학교생활기록부 작성 시 유의사항」
+    <div class="disc">본 도구는 생기부 작성을 돕기 위한 보조용입니다. 글자수·기재금지 점검과 자주 틀리는 표현 안내는 참고용이며, 맞춤법·띄어쓰기 전수 검사는 제공하지 않습니다. 공식 기준은 NEIS와 당해연도 학교생활기록부 기재요령을 따릅니다. 입력한 내용은 외부로 전송·저장되지 않습니다.</div>
   </footer>
 </div>
 
