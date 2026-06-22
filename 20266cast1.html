@@ -1,0 +1,1282 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2026학년도 6월 고1 전국연합학력평가 상담 도구</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Noto+Serif+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #3a3a3a;
+    --muted: #707070;
+    --line: #d8d4cc;
+    --line-2: #ebe7df;
+    --paper: #f5f1e8;
+    --paper-2: #ede8dc;
+    --card: #fdfbf5;
+    --accent: #8b2c2c;
+    --accent-2: #5b2020;
+    --gold: #b08a3e;
+    --green: #3d6b4e;
+    --shadow: 0 1px 0 rgba(26,26,26,.04), 0 8px 32px -12px rgba(26,26,26,.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Serif KR', 'Fraunces', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(176,138,62,.04) 0%, transparent 38%),
+      radial-gradient(circle at 92% 92%, rgba(139,44,44,.03) 0%, transparent 42%);
+  }
+
+  /* ============ Header ============ */
+  header {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(245,241,232,.92);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand { display: flex; align-items: baseline; gap: 14px; }
+  .brand-mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .brand-mark::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    margin-right: 10px;
+    transform: rotate(45deg);
+    vertical-align: middle;
+  }
+  .brand-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -.01em;
+  }
+  nav.tabs {
+    display: flex;
+    gap: 2px;
+    background: var(--paper-2);
+    padding: 4px;
+    border-radius: 2px;
+    border: 1px solid var(--line);
+  }
+  nav.tabs button {
+    background: transparent;
+    border: 0;
+    padding: 8px 18px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-2);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .15s ease;
+    letter-spacing: -.01em;
+  }
+  nav.tabs button:hover { color: var(--ink); }
+  nav.tabs button.active { background: var(--ink); color: var(--paper); }
+
+  /* Home button (top) */
+  .home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .home-btn:hover { border-color: var(--ink); color: var(--ink); background: var(--paper); }
+  .home-btn svg { flex-shrink: 0; }
+
+  /* Floating home button */
+  .home-fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(26,26,26,.18), 0 1px 0 rgba(0,0,0,.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px) scale(.92);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s, background .15s;
+    z-index: 60;
+    text-decoration: none;
+    font-family: 'Noto Serif KR', serif;
+  }
+  .home-fab.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+  .home-fab:hover { background: var(--accent-2); }
+  .home-fab .fab-label {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease;
+  }
+  .home-fab:hover .fab-label { opacity: 1; }
+
+  /* Footer */
+  footer.page-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 32px 56px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  footer.page-footer .credit-block { display: flex; flex-direction: column; gap: 4px; }
+  footer.page-footer .credit-line { display: flex; align-items: baseline; gap: 8px; }
+  footer.page-footer .credit-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    min-width: 44px;
+  }
+  footer.page-footer .credit-value {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    color: var(--ink-2);
+    letter-spacing: -.005em;
+  }
+  footer.page-footer .credit-value strong { color: var(--ink); font-weight: 600; }
+  footer.page-footer .footer-mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: -.01em;
+    text-align: right;
+  }
+
+  /* ============ Container ============ */
+  main { max-width: 1200px; margin: 0 auto; padding: 48px 32px 96px; }
+  .view { display: none; }
+  .view.active { display: block; animation: fade .35s ease; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ Section title ============ */
+  .section-head {
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .section-head h1 {
+    font-family: 'Fraunces', 'Noto Serif KR', serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.05;
+    margin: 0;
+    letter-spacing: -.02em;
+    color: var(--ink);
+  }
+  .section-head h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .section-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+  .section-meta strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  /* ============ Calculator (Hero) ============ */
+  .calc-wrap {
+    display: grid;
+    grid-template-columns: 1.05fr 1.4fr;
+    gap: 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .calc-input {
+    padding: 40px 40px 36px;
+    border-right: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(176,138,62,.04), transparent);
+  }
+  .calc-output { padding: 40px; background: var(--card); position: relative; }
+  .calc-output::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold) 60%, transparent);
+  }
+  .input-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .input-group { margin-bottom: 24px; }
+  .input-group:last-child { margin-bottom: 0; }
+  select, input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    font-weight: 500;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--ink);
+    transition: all .15s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231a1a1a' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+  select:focus, input:focus { outline: none; border-color: var(--ink); background: #fff; }
+  .input-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    letter-spacing: -.005em;
+  }
+  .input-hint strong { color: var(--ink-2); font-weight: 600; }
+
+  /* ============ Result Display ============ */
+  .result-empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .result-empty::before {
+    content: "—";
+    display: block;
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 14px;
+    font-style: normal;
+  }
+  .result-grade { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .grade-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 92px;
+    line-height: .9;
+    color: var(--ink);
+    letter-spacing: -.04em;
+    font-feature-settings: "lnum";
+  }
+  .grade-number.g-high { color: var(--green); }
+  .grade-number.g-mid { color: var(--gold); }
+  .grade-number.g-low { color: var(--accent); }
+  .grade-label { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 500; color: var(--ink-2); }
+  .result-subject {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .result-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 28px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat-cell { padding: 18px 0; border-right: 1px dashed var(--line); }
+  .stat-cell:last-child { border-right: 0; padding-left: 24px; }
+  .stat-cell:first-child { padding-right: 24px; }
+  .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .stat-value {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -.01em;
+    font-feature-settings: "lnum";
+  }
+  .stat-value .unit { font-size: 14px; color: var(--muted); margin-left: 4px; font-weight: 400; }
+  .stat-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .next-grade {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: var(--paper-2);
+    border-radius: 2px;
+    border-left: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .next-grade-text { font-family: 'Noto Serif KR', serif; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .next-grade-text b { color: var(--accent); font-weight: 600; }
+  .next-grade-number {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+    font-feature-settings: "lnum";
+  }
+  .next-grade-number .unit { font-size: 13px; color: var(--muted); margin-left: 3px; }
+
+  /* ============ Overview KPIs ============ */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .kpi { padding: 24px 28px; border-right: 1px solid var(--line); }
+  .kpi:last-child { border-right: 0; }
+  .kpi.is-cnam { background: linear-gradient(180deg, rgba(139,44,44,.06), transparent); }
+  .kpi-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .kpi.is-cnam .kpi-label { color: var(--accent); }
+  .kpi-value {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -.02em;
+    line-height: 1;
+    font-feature-settings: "lnum";
+  }
+  .kpi.is-cnam .kpi-value { color: var(--accent); }
+  .kpi-value .unit { font-size: 14px; color: var(--muted); margin-left: 4px; font-weight: 400; }
+  .kpi-sub { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  /* ============ Overview charts ============ */
+  .overview-grid { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .ov-block.full { grid-column: 1 / -1; }
+  .ov-block h3 {
+    font-family: 'Fraunces', 'Noto Serif KR', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 24px;
+    color: var(--ink);
+    letter-spacing: -.01em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ov-block h3::before { content: ""; display: block; width: 4px; height: 16px; background: var(--accent); }
+  .ov-block h3 .h3-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0;
+    text-transform: none;
+    margin-left: auto;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 70px;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line-2);
+  }
+  .bar-row:last-child { border-bottom: 0; }
+  .bar-label { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 500; color: var(--ink); }
+  .bar-track { height: 6px; background: var(--paper-2); border-radius: 1px; position: relative; overflow: hidden; }
+  .bar-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: linear-gradient(90deg, var(--ink), var(--ink-2));
+    border-radius: 1px;
+    transition: width .6s cubic-bezier(.4,0,.2,1);
+  }
+  .bar-fill.accent { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+  .bar-fill.gold { background: linear-gradient(90deg, var(--gold), #8e6c2f); }
+  .bar-fill.cnam { background: linear-gradient(90deg, var(--accent), var(--gold)); }
+  .bar-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--ink-2);
+    text-align: right;
+    font-weight: 500;
+    font-feature-settings: "tnum";
+  }
+
+  /* Region rows (시도별) */
+  .region-row {
+    display: grid;
+    grid-template-columns: 62px 1fr 78px 52px;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line-2);
+  }
+  .region-row:last-child { border-bottom: 0; }
+  .region-row .r-name { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 500; color: var(--ink); }
+  .region-row .r-count, .region-row .r-ratio {
+    font-family: 'Inter', sans-serif; font-size: 13px; text-align: right; font-feature-settings: "tnum";
+  }
+  .region-row .r-count { color: var(--ink-2); font-weight: 500; }
+  .region-row .r-ratio { color: var(--muted); }
+  .region-row.is-cnam .r-name { color: var(--accent); font-weight: 700; }
+  .region-row.is-cnam .r-count { color: var(--accent); font-weight: 700; }
+  .region-row.is-cnam .r-ratio { color: var(--accent); }
+  .region-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 48px;
+  }
+  .region-note { font-family: 'Inter', sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 18px; line-height: 1.6; }
+  .region-note b { color: var(--accent); font-weight: 600; }
+
+  /* Callout */
+  .callout {
+    margin-top: 24px;
+    padding: 14px 18px;
+    background: var(--paper-2);
+    border-radius: 2px;
+    border-left: 3px solid var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .callout b { color: var(--ink); font-weight: 600; }
+  .callout.accent { border-left-color: var(--accent); }
+
+  /* ============ Subjects view ============ */
+  .subj-tools { display: flex; gap: 12px; margin-bottom: 32px; align-items: center; flex-wrap: wrap; }
+  .subj-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    cursor: pointer;
+    color: var(--ink-2);
+    transition: all .15s ease;
+  }
+  .chip:hover { border-color: var(--ink-2); color: var(--ink); }
+  .chip.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .subj-detail {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+  .subj-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .subj-title { font-family: 'Fraunces', 'Noto Serif KR', serif; font-weight: 500; font-size: 32px; margin: 0; letter-spacing: -.02em; }
+  .subj-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-left: 8px;
+    padding: 3px 9px;
+    background: var(--paper-2);
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .subj-tag.basis { color: var(--accent); background: rgba(139,44,44,.08); }
+  .subj-stats { display: flex; gap: 28px; font-family: 'Inter', sans-serif; font-size: 13px; flex-wrap: wrap; }
+  .subj-stats > div { color: var(--muted); }
+  .subj-stats > div strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 2px;
+    font-feature-settings: "lnum";
+  }
+  .grade-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px; margin-bottom: 32px; }
+  .grade-card {
+    text-align: center;
+    padding: 14px 6px 16px;
+    background: var(--paper);
+    border: 1px solid var(--line-2);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .grade-card .gnum {
+    font-family: 'Fraunces', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .grade-card .gscore {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.1;
+    font-feature-settings: "lnum";
+  }
+  .grade-card .gcount {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-feature-settings: "tnum";
+  }
+  .grade-card.is-1 { background: linear-gradient(180deg, rgba(61,107,78,.12), transparent); border-color: rgba(61,107,78,.25); }
+  .grade-card.is-1 .gscore { color: var(--green); }
+  .grade-card.is-2, .grade-card.is-3 { background: linear-gradient(180deg, rgba(176,138,62,.1), transparent); border-color: rgba(176,138,62,.22); }
+  .grade-card.is-2 .gscore, .grade-card.is-3 .gscore { color: var(--gold); }
+
+  /* Cumulative chart */
+  .chart-wrap { margin-top: 24px; padding: 20px 4px 8px; background: var(--paper); border-radius: 2px; border: 1px solid var(--line-2); }
+  .chart-wrap h4 { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 500; margin: 0 16px 8px; color: var(--ink-2); letter-spacing: -.005em; }
+  .chart-wrap h4 .small { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--muted); font-weight: 400; margin-left: 8px; letter-spacing: 0; }
+  svg.line-chart { width: 100%; height: auto; display: block; }
+  .grid-line { stroke: var(--line-2); stroke-width: 1; }
+  .axis-text { font-family: 'Inter', sans-serif; font-size: 10px; fill: var(--muted); font-feature-settings: "tnum"; }
+  .line-path { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .line-fill { fill: url(#lineGrad); opacity: .35; }
+  .grade-marker { stroke: var(--gold); stroke-width: 1; stroke-dasharray: 3 3; }
+  .grade-marker-text { font-family: 'Inter', sans-serif; font-size: 9px; fill: var(--gold); font-weight: 600; }
+
+  /* Distribution bars (grade) */
+  .dist-wrap { margin-top: 24px; }
+  .dist-wrap h4 { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 500; margin: 0 0 12px; color: var(--ink-2); }
+  .dist-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 116px;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line-2);
+  }
+  .dist-row:last-child { border-bottom: 0; }
+  .dist-label { font-family: 'Noto Serif KR', serif; font-size: 13px; font-weight: 500; color: var(--ink); }
+  .dist-value { font-family: 'Inter', sans-serif; font-size: 12.5px; color: var(--ink-2); text-align: right; font-feature-settings: "tnum"; }
+  .dist-value .pct { color: var(--muted); margin-left: 6px; }
+
+  /* Area raw-score table */
+  .area-table { margin-top: 0; }
+  table.choices { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 13px; }
+  table.choices th, table.choices td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line-2); }
+  table.choices th {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    background: var(--paper);
+  }
+  table.choices td { color: var(--ink-2); font-feature-settings: "tnum"; }
+  table.choices td:first-child { font-family: 'Noto Serif KR', serif; font-weight: 500; color: var(--ink); }
+  table.choices td.num, table.choices th.num { text-align: right; }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 880px) {
+    .header-inner { padding: 14px 20px; flex-wrap: wrap; gap: 12px; }
+    main { padding: 32px 20px 64px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .section-head h1 { font-size: 32px; }
+    .section-meta { text-align: left; }
+    .calc-wrap { grid-template-columns: 1fr; }
+    .calc-input { border-right: 0; border-bottom: 1px solid var(--line); padding: 28px 24px; }
+    .calc-output { padding: 28px 24px; }
+    .grade-number { font-size: 68px; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .kpi { border-bottom: 1px solid var(--line); }
+    .kpi:nth-child(odd) { border-right: 1px solid var(--line); }
+    .kpi:nth-child(3), .kpi:nth-child(4) { border-bottom: 0; }
+    .overview-grid { grid-template-columns: 1fr; gap: 36px; }
+    .region-cols { grid-template-columns: 1fr; gap: 0; }
+    .grade-grid { grid-template-columns: repeat(3, 1fr); }
+    .subj-detail { padding: 24px; }
+    .subj-title { font-size: 24px; }
+    .subj-stats { gap: 18px; }
+    .result-stats { grid-template-columns: 1fr; }
+    .stat-cell { border-right: 0; border-bottom: 1px dashed var(--line); padding: 14px 0; }
+    .stat-cell:last-child { border-bottom: 0; padding-left: 0; }
+    .stat-cell:first-child { padding-right: 0; }
+    nav.tabs { width: 100%; }
+    nav.tabs button { flex: 1; padding: 8px 10px; font-size: 13px; }
+    .home-btn { padding: 6px 12px; font-size: 12px; order: -1; margin-left: auto; }
+    .home-fab { bottom: 20px; right: 20px; width: 48px; height: 48px; }
+    .home-fab .fab-label { display: none; }
+    footer.page-footer { padding: 24px 20px 80px; flex-direction: column; gap: 16px; }
+    footer.page-footer .footer-mark { text-align: left; }
+    .dist-row { grid-template-columns: 48px 1fr 96px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">충남 진학 자료</span>
+      <span class="brand-title" id="brandTitle"></span>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="active" data-view="subjects">과목별 분석</button>
+      <button data-view="overview">응시 현황</button>
+      <button data-view="calc">상담 계산기</button>
+    </nav>
+    <a class="home-btn" href="index.html" aria-label="메인으로 이동">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+      메인
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ Subjects View ============ -->
+  <section class="view active" id="view-subjects" role="tabpanel">
+    <div class="section-head">
+      <h1>과목별 <em>등급컷과 분포</em></h1>
+      <div class="section-meta">
+        <strong id="subjMetaStrong">6개 영역</strong>
+        등급컷 · 표준점수 누적 · 원점수 평균
+      </div>
+    </div>
+    <div class="subj-tools">
+      <div class="subj-chips" id="subjChips"></div>
+    </div>
+    <div class="subj-detail" id="subjDetail"></div>
+  </section>
+
+  <!-- ============ Overview View ============ -->
+  <section class="view" id="view-overview" role="tabpanel">
+    <div class="section-head">
+      <h1>전국 · <em>충남 응시 현황</em></h1>
+      <div class="section-meta">
+        <strong id="ovMetaStrong"></strong>
+        영역별 · 시도별 응시 분포
+      </div>
+    </div>
+
+    <div class="kpi-row" id="kpiRow"></div>
+
+    <div class="overview-grid">
+      <div class="ov-block">
+        <h3>영역별 응시 인원</h3>
+        <div id="areaBars"></div>
+      </div>
+      <div class="ov-block">
+        <h3>영역별 원점수 평균<span class="h3-note">평균 · 표준편차</span></h3>
+        <div id="areaRawTable"></div>
+      </div>
+      <div class="ov-block full">
+        <h3>시도별 응시 현황<span class="h3-note">응시 인원 기준 정렬 · 충남 강조</span></h3>
+        <div class="region-cols" id="regionRows"></div>
+        <div class="region-note" id="regionNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Calculator View ============ -->
+  <section class="view" id="view-calc" role="tabpanel">
+    <div class="section-head">
+      <h1>학생 점수로<br><em>등급과 위치를</em> 확인합니다</h1>
+      <div class="section-meta">
+        <strong id="calcMetaStrong">2026년 6월 시행</strong>
+        <span id="calcMetaLine"></span>
+      </div>
+    </div>
+
+    <div class="calc-wrap">
+      <div class="calc-input">
+        <div class="input-group">
+          <div class="input-label">영역 선택</div>
+          <select id="subjectSelect"></select>
+          <div class="input-hint" id="basisHint"></div>
+        </div>
+        <div class="input-group">
+          <div class="input-label">점수 입력</div>
+          <input id="scoreInput" type="number" inputmode="numeric" placeholder="예: 125" />
+          <div class="input-hint" id="rangeHint"></div>
+        </div>
+      </div>
+      <div class="calc-output" id="resultBox">
+        <div class="result-empty">
+          왼쪽에서 영역을 고르고 점수를 입력하면<br>
+          등급 · 전국 누적 위치 · 다음 등급까지 필요한 점수가<br>
+          자동으로 산출됩니다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <div class="credit-block">
+    <div class="credit-line">
+      <span class="credit-label">제작</span>
+      <span class="credit-value">충청남도교육청진로융합교육원 교육연구사 <strong>정재연</strong></span>
+    </div>
+    <div class="credit-line">
+      <span class="credit-label">출처</span>
+      <span class="credit-value" id="sourceValue"></span>
+    </div>
+  </div>
+  <div class="footer-mark" id="footerMark"></div>
+</footer>
+
+<a class="home-fab" href="index.html" id="homeFab" aria-label="메인으로 이동">
+  <span class="fab-label">메인으로</span>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+</a>
+
+<script id="exam-data" type="application/json">{"meta":{"title":"2026학년도 6월 고1 전국연합학력평가","grade_band":"고1","month":"6월","source":"부산광역시교육청 (2026학년도 6월 전국연합학력평가 주관) · 자료 제공 충청남도교육청","total_examinees":370172,"examinee_counts":[{"area":"국어","count":369209,"ratio_percent":99.7399},{"area":"수학","count":368671,"ratio_percent":99.5945},{"area":"영어","count":367265,"ratio_percent":99.2147},{"area":"한국사","count":366572,"ratio_percent":99.0275},{"area":"탐구","count":364953,"ratio_percent":98.5901},{"area":"전체","count":370172,"ratio_percent":100.0}]},"area_stats":[{"period":1,"area":"국어","count":369209,"raw_mean":52.97,"raw_stddev":22.59},{"period":2,"area":"수학","count":368671,"raw_mean":37.67,"raw_stddev":19.8},{"period":3,"area":"영어","count":367265,"raw_mean":57.85,"raw_stddev":21.7},{"period":4,"area":"한국사","count":366572,"raw_mean":26.57,"raw_stddev":12.35},{"period":4,"area":"사회탐구","count":364953,"raw_mean":32.94,"raw_stddev":12.24},{"period":4,"area":"과학탐구","count":364953,"raw_mean":27.28,"raw_stddev":12.42}],"regions":[{"name":"서울","schools":273,"count":58209,"ratio_percent":15.72},{"name":"부산","schools":109,"count":18945,"ratio_percent":5.12},{"name":"대구","schools":73,"count":15732,"ratio_percent":4.25},{"name":"인천","schools":102,"count":21300,"ratio_percent":5.75},{"name":"광주","schools":61,"count":12163,"ratio_percent":3.29},{"name":"대전","schools":53,"count":10752,"ratio_percent":2.9},{"name":"울산","schools":44,"count":8525,"ratio_percent":2.3},{"name":"세종","schools":19,"count":4580,"ratio_percent":1.24},{"name":"경기","schools":462,"count":109817,"ratio_percent":29.67},{"name":"강원","schools":91,"count":9962,"ratio_percent":2.69},{"name":"충북","schools":60,"count":10668,"ratio_percent":2.88},{"name":"충남","schools":86,"count":16674,"ratio_percent":4.5},{"name":"전북","schools":98,"count":13153,"ratio_percent":3.55},{"name":"전남","schools":101,"count":12018,"ratio_percent":3.25},{"name":"경북","schools":128,"count":16378,"ratio_percent":4.42},{"name":"경남","schools":159,"count":25677,"ratio_percent":6.94},{"name":"제주","schools":27,"count":5619,"ratio_percent":1.52}],"region_total":{"schools":1946,"count":370172},"subjects":[{"subject_key":"국어","subject_label":"국어","area":"국어","score_basis":"표준점수","total_count":369209,"raw_mean":52.97,"raw_stddev":22.59,"has_cumulative":true,"grade_cutoffs":[{"grade":1,"cutoff_score":134,"count":15521,"ratio_percent":4.2},{"grade":2,"cutoff_score":127,"count":26192,"ratio_percent":7.09},{"grade":3,"cutoff_score":118,"count":43497,"ratio_percent":11.78},{"grade":4,"cutoff_score":106,"count":66776,"ratio_percent":18.09},{"grade":5,"cutoff_score":94,"count":72586,"ratio_percent":19.66},{"grade":6,"cutoff_score":81,"count":67179,"ratio_percent":18.2},{"grade":7,"cutoff_score":73,"count":41989,"ratio_percent":11.37},{"grade":8,"cutoff_score":69,"count":21306,"ratio_percent":5.77},{"grade":9,"cutoff_score":53,"count":14163,"ratio_percent":3.84}]},{"subject_key":"수학","subject_label":"수학","area":"수학","score_basis":"표준점수","total_count":368671,"raw_mean":37.67,"raw_stddev":19.8,"has_cumulative":true,"grade_cutoffs":[{"grade":1,"cutoff_score":140,"count":16150,"ratio_percent":4.38},{"grade":2,"cutoff_score":128,"count":25303,"ratio_percent":6.86},{"grade":3,"cutoff_score":114,"count":45900,"ratio_percent":12.45},{"grade":4,"cutoff_score":102,"count":64258,"ratio_percent":17.43},{"grade":5,"cutoff_score":91,"count":76492,"ratio_percent":20.75},{"grade":6,"cutoff_score":83,"count":59069,"ratio_percent":16.02},{"grade":7,"cutoff_score":77,"count":43708,"ratio_percent":11.86},{"grade":8,"cutoff_score":73,"count":24497,"ratio_percent":6.64},{"grade":9,"cutoff_score":62,"count":13294,"ratio_percent":3.61}]},{"subject_key":"영어","subject_label":"영어","area":"영어","score_basis":"원점수","total_count":367265,"raw_mean":57.85,"raw_stddev":21.7,"has_cumulative":false,"grade_cutoffs":[{"grade":1,"cutoff_score":90,"count":28484,"ratio_percent":7.76},{"grade":2,"cutoff_score":80,"count":37776,"ratio_percent":10.29},{"grade":3,"cutoff_score":70,"count":53121,"ratio_percent":14.46},{"grade":4,"cutoff_score":60,"count":61310,"ratio_percent":16.69},{"grade":5,"cutoff_score":50,"count":55912,"ratio_percent":15.22},{"grade":6,"cutoff_score":40,"count":46919,"ratio_percent":12.78},{"grade":7,"cutoff_score":30,"count":38473,"ratio_percent":10.48},{"grade":8,"cutoff_score":20,"count":31614,"ratio_percent":8.61},{"grade":9,"cutoff_score":0,"count":13656,"ratio_percent":3.72}]},{"subject_key":"한국사","subject_label":"한국사","area":"한국사","score_basis":"원점수","total_count":366572,"raw_mean":26.57,"raw_stddev":12.35,"has_cumulative":false,"grade_cutoffs":[{"grade":1,"cutoff_score":40,"count":71146,"ratio_percent":19.41},{"grade":2,"cutoff_score":35,"count":39308,"ratio_percent":10.72},{"grade":3,"cutoff_score":30,"count":41073,"ratio_percent":11.2},{"grade":4,"cutoff_score":25,"count":42510,"ratio_percent":11.6},{"grade":5,"cutoff_score":20,"count":45649,"ratio_percent":12.45},{"grade":6,"cutoff_score":15,"count":49335,"ratio_percent":13.46},{"grade":7,"cutoff_score":10,"count":53008,"ratio_percent":14.46},{"grade":8,"cutoff_score":5,"count":21331,"ratio_percent":5.82},{"grade":9,"cutoff_score":0,"count":3212,"ratio_percent":0.88}]},{"subject_key":"사회탐구","subject_label":"사회탐구","area":"사회탐구","score_basis":"표준점수","total_count":364953,"raw_mean":32.94,"raw_stddev":12.24,"has_cumulative":true,"grade_cutoffs":[{"grade":1,"cutoff_score":64,"count":15168,"ratio_percent":4.16},{"grade":2,"cutoff_score":61,"count":30531,"ratio_percent":8.37},{"grade":3,"cutoff_score":58,"count":55921,"ratio_percent":15.32},{"grade":4,"cutoff_score":55,"count":51611,"ratio_percent":14.14},{"grade":5,"cutoff_score":50,"count":66142,"ratio_percent":18.12},{"grade":6,"cutoff_score":42,"count":65648,"ratio_percent":17.99},{"grade":7,"cutoff_score":34,"count":41062,"ratio_percent":11.25},{"grade":8,"cutoff_score":31,"count":25892,"ratio_percent":7.09},{"grade":9,"cutoff_score":23,"count":12978,"ratio_percent":3.56}]},{"subject_key":"과학탐구","subject_label":"과학탐구","area":"과학탐구","score_basis":"표준점수","total_count":364953,"raw_mean":27.28,"raw_stddev":12.42,"has_cumulative":true,"grade_cutoffs":[{"grade":1,"cutoff_score":67,"count":18536,"ratio_percent":5.08},{"grade":2,"cutoff_score":63,"count":33650,"ratio_percent":9.22},{"grade":3,"cutoff_score":59,"count":36268,"ratio_percent":9.94},{"grade":4,"cutoff_score":53,"count":64023,"ratio_percent":17.54},{"grade":5,"cutoff_score":47,"count":68358,"ratio_percent":18.73},{"grade":6,"cutoff_score":41,"count":64191,"ratio_percent":17.59},{"grade":7,"cutoff_score":37,"count":45121,"ratio_percent":12.36},{"grade":8,"cutoff_score":35,"count":21442,"ratio_percent":5.88},{"grade":9,"cutoff_score":28,"count":13364,"ratio_percent":3.66}]}],"cumulative":{"국어":[{"standard_score":142,"count":826,"cumulative_count":826},{"standard_score":140,"count":1604,"cumulative_count":2430},{"standard_score":139,"count":443,"cumulative_count":2873},{"standard_score":138,"count":2097,"cumulative_count":4970},{"standard_score":137,"count":1180,"cumulative_count":6150},{"standard_score":136,"count":2177,"cumulative_count":8327},{"standard_score":135,"count":4509,"cumulative_count":12836},{"standard_score":134,"count":2685,"cumulative_count":15521},{"standard_score":133,"count":2572,"cumulative_count":18093},{"standard_score":132,"count":3040,"cumulative_count":21133},{"standard_score":131,"count":2974,"cumulative_count":24107},{"standard_score":130,"count":3267,"cumulative_count":27374},{"standard_score":129,"count":3357,"cumulative_count":30731},{"standard_score":128,"count":3473,"cumulative_count":34204},{"standard_score":127,"count":7509,"cumulative_count":41713},{"standard_score":126,"count":3949,"cumulative_count":45662},{"standard_score":125,"count":3959,"cumulative_count":49621},{"standard_score":124,"count":4142,"cumulative_count":53763},{"standard_score":123,"count":4246,"cumulative_count":58009},{"standard_score":122,"count":4255,"cumulative_count":62264},{"standard_score":121,"count":4395,"cumulative_count":66659},{"standard_score":120,"count":9045,"cumulative_count":75704},{"standard_score":119,"count":4757,"cumulative_count":80461},{"standard_score":118,"count":4749,"cumulative_count":85210},{"standard_score":117,"count":4866,"cumulative_count":90076},{"standard_score":116,"count":4965,"cumulative_count":95041},{"standard_score":115,"count":4898,"cumulative_count":99939},{"standard_score":114,"count":5006,"cumulative_count":104945},{"standard_score":113,"count":5041,"cumulative_count":109986},{"standard_score":112,"count":10192,"cumulative_count":120178},{"standard_score":111,"count":5255,"cumulative_count":125433},{"standard_score":110,"count":5270,"cumulative_count":130703},{"standard_score":109,"count":5354,"cumulative_count":136057},{"standard_score":108,"count":5323,"cumulative_count":141380},{"standard_score":107,"count":5254,"cumulative_count":146634},{"standard_score":106,"count":5352,"cumulative_count":151986},{"standard_score":105,"count":5279,"cumulative_count":157265},{"standard_score":104,"count":10579,"cumulative_count":167844},{"standard_score":103,"count":5357,"cumulative_count":173201},{"standard_score":102,"count":5278,"cumulative_count":178479},{"standard_score":101,"count":5318,"cumulative_count":183797},{"standard_score":100,"count":5263,"cumulative_count":189060},{"standard_score":99,"count":5166,"cumulative_count":194226},{"standard_score":98,"count":5280,"cumulative_count":199506},{"standard_score":97,"count":5030,"cumulative_count":204536},{"standard_score":96,"count":10187,"cumulative_count":214723},{"standard_score":95,"count":4897,"cumulative_count":219620},{"standard_score":94,"count":4952,"cumulative_count":224572},{"standard_score":93,"count":4841,"cumulative_count":229413},{"standard_score":92,"count":4813,"cumulative_count":234226},{"standard_score":91,"count":4705,"cumulative_count":238931},{"standard_score":90,"count":4705,"cumulative_count":243636},{"standard_score":89,"count":9198,"cumulative_count":252834},{"standard_score":88,"count":4547,"cumulative_count":257381},{"standard_score":87,"count":4342,"cumulative_count":261723},{"standard_score":86,"count":4334,"cumulative_count":266057},{"standard_score":85,"count":4273,"cumulative_count":270330},{"standard_score":84,"count":4318,"cumulative_count":274648},{"standard_score":83,"count":4191,"cumulative_count":278839},{"standard_score":82,"count":4319,"cumulative_count":283158},{"standard_score":81,"count":8593,"cumulative_count":291751},{"standard_score":80,"count":4275,"cumulative_count":296026},{"standard_score":79,"count":4523,"cumulative_count":300549},{"standard_score":78,"count":4267,"cumulative_count":304816},{"standard_score":77,"count":4656,"cumulative_count":309472},{"standard_score":76,"count":4459,"cumulative_count":313931},{"standard_score":75,"count":4736,"cumulative_count":318667},{"standard_score":74,"count":4645,"cumulative_count":323312},{"standard_score":73,"count":10428,"cumulative_count":333740},{"standard_score":72,"count":3934,"cumulative_count":337674},{"standard_score":71,"count":7148,"cumulative_count":344822},{"standard_score":70,"count":3228,"cumulative_count":348050},{"standard_score":69,"count":6996,"cumulative_count":355046},{"standard_score":68,"count":2590,"cumulative_count":357636},{"standard_score":67,"count":3306,"cumulative_count":360942},{"standard_score":66,"count":3457,"cumulative_count":364399},{"standard_score":65,"count":1176,"cumulative_count":365575},{"standard_score":64,"count":881,"cumulative_count":366456},{"standard_score":63,"count":578,"cumulative_count":367034},{"standard_score":62,"count":477,"cumulative_count":367511},{"standard_score":61,"count":289,"cumulative_count":367800},{"standard_score":60,"count":266,"cumulative_count":368066},{"standard_score":59,"count":124,"cumulative_count":368190},{"standard_score":58,"count":192,"cumulative_count":368382},{"standard_score":57,"count":98,"cumulative_count":368480},{"standard_score":56,"count":6,"cumulative_count":368486},{"standard_score":55,"count":104,"cumulative_count":368590},{"standard_score":53,"count":619,"cumulative_count":369209}],"수학":[{"standard_score":163,"count":814,"cumulative_count":814},{"standard_score":161,"count":5,"cumulative_count":819},{"standard_score":160,"count":103,"cumulative_count":922},{"standard_score":159,"count":1093,"cumulative_count":2015},{"standard_score":158,"count":1,"cumulative_count":2016},{"standard_score":157,"count":11,"cumulative_count":2027},{"standard_score":156,"count":278,"cumulative_count":2305},{"standard_score":155,"count":1411,"cumulative_count":3716},{"standard_score":154,"count":6,"cumulative_count":3722},{"standard_score":153,"count":61,"cumulative_count":3783},{"standard_score":152,"count":533,"cumulative_count":4316},{"standard_score":151,"count":1823,"cumulative_count":6139},{"standard_score":150,"count":10,"cumulative_count":6149},{"standard_score":149,"count":153,"cumulative_count":6302},{"standard_score":148,"count":942,"cumulative_count":7244},{"standard_score":147,"count":2056,"cumulative_count":9300},{"standard_score":146,"count":27,"cumulative_count":9327},{"standard_score":145,"count":304,"cumulative_count":9631},{"standard_score":144,"count":1427,"cumulative_count":11058},{"standard_score":143,"count":2347,"cumulative_count":13405},{"standard_score":142,"count":84,"cumulative_count":13489},{"standard_score":141,"count":592,"cumulative_count":14081},{"standard_score":140,"count":2069,"cumulative_count":16150},{"standard_score":139,"count":2479,"cumulative_count":18629},{"standard_score":138,"count":182,"cumulative_count":18811},{"standard_score":137,"count":1089,"cumulative_count":19900},{"standard_score":136,"count":2962,"cumulative_count":22862},{"standard_score":135,"count":2325,"cumulative_count":25187},{"standard_score":134,"count":458,"cumulative_count":25645},{"standard_score":133,"count":1967,"cumulative_count":27612},{"standard_score":132,"count":3604,"cumulative_count":31216},{"standard_score":131,"count":2192,"cumulative_count":33408},{"standard_score":130,"count":887,"cumulative_count":34295},{"standard_score":129,"count":3004,"cumulative_count":37299},{"standard_score":128,"count":4154,"cumulative_count":41453},{"standard_score":127,"count":1927,"cumulative_count":43380},{"standard_score":126,"count":1843,"cumulative_count":45223},{"standard_score":125,"count":4436,"cumulative_count":49659},{"standard_score":124,"count":3999,"cumulative_count":53658},{"standard_score":123,"count":1942,"cumulative_count":55600},{"standard_score":122,"count":3467,"cumulative_count":59067},{"standard_score":121,"count":5120,"cumulative_count":64187},{"standard_score":120,"count":3400,"cumulative_count":67587},{"standard_score":119,"count":2754,"cumulative_count":70341},{"standard_score":118,"count":4836,"cumulative_count":75177},{"standard_score":116,"count":4920,"cumulative_count":80097},{"standard_score":115,"count":3000,"cumulative_count":83097},{"standard_score":114,"count":4256,"cumulative_count":87353},{"standard_score":113,"count":5773,"cumulative_count":93126},{"standard_score":112,"count":4112,"cumulative_count":97238},{"standard_score":111,"count":3871,"cumulative_count":101109},{"standard_score":110,"count":6196,"cumulative_count":107305},{"standard_score":109,"count":5367,"cumulative_count":112672},{"standard_score":108,"count":3934,"cumulative_count":116606},{"standard_score":107,"count":5859,"cumulative_count":122465},{"standard_score":106,"count":6529,"cumulative_count":128994},{"standard_score":105,"count":4347,"cumulative_count":133341},{"standard_score":104,"count":5552,"cumulative_count":138893},{"standard_score":103,"count":7374,"cumulative_count":146267},{"standard_score":102,"count":5344,"cumulative_count":151611},{"standard_score":101,"count":5483,"cumulative_count":157094},{"standard_score":100,"count":7925,"cumulative_count":165019},{"standard_score":99,"count":6205,"cumulative_count":171224},{"standard_score":98,"count":5729,"cumulative_count":176953},{"standard_score":97,"count":8016,"cumulative_count":184969},{"standard_score":96,"count":6908,"cumulative_count":191877},{"standard_score":95,"count":6175,"cumulative_count":198052},{"standard_score":94,"count":7984,"cumulative_count":206036},{"standard_score":93,"count":7207,"cumulative_count":213243},{"standard_score":92,"count":7048,"cumulative_count":220291},{"standard_score":91,"count":7812,"cumulative_count":228103},{"standard_score":90,"count":7265,"cumulative_count":235368},{"standard_score":89,"count":7334,"cumulative_count":242702},{"standard_score":88,"count":7567,"cumulative_count":250269},{"standard_score":87,"count":7148,"cumulative_count":257417},{"standard_score":86,"count":8119,"cumulative_count":265536},{"standard_score":85,"count":6914,"cumulative_count":272450},{"standard_score":84,"count":6960,"cumulative_count":279410},{"standard_score":83,"count":7762,"cumulative_count":287172},{"standard_score":82,"count":6470,"cumulative_count":293642},{"standard_score":81,"count":7171,"cumulative_count":300813},{"standard_score":80,"count":7048,"cumulative_count":307861},{"standard_score":79,"count":5422,"cumulative_count":313283},{"standard_score":78,"count":12582,"cumulative_count":325865},{"standard_score":77,"count":5015,"cumulative_count":330880},{"standard_score":76,"count":7218,"cumulative_count":338098},{"standard_score":75,"count":4418,"cumulative_count":342516},{"standard_score":74,"count":10177,"cumulative_count":352693},{"standard_score":73,"count":2684,"cumulative_count":355377},{"standard_score":72,"count":4273,"cumulative_count":359650},{"standard_score":71,"count":2110,"cumulative_count":361760},{"standard_score":70,"count":1567,"cumulative_count":363327},{"standard_score":69,"count":1373,"cumulative_count":364700},{"standard_score":68,"count":1274,"cumulative_count":365974},{"standard_score":67,"count":543,"cumulative_count":366517},{"standard_score":66,"count":497,"cumulative_count":367014},{"standard_score":65,"count":526,"cumulative_count":367540},{"standard_score":64,"count":241,"cumulative_count":367781},{"standard_score":62,"count":890,"cumulative_count":368671}],"사회탐구":[{"standard_score":64,"count":15168,"cumulative_count":15168},{"standard_score":63,"count":1297,"cumulative_count":16465},{"standard_score":62,"count":23611,"cumulative_count":40076},{"standard_score":61,"count":5623,"cumulative_count":45699},{"standard_score":60,"count":24187,"cumulative_count":69886},{"standard_score":59,"count":11622,"cumulative_count":81508},{"standard_score":58,"count":20112,"cumulative_count":101620},{"standard_score":57,"count":16947,"cumulative_count":118567},{"standard_score":56,"count":14905,"cumulative_count":133472},{"standard_score":55,"count":19759,"cumulative_count":153231},{"standard_score":54,"count":11219,"cumulative_count":164450},{"standard_score":53,"count":19805,"cumulative_count":184255},{"standard_score":52,"count":9117,"cumulative_count":193372},{"standard_score":51,"count":11992,"cumulative_count":205364},{"standard_score":50,"count":14009,"cumulative_count":219373},{"standard_score":49,"count":10013,"cumulative_count":229386},{"standard_score":48,"count":12168,"cumulative_count":241554},{"standard_score":47,"count":7588,"cumulative_count":249142},{"standard_score":46,"count":10494,"cumulative_count":259636},{"standard_score":45,"count":6117,"cumulative_count":265753},{"standard_score":44,"count":8891,"cumulative_count":274644},{"standard_score":43,"count":5339,"cumulative_count":279983},{"standard_score":42,"count":5038,"cumulative_count":285021},{"standard_score":41,"count":6813,"cumulative_count":291834},{"standard_score":40,"count":4334,"cumulative_count":296168},{"standard_score":39,"count":6155,"cumulative_count":302323},{"standard_score":38,"count":4000,"cumulative_count":306323},{"standard_score":37,"count":5907,"cumulative_count":312230},{"standard_score":36,"count":3915,"cumulative_count":316145},{"standard_score":35,"count":6098,"cumulative_count":322243},{"standard_score":34,"count":3840,"cumulative_count":326083},{"standard_score":33,"count":5559,"cumulative_count":331642},{"standard_score":32,"count":15305,"cumulative_count":346947},{"standard_score":31,"count":5028,"cumulative_count":351975},{"standard_score":30,"count":4145,"cumulative_count":356120},{"standard_score":29,"count":3200,"cumulative_count":359320},{"standard_score":28,"count":2377,"cumulative_count":361697},{"standard_score":27,"count":892,"cumulative_count":362589},{"standard_score":26,"count":1060,"cumulative_count":363649},{"standard_score":25,"count":352,"cumulative_count":364001},{"standard_score":24,"count":215,"cumulative_count":364216},{"standard_score":23,"count":737,"cumulative_count":364953}],"과학탐구":[{"standard_score":68,"count":9828,"cumulative_count":9828},{"standard_score":67,"count":8708,"cumulative_count":18536},{"standard_score":66,"count":4738,"cumulative_count":23274},{"standard_score":65,"count":12183,"cumulative_count":35457},{"standard_score":64,"count":4431,"cumulative_count":39888},{"standard_score":63,"count":12298,"cumulative_count":52186},{"standard_score":62,"count":6262,"cumulative_count":58448},{"standard_score":61,"count":11336,"cumulative_count":69784},{"standard_score":60,"count":7719,"cumulative_count":77503},{"standard_score":59,"count":10951,"cumulative_count":88454},{"standard_score":58,"count":8630,"cumulative_count":97084},{"standard_score":57,"count":11851,"cumulative_count":108935},{"standard_score":56,"count":8763,"cumulative_count":117698},{"standard_score":55,"count":12831,"cumulative_count":130529},{"standard_score":54,"count":8341,"cumulative_count":138870},{"standard_score":53,"count":13607,"cumulative_count":152477},{"standard_score":52,"count":8874,"cumulative_count":161351},{"standard_score":51,"count":13901,"cumulative_count":175252},{"standard_score":50,"count":9226,"cumulative_count":184478},{"standard_score":49,"count":13718,"cumulative_count":198196},{"standard_score":48,"count":9047,"cumulative_count":207243},{"standard_score":47,"count":13592,"cumulative_count":220835},{"standard_score":46,"count":8724,"cumulative_count":229559},{"standard_score":45,"count":13280,"cumulative_count":242839},{"standard_score":44,"count":8565,"cumulative_count":251404},{"standard_score":43,"count":12698,"cumulative_count":264102},{"standard_score":42,"count":8395,"cumulative_count":272497},{"standard_score":41,"count":12529,"cumulative_count":285026},{"standard_score":40,"count":8471,"cumulative_count":293497},{"standard_score":39,"count":12328,"cumulative_count":305825},{"standard_score":38,"count":9934,"cumulative_count":315759},{"standard_score":37,"count":14388,"cumulative_count":330147},{"standard_score":36,"count":16682,"cumulative_count":346829},{"standard_score":35,"count":4760,"cumulative_count":351589},{"standard_score":34,"count":5672,"cumulative_count":357261},{"standard_score":33,"count":3304,"cumulative_count":360565},{"standard_score":32,"count":2215,"cumulative_count":362780},{"standard_score":31,"count":972,"cumulative_count":363752},{"standard_score":30,"count":500,"cumulative_count":364252},{"standard_score":29,"count":175,"cumulative_count":364427},{"standard_score":28,"count":526,"cumulative_count":364953}]}}</script>
+<script>
+(function() {
+  const DATA = JSON.parse(document.getElementById('exam-data').textContent);
+  const META = DATA.meta;
+  const SUBJECTS = DATA.subjects;
+  const CUM = DATA.cumulative;
+  const REGIONS = DATA.regions;
+  const SUBJECT_ORDER = ['국어','수학','영어','한국사','사회탐구','과학탐구'];
+  const CNAM = '충남';
+
+  function fmtNum(n) { return Number(n).toLocaleString('ko-KR'); }
+  function fmtPct(n, d) { d = d == null ? 1 : d; return Number(n).toFixed(d) + '%'; }
+  function getSubject(key) { return SUBJECTS.find(s => s.subject_key === key); }
+
+  // ============ Static text from data ============
+  document.title = META.title + ' 상담 도구';
+  document.getElementById('brandTitle').textContent = META.title;
+  document.getElementById('footerMark').textContent = META.title + ' 상담 도구';
+  document.getElementById('sourceValue').textContent = META.source;
+  document.getElementById('ovMetaStrong').textContent = '전체 응시자 ' + fmtNum(META.total_examinees) + '명';
+  document.getElementById('calcMetaLine').textContent = META.grade_band + ' 전국연합학력평가 기준';
+
+  // ============ Tab navigation ============
+  const tabBtns = document.querySelectorAll('nav.tabs button');
+  const views = document.querySelectorAll('.view');
+  function showView(name) {
+    tabBtns.forEach(b => b.classList.toggle('active', b.dataset.view === name));
+    views.forEach(v => v.classList.toggle('active', v.id === 'view-' + name));
+  }
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      showView(btn.dataset.view);
+      if (history.replaceState) history.replaceState(null, '', '#' + btn.dataset.view);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ============ Calculator ============
+  const subjectSelect = document.getElementById('subjectSelect');
+  const scoreInput = document.getElementById('scoreInput');
+  const basisHint = document.getElementById('basisHint');
+  const rangeHint = document.getElementById('rangeHint');
+  const resultBox = document.getElementById('resultBox');
+
+  function populateSubjects() {
+    const groups = [
+      ['국어 · 수학 (표준점수 · 상대평가)', ['국어','수학']],
+      ['통합사회 · 통합과학 (표준점수 · 상대평가)', ['사회탐구','과학탐구']],
+      ['영어 · 한국사 (원점수 · 절대평가)', ['영어','한국사']],
+    ];
+    let html = '';
+    groups.forEach(([label, keys]) => {
+      const present = keys.filter(k => getSubject(k));
+      if (!present.length) return;
+      html += '<optgroup label="' + label + '">';
+      present.forEach(k => {
+        const s = getSubject(k);
+        html += '<option value="' + k + '">' + s.subject_label + '</option>';
+      });
+      html += '</optgroup>';
+    });
+    subjectSelect.innerHTML = html;
+  }
+  populateSubjects();
+
+  function updateHints() {
+    const subj = getSubject(subjectSelect.value);
+    if (!subj) return;
+    basisHint.innerHTML = '점수 기준: <strong>' + subj.score_basis + '</strong> · 응시자 ' + fmtNum(subj.total_count) + '명';
+    const cuts = subj.grade_cutoffs;
+    if (cuts && cuts.length) {
+      const max = cuts[0].cutoff_score;
+      const min = cuts[cuts.length - 1].cutoff_score;
+      if (subj.has_cumulative) {
+        rangeHint.innerHTML = '성적표의 <strong>' + subj.score_basis + '</strong>를 입력하세요. (대략 ' + min + '~' + (max + 8) + '점)';
+      } else {
+        rangeHint.innerHTML = '<strong>원점수</strong>를 입력하세요. (0~' + (subj.subject_key === '한국사' ? 50 : 100) + '점)';
+      }
+    }
+  }
+
+  // 표준점수 이상 누적 인원: cumData는 표준점수 내림차순, cumulative_count = 해당 점수 이상 인원
+  function cumCountAtOrAbove(cumData, score) {
+    let chosen = null;
+    for (let i = 0; i < cumData.length; i++) {
+      if (cumData[i].standard_score >= score) chosen = cumData[i];
+      else break;
+    }
+    return chosen ? chosen.cumulative_count : 0;
+  }
+
+  function calcGrade(subj, score) {
+    if (!subj || isNaN(score)) return null;
+    const cuts = subj.grade_cutoffs;
+    let grade = cuts[cuts.length - 1].grade;
+    for (let i = 0; i < cuts.length; i++) {
+      if (score >= cuts[i].cutoff_score) { grade = cuts[i].grade; break; }
+    }
+    const cur = cuts.find(c => c.grade === grade);
+    let nextGrade = null, nextCutoff = null;
+    if (grade > 1) {
+      const next = cuts.find(c => c.grade === grade - 1);
+      if (next) { nextGrade = next.grade; nextCutoff = next.cutoff_score; }
+    }
+    let cumCount = null, cumPercent = null;
+    if (subj.has_cumulative && CUM[subj.subject_key]) {
+      cumCount = cumCountAtOrAbove(CUM[subj.subject_key], score);
+      cumPercent = cumCount / subj.total_count * 100;
+    }
+    return {
+      grade: grade,
+      gradeCutoff: cur ? cur.cutoff_score : null,
+      gradeCount: cur ? cur.count : null,
+      gradeRatio: cur ? cur.ratio_percent : null,
+      nextGrade: nextGrade,
+      nextCutoff: nextCutoff,
+      diff: nextCutoff != null ? (nextCutoff - score) : null,
+      cumCount: cumCount,
+      cumPercent: cumPercent,
+      score: score,
+      subject: subj
+    };
+  }
+
+  function renderResult() {
+    const subj = getSubject(subjectSelect.value);
+    const score = parseFloat(scoreInput.value);
+    if (!subj || isNaN(score) || score < 0) {
+      resultBox.innerHTML = '<div class="result-empty">왼쪽에서 영역을 고르고 점수를 입력하면<br>등급 · 전국 누적 위치 · 다음 등급까지 필요한 점수가<br>자동으로 산출됩니다.</div>';
+      return;
+    }
+    const r = calcGrade(subj, score);
+    if (!r) return;
+    const gradeColorClass = r.grade <= 2 ? 'g-high' : (r.grade <= 4 ? 'g-mid' : 'g-low');
+
+    // 누적 위치 셀
+    let posLabel, posValue, posSub;
+    if (subj.has_cumulative && r.cumPercent != null) {
+      posLabel = '전국 누적 위치';
+      posValue = '상위 ' + r.cumPercent.toFixed(2) + '<span class="unit">%</span>';
+      posSub = '약 ' + fmtNum(r.cumCount) + '등 / ' + fmtNum(subj.total_count) + '명';
+    } else {
+      posLabel = '해당 등급 인원';
+      posValue = (r.gradeRatio != null ? r.gradeRatio.toFixed(1) : '—') + '<span class="unit">%</span>';
+      posSub = (r.gradeCount != null ? fmtNum(r.gradeCount) + '명' : '—') + ' · 절대평가(석차 없음)';
+    }
+
+    let nextHtml = '';
+    if (r.nextCutoff != null && r.diff != null && r.diff > 0) {
+      nextHtml = '<div class="next-grade">' +
+        '<div class="next-grade-text"><b>' + r.nextGrade + '등급</b>까지 (' + subj.score_basis + ' ' + r.nextCutoff + '점 필요)</div>' +
+        '<div class="next-grade-number">+' + (Math.round(r.diff * 10) / 10) + '<span class="unit">점</span></div>' +
+      '</div>';
+    } else if (r.grade === 1) {
+      nextHtml = '<div class="next-grade" style="border-left-color: var(--green);">' +
+        '<div class="next-grade-text">현재 <b style="color: var(--green);">최고 등급</b>에 도달했습니다</div>' +
+        '<div class="next-grade-number" style="color: var(--green);">★</div>' +
+      '</div>';
+    }
+
+    resultBox.innerHTML =
+      '<div class="result-subject">' + subj.subject_label + ' · ' + subj.score_basis + ' ' + r.score + '점</div>' +
+      '<div class="result-grade">' +
+        '<div class="grade-number ' + gradeColorClass + '">' + r.grade + '</div>' +
+        '<div class="grade-label">등급</div>' +
+      '</div>' +
+      '<div class="result-stats">' +
+        '<div class="stat-cell">' +
+          '<div class="stat-label">' + posLabel + '</div>' +
+          '<div class="stat-value">' + posValue + '</div>' +
+          '<div class="stat-sub">' + posSub + '</div>' +
+        '</div>' +
+        '<div class="stat-cell">' +
+          '<div class="stat-label">현재 등급 컷</div>' +
+          '<div class="stat-value">' + (r.gradeCutoff != null ? r.gradeCutoff : '—') + '<span class="unit">점</span></div>' +
+          '<div class="stat-sub">' + r.grade + '등급 기준선 (' + subj.score_basis + ')</div>' +
+        '</div>' +
+      '</div>' +
+      nextHtml;
+  }
+
+  subjectSelect.addEventListener('change', () => { updateHints(); renderResult(); });
+  scoreInput.addEventListener('input', renderResult);
+  updateHints();
+
+  // ============ Overview ============
+  function renderKPIs() {
+    const lk = {};
+    META.examinee_counts.forEach(e => { lk[e.area] = e; });
+    const cnam = REGIONS.find(r => r.name === CNAM);
+    const kpis = [
+      { label: '전체 응시자', value: fmtNum(META.total_examinees), unit: '명', sub: META.grade_band + ' · 2026년 6월 시행' },
+      { label: '충남 응시자', value: fmtNum(cnam.count), unit: '명', sub: fmtPct(cnam.ratio_percent) + ' · ' + fmtNum(cnam.schools) + '교', cnam: true },
+      { label: '전국 응시 학교', value: fmtNum(DATA.region_total.schools), unit: '교', sub: '17개 시·도' },
+      { label: '응시 영역', value: '6', unit: '개', sub: '국어·수학·영어·한국사·사·과탐' },
+    ];
+    document.getElementById('kpiRow').innerHTML = kpis.map(k =>
+      '<div class="kpi' + (k.cnam ? ' is-cnam' : '') + '">' +
+        '<div class="kpi-label">' + k.label + '</div>' +
+        '<div class="kpi-value">' + k.value + '<span class="unit">' + k.unit + '</span></div>' +
+        '<div class="kpi-sub">' + k.sub + '</div>' +
+      '</div>'
+    ).join('');
+  }
+
+  function renderAreaBars() {
+    const items = META.examinee_counts.filter(e => e.area !== '전체');
+    const max = Math.max.apply(null, items.map(i => i.count));
+    document.getElementById('areaBars').innerHTML = items.map(it => {
+      const w = (it.count / max * 100).toFixed(1);
+      return '<div class="bar-row">' +
+        '<div class="bar-label">' + it.area + '</div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + w + '%"></div></div>' +
+        '<div class="bar-value">' + fmtNum(it.count) + '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderAreaRawTable() {
+    const rows = DATA.area_stats.map(a =>
+      '<tr>' +
+        '<td>' + a.area + '</td>' +
+        '<td class="num">' + fmtNum(a.count) + '</td>' +
+        '<td class="num">' + a.raw_mean.toFixed(2) + '</td>' +
+        '<td class="num">' + a.raw_stddev.toFixed(2) + '</td>' +
+      '</tr>'
+    ).join('');
+    document.getElementById('areaRawTable').innerHTML =
+      '<table class="choices"><thead><tr>' +
+        '<th>영역</th><th class="num">응시자</th><th class="num">평균</th><th class="num">표준편차</th>' +
+      '</tr></thead><tbody>' + rows + '</tbody></table>';
+  }
+
+  function renderRegions() {
+    const sorted = REGIONS.slice().sort((a, b) => b.count - a.count);
+    const max = Math.max.apply(null, sorted.map(r => r.count));
+    document.getElementById('regionRows').innerHTML = sorted.map(r => {
+      const w = (r.count / max * 100).toFixed(1);
+      const isC = r.name === CNAM;
+      return '<div class="region-row' + (isC ? ' is-cnam' : '') + '">' +
+        '<div class="r-name">' + r.name + '</div>' +
+        '<div class="bar-track"><div class="bar-fill ' + (isC ? 'cnam' : '') + '" style="width:' + w + '%"></div></div>' +
+        '<div class="r-count">' + fmtNum(r.count) + '</div>' +
+        '<div class="r-ratio">' + fmtPct(r.ratio_percent) + '</div>' +
+      '</div>';
+    }).join('');
+    const cnamRank = sorted.findIndex(r => r.name === CNAM) + 1;
+    const cnam = REGIONS.find(r => r.name === CNAM);
+    document.getElementById('regionNote').innerHTML =
+      '충남은 17개 시·도 중 응시 인원 <b>' + cnamRank + '위</b> ( ' + fmtNum(cnam.count) + '명 · 전국의 ' + fmtPct(cnam.ratio_percent) + ' · ' + fmtNum(cnam.schools) + '개교 ) 입니다. 막대는 응시 인원에 비례합니다.';
+  }
+
+  renderKPIs();
+  renderAreaBars();
+  renderAreaRawTable();
+  renderRegions();
+
+  // ============ Subjects view ============
+  const subjChipsEl = document.getElementById('subjChips');
+  const subjDetailEl = document.getElementById('subjDetail');
+  let currentSubjKey = '국어';
+
+  function renderChips() {
+    subjChipsEl.innerHTML = SUBJECT_ORDER.map(k => {
+      const s = getSubject(k);
+      if (!s) return '';
+      return '<button class="chip ' + (k === currentSubjKey ? 'active' : '') + '" data-key="' + k + '">' + s.subject_label + '</button>';
+    }).join('');
+    subjChipsEl.querySelectorAll('.chip').forEach(c => {
+      c.addEventListener('click', () => {
+        currentSubjKey = c.dataset.key;
+        renderChips();
+        renderSubjDetail();
+      });
+    });
+  }
+
+  function buildCumChart(subj) {
+    const cumData = CUM[subj.subject_key];
+    if (!cumData || !cumData.length) return '';
+    const total = subj.total_count;
+    const pts = cumData.slice().sort((a, b) => a.standard_score - b.standard_score);
+    const W = 900, H = 280;
+    const padL = 50, padR = 24, padT = 16, padB = 36;
+    const innerW = W - padL - padR;
+    const innerH = H - padT - padB;
+    const scores = pts.map(p => p.standard_score);
+    const minS = Math.min.apply(null, scores);
+    const maxS = Math.max.apply(null, scores);
+    const xRange = maxS - minS || 1;
+    function xPos(s) { return padL + (s - minS) / xRange * innerW; }
+    function yPos(pct) { return padT + (1 - pct / 100) * innerH; }
+    const linePts = pts.map(p => ({ x: xPos(p.standard_score), y: yPos(p.cumulative_count / total * 100) }));
+    let pathD = '';
+    linePts.forEach((p, i) => { pathD += (i === 0 ? 'M' : 'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1); });
+    const fillD = pathD + ' L' + linePts[linePts.length - 1].x.toFixed(1) + ',' + (padT + innerH).toFixed(1) + ' L' + linePts[0].x.toFixed(1) + ',' + (padT + innerH).toFixed(1) + ' Z';
+    let gridSvg = '';
+    [0, 25, 50, 75, 100].forEach(pct => {
+      const y = yPos(pct);
+      gridSvg += '<line class="grid-line" x1="' + padL + '" y1="' + y + '" x2="' + (W - padR) + '" y2="' + y + '" />';
+      gridSvg += '<text class="axis-text" x="' + (padL - 8) + '" y="' + (y + 3) + '" text-anchor="end">' + pct + '%</text>';
+    });
+    let xTicks = '';
+    const nTicks = 6;
+    for (let i = 0; i <= nTicks; i++) {
+      const s = minS + (xRange * i / nTicks);
+      const x = xPos(s);
+      xTicks += '<text class="axis-text" x="' + x + '" y="' + (H - padB + 18) + '" text-anchor="middle">' + Math.round(s) + '</text>';
+    }
+    let gradeMarks = '';
+    subj.grade_cutoffs.slice(0, 4).forEach(c => {
+      if (c.cutoff_score >= minS && c.cutoff_score <= maxS) {
+        const x = xPos(c.cutoff_score);
+        gradeMarks += '<line class="grade-marker" x1="' + x + '" y1="' + padT + '" x2="' + x + '" y2="' + (padT + innerH) + '" />';
+        gradeMarks += '<text class="grade-marker-text" x="' + (x + 3) + '" y="' + (padT + 11) + '">' + c.grade + '등급</text>';
+      }
+    });
+    return '<div class="chart-wrap">' +
+      '<h4>표준점수 누적분포 <span class="small">x축: 표준점수 · y축: 상위 누적 비율</span></h4>' +
+      '<svg class="line-chart" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' +
+        '<defs><linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">' +
+          '<stop offset="0%" stop-color="#8b2c2c" stop-opacity=".25" />' +
+          '<stop offset="100%" stop-color="#8b2c2c" stop-opacity="0" />' +
+        '</linearGradient></defs>' +
+        gridSvg +
+        '<path class="line-fill" d="' + fillD + '" />' +
+        '<path class="line-path" d="' + pathD + '" />' +
+        gradeMarks + xTicks +
+      '</svg>' +
+    '</div>';
+  }
+
+  function buildDistBars(subj) {
+    const cuts = subj.grade_cutoffs;
+    const max = Math.max.apply(null, cuts.map(c => c.count));
+    const rows = cuts.map(c => {
+      const w = (c.count / max * 100).toFixed(1);
+      const cls = c.grade <= 2 ? 'accent' : (c.grade === 3 ? 'gold' : '');
+      return '<div class="dist-row">' +
+        '<div class="dist-label">' + c.grade + '등급</div>' +
+        '<div class="bar-track"><div class="bar-fill ' + cls + '" style="width:' + w + '%"></div></div>' +
+        '<div class="dist-value">' + fmtNum(c.count) + '명<span class="pct">' + c.ratio_percent.toFixed(1) + '%</span></div>' +
+      '</div>';
+    }).join('');
+    return '<div class="dist-wrap"><h4>등급별 응시 인원 분포</h4>' + rows + '</div>';
+  }
+
+  function renderSubjDetail() {
+    const subj = getSubject(currentSubjKey);
+    if (!subj) return;
+    const gradesHtml = subj.grade_cutoffs.map(c => {
+      const cls = c.grade === 1 ? 'is-1' : (c.grade === 2 ? 'is-2' : (c.grade === 3 ? 'is-3' : ''));
+      return '<div class="grade-card ' + cls + '">' +
+        '<div class="gnum">' + c.grade + '등급</div>' +
+        '<div class="gscore">' + c.cutoff_score + '</div>' +
+        '<div class="gcount">' + fmtNum(c.count) + '명 · ' + c.ratio_percent.toFixed(1) + '%</div>' +
+      '</div>';
+    }).join('');
+
+    const chartHtml = subj.has_cumulative ? buildCumChart(subj) : buildDistBars(subj);
+
+    let calloutHtml;
+    if (subj.has_cumulative) {
+      calloutHtml = '<div class="callout"><b>표준점수 · 상대평가</b> — 등급컷은 응시 집단 내 상대 위치(표준점수)로 결정됩니다. ' +
+        '원점수 평균 <b>' + subj.raw_mean.toFixed(2) + '점</b>, 표준편차 <b>' + subj.raw_stddev.toFixed(2) + '</b> 입니다.</div>';
+    } else {
+      const fullMark = subj.subject_key === '한국사' ? 50 : 100;
+      calloutHtml = '<div class="callout accent"><b>원점수 · 절대평가</b> — ' + subj.subject_label + '은(는) 고정된 원점수 구간으로 등급이 정해지며, 전국 석차·백분위는 제공되지 않습니다. ' +
+        '원점수 평균 <b>' + subj.raw_mean.toFixed(2) + '점</b>(만점 ' + fullMark + '), 표준편차 <b>' + subj.raw_stddev.toFixed(2) + '</b> 입니다.</div>';
+    }
+
+    subjDetailEl.innerHTML =
+      '<div class="subj-header">' +
+        '<h2 class="subj-title">' + subj.subject_label +
+          '<span class="subj-tag">' + subj.area + '</span>' +
+          '<span class="subj-tag basis">' + subj.score_basis + '</span>' +
+        '</h2>' +
+        '<div class="subj-stats">' +
+          '<div>응시자<strong>' + fmtNum(subj.total_count) + '</strong></div>' +
+          '<div>원점수 평균<strong>' + subj.raw_mean.toFixed(1) + '</strong></div>' +
+          '<div>1등급 컷<strong>' + subj.grade_cutoffs[0].cutoff_score + '</strong></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="grade-grid">' + gradesHtml + '</div>' +
+      chartHtml +
+      calloutHtml;
+  }
+
+  renderChips();
+  renderSubjDetail();
+
+  // ============ Initial view from hash ============
+  const hashView = (location.hash || '').replace('#', '');
+  if (['subjects', 'overview', 'calc'].includes(hashView)) showView(hashView);
+
+  // ============ Floating home button ============
+  const homeFab = document.getElementById('homeFab');
+  if (homeFab) {
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      homeFab.classList.toggle('show', y > 320);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+})();
+</script>
+</body>
+</html>
