@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2027학년도 6월 대수능 모의평가 통합 분석</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#viewer" aria-label="통합 분석 첫 화면">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>2027학년도 6월 대수능 모의평가 분석</strong>
+          <small>국수영 · 탐구 통합 자료</small>
+        </span>
+      </a>
+
+      <nav class="header-actions" aria-label="자료 전환">
+        <button class="icon-button is-active" type="button" data-exam="guk" title="국수영 분석">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M4 19.5V5a2 2 0 0 1 2-2h11.5A2.5 2.5 0 0 1 20 5.5v14H6a2 2 0 0 0-2 2" />
+            <path d="M8 7h8M8 11h8M8 15h5" />
+          </svg>
+          <span>국수영</span>
+        </button>
+        <button class="icon-button" type="button" data-exam="tamgu" title="탐구 분석">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M10 2v6.5L5 18a3 3 0 0 0 2.7 4h8.6A3 3 0 0 0 19 18l-5-9.5V2" />
+            <path d="M8.5 2h7M7 16h10" />
+          </svg>
+          <span>탐구</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="overview" aria-labelledby="pageTitle">
+        <div class="overview-copy">
+          <p class="eyebrow">충청남도교육청 · 진로융합교육원</p>
+          <h1 id="pageTitle">2027학년도 6월 대수능 모의평가 통합 분석</h1>
+          <p>
+            국어·수학·영어 60쪽과 탐구 98쪽 분석 자료를 하나의 통계자료 카드에서 열람할 수 있도록 묶었습니다.
+          </p>
+        </div>
+
+        <div class="summary-grid" aria-label="자료 요약">
+          <article>
+            <span>통합 페이지</span>
+            <strong>158쪽</strong>
+            <small>국수영 60쪽 · 탐구 98쪽</small>
+          </article>
+          <article>
+            <span>분석 카드</span>
+            <strong>109개</strong>
+            <small>국수영 29개 · 탐구 80개</small>
+          </article>
+          <article>
+            <span>구성</span>
+            <strong>2종</strong>
+            <small>영역별 분석 · 원문 보기</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="exam-picker" aria-label="자료 선택">
+        <button class="exam-card is-active" type="button" data-exam="guk">
+          <img src="guk/assets/pages/page-01.jpg" alt="국수영 분석 표지" />
+          <span>
+            <small>국어 · 수학 · 영어</small>
+            <strong>국수영 분석</strong>
+            <em>60쪽 · 고난도 문항 29개</em>
+          </span>
+        </button>
+        <button class="exam-card" type="button" data-exam="tamgu">
+          <img src="tamgu/assets/pages/page-01.jpg" alt="탐구 분석 표지" />
+          <span>
+            <small>사회탐구 · 과학탐구</small>
+            <strong>탐구 분석</strong>
+            <em>98쪽 · 문항 카드 80개</em>
+          </span>
+        </button>
+      </section>
+
+      <section class="viewer-section" id="viewer" aria-labelledby="viewerTitle">
+        <div class="viewer-toolbar">
+          <div>
+            <p class="eyebrow" id="viewerType">Korean · Math · English</p>
+            <h2 id="viewerTitle">국수영 분석</h2>
+          </div>
+          <div class="viewer-actions">
+            <a class="tool-button" id="pdfLink" href="guk/source.pdf" target="_blank" rel="noopener">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+                <path d="M14 2v6h6M8 13h8M8 17h6" />
+              </svg>
+              PDF
+            </a>
+            <a class="tool-button" id="openLink" href="guk/index.html" target="_blank" rel="noopener">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 17 17 7M9 7h8v8" />
+                <path d="M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" />
+              </svg>
+              새 창
+            </a>
+          </div>
+        </div>
+
+        <iframe
+          id="examFrame"
+          title="국수영 분석"
+          src="guk/index.html"
+          loading="eager"
+        ></iframe>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

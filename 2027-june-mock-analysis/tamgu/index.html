@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2027학년도 6월 대수능 모의평가 탐구 분석</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#overview" aria-label="첫 화면">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>2027 6월 모의평가 탐구</strong>
+          <small>사회탐구 · 과학탐구 영역별 분석</small>
+        </span>
+      </a>
+      <div class="search-box" role="search">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m1.35-5.15a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z"/></svg>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="과목, 문항, 개념, 오답 원인 검색" />
+      </div>
+      <nav class="quick-actions" aria-label="빠른 이동">
+        <a class="button ghost" href="#topRisk">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Zm0 6v5m0 4h.01"/></svg>
+          오답률
+        </a>
+        <a class="button ghost" href="#original">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>
+          원문
+        </a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <nav class="toc" aria-label="문서 목차">
+          <a class="toc-link is-active" href="#overview">개요</a>
+          <a class="toc-link" href="#diagnosis">핵심 진단</a>
+          <a class="toc-link" href="#subjects">과목 지도</a>
+          <a class="toc-link" href="#topRisk">오답률 TOP</a>
+          <a class="toc-link" href="#questions">문항 카드</a>
+          <a class="toc-link" href="#original">원문 페이지</a>
+        </nav>
+
+        <section class="side-section">
+          <p class="side-title">영역 필터</p>
+          <div class="chips" id="groupFilter">
+            <button class="chip is-active" type="button" data-group="all">전체</button>
+            <button class="chip" type="button" data-group="사회탐구">사회탐구</button>
+            <button class="chip" type="button" data-group="과학탐구">과학탐구</button>
+          </div>
+        </section>
+
+        <section class="side-section">
+          <p class="side-title">과목 필터</p>
+          <div class="chips stacked" id="subjectFilter"></div>
+        </section>
+
+        <section class="side-section">
+          <p class="side-title">검색 결과</p>
+          <div id="searchResults" class="search-results" aria-live="polite"></div>
+        </section>
+      </aside>
+
+      <main>
+        <section class="hero" id="overview">
+          <div class="hero-copy">
+            <p class="eyebrow">충청남도교육청 · 충청남도교육청진로융합교육원</p>
+            <h1>2027학년도 6월 대수능 모의평가 탐구 영역별 분석</h1>
+            <p>98쪽 PDF를 사회탐구·과학탐구 과목별 진단, 오답률 높은 문항, 전체 원문 뷰어로 재구성했습니다.</p>
+            <div class="meta-pills">
+              <span>총 98쪽</span>
+              <span>선택과목 8개</span>
+              <span>분석 문항 80개</span>
+              <span>발행 2026.06.15</span>
+            </div>
+          </div>
+          <button class="cover" type="button" data-page="1" title="표지 원문 보기">
+            <img src="assets/pages/page-01.jpg" alt="탐구 분석 보고서 표지" />
+          </button>
+        </section>
+
+        <section class="stat-grid" id="stats"></section>
+
+        <section class="section" id="diagnosis">
+          <div class="section-head">
+            <p class="eyebrow">Core Diagnosis</p>
+            <h2>핵심 진단</h2>
+          </div>
+          <div class="diagnosis-grid" id="diagnosisGrid"></div>
+        </section>
+
+        <section class="section" id="subjects">
+          <div class="section-head with-control">
+            <div>
+              <p class="eyebrow">Subject Map</p>
+              <h2>과목 지도</h2>
+            </div>
+            <div class="legend">
+              <span><i class="dot social"></i>사회탐구</span>
+              <span><i class="dot science"></i>과학탐구</span>
+            </div>
+          </div>
+          <div class="subject-grid" id="subjectGrid"></div>
+        </section>
+
+        <section class="section" id="topRisk">
+          <div class="section-head with-control">
+            <div>
+              <p class="eyebrow">Highest Wrong-Answer Rates</p>
+              <h2>오답률 TOP 문항</h2>
+            </div>
+            <div class="segmented" id="topSegment">
+              <button class="is-active" type="button" data-group="all">전체</button>
+              <button type="button" data-group="사회탐구">사회</button>
+              <button type="button" data-group="과학탐구">과학</button>
+            </div>
+          </div>
+          <div class="top-list" id="topList"></div>
+        </section>
+
+        <section class="section" id="questions">
+          <div class="section-head with-control">
+            <div>
+              <p class="eyebrow">Question Cards</p>
+              <h2>문항 분석 카드</h2>
+            </div>
+            <div class="count-pill" id="cardCount"></div>
+          </div>
+          <div class="question-grid" id="questionGrid"></div>
+        </section>
+
+        <section class="section" id="original">
+          <div class="section-head with-control">
+            <div>
+              <p class="eyebrow">Original Pages</p>
+              <h2>원문 페이지</h2>
+            </div>
+            <div class="page-jump">
+              <input id="pageJump" type="number" min="1" max="98" value="1" aria-label="페이지 번호" />
+              <button class="button solid" id="jumpButton" type="button">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+                열기
+              </button>
+            </div>
+          </div>
+          <div class="page-grid" id="pageGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="pageDialog" class="page-dialog">
+      <div class="dialog-bar">
+        <button class="round-button" id="prevPage" type="button" title="이전 페이지">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <strong id="dialogTitle">원문</strong>
+        <button class="round-button" id="nextPage" type="button" title="다음 페이지">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <button class="round-button close" id="closeDialog" type="button" title="닫기">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <img id="dialogImage" alt="원문 페이지" />
+    </dialog>
+
+    <script src="assets/data/tamgu-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
