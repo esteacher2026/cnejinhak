@@ -47,6 +47,9 @@ mark{background:#fef08a;color:#92400e;border-radius:3px;padding:0 1px}
 .brand .yr b{font-size:19px;color:var(--ink);let-spacing:-.3px;font-weight:800}
 .badge2028{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
 .brand .sub{font-size:12px;color:var(--muted)}
+.home-btn{border:1px solid var(--line2);background:#fff;border-radius:9px;padding:8px 13px;color:var(--brand);font-weight:800;font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;transition:.12s;margin-right:4px;flex:none}
+.home-btn:hover{border-color:var(--brand);background:var(--brandTint);color:var(--brand2);box-shadow:0 1px 2px rgba(10,77,140,.12)}
+.home-btn .ic{font-size:14px;line-height:1}
 .search{margin-left:auto;position:relative;flex:1;max-width:360px;min-width:200px}
 .search input{width:100%;padding:10px 14px 10px 38px;border:1.5px solid var(--line2);border-radius:999px;background:var(--soft);transition:.15s}
 .search input:focus{outline:none;border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px var(--brandSoft)}
@@ -183,7 +186,7 @@ td.dim{color:var(--muted2)}
   section.blk{padding:16px 14px}
 }
 @media print{
-  .topbar,.tabs,.search,.toc,.toTop,.tab{display:none!important}
+  .topbar,.tabs,.search,.toc,.toTop,.tab,.home-btn{display:none!important}
   .header{position:static;box-shadow:none}
   section.blk{break-inside:avoid;box-shadow:none;border-color:#ccc}
   .view[hidden]{display:block!important}
@@ -197,10 +200,11 @@ td.dim{color:var(--muted2)}
 
 <div class="topbar"><div class="wrap">
   <span>충청남도교육청진로융합교육원 · 진학정보실</span>
-  <span>출처: 한국대학교육협의회 「2028학년도 대학입학전형시행계획 주요사항」(2026.4.30)</span>
+  <span>출처: 한국대학교육협의회 「2028학년도 대학입학전형시행계획 주요사항」(2026.4.30) · 쎈(SEN)진학</span>
 </div></div>
 
 <header class="header"><div class="wrap">
+  <a href="index.html" class="home-btn" aria-label="진학정보실 메인으로 이동"><span class="ic">⌂</span>메인</a>
   <div class="brand">
     <span class="yr"><b>2028 수능·정시 안내</b> <span class="badge2028">수능위주전형</span></span>
     <span class="sub">수능 체제 변화부터 서울 15개 대학·국가거점국립대 정시 전형까지</span>
@@ -233,7 +237,7 @@ td.dim{color:var(--muted2)}
   </div>
   <div class="foot-credit">
     <span><span class="label">제작</span><b>충청남도교육청진로융합교육원</b> 교육연구사 정재연</span>
-    <span><span class="label">출처</span>한국대학교육협의회 2028학년도 대입전형시행계획 주요사항(2026.4.30)</span>
+    <span><span class="label">출처</span>한국대학교육협의회 2028학년도 대입전형시행계획 주요사항(2026.4.30) · 쎈(SEN)진학</span>
     <span style="margin-top:4px;color:rgba(255,255,255,.4)">최종 지원 판단에는 대학별 정시모집요강 원문 확인이 반드시 필요합니다.</span>
   </div>
 </div></footer>
@@ -253,7 +257,7 @@ window.SUNEUNG_DATA = {
   meta: {
     title: "2028 수능·정시 안내",
     subtitle: "수능 체제 변화부터 서울 15개 대학·국가거점국립대 정시 전형까지",
-    source: "한국대학교육협의회 「2028학년도 대학입학전형시행계획 주요사항」(2026. 4. 30.)",
+    source: "한국대학교육협의회 「2028학년도 대학입학전형시행계획 주요사항」(2026. 4. 30.) · 쎈(SEN)진학",
     notice: "본 자료는 2026년 4월 30일 발표된 2028학년도 대입전형시행계획안을 정리한 것으로, 최종 모집요강 발표 및 수시 미충원 이월에 따라 변동될 수 있습니다. 지원 전 반드시 대학별 모집요강 원문을 확인하시기 바랍니다.",
     seoul15: ["건국대","경희대","고려대","동국대","서강대","서울대","서울시립대","성균관대","숙명여대","연세대","이화여대","중앙대","한국외대","한양대","홍익대"]
   },
