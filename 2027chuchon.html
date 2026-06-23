@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 학교장추천전형</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --navy:#16335b; --navy2:#1e4a86; --blue:#2563eb; --blue-bg:#eaf1fd;
+  --bg:#f4f6f9; --card:#ffffff; --line:#e5e8ee; --line2:#d4dae4;
+  --ink:#1f2937; --muted:#6b7280; --hint:#9aa3b2;
+  --gyo:#1e4a86; --gyo-bg:#e8f0fb; --jong:#6d28d9; --jong-bg:#f1ebfd; --teuk:#9a5b00; --teuk-bg:#fbf0db;
+  --up:#0f7a52; --up-bg:#e4f5ec; --down:#b3261e; --down-bg:#fbe9e8;
+  --low-y:#9a5b00; --low-y-bg:#fbf0db; --low-n:#1f7a3d; --low-n-bg:#e6f5ea;
+  --med:#a3287a; --med-bg:#fbe9f4; --chg:#b3261e; --chg-bg:#fbe9e8;
+  --radius:14px; --radius-s:9px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-text-size-adjust:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* ===== Header ===== */
+header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.home-btn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;padding:9px 15px;border-radius:999px;font-size:14px;font-weight:600;transition:.15s}
+.home-btn:hover{background:rgba(255,255,255,.26)}
+.brand{font-size:13px;opacity:.85;font-weight:500}
+.hero{padding:6px 0 22px}
+.hero h1{margin:0 0 8px;font-size:27px;font-weight:800;letter-spacing:-.5px}
+.hero p{margin:0;font-size:15px;opacity:.9}
+.hero .stat{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+.hero .stat b{font-size:22px;font-weight:800}
+.hero .stat span{font-size:12.5px;opacity:.82;display:block;font-weight:500}
+
+.notice{background:#fff7e6;border-top:1px solid #f0dcae;border-bottom:1px solid #f0dcae;color:#7a5b16;font-size:12.8px}
+.notice .wrap{padding:9px 16px;display:flex;gap:8px;align-items:flex-start}
+.notice i{flex:none;margin-top:1px}
+
+/* ===== Tabs ===== */
+.tabs{display:flex;gap:6px;border-bottom:2px solid var(--line);margin:18px 0 0}
+.tab{padding:11px 18px;font-size:15px;font-weight:700;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;border-radius:8px 8px 0 0}
+.tab.on{color:var(--navy);border-bottom-color:var(--blue)}
+.tab:hover{color:var(--navy)}
+
+/* ===== Filters ===== */
+.filters{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:18px 0}
+.frow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.frow+.frow{margin-top:12px}
+.search{position:relative;flex:1;min-width:230px}
+.search i{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--hint)}
+.search input{width:100%;height:42px;padding:0 14px 0 38px;border:1px solid var(--line2);border-radius:var(--radius-s);font-size:15px;font-family:inherit;outline:none}
+.search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-bg)}
+select{height:42px;padding:0 32px 0 13px;border:1px solid var(--line2);border-radius:var(--radius-s);font-size:14px;font-family:inherit;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236b7280' stroke-width='2'><path d='M2 4l4 4 4-4'/></svg>") no-repeat right 12px center;appearance:none;cursor:pointer;color:var(--ink)}
+select:focus{border-color:var(--blue);outline:none}
+.fgroup{display:flex;gap:6px;align-items:center}
+.flabel{font-size:12.5px;color:var(--muted);font-weight:600;margin-right:2px;white-space:nowrap}
+.chip{font-size:13.5px;padding:8px 14px;border:1px solid var(--line2);background:#fff;color:var(--muted);border-radius:999px;cursor:pointer;font-family:inherit;font-weight:600;transition:.12s;white-space:nowrap}
+.chip:hover{border-color:var(--navy2);color:var(--navy)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.toggle{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:var(--muted);font-weight:600;cursor:pointer;padding:8px 13px;border:1px solid var(--line2);border-radius:999px}
+.toggle.on{background:var(--med-bg);color:var(--med);border-color:#e6b9d6}
+.toggle input{display:none}
+
+.resultbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 2px 14px;flex-wrap:wrap}
+.resultbar .cnt{font-size:14px;color:var(--muted);font-weight:600}
+.resultbar .cnt b{color:var(--navy);font-size:16px}
+
+/* ===== Card grid ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px 14px;cursor:pointer;transition:.13s;position:relative;display:flex;flex-direction:column}
+.card:hover{border-color:var(--navy2);box-shadow:0 4px 18px rgba(22,51,91,.09);transform:translateY(-1px)}
+.card.cmp{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-bg)}
+.card .chk{position:absolute;top:13px;right:13px;width:22px;height:22px;border:1.5px solid var(--line2);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff;color:transparent;font-size:14px;z-index:2}
+.card.cmp .chk{background:var(--blue);border-color:var(--blue);color:#fff}
+.c-top{display:flex;align-items:baseline;gap:8px;padding-right:30px}
+.c-name{font-size:18px;font-weight:800;letter-spacing:-.4px;color:var(--navy)}
+.c-campus{font-size:12px;color:var(--muted);font-weight:600}
+.c-region{margin-left:auto;font-size:12px;color:var(--hint);font-weight:600;flex:none}
+.c-jname{font-size:14px;color:var(--ink);margin:5px 0 10px;font-weight:600}
+.c-meta{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:3px;margin-bottom:11px}
+.c-meta .ic{color:var(--hint);margin-right:5px}
+.c-meta .num{color:var(--ink);font-weight:700}
+.c-method{font-size:12.5px;color:var(--muted);background:#f7f8fb;border-radius:8px;padding:7px 9px;margin-bottom:11px;line-height:1.45;min-height:42px}
+.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto}
+.bdg{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:7px;white-space:nowrap}
+.b-gyo{background:var(--gyo-bg);color:var(--gyo)} .b-jong{background:var(--jong-bg);color:var(--jong)} .b-teuk{background:var(--teuk-bg);color:var(--teuk)}
+.b-lowy{background:var(--low-y-bg);color:var(--low-y)} .b-lown{background:var(--low-n-bg);color:var(--low-n)}
+.b-med{background:var(--med-bg);color:var(--med)} .b-chg{background:var(--chg-bg);color:var(--chg)}
+.b-up{background:var(--up-bg);color:var(--up)} .b-down{background:var(--down-bg);color:var(--down)}
+.b-itv{background:#e8eef7;color:#3a5b8c}
+.delta{font-size:12.5px;font-weight:800;margin-left:5px}
+.delta.up{color:var(--up)} .delta.down{color:var(--down)}
+
+.empty{text-align:center;padding:60px 20px;color:var(--hint);font-size:15px}
+
+/* ===== Modal ===== */
+.overlay{position:fixed;inset:0;background:rgba(17,28,45,.55);display:none;align-items:flex-start;justify-content:center;padding:28px 16px;z-index:100;overflow-y:auto}
+.overlay.on{display:flex}
+.modal{background:#fff;border-radius:18px;max-width:760px;width:100%;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.m-head{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:20px 22px;position:relative}
+.m-head .close{position:absolute;top:15px;right:15px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.m-head .close:hover{background:rgba(255,255,255,.3)}
+.m-head h2{margin:0;font-size:23px;font-weight:800}
+.m-head .sub{font-size:14px;opacity:.9;margin-top:4px}
+.m-head .badges{margin-top:11px}
+.m-head .bdg{font-size:12px}
+.m-body{padding:6px 22px 22px}
+.sec{padding:15px 0;border-bottom:1px solid var(--line)}
+.sec:last-child{border-bottom:none}
+.sec h3{margin:0 0 9px;font-size:13px;font-weight:800;color:var(--navy);letter-spacing:.2px;display:flex;align-items:center;gap:6px}
+.sec h3 i{color:var(--blue)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:9px 18px}
+.kv .k{font-size:12px;color:var(--hint);font-weight:600}
+.kv .v{font-size:14px;color:var(--ink);font-weight:600;margin-top:1px}
+.low-list{margin:0;padding:0;list-style:none}
+.low-list li{font-size:13.8px;padding:6px 0 6px 18px;position:relative;border-bottom:1px dashed var(--line)}
+.low-list li:last-child{border-bottom:none}
+.low-list li:before{content:"";position:absolute;left:3px;top:13px;width:5px;height:5px;border-radius:50%;background:var(--blue)}
+.chg-chips{display:flex;flex-wrap:wrap;gap:7px}
+.chg-chips .cc{font-size:12.8px;font-weight:600;background:var(--chg-bg);color:var(--chg);padding:5px 11px;border-radius:8px}
+.notebox{font-size:13px;color:var(--muted);background:#f7f8fb;border-radius:9px;padding:10px 12px;line-height:1.5}
+
+/* compare */
+.cmpbar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--navy);color:#fff;border-radius:999px;padding:10px 12px 10px 18px;display:none;align-items:center;gap:14px;z-index:90;box-shadow:0 10px 30px rgba(22,51,91,.4);max-width:94vw}
+.cmpbar.on{display:flex}
+.cmpbar .txt{font-size:14px;font-weight:600}
+.cmpbar .txt b{font-weight:800}
+.cmpbar button{font-family:inherit;cursor:pointer;border-radius:999px;font-weight:700;font-size:13.5px;border:none;padding:9px 16px}
+.cmpbar .go{background:#fff;color:var(--navy)}
+.cmpbar .go:disabled{opacity:.45;cursor:not-allowed}
+.cmpbar .clr{background:rgba(255,255,255,.16);color:#fff}
+.cmptable{width:100%;border-collapse:collapse;font-size:13px}
+.cmptable th,.cmptable td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.cmptable th{background:#f7f8fb;font-weight:700;color:var(--navy);position:sticky;top:0}
+.cmptable td.field{background:#fafbfc;font-weight:700;color:var(--muted);font-size:12px;white-space:nowrap}
+.cmpscroll{overflow-x:auto}
+
+/* changes tab */
+.chgwrap .frow{margin-bottom:16px}
+.chg-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;cursor:pointer}
+.chg-card:hover{border-color:var(--navy2)}
+.chg-card .cu{flex:none;width:150px}
+.chg-card .cu .n{font-size:15px;font-weight:800;color:var(--navy)}
+.chg-card .cu .j{font-size:12.5px;color:var(--muted);font-weight:600}
+.chg-card .cl{flex:1}
+
+footer{margin-top:30px;background:#1a2231;color:#c2c9d6;font-size:13px}
+footer .wrap{padding:22px 16px}
+footer .src{font-weight:600;color:#e8ecf3;margin-bottom:6px;font-size:13.5px}
+footer .made{margin-top:8px}
+footer .disc{margin-top:12px;font-size:12px;color:#8c95a6;line-height:1.6;border-top:1px solid #2c3647;padding-top:12px}
+
+.hide{display:none!important}
+@media (max-width:560px){
+  .hero h1{font-size:22px}
+  .grid{grid-template-columns:1fr}
+  .tab{padding:10px 13px;font-size:14px}
+  .m-body{padding:6px 16px 18px}
+  .m-head{padding:18px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="home-btn" href="index.html"><i class="ti ti-home"></i> 진학정보실 메인</a>
+      <span class="brand">충청남도교육청진로융합교육원</span>
+    </div>
+    <div class="hero">
+      <h1>2027 학교장추천전형</h1>
+      <div class="stat">
+        <div><b id="s-total">0</b><span>전체 전형</span></div>
+        <div><b id="s-gyo">0</b><span>교과</span></div>
+        <div><b id="s-jong">0</b><span>종합</span></div>
+        <div><b id="s-low">0</b><span>수능최저 있음</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab on" data-tab="find" onclick="setTab('find')"><i class="ti ti-search"></i> 대학 찾기</button>
+    <button class="tab" data-tab="chg" onclick="setTab('chg')"><i class="ti ti-sparkles"></i> 2027 변경사항 모아보기</button>
+  </div>
+
+  <!-- ===== FIND TAB ===== -->
+  <section id="tab-find">
+    <div class="filters">
+      <div class="frow">
+        <div class="search"><i class="ti ti-search"></i><input id="q" type="text" placeholder="대학명·전형명 검색 (예: 고려대, 지역균형)" oninput="apply()"></div>
+        <select id="f-region" onchange="apply()"><option value="">전체 지역</option></select>
+        <select id="f-elig" onchange="apply()">
+          <option value="">추천자격 전체</option>
+          <option value="재학생만">재학생만</option>
+          <option value="재수까지">재수생까지</option>
+          <option value="졸업생가능">졸업생 가능</option>
+        </select>
+        <select id="f-sort" onchange="apply()">
+          <option value="region">정렬 : 지역순</option>
+          <option value="name">정렬 : 가나다순</option>
+          <option value="r-desc">정렬 : 모집인원 많은순</option>
+          <option value="d-desc">정렬 : 모집 증가순</option>
+          <option value="d-asc">정렬 : 모집 감소순</option>
+        </select>
+      </div>
+      <div class="frow">
+        <div class="fgroup"><span class="flabel">유형</span>
+          <button class="chip on" data-g="type" data-v="" onclick="pick(this)">전체</button>
+          <button class="chip" data-g="type" data-v="교과" onclick="pick(this)">교과</button>
+          <button class="chip" data-g="type" data-v="종합" onclick="pick(this)">종합(학종)</button>
+          <button class="chip" data-g="type" data-v="특수" onclick="pick(this)">사관/경찰</button>
+        </div>
+        <div class="fgroup"><span class="flabel">수능최저</span>
+          <button class="chip on" data-g="low" data-v="" onclick="pick(this)">전체</button>
+          <button class="chip" data-g="low" data-v="y" onclick="pick(this)">있음</button>
+          <button class="chip" data-g="low" data-v="n" onclick="pick(this)">없음</button>
+        </div>
+        <label class="toggle" id="t-med"><input type="checkbox" onchange="toggleMed(this)"><i class="ti ti-stethoscope"></i> 의약학 모집</label>
+        <label class="toggle" id="t-itv"><input type="checkbox" onchange="toggleItv(this)"><i class="ti ti-messages"></i> 면접 있음</label>
+      </div>
+    </div>
+
+    <div class="resultbar">
+      <div class="cnt"><b id="r-count">0</b>개 전형</div>
+      <div class="cnt" style="font-size:12.5px"><i class="ti ti-click"></i> 카드를 누르면 상세 · 우측 체크로 비교(최대 4개)</div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty hide" id="empty"><i class="ti ti-mood-empty" style="font-size:30px"></i><br>조건에 맞는 전형이 없습니다.</div>
+  </section>
+
+  <!-- ===== CHANGES TAB ===== -->
+  <section id="tab-chg" class="chgwrap hide">
+    <div class="filters">
+      <div class="frow">
+        <div class="fgroup"><span class="flabel">변경 유형</span>
+          <button class="chip on" data-cg="" onclick="pickChg(this)">전체</button>
+          <button class="chip" data-cg="up" onclick="pickChg(this)">모집 증가</button>
+          <button class="chip" data-cg="down" onclick="pickChg(this)">모집 감소</button>
+          <button class="chip" data-cg="신설" onclick="pickChg(this)">신설</button>
+          <button class="chip" data-cg="최저" onclick="pickChg(this)">수능최저 변경</button>
+          <button class="chip" data-cg="자격" onclick="pickChg(this)">지원자격 변경</button>
+          <button class="chip" data-cg="평가" onclick="pickChg(this)">전형방법·평가 변경</button>
+        </div>
+      </div>
+    </div>
+    <div id="chglist"></div>
+  </section>
+</div>
+
+<!-- detail modal -->
+<div class="overlay" id="ov" onclick="if(event.target===this)closeM()">
+  <div class="modal" id="modal"></div>
+</div>
+
+<!-- compare bar -->
+<div class="cmpbar" id="cmpbar">
+  <span class="txt"><i class="ti ti-git-compare"></i> 비교함 <b id="cmpn">0</b>/4</span>
+  <button class="go" id="cmpgo" onclick="openCompare()">비교하기</button>
+  <button class="clr" onclick="clearCmp()">초기화</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="src">출처 : 2027학년도 모집요강 · SEN진학 프리뷰 · 장진호(전북 정읍고)</div>
+    <div class="made">제작 : 충청남도교육청진로융합교육원 교육연구사 정재연</div>
+    <div class="disc">※ 각 대학 수시 모집요강을 반드시 확인하시기 바랍니다.</div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<script>
+const DATA = [{"region": "서울", "name": "고려대", "campus": "", "jname": "학교추천", "type": "교과", "r27": 648, "r26": 651, "elig": "재학생만", "recommend": "재학생 12명", "method": "교과 90 (교과평균등급점수) + 서류 10 (학생부 종합평가) · 일괄", "interview": "없음", "choejeo": ["인문·자연 : 국수영탐(1) 3개 합 7, 한4", "의예 : 국수영탐(1) 4개 합 5, 한4"], "gyogwa": "원점수·평균·표준편차·석차등급 기재 전 과목", "jipyo": "석차등급 / 성취도별 분포비율", "isu": "반영", "gradsem": "지원 불가(재학생만)", "jinro": "A=1등급 고정, B부터 변환 석차등급", "changes": ["수능 응시과목 지정 폐지", "과탐 동일분야 응시 가능", "학업우수형과 복수지원 불가"], "med": true, "note": ""}, {"region": "서울", "name": "연세대", "campus": "", "jname": "추천형", "type": "교과", "r27": 500, "r26": 529, "elig": "재학생만", "recommend": "재학생 10명", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["인문 : 국·수·탐1·탐2 중 (국/수 포함) 2개 합 4, 영3, 한4", "자연 : 국·수(미/기)·과1·과2 중 (수학 포함) 2개 합 5, 영3, 한4", "통합 : 인문 또는 자연 기준 중 하나 충족", "의·치·약 : (국/수 포함) 1등급 2개, 영3, 한4"], "gyogwa": "전 과목 (A:국수영사과 / B:기타)", "jipyo": "A : Z점수 50% + 등급점수 50%", "isu": "반영", "gradsem": "지원 불가(재학생만)", "jinro": "20% 반영 (A20·B15·C10), B군 9등급/C는 최대 5점 감점", "changes": ["추천형·활동우수형 중복지원 불가", "교과별 최소 이수과목 요건(공통5·일반5·진로1)"], "med": true, "note": ""}, {"region": "서울", "name": "서강대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 178, "r26": 180, "elig": "재학생만", "recommend": "재학생 20명", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["국수영탐(1) 중 3개 각 3등급 이내, 한4"], "gyogwa": "전 교과목", "jipyo": "석차등급 90% + 성취도·성취비율 10%", "isu": "반영", "gradsem": "지원 불가(재학생만)", "jinro": "환산 성취비율 기반 산출(100점 상한)", "changes": ["수능최저 선택과목 구분 없음", "4개 학기 이상 교과성적 필요"], "med": false, "note": ""}, {"region": "서울", "name": "성균관대", "campus": "", "jname": "추천인재", "type": "교과", "r27": 429, "r26": 416, "elig": "재수까지", "recommend": "제한 없음 (재수생까지)", "method": "정량 80 (A군70+B군10) + 정성 20 (전체 과목·출결) · 일괄", "interview": "없음", "choejeo": ["대부분 : 국수영탐(2,평균) 3개 합 7", "자유전공·글로벌·전자전기·SW·반도체·에너지·글바메 등 : 3개 합 6", "의예 : 국수영탐(2,평균) 4개 합 5", "제2외/한문으로 탐구 1과목 대체 가능(의예 제외)"], "gyogwa": "전 교과목 (A군 국수영사과한 / B군 기가·제2외·한문)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "정성평가 20%에 포함", "changes": ["전형명 변경(추천인재)", "지원자격 재수생까지 확대·인원제한 폐지", "수능최저 탐구 2과목 평균으로 변경", "의예과 모집 신설", "정량 A·B군 분리, 정성 출결 반영"], "med": true, "note": ""}, {"region": "서울", "name": "한양대", "campus": "", "jname": "추천형", "type": "교과", "r27": 336, "r26": 341, "elig": "재수까지", "recommend": "11%", "method": "교과 90 + 교과정성평가 10 · 일괄", "interview": "없음", "choejeo": ["전 모집단위 : 국수영탐(1) 3개 합 7"], "gyogwa": "국수영사과·한국사", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "교과정성평가(10%)에 포함", "changes": ["교과정성평가(교과학습발달상황 중심)", "종합(추천형)과 추천인원 별도 산정"], "med": false, "note": ""}, {"region": "서울", "name": "이화여대", "campus": "", "jname": "고교추천", "type": "교과", "r27": 377, "r26": 377, "elig": "재수까지", "recommend": "20명", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["국수영탐(1) 2개 합 5 (인문 국어·자연 수학 응시 필수)"], "gyogwa": "국수영사(역사/도덕)·과·한국사 (공통/일반 80%+진로 20%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "20% 반영 (A10·B8.6·C5.0)", "changes": ["학폭 기재 시 지원 불가"], "med": false, "note": ""}, {"region": "서울", "name": "서울교대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 40, "r26": 40, "elig": "재학생만", "recommend": "재학생 3%", "method": "1단계(2배) 교과 100 → 2단계 교과 80 + 면접 20", "interview": "11/22", "choejeo": ["국수영탐(2,평균) 2개 합 6, 한4"], "gyogwa": "전 교과목 (석차등급/성취도 표기 과목 70% + 진로선택 10%)", "jipyo": "석차등급", "isu": "-", "gradsem": "3-1까지", "jinro": "10/80 반영", "changes": ["수능최저 변경(4합10→2합6, 한4 부활)", "학폭 기재 시 추천 제외"], "med": false, "note": ""}, {"region": "서울", "name": "중앙대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 498, "r26": 503, "elig": "재수까지", "recommend": "20명", "method": "교과 90 + 출결 10 · 일괄", "interview": "없음", "choejeo": ["인문·자연 : 국수영탐(1) 3개 합 7, 한4 (영어 2등급→1등급 간주)", "약학 : 국수영탐(1) 4개 합 5, 한4", "자연(다빈치) : 없음"], "gyogwa": "국수영사과 전 과목 (공통/일반 90%+진로 10%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "10% 반영(성취도 환산)", "changes": ["영어 1·2등급 통합 1등급", "최소 이수과목 요건"], "med": true, "note": ""}, {"region": "서울", "name": "경희대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 604, "r26": 615, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과(56)+출결(7)+봉사(7) + 교과종합평가 30 · 일괄", "interview": "없음", "choejeo": ["인문·자연·자율·자유전공 : 국수영탐(2,평균) 2개 합 5, 한5", "의예·치의예·한의예·약학 : 3개 합 4, 한5", "예술·체육 : 1개 이상 3등급"], "gyogwa": "국수영사과·한 전과목, 예체 국·영 (공통/일반 80%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "20% 반영, 상위 3과목 (A100·B80·C60)", "changes": ["교과종합평가(교과성적+세특 정성평가)"], "med": true, "note": ""}, {"region": "서울", "name": "한국외대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 375, "r26": 380, "elig": "재수까지", "recommend": "서울 10명 · 글로벌 10명", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["서울캠(모집단위Ⅰ) : 국수영탐(1) 2개 합 4", "글로벌캠(모집단위Ⅱ) : 국수영탐(1) 2개 합 6"], "gyogwa": "국수영사(한국사·역사·도덕 포함)·과 전과목", "jipyo": "등급 또는 원점수 환산점수 중 상위값", "isu": "반영", "gradsem": "3-1까지", "jinro": "성취도 환산 (A1·B2·C3등급)", "changes": ["글로벌캠 최저 강화", "한국사 기준 폐지", "계열 구분 없이 반영"], "med": false, "note": ""}, {"region": "서울", "name": "서울시립대", "campus": "", "jname": "지역균형선발", "type": "교과", "r27": 241, "r26": 236, "elig": "재수까지", "recommend": "20명", "method": "교과 80 + 교과정성평가 20 · 일괄", "interview": "없음", "choejeo": ["국수영탐(1) 3개 합 8, 한4"], "gyogwa": "정량 80 (공통/일반 70%+진로 10%) + 정성 20", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "10% 반영(전 과목)", "changes": ["교과정성평가 10%→20% 확대", "선택과목 지정 없음"], "med": false, "note": ""}, {"region": "서울", "name": "건국대", "campus": "", "jname": "KU지역균형", "type": "교과", "r27": 346, "r26": 477, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과정량 70 + 교과정성 30 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "국수영사과·한국사", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "정성평가로만 반영(정량 미반영)", "changes": ["정성평가(교과학습발달상황)", "정성 일정수준 이하 시 선발 제외"], "med": false, "note": ""}, {"region": "서울", "name": "동국대", "campus": "", "jname": "학교장추천인재", "type": "교과", "r27": 410, "r26": 418, "elig": "졸업생가능", "recommend": "8명", "method": "교과 70 + 서류종합 30 (실질 교과85.4+서류14.6) · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "인문 국수영사·한 / 자연 국수영과·한", "jipyo": "석차등급 상위 10과목", "isu": "미반영", "gradsem": "-", "jinro": "서류종합평가로 정성평가", "changes": ["서류종합평가(교과·세특·출결·행특·종합의견)"], "med": false, "note": ""}, {"region": "서울", "name": "홍익대", "campus": "", "jname": "학교장추천자", "type": "교과", "r27": 307, "r26": 307, "elig": "졸업생가능", "recommend": "10명", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["국수영탐(1) 2개 합 5, 한4"], "gyogwa": "인문 국수영사(역사/도덕) / 자연 국수영과 (공통/일반 90%+진로 10%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "10% 반영 (A10·B9·C7)", "changes": ["수능최저 변경(3합8→2합5)", "이수학점 가중치 부여"], "med": false, "note": ""}, {"region": "서울", "name": "숙명여대", "campus": "", "jname": "지역균형선발", "type": "교과", "r27": 287, "r26": 248, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 70 + 서류 30 · 일괄", "interview": "없음", "choejeo": ["약학 : 국수영탐(1) 3개 합 5 (수학 포함)", "그 외 폐지"], "gyogwa": "국수영사(역사/도덕)·과·한 (공통/일반 80%+진로 20%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "20% 반영 (A1·B3·C5등급)", "changes": ["서류 30% 반영", "인문·자연 최저 폐지", "첨단공학부·자유전공학부 신설"], "med": true, "note": ""}, {"region": "서울", "name": "가톨릭대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 233, "r26": 254, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 (의예 인적성면접 P/F)", "interview": "11/22(의예)", "choejeo": ["인문·자연 : 2개 합 7", "자유전공·인문사회·자연공학 : 2개 합 6", "약학 : 국수영과(1) 3개 합 5", "의예 : 국수영과(2,절사) 4개 합 5, 한4 (동일분야 Ⅰ+Ⅱ 불인정)", "간호 : 국수영탐(1) 3개 합 7"], "gyogwa": "국영수·한·사(역사/도덕)·과 전과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "성취도 등급 변환 (A1·B2·C4등급)", "changes": ["일부 모집단위 최저 강화", "진로선택 B·C 점수 변경", "의예 과탐 동일분야 Ⅰ+Ⅱ 불인정"], "med": true, "note": ""}, {"region": "서울", "name": "광운대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 198, "r26": 203, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "국영수사과·한", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "성취도 환산등급 (A1·B2·C4)", "changes": [], "med": false, "note": ""}, {"region": "서울", "name": "국민대", "campus": "", "jname": "교과우수자(학교장추천)", "type": "교과", "r27": 591, "r26": 601, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["인문·자유전공(A)·미래융합(A) : 국수영탐(1) 2개 합 6", "자연·자유전공(B)·미래융합(B) : 국수영과(1) 2개 합 6"], "gyogwa": "인문 국영수사 / 자연 국영수과 / 예체 국영 (공통/일반 85%+진로 15%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "15% 반영, 3과목 (A100·B98·C90)", "changes": ["전형명 변경", "모집단위 신설 최저 확인"], "med": false, "note": ""}, {"region": "서울", "name": "덕성여대", "campus": "", "jname": "고교추천", "type": "교과", "r27": 145, "r26": 175, "elig": "졸업생가능", "recommend": "제한없음 (9수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["글로벌융합 : 국수영탐(1) 2개 합 7 (제2외→영어 대체 가능)", "과학기술·미래인재 : 2개 합 7", "약학 : 국수영탐(1) 3개 합 5 (수학 포함)"], "gyogwa": "국수영사과 전과목 (공통/일반 90%+진로 10%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "전과목 (A100·B99·C97)", "changes": ["모집단위별 최저 변화", "진로선택 3과목→전과목 반영"], "med": true, "note": ""}, {"region": "서울", "name": "동덕여대", "campus": "", "jname": "학생부교과우수자", "type": "교과", "r27": 196, "r26": 244, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["인문·자연 : 국수영탐(1) 2개 합 6", "약학 : 국수(미/기)과(1) 3개 합 6 (수학·과탐2 필수)"], "gyogwa": "인문/자연 필수(국영수)+선택1(사/과) / 약학 국영수과 / 예체 필수(국영)+선택1", "jipyo": "석차등급", "isu": "미반영", "gradsem": "-", "jinro": "미반영", "changes": ["최저 강화(2합7→2합6)", "반영 교과목 변경"], "med": true, "note": ""}, {"region": "서울", "name": "명지대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 291, "r26": 291, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "인문 국수영사·한 / 자연 국수영과 / 예체 국영", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "전과목 (A1·B2·C4등급)", "changes": ["지원자격 변경(3수생까지)"], "med": false, "note": ""}, {"region": "서울", "name": "삼육대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 100, "r26": 102, "elig": "졸업생가능", "recommend": "제한없음 (23수생까지)", "method": "교과 100 (체육 교과40+실기60 / 아트앤디자인 교과20+실기80)", "interview": "없음", "choejeo": ["국수영탐(1) 2개 합 7", "간호·물리치료 : 2개 합 6", "약학 : 국수(미/기)영과(1) 3개 합 5", "체육·아트앤디자인 : 없음"], "gyogwa": "국수영사과 전과목 (체육·아트 국수영사과 중 2개 교과)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "전과목 (A100·B99·C98)", "changes": ["지원자격 10수생→23수생"], "med": true, "note": ""}, {"region": "서울", "name": "상명대", "campus": "", "jname": "고교추천", "type": "교과", "r27": 325, "r26": 325, "elig": "졸업생가능", "recommend": "제한없음 (6수생까지)", "method": "교과 100 (국가안보학과 24명 : 교과 80 + 체력검정 20)", "interview": "10/27(국가안보 체력)", "choejeo": ["폐지"], "gyogwa": "전 교과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "최대 3과목 (A100·B96·C90)", "changes": ["지원자격 5수생→6수생", "수능최저 폐지"], "med": false, "note": "국가안보학과(24명)는 체력검정 포함 별도 선발"}, {"region": "서울", "name": "서울과기대", "campus": "", "jname": "고교추천", "type": "교과", "r27": 509, "r26": 526, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["국수영탐(1) 2개 합 7"], "gyogwa": "인문 국수영사·한 / 자연 국수영과 / 건축학 국수영사과한", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "3과목 (A1·B3·C6등급)", "changes": [], "med": false, "note": ""}, {"region": "서울", "name": "서울여대", "campus": "", "jname": "교과우수자", "type": "교과", "r27": 181, "r26": 171, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 (체육 교과60+실기40)", "interview": "없음", "choejeo": ["국수영탐(1) 2개 합 7"], "gyogwa": "국영수사과 전과목 (반영과목 60학점 이상 이수)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "상위 3과목 가산점 (A1.0·B0.9·C0.5)", "changes": [], "med": false, "note": ""}, {"region": "서울", "name": "성신여대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 380, "r26": 240, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 90 + 출결 10 · 일괄", "interview": "없음", "choejeo": ["국수영탐(1) 2개 합 7", "창의융합학부(예체능)은 최저 없음"], "gyogwa": "인문 국영수사·한 / 간호·자연·창의(첨단) 국영수과 / 창의(자유) 국영수사·과 / 창의(예체) 국영수·사", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "상위 4과목 변환 (A1·B2·C4등급)", "changes": ["진로선택 3과목→4과목 반영"], "med": false, "note": ""}, {"region": "서울", "name": "세종대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 398, "r26": 420, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["인문·자연 : 국수영탐(1) 2개 합 6", "자유전공학부 : 2개 합 5"], "gyogwa": "인문 국영수사 / 자연 국영수과 / 자유전공 국수영 (공통/일반 80%+진로 20%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "20% 전과목 (A1·B3·C5등급)", "changes": [], "med": false, "note": ""}, {"region": "서울", "name": "숭실대", "campus": "", "jname": "교과우수자", "type": "교과", "r27": 450, "r26": 476, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["전 계열 : 국수영탐(1) 2개 합 6"], "gyogwa": "인문/경상/자유전공인문 국수영사·한 / 자연·자유전공자연 국수영과 (공통/일반 80%+진로 20%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "최대 20%, 전과목 (A1·B2·C3등급)", "changes": ["전형명 변경", "자연 최저 선택과목 폐지", "진로선택 이수과목 수 따라 취득비율 제한(20/18/16%)"], "med": false, "note": ""}, {"region": "서울", "name": "한성대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 188, "r26": 202, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "국수영사과 전과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "A=1등급, B부터 누적비율 변환등급", "changes": ["진로선택 반영방법 변경"], "med": false, "note": ""}, {"region": "인천", "name": "경인교대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 110, "r26": 110, "elig": "졸업생가능", "recommend": "제한없음 (7수생까지)", "method": "교과 70 + 면접 30 · 일괄 (영상 업로드)", "interview": "9/22~24", "choejeo": ["국수영탐(1) 4개 합 14"], "gyogwa": "전 교과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "3단계 A1·B3·C5 / 5단계 A1·B3·C5·D7·E9", "changes": ["지원자격 6수생→7수생", "비대면 면접평가"], "med": false, "note": ""}, {"region": "인천", "name": "인하대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 447, "r26": 413, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["인문 : 2개 합 6", "자연 : 2개 합 5", "의예 : 국수영과(2,절사) 3개 합 4", "의류디자인(일반)·자유전공융합은 인문 최저"], "gyogwa": "인문/의류 국영수사·한 / 자연 국영수과 / 자유전공 국수영사과한 / 예능 국영사한 / 체육 국수영", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "3과목 (A1·B2·C4등급)", "changes": ["지원자격 5수생→3수생", "의예 과탐 2과목 평균(절사)"], "med": true, "note": ""}, {"region": "인천", "name": "인천대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 293, "r26": 293, "elig": "졸업생가능", "recommend": "제한없음 (6수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "인문/패션/디자인 국30·영30·수20·사20(한 포함) / 자연 국20·영30·수30·과20", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "미반영", "changes": [], "med": false, "note": ""}, {"region": "경기", "name": "가천대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 358, "r26": 357, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "1단계(7배) 교과 100 → 2단계 1단계 50 + 면접 50", "interview": "11/15~17", "choejeo": [], "gyogwa": "국수영사과 전과목", "jipyo": "석차등급과 성취도", "isu": "미반영", "gradsem": "3-1까지", "jinro": "진로선택 60% + 일반선택 40% / 전과목 변환등급 (A100·B99.5·E70)", "changes": ["변환등급표 변경", "일반선택 5등급까지 A, 진로 원점수 70점까지 A"], "med": false, "note": ""}, {"region": "경기", "name": "강남대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 185, "r26": 163, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["주간 : 국수영탐(1) 1개 3등급", "야간 : 없음"], "gyogwa": "국수영사과·한 전과목(진로선택 포함)", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "성취도 등급환산", "changes": ["상위 20과목 반영", "20과목 미산출자 지원 불가"], "med": false, "note": ""}, {"region": "경기", "name": "경기대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 317, "r26": 316, "elig": "재수까지", "recommend": "20명", "method": "교과 90 + 출결 10 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "전 교과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "전과목 (A1·B2·C4등급)", "changes": [], "med": false, "note": ""}, {"region": "경기", "name": "단국대", "campus": "", "jname": "지역균형선발", "type": "교과", "r27": 241, "r26": 242, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 95 + 출결 5 (체육교육 교과65+출결5+실기30)", "interview": "10/11~12(체육 실기)", "choejeo": ["국수영탐(1) 2개 합 6"], "gyogwa": "국수영사과·한 전과목 / 예체 국영사", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "전과목 (A1·B3·C5등급)", "changes": ["출결 5% 적용", "진로선택 전과목 반영"], "med": false, "note": "죽전캠"}, {"region": "경기", "name": "대진대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 213, "r26": 243, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "국영수사(한/역/도)·과 중 일반·진로선택 상위 18과목(진로 최대 8)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "최대 8과목 (A1·B2·C4등급)", "changes": ["반영과목 15→18개", "진로선택 최대 5→8과목", "부족분 9등급 반영"], "med": false, "note": ""}, {"region": "경기", "name": "수원대", "campus": "", "jname": "고교추천", "type": "교과", "r27": 112, "r26": 111, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 60 + 면접 40 (수능 후, 실질 51.7+48.3)", "interview": "11/21~23", "choejeo": ["국수영탐(1) 1개 4등급"], "gyogwa": "자유전공 국수영사/과 / 인문 국영수사 / 자연 국수영과 (교과별 상위 5과목 · 30/30/25/15%)", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "미반영", "changes": [], "med": false, "note": ""}, {"region": "경기", "name": "아주대", "campus": "", "jname": "고교추천", "type": "교과", "r27": 365, "r26": 361, "elig": "졸업생가능", "recommend": "제한없음 (3수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["일반 : 국수영탐(1) 2개 합 5", "의학 : 국수영탐(2,평균) 4개 합 6"], "gyogwa": "국영수사과", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "5과목 (A1·B3·C5등급)", "changes": ["수능 전영역 응시 자격 폐지", "의학과 선발(15명)"], "med": true, "note": ""}, {"region": "경기", "name": "을지대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 151, "r26": 136, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["의예(대전캠) : 국수영과(2,평균) 3개 합 5 (과탐 1과목 이상 생Ⅰ/생Ⅱ 포함 필수)", "간호 : 국수영탐(1) 2개 합 8", "보건과학 : 국수영탐(1) 1개 4등급 (안경광학·의료경영 제외)", "그 외 : 없음"], "gyogwa": "국영수사과·한국사 전과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "미반영", "changes": ["의예과(20명·대전캠) 신설", "의예 과탐 2과목 평균"], "med": true, "note": "성남·대전 등 캠퍼스 구분"}, {"region": "경기", "name": "차의과학대", "campus": "", "jname": "지역균형선발", "type": "교과", "r27": 92, "r26": 101, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["약학 : 국수영탐(2,절사) 3개 합 6 (수학 포함)", "그 외 : 없음"], "gyogwa": "국영수사(역/도)·과·한국사", "jipyo": "석차등급", "isu": "반영", "gradsem": "3-1까지", "jinro": "전과목 (A1·B3·C5등급)", "changes": [], "med": true, "note": ""}, {"region": "경기", "name": "평택대", "campus": "", "jname": "PTU추천", "type": "교과", "r27": 122, "r26": 90, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "국수영사과·한국사 중 교과 구분 없이 상위 3과목(진로 1과목 포함 가능)", "jipyo": "석차등급", "isu": "-", "gradsem": "3-1까지", "jinro": "1과목 반영 가능 (A1·B2·C4등급)", "changes": ["진로선택과목 반영"], "med": false, "note": ""}, {"region": "경기", "name": "한경국립대", "campus": "", "jname": "지역균형선발", "type": "교과", "r27": 82, "r26": 29, "elig": "졸업생가능", "recommend": "제한없음 (8수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "전 교과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "미반영", "changes": [], "med": false, "note": ""}, {"region": "경기", "name": "한국공학대", "campus": "", "jname": "지역균형", "type": "교과", "r27": 196, "r26": 176, "elig": "졸업생가능", "recommend": "제한없음 (5수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "공학 국수영과 / 경영 국수영사·과 (교과별 상위 4과목)", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "최대 2개 추가 변환 (A1·B2·C4등급)", "changes": [], "med": false, "note": ""}, {"region": "경기", "name": "한국항공대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 111, "r26": 111, "elig": "졸업생가능", "recommend": "제한없음 (9수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "인문 국수영사/과 / 자연 국수영과 (반영교과별 상위 5과목 · 총 20)", "jipyo": "석차등급", "isu": "미반영", "gradsem": "3-1까지", "jinro": "최대 3과목 가산점 (A2·B1.5·C1점)", "changes": ["반영방법 상위 5과목(총 20)", "공학분야 수학 지정과목 폐지"], "med": false, "note": ""}, {"region": "경기", "name": "한신대", "campus": "", "jname": "학교장추천", "type": "교과", "r27": 55, "r26": 55, "elig": "졸업생가능", "recommend": "제한없음 (졸업생 가능)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": [], "gyogwa": "국영수사과·한 중 12과목", "jipyo": "석차등급", "isu": "반영", "gradsem": "-", "jinro": "미반영", "changes": [], "med": false, "note": ""}, {"region": "경기", "name": "한양대", "campus": "ERICA", "jname": "지역균형선발", "type": "교과", "r27": 509, "r26": 540, "elig": "재수까지", "recommend": "제한없음 (재수생까지)", "method": "교과 100 · 일괄", "interview": "없음", "choejeo": ["인문·상경·자연·통합 : 국수영탐(1) 2개 합 7", "약학 : 국수영탐(1) 3개 합 5"], "gyogwa": "국영수사과 / 예체 국영사", "jipyo": "석차등급", "isu": "-", "gradsem": "3-1까지", "jinro": "성취도별 환산점수 산출 반영(모집요강 참조)", "changes": [], "med": true, "note": ""}, {"region": "강원", "name": "연세대", "campus": "미래", "jname": "교과우수자(추천형)", "type": "교과", "r27": 83, "r26": 140, "elig": "재학생만", "recommend": "재학생 (전체) / 의예 9명", "method": "교과 90 + 출결 10 (의예 교과81+출결9+면접10)", "interview": "11/29(의예)", "choejeo": ["의예 : 국수(미/기)과1과2 4개 합 6, 영2, 한4 (동일분야 Ⅰ+Ⅱ 불인정)"], "gyogwa": "국수영사과·한 전과목 (공통/일반 80%+진로 20%)", "jipyo": "석차등급", "isu": "-", "gradsem": "지원 불가(재학생만)", "jinro": "20%, 상위 3과목 (A100·B80·C50)", "changes": ["지원자격 3수생→재학생만", "출결 10% 반영", "의예 면접 20%→10%"], "med": true, "note": ""}, {"region": "서울", "name": "서울대", "campus": "", "jname": "지역균형", "type": "종합", "r27": 511, "r26": 509, "elig": "재학생만", "recommend": "재학생 2명", "method": "1단계(3배) 서류 100 → 2단계 1단계 70 + 면접 30", "interview": "있음", "choejeo": ["4개 영역 중 3개 영역 합 7 (탐구 2과목 평균)"], "gyogwa": "종합 정성평가(학생부)", "jipyo": "종합 정성평가", "isu": "-", "gradsem": "지원 불가(재학생만)", "jinro": "진로선택 포함 종합 정성평가", "changes": ["과탐 Ⅰ+Ⅱ 시 서로 다른 분야 응시", "2-1 지원자 물리/화학 Ⅰ·Ⅱ 중 1개 이상 응시"], "med": false, "note": ""}, {"region": "서울", "name": "가톨릭대", "campus": "", "jname": "학교장추천", "type": "종합", "r27": 50, "r26": "", "elig": "졸업생가능", "recommend": "의예 1명 / 약학·간호 제한없음", "method": "1단계(4배) 서류 100 → 2단계 1단계 70 + 면접 30", "interview": "있음", "choejeo": ["의예 : 국수영과(2,절사) 3개 합 4, 한4 (동일분야 Ⅰ+Ⅱ 불인정)", "약학 : 국수영과(1) 3개 합 5", "간호 : 없음"], "gyogwa": "종합 정성평가 (학업 40 + 진로 35 + 공동체 25)", "jipyo": "종합 정성평가", "isu": "-", "gradsem": "-", "jinro": "진로선택 포함 종합 정성평가", "changes": ["진로역량 40%→35%", "의예 인적성면접 포함(개인별 20분)"], "med": true, "note": ""}, {"region": "서울", "name": "한양대", "campus": "", "jname": "추천형", "type": "종합", "r27": 291, "r26": 199, "elig": "재수까지", "recommend": "11%", "method": "학생부종합평가 100 · 일괄", "interview": "없음", "choejeo": ["자연·인문·상경 : 국수영탐(1) 3개 합 7", "의예 : 국수영탐 3개 합 4"], "gyogwa": "학생부종합평가(고교 교육과정 이수·종합성취도·핵심역량)", "jipyo": "종합 정성평가", "isu": "-", "gradsem": "-", "jinro": "진로선택 포함 종합 정성평가", "changes": ["선발 모집단위·인원 확대", "교과 추천형과 추천인원 별도", "교과(추천형)·종합(서류형/면접형) 중복지원 가능"], "med": true, "note": ""}, {"region": "대전", "name": "KAIST", "campus": "", "jname": "학교장추천", "type": "종합", "r27": 65, "r26": "", "elig": "재학생만", "recommend": "재학생 2명 (일반/특성화/자율고)", "method": "서류 100", "interview": "없음", "choejeo": [], "gyogwa": "종합 정성평가", "jipyo": "종합 정성평가", "isu": "-", "gradsem": "지원 불가(재학생만)", "jinro": "진로선택 포함 종합 정성평가", "changes": ["2026.10월 최종합격 발표", "학과 구분 없이 모집, 1학년 말 학과 자유선택", "Early 2명 추천"], "med": false, "note": ""}, {"region": "광주", "name": "GIST", "campus": "", "jname": "학교장추천", "type": "종합", "r27": 40, "r26": "", "elig": "재학생만", "recommend": "재학생 2명 (일반/특성화/자율고)", "method": "1단계(5배) 서류 100 → 2단계 면접 / 최종 서류 60 + 면접 40", "interview": "있음", "choejeo": [], "gyogwa": "종합 정성평가", "jipyo": "종합 정성평가", "isu": "-", "gradsem": "지원 불가(재학생만)", "jinro": "진로선택 포함 종합 정성평가", "changes": ["1단계 모집배수 확대", "인문사회과학부 40명 모집"], "med": false, "note": ""}, {"region": "대구", "name": "DGIST", "campus": "", "jname": "학교장추천", "type": "종합", "r27": "65 + 반도체공학과 12(정원외)", "r26": "", "elig": "재학생만", "recommend": "재학생 2명", "method": "서류 100 (다수 평가자 다단계 종합평가)", "interview": "없음", "choejeo": [], "gyogwa": "종합 정성평가", "jipyo": "종합 정성평가", "isu": "-", "gradsem": "지원 불가(재학생만)", "jinro": "진로선택 포함 종합 정성평가", "changes": ["수시 6회 제한 예외", "반도체공학과 학·석사통합 12명(삼성전자 채용조건형 계약학과)"], "med": false, "note": ""}, {"region": "대구", "name": "경북대", "campus": "", "jname": "지역균형(학교장추천)", "type": "종합", "r27": "", "r26": "", "elig": "재학생만", "recommend": "대구·경북 지역 고교 추천 3명", "method": "1단계(5배) 교과 100 → 2단계 1단계 70% + 면접", "interview": "있음", "choejeo": ["국·수·영 중 상위 2개 과목과 탐구영역 등급 합 4 이내"], "gyogwa": "종합 정성평가", "jipyo": "종합 정성평가", "isu": "-", "gradsem": "-", "jinro": "진로선택 포함 종합 정성평가", "changes": ["대구·경북지역 고교 대상 지역예우 선발(2027 대입)", "총 3명 추천"], "med": false, "note": "모집인원·세부 2027 모집요강 확인"}, {"region": "서울", "name": "육군사관학교", "campus": "", "jname": "미래국방인재전형", "type": "특수", "r27": "", "r26": "", "elig": "재학생만", "recommend": "학교별 추천 7명 (미래국방인재 3명)", "method": "1단계 서류 100 → 2단계 체력 + 신체 + 면접", "interview": "있음(체력·신체·면접)", "choejeo": ["사관학교 1차 필기시험 별도 응시"], "gyogwa": "-", "jipyo": "-", "isu": "-", "gradsem": "-", "jinro": "-", "changes": ["미래국방인재전형 신설"], "med": false, "note": "자연계열 지원자 응시 가능 · 미래국방인재전형 추천인원에 한해 타 사관학교 중복지원 불가 · 세부 2027 모집요강 확인"}, {"region": "경남", "name": "해군사관학교", "campus": "", "jname": "고교 학교장 추천", "type": "특수", "r27": "", "r26": "", "elig": "재학생만", "recommend": "고교별 최대 5명 (2026 기준)", "method": "사관학교 전형 (1차 필기 · 2차 면접·체력·신체검사)", "interview": "있음", "choejeo": ["사관학교 1차 필기시험 별도 응시"], "gyogwa": "-", "jipyo": "-", "isu": "-", "gradsem": "-", "jinro": "-", "changes": [], "med": false, "note": "세부 2027 모집요강 확인"}, {"region": "충북", "name": "공군사관학교", "campus": "", "jname": "고교 학교장 추천", "type": "특수", "r27": "", "r26": "", "elig": "재학생만", "recommend": "고교별 최대 5명 (2026 기준)", "method": "사관학교 전형 (1차 필기 · 2차 면접·체력·신체검사)", "interview": "있음", "choejeo": ["사관학교 1차 필기시험 별도 응시"], "gyogwa": "-", "jipyo": "-", "isu": "-", "gradsem": "-", "jinro": "-", "changes": [], "med": false, "note": "세부 2027 모집요강 확인"}, {"region": "대전", "name": "국군간호사관학교", "campus": "", "jname": "고교 학교장 추천", "type": "특수", "r27": "", "r26": "", "elig": "졸업생가능", "recommend": "고교별 최대 재학생 1명 · 졸업생 1명", "method": "사관학교 전형 (1차 필기 · 2차 면접·체력·신체검사)", "interview": "있음", "choejeo": ["사관학교 1차 필기시험 별도 응시"], "gyogwa": "-", "jipyo": "-", "isu": "-", "gradsem": "-", "jinro": "-", "changes": [], "med": true, "note": "간호사관 · 세부 2027 모집요강 확인"}, {"region": "충남", "name": "경찰대학교", "campus": "", "jname": "농어촌 특별전형", "type": "특수", "r27": "", "r26": "", "elig": "졸업생가능", "recommend": "고교별 최대 1명 (농어촌 특별전형)", "method": "경찰대 전형 (1차 필기 · 면접·체력·신체검사)", "interview": "있음", "choejeo": ["경찰대 1차 필기시험 별도 응시"], "gyogwa": "-", "jipyo": "-", "isu": "-", "gradsem": "-", "jinro": "-", "changes": [], "med": false, "note": "농어촌 특별전형(졸업생 포함) · 세부 2027 모집요강 확인"}];
+
+const REGION_ORDER = ["서울","인천","경기","강원","대전","충남","충북","대구","경남","광주"];
+const F = {type:"", low:"", elig:"", region:"", q:"", med:false, itv:false, sort:"region"};
+let CMP = [];
+let chgFilter = "";
+
+const $ = s => document.querySelector(s);
+const esc = s => (s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const delta = d => (typeof d.r27==="number" && typeof d.r26==="number") ? d.r27-d.r26 : null;
+const recruitTxt = d => (typeof d.r27==="number")? d.r27+"명" : (d.r27? esc(d.r27) : "—");
+
+function typeBadge(t){return t==="교과"?'<span class="bdg b-gyo">교과</span>':t==="종합"?'<span class="bdg b-jong">종합</span>':'<span class="bdg b-teuk">사관/경찰</span>';}
+
+function initFilters(){
+  const regions = [...new Set(DATA.map(d=>d.region))].sort((a,b)=>REGION_ORDER.indexOf(a)-REGION_ORDER.indexOf(b));
+  $("#f-region").insertAdjacentHTML("beforeend", regions.map(r=>`<option value="${r}">${r}</option>`).join(""));
+  $("#s-total").textContent = DATA.length;
+  $("#s-gyo").textContent = DATA.filter(d=>d.type==="교과").length;
+  $("#s-jong").textContent = DATA.filter(d=>d.type==="종합").length;
+  $("#s-low").textContent = DATA.filter(d=>d.choejeo.length).length;
+}
+
+function pick(b){
+  document.querySelectorAll(`.chip[data-g="${b.dataset.g}"]`).forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); F[b.dataset.g]=b.dataset.v; apply();
+}
+function toggleMed(c){F.med=c.checked; $("#t-med").classList.toggle("on",c.checked); apply();}
+function toggleItv(c){F.itv=c.checked; $("#t-itv").classList.toggle("on",c.checked); apply();}
+
+function match(d){
+  if(F.type && d.type!==F.type) return false;
+  if(F.low==="y" && !d.choejeo.length) return false;
+  if(F.low==="n" && d.choejeo.length) return false;
+  if(F.elig && d.elig!==F.elig) return false;
+  if(F.region && d.region!==F.region) return false;
+  if(F.med && !d.med) return false;
+  if(F.itv && (!d.interview || d.interview==="없음")) return false;
+  if(F.q){const s=(d.name+" "+d.campus+" "+d.jname+" "+d.region).toLowerCase(); if(!s.includes(F.q.toLowerCase())) return false;}
+  return true;
+}
+
+function sortList(list){
+  const s=$("#f-sort").value;
+  const num=d=>typeof d.r27==="number"?d.r27:-1;
+  if(s==="name") list.sort((a,b)=>a.name.localeCompare(b.name,"ko"));
+  else if(s==="r-desc") list.sort((a,b)=>num(b)-num(a));
+  else if(s==="d-desc") list.sort((a,b)=>(delta(b)??-999)-(delta(a)??-999));
+  else if(s==="d-asc") list.sort((a,b)=>(delta(a)??999)-(delta(b)??999));
+  else list.sort((a,b)=>(REGION_ORDER.indexOf(a.region)-REGION_ORDER.indexOf(b.region))||a.name.localeCompare(b.name,"ko"));
+  return list;
+}
+
+function apply(){
+  F.q=$("#q").value; F.sort=$("#f-sort").value;
+  let list = sortList(DATA.filter(match));
+  $("#r-count").textContent = list.length;
+  $("#empty").classList.toggle("hide", list.length>0);
+  $("#grid").innerHTML = list.map(cardHTML).join("");
+}
+
+function cardHTML(d){
+  const i = DATA.indexOf(d); const dl = delta(d);
+  const dlHtml = dl!=null && dl!==0 ? `<span class="delta ${dl>0?'up':'down'}">${dl>0?'▲'+dl:'▼'+Math.abs(dl)}</span>` : "";
+  const low = d.choejeo.length ? '<span class="bdg b-lowy">수능최저 있음</span>' : '<span class="bdg b-lown">수능최저 없음</span>';
+  const med = d.med ? '<span class="bdg b-med">의약학</span>' : "";
+  const itv = (d.interview && d.interview!=="없음") ? '<span class="bdg b-itv">면접</span>' : "";
+  const chg = d.changes.length ? `<span class="bdg b-chg">변경 ${d.changes.length}</span>` : "";
+  return `<div class="card ${CMP.includes(i)?'cmp':''}" onclick="openDetail(${i})">
+    <div class="chk" onclick="event.stopPropagation();toggleCmp(${i})"><i class="ti ti-check"></i></div>
+    <div class="c-top"><span class="c-name">${esc(d.name)}</span>${d.campus?`<span class="c-campus">${esc(d.campus)}</span>`:""}<span class="c-region">${esc(d.region)}</span></div>
+    <div class="c-jname">${typeBadge(d.type)} ${esc(d.jname)}</div>
+    <div class="c-meta">
+      <div><i class="ti ti-users ic"></i>모집 <span class="num">${recruitTxt(d)}</span>${dlHtml}</div>
+      <div><i class="ti ti-user-check ic"></i>추천 ${esc(d.recommend)}</div>
+    </div>
+    <div class="c-method">${esc(d.method)}</div>
+    <div class="badges">${low}${itv}${med}${chg}</div>
+  </div>`;
+}
+
+/* ===== detail ===== */
+function openDetail(i){
+  const d=DATA[i]; const dl=delta(d);
+  const kv=(k,v)=>`<div><div class="k">${k}</div><div class="v">${v||"—"}</div></div>`;
+  const r26 = (typeof d.r26==="number")?d.r26+"명":(d.r26?esc(d.r26):"—");
+  const dlTxt = dl!=null? (dl===0?"동일":(dl>0?`▲ ${dl} 증가`:`▼ ${Math.abs(dl)} 감소`)) : "—";
+  let gyoSec = "";
+  if(d.type==="교과"){
+    gyoSec = `<div class="sec"><h3><i class="ti ti-book"></i> 교과 반영 방법</h3>
+      <div class="kv">
+        ${kv("반영교과",esc(d.gyogwa))}
+        ${kv("반영지표",esc(d.jipyo))}
+        ${kv("이수단위 반영",esc(d.isu))}
+        ${kv("졸업생 반영학기",esc(d.gradsem))}
+      </div>
+      <div style="margin-top:9px">${kv("진로선택과목 반영",esc(d.jinro))}</div></div>`;
+  }
+  const lowSec = `<div class="sec"><h3><i class="ti ti-target"></i> 수능 최저학력기준</h3>` +
+    (d.choejeo.length? `<ul class="low-list">${d.choejeo.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : `<div class="v">없음</div>`) + `</div>`;
+  const chgSec = d.changes.length? `<div class="sec"><h3><i class="ti ti-sparkles"></i> 2027 변경사항</h3><div class="chg-chips">${d.changes.map(c=>`<span class="cc">${esc(c)}</span>`).join("")}</div></div>`:"";
+  const noteSec = d.note? `<div class="sec"><h3><i class="ti ti-note"></i> 비고</h3><div class="notebox">${esc(d.note)}</div></div>`:"";
+  $("#modal").innerHTML=`
+    <div class="m-head">
+      <button class="close" onclick="closeM()"><i class="ti ti-x"></i></button>
+      <h2>${esc(d.name)} ${d.campus?`<span style="font-size:15px;opacity:.85">${esc(d.campus)}</span>`:""}</h2>
+      <div class="sub">${esc(d.region)} · ${esc(d.jname)}</div>
+      <div class="badges">${typeBadge(d.type)}${d.choejeo.length?'<span class="bdg b-lowy">수능최저 있음</span>':'<span class="bdg b-lown">수능최저 없음</span>'}${d.med?'<span class="bdg b-med">의약학</span>':""}</div>
+    </div>
+    <div class="m-body">
+      <div class="sec"><h3><i class="ti ti-info-circle"></i> 기본 정보</h3>
+        <div class="kv">
+          ${kv("2027 모집인원",recruitTxt(d))}
+          ${kv("2026 모집인원",r26)}
+          ${kv("전년 대비",dlTxt)}
+          ${kv("추천 기준",esc(d.recommend))}
+          ${kv("지원 자격",esc(d.elig))}
+          ${kv("면접",esc(d.interview))}
+        </div>
+      </div>
+      <div class="sec"><h3><i class="ti ti-list-check"></i> 전형 방법</h3><div class="v">${esc(d.method)}</div></div>
+      ${lowSec}
+      ${gyoSec}
+      ${chgSec}
+      ${noteSec}
+    </div>`;
+  $("#ov").classList.add("on"); document.body.style.overflow="hidden";
+}
+function closeM(){$("#ov").classList.remove("on"); document.body.style.overflow="";}
+
+/* ===== compare ===== */
+function toggleCmp(i){
+  const k=CMP.indexOf(i);
+  if(k>=0) CMP.splice(k,1);
+  else{ if(CMP.length>=4){alert("최대 4개까지 비교할 수 있습니다.");return;} CMP.push(i); }
+  $("#cmpn").textContent=CMP.length;
+  $("#cmpbar").classList.toggle("on",CMP.length>0);
+  $("#cmpgo").disabled=CMP.length<2;
+  apply();
+}
+function clearCmp(){CMP=[];$("#cmpbar").classList.remove("on");apply();}
+function openCompare(){
+  if(CMP.length<2) return;
+  const items=CMP.map(i=>DATA[i]);
+  const row=(label,fn)=>`<tr><td class="field">${label}</td>${items.map(d=>`<td>${fn(d)}</td>`).join("")}</tr>`;
+  const dlOf=d=>{const x=delta(d);return x==null?"—":(x===0?"동일":(x>0?"▲"+x:"▼"+Math.abs(x)));};
+  const lowOf=d=>d.choejeo.length?d.choejeo.map(esc).join("<br>"):"없음";
+  const html=`<div class="m-head"><button class="close" onclick="closeM()"><i class="ti ti-x"></i></button>
+      <h2>전형 비교</h2><div class="sub">${items.length}개 전형</div></div>
+    <div class="m-body"><div class="cmpscroll"><table class="cmptable">
+      <tr><td class="field">대학 / 전형</td>${items.map(d=>`<th>${esc(d.name)}${d.campus?" "+esc(d.campus):""}<br><span style="font-weight:600;color:#6b7280;font-size:12px">${esc(d.jname)}</span></th>`).join("")}</tr>
+      ${row("지역",d=>esc(d.region))}
+      ${row("유형",d=>typeBadge(d.type))}
+      ${row("2027 모집",d=>recruitTxt(d))}
+      ${row("전년 대비",dlOf)}
+      ${row("추천 기준",d=>esc(d.recommend))}
+      ${row("지원 자격",d=>esc(d.elig))}
+      ${row("전형 방법",d=>esc(d.method))}
+      ${row("면접",d=>esc(d.interview))}
+      ${row("수능최저",lowOf)}
+      ${row("반영지표",d=>esc(d.jipyo))}
+      ${row("진로선택 반영",d=>esc(d.jinro))}
+      ${row("2027 변경",d=>d.changes.length?d.changes.map(esc).join("<br>"):"—")}
+    </table></div></div>`;
+  $("#modal").innerHTML=html; $("#ov").classList.add("on"); document.body.style.overflow="hidden";
+}
+
+/* ===== tabs ===== */
+function setTab(t){
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x.dataset.tab===t));
+  $("#tab-find").classList.toggle("hide",t!=="find");
+  $("#tab-chg").classList.toggle("hide",t!=="chg");
+  if(t==="chg") renderChg();
+}
+function pickChg(b){document.querySelectorAll(".chip[data-cg]").forEach(x=>x.classList.remove("on"));b.classList.add("on");chgFilter=b.dataset.cg;renderChg();}
+function chgCat(d){
+  const cats=new Set(); const dl=delta(d);
+  if(dl>0) cats.add("up"); if(dl<0) cats.add("down");
+  d.changes.forEach(c=>{
+    if(c.includes("신설")) cats.add("신설");
+    if(c.includes("최저")) cats.add("최저");
+    if(c.includes("자격")||c.includes("수생")) cats.add("자격");
+    if(c.includes("평가")||c.includes("전형방법")||c.includes("정성")||c.includes("서류")||c.includes("반영")) cats.add("평가");
+  });
+  return cats;
+}
+function renderChg(){
+  let list=DATA.filter(d=>d.changes.length || delta(d));
+  if(chgFilter) list=list.filter(d=>chgCat(d).has(chgFilter));
+  list=sortList(list);
+  $("#chglist").innerHTML = list.length? list.map(d=>{
+    const i=DATA.indexOf(d); const dl=delta(d);
+    const dlChip = dl!=null&&dl!==0 ? `<span class="cc" style="background:${dl>0?'var(--up-bg)':'var(--down-bg)'};color:${dl>0?'var(--up)':'var(--down)'}">모집 ${dl>0?'▲'+dl:'▼'+Math.abs(dl)}</span>` : "";
+    return `<div class="chg-card" onclick="openDetail(${i})">
+      <div class="cu"><div class="n">${esc(d.name)}${d.campus?" "+esc(d.campus):""}</div><div class="j">${typeBadge(d.type)} ${esc(d.jname)}</div></div>
+      <div class="cl"><div class="chg-chips">${dlChip}${d.changes.map(c=>`<span class="cc">${esc(c)}</span>`).join("")}</div></div>
+    </div>`;
+  }).join("") : `<div class="empty">해당 변경사항이 없습니다.</div>`;
+}
+
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeM();});
+initFilters(); apply();
+</script>
+</body>
+</html>
