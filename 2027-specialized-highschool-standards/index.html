@@ -6,12 +6,35 @@
     <title>2027학년도 특성화고 기준학과 안내</title>
     <meta
       name="description"
-      content="전국 시도교육청별 특성화고등학교 기준학과 자료를 검색하고 검증 가능한 원본 행과 함께 확인하는 안내 페이지"
+      content="2027학년도 대학입학전형 — 전국 17개 시도교육청의 특성화고등학교 기준학과 자료를 학교·학과명으로 검색하고, 원본 시트·행과 함께 확인하는 안내 도구"
     />
+    <meta property="og:title" content="2027학년도 특성화고 기준학과 안내" />
+    <meta
+      property="og:description"
+      content="전국 17개 시도교육청 특성화고 기준학과를 한 화면에서 검색·확인"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0VB6E0J6MB');
+    </script>
+
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#resultsTitle">검색 결과로 건너뛰기</a>
+
     <header class="topbar">
       <a class="brand" href="#top" aria-label="특성화고 기준학과 안내 홈">
         <span class="brand-mark" aria-hidden="true">27</span>
@@ -31,8 +54,8 @@
           <p class="eyebrow">공식자료 기반 조회</p>
           <h1 id="pageTitle">학교와 학과명을 입력하면 기준학과를 바로 확인합니다.</h1>
           <p class="hero-note">
-            17개 시도교육청 자료를 하나의 검색 화면으로 정리했습니다.
-            학교명, 학과명, 기준학과를 빠르게 찾아 확인할 수 있습니다.
+            전국 17개 시도교육청의 특성화고 기준학과 자료를 하나의 검색 화면으로 정리했습니다.
+            학교명·학과명·기준학과를 빠르게 찾고, 원본 시트·행까지 확인할 수 있습니다.
           </p>
           <div class="credit-panel" aria-label="제작과 출처">
             <span><strong>제작</strong> 충청남도교육청진로융합교육원 교육연구사 정재연</span>
@@ -47,8 +70,10 @@
               id="queryInput"
               type="search"
               autocomplete="off"
+              enterkeyhint="search"
               placeholder="예: 홍익디자인고, 생활체육과, 경영·사무과"
             />
+            <kbd class="search-kbd" aria-hidden="true">/</kbd>
           </label>
 
           <div class="filter-row">
@@ -91,17 +116,17 @@
           <h2 id="noticeTitle">자료 해석 기준</h2>
           <p>
             특성화고교졸업자 특별전형의 동일계열 인정은 시도교육청 기준학과 정보를 참고하되,
-            최종 지원 가능 모집단위와 세부 인정 기준은 각 대학 모집요강을 확인해야 합니다.
+            최종 지원 가능 모집단위와 세부 인정 기준은 각 대학 모집요강을 반드시 확인해야 합니다.
           </p>
         </div>
       </section>
 
       <section class="content-grid">
-        <aside class="insight-panel" aria-label="자료 현황">
+        <aside class="insight-panel" aria-label="교육청별 현황">
           <section>
             <div class="section-heading">
               <h2>교육청별 학과 수</h2>
-              <button class="plain-button" id="clearOfficeButton" type="button">전체 보기</button>
+              <button class="plain-button" id="clearOfficeButton" type="button">전체</button>
             </div>
             <div class="office-bars" id="officeBars"></div>
           </section>
@@ -114,6 +139,7 @@
               <h2 id="resultsTitle"><span id="resultCount">0</span>개 행</h2>
             </div>
             <div class="results-actions">
+              <button class="text-button" id="csvButton" type="button">CSV 내려받기</button>
               <button class="text-button" id="resetButton" type="button">초기화</button>
             </div>
           </div>
@@ -130,12 +156,24 @@
             <div id="resultBody"></div>
           </div>
 
-          <div class="load-row">
+          <div class="load-row" id="loadRow">
             <button class="text-button" id="loadMoreButton" type="button">더 보기</button>
+            <span class="load-note" id="loadNote"></span>
           </div>
         </section>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-src">출처 : 한국대학교육협의회 — 전국 시·도교육청별 특성화고등학교 학과별 기준학과 정보(2027학년도 대학입학전형)</div>
+        <div class="footer-made">제작 : 충청남도교육청진로융합교육원 교육연구사 정재연</div>
+        <div class="footer-disc">
+          ※ 기준학과 자료는 2015 개정 교육과정 「전문교과Ⅱ」 표를 기준으로 시도교육청이 제공한 것입니다.
+          동일계열 인정 여부와 최종 지원 가능 모집단위는 반드시 각 대학 모집요강에서 확인하시기 바랍니다.
+        </div>
+      </div>
+    </footer>
 
     <dialog class="detail-dialog" id="detailDialog">
       <div class="dialog-head">
@@ -149,13 +187,6 @@
       </div>
       <div class="detail-body" id="detailBody"></div>
     </dialog>
-
-    <template id="statTemplate">
-      <article class="stat-card">
-        <span class="stat-value"></span>
-        <span class="stat-label"></span>
-      </article>
-    </template>
 
     <script type="module" src="assets/app.js"></script>
   </body>
