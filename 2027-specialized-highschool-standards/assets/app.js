@@ -32,15 +32,11 @@ const els = {
   sortSelect: document.querySelector("#sortSelect"),
   summaryStrip: document.querySelector("#summaryStrip"),
   officeBars: document.querySelector("#officeBars"),
-  qualityChecks: document.querySelector("#qualityChecks"),
-  officialLinks: document.querySelector("#officialLinks"),
   resultCount: document.querySelector("#resultCount"),
   resultBody: document.querySelector("#resultBody"),
   activeFilters: document.querySelector("#activeFilters"),
   loadMoreButton: document.querySelector("#loadMoreButton"),
   resetButton: document.querySelector("#resetButton"),
-  exportButton: document.querySelector("#exportButton"),
-  printButton: document.querySelector("#printButton"),
   clearOfficeButton: document.querySelector("#clearOfficeButton"),
   detailDialog: document.querySelector("#detailDialog"),
   detailTitle: document.querySelector("#detailTitle"),
@@ -114,8 +110,6 @@ function bindEvents() {
     state.visibleCount = PAGE_SIZE;
     render();
   });
-  els.exportButton.addEventListener("click", exportCurrentCsv);
-  els.printButton.addEventListener("click", () => window.print());
   els.closeDialogButton.addEventListener("click", () => els.detailDialog.close());
   els.detailDialog.addEventListener("click", (event) => {
     const rect = els.detailDialog.getBoundingClientRect();
@@ -150,9 +144,7 @@ function populateControls() {
 
 function renderStaticSections() {
   renderStats();
-  renderOfficialLinks();
   renderOfficeBars();
-  renderQualityChecks();
 }
 
 function renderStats() {
@@ -174,26 +166,6 @@ function renderStats() {
       return card;
     }),
   );
-}
-
-function renderOfficialLinks() {
-  const source = document.createElement("a");
-  source.className = "text-link";
-  source.href = dataset.meta.sourceDownloadPath;
-  source.download = "";
-  source.textContent = "원본 내려받기";
-
-  const links = dataset.meta.officialLinks.map((link) => {
-    const anchor = document.createElement("a");
-    anchor.className = "text-link";
-    anchor.href = link.url;
-    anchor.target = "_blank";
-    anchor.rel = "noopener noreferrer";
-    anchor.textContent = link.label;
-    return anchor;
-  });
-
-  els.officialLinks.replaceChildren(source, ...links);
 }
 
 function renderOfficeBars() {
@@ -220,33 +192,6 @@ function renderOfficeBars() {
       return button;
     }),
   );
-}
-
-function renderQualityChecks() {
-  const list = document.createElement("div");
-  list.className = "check-list";
-
-  dataset.quality.checks.forEach((check) => {
-    const item = document.createElement("div");
-    item.className = `check-item${check.passed ? "" : " is-failed"}`;
-    item.innerHTML = `
-      <span class="check-dot" aria-hidden="true">${check.passed ? "✓" : "!"}</span>
-      <span class="check-copy">
-        <strong>${escapeHtml(checkLabels[check.name] ?? check.name)}</strong>
-        <span>예상 ${formatNumber(check.expected)} · 실제 ${formatNumber(check.actual)}</span>
-      </span>
-    `;
-    list.append(item);
-  });
-
-  const meta = document.createElement("div");
-  meta.className = "meta-box";
-  meta.innerHTML = `
-    원본 수정일 ${escapeHtml(formatDateTime(dataset.meta.sourceFileModified))}<br />
-    SHA-256 ${escapeHtml(dataset.meta.sourceSha256.slice(0, 16))}…
-  `;
-
-  els.qualityChecks.replaceChildren(list, meta);
 }
 
 function render() {
@@ -344,11 +289,10 @@ function renderRow(record) {
   row.addEventListener("click", () => openDetail(record));
 
   row.append(
-    makeCell("시도교육청", `<strong>${escapeHtml(record.office)}</strong><span class="result-meta">${escapeHtml(record.sourceSheet)}</span>`),
+    makeCell("시도교육청", `<strong>${escapeHtml(record.office)}</strong>`),
     makeCell("학교명", `<strong>${escapeHtml(record.school)}</strong>`),
     makeCell("학과명", buildDepartmentHtml(record)),
     makeCell("기준학과", buildStandardsHtml(record)),
-    makeCell("원본", `<span class="source-pill">${escapeHtml(record.sourceSheet.replace("교육청", ""))} ${record.sourceRow}행</span>`),
   );
 
   return row;
@@ -371,7 +315,7 @@ function buildDepartmentHtml(record) {
 function buildStandardsHtml(record) {
   const standards = [record.standard1, record.standard2].filter(Boolean);
   if (standards.length === 0) {
-    return '<span class="badge is-warning">원본 미기재</span>';
+    return '<span class="badge is-warning">미기재</span>';
   }
   return `<span class="standard-stack">${standards
     .map((standard) => `<span class="standard-pill">${escapeHtml(standard)}</span>`)
@@ -403,16 +347,10 @@ function openDetail(record) {
       <dt>시도교육청</dt><dd>${escapeHtml(record.office)}</dd>
       <dt>학교명</dt><dd>${escapeHtml(record.school)}</dd>
       <dt>학과명</dt><dd>${escapeHtml(record.department)}</dd>
-      <dt>기준학과 1</dt><dd>${escapeHtml(record.standard1 || "원본 미기재")}</dd>
-      <dt>기준학과 2</dt><dd>${escapeHtml(record.standard2 || "원본 미기재")}</dd>
+      <dt>기준학과 1</dt><dd>${escapeHtml(record.standard1 || "미기재")}</dd>
+      <dt>기준학과 2</dt><dd>${escapeHtml(record.standard2 || "미기재")}</dd>
       <dt>비고</dt><dd>${escapeHtml(record.note || "없음")}</dd>
-      <dt>원본 위치</dt><dd>${escapeHtml(record.sourceSheet)} 시트 ${record.sourceRow}행 · A${record.sourceRow}:F${record.sourceRow}</dd>
     </dl>
-    <div class="meta-box">
-      원본 파일: ${escapeHtml(dataset.meta.sourceFileName)}<br />
-      원본 해시: ${escapeHtml(dataset.meta.sourceSha256)}<br />
-      데이터 생성: ${escapeHtml(formatDateTime(dataset.meta.generatedAt))}
-    </div>
   `;
   els.detailDialog.showModal();
 }
@@ -441,29 +379,6 @@ function resetFilters() {
   render();
 }
 
-function exportCurrentCsv() {
-  const header = ["id", "시도교육청", "학교명", "학과명", "기준학과1", "기준학과2", "비고", "원본시트", "원본행"];
-  const rows = currentRecords.map((record) => [
-    record.id,
-    record.office,
-    record.school,
-    record.department,
-    record.standard1,
-    record.standard2,
-    record.note,
-    record.sourceSheet,
-    record.sourceRow,
-  ]);
-  const csv = [header, ...rows].map((row) => row.map(csvEscape).join(",")).join("\r\n");
-  const blob = new Blob([`\ufeff${csv}`], { type: "text/csv;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = "filtered-specialized-highschool-standards-2027.csv";
-  anchor.click();
-  URL.revokeObjectURL(url);
-}
-
 function normalizeSearch(value) {
   return String(value ?? "")
     .replace(/[･ㆍ〮・]/g, "·")
@@ -486,14 +401,6 @@ function formatDateTime(value) {
     return "";
   }
   return String(value).replace("T", " ");
-}
-
-function csvEscape(value) {
-  const text = String(value ?? "");
-  if (/[",\n\r]/.test(text)) {
-    return `"${text.replace(/"/g, '""')}"`;
-  }
-  return text;
 }
 
 function escapeHtml(value) {

@@ -378,7 +378,7 @@ select {
 
 .notice-band {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   width: var(--content);
   margin: 0 auto 20px;
@@ -397,13 +397,6 @@ select {
   color: #5b4a25;
   font-size: 14px;
   line-height: 1.65;
-}
-
-.notice-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
 }
 
 .content-grid {
@@ -501,64 +494,6 @@ select {
   background: var(--teal);
 }
 
-.quality-panel {
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-#qualityChecks {
-  display: grid;
-  gap: 12px;
-}
-
-.check-list {
-  display: grid;
-  gap: 8px;
-}
-
-.check-item {
-  display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  gap: 8px;
-  align-items: start;
-  padding: 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #fbfcfd;
-}
-
-.check-dot {
-  display: grid;
-  width: 22px;
-  height: 22px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--green-soft);
-  color: var(--teal-dark);
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.check-item.is-failed .check-dot {
-  background: var(--red-soft);
-  color: var(--red);
-}
-
-.check-copy {
-  display: grid;
-  gap: 2px;
-  min-width: 0;
-}
-
-.check-copy strong {
-  font-size: 13px;
-}
-
-.check-copy span {
-  color: var(--muted);
-  font-size: 12px;
-}
-
 .results-panel {
   min-width: 0;
   padding: 18px;
@@ -622,7 +557,7 @@ select {
 .result-head,
 .result-row {
   display: grid;
-  grid-template-columns: minmax(120px, 0.9fr) minmax(150px, 1.2fr) minmax(150px, 1.15fr) minmax(210px, 1.35fr) minmax(96px, 0.55fr);
+  grid-template-columns: minmax(130px, 0.9fr) minmax(170px, 1.2fr) minmax(170px, 1.15fr) minmax(240px, 1.35fr);
   gap: 0;
 }
 
@@ -704,19 +639,6 @@ select {
   font-size: 13px;
   font-weight: 800;
   overflow-wrap: anywhere;
-}
-
-.source-pill {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  min-height: 28px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #eef1f5;
-  color: #43505d;
-  font-size: 12px;
-  font-weight: 800;
 }
 
 .empty-state {
@@ -820,12 +742,7 @@ mark {
   }
 
   .insight-panel {
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
-  }
-
-  .quality-panel {
-    padding-top: 0;
-    border-top: 0;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -860,10 +777,6 @@ mark {
   .notice-band,
   .insight-panel {
     grid-template-columns: 1fr;
-  }
-
-  .notice-links {
-    justify-content: flex-start;
   }
 
   .results-toolbar {
@@ -971,7 +884,6 @@ mark {
   .topbar,
   .search-panel,
   .insight-panel,
-  .notice-links,
   .results-actions,
   .active-filters,
   .load-row {

@@ -2,27 +2,7 @@
   "meta": {
     "title": "전국 시도교육청별 특성화고등학교 기준학과 자료",
     "admissionYear": "2027학년도 대학입학전형",
-    "generatedAt": "2026-06-24T11:16:34",
-    "sourceFileName": "전국 시도교육청별 특성화고등학교 기준학과 자료(2027학년도 대학입학전형).xlsx",
-    "sourcePath": "C:\\Users\\eric\\Documents\\카카오톡 받은 파일\\전국 시도교육청별 특성화고등학교 기준학과 자료(2027학년도 대학입학전형).xlsx",
-    "sourceSha256": "c9e8cb9499722b0cbab72d111ce1aacc89ae78a286761b9e40d4b8b9e1cf4a50",
-    "sourceSizeBytes": 154889,
-    "sourceFileModified": "2026-06-24T10:56:44",
-    "workbookCreated": "2017-06-05T06:20:17",
-    "workbookModified": "2026-05-15T05:00:09",
-    "workbookCreator": "입학기획팀 모상승",
-    "workbookLastModifiedBy": "입학기획팀 박지현",
-    "sourceDownloadPath": "data/source.xlsx",
-    "officialLinks": [
-      {
-        "label": "2027학년도 대학입학전형기본사항",
-        "url": "https://www.kcue.or.kr/_upload/news/2026/03/25/application_2b0ed7f79524e1f514c71d1c1d5cecc6.pdf"
-      },
-      {
-        "label": "2027학년도 특성화고출신자전형 기준학과 안내 게시자료",
-        "url": "https://ipsi.gknu.ac.kr/admission/sub.htm?idx=33858&mode=view&nav_code=and1536915410"
-      }
-    ]
+    "source": "한국대학교육협의회"
   },
   "overview": [
     {
