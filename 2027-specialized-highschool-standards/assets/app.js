@@ -21,7 +21,6 @@ const els = {
   officeSelect: document.querySelector("#officeSelect"),
   standardSelect: document.querySelector("#standardSelect"),
   sortSelect: document.querySelector("#sortSelect"),
-  summaryStrip: document.querySelector("#summaryStrip"),
   officeBars: document.querySelector("#officeBars"),
   resultCount: document.querySelector("#resultCount"),
   resultBody: document.querySelector("#resultBody"),
@@ -30,7 +29,6 @@ const els = {
   loadMoreButton: document.querySelector("#loadMoreButton"),
   loadNote: document.querySelector("#loadNote"),
   resetButton: document.querySelector("#resetButton"),
-  csvButton: document.querySelector("#csvButton"),
   clearOfficeButton: document.querySelector("#clearOfficeButton"),
   detailDialog: document.querySelector("#detailDialog"),
   detailTitle: document.querySelector("#detailTitle"),
@@ -56,7 +54,6 @@ async function init() {
   buildLookups();
   populateControls();
   applyHash();
-  renderStaticSections();
   bindEvents();
   render();
 }
@@ -120,7 +117,6 @@ function bindEvents() {
   });
 
   els.resetButton.addEventListener("click", resetFilters);
-  els.csvButton.addEventListener("click", downloadCsv);
   els.clearOfficeButton.addEventListener("click", () => {
     setOffice("");
   });
@@ -209,32 +205,6 @@ function syncHash() {
   if (state.sort !== "source") params.set("sort", state.sort);
   const hash = params.toString();
   history.replaceState(null, "", hash ? `#${hash}` : location.pathname + location.search);
-}
-
-/* ---------- Static sections ---------- */
-function renderStaticSections() {
-  renderStats();
-}
-
-function renderStats() {
-  const stats = [
-    ["시도교육청", dataset.stats.officeCount],
-    ["학교", dataset.stats.schoolCount],
-    ["학과 행", dataset.stats.recordCount],
-    ["기준학과 종류", dataset.stats.standardRawCount],
-    ["비고 행", dataset.stats.noteCount],
-  ];
-  els.summaryStrip.replaceChildren(
-    ...stats.map(([label, value]) => {
-      const card = document.createElement("article");
-      card.className = "stat-card";
-      card.innerHTML = `
-        <span class="stat-value">${formatNumber(value)}</span>
-        <span class="stat-label">${escapeHtml(label)}</span>
-      `;
-      return card;
-    }),
-  );
 }
 
 /* ---------- Office facet (live counts) ---------- */
@@ -540,42 +510,6 @@ function resetFilters() {
   syncControls();
   syncHash();
   render();
-}
-
-/* ---------- CSV export ---------- */
-function downloadCsv() {
-  if (currentRecords.length === 0) return;
-  const header = ["시도교육청", "학교명", "학과명", "기준학과1", "기준학과2", "비고", "원본시트", "원본행"];
-  const lines = [header, ...currentRecords.map((record) => [
-    record.office,
-    record.school,
-    record.department,
-    record.standard1 || "",
-    record.standard2 || "",
-    record.note || "",
-    record.sourceSheet,
-    record.sourceRow,
-  ])];
-  const csv = lines.map((row) => row.map(csvCell).join(",")).join("\r\n");
-  const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = `특성화고_기준학과_${stampToday()}.csv`;
-  document.body.append(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
-}
-
-function csvCell(value) {
-  const text = String(value ?? "");
-  return /[",\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
-}
-
-function stampToday() {
-  const now = new Date();
-  return `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}`;
 }
 
 /* ---------- Highlighting ---------- */

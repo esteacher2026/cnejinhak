@@ -502,53 +502,6 @@ select {
   box-shadow: inset 0 0 0 1px rgba(12, 125, 114, 0.35);
 }
 
-/* ---------- Summary strip ---------- */
-.summary-strip {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
-  width: var(--content);
-  margin: 0 auto;
-  padding: 0 0 22px;
-}
-
-.stat-card {
-  position: relative;
-  display: grid;
-  gap: 6px;
-  min-height: 98px;
-  padding: 18px;
-  padding-left: 20px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-
-.stat-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: linear-gradient(180deg, var(--brand-l), var(--brand-d));
-}
-
-.stat-value {
-  color: var(--ink);
-  font-size: 29px;
-  font-weight: 850;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.stat-label {
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 650;
-  line-height: 1.4;
-}
-
 /* ---------- Notice band ---------- */
 .notice-band {
   position: relative;
@@ -836,7 +789,9 @@ select {
 
 .result-table {
   margin-top: 14px;
-  overflow: hidden;
+  /* No overflow:hidden — it would trap position:sticky inside this box and
+     stop the header from pinning to the viewport. Corners are rounded
+     explicitly on the header (top) and last row (bottom) instead. */
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
@@ -855,11 +810,26 @@ select {
   top: 70px;
   z-index: 5;
   border-bottom: 1px solid var(--line-2);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
   background: linear-gradient(180deg, #f3f7f8, #eaf1f2);
   color: #36434e;
   font-size: 12px;
   font-weight: 850;
   letter-spacing: 0.01em;
+}
+
+.result-head span:first-child {
+  border-top-left-radius: var(--radius);
+}
+
+.result-head span:last-child {
+  border-top-right-radius: var(--radius);
+}
+
+#resultBody .result-row:last-child {
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
 }
 
 .result-head span,
@@ -1164,10 +1134,6 @@ mark {
     position: static;
     max-height: none;
   }
-
-  .result-head {
-    top: 0;
-  }
 }
 
 @media (max-width: 860px) {
@@ -1189,8 +1155,7 @@ mark {
     font-size: 33px;
   }
 
-  .filter-row,
-  .summary-strip {
+  .filter-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1278,10 +1243,6 @@ mark {
     display: none;
   }
 
-  .summary-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   h1 {
     font-size: 29px;
   }
@@ -1333,7 +1294,6 @@ mark {
   }
 
   .workspace-hero,
-  .summary-strip,
   .notice-band,
   .content-grid {
     width: 100%;
