@@ -1069,20 +1069,6 @@ mark {
   margin: 0;
 }
 
-.meta-box {
-  padding: 13px 14px;
-  border: 1px dashed var(--line-2);
-  border-radius: var(--radius);
-  background: var(--surface-2);
-  color: var(--muted);
-  font-size: 12.5px;
-  line-height: 1.6;
-}
-
-.meta-box strong {
-  color: var(--ink-2);
-}
-
 /* ---------- Footer ---------- */
 .site-footer {
   margin-top: 10px;

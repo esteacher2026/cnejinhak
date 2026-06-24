@@ -464,10 +464,6 @@ function openDetail(record) {
       <dt>기준학과</dt><dd>${standardsHtml}</dd>
       <dt>비고</dt><dd>${escapeHtml(record.note || "없음")}</dd>
     </dl>
-    <p class="meta-box">
-      <strong>원본 위치</strong> · 시트 ${escapeHtml(record.sourceSheet)} · ${escapeHtml(String(record.sourceRow))}행
-      ${record.sourceRange ? `<br />범위 ${escapeHtml(record.sourceRange)}` : ""}
-    </p>
   `;
   els.detailDialog.showModal();
 }
