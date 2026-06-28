@@ -952,3 +952,20 @@ td.col-primary {
     display: none;
   }
 }
+
+/* 전형명 강조 — 흐린 보조줄에 묻히지 않게 진한 색+볼드 */
+.cell-main .jeonhyeong {
+  color: var(--blue);
+  font-weight: 700;
+}
+.detail-jeonhyeong {
+  display: inline-block;
+  margin: 4px 0 0;
+  padding: 3px 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--blue);
+  background: #eef3fb;
+  border: 1px solid #d4e0f2;
+  border-radius: 999px;
+}

@@ -411,7 +411,7 @@ function renderRow(record) {
   return `
     <tr class="${sel}" data-id="${record.id}" tabindex="0" role="button" aria-pressed="${sel ? "true" : "false"}">
       <td class="col-uni"><div class="cell-main"><strong title="${escapeAttr(record.university)}">${escapeHtml(record.university)}</strong><span>${escapeHtml(record.region)}</span></div></td>
-      <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} · ${escapeHtml(record.jname)}</span></div></td>
+      <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} <b class="jeonhyeong">${escapeHtml(record.jname)}</b></span></div></td>
       <td class="col-yr">${cellVal(recruit(record, RESULT_YEAR))}</td>
       <td class="col-yr">${cellVal(competition(record, RESULT_YEAR))}</td>
       <td class="col-yr col-primary"><span class="big-val">${cellVal(avg70(record, RESULT_YEAR))}</span>${diffBadge(record)}</td>
@@ -443,7 +443,7 @@ function renderDetail(record) {
             ${record.variant ? `<span class="chip">${escapeHtml(record.variant)}</span>` : ""}
           </div>
           <h2>${escapeHtml(record.university)} ${escapeHtml(record.dept)}</h2>
-          <p>${escapeHtml(record.jname)}</p>
+          <p class="detail-jeonhyeong">${escapeHtml(record.jname)}</p>
         </div>
         <div class="section-title"><h3>모집 · 경쟁 · 충원</h3><span>2026 정시</span></div>
         ${recruitTable(record)}

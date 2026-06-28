@@ -590,7 +590,7 @@ function renderResultRow(record) {
       <td class="col-major">
         <div class="cell-main">
           <strong title="${escapeAttr(record.major)}">${escapeHtml(record.major)}</strong>
-          <span title="${escapeAttr(record.program)}">${trackTag(record)} · ${escapeHtml(record.program)}</span>
+          <span title="${escapeAttr(record.program)}">${trackTag(record)} <b class="jeonhyeong">${escapeHtml(record.program)}</b></span>
         </div>
       </td>
       <td class="col-yr col-primary">${yr3(record, METRICS[0])}</td>
@@ -621,7 +621,7 @@ function renderDetail(record) {
             ${record.field ? `<span class="chip">${escapeHtml(record.field)}</span>` : ""}
           </div>
           <h2>${escapeHtml(record.university)} ${escapeHtml(record.major)}</h2>
-          <p>${escapeHtml(record.program)}</p>
+          <p class="detail-jeonhyeong">${escapeHtml(record.program)}</p>
         </div>
         <div class="section-title">
           <h3>입결 컷 (3개년)</h3>
