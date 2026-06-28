@@ -143,7 +143,7 @@
     </section>
 
     <section class="meta-grid" aria-label="요약 정보">
-      <div class="meta-card"><b>41</b><span>직접 연결된 영상 수</span></div>
+      <div class="meta-card"><b>70</b><span>직접 연결된 영상 수</span></div>
       <div class="meta-card"><b>8</b><span>분류 태그</span></div>
       <div class="meta-card"><b>진학해(解)유</b><span>주요 재생목록명</span></div>
       <div class="meta-card"><b>단일 HTML</b><span>검색·필터·직접 링크 포함</span></div>
@@ -156,7 +156,7 @@
     <section class="toolbar" aria-label="검색과 필터">
       <div class="search-row">
         <input id="search" type="search" placeholder="예: 수능최저, 서울대, 농어촌, 면접, 과학고, 학교생활기록부" autocomplete="off" />
-        <div id="count" class="count">41개 표시</div>
+        <div id="count" class="count">70개 표시</div>
       </div>
       <div class="chips" id="chips">
         <button class="chip active" data-filter="전체">전체</button>
@@ -189,47 +189,76 @@
     const playlist = "PLN2A5uUxJltHrvVV1pJfBCuI6u_hXQRoh";
     const channel = "충청남도교육청진로융합교육원";
     const videos = [
+      {title:"진로분야와 연계한 수학 주제탐구활동", id:"EAbSIizXeHg", tags:["학생부·면접","학종","탐구활동","수학"]},
+      {title:"학생부종합전형 준비를 위한 수학교과 주제탐구활동", id:"1zr4IUTNs6U", tags:["학생부·면접","학종","탐구활동","수학"]},
+      {title:"학생부종합전형을 대비한 지리교과 연계 인문자연계열 탐구", id:"jbcnhIpHato", tags:["학생부·면접","학종","탐구활동","지리"]},
+      {title:"학생부종합전형 대비 지리교과에서의 탐구", id:"GdLfO_ZFQho", tags:["학생부·면접","학종","탐구활동","지리"]},
+      {title:"학생부종합전형을 대비한 역사 교과에서의 탐구", id:"dzFVflTVYm4", tags:["학생부·면접","학종","탐구활동","역사"]},
+      {title:"학생부종합전형을 대비한 교대 사범계열 희망학생들의 탐구", id:"cP9BE-zII-k", tags:["학생부·면접","학종","탐구활동","교대","사범계열"]},
       {title:"학생부종합전형대비 공학계열 희망학생들의 탐구", id:"bULDu55U3rc", tags:["학생부·면접","학종","탐구활동","공학"]},
       {title:"정성평가를 빛내는 물리교과 심화 탐구 전략", id:"C_0658EBEQA", tags:["학생부·면접","학종","탐구활동","물리"]},
       {title:"학생부종합전형을 대비한 국어국문, 국어교육 희망학생들의 탐구", id:"rkBsxcrP7ms", tags:["학생부·면접","학종","탐구활동","국어"]},
       {title:"학생부종합전형을 대비한 국어교과에서의 탐구", id:"lJuURt3Ensk", tags:["학생부·면접","학종","탐구활동","국어"]},
-      {title:"수능 수학 지도 방법", id:"ZC3P17Ny7mU", tags:["수능최저","학습전략"]},
-      {title:"특성화고에서 대학가기", id:"44ShNJxdL1c", tags:["대입전형","특성화고"]},
-      {title:"수능국어 지도방법", id:"a-CYnMXF0Ts", tags:["수능최저","학습전략"]},
-      {title:"수능 영어 지도 방법", id:"HkayAzZtdfI", tags:["수능최저","학습전략"]},
-      {title:"외국인 특별전형 지원전략", id:"aXCa4XxnQFk", tags:["대입전형","지원전략"]},
-      {title:"지구과학으로 수능최저 도전", id:"It9M-9rpG2U", tags:["수능최저","과학탐구"]},
-      {title:"수능대비, 수능최저를 위한 [사회문화] 공부법", id:"xvhphDYQoGQ", tags:["수능최저","사회탐구"]},
-      {title:"수능최저를 위한 [생활과 윤리] 공부법", id:"oE7TvtsOFiU", tags:["수능최저","사회탐구"]},
-      {title:"수능대비, 수능최저를 위한 [생명과학1] 공부법", id:"pGMuhQzbQUY", tags:["수능최저","과학탐구"]},
-      {title:"입학사정관이 알려주는 면접 준비", id:"57wSxylFd7k", tags:["학생부·면접","대입전형"]},
-      {title:"음악계열 대학입학전형의 이해", id:"hkc08zKCYs4", tags:["대입전형","예체능"]},
-      {title:"교사를 위한 [정시모집 지도 방안]", id:"DiHKpF84dxc", tags:["교사용","대입전형","정시"]},
-      {title:"천안·아산 교육감전형 배정방법", id:"HDcV_7foxss", tags:["고입·특목고","교육감전형"]},
-      {title:"대입으로 바라본 2022 개정 교육과정", id:"VvPPtBU4czg", tags:["교육과정","대입전형"]},
-      {title:"2028 대입제도개편 이렇게 준비!!", id:"6vhEZmfRtZo", tags:["교육과정","대입전형"]},
-      {title:"교사를 위한 2028 대입과 학교생활기록부 기록 방안", id:"kEBkB7rW6dg", tags:["교사용","학생부·면접","교육과정"]},
-      {title:"외고준비 이렇게 한다!!", id:"AY8hDbUzy4A", tags:["고입·특목고","외고"]},
-      {title:"과학고 이렇게 간다", id:"-W3AzbY9III", tags:["고입·특목고","과학고"]},
-      {title:"과학고 생활은 이렇습니다", id:"0CFvbtfIDro", tags:["고입·특목고","과학고"]},
-      {title:"진로 결정 못 하겠어요. 어떡하죠?", id:"tnJnsYlatcI", tags:["진로진학상담","진로"]},
+      {title:"재외국민특별전형 알아보기", id:"IBQQeqt-bW0", tags:["대입전형","재외국민특별전형"]},
+      {title:"고등학교 선택을 위한 학교알리미 보는 법", id:"uabZxDZggBc", tags:["고입·특목고","입시정보","학교알리미"]},
+      {title:"어디가(대입정보포털) 성적 입력 방법", id:"TKOxHj-eR3Q", tags:["대입전형","입시정보","어디가"]},
       {title:"수시모집 - 지원방법과 유의사항", id:"Oub2Rs2SXKE", tags:["대입전형","수시"]},
-      {title:"진로진학 상담방법(Knowhow)", id:"JSpEnSz6dSE", tags:["진로진학상담","상담"]},
-      {title:"슬기로운 진로진학상담센터 활용법", id:"1c2f-TJOYMI", tags:["진로진학상담","상담센터"]},
-      {title:"농어촌전형 완전정복", id:"SzZ-M98C45w", tags:["대입전형","농어촌전형"]},
-      {title:"같은 내신으로 갈 수 있는 대학이 다르다고?", id:"UIw3ZeEHzSE", tags:["대입전형","내신"]},
-      {title:"지역인재전형으로 초등교사 되기", id:"Cd7YoQIOJx0", tags:["대입전형","지역인재","교대"]},
-      {title:"입학사정관이 말하는 학생부종합전형 오해와 이해", id:"gNnUfIY7Bfw", tags:["학생부·면접","대입전형","학종"]},
-      {title:"자연 자율주제탐구 이렇게 준비해 볼까?", id:"toZ4_fLAOa4", tags:["학생부·면접","탐구활동"]},
-      {title:"공주사대부고 선생님이 알려주는 대학 입시정보 활용법", id:"fpeBvbSxBAg", tags:["대입전형","입시정보"]},
-      {title:"3-1학기 성적까지만 반영하는 대학 어디?", id:"xSYPjxGeljo", tags:["대입전형","내신"]},
-      {title:"수능 최저를 위한 영어 공부법", id:"Z-g98alBCrg", tags:["수능최저","학습전략"]},
-      {title:"수능 최저를 위한 국어 공부법", id:"7vImvAVkpHc", tags:["수능최저","학습전략"]},
-      {title:"모집요강 읽고 대학가자", id:"837a4ID1hEY", tags:["대입전형","입시정보"]},
+      {title:"수능국어 지도방법", id:"a-CYnMXF0Ts", tags:["수능최저","학습전략"]},
       {title:"학교생활기록부 분석을 통한 상담방법", id:"2sOsywBHnXU", tags:["진로진학상담","학생부·면접"]},
+      {title:"2026 수능최저로 갈 수 있는 대학찾기", id:"4YtFZO30Kh0", tags:["수능최저","대입전형","입시정보"]},
+      {title:"지구과학으로 수능최저 도전", id:"It9M-9rpG2U", tags:["수능최저","과학탐구"]},
+      {title:"과학고 생활은 이렇습니다", id:"0CFvbtfIDro", tags:["고입·특목고","과학고"]},
+      {title:"진로진학 상담방법(Knowhow)", id:"JSpEnSz6dSE", tags:["진로진학상담","상담"]},
+      {title:"2026, 2027 대입 주요 사항", id:"lSqFuUpgBhE", tags:["대입전형","입시정보"]},
+      {title:"입학사정관이 알려주는 면접 준비", id:"57wSxylFd7k", tags:["학생부·면접","대입전형"]},
       {title:"입학사정관에게 듣는 고교 과목선택 FAQ", id:"Tysh4i01yuw", tags:["학생부·면접","교육과정"]},
       {title:"충남외고 학생들 생활은 이렇답니다", id:"cip-KkcKEU0", tags:["고입·특목고","외고"]},
-      {title:"교사를 위한 [수시모집 지도 방안]", id:"FAyWGJObKiQ", tags:["교사용","대입전형","수시"]}
+      {title:"2026 서강대, 성균관대, 한양대, 이화여대 전형분석", id:"o6vmYb-MPYk", tags:["대입전형","입시정보","대학별전형"]},
+      {title:"2026 서울대, 연세대, 고려대 전형분석", id:"X7mFcYkALXY", tags:["대입전형","입시정보","대학별전형"]},
+      {title:"2026 의대 수능 최저 등급은?", id:"RrAw_T2Grgg", tags:["수능최저","대입전형","의대"]},
+      {title:"수능 수학 지도 방법", id:"ZC3P17Ny7mU", tags:["수능최저","학습전략"]},
+      {title:"특성화고에서 대학가기", id:"44ShNJxdL1c", tags:["대입전형","특성화고"]},
+      {title:"음악계열 대학입학전형의 이해", id:"hkc08zKCYs4", tags:["대입전형","예체능"]},
+      {title:"외국인 특별전형 지원전략", id:"aXCa4XxnQFk", tags:["대입전형","지원전략"]},
+      {title:"교사를 위한 [정시모집 지도 방안]", id:"DiHKpF84dxc", tags:["교사용","대입전형","정시"]},
+      {title:"교사를 위한 [수시모집 지도 방안]", id:"FAyWGJObKiQ", tags:["교사용","대입전형","수시"]},
+      {title:"천안·아산 교육감전형 배정방법", id:"HDcV_7foxss", tags:["고입·특목고","교육감전형"]},
+      {title:"3-1학기 성적까지만 반영하는 대학 어디?", id:"xSYPjxGeljo", tags:["대입전형","내신"]},
+      {title:"2026 학교장추천전형 이렇게 합니다.", id:"zA0_UcBZpH0", tags:["대입전형","학교장추천"]},
+      {title:"수능 영어 지도 방법", id:"HkayAzZtdfI", tags:["수능최저","학습전략"]},
+      {title:"교사를 위한 2028 대입과 학교생활기록부 기록 방안", id:"kEBkB7rW6dg", tags:["교사용","학생부·면접","교육과정"]},
+      {title:"수능최저를 위한 [생활과 윤리] 공부법", id:"oE7TvtsOFiU", tags:["수능최저","사회탐구"]},
+      {title:"수능대비, 수능최저를 위한 [사회문화] 공부법", id:"xvhphDYQoGQ", tags:["수능최저","사회탐구"]},
+      {title:"수능대비, 수능최저를 위한 [생명과학1] 공부법", id:"pGMuhQzbQUY", tags:["수능최저","과학탐구"]},
+      {title:"진로 결정 못 하겠어요. 어떡하죠?", id:"tnJnsYlatcI", tags:["진로진학상담","진로"]},
+      {title:"자연 자율주제탐구 이렇게 준비해 볼까?", id:"toZ4_fLAOa4", tags:["학생부·면접","탐구활동"]},
+      {title:"인문 자율주제 탐구 어렵지 않아요!!", id:"EwQtcXVCSRE", tags:["학생부·면접","탐구활동","인문"]},
+      {title:"체대입시 Q & A", id:"G2h6ty5VoSo", tags:["대입전형","예체능","체대"]},
+      {title:"체대 입시 길라잡이", id:"MlrBJbdEmxc", tags:["대입전형","예체능","체대"]},
+      {title:"외고준비 이렇게 한다!!", id:"AY8hDbUzy4A", tags:["고입·특목고","외고"]},
+      {title:"2028 대입제도개편 이렇게 준비!!", id:"6vhEZmfRtZo", tags:["교육과정","대입전형"]},
+      {title:"공주사대부고 선생님이 알려주는 대학 입시정보 활용법", id:"fpeBvbSxBAg", tags:["대입전형","입시정보"]},
+      {title:"같은 내신으로 갈 수 있는 대학이 다르다고?", id:"UIw3ZeEHzSE", tags:["대입전형","내신"]},
+      {title:"입학사정관이 말하는 학생부종합전형 오해와 이해", id:"gNnUfIY7Bfw", tags:["학생부·면접","대입전형","학종"]},
+      {title:"모집요강 읽고 대학가자", id:"837a4ID1hEY", tags:["대입전형","입시정보"]},
+      {title:"다녀보고 전공 정하는 '무전공 선발' 대비는?", id:"mh8kV6RewYE", tags:["대입전형","입시정보","무전공"]},
+      {title:"입학사정관이 보는 학교생활기록부 기록", id:"g5Od48k2cI0", tags:["학생부·면접","대입전형"]},
+      {title:"슬기로운 진로진학상담센터 활용법", id:"1c2f-TJOYMI", tags:["진로진학상담","상담센터"]},
+      {title:"고등학교 선택과 고민 Q&A", id:"zDtNtcTb5G8", tags:["고입·특목고","진로진학상담"]},
+      {title:"지역인재전형으로 초등교사 되기", id:"Cd7YoQIOJx0", tags:["대입전형","지역인재","교대"]},
+      {title:"수능 최저를 위한 영어 공부법", id:"Z-g98alBCrg", tags:["수능최저","학습전략"]},
+      {title:"의대증원으로 지방의대 가기 쉬워졌나?", id:"ii8RATGK2r4", tags:["대입전형","의대","지역인재"]},
+      {title:"수능, 모의고사(전국연합학력평가) 성적표 이해하기", id:"IEYBe3eJE88", tags:["진로진학상담","수능최저","입시정보"]},
+      {title:"2025 서연고(서울대, 연세대, 고려대) 전형변화", id:"WWv6lkhWrIY", tags:["대입전형","입시정보","대학별전형"]},
+      {title:"과학고 이렇게 간다", id:"-W3AzbY9III", tags:["고입·특목고","과학고"]},
+      {title:"농어촌전형 완전정복", id:"SzZ-M98C45w", tags:["대입전형","농어촌전형"]},
+      {title:"수능 최저를 위한 국어 공부법", id:"7vImvAVkpHc", tags:["수능최저","학습전략"]},
+      {title:"수능 최저를 위한 수학 공부법", id:"kW6LiF7t1b0", tags:["수능최저","학습전략"]},
+      {title:"내 성적으로 갈 수 있는 대학찾기", id:"5_POqT4ofc8", tags:["대입전형","입시정보","내신"]},
+      {title:"내 성적으로 갈 수 있는 대학찾기", id:"whWgoz7X8Uo", tags:["대입전형","입시정보","내신"]},
+      {title:"지역인재전형, 지역균형전형의 차이점 이해", id:"SZohBZ5fPkw", tags:["대입전형","지역인재"]},
+      {title:"지역인재전형, 지역균형전형 차이", id:"iXabdmyCxeY", tags:["대입전형","지역인재"]},
+      {title:"대입으로 바라본 2022 개정 교육과정", id:"VvPPtBU4czg", tags:["교육과정","대입전형"]}
     ];
 
     const grid = document.getElementById('grid');
