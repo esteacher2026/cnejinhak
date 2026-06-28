@@ -499,8 +499,8 @@
 
     section { padding: 44px 0; }
 
-    /* 고정 헤더에 가려지지 않도록 앵커 착지 지점을 내림 */
-    section[id] { scroll-margin-top: 92px; }
+    /* 고정 헤더 + sticky 검색바에 가려지지 않도록 앵커 착지 지점을 내림 */
+    section[id] { scroll-margin-top: calc(var(--sticky-offset, 200px) + 14px); }
 
     .section-head {
       display: flex;
@@ -717,12 +717,50 @@
       gap: 16px;
     }
 
+    /* '전체' 보기에서 카테고리 경계를 알려주는 그룹 구분선 */
+    .group-divider {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 10px 2px 0;
+    }
+    .group-divider:first-child { margin-top: 0; }
+    .group-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .group-divider-label {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .group-divider-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+    .group-divider[data-group="result"] .group-divider-label::before { background: #d97706; }
+    .group-divider[data-group="2027"]   .group-divider-label::before { background: #a13a5d; }
+    .group-divider[data-group="2028"]   .group-divider-label::before { background: #2457a6; }
+    .group-divider[data-group="info"]   .group-divider-label::before { background: #0e7c66; }
+    .group-divider.is-hidden { display: none; }
+
     .resource-card {
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 168px;
+      min-height: 142px;
       padding: 22px 20px 20px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
@@ -830,7 +868,7 @@
       overflow: hidden;
       display: block;
       padding: 22px 20px 20px;
-      min-height: 168px;
+      min-height: 142px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--paper);
@@ -902,7 +940,7 @@
       overflow: hidden;
       display: block;
       padding: 22px 20px 20px;
-      min-height: 168px;
+      min-height: 142px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--paper);
@@ -974,7 +1012,7 @@
       overflow: hidden;
       display: block;
       padding: 22px 20px 20px;
-      min-height: 168px;
+      min-height: 142px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--paper);
@@ -1238,7 +1276,23 @@
     /* ============================================================
        Global toolbar (site-wide search + scope filter + view toggle)
        ============================================================ */
-    .global-tools-section { padding: 0 0 8px; }
+    .global-tools-section {
+      position: sticky;
+      top: var(--topbar-h, 73px);
+      z-index: 20;
+      padding: 10px 0 10px;
+      background: var(--bg);
+      border-bottom: 1px solid transparent;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    /* 스크롤로 상단바 아래에 붙었을 때만 분리감을 위한 그림자 */
+    .global-tools-section.is-stuck {
+      border-bottom-color: var(--line);
+      box-shadow: 0 10px 22px rgba(16, 42, 76, 0.07);
+    }
+    [data-theme="dark"] .global-tools-section.is-stuck {
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+    }
 
     .global-tools {
       padding: 14px;
@@ -1462,6 +1516,12 @@
     section.is-hidden { display: none; }
 
     @media (max-width: 700px) {
+      /* 모바일은 화면이 좁아 sticky 검색바가 과해 — 정적 배치로 되돌림 */
+      .global-tools-section {
+        position: static;
+        box-shadow: none;
+        border-bottom-color: transparent;
+      }
       .scope-chips {
         width: 100%;
         overflow-x: auto;
@@ -1653,6 +1713,9 @@
         <div class="admission-grid" id="admissionGrid">
 
           <!-- ===== 2026 입시결과 ===== -->
+          <div class="group-divider" data-group="result" role="presentation">
+            <span class="group-divider-label">입시결과 · 선행학습</span>
+          </div>
           <a class="resource-card" href="adiga/" data-category="result" data-keywords="2026 입시결과 어디가 대학발표 70컷 50컷 3개년 수시 모집단위 조회 경쟁률 충원">
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026대학발표 입시결과 조회</h3>
@@ -1677,6 +1740,9 @@
             <p>간호·물리치료·방사선·응급구조·임상병리·치위생 24~26 경쟁률·합격자 성적</p>
           </a>
 
+          <div class="group-divider" data-group="2027" role="presentation">
+            <span class="group-divider-label">2027 대입</span>
+          </div>
           <a class="resource-card" href="jonghap_eval.html" data-category="2027" data-keywords="2027 어디가 학생부종합전형 서류평가 평가요소 비율 대학별 비교">
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 서류평가 비교</h3>
@@ -1769,6 +1835,9 @@
           </a>
 
           <!-- ===== 2028 대입 ===== -->
+          <div class="group-divider" data-group="2028" role="presentation">
+            <span class="group-divider-label">2028 대입</span>
+          </div>
           <a class="resource-card" href="2028admission-plan-download.html" data-category="2028" data-keywords="2028 대학입학전형시행계획 대학별 시행계획 기본계획 주요사항 모집인원 원문 다운로드 PDF HWP XLSX">
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대학입학전형시행계획 원문 다운로드</h3>
@@ -1854,6 +1923,9 @@
           </a>
 
           <!-- ===== 대입 정보 ===== -->
+          <div class="group-divider" data-group="info" role="presentation">
+            <span class="group-divider-label">대입 정보</span>
+          </div>
           <a class="resource-card" href="./2028-admission-plans/unimap.html" data-category="info" data-keywords="대학교 입학안내 지도 목록 입학처 수시모집요강 시행계획 선행학습 영향평가 보고서 학생부종합 가이드북">
             <span class="audience cat-info">대입 정보</span>
             <h3>대학교 입학안내 지도</h3>
@@ -2353,6 +2425,7 @@
       var resultCount = document.getElementById('resultCount');
       var scopeChips = document.querySelectorAll('.scope-chips .chip');
       var categoryChips = document.querySelectorAll('#admission .toolbar .chip');
+      var groupDividers = document.querySelectorAll('#admissionGrid .group-divider');
 
       var activeQuery = '';
       var activeScope = 'all';
@@ -2376,6 +2449,11 @@
         var terms = q ? q.split(/\s+/) : [];
         var totalVisible = 0;
         var perSection = { admission: 0, support: 0, instructional: 0, statistics: 0 };
+
+        // 그룹 구분선: 카테고리 '전체' + 검색어 없음 + 진학 섹션 노출 시에만 표시
+        var showGroups = activeCategory === 'all' && terms.length === 0 &&
+                         (activeScope === 'all' || activeScope === 'admission');
+        groupDividers.forEach(function (d) { d.classList.toggle('is-hidden', !showGroups); });
 
         entries.forEach(function (e) {
           var inScope = activeScope === 'all' || e.section === activeScope;
@@ -2632,12 +2710,43 @@
       // 7) Scroll-to-top
       // ============================================================
       var scrollTopBtn = document.getElementById('scrollTop');
+      var toolsSection = document.querySelector('.global-tools-section');
+      var topbarEl = document.querySelector('.topbar');
       var ticking = false;
+
+      // 상단바·검색바의 실제 높이를 재서 sticky 위치/앵커 오프셋을 동적으로 맞춘다.
+      // (네비 링크 줄바꿈, 폰트 로드, 화면 크기에 따라 높이가 달라지므로)
+      function measureSticky() {
+        var th = topbarEl ? topbarEl.offsetHeight : 73;
+        // sticky로 고정되는 검색바 영역 전체 높이(패딩·결과줄 포함)
+        var ch = toolsSection ? toolsSection.offsetHeight : 185;
+        var root = document.documentElement.style;
+        root.setProperty('--topbar-h', th + 'px');
+        root.setProperty('--sticky-offset', (th + ch) + 'px');
+      }
+      measureSticky();
+      window.addEventListener('load', measureSticky);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(measureSticky).catch(function () {});
+      }
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(measureSticky, 150);
+      });
+
       function onScroll() {
         if (window.scrollY > 480) scrollTopBtn.classList.add('visible');
         else scrollTopBtn.classList.remove('visible');
+        // 검색바가 상단바 바로 아래에 붙었는지 감지해 분리 그림자 토글
+        if (toolsSection && topbarEl) {
+          var threshold = topbarEl.offsetHeight + 1;
+          if (toolsSection.getBoundingClientRect().top <= threshold) toolsSection.classList.add('is-stuck');
+          else toolsSection.classList.remove('is-stuck');
+        }
         ticking = false;
       }
+      onScroll();
       window.addEventListener('scroll', function () {
         if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
       }, { passive: true });
