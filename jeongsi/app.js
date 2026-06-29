@@ -1,13 +1,13 @@
 /*
  * 정시(수능위주전형) 입시결과 조회
- * 대학이 발표한 2024·2025·2026 정시(수능위주) 입결을 모집단위별로 3개년 비교.
+ * 대입정보포털(ADIGA) 공식 2024·2025·2026 정시(수능위주) 입결을 모집단위별로 3개년 비교.
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
 const DATA_URL = "./data/jeongsi-data.json";
-// 어디가 정시 입결은 2026(최근 완료연도)만 값 제공 → 단일연도. 반영 과목수는 일부 모집단위만 배지 표기.
-const RESULT_YEAR = 2026;             // 헤드라인·정렬·매칭 기준(어디가 직접)
-const YEARS = [2024, 2025, 2026];      // 2024·2025는 김현석 XLSX(어디가 정시입결) 병합
+// ADIGA 공식 정시 입결 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
+const RESULT_YEAR = 2026;             // 헤드라인·정렬 기준(최근 공식 결과)
+const YEARS = [2024, 2025, 2026];      // ADIGA 공식 전형 결과
 
 const state = {
   query: "",
@@ -111,6 +111,42 @@ function latest(record, accessor) {
   return null;
 }
 
+function admissionFamily(value) {
+  const text = normalize(value);
+  if (!text) return "";
+  if (text.includes("지역인재") && (text.includes("저소득") || text.includes("기회") || text.includes("기균"))) return "지역인재저소득";
+  if (text.includes("지역인재")) return "지역인재";
+  if (text.includes("농어촌")) return "농어촌";
+  if (text.includes("특성화고")) return "특성화고";
+  if (text.includes("저소득") || text.includes("기초생활") || text.includes("차상위") || text.includes("한부모")) return "저소득";
+  if (text.includes("기회") || text.includes("기균") || text.includes("고른기회")) return "기회균형";
+  if (text.includes("일반학생") || text.includes("일반전형") || text.includes("일반")) return "일반";
+  return text;
+}
+
+function hasAnyYearData(record) {
+  return YEARS.some((y) => yearData(record, y));
+}
+
+function relatedHistory(record) {
+  const deptKey = normalize(record.dept);
+  const family = admissionFamily(record.jname);
+  const uniKey = record.unvCd || record.university;
+  if (!deptKey || !family || !uniKey) return [];
+  return DATA.records
+    .filter((r) => (
+      r.id !== record.id &&
+      (r.unvCd || r.university) === uniKey &&
+      normalize(r.dept) === deptKey &&
+      admissionFamily(r.jname) === family &&
+      hasAnyYearData(r)
+    ))
+    .sort((a, b) => (
+      String(a.gun || "").localeCompare(String(b.gun || ""), "ko") ||
+      String(a.jname || "").localeCompare(String(b.jname || ""), "ko")
+    ));
+}
+
 function sortRecords(records) {
   const sorted = [...records];
   const big = (v) => (v == null ? -Infinity : v);
@@ -156,7 +192,7 @@ function mount() {
           <div class="brand-mark" aria-hidden="true">정</div>
           <div>
             <h1>정시(수능위주) 입시결과 조회</h1>
-            <p>대학 발표 2024·2025·2026 정시 입결 — 수능 백분위·경쟁률 3개년 비교</p>
+            <p>ADIGA 공식 2024·2025·2026 정시 입결 — 수능 백분위·경쟁률 3개년 비교</p>
           </div>
         </div>
         <div class="top-actions">
@@ -204,7 +240,7 @@ function mount() {
         </div>
         <footer class="site-footer">
           <div><strong>제작</strong> 충청남도교육청진로융합교육원 교육연구사 정재연</div>
-          <div><strong>출처</strong> 대입정보포털(ADIGA) 정시 입시결과 · 2026 어디가 직접, 2024·2025 어디가 정시입결 자료(목포제일고 김현석)</div>
+          <div><strong>출처</strong> 대입정보포털(ADIGA) 공식 정시(수능위주전형) 전형 결과</div>
         </footer>
       </section>
     </main>
@@ -465,6 +501,7 @@ function renderDetail(record) {
         ${record.areas ? `<p class="area-note">⚠ 이 모집단위는 수능 <b>${record.areas.length}과목</b>(${record.areas.join("·")})만 반영합니다(반영비율 표 기준). 평균백분위는 이 과목들의 평균이라 4과목 반영 대학과 직접 비교는 부적절합니다.</p>` : ""}
         <div class="section-title"><h3>모집 · 경쟁 · 충원</h3><span>2024·2025·2026</span></div>
         ${recruitTable(record)}
+        ${relatedHistoryTable(record)}
       </section>
       <section class="panel panel-pad">
         <div class="section-title"><h3>수능 백분위 (3개년)</h3><span>국·수·탐·영</span></div>
@@ -496,6 +533,38 @@ function recruitTable(record) {
     <tbody>${rows}</tbody></table></div>`;
 }
 
+function relatedHistoryTable(record) {
+  const rows = relatedHistory(record).flatMap((r) => (
+    YEARS.map((y) => ({ record: r, year: y, data: yearData(r, y) }))
+      .filter((row) => row.data)
+  ));
+  if (!rows.length) return "";
+  rows.sort((a, b) => (
+    a.year - b.year ||
+    String(a.record.gun || "").localeCompare(String(b.record.gun || ""), "ko") ||
+    String(a.record.jname || "").localeCompare(String(b.record.jname || ""), "ko")
+  ));
+  const body = rows.map(({ record: r, year, data }) => (
+    `<tr>
+      <th>${year}</th>
+      <td>${gunTag(r)}</td>
+      <td class="related-name" title="${escapeAttr(r.jname)}">${escapeHtml(r.jname)}</td>
+      <td>${fmt(data.m?.[2])}</td>
+      <td>${fmt(data.c)}</td>
+      <td>${fmt(data.w)}</td>
+      <td><strong>${fmt(data.p70?.avg)}</strong></td>
+    </tr>`
+  )).join("");
+  return `<div class="related-history">
+    <div class="section-title"><h3>모집군 변경/관련 전형 결과</h3><span>공식 원본 별도 행</span></div>
+    <p class="related-note">같은 대학·모집단위·전형 계열이지만 모집군 또는 전형명이 달라 별도 공식 행으로 보관된 결과입니다.</p>
+    <div class="table-shell detail-3yr related-table"><table>
+      <thead><tr><th>연도</th><th>군</th><th>전형</th><th>모집</th><th>경쟁률</th><th>충원</th><th>평균70</th></tr></thead>
+      <tbody>${body}</tbody>
+    </table></div>
+  </div>`;
+}
+
 function tamgu(p) {
   const a = fmt(p.t1), b = fmt(p.t2);
   if (a === "–" && b === "–") return "–";
@@ -505,7 +574,7 @@ function tamgu(p) {
 }
 
 // 수능 백분위(70%컷 또는 50%컷)를 3개년 과목별로. 2026 강조.
-// 2024·2025는 XLSX에서 70%컷 과목별·50%컷 평균만 제공(나머지 칸은 자료 없음).
+// ADIGA 연도별 표 구조에 따라 제공되는 백분위 항목만 표시(미제공 칸은 자료 없음).
 function pctTable(record, key) {
   const rows = YEARS.map((y) => {
     const d = yearData(record, y);
