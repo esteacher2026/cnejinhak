@@ -168,7 +168,7 @@ function mount() {
 
     <div class="notice-bar" role="note">
       <span class="notice-tag">⚠ 주의</span>
-      <span>대학 발표 정시(수능위주) 입시결과 원본(참고용·판정 없음). 대학마다 수능 반영영역(국·수·영·탐 중 일부)이 달라 평균백분위 비교에 주의하세요. 소수영역 반영은 확인된 모집단위에 <b class="area-tag-inline">반영 ○·○</b> 로 표시(전수 아님).</span>
+      <span>대학 발표 정시(수능위주) 입시결과 원본(참고용·판정 없음). 대학마다 수능 반영 과목 수가 달라 평균백분위 비교에 주의하세요.</span>
     </div>
 
     <main class="main-layout">
@@ -420,11 +420,11 @@ function renderRow(record) {
 
 function cellVal(v) { return v == null ? "–" : v; }
 
-// 소수영역(2~3) 반영 경고 배지 — 반영비율 표에 명시된 모집단위만(확인된 것만)
+// 수능 반영 과목 수 배지 — 반영비율 표에 명시된 소수영역(1~3과목) 모집단위만(확인된 것만)
 function areaTag(record) {
   if (!record.areas) return "";
-  const t = record.areas.join("·");
-  return ` <span class="area-tag" title="이 모집단위는 수능 ${t} ${record.areas.length}개 영역만 반영합니다. 평균백분위가 4개 영역(국·수·영·탐) 반영 대학과 다른 척도이니 비교에 주의하세요.">반영 ${t}</span>`;
+  const n = record.areas.length;
+  return ` <span class="area-tag" title="이 모집단위는 수능 ${n}과목(${record.areas.join("·")})만 반영합니다. 평균백분위가 4과목 반영 대학과 다른 척도이니 비교에 주의하세요.">수능 ${n}과목</span>`;
 }
 
 // 내 백분위 입력 시: 최신 70%컷과의 차를 표기(+여유 / -부족)
@@ -452,7 +452,7 @@ function renderDetail(record) {
           <h2>${escapeHtml(record.university)} ${escapeHtml(record.dept)}</h2>
           <p class="detail-jeonhyeong">${escapeHtml(record.jname)}</p>
         </div>
-        ${record.areas ? `<p class="area-note">⚠ 이 모집단위는 수능 <b>${record.areas.join("·")} ${record.areas.length}개 영역</b>만 반영합니다(반영비율 표 기준). 아래 평균백분위는 이 영역들의 평균이라 4개 영역(국·수·영·탐) 반영 대학과 직접 비교는 부적절합니다.</p>` : ""}
+        ${record.areas ? `<p class="area-note">⚠ 이 모집단위는 수능 <b>${record.areas.length}과목</b>(${record.areas.join("·")})만 반영합니다(반영비율 표 기준). 아래 평균백분위는 이 과목들의 평균이라 4과목 반영 대학과 직접 비교는 부적절합니다.</p>` : ""}
         <div class="section-title"><h3>모집 · 경쟁 · 충원</h3><span>2026 정시</span></div>
         ${recruitTable(record)}
       </section>
