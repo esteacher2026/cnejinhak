@@ -5,7 +5,7 @@
  */
 let DATA = { metadata: {}, records: [] };
 const DATA_URL = "./data/jeongsi-data.json";
-// 어디가 정시 입결은 2026(최근 완료연도)만 값 제공 → 단일연도. 2027은 전형 '반영방법'만 별도 연계.
+// 어디가 정시 입결은 2026(최근 완료연도)만 값 제공 → 단일연도. 반영 과목수는 일부 모집단위만 배지 표기.
 const RESULT_YEAR = 2026;
 const YEARS = [RESULT_YEAR];
 
@@ -156,7 +156,7 @@ function mount() {
           <div class="brand-mark" aria-hidden="true">정</div>
           <div>
             <h1>정시(수능위주) 입시결과 조회</h1>
-            <p>대학 발표 2026 정시 입결(수능 백분위·경쟁률) + 2027 수능 반영방법</p>
+            <p>대학 발표 2026 정시 입결 — 수능 백분위·경쟁률을 대학·모집단위별 조회</p>
           </div>
         </div>
         <div class="top-actions">
