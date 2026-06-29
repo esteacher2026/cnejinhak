@@ -4,7 +4,7 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_VERSION = "12";
+const DATA_VERSION = "13";
 const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
 const DEFAULT_HIDDEN_UNV_CDS = new Set(["0000053", "0000065"]);
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
@@ -227,7 +227,7 @@ function mount() {
 
     <div class="notice-bar" role="note">
       <span class="notice-tag">⚠ 주의</span>
-      <span>대학 발표 정시(수능위주) 입시결과 원본(참고용·판정 없음). 대학마다 수능 반영 과목 수가 달라 평균백분위 비교에 주의하세요.</span>
+      <span>백분위 비교와 내 점수 매칭은 대학이 백분위 점수를 공개한 모집단위에 한해 참고하세요. 2024·2025는 대학에 따라 백분위를 공개하지 않아 빈칸 또는 환산점수만 표시될 수 있습니다. 전형명·모집단위명이 크게 바뀐 경우 목록이 분리될 수 있습니다.</span>
     </div>
 
     <main class="main-layout">
@@ -553,14 +553,14 @@ function renderDetail(record) {
       </section>
       <section class="panel panel-pad">
         <div class="section-title"><h3>수능 백분위 (3개년)</h3><span>국·수·탐·영</span></div>
-        <p class="cmp-note">✓ 연도 간·대학 간 비교는 <b>백분위</b> 기준이 신뢰할 수 있습니다. 환산점수는 연도·대학마다 만점·산출식이 달라 직접 비교가 부적절합니다(아래 접기).</p>
+        <p class="cmp-note">백분위는 대학 간 단순 비교를 위해 사용한 공통 척도입니다. <b>표준점수·환산점수</b>를 반영하는 대학은 실제 반영식에 따라 백분위 순서와 유불리가 달라질 수 있습니다.</p>
         <div class="sub-h">70%컷 (국·수·탐·영)</div>
         ${pctTable(record, "p70")}
         <div class="sub-h">50%컷 (국·수·탐·영)</div>
         ${pctTable(record, "p50")}
         <details class="method-details" style="margin-top:12px">
-          <summary>수능 환산점수 (연도·대학별 척도 · 직접 비교 부적절)</summary>
-          <p class="cmp-note warn">⚠ 환산점수는 연도·대학마다 만점·산출식이 달라 <b>직접 비교에 부적합</b>합니다. 같은 연도 내 참고로만 보세요.</p>
+          <summary>수능 환산점수 (대학별 산출식 참고)</summary>
+          <p class="cmp-note warn">환산점수는 대학별 만점·산출식이 달라 대학 간 직접 비교보다 같은 대학·같은 전형 안의 참고값으로 보세요.</p>
           ${hwansanTable(record)}
         </details>
         ${notes(record)}
