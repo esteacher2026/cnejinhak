@@ -4,7 +4,7 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_VERSION = "15";
+const DATA_VERSION = "16";
 const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
 const DEFAULT_HIDDEN_UNV_CDS = new Set(["0000053", "0000065"]);
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
@@ -69,6 +69,16 @@ function hwansan70(record, year) {
   const d = yearData(record, year);
   return d ? toNumber(d.hs?.[1]) : null;
 }
+function resultScore(record, year) {
+  const pct = avg70(record, year);
+  if (pct !== null) return { type: "pct", value: pct, title: `${year} 평균백분위 70%컷` };
+  const scale = hwansan70(record, year);
+  if (scale !== null) return { type: "scale", value: scale, title: `${year} 대학별 환산점수 70%컷` };
+  return { type: "empty", value: null, title: `${year} 점수 미제공` };
+}
+function hasHwansanFallback(record) {
+  return YEARS.some((y) => avg70(record, y) === null && hwansan70(record, y) !== null);
+}
 
 /* ---------- 필터 / 정렬 ---------- */
 function tokenize(value) {
@@ -118,6 +128,13 @@ function latest(record, accessor) {
   for (const y of [2026, 2025, 2024]) {
     const v = accessor(record, y);
     if (v !== null) return v;
+  }
+  return null;
+}
+function latestEntry(record, accessor) {
+  for (const y of [2026, 2025, 2024]) {
+    const v = accessor(record, y);
+    if (v !== null) return { year: y, value: v };
   }
   return null;
 }
@@ -214,7 +231,7 @@ function mount() {
           <div class="brand-mark" aria-hidden="true">정</div>
           <div>
             <h1>정시(수능위주) 입시결과 조회</h1>
-            <p>대학발표 2024·2025·2026 정시 입시결과 — 수능 백분위·경쟁률 3개년 비교</p>
+            <p>대학발표 2024·2025·2026 정시 입시결과 — 수능 백분위·환산점수·경쟁률 3개년 비교</p>
           </div>
         </div>
         <div class="top-actions">
@@ -227,7 +244,7 @@ function mount() {
 
     <div class="notice-bar" role="note">
       <span class="notice-tag">⚠ 주의</span>
-      <span>백분위 비교와 내 점수 매칭은 대학이 백분위 점수를 공개한 모집단위에 한해 참고하세요. 2024·2025는 대학에 따라 백분위를 공개하지 않아 빈칸 또는 환산점수만 표시될 수 있습니다. 전형명·모집단위명이 크게 바뀐 경우 목록이 분리될 수 있습니다.</span>
+      <span>백분위 비교와 내 점수 매칭은 대학이 백분위 점수를 공개한 모집단위에 한해 참고하세요. 백분위가 없고 대학별 환산점수 70%컷만 있는 칸은 파란색 환산70으로 표시합니다. 전형명·모집단위명이 크게 바뀐 경우 목록이 분리될 수 있습니다.</span>
     </div>
 
     <main class="main-layout">
@@ -286,7 +303,7 @@ function renderFilterPanel() {
               ${option("1", "±1", state.band)}${option("2", "±2", state.band)}${option("3", "±3", state.band)}${option("5", "±5", state.band)}
             </select>
           </div>
-          <span class="field-hint">2026 평균백분위 70%컷이 내 백분위 ±범위인 모집단위만</span>
+          <span class="field-hint">2026 평균백분위 70%컷이 내 백분위 ±범위인 모집단위만. 환산점수만 있는 칸은 제외</span>
         </div>
         <div class="field">
           <span class="label">모집군</span>
@@ -404,11 +421,11 @@ function renderSummary(records) {
   const vals = records.map((r) => latest(r, avg70)).filter((v) => v !== null);
   const med = vals.length ? medianOf(vals) : null;
   const unis = new Set(records.map((r) => r.unvCd)).size;
-  const scaleOnly = records.filter((r) => latest(r, avg70) === null && latest(r, hwansan70) !== null).length;
+  const scaleShown = records.filter(hasHwansanFallback).length;
   const target = toNumber(state.percentile);
   const matchNote = target === null ? "" :
     ` · <strong class="hl-match">내 백분위 ${target} ±${escapeHtml(state.band)}</strong> 매칭`;
-  const scaleNote = scaleOnly ? ` · 환산점수만 제공 <strong>${scaleOnly.toLocaleString("ko-KR")}</strong>건` : "";
+  const scaleNote = scaleShown ? ` · 환산70 표시 <strong>${scaleShown.toLocaleString("ko-KR")}</strong>건` : "";
   document.querySelector("#resultSummary").innerHTML = `
     <strong>${records.length.toLocaleString("ko-KR")}</strong>개 모집단위
     · ${unis}개 대학
@@ -449,7 +466,7 @@ function renderResults(records) {
                 <th class="col-major">모집단위 · 전형</th>
                 <th class="col-yr">모집</th>
                 <th class="col-yr">경쟁률</th>
-                ${sortableTh("col-yr col-primary", "avg70_desc", "평균백분위 70%", "24·25·26")}
+                ${sortableTh("col-yr col-primary", "avg70_desc", "평균백분위 70%", "환산70 별도표시")}
               </tr>
             </thead>
             <tbody>${pageRecords.map(renderRow).join("")}</tbody>
@@ -473,13 +490,19 @@ function renderRow(record) {
     <tr class="${sel}" data-id="${record.id}" tabindex="0" role="button" aria-pressed="${sel ? "true" : "false"}">
       <td class="col-uni"><div class="cell-main"><strong title="${escapeAttr(record.university)}">${escapeHtml(record.university)}</strong><span>${escapeHtml(record.region)}</span></div></td>
       <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} <b class="jeonhyeong">${escapeHtml(record.jname)}</b>${rowStatusTags(record)}</span></div></td>
-      <td class="col-yr">${cellVal(recruit(record, RESULT_YEAR))}</td>
-      <td class="col-yr">${cellVal(competition(record, RESULT_YEAR))}</td>
-      <td class="col-yr col-primary">${yr3(record, avg70)}${diffBadge(record)}</td>
+      <td class="col-yr">${latestCell(record, recruit)}</td>
+      <td class="col-yr">${latestCell(record, competition)}</td>
+      <td class="col-yr col-primary">${score3(record)}${diffBadge(record)}</td>
     </tr>`;
 }
 
 function cellVal(v) { return v == null ? "–" : v; }
+function latestCell(record, accessor) {
+  const found = latestEntry(record, accessor);
+  if (!found) return "–";
+  const year = found.year === RESULT_YEAR ? "" : ` <span class="cell-year">${String(found.year).slice(2)}</span>`;
+  return `${escapeHtml(found.value)}${year}`;
+}
 
 // 한 지표의 3개년 값을 한 셀에 미니표기. 2026 강조.
 function yr3(record, accessor) {
@@ -491,6 +514,18 @@ function yr3(record, accessor) {
   return `<div class="yr3">${cells}</div>`;
 }
 
+function score3(record) {
+  const cells = YEARS.map((y) => {
+    const metric = resultScore(record, y);
+    const now = y === RESULT_YEAR;
+    const cls = ["y", now ? "now" : "", metric.type === "scale" ? "scale" : "", metric.type === "empty" ? "empty" : ""].filter(Boolean).join(" ");
+    const label = metric.type === "scale" ? "<em>환산70</em>" : "";
+    const value = metric.value == null ? "–" : metric.value;
+    return `<span class="${cls}" title="${escapeAttr(metric.title)}"><i>${String(y).slice(2)}</i>${label}<b>${escapeHtml(value)}</b></span>`;
+  }).join("");
+  return `<div class="yr3 score3">${cells}</div>`;
+}
+
 // 수능 반영 과목 수 배지 — 반영비율 표에 명시된 소수영역(1~3과목) 모집단위만(확인된 것만)
 function areaTag(record) {
   if (!record.areas) return "";
@@ -499,8 +534,8 @@ function areaTag(record) {
 }
 
 function scaleTag(record) {
-  if (latest(record, avg70) !== null || latest(record, hwansan70) === null) return "";
-  return ` <span class="scale-tag" title="대학 발표 자료에 평균백분위가 제공되지 않아 환산점수만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외됩니다.">백분위 미제공</span>`;
+  if (!hasHwansanFallback(record)) return "";
+  return ` <span class="scale-tag" title="백분위가 없는 연도 칸은 대학별 환산점수 70%컷으로 표시합니다. 환산점수는 대학별 산출식이 달라 백분위 매칭과 평균백분위 정렬에서는 제외됩니다.">환산70 표시</span>`;
 }
 
 function missingYearTag(record) {
@@ -516,8 +551,8 @@ function rowStatusTags(record) {
 }
 
 function scaleOnlyNotice(record) {
-  if (latest(record, avg70) !== null || latest(record, hwansan70) === null) return "";
-  return `<p class="cmp-note warn">대학 발표 표에 평균백분위가 제공되지 않아 이 모집단위는 <b>환산점수</b>만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외하고, 아래 환산점수 표를 참고하세요.</p>`;
+  if (!hasHwansanFallback(record)) return "";
+  return `<p class="cmp-note warn">백분위가 없는 연도는 <b>대학별 환산점수 70%컷</b>을 파란색 환산70으로 표시합니다. 환산점수는 대학별 만점·산출식이 달라 대학 간 백분위 비교와 내 백분위 매칭에서는 제외하고, 같은 대학·같은 전형 안의 참고값으로 보세요.</p>`;
 }
 
 // 내 백분위 입력 시: 최신 70%컷과의 차를 표기(+여유 / -부족)
@@ -600,17 +635,26 @@ function relatedHistoryTable(record) {
       <td>${fmt(data.m?.[2])}</td>
       <td>${fmt(data.c)}</td>
       <td>${fmt(data.w)}</td>
-      <td><strong>${fmt(data.p70?.avg)}</strong></td>
+      <td>${scoreInline(r, year)}</td>
     </tr>`
   )).join("");
   return `<div class="related-history">
     <div class="section-title"><h3>모집군 변경/관련 전형 결과</h3><span>원자료 별도 행</span></div>
     <p class="related-note">같은 대학·모집단위·전형 계열이지만 모집군 또는 전형명이 달라 별도 원자료 행으로 보관된 결과입니다.</p>
     <div class="table-shell detail-3yr related-table"><table>
-      <thead><tr><th>연도</th><th>군</th><th>전형</th><th>모집</th><th>경쟁률</th><th>충원</th><th>평균70</th></tr></thead>
+      <thead><tr><th>연도</th><th>군</th><th>전형</th><th>모집</th><th>경쟁률</th><th>충원</th><th>평균70/환산70</th></tr></thead>
       <tbody>${body}</tbody>
     </table></div>
   </div>`;
+}
+
+function scoreInline(record, year) {
+  const metric = resultScore(record, year);
+  if (metric.value == null) return "–";
+  if (metric.type === "scale") {
+    return `<span class="inline-scale" title="${escapeAttr(metric.title)}">환산 ${escapeHtml(metric.value)}</span>`;
+  }
+  return `<strong>${escapeHtml(metric.value)}</strong>`;
 }
 
 function tamgu(p) {

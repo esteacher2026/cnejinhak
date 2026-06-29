@@ -103,6 +103,14 @@ def strip_zero(value: str) -> str:
     return str(number).rstrip("0").rstrip(".")
 
 
+def ratio_value(value: Any) -> str:
+    text = strip_zero(clean(value))
+    match = re.fullmatch(r"(-?\d+(?:\.\d+)?)\s*:\s*1", text)
+    if match:
+        return strip_zero(match.group(1))
+    return text
+
+
 def numeric_value(value: Any) -> float | None:
     text = strip_zero(clean(value))
     if not re.fullmatch(r"-?\d+(?:\.\d+)?", text):
@@ -332,7 +340,7 @@ def extract_rows(table: Any) -> list[list[str]]:
 
 
 def gun_from_text(value: str) -> str:
-    text = clean(value)
+    text = clean(value).replace("‘", "").replace("’", "").replace("'", "").replace('"', "")
     match = re.search(r"([가나다])\s*군", text)
     if match:
         return match.group(1)
@@ -343,6 +351,11 @@ def gun_from_text(value: str) -> str:
     if match:
         return match.group(1)
     return ""
+
+
+def is_gun_label(value: str) -> bool:
+    text = clean(value).replace("‘", "").replace("’", "").replace("'", "").replace('"', "")
+    return bool(re.fullmatch(r"[가나다]\s*군", text))
 
 
 def canonical_admission(value: str) -> str:
@@ -402,7 +415,7 @@ def choose_subject(values: list[str]) -> str:
 def ydata_empty_note(m: list[str], c: str, w: str, note: str) -> dict[str, Any]:
     return {
         "m": m,
-        "c": strip_zero(c),
+        "c": ratio_value(c),
         "w": strip_zero(w),
         "hs": ["", "", ""],
         "p50": {"kor": "", "math": "", "t1": "", "t2": "", "avg": "", "hist": "", "eng": ""},
@@ -416,7 +429,7 @@ def make_ydata_new(cells: list[str]) -> dict[str, Any]:
     if len(cells) < 9:
         return ydata_empty_note(["", "", ""], "", "", "표 구조 미확인")
     m = [strip_zero(cells[2]), strip_zero(cells[3]), strip_zero(cells[4])]
-    comp = strip_zero(cells[5]) if len(cells) > 5 else ""
+    comp = ratio_value(cells[5]) if len(cells) > 5 else ""
     wait = strip_zero(cells[6]) if len(cells) > 6 else ""
     if len(cells) < 31:
         reason = cells[-1] if cells else ""
@@ -464,7 +477,7 @@ def make_ydata_old(data: list[str]) -> dict[str, Any]:
             avg70 = percentile_value(last_score)
         ydata = {
             "m": ["", "", strip_zero(data[0])],
-            "c": strip_zero(data[1]),
+            "c": ratio_value(data[1]),
             "w": strip_zero(data[2]),
             "hs": hs,
             "p50": {"kor": "", "math": "", "t1": "", "t2": "", "eng": "", "hist": "", "avg": ""},
@@ -499,7 +512,7 @@ def make_ydata_old(data: list[str]) -> dict[str, Any]:
     p70["avg"] = average_from_subjects(p70)
     return {
         "m": [strip_zero(data[0]), strip_zero(data[1]), strip_zero(data[2])],
-        "c": strip_zero(data[3]),
+        "c": ratio_value(data[3]),
         "w": strip_zero(data[4]),
         "hs": [strip_zero(data[5]), strip_zero(data[6]), strip_zero(data[7])],
         "p50": p50,
@@ -546,48 +559,66 @@ def parse_old_fragment(fragment: str, university: University, result_year: int) 
     tables = doc.xpath("//table")
     if not tables:
         return []
-    table_html = html.tostring(tables[-1], encoding="unicode")
-    try:
-        df = pd.read_html(StringIO(table_html))[0]
-    except ValueError:
-        return []
     rows_out: list[dict[str, Any]] = []
-    for row_no, raw_row in enumerate(df.fillna("").values.tolist(), start=1):
-        cells = [clean(value) for value in raw_row]
-        if not any(cells):
+    for table_no, table in enumerate(tables, start=1):
+        table_html = html.tostring(table, encoding="unicode")
+        try:
+            df = pd.read_html(StringIO(table_html))[0]
+        except ValueError:
             continue
-        if cells[0] in {"구분", "최초", "모집시기", "과목별 백분위(영어, 한국사는 등급 표기)"}:
-            continue
-        if cells[0] in {"국", "수", "탐1", "탐2", "영", "한"}:
-            continue
-        if "대학별 산출방식" in cells[0]:
-            continue
+        table_title = old_table_title(df)
+        for row_no, raw_row in enumerate(df.fillna("").values.tolist(), start=1):
+            cells = [clean(value) for value in raw_row]
+            if not any(cells):
+                continue
+            if cells[0] in {"구분", "최초", "모집시기", "과목별 백분위(영어, 한국사는 등급 표기)"}:
+                continue
+            if cells[0] in {"국", "수", "탐1", "탐2", "영", "한"}:
+                continue
+            if "대학별 산출방식" in cells[0]:
+                continue
 
-        first = cells[0]
-        gun = gun_from_text(first)
-        if not gun:
-            continue
-        if re.fullmatch(r"[가나다]\s*군", first):
-            if len(cells) >= 9 and not looks_numeric(cells[2]):
-                title = canonical_admission(cells[1])
-                dept = cells[2]
-                data = cells[3:]
+            first = cells[0]
+            gun = gun_from_text(first)
+            if not gun:
+                continue
+            if is_gun_label(first):
+                if len(cells) >= 9 and not looks_numeric(cells[2]):
+                    title = canonical_admission(cells[1])
+                    dept = cells[2]
+                    data = cells[3:]
+                elif len(cells) >= 8:
+                    title = canonical_admission(table_title or "수능위주")
+                    dept = cells[1]
+                    data = cells[2:]
+                else:
+                    continue
             elif len(cells) >= 8:
-                title = "수능위주"
+                title = canonical_admission(re.sub(r"^[가나다]\s*군\s*", "", first))
                 dept = cells[1]
                 data = cells[2:]
             else:
                 continue
-        else:
-            if len(cells) < 8:
+            if not dept or dept == "모집단위":
                 continue
-            title = canonical_admission(re.sub(r"^[가나다]\s*군\s*", "", first))
-            dept = cells[1]
-            data = cells[2:]
-        if not dept or dept == "모집단위":
-            continue
-        rows_out.append(make_row(university, result_year, gun, title, dept, make_ydata_old(data), 1, row_no))
+            rows_out.append(make_row(university, result_year, gun, title, dept, make_ydata_old(data), table_no, row_no))
     return rows_out
+
+
+def old_table_title(df: pd.DataFrame) -> str:
+    for raw_row in df.fillna("").values.tolist()[:4]:
+        cells = [clean(value) for value in raw_row]
+        non_empty = [cell for cell in cells if cell]
+        if not non_empty:
+            continue
+        first = non_empty[0]
+        if first in {"구분", "최초", "모집시기"}:
+            return ""
+        if all(cell == first for cell in non_empty) and ("정시" in first or "수능" in first):
+            return first
+        if len(non_empty) == 1 and ("정시" in first or "수능" in first):
+            return first
+    return ""
 
 
 def looks_numeric(value: str) -> bool:
