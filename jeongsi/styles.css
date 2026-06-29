@@ -597,7 +597,9 @@ td.col-primary {
 }
 
 .col-primary .yr3 .y.now {
-  background: #e3f1ef;
+  background: #d7ece9;
+  font-size: 14px;
+  box-shadow: inset 0 0 0 1px var(--teal);
 }
 
 .track-tag {

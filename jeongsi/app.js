@@ -6,8 +6,8 @@
 let DATA = { metadata: {}, records: [] };
 const DATA_URL = "./data/jeongsi-data.json";
 // 어디가 정시 입결은 2026(최근 완료연도)만 값 제공 → 단일연도. 반영 과목수는 일부 모집단위만 배지 표기.
-const RESULT_YEAR = 2026;
-const YEARS = [RESULT_YEAR];
+const RESULT_YEAR = 2026;             // 헤드라인·정렬·매칭 기준(어디가 직접)
+const YEARS = [2024, 2025, 2026];      // 2024·2025는 김현석 XLSX(어디가 정시입결) 병합
 
 const state = {
   query: "",
@@ -156,7 +156,7 @@ function mount() {
           <div class="brand-mark" aria-hidden="true">정</div>
           <div>
             <h1>정시(수능위주) 입시결과 조회</h1>
-            <p>대학 발표 2026 정시 입결 — 수능 백분위·경쟁률을 대학·모집단위별 조회</p>
+            <p>대학 발표 2024·2025·2026 정시 입결 — 수능 백분위·경쟁률 3개년 비교</p>
           </div>
         </div>
         <div class="top-actions">
@@ -204,7 +204,7 @@ function mount() {
         </div>
         <footer class="site-footer">
           <div><strong>제작</strong> 충청남도교육청진로융합교육원 교육연구사 정재연</div>
-          <div><strong>출처</strong> 대입정보포털(ADIGA) · 대학 발표 정시(수능위주) 입시결과</div>
+          <div><strong>출처</strong> 대입정보포털(ADIGA) 정시 입시결과 · 2026 어디가 직접, 2024·2025 어디가 정시입결 자료(목포제일고 김현석)</div>
         </footer>
       </section>
     </main>
@@ -388,7 +388,7 @@ function renderResults(records) {
                 <th class="col-major">모집단위 · 전형</th>
                 <th class="col-yr">모집</th>
                 <th class="col-yr">경쟁률</th>
-                ${sortableTh("col-yr col-primary", "avg70_desc", "평균백분위 70%", "2026")}
+                ${sortableTh("col-yr col-primary", "avg70_desc", "평균백분위 70%", "24·25·26")}
               </tr>
             </thead>
             <tbody>${pageRecords.map(renderRow).join("")}</tbody>
@@ -414,11 +414,21 @@ function renderRow(record) {
       <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} <b class="jeonhyeong">${escapeHtml(record.jname)}</b>${areaTag(record)}</span></div></td>
       <td class="col-yr">${cellVal(recruit(record, RESULT_YEAR))}</td>
       <td class="col-yr">${cellVal(competition(record, RESULT_YEAR))}</td>
-      <td class="col-yr col-primary"><span class="big-val">${cellVal(avg70(record, RESULT_YEAR))}</span>${diffBadge(record)}</td>
+      <td class="col-yr col-primary">${yr3(record, avg70)}${diffBadge(record)}</td>
     </tr>`;
 }
 
 function cellVal(v) { return v == null ? "–" : v; }
+
+// 한 지표의 3개년 값을 한 셀에 미니표기. 2026 강조.
+function yr3(record, accessor) {
+  const cells = YEARS.map((y) => {
+    const v = accessor(record, y);
+    const now = y === RESULT_YEAR;
+    return `<span class="y${now ? " now" : ""}"><i>${String(y).slice(2)}</i>${v == null ? "–" : v}</span>`;
+  }).join("");
+  return `<div class="yr3">${cells}</div>`;
+}
 
 // 수능 반영 과목 수 배지 — 반영비율 표에 명시된 소수영역(1~3과목) 모집단위만(확인된 것만)
 function areaTag(record) {
@@ -452,19 +462,20 @@ function renderDetail(record) {
           <h2>${escapeHtml(record.university)} ${escapeHtml(record.dept)}</h2>
           <p class="detail-jeonhyeong">${escapeHtml(record.jname)}</p>
         </div>
-        ${record.areas ? `<p class="area-note">⚠ 이 모집단위는 수능 <b>${record.areas.length}과목</b>(${record.areas.join("·")})만 반영합니다(반영비율 표 기준). 아래 평균백분위는 이 과목들의 평균이라 4과목 반영 대학과 직접 비교는 부적절합니다.</p>` : ""}
-        <div class="section-title"><h3>모집 · 경쟁 · 충원</h3><span>2026 정시</span></div>
+        ${record.areas ? `<p class="area-note">⚠ 이 모집단위는 수능 <b>${record.areas.length}과목</b>(${record.areas.join("·")})만 반영합니다(반영비율 표 기준). 평균백분위는 이 과목들의 평균이라 4과목 반영 대학과 직접 비교는 부적절합니다.</p>` : ""}
+        <div class="section-title"><h3>모집 · 경쟁 · 충원</h3><span>2024·2025·2026</span></div>
         ${recruitTable(record)}
       </section>
       <section class="panel panel-pad">
-        <div class="section-title"><h3>2026 수능 백분위</h3><span>국·수·탐·영</span></div>
-        <p class="cmp-note">✓ <b>대학 간 비교는 백분위</b> 기준이 신뢰할 수 있습니다. 환산점수는 대학마다 산출식·만점이 달라 대학 간 직접 비교가 부적절합니다.</p>
-        ${pctTable(record)}
-        <div class="sub-h">평균백분위 분포 (50·70·80·90·100%)</div>
-        ${avgDistTable(record)}
+        <div class="section-title"><h3>수능 백분위 (3개년)</h3><span>국·수·탐·영</span></div>
+        <p class="cmp-note">✓ 연도 간·대학 간 비교는 <b>백분위</b> 기준이 신뢰할 수 있습니다. 환산점수는 연도·대학마다 만점·산출식이 달라 직접 비교가 부적절합니다(아래 접기).</p>
+        <div class="sub-h">70%컷 (국·수·탐·영)</div>
+        ${pctTable(record, "p70")}
+        <div class="sub-h">50%컷 (국·수·탐·영)</div>
+        ${pctTable(record, "p50")}
         <details class="method-details" style="margin-top:12px">
-          <summary>수능 환산점수 (대학 내부 척도 · 대학 간 비교 부적절)</summary>
-          <p class="cmp-note warn">⚠ 환산점수는 대학별 산출식·만점이 달라 <b>대학 간 비교에 부적합</b>합니다. 해당 대학 내 참고로만 보세요.</p>
+          <summary>수능 환산점수 (연도·대학별 척도 · 직접 비교 부적절)</summary>
+          <p class="cmp-note warn">⚠ 환산점수는 연도·대학마다 만점·산출식이 달라 <b>직접 비교에 부적합</b>합니다. 같은 연도 내 참고로만 보세요.</p>
           ${hwansanTable(record)}
         </details>
         ${notes(record)}
@@ -472,12 +483,17 @@ function renderDetail(record) {
     </aside>`;
 }
 
+// 모집·경쟁·충원 (3개년)
 function recruitTable(record) {
-  const d = yearData(record, RESULT_YEAR);
-  if (!d) return `<div class="empty">자료 없음</div>`;
+  const rows = YEARS.map((y) => {
+    const d = yearData(record, y);
+    const now = y === RESULT_YEAR ? "now-row" : "";
+    if (!d) return `<tr class="${now}"><th>${y}</th><td colspan="3" class="muted-cell">자료 없음</td></tr>`;
+    return `<tr class="${now}"><th>${y}</th><td>${fmt(d.m?.[2])}</td><td>${fmt(d.c)}</td><td>${fmt(d.w)}</td></tr>`;
+  }).join("");
   return `<div class="table-shell detail-3yr"><table>
-    <thead><tr><th>모집(최종)</th><th>이월</th><th>경쟁률</th><th>충원</th></tr></thead>
-    <tbody><tr class="now-row"><td>${fmt(d.m?.[2])}</td><td>${fmt(d.m?.[1])}</td><td>${fmt(d.c)}</td><td>${fmt(d.w)}</td></tr></tbody></table></div>`;
+    <thead><tr><th>연도</th><th>모집</th><th>경쟁률</th><th>충원</th></tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
 }
 
 function tamgu(p) {
@@ -487,41 +503,41 @@ function tamgu(p) {
   if (a === "–") return b;
   return `${a} / ${b}`;
 }
-// 70%컷·50%컷을 과목별로(단일연도 2026). 평균은 강조.
-function pctTable(record) {
-  const d = yearData(record, RESULT_YEAR);
-  const mk = (label, p, strong) => {
-    if (!p) return `<tr><th>${label}</th><td colspan="6" class="muted-cell">자료 없음</td></tr>`;
-    const cls = strong ? "now-row" : "";
-    return `<tr class="${cls}"><th>${label}</th><td>${fmt(p.kor)}</td><td>${fmt(p.math)}</td><td>${tamgu(p)}</td><td><strong>${fmt(p.avg)}</strong></td><td>${fmt(p.eng)}</td><td>${fmt(p.hist)}</td></tr>`;
-  };
+
+// 수능 백분위(70%컷 또는 50%컷)를 3개년 과목별로. 2026 강조.
+// 2024·2025는 XLSX에서 70%컷 과목별·50%컷 평균만 제공(나머지 칸은 자료 없음).
+function pctTable(record, key) {
+  const rows = YEARS.map((y) => {
+    const d = yearData(record, y);
+    const now = y === RESULT_YEAR ? "now-row" : "";
+    const p = d?.[key];
+    if (!p) return `<tr class="${now}"><th>${y}</th><td colspan="6" class="muted-cell">자료 없음</td></tr>`;
+    return `<tr class="${now}"><th>${y}</th><td>${fmt(p.kor)}</td><td>${fmt(p.math)}</td><td>${tamgu(p)}</td><td><strong>${fmt(p.avg)}</strong></td><td>${fmt(p.eng)}</td><td>${fmt(p.hist)}</td></tr>`;
+  }).join("");
   return `<div class="table-shell detail-3yr"><table>
-    <thead><tr><th>구분</th><th>국어</th><th>수학</th><th>탐구</th><th>평균</th><th>영어</th><th>한국사</th></tr></thead>
-    <tbody>${mk("70%컷", d?.p70, true)}${mk("50%컷", d?.p50, false)}</tbody></table></div>`;
+    <thead><tr><th>연도</th><th>국어</th><th>수학</th><th>탐구</th><th>평균</th><th>영어</th><th>한국사</th></tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
 }
 
-// 평균백분위 분포(50~100%) — 단일연도
-function avgDistTable(record) {
-  const d = yearData(record, RESULT_YEAR);
-  if (!d) return `<div class="empty">자료 없음</div>`;
-  const a = d.avg || {};
-  return `<div class="table-shell detail-3yr"><table>
-    <thead><tr><th>50%</th><th>70%</th><th>80%</th><th>90%</th><th>100%</th></tr></thead>
-    <tbody><tr class="now-row"><td>${fmt(a["50"])}</td><td><strong>${fmt(a["70"])}</strong></td><td>${fmt(a["80"])}</td><td>${fmt(a["90"])}</td><td>${fmt(a["100"])}</td></tr></tbody></table></div>`;
-}
-
-// 수능 환산점수 — 대학별 척도 → 대학 간 비교 부적절(해당 대학 내 참고)
+// 수능 환산점수 (3개년) — 연도별 만점·척도 달라 직접 비교 부적절
 function hwansanTable(record) {
-  const d = yearData(record, RESULT_YEAR);
-  if (!d) return `<div class="empty">자료 없음</div>`;
+  const rows = YEARS.map((y) => {
+    const d = yearData(record, y);
+    const now = y === RESULT_YEAR ? "now-row" : "";
+    if (!d) return `<tr class="${now}"><th>${y}</th><td colspan="3" class="muted-cell">자료 없음</td></tr>`;
+    return `<tr class="${now}"><th>${y}</th><td>${fmt(d.hs?.[0])}</td><td>${fmt(d.hs?.[1])}</td><td>${fmt(d.hs?.[2])}</td></tr>`;
+  }).join("");
   return `<div class="table-shell detail-3yr"><table>
-    <thead><tr><th>환산 50%</th><th>환산 70%</th><th>환산총점</th></tr></thead>
-    <tbody><tr class="now-row"><td>${fmt(d.hs?.[0])}</td><td>${fmt(d.hs?.[1])}</td><td>${fmt(d.hs?.[2])}</td></tr></tbody></table></div>`;
+    <thead><tr><th>연도</th><th>환산50%</th><th>환산70%</th><th>총점</th></tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
 }
 
 function notes(record) {
-  const d = yearData(record, RESULT_YEAR);
-  return d?.note ? `<ul class="note-list"><li>${escapeHtml(d.note)}</li></ul>` : "";
+  const items = YEARS.map((y) => {
+    const d = yearData(record, y);
+    return d?.note ? `<li><b>${y}</b> ${escapeHtml(d.note)}</li>` : "";
+  }).filter(Boolean).join("");
+  return items ? `<ul class="note-list">${items}</ul>` : "";
 }
 
 /* ---------- 초기화 ---------- */
