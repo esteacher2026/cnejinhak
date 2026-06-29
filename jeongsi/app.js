@@ -4,7 +4,7 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_VERSION = "19";
+const DATA_VERSION = "20";
 const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
 const DEFAULT_HIDDEN_UNV_CDS = new Set(["0000053", "0000065"]);
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
@@ -293,7 +293,7 @@ function mount() {
             </div>
             <div class="field">
               <label for="university">대학명</label>
-              <input id="university" class="control" value="${escapeAttr(state.university)}" placeholder="예: 건국대" />
+              <input id="university" class="control" value="${escapeAttr(state.university)}" placeholder="예: 서울시립대" />
             </div>
             <div class="field">
               <label for="major">모집단위·전형</label>
