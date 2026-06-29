@@ -164,6 +164,7 @@ def norm_dept(value: Any) -> str:
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
+    text = text.replace("(의예과)", "").replace("(의예)", "")
     text = re.sub(r"(?<=학)(과|부)$", "", text)
     return text
 

@@ -4,7 +4,7 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_VERSION = "16";
+const DATA_VERSION = "17";
 const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
 const DEFAULT_HIDDEN_UNV_CDS = new Set(["0000053", "0000065"]);
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
@@ -94,11 +94,22 @@ function passesText(record, value, fields) {
 function isDefaultHiddenRecord(record) {
   return DEFAULT_HIDDEN_UNV_CDS.has(record.unvCd);
 }
+function hasMeaningfulResult(record) {
+  return YEARS.some((y) => {
+    const d = yearData(record, y);
+    if (!d) return false;
+    if (avg70(record, y) !== null || hwansan70(record, y) !== null) return true;
+    if (recruit(record, y) !== null && recruit(record, y) > 0) return true;
+    if (competition(record, y) !== null) return true;
+    return false;
+  });
+}
 
 function filteredRecords() {
   const queryTokens = tokenize(state.query);
   const hasUniversitySearch = tokenize(state.university).length > 0;
   return DATA.records.filter((r) => {
+    if (!hasMeaningfulResult(r)) return false;
     if (!hasUniversitySearch && isDefaultHiddenRecord(r)) return false;
     if (queryTokens.length && !passesTokens(queryTokens, r.searchText)) return false;
     if (!passesText(r, state.university, ["university", "uniBase"])) return false;
@@ -153,6 +164,30 @@ function admissionFamily(value) {
   if (text.includes("수능위주") || text.includes("수능100") || text.includes("미래인재") || text.includes("약학대학")) return "일반";
   if (text.startsWith("수능") || text.startsWith("정시")) return "일반";
   return text;
+}
+
+function shortAdmission(value) {
+  const text = normalize(value);
+  if (!text) return "전형";
+  if (text.includes("지역인재") && (text.includes("저소득") || text.includes("기회") || text.includes("기균"))) return "지역인재기회";
+  if (text.includes("지역인재")) return "지역인재";
+  if (text.includes("농어촌")) return "농어촌";
+  if (text.includes("특성화고")) return "특성화고";
+  if (text.includes("기초생활") || text.includes("차상위")) return "기초·차상위";
+  if (text.includes("저소득")) return "저소득";
+  if (text.includes("지역기회")) return "지역기회";
+  if (text.includes("기회") || text.includes("기균") || text.includes("고른기회")) return "기회균형";
+  if (text.includes("실기") || text.includes("실적")) return "실기";
+  if (text.includes("일반학생") || text.includes("일반전형") || text.includes("일반") || text.includes("수능위주")) return "일반";
+  return String(value || "전형")
+    .replace(/^수능위주전형/, "")
+    .replace(/^수능위주/, "")
+    .replace(/^수능/, "")
+    .replace(/정시모집/g, "")
+    .replace(/[()\[\]_]/g, " ")
+    .replace(/전형/g, "")
+    .replace(/\s+/g, " ")
+    .trim() || "전형";
 }
 
 function hasAnyYearData(record) {
@@ -244,7 +279,7 @@ function mount() {
 
     <div class="notice-bar" role="note">
       <span class="notice-tag">⚠ 주의</span>
-      <span>백분위 비교와 내 점수 매칭은 대학이 백분위 점수를 공개한 모집단위에 한해 참고하세요. 백분위가 없고 대학별 환산점수 70%컷만 있는 칸은 파란색 환산70으로 표시합니다. 전형명·모집단위명이 크게 바뀐 경우 목록이 분리될 수 있습니다.</span>
+      <span>백분위 비교와 내 점수 매칭은 대학이 백분위 점수를 공개한 모집단위에 한해 참고하세요. 백분위가 없고 대학별 환산점수 70%컷만 있는 칸은 파란색 환 표시로 구분합니다. 전형명·모집단위명이 크게 바뀐 경우 목록이 분리될 수 있습니다.</span>
     </div>
 
     <main class="main-layout">
@@ -489,7 +524,7 @@ function renderRow(record) {
   return `
     <tr class="${sel}" data-id="${record.id}" tabindex="0" role="button" aria-pressed="${sel ? "true" : "false"}">
       <td class="col-uni"><div class="cell-main"><strong title="${escapeAttr(record.university)}">${escapeHtml(record.university)}</strong><span>${escapeHtml(record.region)}</span></div></td>
-      <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} <b class="jeonhyeong">${escapeHtml(record.jname)}</b>${rowStatusTags(record)}</span></div></td>
+      <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} <b class="jeonhyeong">${escapeHtml(shortAdmission(record.jname))}</b>${rowStatusTags(record)}</span></div></td>
       <td class="col-yr">${latestCell(record, recruit)}</td>
       <td class="col-yr">${latestCell(record, competition)}</td>
       <td class="col-yr col-primary">${score3(record)}${diffBadge(record)}</td>
@@ -519,7 +554,7 @@ function score3(record) {
     const metric = resultScore(record, y);
     const now = y === RESULT_YEAR;
     const cls = ["y", now ? "now" : "", metric.type === "scale" ? "scale" : "", metric.type === "empty" ? "empty" : ""].filter(Boolean).join(" ");
-    const label = metric.type === "scale" ? "<em>환산70</em>" : "";
+    const label = metric.type === "scale" ? "<em>환</em>" : "";
     const value = metric.value == null ? "–" : metric.value;
     return `<span class="${cls}" title="${escapeAttr(metric.title)}"><i>${String(y).slice(2)}</i>${label}<b>${escapeHtml(value)}</b></span>`;
   }).join("");
@@ -534,16 +569,15 @@ function areaTag(record) {
 }
 
 function scaleTag(record) {
-  if (!hasHwansanFallback(record)) return "";
-  return ` <span class="scale-tag" title="백분위가 없는 연도 칸은 대학별 환산점수 70%컷으로 표시합니다. 환산점수는 대학별 산출식이 달라 백분위 매칭과 평균백분위 정렬에서는 제외됩니다.">환산70 표시</span>`;
+  return "";
 }
 
 function missingYearTag(record) {
   if (yearData(record, RESULT_YEAR) || !hasAnyYearData(record)) return "";
   if (relatedHistory(record).some((r) => yearData(r, RESULT_YEAR))) {
-    return ` <span class="year-tag related-year" title="같은 대학·모집단위의 ${RESULT_YEAR}학년도 결과가 전형명 또는 모집군이 바뀐 별도 원자료 행에 있습니다. 상세의 관련 전형 결과를 확인하세요.">전형명 확인</span>`;
+    return ` <span class="year-tag related-year" title="같은 대학·모집단위의 ${RESULT_YEAR}학년도 결과가 전형명 또는 모집군이 바뀐 별도 원자료 행에 있습니다. 상세의 관련 전형 결과를 확인하세요.">관련연도</span>`;
   }
-  return ` <span class="year-tag related-year" title="전형명 또는 모집군 변경으로 ${RESULT_YEAR}학년도 결과가 다른 원자료 행에 있을 수 있습니다. 대학명과 모집단위 중심으로 함께 확인하세요.">전형명 확인</span>`;
+  return ` <span class="year-tag related-year" title="전형명 또는 모집군 변경으로 ${RESULT_YEAR}학년도 결과가 다른 원자료 행에 있을 수 있습니다. 대학명과 모집단위 중심으로 함께 확인하세요.">관련연도</span>`;
 }
 
 function rowStatusTags(record) {
@@ -631,7 +665,7 @@ function relatedHistoryTable(record) {
     `<tr>
       <th>${year}</th>
       <td>${gunTag(r)}</td>
-      <td class="related-name" title="${escapeAttr(r.jname)}">${escapeHtml(r.jname)}</td>
+      <td class="related-name" title="${escapeAttr(r.jname)}">${escapeHtml(shortAdmission(r.jname))}</td>
       <td>${fmt(data.m?.[2])}</td>
       <td>${fmt(data.c)}</td>
       <td>${fmt(data.w)}</td>
