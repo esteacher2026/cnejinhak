@@ -4,7 +4,7 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_VERSION = "14";
+const DATA_VERSION = "15";
 const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
 const DEFAULT_HIDDEN_UNV_CDS = new Set(["0000053", "0000065"]);
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
@@ -506,9 +506,9 @@ function scaleTag(record) {
 function missingYearTag(record) {
   if (yearData(record, RESULT_YEAR) || !hasAnyYearData(record)) return "";
   if (relatedHistory(record).some((r) => yearData(r, RESULT_YEAR))) {
-    return ` <span class="year-tag related-year" title="같은 대학·모집단위의 ${RESULT_YEAR}학년도 결과가 전형명 또는 모집군이 바뀐 별도 원자료 행에 있습니다. 상세의 관련 전형 결과를 확인하세요.">26 별도행</span>`;
+    return ` <span class="year-tag related-year" title="같은 대학·모집단위의 ${RESULT_YEAR}학년도 결과가 전형명 또는 모집군이 바뀐 별도 원자료 행에 있습니다. 상세의 관련 전형 결과를 확인하세요.">전형명 확인</span>`;
   }
-  return ` <span class="year-tag" title="대학 발표 ${RESULT_YEAR}학년도 전형결과가 현재 자료에 제공되지 않은 행입니다.">26 미제공</span>`;
+  return ` <span class="year-tag related-year" title="전형명 또는 모집군 변경으로 ${RESULT_YEAR}학년도 결과가 다른 원자료 행에 있을 수 있습니다. 대학명과 모집단위 중심으로 함께 확인하세요.">전형명 확인</span>`;
 }
 
 function rowStatusTags(record) {
