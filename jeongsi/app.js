@@ -1,13 +1,13 @@
 /*
  * 정시(수능위주전형) 입시결과 조회
- * 대입정보포털(ADIGA) 공식 2024·2025·2026 정시(수능위주) 입결을 모집단위별로 3개년 비교.
+ * 대학발표 2024·2025·2026 정시(수능위주) 입시결과를 모집단위별로 3개년 비교.
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
 const DATA_URL = "./data/jeongsi-data.json";
-// ADIGA 공식 정시 입결 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
-const RESULT_YEAR = 2026;             // 헤드라인·정렬 기준(최근 공식 결과)
-const YEARS = [2024, 2025, 2026];      // ADIGA 공식 전형 결과
+// 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
+const RESULT_YEAR = 2026;             // 헤드라인·정렬 기준(최근 발표 결과)
+const YEARS = [2024, 2025, 2026];      // 대학발표 전형 결과
 
 const state = {
   query: "",
@@ -207,7 +207,7 @@ function mount() {
           <div class="brand-mark" aria-hidden="true">정</div>
           <div>
             <h1>정시(수능위주) 입시결과 조회</h1>
-            <p>ADIGA 공식 2024·2025·2026 정시 입결 — 수능 백분위·경쟁률 3개년 비교</p>
+            <p>대학발표 2024·2025·2026 정시 입시결과 — 수능 백분위·경쟁률 3개년 비교</p>
           </div>
         </div>
         <div class="top-actions">
@@ -255,7 +255,7 @@ function mount() {
         </div>
         <footer class="site-footer">
           <div><strong>제작</strong> 충청남도교육청진로융합교육원 교육연구사 정재연</div>
-          <div><strong>출처</strong> 대입정보포털(ADIGA) 공식 정시(수능위주전형) 전형 결과</div>
+          <div><strong>출처</strong> 대학발표 정시(수능위주전형) 입시결과</div>
         </footer>
       </section>
     </main>
@@ -415,7 +415,7 @@ function medianOf(values) {
 
 function gunTag(record) {
   const cls = { "가": "comp", "나": "subj", "다": "" }[record.gun] || "";
-  const label = ["가", "나", "다", "라", "마"].includes(record.gun) ? `${record.gun}군` : record.gun;
+  const label = ["가", "나", "다", "라", "마"].includes(record.gun) ? `${record.gun}군` : (record.gun || "기타");
   return `<span class="track-tag ${cls}">${escapeHtml(label)}</span>`;
 }
 
@@ -492,15 +492,15 @@ function areaTag(record) {
 
 function scaleTag(record) {
   if (latest(record, avg70) !== null || latest(record, hwansan70) === null) return "";
-  return ` <span class="scale-tag" title="ADIGA가 평균백분위를 제공하지 않아 환산점수만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외됩니다.">백분위 미제공</span>`;
+  return ` <span class="scale-tag" title="대학 발표 자료에 평균백분위가 제공되지 않아 환산점수만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외됩니다.">백분위 미제공</span>`;
 }
 
 function missingYearTag(record) {
   if (yearData(record, RESULT_YEAR) || !hasAnyYearData(record)) return "";
   if (relatedHistory(record).some((r) => yearData(r, RESULT_YEAR))) {
-    return ` <span class="year-tag related-year" title="같은 대학·모집단위의 ${RESULT_YEAR}학년도 결과가 전형명 또는 모집군이 바뀐 별도 공식 행에 있습니다. 상세의 관련 전형 결과를 확인하세요.">26 별도행</span>`;
+    return ` <span class="year-tag related-year" title="같은 대학·모집단위의 ${RESULT_YEAR}학년도 결과가 전형명 또는 모집군이 바뀐 별도 원자료 행에 있습니다. 상세의 관련 전형 결과를 확인하세요.">26 별도행</span>`;
   }
-  return ` <span class="year-tag" title="ADIGA ${RESULT_YEAR}학년도 전형결과가 현재 공식 자료에 제공되지 않은 행입니다.">26 미제공</span>`;
+  return ` <span class="year-tag" title="대학 발표 ${RESULT_YEAR}학년도 전형결과가 현재 자료에 제공되지 않은 행입니다.">26 미제공</span>`;
 }
 
 function rowStatusTags(record) {
@@ -509,7 +509,7 @@ function rowStatusTags(record) {
 
 function scaleOnlyNotice(record) {
   if (latest(record, avg70) !== null || latest(record, hwansan70) === null) return "";
-  return `<p class="cmp-note warn">ADIGA 공식 표에 평균백분위가 제공되지 않아 이 모집단위는 <b>환산점수</b>만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외하고, 아래 환산점수 표를 참고하세요.</p>`;
+  return `<p class="cmp-note warn">대학 발표 표에 평균백분위가 제공되지 않아 이 모집단위는 <b>환산점수</b>만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외하고, 아래 환산점수 표를 참고하세요.</p>`;
 }
 
 // 내 백분위 입력 시: 최신 70%컷과의 차를 표기(+여유 / -부족)
@@ -565,11 +565,11 @@ function recruitTable(record) {
   const rows = YEARS.map((y) => {
     const d = yearData(record, y);
     const now = y === RESULT_YEAR ? "now-row" : "";
-    if (!d) return `<tr class="${now}"><th>${y}</th><td colspan="3" class="muted-cell">자료 없음</td></tr>`;
-    return `<tr class="${now}"><th>${y}</th><td>${fmt(d.m?.[2])}</td><td>${fmt(d.c)}</td><td>${fmt(d.w)}</td></tr>`;
+    if (!d) return `<tr class="${now}"><th>${y}</th><td colspan="5" class="muted-cell">자료 없음</td></tr>`;
+    return `<tr class="${now}"><th>${y}</th><td>${gunTag({ gun: d.gun || record.gun })}</td><td class="year-jname" title="${escapeAttr(d.jname || record.jname)}">${escapeHtml(d.jname || record.jname)}</td><td>${fmt(d.m?.[2])}</td><td>${fmt(d.c)}</td><td>${fmt(d.w)}</td></tr>`;
   }).join("");
   return `<div class="table-shell detail-3yr"><table>
-    <thead><tr><th>연도</th><th>모집</th><th>경쟁률</th><th>충원</th></tr></thead>
+    <thead><tr><th>연도</th><th>군</th><th>전형</th><th>모집</th><th>경쟁률</th><th>충원</th></tr></thead>
     <tbody>${rows}</tbody></table></div>`;
 }
 
@@ -596,8 +596,8 @@ function relatedHistoryTable(record) {
     </tr>`
   )).join("");
   return `<div class="related-history">
-    <div class="section-title"><h3>모집군 변경/관련 전형 결과</h3><span>공식 원본 별도 행</span></div>
-    <p class="related-note">같은 대학·모집단위·전형 계열이지만 모집군 또는 전형명이 달라 별도 공식 행으로 보관된 결과입니다.</p>
+    <div class="section-title"><h3>모집군 변경/관련 전형 결과</h3><span>원자료 별도 행</span></div>
+    <p class="related-note">같은 대학·모집단위·전형 계열이지만 모집군 또는 전형명이 달라 별도 원자료 행으로 보관된 결과입니다.</p>
     <div class="table-shell detail-3yr related-table"><table>
       <thead><tr><th>연도</th><th>군</th><th>전형</th><th>모집</th><th>경쟁률</th><th>충원</th><th>평균70</th></tr></thead>
       <tbody>${body}</tbody>
@@ -614,7 +614,7 @@ function tamgu(p) {
 }
 
 // 수능 백분위(70%컷 또는 50%컷)를 3개년 과목별로. 2026 강조.
-// ADIGA 연도별 표 구조에 따라 제공되는 백분위 항목만 표시(미제공 칸은 자료 없음).
+// 연도별 발표 표 구조에 따라 제공되는 백분위 항목만 표시(미제공 칸은 자료 없음).
 function pctTable(record, key) {
   const rows = YEARS.map((y) => {
     const d = yearData(record, y);

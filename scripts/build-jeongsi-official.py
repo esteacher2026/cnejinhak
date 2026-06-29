@@ -138,9 +138,13 @@ def norm_dept(value: Any) -> str:
         "(6년제)": "(6)",
         "(6년)": "(6)",
         "(4년제)": "(4)",
+        "(인문)": "",
+        "(자연)": "",
+        "(일반계열)": "",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
+    text = re.sub(r"(?<=학)(과|부)$", "", text)
     return text
 
 
@@ -340,6 +344,31 @@ def admission_key(value: str) -> str:
     return text or "수능위주"
 
 
+def admission_family_key(value: str) -> str:
+    text = norm_key(canonical_admission(value))
+    if "지역인재" in text and any(token in text for token in ("저소득", "기회", "기균")):
+        return "지역인재저소득"
+    if "지역인재" in text:
+        return "지역인재"
+    if "농어촌" in text:
+        return "농어촌"
+    if "특성화고" in text:
+        return "특성화고"
+    if any(token in text for token in ("저소득", "기초생활", "차상위", "한부모")):
+        return "저소득"
+    if any(token in text for token in ("기회", "기균", "고른기회", "사회배려", "한마음", "특수교육")):
+        return "기회균형"
+    if any(token in text for token in ("실기", "실적")):
+        return "실기"
+    if "교과우수" in text:
+        return "교과우수"
+    if any(token in text for token in ("일반학생", "일반전형", "일반", "수능위주", "수능100", "미래인재", "약학대학", "인문", "자연")):
+        return "일반"
+    if text.startswith("수능") or text.startswith("정시"):
+        return "일반"
+    return admission_key(value)
+
+
 def choose_subject(values: list[str]) -> str:
     for value in values:
         normalized = strip_zero(value)
@@ -421,9 +450,9 @@ def make_ydata_old(data: list[str]) -> dict[str, Any]:
             "avg": {"50": "", "70": avg70, "80": "", "90": "", "100": ""},
         }
         if last_number is not None and last_number > 100 and not is_likely_total_score(last_score):
-            append_note(ydata, "ADIGA 원표의 평균백분위 항목이 100을 초과하여 백분위 비교에서 제외")
+            append_note(ydata, "대학 발표 원표의 평균백분위 항목이 100을 초과하여 백분위 비교에서 제외")
         elif last_number is not None and last_number > 100:
-            append_note(ydata, "ADIGA 원표에 평균백분위가 없어 환산점수만 제공")
+            append_note(ydata, "대학 발표 원표에 평균백분위가 없어 환산점수만 제공")
         return ydata
     if len(data) < 8:
         m = [strip_zero(data[0]) if len(data) > 0 else "", strip_zero(data[1]) if len(data) > 1 else "", strip_zero(data[2]) if len(data) > 2 else ""]
@@ -555,7 +584,7 @@ def sanitize_ydata(ydata: dict[str, Any]) -> dict[str, Any]:
             bucket["avg"] = ""
             if isinstance(ydata.get("avg"), dict):
                 ydata["avg"]["50" if key == "p50" else "70"] = ""
-            append_note(ydata, f"ADIGA 원표의 {label} 평균값이 100을 초과하여 백분위 비교에서 제외")
+            append_note(ydata, f"대학 발표 원표의 {label} 평균값이 100을 초과하여 백분위 비교에서 제외")
     return ydata
 
 
@@ -580,6 +609,7 @@ def make_row(
         "gun": gun,
         "jname": canonical_admission(jname),
         "admissionKey": admission_key(jname),
+        "admissionFamilyKey": admission_family_key(jname),
         "dept": clean(dept),
         "deptKey": norm_dept(dept),
         "jtype": "수능위주",
@@ -655,13 +685,13 @@ def fetch_result_fragment(
     )
 
 
-def record_key(row: dict[str, Any]) -> tuple[str, str, str, str]:
-    return (row["unvCd"], row["deptKey"], row["admissionKey"], row["gun"])
+def record_key(row: dict[str, Any]) -> tuple[str, str, str]:
+    return (row["unvCd"], row["deptKey"], row["admissionFamilyKey"])
 
 
 def build_records(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    grouped: dict[tuple[str, str, str, str], dict[str, Any]] = {}
-    for row in sorted(rows, key=lambda r: (r["unvCd"], r["deptKey"], r["admissionKey"], r["gun"], -r["year"])):
+    grouped: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for row in sorted(rows, key=lambda r: (r["unvCd"], r["deptKey"], r["admissionFamilyKey"], -r["year"], r["admissionKey"], r["gun"])):
         key = record_key(row)
         if key not in grouped:
             grouped[key] = {
@@ -674,6 +704,7 @@ def build_records(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "gun": row["gun"],
                 "jname": row["jname"],
                 "admissionKey": row["admissionKey"],
+                "admissionFamilyKey": row["admissionFamilyKey"],
                 "dept": row["dept"],
                 "deptKey": row["deptKey"],
                 "jtype": "수능위주",
@@ -687,6 +718,9 @@ def build_records(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 continue
         ydata = row["data"]
         ydata["source"] = row["source"]
+        ydata["gun"] = row["gun"]
+        ydata["jname"] = row["jname"]
+        ydata["dept"] = row["dept"]
         record["years"][year_key] = ydata
         if row["year"] == 2026:
             record["university"] = row["university"]
@@ -694,9 +728,15 @@ def build_records(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             record["campus"] = row["campus"]
             record["region"] = row["region"]
             record["jname"] = row["jname"]
+            record["admissionKey"] = row["admissionKey"]
             record["dept"] = row["dept"]
+            record["gun"] = row["gun"]
     records = list(grouped.values())
     for record in records:
+        year_text = "".join(
+            "".join([data.get("dept", ""), data.get("jname", ""), data.get("gun", "")])
+            for data in record.get("years", {}).values()
+        )
         record["searchText"] = "".join(
             [
                 record.get("university", ""),
@@ -704,10 +744,12 @@ def build_records(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 record.get("jname", ""),
                 record.get("region", ""),
                 record.get("gun", ""),
+                year_text,
             ]
         )
         record.pop("deptKey", None)
         record.pop("admissionKey", None)
+        record.pop("admissionFamilyKey", None)
     records.sort(key=lambda r: (r.get("university", ""), r.get("gun", ""), r.get("jname", ""), r.get("dept", "")))
     for idx, record in enumerate(records, start=1):
         record["id"] = f'{record["unvCd"]}-{idx:05d}'
@@ -736,7 +778,7 @@ def write_site_data(records: list[dict[str, Any]], rows: list[dict[str, Any]], *
         "title": "정시(수능위주전형) 입시결과",
         "years": sorted(RESULT_TO_SEARCH_SYR),
         "generated": datetime.now().strftime("%Y-%m-%d"),
-        "source": "대입정보포털(ADIGA) 공식 정시(수능위주전형) 전형 결과",
+        "source": "대학발표 정시(수능위주전형) 입시결과",
         "counts": {
             "records": len(records),
             "universities": len({record["unvCd"] for record in records}),
@@ -772,7 +814,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--years", nargs="+", type=int, default=[2024, 2025, 2026])
     parser.add_argument("--limit", type=int, default=0, help="Limit universities per searchSyr for smoke tests.")
-    parser.add_argument("--force", action="store_true", help="Refetch cached ADIGA HTML.")
+    parser.add_argument("--force", action="store_true", help="Refetch cached source HTML.")
     parser.add_argument("--dry-run", action="store_true", help="Do not overwrite site data.")
     args = parser.parse_args()
 

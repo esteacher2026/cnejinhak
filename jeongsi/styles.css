@@ -777,6 +777,14 @@ td.col-primary {
   white-space: nowrap;
 }
 
+.detail-3yr td.year-jname {
+  max-width: 180px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .muted-cell {
   color: var(--muted-2);
   text-align: center;
