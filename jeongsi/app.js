@@ -63,6 +63,10 @@ function recruit(record, year) {
   const d = yearData(record, year);
   return d ? toNumber(d.m?.[2]) : null;
 }
+function hwansan70(record, year) {
+  const d = yearData(record, year);
+  return d ? toNumber(d.hs?.[1]) : null;
+}
 
 /* ---------- 필터 / 정렬 ---------- */
 function tokenize(value) {
@@ -121,6 +125,9 @@ function admissionFamily(value) {
   if (text.includes("저소득") || text.includes("기초생활") || text.includes("차상위") || text.includes("한부모")) return "저소득";
   if (text.includes("기회") || text.includes("기균") || text.includes("고른기회")) return "기회균형";
   if (text.includes("일반학생") || text.includes("일반전형") || text.includes("일반")) return "일반";
+  if (text.includes("실기") || text.includes("실적")) return "실기";
+  if (text.includes("수능위주") || text.includes("수능100") || text.includes("미래인재") || text.includes("약학대학")) return "일반";
+  if (text.startsWith("수능") || text.startsWith("정시")) return "일반";
   return text;
 }
 
@@ -128,16 +135,24 @@ function hasAnyYearData(record) {
   return YEARS.some((y) => yearData(record, y));
 }
 
+function relatedDept(a, b) {
+  const left = normalize(a);
+  const right = normalize(b);
+  if (!left || !right) return false;
+  if (left === right) return true;
+  const [shorter, longer] = left.length < right.length ? [left, right] : [right, left];
+  return shorter.length >= 5 && longer.includes(shorter);
+}
+
 function relatedHistory(record) {
-  const deptKey = normalize(record.dept);
   const family = admissionFamily(record.jname);
   const uniKey = record.unvCd || record.university;
-  if (!deptKey || !family || !uniKey) return [];
+  if (!record.dept || !family || !uniKey) return [];
   return DATA.records
     .filter((r) => (
       r.id !== record.id &&
       (r.unvCd || r.university) === uniKey &&
-      normalize(r.dept) === deptKey &&
+      relatedDept(r.dept, record.dept) &&
       admissionFamily(r.jname) === family &&
       hasAnyYearData(r)
     ))
@@ -381,14 +396,16 @@ function renderSummary(records) {
   const vals = records.map((r) => latest(r, avg70)).filter((v) => v !== null);
   const med = vals.length ? medianOf(vals) : null;
   const unis = new Set(records.map((r) => r.unvCd)).size;
+  const scaleOnly = records.filter((r) => latest(r, avg70) === null && latest(r, hwansan70) !== null).length;
   const target = toNumber(state.percentile);
   const matchNote = target === null ? "" :
     ` · <strong class="hl-match">내 백분위 ${target} ±${escapeHtml(state.band)}</strong> 매칭`;
+  const scaleNote = scaleOnly ? ` · 환산점수만 제공 <strong>${scaleOnly.toLocaleString("ko-KR")}</strong>건` : "";
   document.querySelector("#resultSummary").innerHTML = `
     <strong>${records.length.toLocaleString("ko-KR")}</strong>개 모집단위
     · ${unis}개 대학
     · 전체 ${DATA.records.length.toLocaleString("ko-KR")}건 중
-    · 평균백분위 70% 중앙값 <strong>${med == null ? "–" : med}</strong>${matchNote}`;
+    · 평균백분위 70% 중앙값 <strong>${med == null ? "–" : med}</strong>${matchNote}${scaleNote}`;
 }
 function medianOf(values) {
   const s = [...values].sort((a, b) => a - b);
@@ -447,7 +464,7 @@ function renderRow(record) {
   return `
     <tr class="${sel}" data-id="${record.id}" tabindex="0" role="button" aria-pressed="${sel ? "true" : "false"}">
       <td class="col-uni"><div class="cell-main"><strong title="${escapeAttr(record.university)}">${escapeHtml(record.university)}</strong><span>${escapeHtml(record.region)}</span></div></td>
-      <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} <b class="jeonhyeong">${escapeHtml(record.jname)}</b>${areaTag(record)}</span></div></td>
+      <td class="col-major"><div class="cell-main"><strong title="${escapeAttr(record.dept)}">${escapeHtml(record.dept)}${record.variant ? ` <span class="variant-tag">${escapeHtml(record.variant)}</span>` : ""}</strong><span title="${escapeAttr(record.jname)}">${gunTag(record)} <b class="jeonhyeong">${escapeHtml(record.jname)}</b>${rowStatusTags(record)}</span></div></td>
       <td class="col-yr">${cellVal(recruit(record, RESULT_YEAR))}</td>
       <td class="col-yr">${cellVal(competition(record, RESULT_YEAR))}</td>
       <td class="col-yr col-primary">${yr3(record, avg70)}${diffBadge(record)}</td>
@@ -471,6 +488,28 @@ function areaTag(record) {
   if (!record.areas) return "";
   const n = record.areas.length;
   return ` <span class="area-tag" title="이 모집단위는 수능 ${n}과목(${record.areas.join("·")})만 반영합니다. 평균백분위가 4과목 반영 대학과 다른 척도이니 비교에 주의하세요.">수능 ${n}과목</span>`;
+}
+
+function scaleTag(record) {
+  if (latest(record, avg70) !== null || latest(record, hwansan70) === null) return "";
+  return ` <span class="scale-tag" title="ADIGA가 평균백분위를 제공하지 않아 환산점수만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외됩니다.">백분위 미제공</span>`;
+}
+
+function missingYearTag(record) {
+  if (yearData(record, RESULT_YEAR) || !hasAnyYearData(record)) return "";
+  if (relatedHistory(record).some((r) => yearData(r, RESULT_YEAR))) {
+    return ` <span class="year-tag related-year" title="같은 대학·모집단위의 ${RESULT_YEAR}학년도 결과가 전형명 또는 모집군이 바뀐 별도 공식 행에 있습니다. 상세의 관련 전형 결과를 확인하세요.">26 별도행</span>`;
+  }
+  return ` <span class="year-tag" title="ADIGA ${RESULT_YEAR}학년도 전형결과가 현재 공식 자료에 제공되지 않은 행입니다.">26 미제공</span>`;
+}
+
+function rowStatusTags(record) {
+  return `${areaTag(record)}${scaleTag(record)}${missingYearTag(record)}`;
+}
+
+function scaleOnlyNotice(record) {
+  if (latest(record, avg70) !== null || latest(record, hwansan70) === null) return "";
+  return `<p class="cmp-note warn">ADIGA 공식 표에 평균백분위가 제공되지 않아 이 모집단위는 <b>환산점수</b>만 표시합니다. 내 백분위 매칭과 평균백분위 정렬에서는 제외하고, 아래 환산점수 표를 참고하세요.</p>`;
 }
 
 // 내 백분위 입력 시: 최신 70%컷과의 차를 표기(+여유 / -부족)
@@ -499,6 +538,7 @@ function renderDetail(record) {
           <p class="detail-jeonhyeong">${escapeHtml(record.jname)}</p>
         </div>
         ${record.areas ? `<p class="area-note">⚠ 이 모집단위는 수능 <b>${record.areas.length}과목</b>(${record.areas.join("·")})만 반영합니다(반영비율 표 기준). 평균백분위는 이 과목들의 평균이라 4과목 반영 대학과 직접 비교는 부적절합니다.</p>` : ""}
+        ${scaleOnlyNotice(record)}
         <div class="section-title"><h3>모집 · 경쟁 · 충원</h3><span>2024·2025·2026</span></div>
         ${recruitTable(record)}
         ${relatedHistoryTable(record)}

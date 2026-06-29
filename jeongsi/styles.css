@@ -1169,6 +1169,31 @@ td.col-primary {
   vertical-align: middle;
   white-space: nowrap;
 }
+.scale-tag,
+.year-tag {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 800;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.scale-tag {
+  color: #fff;
+  background: var(--red);
+}
+.year-tag {
+  color: var(--muted);
+  background: #eef2f5;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.year-tag.related-year {
+  color: var(--blue);
+  background: #eef3fb;
+  box-shadow: inset 0 0 0 1px #d4e0f2;
+}
 .area-tag-inline {
   padding: 0 4px;
   font-weight: 800;

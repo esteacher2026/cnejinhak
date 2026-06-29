@@ -91,6 +91,37 @@ def strip_zero(value: str) -> str:
     return str(number).rstrip("0").rstrip(".")
 
 
+def numeric_value(value: Any) -> float | None:
+    text = strip_zero(clean(value))
+    if not re.fullmatch(r"-?\d+(?:\.\d+)?", text):
+        return None
+    return float(text)
+
+
+def percentile_value(value: Any) -> str:
+    text = strip_zero(clean(value))
+    number = numeric_value(text)
+    if number is None:
+        return text
+    if 0 <= number <= 100:
+        return text
+    return ""
+
+
+def is_likely_total_score(value: Any) -> bool:
+    number = numeric_value(value)
+    if number is None:
+        return False
+    return number >= 100 and abs(number - round(number / 50) * 50) < 0.0000001
+
+
+def append_note(ydata: dict[str, Any], note: str) -> None:
+    if not note:
+        return
+    existing = clean(ydata.get("note", ""))
+    ydata["note"] = f"{existing} / {note}" if existing else note
+
+
 def norm_key(value: Any) -> str:
     text = clean(value)
     text = text.replace("・", "").replace("·", "").replace("ㆍ", "")
@@ -370,16 +401,30 @@ def make_ydata_new(cells: list[str]) -> dict[str, Any]:
 
 def make_ydata_old(data: list[str]) -> dict[str, Any]:
     if len(data) == 6:
-        p70 = {"kor": "", "math": "", "t1": "", "t2": "", "eng": "", "hist": "", "avg": strip_zero(data[5])}
-        return {
+        first_score = strip_zero(data[3])
+        second_score = strip_zero(data[4])
+        last_score = strip_zero(data[5])
+        last_number = numeric_value(last_score)
+        if is_likely_total_score(last_score) and not is_likely_total_score(second_score):
+            hs = [first_score, second_score, last_score]
+            avg70 = ""
+        else:
+            hs = ["", first_score, second_score]
+            avg70 = percentile_value(last_score)
+        ydata = {
             "m": ["", "", strip_zero(data[0])],
             "c": strip_zero(data[1]),
             "w": strip_zero(data[2]),
-            "hs": ["", strip_zero(data[3]), strip_zero(data[4])],
+            "hs": hs,
             "p50": {"kor": "", "math": "", "t1": "", "t2": "", "eng": "", "hist": "", "avg": ""},
-            "p70": p70,
-            "avg": {"50": "", "70": p70["avg"], "80": "", "90": "", "100": ""},
+            "p70": {"kor": "", "math": "", "t1": "", "t2": "", "eng": "", "hist": "", "avg": avg70},
+            "avg": {"50": "", "70": avg70, "80": "", "90": "", "100": ""},
         }
+        if last_number is not None and last_number > 100 and not is_likely_total_score(last_score):
+            append_note(ydata, "ADIGA 원표의 평균백분위 항목이 100을 초과하여 백분위 비교에서 제외")
+        elif last_number is not None and last_number > 100:
+            append_note(ydata, "ADIGA 원표에 평균백분위가 없어 환산점수만 제공")
+        return ydata
     if len(data) < 8:
         m = [strip_zero(data[0]) if len(data) > 0 else "", strip_zero(data[1]) if len(data) > 1 else "", strip_zero(data[2]) if len(data) > 2 else ""]
         return ydata_empty_note(m, data[3] if len(data) > 3 else "", data[4] if len(data) > 4 else "", "표 구조 미확인")
@@ -499,6 +544,21 @@ def looks_numeric(value: str) -> bool:
     return bool(re.fullmatch(r"-?\d+(?:\.\d+)?|-", text))
 
 
+def sanitize_ydata(ydata: dict[str, Any]) -> dict[str, Any]:
+    for key, label in (("p50", "50%컷"), ("p70", "70%컷")):
+        bucket = ydata.get(key)
+        if not isinstance(bucket, dict):
+            continue
+        avg = bucket.get("avg", "")
+        number = numeric_value(avg)
+        if number is not None and number > 100:
+            bucket["avg"] = ""
+            if isinstance(ydata.get("avg"), dict):
+                ydata["avg"]["50" if key == "p50" else "70"] = ""
+            append_note(ydata, f"ADIGA 원표의 {label} 평균값이 100을 초과하여 백분위 비교에서 제외")
+    return ydata
+
+
 def make_row(
     university: University,
     result_year: int,
@@ -510,6 +570,7 @@ def make_row(
     row_no: int,
 ) -> dict[str, Any]:
     base, campus, uni_base = split_university_name(university.unv_name)
+    ydata = sanitize_ydata(ydata)
     return {
         "unvCd": university.unv_cd,
         "university": base,
