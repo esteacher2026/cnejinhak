@@ -41,6 +41,18 @@ RESULT_TO_SEARCH_SYR = {
     2026: "2027",
 }
 
+# Some ADIGA result pages are exposed under separate campus codes but are not
+# returned by the public criteria list used for bulk collection.
+EXTRA_UNIVERSITIES_BY_SEARCH_SYR = {
+    "2027": [
+        ("0000048", "가톨릭대학교[제2캠퍼스]", "서울"),
+    ],
+}
+
+UNV_CODE_ALIASES = {
+    "0000048": "0000046",
+}
+
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -297,6 +309,16 @@ def fetch_university_list(
         time.sleep(0.03)
 
     log(f"  {search_syr}: {len(universities)} universities")
+    return universities
+
+
+def add_extra_universities(universities: list[University], search_syr: str) -> list[University]:
+    seen = {university.unv_cd for university in universities}
+    for unv_cd, unv_name, region in EXTRA_UNIVERSITIES_BY_SEARCH_SYR.get(search_syr, []):
+        if unv_cd in seen:
+            continue
+        universities.append(University(unv_cd=unv_cd, unv_name=unv_name, region=region))
+        seen.add(unv_cd)
     return universities
 
 
@@ -599,9 +621,11 @@ def make_row(
     row_no: int,
 ) -> dict[str, Any]:
     base, campus, uni_base = split_university_name(university.unv_name)
+    canonical_unv_cd = UNV_CODE_ALIASES.get(university.unv_cd, university.unv_cd)
     ydata = sanitize_ydata(ydata)
     return {
-        "unvCd": university.unv_cd,
+        "unvCd": canonical_unv_cd,
+        "rawUnvCd": university.unv_cd,
         "university": base,
         "uniBase": uni_base,
         "campus": campus,
@@ -617,6 +641,7 @@ def make_row(
         "data": ydata,
         "source": {
             "searchSyr": RESULT_TO_SEARCH_SYR[result_year],
+            "unvCd": university.unv_cd,
             "upCd": UP_CD_CSAT,
             "cardNo": card_no,
             "rowNo": row_no,
@@ -824,6 +849,7 @@ def main() -> int:
     universities_by_search: dict[str, list[University]] = {}
     for search_syr in sorted({RESULT_TO_SEARCH_SYR[year] for year in args.years}):
         universities = fetch_university_list(opener, search_syr, force=args.force)
+        universities = add_extra_universities(universities, search_syr)
         if args.limit:
             universities = universities[: args.limit]
         universities_by_search[search_syr] = universities
