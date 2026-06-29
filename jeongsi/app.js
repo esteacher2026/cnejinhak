@@ -4,7 +4,8 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_URL = "./data/jeongsi-data.json";
+const DATA_VERSION = "11";
+const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
 const RESULT_YEAR = 2026;             // 헤드라인·정렬 기준(최근 발표 결과)
 const YEARS = [2024, 2025, 2026];      // 대학발표 전형 결과
