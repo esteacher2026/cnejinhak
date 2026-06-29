@@ -4,8 +4,9 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_VERSION = "11";
+const DATA_VERSION = "12";
 const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
+const DEFAULT_HIDDEN_UNV_CDS = new Set(["0000053", "0000065"]);
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
 const RESULT_YEAR = 2026;             // 헤드라인·정렬 기준(최근 발표 결과)
 const YEARS = [2024, 2025, 2026];      // 대학발표 전형 결과
@@ -80,10 +81,15 @@ function passesText(record, value, fields) {
   const hay = fields.map((f) => normalize(record[f])).join("");
   return passesTokens(tokens, hay);
 }
+function isDefaultHiddenRecord(record) {
+  return DEFAULT_HIDDEN_UNV_CDS.has(record.unvCd);
+}
 
 function filteredRecords() {
   const queryTokens = tokenize(state.query);
+  const hasUniversitySearch = tokenize(state.university).length > 0;
   return DATA.records.filter((r) => {
+    if (!hasUniversitySearch && isDefaultHiddenRecord(r)) return false;
     if (queryTokens.length && !passesTokens(queryTokens, r.searchText)) return false;
     if (!passesText(r, state.university, ["university", "uniBase"])) return false;
     if (!passesText(r, state.major, ["dept", "jname"])) return false;
@@ -213,6 +219,7 @@ function mount() {
         </div>
         <div class="top-actions">
           <a class="button secondary home-link" href="/" aria-label="메인으로 이동"><span aria-hidden="true">⌂</span> 메인</a>
+          <a class="button secondary" href="/2026results-download.html" title="대학별 입시결과 원문 다운로드">원문 다운로드</a>
           <button class="button" data-action="reset">초기화</button>
         </div>
       </div>
