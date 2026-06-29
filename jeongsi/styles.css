@@ -508,15 +508,16 @@ tbody tr[data-id]:focus-visible {
 }
 
 .col-uni {
-  width: 15%;
+  width: 16%;
 }
 
 .col-major {
-  width: 31%;
+  width: 36%;
 }
 
 .col-yr {
-  width: 21%;
+  width: 8.5%;
+  text-align: center;
 }
 
 .col-spark {
@@ -524,6 +525,7 @@ tbody tr[data-id]:focus-visible {
 }
 
 th.col-primary {
+  width: 31%;
   background: #eef7f6;
   color: var(--teal-dark);
 }
@@ -972,7 +974,7 @@ td.col-primary {
 
 /* ---------- 반응형 ---------- */
 
-@media (max-width: 1320px) {
+@media (max-width: 1540px) {
   .result-layout {
     grid-template-columns: minmax(0, 1fr);
   }
