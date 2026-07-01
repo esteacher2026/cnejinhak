@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2027학년도 6월 모의평가 채점 결과 분석</title>
+<meta name="description" content="2027학년도 대학수학능력시험 6월 모의평가 채점 결과 — 영역·과목별 등급 구분 표준점수, 표준점수 도수분포, 원점수 변환 상담 도구" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Noto+Serif+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #3a3a3a;
+    --muted: #707070;
+    --line: #d8d4cc;
+    --line-2: #ebe7df;
+    --paper: #f5f1e8;
+    --paper-2: #ede8dc;
+    --card: #fdfbf5;
+    --accent: #8b2c2c;
+    --accent-2: #5b2020;
+    --gold: #b08a3e;
+    --green: #3d6b4e;
+    --shadow: 0 1px 0 rgba(26,26,26,.04), 0 8px 32px -12px rgba(26,26,26,.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Serif KR', 'Fraunces', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(176,138,62,.04) 0%, transparent 38%),
+      radial-gradient(circle at 92% 92%, rgba(139,44,44,.03) 0%, transparent 42%);
+  }
+
+  /* ============ Header ============ */
+  header {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(245,241,232,.92);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .brand-mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .brand-mark::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    margin-right: 10px;
+    transform: rotate(45deg);
+    vertical-align: middle;
+  }
+  .brand-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -.01em;
+  }
+  nav.tabs {
+    display: flex;
+    gap: 2px;
+    background: var(--paper-2);
+    padding: 4px;
+    border-radius: 2px;
+    border: 1px solid var(--line);
+  }
+  nav.tabs button {
+    background: transparent;
+    border: 0;
+    padding: 8px 18px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-2);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .15s ease;
+    letter-spacing: -.01em;
+  }
+  nav.tabs button:hover { color: var(--ink); }
+  nav.tabs button.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Home button (top) */
+  .home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .home-btn:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    background: var(--paper);
+  }
+  .home-btn svg {
+    flex-shrink: 0;
+  }
+
+  /* Floating home button (bottom right on scroll) */
+  .home-fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(26,26,26,.18), 0 1px 0 rgba(0,0,0,.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px) scale(.92);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s, background .15s;
+    z-index: 60;
+    text-decoration: none;
+    font-family: 'Noto Serif KR', serif;
+  }
+  .home-fab.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  .home-fab:hover {
+    background: var(--accent-2);
+  }
+  .home-fab .fab-label {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease;
+  }
+  .home-fab:hover .fab-label {
+    opacity: 1;
+  }
+
+  /* Footer */
+  footer.page-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 32px 56px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  footer.page-footer .credit-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  footer.page-footer .credit-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  footer.page-footer .credit-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    min-width: 44px;
+  }
+  footer.page-footer .credit-value {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    color: var(--ink-2);
+    letter-spacing: -.005em;
+  }
+  footer.page-footer .credit-value strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  footer.page-footer .footer-mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: -.01em;
+    text-align: right;
+  }
+
+  /* ============ Container ============ */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+  .view { display: none; }
+  .view.active { display: block; animation: fade .35s ease; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ Section title ============ */
+  .section-head {
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .section-head h1 {
+    font-family: 'Fraunces', 'Noto Serif KR', serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.05;
+    margin: 0;
+    letter-spacing: -.02em;
+    color: var(--ink);
+  }
+  .section-head h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .section-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+  .section-meta strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  /* ============ Calculator (Hero) ============ */
+  .calc-wrap {
+    display: grid;
+    grid-template-columns: 1.05fr 1.4fr;
+    gap: 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .calc-input {
+    padding: 40px 40px 36px;
+    border-right: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(176,138,62,.04), transparent);
+  }
+  .calc-output {
+    padding: 40px;
+    background: var(--card);
+    position: relative;
+  }
+  .calc-output::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold) 60%, transparent);
+  }
+
+  .input-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .input-group { margin-bottom: 24px; }
+  .input-group:last-child { margin-bottom: 0; }
+
+  select, input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    font-weight: 500;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--ink);
+    transition: all .15s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231a1a1a' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+  select:focus, input:focus {
+    outline: none;
+    border-color: var(--ink);
+    background: #fff;
+  }
+  .input-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    letter-spacing: -.005em;
+  }
+  .input-hint strong {
+    color: var(--ink-2);
+    font-weight: 600;
+  }
+
+  /* ============ Result Display ============ */
+  .result-empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .result-empty::before {
+    content: "—";
+    display: block;
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 14px;
+    font-style: normal;
+  }
+
+  .result-grade {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .grade-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 92px;
+    line-height: .9;
+    color: var(--ink);
+    letter-spacing: -.04em;
+    font-feature-settings: "lnum";
+  }
+  .grade-number.g-high { color: var(--green); }
+  .grade-number.g-mid { color: var(--gold); }
+  .grade-number.g-low { color: var(--accent); }
+  .grade-label {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink-2);
+  }
+  .result-subject {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+
+  .result-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 28px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat-cell {
+    padding: 18px 0;
+    border-right: 1px dashed var(--line);
+  }
+  .stat-cell:last-child { border-right: 0; padding-left: 24px; }
+  .stat-cell:first-child { padding-right: 24px; }
+  .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .stat-value {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -.01em;
+    font-feature-settings: "lnum";
+  }
+  .stat-value .unit {
+    font-size: 14px;
+    color: var(--muted);
+    margin-left: 4px;
+    font-weight: 400;
+  }
+
+  .next-grade {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: var(--paper-2);
+    border-radius: 2px;
+    border-left: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .next-grade-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .next-grade-text b {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .next-grade-number {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+    font-feature-settings: "lnum";
+  }
+  .next-grade-number .unit {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: 3px;
+  }
+
+  /* ============ Overview KPIs ============ */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .kpi {
+    padding: 24px 28px;
+    border-right: 1px solid var(--line);
+  }
+  .kpi:last-child { border-right: 0; }
+  .kpi-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -.02em;
+    line-height: 1;
+    font-feature-settings: "lnum";
+  }
+  .kpi-value .unit {
+    font-size: 14px;
+    color: var(--muted);
+    margin-left: 4px;
+    font-weight: 400;
+  }
+  .kpi-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ============ Overview chart ============ */
+  .overview-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .ov-block h3 {
+    font-family: 'Fraunces', 'Noto Serif KR', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 24px;
+    color: var(--ink);
+    letter-spacing: -.01em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ov-block h3::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 16px;
+    background: var(--accent);
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 70px;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line-2);
+  }
+  .bar-row:last-child { border-bottom: 0; }
+  .bar-label {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .bar-track {
+    height: 6px;
+    background: var(--paper-2);
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: linear-gradient(90deg, var(--ink), var(--ink-2));
+    border-radius: 1px;
+    transition: width .6s cubic-bezier(.4,0,.2,1);
+  }
+  .bar-fill.accent { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+  .bar-fill.gold { background: linear-gradient(90deg, var(--gold), #8e6c2f); }
+  .bar-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--ink-2);
+    text-align: right;
+    font-weight: 500;
+    font-feature-settings: "tnum";
+  }
+
+  /* ============ Subjects view ============ */
+  .subj-tools {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .subj-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    cursor: pointer;
+    color: var(--ink-2);
+    transition: all .15s ease;
+  }
+  .chip:hover {
+    border-color: var(--ink-2);
+    color: var(--ink);
+  }
+  .chip.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .subj-detail {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+  .subj-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .subj-title {
+    font-family: 'Fraunces', 'Noto Serif KR', serif;
+    font-weight: 500;
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: -.02em;
+  }
+  .subj-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-left: 8px;
+    padding: 3px 9px;
+    background: var(--paper-2);
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .subj-stats {
+    display: flex;
+    gap: 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  .subj-stats > div { color: var(--muted); }
+  .subj-stats > div strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 2px;
+    font-feature-settings: "lnum";
+  }
+
+  .grade-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .grade-card {
+    text-align: center;
+    padding: 14px 6px 16px;
+    background: var(--paper);
+    border: 1px solid var(--line-2);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .grade-card .gnum {
+    font-family: 'Fraunces', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .grade-card .gscore {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.1;
+    font-feature-settings: "lnum";
+  }
+  .grade-card .gcount {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-feature-settings: "tnum";
+  }
+  .grade-card.is-1 { background: linear-gradient(180deg, rgba(61,107,78,.12), transparent); border-color: rgba(61,107,78,.25); }
+  .grade-card.is-1 .gscore { color: var(--green); }
+  .grade-card.is-2,
+  .grade-card.is-3 { background: linear-gradient(180deg, rgba(176,138,62,.1), transparent); border-color: rgba(176,138,62,.22); }
+  .grade-card.is-2 .gscore,
+  .grade-card.is-3 .gscore { color: var(--gold); }
+
+  /* Cumulative chart */
+  .chart-wrap {
+    margin-top: 24px;
+    padding: 20px 4px 8px;
+    background: var(--paper);
+    border-radius: 2px;
+    border: 1px solid var(--line-2);
+  }
+  .chart-wrap h4 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 16px 8px;
+    color: var(--ink-2);
+    letter-spacing: -.005em;
+  }
+  .chart-wrap h4 .small {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 8px;
+    letter-spacing: 0;
+  }
+  svg.line-chart { width: 100%; height: auto; display: block; }
+  .grid-line { stroke: var(--line-2); stroke-width: 1; }
+  .axis-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    fill: var(--muted);
+    font-feature-settings: "tnum";
+  }
+  .line-path {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .line-fill {
+    fill: url(#lineGrad);
+    opacity: .35;
+  }
+  .grade-marker {
+    stroke: var(--gold);
+    stroke-width: 1;
+    stroke-dasharray: 3 3;
+  }
+  .grade-marker-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    fill: var(--gold);
+    font-weight: 600;
+  }
+
+  /* Choice subjects table */
+  .choice-table {
+    margin-top: 28px;
+  }
+  .choice-table h4 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 12px;
+    color: var(--ink-2);
+  }
+  table.choices {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  table.choices th, table.choices td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line-2);
+  }
+  table.choices th {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    background: var(--paper);
+  }
+  table.choices td { color: var(--ink-2); font-feature-settings: "tnum"; }
+  table.choices td:first-child {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 880px) {
+    .header-inner { padding: 14px 20px; flex-wrap: wrap; }
+    main { padding: 32px 20px 64px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .section-head h1 { font-size: 32px; }
+    .section-meta { text-align: left; }
+    .calc-wrap { grid-template-columns: 1fr; }
+    .calc-input { border-right: 0; border-bottom: 1px solid var(--line); padding: 28px 24px; }
+    .calc-output { padding: 28px 24px; }
+    .grade-number { font-size: 68px; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .kpi { border-bottom: 1px solid var(--line); }
+    .kpi:nth-child(odd) { border-right: 1px solid var(--line); }
+    .kpi:nth-child(3), .kpi:nth-child(4) { border-bottom: 0; }
+    .overview-grid { grid-template-columns: 1fr; gap: 36px; }
+    .grade-grid { grid-template-columns: repeat(3, 1fr); }
+    .subj-detail { padding: 24px; }
+    .subj-title { font-size: 24px; }
+    .subj-stats { gap: 18px; }
+    .result-stats { grid-template-columns: 1fr; }
+    .stat-cell { border-right: 0; border-bottom: 1px dashed var(--line); padding: 14px 0; }
+    .stat-cell:last-child { border-bottom: 0; padding-left: 0; }
+    .stat-cell:first-child { padding-right: 0; }
+    nav.tabs { width: 100%; }
+    nav.tabs button { flex: 1; padding: 8px 10px; font-size: 13px; }
+    .header-inner { gap: 12px; }
+    .home-btn { padding: 6px 12px; font-size: 12px; order: -1; margin-left: auto; }
+    .home-fab { bottom: 20px; right: 20px; width: 48px; height: 48px; }
+    .home-fab .fab-label { display: none; }
+    footer.page-footer { padding: 24px 20px 80px; flex-direction: column; gap: 16px; }
+    footer.page-footer .footer-mark { text-align: left; }
+  }
+
+
+/* ============ 신규 컴포넌트 (모의평가 도구 전용) ============ */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 30px 32px 64px; }
+.page-intro { margin: 6px 0 26px; }
+.page-intro h1 {
+  font-family: 'Fraunces','Noto Serif KR',serif; font-weight: 600;
+  font-size: 30px; letter-spacing: -.02em; margin: 0 0 8px; color: var(--ink);
+}
+.page-intro h1 .yr { color: var(--accent); }
+.page-intro p { margin: 0; color: var(--muted); font-size: 14.5px; font-family: Inter,'Noto Serif KR',sans-serif; }
+.meta-strip {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px;
+  font-family: Inter, sans-serif; font-size: 12.5px; color: var(--ink-2);
+}
+.meta-strip span { display: inline-flex; align-items: center; gap: 6px; }
+.meta-strip span::before { content:""; width:5px; height:5px; background:var(--gold); transform:rotate(45deg); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+@media (max-width: 860px){ .grid-2,.grid-3 { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 3px;
+  padding: 22px 24px; box-shadow: var(--shadow);
+}
+.card h3 {
+  font-family: 'Noto Serif KR',serif; font-weight: 600; font-size: 15px; margin: 0 0 16px;
+  color: var(--ink); letter-spacing: -.01em; display:flex; align-items:baseline; justify-content:space-between;
+}
+.card h3 .hint { font-family: Inter,sans-serif; font-weight: 400; font-size: 11.5px; color: var(--muted); letter-spacing: 0; }
+
+/* 도넛 (선택과목 비율) */
+.donut-wrap { display: flex; align-items: center; gap: 22px; }
+.donut-legend { flex: 1; font-family: Inter,'Noto Serif KR',sans-serif; font-size: 13px; }
+.donut-legend .lg { display: flex; align-items: center; gap: 8px; margin: 7px 0; }
+.donut-legend .sw { width: 11px; height: 11px; border-radius: 2px; flex: none; }
+.donut-legend .lg b { color: var(--ink); }
+.donut-legend .lg .n { margin-left: auto; color: var(--muted); font-size: 12px; }
+
+/* 등급 스택 바 (등급별 인원 비율) */
+.gstack { display: flex; height: 30px; border-radius: 3px; overflow: hidden; border: 1px solid var(--line); }
+.gstack .seg { display: flex; align-items: center; justify-content: center; font-family: Inter,sans-serif; font-size: 10.5px; color: #fff; font-weight: 600; min-width: 0; }
+.gstack-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 10px; font-family: Inter,sans-serif; font-size: 11px; color: var(--ink-2); }
+.gstack-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.gstack-legend i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+
+/* 등급 구분표 */
+.cut-table { width: 100%; border-collapse: collapse; font-family: Inter,'Noto Serif KR',sans-serif; font-size: 13px; }
+.cut-table th, .cut-table td { padding: 8px 6px; text-align: center; border-bottom: 1px solid var(--line-2); }
+.cut-table th { font-weight: 600; color: var(--muted); font-size: 11.5px; letter-spacing: .02em; }
+.cut-table td.g { font-weight: 700; }
+.cut-table td.cut { font-family:'Fraunces',serif; font-weight: 600; font-size: 15px; color: var(--accent); }
+.cut-table tr:hover td { background: var(--paper-2); }
+
+/* 분포 차트 */
+.dist-chart { width: 100%; }
+.dist-chart .bar { fill: var(--accent); opacity: .28; }
+.dist-chart .cutline { stroke: var(--gold); stroke-width: 1; stroke-dasharray: 3 2; }
+.dist-chart .cutlbl { font-family: Inter,sans-serif; font-size: 9px; fill: var(--accent-2); }
+.dist-chart .axis { font-family: Inter,sans-serif; font-size: 10px; fill: var(--muted); }
+.dist-chart .cumpath { fill: none; stroke: var(--green); stroke-width: 1.6; }
+
+/* 통합 등급컷표 */
+.big-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 3px; background: var(--card); }
+.big-table { border-collapse: collapse; width: 100%; font-family: Inter,'Noto Serif KR',sans-serif; font-size: 12.5px; white-space: nowrap; }
+.big-table th, .big-table td { padding: 7px 10px; text-align: center; border-bottom: 1px solid var(--line-2); }
+.big-table thead th { position: sticky; top: 0; background: var(--paper-2); color: var(--ink); font-weight: 600; z-index: 1; border-bottom: 1px solid var(--line); }
+.big-table td.name { text-align: left; font-weight: 600; color: var(--ink); position: sticky; left: 0; background: var(--card); }
+.big-table tr:hover td { background: var(--paper); }
+.big-table tr:hover td.name { background: var(--paper-2); }
+.big-table .grouphdr td { background: var(--paper-2); font-weight: 700; color: var(--accent-2); text-align: left; letter-spacing: .02em; }
+.big-table td.v1 { color: var(--accent); font-weight: 700; }
+
+/* 계산기 */
+.calc-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; align-items: start; }
+@media (max-width: 900px){ .calc-grid { grid-template-columns: 1fr; } }
+.calc-row { display: grid; grid-template-columns: 92px 1fr 90px; gap: 10px; align-items: center; margin-bottom: 12px; }
+.calc-row > label { font-family:'Noto Serif KR',serif; font-weight: 600; font-size: 14px; }
+.calc-row select, .calc-row input {
+  font-family: Inter,'Noto Serif KR',sans-serif; font-size: 14px; padding: 9px 11px;
+  border: 1px solid var(--line); border-radius: 3px; background: var(--paper); color: var(--ink); width: 100%;
+}
+.calc-row input { text-align: center; font-family:'Fraunces',serif; font-weight: 600; }
+.calc-row input:focus, .calc-row select:focus { outline: none; border-color: var(--accent); }
+.res-panel { background: var(--card); border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--shadow); overflow: hidden; }
+.res-line { display: grid; grid-template-columns: 92px repeat(3,1fr); gap: 4px; padding: 12px 16px; border-bottom: 1px solid var(--line-2); align-items: center; }
+.res-line.head { background: var(--paper-2); font-family: Inter,sans-serif; font-size: 11px; color: var(--muted); font-weight: 600; padding: 8px 16px; }
+.res-line .rname { font-family:'Noto Serif KR',serif; font-weight: 600; font-size: 13.5px; }
+.res-line .rv { text-align: center; font-family:'Fraunces',serif; font-weight: 600; font-size: 16px; }
+.res-line .rv small { font-family: Inter,sans-serif; font-size: 10px; color: var(--muted); font-weight: 400; display:block; }
+.res-line .grade-pill { display:inline-block; min-width: 26px; padding: 2px 0; border-radius: 3px; color:#fff; font-family: Inter,sans-serif; font-weight: 700; font-size: 13px; }
+.res-total { padding: 16px; background: var(--paper-2); }
+.res-total .tt { font-family:'Noto Serif KR',serif; font-weight: 600; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.res-total .big { font-family:'Fraunces',serif; font-weight: 700; font-size: 30px; color: var(--accent); }
+.calc-note { font-family: Inter,sans-serif; font-size: 11.5px; color: var(--muted); line-height: 1.7; margin-top: 14px; }
+
+.note-box {
+  background: var(--paper-2); border-left: 3px solid var(--gold); border-radius: 0 3px 3px 0;
+  padding: 14px 18px; font-family:'Noto Serif KR',serif; font-size: 13.5px; color: var(--ink-2); line-height: 1.75;
+}
+.note-box b { color: var(--accent-2); }
+.abs-mini { font-family: Inter,'Noto Serif KR',sans-serif; font-size: 12.5px; }
+.abs-mini .r { display: grid; grid-template-columns: 34px 1fr 62px 52px; gap: 6px; padding: 5px 0; border-bottom: 1px solid var(--line-2); align-items:center; }
+.abs-mini .r.h { color: var(--muted); font-size: 11px; font-weight: 600; }
+.abs-mini .gg { font-weight: 700; }
+.abs-mini .bar2 { height: 7px; background: var(--line-2); border-radius: 4px; overflow: hidden; }
+.abs-mini .bar2 i { display: block; height: 100%; background: var(--accent); opacity:.5; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">대학수학능력시험</span>
+      <span class="brand-title">2027학년도 6월 모의평가 채점 결과</span>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="active" data-view="overview">시험 개요</button>
+      <button data-view="subjects">과목별 분석</button>
+      <button data-view="calc">원점수 변환기</button>
+      <button data-view="cuts">등급컷 한눈에</button>
+    </nav>
+    <a class="home-btn" href="index.html" aria-label="메인으로 이동">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+      메인
+    </a>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- ================= 시험 개요 ================= -->
+  <section class="view show" data-view="overview">
+    <div class="page-intro">
+      <h1><span class="yr">2027학년도</span> 6월 모의평가 채점 결과</h1>
+      <p>한국교육과정평가원 공식 채점 결과를 바탕으로 한 영역·과목별 등급 구분 표준점수, 도수분포, 원점수 변환 상담 자료입니다.</p>
+      <div class="meta-strip" id="metaStrip"></div>
+    </div>
+    <div class="kpi-row" id="kpiRow"></div>
+    <div class="grid-2" style="margin-top:20px">
+      <div class="card"><h3>영역별 응시 인원 <span class="hint">한국사 기준 전체 대비</span></h3><div id="areaBars"></div></div>
+      <div class="card"><h3>선택과목 응시 비율 <span class="hint">국어 · 수학</span></h3><div id="donuts"></div></div>
+    </div>
+    <div class="grid-2" style="margin-top:20px">
+      <div class="card"><h3>탐구 응시자 상위 과목 <span class="hint">사회 · 과학탐구</span></h3><div id="inquiryBars"></div></div>
+      <div class="card"><h3>절대평가 등급 분포 <span class="hint">영어 · 한국사</span></h3><div id="absMini"></div></div>
+    </div>
+    <div class="card" style="margin-top:20px">
+      <h3>한눈에 보는 응시 현황</h3>
+      <div class="note-box" id="overviewNote"></div>
+    </div>
+  </section>
+
+  <!-- ================= 과목별 분석 ================= -->
+  <section class="view" data-view="subjects">
+    <div class="page-intro"><h1>과목별 분석</h1><p>과목을 선택하면 9등급 구분 표준점수, 등급별 인원 비율, 표준점수 분포를 확인할 수 있습니다.</p></div>
+    <div class="subj-chips" id="subjChips"></div>
+    <div class="subj-detail" id="subjDetail"></div>
+  </section>
+
+  <!-- ================= 원점수 변환기 ================= -->
+  <section class="view" data-view="calc">
+    <div class="page-intro"><h1>원점수 → 등급 변환기</h1><p>과목별 <b>원점수</b>를 입력하면 표준점수·백분위·등급을 산출하고 국·수·탐 조합 결과를 계산합니다.</p></div>
+    <div class="calc-grid">
+      <div class="card">
+        <h3>성적 입력 <span class="hint">선택과목 · 원점수</span></h3>
+        <div id="calcInputs"></div>
+        <div class="calc-note" id="calcNote"></div>
+      </div>
+      <div class="res-panel" id="calcResult"></div>
+    </div>
+  </section>
+
+  <!-- ================= 등급컷 한눈에 ================= -->
+  <section class="view" data-view="cuts">
+    <div class="page-intro"><h1>등급 구분 표준점수 한눈에</h1><p>전 과목 1~9등급 구분 표준점수입니다. 영어·한국사·제2외국어/한문은 절대평가(원점수 기준)입니다.</p></div>
+    <div class="big-table-wrap"><table class="big-table" id="cutBigTable"></table></div>
+    <div class="calc-note" style="margin-top:14px">※ 표시 점수는 각 등급의 <b>구분(하한) 표준점수</b>입니다. 국어·수학·탐구는 표준점수, 영어·한국사는 원점수 기준 등급입니다.</div>
+  </section>
+</div>
+
+<footer class="page-footer">
+  <div class="credit-block">
+    <div class="credit-line"><span class="credit-label">제작</span><span class="credit-value">충청남도교육청진로융합교육원 교육연구사 <strong>정재연</strong></span></div>
+    <div class="credit-line"><span class="credit-label">출처</span><span class="credit-value">한국교육과정평가원 · 2027학년도 수능 6월 모의평가 채점 결과 보도자료</span></div>
+  </div>
+  <div class="footer-mark">2027학년도 6월 모의평가 채점 결과 분석 도구</div>
+</footer>
+
+<script>
+const DB = {"meta":{"exam":"2027학년도 대학수학능력시험 6월 모의평가","date":"2026. 6. 4.(목) 시행","notice":"2026. 7. 1.(수) 성적 통지","source":"한국교육과정평가원","total":411302,"jaehak":328242,"졸업검정":83060,"areas":[["국어",409046],["수학",405997],["영어",410655],["한국사",411302],["사회·과학탐구",404189],["직업탐구",4422],["제2외국어/한문",6806]],"탐구계":408611,"국어선택":[["화법과 작문",302241,73.89],["언어와 매체",106805,26.11]],"수학선택":[["확률과 통계",264595,65.17],["미적분",130435,32.13],["기하",10967,2.7]],"탐구조합":{"사탐만":278883,"과탐만":55450,"사+과":69856}},"subjects":{"국어":{"name":"국어","area":"국어","cut":[{"grade":1,"cut":128,"n":22018,"pct":5.38},{"grade":2,"cut":124,"n":26508,"pct":6.48},{"grade":3,"cut":118,"n":46639,"pct":11.4},{"grade":4,"cut":109,"n":70096,"pct":17.14},{"grade":5,"cut":97,"n":81998,"pct":20.05},{"grade":6,"cut":83,"n":71378,"pct":17.45},{"grade":7,"cut":70,"n":47309,"pct":11.57},{"grade":8,"cut":63,"n":30308,"pct":7.41},{"grade":9,"cut":"63미만","n":12792,"pct":3.13}],"dist":[{"s":132,"m":1781,"f":1941,"t":3725,"cum":3725},{"s":131,"m":411,"f":376,"t":788,"cum":4513},{"s":130,"m":2451,"f":2516,"t":4973,"cum":9486},{"s":129,"m":3019,"f":3034,"t":6063,"cum":15549},{"s":128,"m":3131,"f":3331,"t":6469,"cum":22018},{"s":127,"m":2281,"f":2448,"t":4738,"cum":26756},{"s":126,"m":3915,"f":4188,"t":8111,"cum":34867},{"s":125,"m":2850,"f":2945,"t":5806,"cum":40673},{"s":124,"m":3829,"f":4018,"t":7853,"cum":48526},{"s":123,"m":3202,"f":3276,"t":6491,"cum":55017},{"s":122,"m":4213,"f":4397,"t":8627,"cum":63644},{"s":121,"m":3793,"f":3984,"t":7788,"cum":71432},{"s":120,"m":4053,"f":4412,"t":8480,"cum":79912},{"s":119,"m":3928,"f":3915,"t":7851,"cum":87763},{"s":118,"m":3600,"f":3787,"t":7402,"cum":95165},{"s":117,"m":3586,"f":3715,"t":7312,"cum":102477},{"s":116,"m":4102,"f":4256,"t":8365,"cum":110842},{"s":115,"m":4412,"f":4480,"t":8905,"cum":119747},{"s":114,"m":4192,"f":4304,"t":8507,"cum":128254},{"s":113,"m":3672,"f":3725,"t":7410,"cum":135664},{"s":112,"m":3348,"f":3540,"t":6895,"cum":142559},{"s":111,"m":3523,"f":3656,"t":7192,"cum":149751},{"s":110,"m":3496,"f":3659,"t":7167,"cum":156918},{"s":109,"m":4055,"f":4277,"t":8343,"cum":165261},{"s":108,"m":3988,"f":4177,"t":8178,"cum":173439},{"s":107,"m":3606,"f":3672,"t":7294,"cum":180733},{"s":106,"m":3158,"f":3285,"t":6453,"cum":187186},{"s":105,"m":3259,"f":3287,"t":6561,"cum":193747},{"s":104,"m":3343,"f":3357,"t":6715,"cum":200462},{"s":103,"m":3802,"f":4001,"t":7816,"cum":208278},{"s":102,"m":3811,"f":4036,"t":7863,"cum":216141},{"s":101,"m":3230,"f":3244,"t":6491,"cum":222632},{"s":100,"m":2932,"f":2919,"t":5859,"cum":228491},{"s":99,"m":2781,"f":2890,"t":5687,"cum":234178},{"s":98,"m":3096,"f":3173,"t":6283,"cum":240461},{"s":97,"m":3366,"f":3412,"t":6798,"cum":247259},{"s":96,"m":3147,"f":3263,"t":6424,"cum":253683},{"s":95,"m":2864,"f":3011,"t":5887,"cum":259570},{"s":94,"m":2583,"f":2664,"t":5255,"cum":264825},{"s":93,"m":2422,"f":2474,"t":4908,"cum":269733},{"s":92,"m":2658,"f":2668,"t":5341,"cum":275074},{"s":91,"m":2769,"f":2814,"t":5598,"cum":280672},{"s":90,"m":2850,"f":2877,"t":5743,"cum":286415},{"s":89,"m":2466,"f":2666,"t":5144,"cum":291559},{"s":88,"m":2258,"f":2115,"t":4383,"cum":295942},{"s":87,"m":2235,"f":2133,"t":4377,"cum":300319},{"s":86,"m":2251,"f":2160,"t":4422,"cum":304741},{"s":85,"m":2439,"f":2525,"t":4975,"cum":309716},{"s":84,"m":2323,"f":2449,"t":4783,"cum":314499},{"s":83,"m":2105,"f":2024,"t":4138,"cum":318637},{"s":82,"m":1821,"f":1735,"t":3564,"cum":322201},{"s":81,"m":1885,"f":1742,"t":3634,"cum":325835},{"s":80,"m":1884,"f":1851,"t":3740,"cum":329575},{"s":79,"m":2136,"f":2044,"t":4184,"cum":333759},{"s":78,"m":2044,"f":2013,"t":4064,"cum":337823},{"s":77,"m":1825,"f":1601,"t":3432,"cum":341255},{"s":76,"m":1657,"f":1603,"t":3263,"cum":344518},{"s":75,"m":1613,"f":1394,"t":3014,"cum":347532},{"s":74,"m":1899,"f":1605,"t":3514,"cum":351046},{"s":73,"m":2113,"f":1798,"t":3925,"cum":354971},{"s":72,"m":2047,"f":1629,"t":3698,"cum":358669},{"s":71,"m":2311,"f":1631,"t":3963,"cum":362632},{"s":70,"m":1910,"f":1392,"t":3314,"cum":365946},{"s":69,"m":1844,"f":1264,"t":3116,"cum":369062},{"s":68,"m":5030,"f":2667,"t":7737,"cum":376799},{"s":67,"m":2100,"f":1375,"t":3492,"cum":380291},{"s":66,"m":2069,"f":1366,"t":3449,"cum":383740},{"s":65,"m":2883,"f":1545,"t":4453,"cum":388193},{"s":64,"m":1759,"f":983,"t":2749,"cum":390942},{"s":63,"m":3452,"f":1826,"t":5312,"cum":396254},{"s":62,"m":1593,"f":822,"t":2430,"cum":398684},{"s":61,"m":1490,"f":861,"t":2363,"cum":401047},{"s":60,"m":1008,"f":559,"t":1574,"cum":402621},{"s":59,"m":1668,"f":747,"t":2427,"cum":405048},{"s":58,"m":504,"f":278,"t":786,"cum":405834},{"s":57,"m":432,"f":188,"t":623,"cum":406457},{"s":56,"m":403,"f":194,"t":599,"cum":407056},{"s":55,"m":214,"f":102,"t":316,"cum":407372},{"s":54,"m":131,"f":68,"t":200,"cum":407572},{"s":53,"m":82,"f":40,"t":122,"cum":407694},{"s":52,"m":72,"f":33,"t":107,"cum":407801},{"s":51,"m":28,"f":17,"t":45,"cum":407846},{"s":50,"m":59,"f":30,"t":90,"cum":407936},{"s":49,"m":67,"f":26,"t":94,"cum":408030},{"s":48,"m":154,"f":51,"t":207,"cum":408237},{"s":47,"m":570,"f":235,"t":809,"cum":409046}],"maxstd":132,"examinees":409046},"수학":{"name":"수학","area":"수학","cut":[{"grade":1,"cut":129,"n":19629,"pct":4.83},{"grade":2,"cut":123,"n":40040,"pct":9.86},{"grade":3,"cut":118,"n":46212,"pct":11.38},{"grade":4,"cut":111,"n":56882,"pct":14.01},{"grade":5,"cut":94,"n":81379,"pct":20.04},{"grade":6,"cut":78,"n":74018,"pct":18.23},{"grade":7,"cut":73,"n":46685,"pct":11.5},{"grade":8,"cut":69,"n":27302,"pct":6.72},{"grade":9,"cut":"69미만","n":13850,"pct":3.41}],"dist":[{"s":138,"m":1177,"f":294,"t":1474,"cum":1474},{"s":137,"m":2,"f":1,"t":3,"cum":1477},{"s":136,"m":211,"f":55,"t":266,"cum":1743},{"s":135,"m":2335,"f":671,"t":3010,"cum":4753},{"s":134,"m":19,"f":2,"t":21,"cum":4774},{"s":133,"m":593,"f":191,"t":785,"cum":5559},{"s":132,"m":3655,"f":1214,"t":4876,"cum":10435},{"s":131,"m":62,"f":18,"t":80,"cum":10515},{"s":130,"m":1747,"f":714,"t":2465,"cum":12980},{"s":129,"m":4722,"f":1916,"t":6649,"cum":19629},{"s":128,"m":406,"f":170,"t":577,"cum":20206},{"s":127,"m":2578,"f":1427,"t":4011,"cum":24217},{"s":126,"m":7920,"f":3895,"t":11838,"cum":36055},{"s":125,"m":377,"f":200,"t":578,"cum":36633},{"s":124,"m":3775,"f":2361,"t":6145,"cum":42778},{"s":123,"m":10467,"f":6403,"t":16891,"cum":59669},{"s":122,"m":615,"f":333,"t":951,"cum":60620},{"s":121,"m":7315,"f":5679,"t":13018,"cum":73638},{"s":120,"m":8407,"f":5658,"t":14090,"cum":87728},{"s":119,"m":969,"f":688,"t":1658,"cum":89386},{"s":118,"m":9015,"f":7455,"t":16495,"cum":105881},{"s":117,"m":5378,"f":4431,"t":9826,"cum":115707},{"s":116,"m":2200,"f":1751,"t":3958,"cum":119665},{"s":115,"m":6969,"f":6209,"t":13203,"cum":132868},{"s":114,"m":4198,"f":4078,"t":8290,"cum":141158},{"s":113,"m":2735,"f":2227,"t":4978,"cum":146136},{"s":112,"m":7031,"f":7291,"t":14350,"cum":160486},{"s":111,"m":1291,"f":977,"t":2277,"cum":162763},{"s":110,"m":4072,"f":4027,"t":8115,"cum":170878},{"s":109,"m":3532,"f":4088,"t":7634,"cum":178512},{"s":108,"m":1157,"f":1020,"t":2180,"cum":180692},{"s":107,"m":3751,"f":3917,"t":7677,"cum":188369},{"s":106,"m":2200,"f":2643,"t":4852,"cum":193221},{"s":105,"m":2159,"f":2163,"t":4328,"cum":197549},{"s":104,"m":2375,"f":2831,"t":5218,"cum":202767},{"s":103,"m":1661,"f":2076,"t":3740,"cum":206507},{"s":102,"m":2350,"f":2483,"t":4839,"cum":211346},{"s":101,"m":1993,"f":2497,"t":4504,"cum":215850},{"s":100,"m":1726,"f":1839,"t":3570,"cum":219420},{"s":99,"m":2288,"f":2941,"t":5243,"cum":224663},{"s":98,"m":1227,"f":1437,"t":2667,"cum":227330},{"s":97,"m":1958,"f":2251,"t":4214,"cum":231544},{"s":96,"m":1719,"f":2340,"t":4066,"cum":235610},{"s":95,"m":1698,"f":2019,"t":3721,"cum":239331},{"s":94,"m":2060,"f":2737,"t":4811,"cum":244142},{"s":93,"m":1371,"f":1509,"t":2886,"cum":247028},{"s":92,"m":1903,"f":2476,"t":4387,"cum":251415},{"s":91,"m":1613,"f":2219,"t":3839,"cum":255254},{"s":90,"m":1796,"f":2322,"t":4124,"cum":259378},{"s":89,"m":1957,"f":2668,"t":4633,"cum":264011},{"s":88,"m":1532,"f":2120,"t":3661,"cum":267672},{"s":87,"m":1623,"f":2269,"t":3902,"cum":271574},{"s":86,"m":1663,"f":2279,"t":3947,"cum":275521},{"s":85,"m":1836,"f":2553,"t":4396,"cum":279917},{"s":84,"m":1943,"f":2583,"t":4535,"cum":284452},{"s":83,"m":2056,"f":2727,"t":4790,"cum":289242},{"s":82,"m":1680,"f":2283,"t":3976,"cum":293218},{"s":81,"m":3151,"f":3522,"t":6703,"cum":299921},{"s":80,"m":2295,"f":2852,"t":5159,"cum":305080},{"s":79,"m":3011,"f":3735,"t":6763,"cum":311843},{"s":78,"m":2906,"f":3395,"t":6317,"cum":318160},{"s":77,"m":8117,"f":8008,"t":16180,"cum":334340},{"s":76,"m":2725,"f":3253,"t":5991,"cum":340331},{"s":75,"m":3467,"f":4248,"t":7735,"cum":348066},{"s":74,"m":4603,"f":4750,"t":9393,"cum":357459},{"s":73,"m":3429,"f":3931,"t":7386,"cum":364845},{"s":72,"m":2959,"f":3290,"t":6274,"cum":371119},{"s":71,"m":5828,"f":6364,"t":12220,"cum":383339},{"s":70,"m":2437,"f":2610,"t":5061,"cum":388400},{"s":69,"m":1763,"f":1975,"t":3747,"cum":392147},{"s":68,"m":3398,"f":3436,"t":6865,"cum":399012},{"s":67,"m":1050,"f":1071,"t":2130,"cum":401142},{"s":66,"m":820,"f":894,"t":1717,"cum":402859},{"s":65,"m":574,"f":460,"t":1041,"cum":403900},{"s":64,"m":266,"f":286,"t":554,"cum":404454},{"s":63,"m":118,"f":110,"t":228,"cum":404682},{"s":62,"m":810,"f":495,"t":1315,"cum":405997}],"maxstd":138,"examinees":405997},"생활과윤리":{"name":"생활과 윤리","area":"사회탐구","cut":[{"grade":1,"cut":68,"n":8764,"pct":4.56},{"grade":2,"cut":64,"n":14326,"pct":7.46},{"grade":3,"cut":58,"n":24468,"pct":12.74},{"grade":4,"cut":53,"n":29718,"pct":15.47},{"grade":5,"cut":47,"n":40817,"pct":21.25},{"grade":6,"cut":42,"n":30303,"pct":15.77},{"grade":7,"cut":37,"n":25399,"pct":13.22},{"grade":8,"cut":34,"n":11828,"pct":6.16},{"grade":9,"cut":"34미만","n":6490,"pct":3.38}],"dist":[{"s":70,"m":2716,"f":3256,"t":5984,"cum":5984},{"s":68,"m":1221,"f":1555,"t":2780,"cum":8764},{"s":67,"m":1989,"f":2619,"t":4611,"cum":13375},{"s":66,"m":357,"f":489,"t":848,"cum":14223},{"s":65,"m":1704,"f":2295,"t":4001,"cum":18224},{"s":64,"m":1998,"f":2864,"t":4866,"cum":23090},{"s":63,"m":1584,"f":2538,"t":4130,"cum":27220},{"s":62,"m":879,"f":1285,"t":2169,"cum":29389},{"s":61,"m":1286,"f":1998,"t":3293,"cum":32682},{"s":60,"m":1493,"f":2431,"t":3928,"cum":36610},{"s":59,"m":2874,"f":4488,"t":7374,"cum":43984},{"s":58,"m":1387,"f":2176,"t":3574,"cum":47558},{"s":57,"m":1644,"f":2531,"t":4179,"cum":51737},{"s":56,"m":2019,"f":3240,"t":5266,"cum":57003},{"s":55,"m":1475,"f":2333,"t":3814,"cum":60817},{"s":54,"m":4095,"f":6809,"t":10920,"cum":71737},{"s":53,"m":2151,"f":3375,"t":5539,"cum":77276},{"s":52,"m":2438,"f":3865,"t":6318,"cum":83594},{"s":51,"m":2015,"f":3061,"t":5079,"cum":88673},{"s":50,"m":2596,"f":4108,"t":6719,"cum":95392},{"s":49,"m":4535,"f":6871,"t":11429,"cum":106821},{"s":48,"m":2401,"f":3710,"t":6118,"cum":112939},{"s":47,"m":2086,"f":3054,"t":5154,"cum":118093},{"s":46,"m":2428,"f":3693,"t":6138,"cum":124231},{"s":45,"m":2089,"f":2924,"t":5020,"cum":129251},{"s":44,"m":4235,"f":5969,"t":10225,"cum":139476},{"s":43,"m":1710,"f":2317,"t":4036,"cum":143512},{"s":42,"m":2068,"f":2802,"t":4884,"cum":148396},{"s":41,"m":1689,"f":2133,"t":3830,"cum":152226},{"s":40,"m":1702,"f":2058,"t":3769,"cum":155995},{"s":39,"m":3279,"f":3656,"t":6952,"cum":162947},{"s":38,"m":2074,"f":1948,"t":4032,"cum":166979},{"s":37,"m":3869,"f":2919,"t":6816,"cum":173795},{"s":36,"m":1309,"f":1209,"t":2527,"cum":176322},{"s":35,"m":4543,"f":3068,"t":7648,"cum":183970},{"s":34,"m":904,"f":745,"t":1653,"cum":185623},{"s":33,"m":2055,"f":1613,"t":3686,"cum":189309},{"s":32,"m":762,"f":499,"t":1265,"cum":190574},{"s":31,"m":268,"f":244,"t":516,"cum":191090},{"s":30,"m":232,"f":147,"t":379,"cum":191469},{"s":29,"m":255,"f":186,"t":441,"cum":191910},{"s":28,"m":133,"f":70,"t":203,"cum":192113}],"maxstd":70,"examinees":192113},"윤리와사상":{"name":"윤리와 사상","area":"사회탐구","cut":[{"grade":1,"cut":70,"n":2259,"pct":4.51},{"grade":2,"cut":64,"n":3723,"pct":7.43},{"grade":3,"cut":58,"n":5960,"pct":11.89},{"grade":4,"cut":51,"n":9481,"pct":18.91},{"grade":5,"cut":46,"n":8930,"pct":17.81},{"grade":6,"cut":42,"n":8320,"pct":16.6},{"grade":7,"cut":38,"n":6770,"pct":13.5},{"grade":8,"cut":37,"n":3054,"pct":6.09},{"grade":9,"cut":"37미만","n":1633,"pct":3.26}],"dist":[{"s":76,"m":75,"f":96,"t":171,"cum":171},{"s":74,"m":122,"f":162,"t":285,"cum":456},{"s":73,"m":106,"f":116,"t":222,"cum":678},{"s":72,"m":97,"f":139,"t":236,"cum":914},{"s":71,"m":298,"f":446,"t":745,"cum":1659},{"s":70,"m":247,"f":353,"t":600,"cum":2259},{"s":69,"m":199,"f":282,"t":482,"cum":2741},{"s":68,"m":161,"f":287,"t":450,"cum":3191},{"s":67,"m":305,"f":433,"t":739,"cum":3930},{"s":66,"m":176,"f":316,"t":492,"cum":4422},{"s":65,"m":298,"f":469,"t":767,"cum":5189},{"s":64,"m":319,"f":472,"t":793,"cum":5982},{"s":63,"m":584,"f":932,"t":1519,"cum":7501},{"s":62,"m":274,"f":424,"t":700,"cum":8201},{"s":61,"m":322,"f":558,"t":881,"cum":9082},{"s":60,"m":381,"f":568,"t":952,"cum":10034},{"s":59,"m":268,"f":540,"t":808,"cum":10842},{"s":58,"m":366,"f":732,"t":1100,"cum":11942},{"s":57,"m":338,"f":555,"t":895,"cum":12837},{"s":56,"m":360,"f":713,"t":1073,"cum":13910},{"s":55,"m":771,"f":1410,"t":2181,"cum":16091},{"s":54,"m":430,"f":858,"t":1292,"cum":17383},{"s":53,"m":451,"f":780,"t":1233,"cum":18616},{"s":52,"m":412,"f":903,"t":1317,"cum":19933},{"s":51,"m":503,"f":983,"t":1490,"cum":21423},{"s":50,"m":417,"f":851,"t":1273,"cum":22696},{"s":49,"m":531,"f":983,"t":1521,"cum":24217},{"s":48,"m":1062,"f":1939,"t":3012,"cum":27229},{"s":47,"m":613,"f":1055,"t":1669,"cum":28898},{"s":46,"m":545,"f":909,"t":1455,"cum":30353},{"s":45,"m":700,"f":1048,"t":1752,"cum":32105},{"s":44,"m":632,"f":946,"t":1580,"cum":33685},{"s":43,"m":842,"f":1115,"t":1967,"cum":35652},{"s":42,"m":1480,"f":1527,"t":3021,"cum":38673},{"s":41,"m":798,"f":812,"t":1618,"cum":40291},{"s":40,"m":1167,"f":1352,"t":2524,"cum":42815},{"s":39,"m":848,"f":738,"t":1596,"cum":44411},{"s":38,"m":531,"f":499,"t":1032,"cum":45443},{"s":37,"m":1805,"f":1230,"t":3054,"cum":48497},{"s":36,"m":294,"f":291,"t":586,"cum":49083},{"s":35,"m":259,"f":244,"t":504,"cum":49587},{"s":34,"m":150,"f":105,"t":256,"cum":49843},{"s":33,"m":123,"f":98,"t":222,"cum":50065},{"s":32,"m":36,"f":29,"t":65,"cum":50130}],"maxstd":76,"examinees":50130},"한국지리":{"name":"한국지리","area":"사회탐구","cut":[{"grade":1,"cut":69,"n":2497,"pct":5.85},{"grade":2,"cut":65,"n":2708,"pct":6.35},{"grade":3,"cut":58,"n":4979,"pct":11.67},{"grade":4,"cut":51,"n":8274,"pct":19.4},{"grade":5,"cut":45,"n":8368,"pct":19.62},{"grade":6,"cut":41,"n":8092,"pct":18.97},{"grade":7,"cut":39,"n":3318,"pct":7.78},{"grade":8,"cut":37,"n":2905,"pct":6.81},{"grade":9,"cut":"37미만","n":1507,"pct":3.53}],"dist":[{"s":72,"m":593,"f":284,"t":880,"cum":880},{"s":70,"m":436,"f":290,"t":727,"cum":1607},{"s":69,"m":551,"f":339,"t":890,"cum":2497},{"s":68,"m":464,"f":293,"t":759,"cum":3256},{"s":67,"m":224,"f":134,"t":359,"cum":3615},{"s":66,"m":324,"f":244,"t":568,"cum":4183},{"s":65,"m":571,"f":450,"t":1022,"cum":5205},{"s":64,"m":335,"f":272,"t":610,"cum":5815},{"s":63,"m":280,"f":213,"t":493,"cum":6308},{"s":62,"m":370,"f":252,"t":622,"cum":6930},{"s":61,"m":346,"f":270,"t":619,"cum":7549},{"s":60,"m":662,"f":617,"t":1280,"cum":8829},{"s":59,"m":316,"f":312,"t":630,"cum":9459},{"s":58,"m":368,"f":356,"t":725,"cum":10184},{"s":57,"m":388,"f":397,"t":785,"cum":10969},{"s":56,"m":839,"f":794,"t":1635,"cum":12604},{"s":55,"m":442,"f":400,"t":843,"cum":13447},{"s":54,"m":431,"f":416,"t":851,"cum":14298},{"s":53,"m":463,"f":530,"t":995,"cum":15293},{"s":52,"m":428,"f":464,"t":894,"cum":16187},{"s":51,"m":1111,"f":1154,"t":2271,"cum":18458},{"s":50,"m":510,"f":552,"t":1063,"cum":19521},{"s":49,"m":519,"f":622,"t":1147,"cum":20668},{"s":48,"m":519,"f":565,"t":1090,"cum":21758},{"s":47,"m":1219,"f":1297,"t":2525,"cum":24283},{"s":46,"m":591,"f":595,"t":1191,"cum":25474},{"s":45,"m":636,"f":714,"t":1352,"cum":26826},{"s":44,"m":667,"f":672,"t":1344,"cum":28170},{"s":43,"m":653,"f":651,"t":1304,"cum":29474},{"s":42,"m":1349,"f":1280,"t":2635,"cum":32109},{"s":41,"m":1696,"f":1101,"t":2809,"cum":34918},{"s":40,"m":1256,"f":910,"t":2174,"cum":37092},{"s":39,"m":614,"f":524,"t":1144,"cum":38236},{"s":38,"m":1327,"f":927,"t":2259,"cum":40495},{"s":37,"m":329,"f":317,"t":646,"cum":41141},{"s":36,"m":244,"f":185,"t":429,"cum":41570},{"s":35,"m":264,"f":180,"t":445,"cum":42015},{"s":34,"m":114,"f":96,"t":213,"cum":42228},{"s":33,"m":215,"f":133,"t":349,"cum":42577},{"s":31,"m":41,"f":28,"t":71,"cum":42648}],"maxstd":72,"examinees":42648},"세계지리":{"name":"세계지리","area":"사회탐구","cut":[{"grade":1,"cut":68,"n":2668,"pct":5.91},{"grade":2,"cut":65,"n":2320,"pct":5.14},{"grade":3,"cut":58,"n":6104,"pct":13.52},{"grade":4,"cut":52,"n":7959,"pct":17.62},{"grade":5,"cut":46,"n":8934,"pct":19.78},{"grade":6,"cut":41,"n":7855,"pct":17.39},{"grade":7,"cut":38,"n":4501,"pct":9.97},{"grade":8,"cut":35,"n":3727,"pct":8.25},{"grade":9,"cut":"35미만","n":1094,"pct":2.42}],"dist":[{"s":70,"m":732,"f":359,"t":1094,"cum":1094},{"s":69,"m":419,"f":192,"t":614,"cum":1708},{"s":68,"m":628,"f":331,"t":960,"cum":2668},{"s":67,"m":162,"f":68,"t":232,"cum":2900},{"s":66,"m":599,"f":319,"t":919,"cum":3819},{"s":65,"m":769,"f":398,"t":1169,"cum":4988},{"s":64,"m":574,"f":326,"t":903,"cum":5891},{"s":63,"m":353,"f":209,"t":563,"cum":6454},{"s":62,"m":483,"f":303,"t":786,"cum":7240},{"s":61,"m":880,"f":577,"t":1458,"cum":8698},{"s":60,"m":518,"f":362,"t":881,"cum":9579},{"s":59,"m":441,"f":287,"t":729,"cum":10308},{"s":58,"m":486,"f":297,"t":784,"cum":11092},{"s":57,"m":1005,"f":661,"t":1667,"cum":12759},{"s":56,"m":624,"f":401,"t":1027,"cum":13786},{"s":55,"m":541,"f":367,"t":910,"cum":14696},{"s":54,"m":557,"f":451,"t":1010,"cum":15706},{"s":53,"m":668,"f":507,"t":1178,"cum":16884},{"s":52,"m":1286,"f":879,"t":2167,"cum":19051},{"s":51,"m":664,"f":477,"t":1142,"cum":20193},{"s":50,"m":704,"f":514,"t":1220,"cum":21413},{"s":49,"m":688,"f":570,"t":1260,"cum":22673},{"s":48,"m":1395,"f":1255,"t":2652,"cum":25325},{"s":47,"m":675,"f":623,"t":1302,"cum":26627},{"s":46,"m":684,"f":667,"t":1358,"cum":27985},{"s":45,"m":740,"f":645,"t":1389,"cum":29374},{"s":44,"m":1467,"f":1196,"t":2668,"cum":32042},{"s":43,"m":765,"f":690,"t":1460,"cum":33502},{"s":42,"m":651,"f":561,"t":1213,"cum":34715},{"s":41,"m":588,"f":537,"t":1125,"cum":35840},{"s":40,"m":1572,"f":1238,"t":2820,"cum":38660},{"s":39,"m":438,"f":387,"t":828,"cum":39488},{"s":38,"m":451,"f":401,"t":853,"cum":40341},{"s":37,"m":466,"f":321,"t":790,"cum":41131},{"s":36,"m":329,"f":266,"t":597,"cum":41728},{"s":35,"m":1513,"f":817,"t":2340,"cum":44068},{"s":34,"m":258,"f":177,"t":436,"cum":44504},{"s":33,"m":105,"f":74,"t":179,"cum":44683},{"s":32,"m":164,"f":86,"t":250,"cum":44933},{"s":31,"m":79,"f":55,"t":135,"cum":45068},{"s":30,"m":60,"f":34,"t":94,"cum":45162}],"maxstd":70,"examinees":45162},"동아시아사":{"name":"동아시아사","area":"사회탐구","cut":[{"grade":1,"cut":68,"n":801,"pct":4.62},{"grade":2,"cut":66,"n":1188,"pct":6.86},{"grade":3,"cut":60,"n":2137,"pct":12.34},{"grade":4,"cut":52,"n":3117,"pct":17.99},{"grade":5,"cut":45,"n":3630,"pct":20.95},{"grade":6,"cut":41,"n":2498,"pct":14.42},{"grade":7,"cut":38,"n":2197,"pct":12.68},{"grade":8,"cut":37,"n":1135,"pct":6.55},{"grade":9,"cut":"37미만","n":620,"pct":3.58}],"dist":[{"s":68,"m":531,"f":269,"t":801,"cum":801},{"s":66,"m":805,"f":378,"t":1188,"cum":1989},{"s":65,"m":6,"f":4,"t":10,"cum":1999},{"s":64,"m":530,"f":325,"t":855,"cum":2854},{"s":63,"m":36,"f":24,"t":60,"cum":2914},{"s":62,"m":234,"f":147,"t":383,"cum":3297},{"s":61,"m":307,"f":197,"t":504,"cum":3801},{"s":60,"m":186,"f":139,"t":325,"cum":4126},{"s":59,"m":244,"f":180,"t":427,"cum":4553},{"s":58,"m":166,"f":117,"t":283,"cum":4836},{"s":57,"m":132,"f":89,"t":221,"cum":5057},{"s":56,"m":277,"f":203,"t":481,"cum":5538},{"s":55,"m":160,"f":117,"t":278,"cum":5816},{"s":54,"m":308,"f":219,"t":528,"cum":6344},{"s":53,"m":159,"f":138,"t":298,"cum":6642},{"s":52,"m":334,"f":265,"t":601,"cum":7243},{"s":51,"m":162,"f":142,"t":304,"cum":7547},{"s":50,"m":168,"f":156,"t":326,"cum":7873},{"s":49,"m":397,"f":289,"t":687,"cum":8560},{"s":48,"m":177,"f":183,"t":361,"cum":8921},{"s":47,"m":411,"f":319,"t":731,"cum":9652},{"s":46,"m":202,"f":173,"t":377,"cum":10029},{"s":45,"m":439,"f":403,"t":844,"cum":10873},{"s":44,"m":246,"f":215,"t":461,"cum":11334},{"s":43,"m":242,"f":227,"t":470,"cum":11804},{"s":42,"m":518,"f":456,"t":980,"cum":12784},{"s":41,"m":326,"f":261,"t":587,"cum":13371},{"s":40,"m":781,"f":535,"t":1326,"cum":14697},{"s":39,"m":288,"f":217,"t":505,"cum":15202},{"s":38,"m":217,"f":149,"t":366,"cum":15568},{"s":37,"m":715,"f":414,"t":1135,"cum":16703},{"s":36,"m":197,"f":100,"t":297,"cum":17000},{"s":35,"m":108,"f":88,"t":196,"cum":17196},{"s":34,"m":60,"f":30,"t":91,"cum":17287},{"s":33,"m":19,"f":17,"t":36,"cum":17323}],"maxstd":68,"examinees":17323},"세계사":{"name":"세계사","area":"사회탐구","cut":[{"grade":1,"cut":70,"n":953,"pct":5.1},{"grade":2,"cut":66,"n":1308,"pct":6.99},{"grade":3,"cut":59,"n":2172,"pct":11.61},{"grade":4,"cut":50,"n":3237,"pct":17.31},{"grade":5,"cut":44,"n":4664,"pct":24.94},{"grade":6,"cut":41,"n":3655,"pct":19.55},{"grade":7,"cut":39,"n":1849,"pct":9.89},{"grade":8,"cut":38,"n":289,"pct":1.55},{"grade":9,"cut":"38미만","n":573,"pct":3.06}],"dist":[{"s":70,"m":711,"f":239,"t":953,"cum":953},{"s":68,"m":546,"f":194,"t":742,"cum":1695},{"s":67,"m":232,"f":64,"t":298,"cum":1993},{"s":66,"m":189,"f":77,"t":268,"cum":2261},{"s":65,"m":334,"f":126,"t":460,"cum":2721},{"s":64,"m":123,"f":43,"t":166,"cum":2887},{"s":63,"m":170,"f":66,"t":236,"cum":3123},{"s":62,"m":292,"f":127,"t":420,"cum":3543},{"s":61,"m":170,"f":78,"t":248,"cum":3791},{"s":60,"m":304,"f":122,"t":426,"cum":4217},{"s":59,"m":138,"f":78,"t":216,"cum":4433},{"s":58,"m":137,"f":72,"t":210,"cum":4643},{"s":57,"m":328,"f":149,"t":477,"cum":5120},{"s":56,"m":175,"f":78,"t":253,"cum":5373},{"s":55,"m":160,"f":66,"t":226,"cum":5599},{"s":54,"m":347,"f":191,"t":538,"cum":6137},{"s":53,"m":156,"f":87,"t":243,"cum":6380},{"s":52,"m":372,"f":220,"t":594,"cum":6974},{"s":51,"m":219,"f":117,"t":336,"cum":7310},{"s":50,"m":229,"f":131,"t":360,"cum":7670},{"s":49,"m":422,"f":272,"t":696,"cum":8366},{"s":48,"m":253,"f":174,"t":427,"cum":8793},{"s":47,"m":253,"f":168,"t":421,"cum":9214},{"s":46,"m":641,"f":439,"t":1083,"cum":10297},{"s":45,"m":375,"f":284,"t":660,"cum":10957},{"s":44,"m":766,"f":606,"t":1377,"cum":12334},{"s":43,"m":396,"f":334,"t":736,"cum":13070},{"s":42,"m":420,"f":309,"t":730,"cum":13800},{"s":41,"m":1276,"f":905,"t":2189,"cum":15989},{"s":40,"m":233,"f":214,"t":448,"cum":16437},{"s":39,"m":796,"f":602,"t":1401,"cum":17838},{"s":38,"m":150,"f":137,"t":289,"cum":18127},{"s":37,"m":182,"f":134,"t":317,"cum":18444},{"s":36,"m":95,"f":80,"t":175,"cum":18619},{"s":35,"m":31,"f":24,"t":56,"cum":18675},{"s":33,"m":18,"f":7,"t":25,"cum":18700}],"maxstd":70,"examinees":18700},"경제":{"name":"경제","area":"사회탐구","cut":[{"grade":1,"cut":72,"n":370,"pct":4.9},{"grade":2,"cut":66,"n":525,"pct":6.96},{"grade":3,"cut":57,"n":976,"pct":12.93},{"grade":4,"cut":49,"n":1284,"pct":17.02},{"grade":5,"cut":44,"n":2252,"pct":29.84},{"grade":6,"cut":42,"n":958,"pct":12.7},{"grade":7,"cut":40,"n":492,"pct":6.52},{"grade":8,"cut":38,"n":547,"pct":7.25},{"grade":9,"cut":"38미만","n":142,"pct":1.88}],"dist":[{"s":74,"m":141,"f":22,"t":164,"cum":164},{"s":72,"m":170,"f":36,"t":206,"cum":370},{"s":71,"m":15,"f":5,"t":20,"cum":390},{"s":70,"m":83,"f":28,"t":111,"cum":501},{"s":69,"m":77,"f":13,"t":90,"cum":591},{"s":68,"m":118,"f":44,"t":163,"cum":754},{"s":67,"m":47,"f":18,"t":65,"cum":819},{"s":66,"m":57,"f":19,"t":76,"cum":895},{"s":65,"m":99,"f":45,"t":144,"cum":1039},{"s":64,"m":60,"f":24,"t":84,"cum":1123},{"s":63,"m":59,"f":20,"t":79,"cum":1202},{"s":62,"m":60,"f":21,"t":81,"cum":1283},{"s":61,"m":108,"f":40,"t":148,"cum":1431},{"s":60,"m":61,"f":26,"t":87,"cum":1518},{"s":59,"m":69,"f":17,"t":86,"cum":1604},{"s":58,"m":62,"f":34,"t":96,"cum":1700},{"s":57,"m":122,"f":49,"t":171,"cum":1871},{"s":56,"m":68,"f":28,"t":97,"cum":1968},{"s":55,"m":75,"f":35,"t":110,"cum":2078},{"s":54,"m":74,"f":29,"t":103,"cum":2181},{"s":53,"m":145,"f":80,"t":225,"cum":2406},{"s":52,"m":86,"f":41,"t":127,"cum":2533},{"s":51,"m":88,"f":51,"t":139,"cum":2672},{"s":50,"m":200,"f":95,"t":295,"cum":2967},{"s":49,"m":126,"f":62,"t":188,"cum":3155},{"s":48,"m":116,"f":59,"t":176,"cum":3331},{"s":47,"m":134,"f":55,"t":189,"cum":3520},{"s":46,"m":301,"f":155,"t":458,"cum":3978},{"s":45,"m":195,"f":82,"t":278,"cum":4256},{"s":44,"m":849,"f":295,"t":1151,"cum":5407},{"s":43,"m":275,"f":104,"t":380,"cum":5787},{"s":42,"m":423,"f":153,"t":578,"cum":6365},{"s":41,"m":180,"f":91,"t":273,"cum":6638},{"s":40,"m":156,"f":63,"t":219,"cum":6857},{"s":39,"m":209,"f":66,"t":277,"cum":7134},{"s":38,"m":192,"f":77,"t":270,"cum":7404},{"s":37,"m":48,"f":21,"t":70,"cum":7474},{"s":36,"m":38,"f":12,"t":50,"cum":7524},{"s":35,"m":17,"f":5,"t":22,"cum":7546}],"maxstd":74,"examinees":7546},"정치와법":{"name":"정치와 법","area":"사회탐구","cut":[{"grade":1,"cut":69,"n":1442,"pct":5.62},{"grade":2,"cut":65,"n":1878,"pct":7.32},{"grade":3,"cut":59,"n":3008,"pct":11.73},{"grade":4,"cut":51,"n":3957,"pct":15.43},{"grade":5,"cut":44,"n":5743,"pct":22.4},{"grade":6,"cut":42,"n":3833,"pct":14.95},{"grade":7,"cut":40,"n":3043,"pct":11.87},{"grade":8,"cut":37,"n":1847,"pct":7.2},{"grade":9,"cut":"37미만","n":892,"pct":3.48}],"dist":[{"s":71,"m":274,"f":270,"t":545,"cum":545},{"s":69,"m":435,"f":460,"t":897,"cum":1442},{"s":68,"m":48,"f":54,"t":102,"cum":1544},{"s":67,"m":249,"f":301,"t":550,"cum":2094},{"s":66,"m":311,"f":369,"t":680,"cum":2774},{"s":65,"m":259,"f":287,"t":546,"cum":3320},{"s":64,"m":115,"f":162,"t":277,"cum":3597},{"s":63,"m":418,"f":452,"t":872,"cum":4469},{"s":62,"m":134,"f":182,"t":316,"cum":4785},{"s":61,"m":179,"f":245,"t":424,"cum":5209},{"s":60,"m":130,"f":192,"t":324,"cum":5533},{"s":59,"m":325,"f":468,"t":795,"cum":6328},{"s":58,"m":149,"f":192,"t":341,"cum":6669},{"s":57,"m":174,"f":226,"t":401,"cum":7070},{"s":56,"m":321,"f":427,"t":748,"cum":7818},{"s":55,"m":176,"f":217,"t":394,"cum":8212},{"s":54,"m":151,"f":224,"t":375,"cum":8587},{"s":53,"m":342,"f":470,"t":814,"cum":9401},{"s":52,"m":175,"f":281,"t":457,"cum":9858},{"s":51,"m":166,"f":258,"t":427,"cum":10285},{"s":50,"m":190,"f":270,"t":462,"cum":10747},{"s":49,"m":399,"f":592,"t":994,"cum":11741},{"s":48,"m":259,"f":377,"t":638,"cum":12379},{"s":47,"m":261,"f":353,"t":617,"cum":12996},{"s":46,"m":570,"f":835,"t":1408,"cum":14404},{"s":45,"m":337,"f":450,"t":790,"cum":15194},{"s":44,"m":358,"f":476,"t":834,"cum":16028},{"s":43,"m":1462,"f":1271,"t":2745,"cum":18773},{"s":42,"m":471,"f":607,"t":1088,"cum":19861},{"s":41,"m":757,"f":738,"t":1496,"cum":21357},{"s":40,"m":697,"f":849,"t":1547,"cum":22904},{"s":39,"m":288,"f":331,"t":622,"cum":23526},{"s":38,"m":416,"f":373,"t":789,"cum":24315},{"s":37,"m":236,"f":199,"t":436,"cum":24751},{"s":36,"m":266,"f":306,"t":573,"cum":25324},{"s":35,"m":48,"f":56,"t":106,"cum":25430},{"s":34,"m":69,"f":87,"t":157,"cum":25587},{"s":33,"m":31,"f":25,"t":56,"cum":25643}],"maxstd":71,"examinees":25643},"사회문화":{"name":"사회·문화","area":"사회탐구","cut":[{"grade":1,"cut":66,"n":10307,"pct":4.55},{"grade":2,"cut":64,"n":15708,"pct":6.94},{"grade":3,"cut":59,"n":32420,"pct":14.32},{"grade":4,"cut":54,"n":32237,"pct":14.24},{"grade":5,"cut":47,"n":45801,"pct":20.23},{"grade":6,"cut":41,"n":43605,"pct":19.26},{"grade":7,"cut":37,"n":25045,"pct":11.06},{"grade":8,"cut":34,"n":13066,"pct":5.77},{"grade":9,"cut":"34미만","n":8195,"pct":3.62}],"dist":[{"s":68,"m":3258,"f":2861,"t":6124,"cum":6124},{"s":66,"m":2159,"f":2015,"t":4183,"cum":10307},{"s":65,"m":3614,"f":3028,"t":6649,"cum":16956},{"s":64,"m":4479,"f":4571,"t":9059,"cum":26015},{"s":63,"m":2450,"f":2200,"t":4654,"cum":30669},{"s":62,"m":2040,"f":2361,"t":4409,"cum":35078},{"s":61,"m":3496,"f":3758,"t":7269,"cum":42347},{"s":60,"m":1897,"f":1909,"t":3814,"cum":46161},{"s":59,"m":5843,"f":6414,"t":12274,"cum":58435},{"s":58,"m":2137,"f":2416,"t":4559,"cum":62994},{"s":57,"m":3054,"f":3600,"t":6665,"cum":69659},{"s":56,"m":2158,"f":2418,"t":4582,"cum":74241},{"s":55,"m":5305,"f":6400,"t":11725,"cum":85966},{"s":54,"m":2191,"f":2510,"t":4706,"cum":90672},{"s":53,"m":2720,"f":3511,"t":6246,"cum":96918},{"s":52,"m":2353,"f":2783,"t":5152,"cum":102070},{"s":51,"m":2510,"f":3194,"t":5719,"cum":107789},{"s":50,"m":4918,"f":6019,"t":10958,"cum":118747},{"s":49,"m":2792,"f":3434,"t":6237,"cum":124984},{"s":48,"m":2391,"f":3052,"t":5448,"cum":130432},{"s":47,"m":2821,"f":3208,"t":6041,"cum":136473},{"s":46,"m":5096,"f":6139,"t":11254,"cum":147727},{"s":45,"m":2670,"f":3260,"t":5939,"cum":153666},{"s":44,"m":2319,"f":2915,"t":5243,"cum":158909},{"s":43,"m":2636,"f":3245,"t":5894,"cum":164803},{"s":42,"m":2273,"f":2918,"t":5198,"cum":170001},{"s":41,"m":4601,"f":5449,"t":10077,"cum":180078},{"s":40,"m":2043,"f":2281,"t":4332,"cum":184410},{"s":39,"m":2127,"f":2549,"t":4688,"cum":189098},{"s":38,"m":2460,"f":2595,"t":5067,"cum":194165},{"s":37,"m":5613,"f":5314,"t":10958,"cum":205123},{"s":36,"m":1646,"f":1573,"t":3227,"cum":208350},{"s":35,"m":1470,"f":1528,"t":3006,"cum":211356},{"s":34,"m":4034,"f":2773,"t":6833,"cum":218189},{"s":33,"m":1744,"f":1273,"t":3030,"cum":221219},{"s":32,"m":1627,"f":1218,"t":2858,"cum":224077},{"s":31,"m":577,"f":431,"t":1011,"cum":225088},{"s":30,"m":252,"f":200,"t":453,"cum":225541},{"s":29,"m":206,"f":122,"t":329,"cum":225870},{"s":28,"m":245,"f":155,"t":401,"cum":226271},{"s":27,"m":63,"f":50,"t":113,"cum":226384}],"maxstd":68,"examinees":226384},"물리학I":{"name":"물리학Ⅰ","area":"과학탐구","cut":[{"grade":1,"cut":68,"n":1096,"pct":4.23},{"grade":2,"cut":64,"n":2008,"pct":7.75},{"grade":3,"cut":59,"n":3239,"pct":12.5},{"grade":4,"cut":52,"n":4620,"pct":17.83},{"grade":5,"cut":45,"n":5096,"pct":19.67},{"grade":6,"cut":41,"n":4709,"pct":18.18},{"grade":7,"cut":39,"n":2686,"pct":10.37},{"grade":8,"cut":36,"n":1589,"pct":6.13},{"grade":9,"cut":"36미만","n":866,"pct":3.34}],"dist":[{"s":71,"m":328,"f":34,"t":362,"cum":362},{"s":70,"m":230,"f":40,"t":270,"cum":632},{"s":69,"m":304,"f":43,"t":348,"cum":980},{"s":68,"m":99,"f":17,"t":116,"cum":1096},{"s":67,"m":377,"f":98,"t":475,"cum":1571},{"s":66,"m":550,"f":108,"t":659,"cum":2230},{"s":65,"m":507,"f":97,"t":604,"cum":2834},{"s":64,"m":225,"f":45,"t":270,"cum":3104},{"s":63,"m":477,"f":109,"t":588,"cum":3692},{"s":62,"m":431,"f":110,"t":541,"cum":4233},{"s":61,"m":890,"f":195,"t":1086,"cum":5319},{"s":60,"m":382,"f":104,"t":487,"cum":5806},{"s":59,"m":428,"f":107,"t":537,"cum":6343},{"s":58,"m":470,"f":112,"t":582,"cum":6925},{"s":57,"m":768,"f":217,"t":987,"cum":7912},{"s":56,"m":395,"f":111,"t":507,"cum":8419},{"s":55,"m":374,"f":127,"t":503,"cum":8922},{"s":54,"m":381,"f":128,"t":509,"cum":9431},{"s":53,"m":363,"f":118,"t":482,"cum":9913},{"s":52,"m":816,"f":233,"t":1050,"cum":10963},{"s":51,"m":416,"f":128,"t":545,"cum":11508},{"s":50,"m":444,"f":135,"t":580,"cum":12088},{"s":49,"m":449,"f":129,"t":578,"cum":12666},{"s":48,"m":973,"f":286,"t":1260,"cum":13926},{"s":47,"m":544,"f":148,"t":693,"cum":14619},{"s":46,"m":515,"f":152,"t":669,"cum":15288},{"s":45,"m":622,"f":148,"t":771,"cum":16059},{"s":44,"m":548,"f":176,"t":727,"cum":16786},{"s":43,"m":1319,"f":390,"t":1713,"cum":18499},{"s":42,"m":628,"f":161,"t":790,"cum":19289},{"s":41,"m":1225,"f":244,"t":1479,"cum":20768},{"s":40,"m":611,"f":158,"t":773,"cum":21541},{"s":39,"m":1527,"f":383,"t":1913,"cum":23454},{"s":38,"m":439,"f":118,"t":557,"cum":24011},{"s":37,"m":444,"f":102,"t":549,"cum":24560},{"s":36,"m":402,"f":79,"t":483,"cum":25043},{"s":35,"m":184,"f":47,"t":231,"cum":25274},{"s":34,"m":303,"f":96,"t":401,"cum":25675},{"s":33,"m":87,"f":19,"t":107,"cum":25782},{"s":32,"m":72,"f":15,"t":87,"cum":25869},{"s":30,"m":33,"f":7,"t":40,"cum":25909}],"maxstd":71,"examinees":25909},"화학I":{"name":"화학Ⅰ","area":"과학탐구","cut":[{"grade":1,"cut":68,"n":680,"pct":4.41},{"grade":2,"cut":64,"n":1470,"pct":9.53},{"grade":3,"cut":59,"n":1551,"pct":10.05},{"grade":4,"cut":52,"n":2757,"pct":17.87},{"grade":5,"cut":46,"n":2864,"pct":18.56},{"grade":6,"cut":41,"n":2728,"pct":17.68},{"grade":7,"cut":38,"n":2299,"pct":14.9},{"grade":8,"cut":36,"n":620,"pct":4.02},{"grade":9,"cut":"36미만","n":459,"pct":2.98}],"dist":[{"s":70,"m":337,"f":103,"t":441,"cum":441},{"s":68,"m":189,"f":50,"t":239,"cum":680},{"s":67,"m":296,"f":112,"t":409,"cum":1089},{"s":66,"m":245,"f":84,"t":330,"cum":1419},{"s":65,"m":147,"f":63,"t":211,"cum":1630},{"s":64,"m":350,"f":169,"t":520,"cum":2150},{"s":63,"m":127,"f":54,"t":181,"cum":2331},{"s":62,"m":195,"f":146,"t":342,"cum":2673},{"s":61,"m":153,"f":82,"t":236,"cum":2909},{"s":60,"m":371,"f":202,"t":574,"cum":3483},{"s":59,"m":147,"f":71,"t":218,"cum":3701},{"s":58,"m":214,"f":139,"t":353,"cum":4054},{"s":57,"m":337,"f":187,"t":525,"cum":4579},{"s":56,"m":201,"f":123,"t":324,"cum":4903},{"s":55,"m":162,"f":92,"t":254,"cum":5157},{"s":54,"m":227,"f":136,"t":365,"cum":5522},{"s":53,"m":370,"f":257,"t":632,"cum":6154},{"s":52,"m":190,"f":114,"t":304,"cum":6458},{"s":51,"m":164,"f":113,"t":278,"cum":6736},{"s":50,"m":197,"f":150,"t":347,"cum":7083},{"s":49,"m":418,"f":289,"t":708,"cum":7791},{"s":48,"m":218,"f":161,"t":379,"cum":8170},{"s":47,"m":214,"f":120,"t":334,"cum":8504},{"s":46,"m":498,"f":320,"t":818,"cum":9322},{"s":45,"m":254,"f":179,"t":437,"cum":9759},{"s":44,"m":280,"f":171,"t":454,"cum":10213},{"s":43,"m":249,"f":165,"t":414,"cum":10627},{"s":42,"m":564,"f":371,"t":937,"cum":11564},{"s":41,"m":302,"f":179,"t":486,"cum":12050},{"s":40,"m":433,"f":240,"t":680,"cum":12730},{"s":39,"m":253,"f":125,"t":380,"cum":13110},{"s":38,"m":873,"f":362,"t":1239,"cum":14349},{"s":37,"m":173,"f":90,"t":267,"cum":14616},{"s":36,"m":239,"f":113,"t":353,"cum":14969},{"s":35,"m":197,"f":82,"t":280,"cum":15249},{"s":34,"m":49,"f":16,"t":65,"cum":15314},{"s":33,"m":36,"f":18,"t":54,"cum":15368},{"s":32,"m":27,"f":17,"t":44,"cum":15412},{"s":31,"m":13,"f":3,"t":16,"cum":15428}],"maxstd":70,"examinees":15428},"생명과학I":{"name":"생명과학Ⅰ","area":"과학탐구","cut":[{"grade":1,"cut":67,"n":2231,"pct":4.01},{"grade":2,"cut":62,"n":4925,"pct":8.85},{"grade":3,"cut":58,"n":6759,"pct":12.15},{"grade":4,"cut":53,"n":10090,"pct":18.14},{"grade":5,"cut":48,"n":10215,"pct":18.37},{"grade":6,"cut":42,"n":10170,"pct":18.28},{"grade":7,"cut":37,"n":5226,"pct":9.4},{"grade":8,"cut":32,"n":4246,"pct":7.63},{"grade":9,"cut":"32미만","n":1760,"pct":3.16}],"dist":[{"s":72,"m":276,"f":154,"t":431,"cum":431},{"s":70,"m":162,"f":110,"t":272,"cum":703},{"s":69,"m":415,"f":269,"t":684,"cum":1387},{"s":68,"m":49,"f":25,"t":75,"cum":1462},{"s":67,"m":435,"f":331,"t":769,"cum":2231},{"s":66,"m":468,"f":401,"t":869,"cum":3100},{"s":65,"m":266,"f":176,"t":443,"cum":3543},{"s":64,"m":787,"f":650,"t":1440,"cum":4983},{"s":63,"m":525,"f":434,"t":960,"cum":5943},{"s":62,"m":645,"f":568,"t":1213,"cum":7156},{"s":61,"m":947,"f":901,"t":1850,"cum":9006},{"s":60,"m":537,"f":515,"t":1053,"cum":10059},{"s":59,"m":1071,"f":1086,"t":2158,"cum":12217},{"s":58,"m":830,"f":866,"t":1698,"cum":13915},{"s":57,"m":822,"f":879,"t":1706,"cum":15621},{"s":56,"m":1120,"f":1268,"t":2393,"cum":18014},{"s":55,"m":747,"f":767,"t":1515,"cum":19529},{"s":54,"m":1175,"f":1311,"t":2491,"cum":22020},{"s":53,"m":910,"f":1073,"t":1985,"cum":24005},{"s":52,"m":956,"f":1055,"t":2014,"cum":26019},{"s":51,"m":1028,"f":1305,"t":2338,"cum":28357},{"s":50,"m":825,"f":980,"t":1808,"cum":30165},{"s":49,"m":952,"f":1197,"t":2157,"cum":32322},{"s":48,"m":817,"f":1079,"t":1898,"cum":34220},{"s":47,"m":854,"f":1111,"t":1969,"cum":36189},{"s":46,"m":763,"f":1018,"t":1785,"cum":37974},{"s":45,"m":754,"f":935,"t":1692,"cum":39666},{"s":44,"m":716,"f":984,"t":1701,"cum":41367},{"s":43,"m":615,"f":828,"t":1445,"cum":42812},{"s":42,"m":644,"f":932,"t":1578,"cum":44390},{"s":41,"m":509,"f":661,"t":1170,"cum":45560},{"s":40,"m":526,"f":689,"t":1219,"cum":46779},{"s":39,"m":517,"f":574,"t":1093,"cum":47872},{"s":38,"m":355,"f":423,"t":780,"cum":48652},{"s":37,"m":443,"f":517,"t":964,"cum":49616},{"s":36,"m":289,"f":300,"t":591,"cum":50207},{"s":35,"m":423,"f":431,"t":857,"cum":51064},{"s":34,"m":327,"f":315,"t":643,"cum":51707},{"s":33,"m":201,"f":211,"t":413,"cum":52120},{"s":32,"m":1096,"f":637,"t":1742,"cum":53862},{"s":31,"m":159,"f":146,"t":306,"cum":54168},{"s":30,"m":201,"f":153,"t":356,"cum":54524},{"s":29,"m":284,"f":179,"t":464,"cum":54988},{"s":28,"m":81,"f":73,"t":156,"cum":55144},{"s":27,"m":111,"f":93,"t":207,"cum":55351},{"s":26,"m":57,"f":35,"t":92,"cum":55443},{"s":25,"m":37,"f":33,"t":71,"cum":55514},{"s":24,"m":42,"f":29,"t":71,"cum":55585},{"s":22,"m":25,"f":12,"t":37,"cum":55622}],"maxstd":72,"examinees":55622},"지구과학I":{"name":"지구과학Ⅰ","area":"과학탐구","cut":[{"grade":1,"cut":66,"n":2740,"pct":4.44},{"grade":2,"cut":63,"n":4763,"pct":7.72},{"grade":3,"cut":59,"n":8288,"pct":13.43},{"grade":4,"cut":54,"n":9365,"pct":15.17},{"grade":5,"cut":46,"n":13864,"pct":22.46},{"grade":6,"cut":41,"n":9071,"pct":14.7},{"grade":7,"cut":37,"n":8373,"pct":13.57},{"grade":8,"cut":34,"n":3633,"pct":5.89},{"grade":9,"cut":"34미만","n":1619,"pct":2.62}],"dist":[{"s":70,"m":330,"f":110,"t":441,"cum":441},{"s":69,"m":189,"f":66,"t":255,"cum":696},{"s":68,"m":772,"f":260,"t":1034,"cum":1730},{"s":67,"m":43,"f":19,"t":62,"cum":1792},{"s":66,"m":700,"f":247,"t":948,"cum":2740},{"s":65,"m":1270,"f":465,"t":1739,"cum":4479},{"s":64,"m":1246,"f":505,"t":1752,"cum":6231},{"s":63,"m":936,"f":336,"t":1272,"cum":7503},{"s":62,"m":784,"f":375,"t":1160,"cum":8663},{"s":61,"m":1537,"f":624,"t":2170,"cum":10833},{"s":60,"m":2067,"f":978,"t":3047,"cum":13880},{"s":59,"m":1301,"f":609,"t":1911,"cum":15791},{"s":58,"m":881,"f":434,"t":1319,"cum":17110},{"s":57,"m":1346,"f":683,"t":2034,"cum":19144},{"s":56,"m":1976,"f":1013,"t":2992,"cum":22136},{"s":55,"m":1155,"f":600,"t":1756,"cum":23892},{"s":54,"m":822,"f":440,"t":1264,"cum":25156},{"s":53,"m":1069,"f":606,"t":1678,"cum":26834},{"s":52,"m":845,"f":487,"t":1335,"cum":28169},{"s":51,"m":1790,"f":1013,"t":2809,"cum":30978},{"s":50,"m":775,"f":412,"t":1187,"cum":32165},{"s":49,"m":852,"f":525,"t":1378,"cum":33543},{"s":48,"m":794,"f":480,"t":1275,"cum":34818},{"s":47,"m":900,"f":536,"t":1439,"cum":36257},{"s":46,"m":1729,"f":1031,"t":2763,"cum":39020},{"s":45,"m":874,"f":591,"t":1470,"cum":40490},{"s":44,"m":839,"f":538,"t":1378,"cum":41868},{"s":43,"m":984,"f":629,"t":1615,"cum":43483},{"s":42,"m":1886,"f":1236,"t":3124,"cum":46607},{"s":41,"m":935,"f":548,"t":1484,"cum":48091},{"s":40,"m":903,"f":582,"t":1491,"cum":49582},{"s":39,"m":1089,"f":621,"t":1715,"cum":51297},{"s":38,"m":871,"f":503,"t":1377,"cum":52674},{"s":37,"m":2463,"f":1319,"t":3790,"cum":56464},{"s":36,"m":742,"f":384,"t":1132,"cum":57596},{"s":35,"m":834,"f":478,"t":1320,"cum":58916},{"s":34,"m":777,"f":400,"t":1181,"cum":60097},{"s":33,"m":469,"f":243,"t":715,"cum":60812},{"s":32,"m":376,"f":216,"t":594,"cum":61406},{"s":31,"m":161,"f":82,"t":243,"cum":61649},{"s":29,"m":47,"f":20,"t":67,"cum":61716}],"maxstd":70,"examinees":61716},"물리학II":{"name":"물리학Ⅱ","area":"과학탐구","cut":[{"grade":1,"cut":71,"n":233,"pct":4.44},{"grade":2,"cut":66,"n":419,"pct":7.99},{"grade":3,"cut":58,"n":572,"pct":10.91},{"grade":4,"cut":49,"n":980,"pct":18.68},{"grade":5,"cut":45,"n":1165,"pct":22.21},{"grade":6,"cut":42,"n":864,"pct":16.47},{"grade":7,"cut":40,"n":725,"pct":13.82},{"grade":8,"cut":38,"n":146,"pct":2.78},{"grade":9,"cut":"38미만","n":141,"pct":2.69}],"dist":[{"s":72,"m":174,"f":12,"t":186,"cum":186},{"s":71,"m":43,"f":4,"t":47,"cum":233},{"s":70,"m":127,"f":10,"t":137,"cum":370},{"s":69,"m":7,"f":0,"t":7,"cum":377},{"s":68,"m":133,"f":10,"t":143,"cum":520},{"s":67,"m":31,"f":3,"t":34,"cum":554},{"s":66,"m":93,"f":5,"t":98,"cum":652},{"s":65,"m":97,"f":8,"t":105,"cum":757},{"s":64,"m":70,"f":6,"t":76,"cum":833},{"s":63,"m":53,"f":5,"t":58,"cum":891},{"s":62,"m":89,"f":18,"t":108,"cum":999},{"s":61,"m":44,"f":7,"t":51,"cum":1050},{"s":60,"m":45,"f":2,"t":47,"cum":1097},{"s":59,"m":85,"f":10,"t":95,"cum":1192},{"s":58,"m":26,"f":6,"t":32,"cum":1224},{"s":57,"m":49,"f":12,"t":61,"cum":1285},{"s":56,"m":49,"f":6,"t":55,"cum":1340},{"s":55,"m":108,"f":15,"t":123,"cum":1463},{"s":54,"m":45,"f":9,"t":54,"cum":1517},{"s":53,"m":60,"f":15,"t":75,"cum":1592},{"s":52,"m":124,"f":16,"t":140,"cum":1732},{"s":51,"m":89,"f":17,"t":106,"cum":1838},{"s":50,"m":78,"f":13,"t":91,"cum":1929},{"s":49,"m":227,"f":48,"t":275,"cum":2204},{"s":48,"m":136,"f":28,"t":166,"cum":2370},{"s":47,"m":142,"f":27,"t":170,"cum":2540},{"s":46,"m":306,"f":63,"t":369,"cum":2909},{"s":45,"m":397,"f":63,"t":460,"cum":3369},{"s":44,"m":162,"f":36,"t":200,"cum":3569},{"s":43,"m":373,"f":71,"t":448,"cum":4017},{"s":42,"m":185,"f":30,"t":216,"cum":4233},{"s":41,"m":172,"f":27,"t":199,"cum":4432},{"s":40,"m":447,"f":78,"t":526,"cum":4958},{"s":39,"m":65,"f":7,"t":72,"cum":5030},{"s":38,"m":59,"f":15,"t":74,"cum":5104},{"s":37,"m":45,"f":11,"t":56,"cum":5160},{"s":36,"m":63,"f":6,"t":69,"cum":5229},{"s":34,"m":15,"f":1,"t":16,"cum":5245}],"maxstd":72,"examinees":5245},"화학II":{"name":"화학Ⅱ","area":"과학탐구","cut":[{"grade":1,"cut":73,"n":232,"pct":5.64},{"grade":2,"cut":66,"n":234,"pct":5.68},{"grade":3,"cut":56,"n":483,"pct":11.73},{"grade":4,"cut":49,"n":774,"pct":18.8},{"grade":5,"cut":45,"n":971,"pct":23.59},{"grade":6,"cut":42,"n":709,"pct":17.22},{"grade":7,"cut":41,"n":383,"pct":9.3},{"grade":8,"cut":38,"n":231,"pct":5.61},{"grade":9,"cut":"38미만","n":100,"pct":2.43}],"dist":[{"s":75,"m":118,"f":24,"t":142,"cum":142},{"s":73,"m":78,"f":12,"t":90,"cum":232},{"s":72,"m":7,"f":1,"t":8,"cum":240},{"s":71,"m":37,"f":11,"t":48,"cum":288},{"s":70,"m":34,"f":13,"t":47,"cum":335},{"s":69,"m":46,"f":6,"t":52,"cum":387},{"s":68,"m":17,"f":4,"t":21,"cum":408},{"s":67,"m":19,"f":7,"t":26,"cum":434},{"s":66,"m":23,"f":9,"t":32,"cum":466},{"s":65,"m":23,"f":7,"t":31,"cum":497},{"s":64,"m":58,"f":19,"t":77,"cum":574},{"s":63,"m":21,"f":9,"t":30,"cum":604},{"s":62,"m":34,"f":9,"t":43,"cum":647},{"s":61,"m":24,"f":8,"t":32,"cum":679},{"s":60,"m":67,"f":16,"t":83,"cum":762},{"s":59,"m":29,"f":8,"t":37,"cum":799},{"s":58,"m":31,"f":14,"t":45,"cum":844},{"s":57,"m":32,"f":10,"t":42,"cum":886},{"s":56,"m":43,"f":20,"t":63,"cum":949},{"s":55,"m":88,"f":24,"t":112,"cum":1061},{"s":54,"m":55,"f":20,"t":75,"cum":1136},{"s":53,"m":46,"f":21,"t":67,"cum":1203},{"s":52,"m":55,"f":21,"t":76,"cum":1279},{"s":51,"m":65,"f":27,"t":92,"cum":1371},{"s":50,"m":169,"f":63,"t":233,"cum":1604},{"s":49,"m":88,"f":31,"t":119,"cum":1723},{"s":48,"m":86,"f":30,"t":116,"cum":1839},{"s":47,"m":101,"f":34,"t":136,"cum":1975},{"s":46,"m":211,"f":101,"t":314,"cum":2289},{"s":45,"m":325,"f":78,"t":405,"cum":2694},{"s":44,"m":142,"f":55,"t":198,"cum":2892},{"s":43,"m":122,"f":40,"t":162,"cum":3054},{"s":42,"m":256,"f":91,"t":349,"cum":3403},{"s":41,"m":301,"f":82,"t":383,"cum":3786},{"s":40,"m":76,"f":25,"t":101,"cum":3887},{"s":39,"m":39,"f":21,"t":60,"cum":3947},{"s":38,"m":49,"f":20,"t":70,"cum":4017},{"s":37,"m":48,"f":15,"t":63,"cum":4080},{"s":36,"m":25,"f":4,"t":29,"cum":4109},{"s":34,"m":4,"f":4,"t":8,"cum":4117}],"maxstd":75,"examinees":4117},"생명과학II":{"name":"생명과학Ⅱ","area":"과학탐구","cut":[{"grade":1,"cut":72,"n":385,"pct":5.29},{"grade":2,"cut":67,"n":481,"pct":6.61},{"grade":3,"cut":56,"n":916,"pct":12.59},{"grade":4,"cut":49,"n":1258,"pct":17.29},{"grade":5,"cut":45,"n":1445,"pct":19.87},{"grade":6,"cut":42,"n":1903,"pct":26.16},{"grade":7,"cut":41,"n":298,"pct":4.1},{"grade":8,"cut":39,"n":364,"pct":5},{"grade":9,"cut":"39미만","n":224,"pct":3.08}],"dist":[{"s":75,"m":109,"f":45,"t":154,"cum":154},{"s":73,"m":32,"f":15,"t":47,"cum":201},{"s":72,"m":128,"f":56,"t":184,"cum":385},{"s":71,"m":87,"f":37,"t":124,"cum":509},{"s":70,"m":52,"f":34,"t":86,"cum":595},{"s":69,"m":42,"f":19,"t":61,"cum":656},{"s":68,"m":60,"f":26,"t":86,"cum":742},{"s":67,"m":91,"f":33,"t":124,"cum":866},{"s":66,"m":28,"f":29,"t":57,"cum":923},{"s":65,"m":30,"f":21,"t":52,"cum":975},{"s":64,"m":71,"f":53,"t":125,"cum":1100},{"s":63,"m":39,"f":26,"t":65,"cum":1165},{"s":62,"m":29,"f":23,"t":52,"cum":1217},{"s":61,"m":24,"f":31,"t":55,"cum":1272},{"s":60,"m":63,"f":57,"t":120,"cum":1392},{"s":59,"m":30,"f":24,"t":54,"cum":1446},{"s":58,"m":24,"f":36,"t":60,"cum":1506},{"s":57,"m":50,"f":39,"t":89,"cum":1595},{"s":56,"m":93,"f":93,"t":187,"cum":1782},{"s":55,"m":59,"f":44,"t":103,"cum":1885},{"s":54,"m":45,"f":47,"t":92,"cum":1977},{"s":53,"m":108,"f":118,"t":226,"cum":2203},{"s":52,"m":73,"f":63,"t":136,"cum":2339},{"s":51,"m":78,"f":106,"t":184,"cum":2523},{"s":50,"m":72,"f":80,"t":152,"cum":2675},{"s":49,"m":188,"f":177,"t":365,"cum":3040},{"s":48,"m":97,"f":111,"t":208,"cum":3248},{"s":47,"m":129,"f":125,"t":254,"cum":3502},{"s":46,"m":191,"f":169,"t":361,"cum":3863},{"s":45,"m":346,"f":274,"t":622,"cum":4485},{"s":44,"m":153,"f":133,"t":286,"cum":4771},{"s":43,"m":295,"f":197,"t":493,"cum":5264},{"s":42,"m":720,"f":403,"t":1124,"cum":6388},{"s":41,"m":157,"f":139,"t":298,"cum":6686},{"s":40,"m":113,"f":83,"t":196,"cum":6882},{"s":39,"m":94,"f":74,"t":168,"cum":7050},{"s":38,"m":93,"f":67,"t":160,"cum":7210},{"s":37,"m":35,"f":16,"t":51,"cum":7261},{"s":35,"m":9,"f":4,"t":13,"cum":7274}],"maxstd":75,"examinees":7274},"지구과학II":{"name":"지구과학Ⅱ","area":"과학탐구","cut":[{"grade":1,"cut":73,"n":219,"pct":4.38},{"grade":2,"cut":68,"n":359,"pct":7.19},{"grade":3,"cut":55,"n":592,"pct":11.85},{"grade":4,"cut":49,"n":963,"pct":19.28},{"grade":5,"cut":45,"n":921,"pct":18.44},{"grade":6,"cut":43,"n":843,"pct":16.88},{"grade":7,"cut":40,"n":803,"pct":16.08},{"grade":8,"cut":38,"n":169,"pct":3.38},{"grade":9,"cut":"38미만","n":126,"pct":2.52}],"dist":[{"s":73,"m":197,"f":22,"t":219,"cum":219},{"s":71,"m":168,"f":25,"t":193,"cum":412},{"s":70,"m":11,"f":4,"t":15,"cum":427},{"s":69,"m":54,"f":15,"t":69,"cum":496},{"s":68,"m":71,"f":11,"t":82,"cum":578},{"s":67,"m":45,"f":13,"t":58,"cum":636},{"s":66,"m":24,"f":3,"t":27,"cum":663},{"s":65,"m":27,"f":7,"t":34,"cum":697},{"s":64,"m":44,"f":14,"t":58,"cum":755},{"s":63,"m":23,"f":9,"t":32,"cum":787},{"s":62,"m":22,"f":6,"t":29,"cum":816},{"s":61,"m":43,"f":6,"t":49,"cum":865},{"s":60,"m":26,"f":7,"t":33,"cum":898},{"s":59,"m":24,"f":9,"t":33,"cum":931},{"s":58,"m":31,"f":13,"t":44,"cum":975},{"s":57,"m":53,"f":24,"t":77,"cum":1052},{"s":56,"m":32,"f":21,"t":53,"cum":1105},{"s":55,"m":45,"f":20,"t":65,"cum":1170},{"s":54,"m":119,"f":49,"t":170,"cum":1340},{"s":53,"m":53,"f":24,"t":78,"cum":1418},{"s":52,"m":104,"f":21,"t":125,"cum":1543},{"s":51,"m":101,"f":46,"t":148,"cum":1691},{"s":50,"m":217,"f":82,"t":299,"cum":1990},{"s":49,"m":111,"f":32,"t":143,"cum":2133},{"s":48,"m":144,"f":53,"t":197,"cum":2330},{"s":47,"m":242,"f":94,"t":336,"cum":2666},{"s":46,"m":180,"f":51,"t":233,"cum":2899},{"s":45,"m":116,"f":38,"t":155,"cum":3054},{"s":44,"m":539,"f":127,"t":666,"cum":3720},{"s":43,"m":139,"f":37,"t":177,"cum":3897},{"s":42,"m":147,"f":54,"t":201,"cum":4098},{"s":41,"m":91,"f":40,"t":132,"cum":4230},{"s":40,"m":364,"f":103,"t":470,"cum":4700},{"s":39,"m":50,"f":27,"t":77,"cum":4777},{"s":38,"m":65,"f":27,"t":92,"cum":4869},{"s":37,"m":56,"f":19,"t":76,"cum":4945},{"s":36,"m":29,"f":10,"t":39,"cum":4984},{"s":34,"m":6,"f":5,"t":11,"cum":4995}],"maxstd":73,"examinees":4995},"성공적인직업생활":{"name":"성공적인 직업생활","area":"직업탐구","cut":[{"grade":1,"cut":72,"n":173,"pct":4.08},{"grade":2,"cut":63,"n":317,"pct":7.48},{"grade":3,"cut":56,"n":553,"pct":13.04},{"grade":4,"cut":51,"n":653,"pct":15.4},{"grade":5,"cut":46,"n":922,"pct":21.75},{"grade":6,"cut":43,"n":765,"pct":18.04},{"grade":7,"cut":40,"n":494,"pct":11.65},{"grade":8,"cut":37,"n":205,"pct":4.83},{"grade":9,"cut":"37미만","n":158,"pct":3.73}],"dist":[{"s":92,"m":1,"f":0,"t":1,"cum":1},{"s":89,"m":0,"f":5,"t":5,"cum":6},{"s":87,"m":1,"f":0,"t":1,"cum":7},{"s":86,"m":5,"f":0,"t":5,"cum":12},{"s":85,"m":8,"f":5,"t":13,"cum":25},{"s":84,"m":1,"f":0,"t":1,"cum":26},{"s":82,"m":5,"f":3,"t":8,"cum":34},{"s":81,"m":12,"f":3,"t":15,"cum":49},{"s":80,"m":2,"f":3,"t":5,"cum":54},{"s":79,"m":9,"f":8,"t":17,"cum":71},{"s":77,"m":19,"f":6,"t":25,"cum":96},{"s":76,"m":3,"f":4,"t":7,"cum":103},{"s":75,"m":16,"f":13,"t":29,"cum":132},{"s":74,"m":11,"f":9,"t":20,"cum":152},{"s":72,"m":13,"f":8,"t":21,"cum":173},{"s":71,"m":20,"f":14,"t":34,"cum":207},{"s":70,"m":14,"f":13,"t":27,"cum":234},{"s":68,"m":27,"f":17,"t":44,"cum":278},{"s":67,"m":22,"f":15,"t":37,"cum":315},{"s":66,"m":28,"f":17,"t":45,"cum":360},{"s":65,"m":35,"f":29,"t":64,"cum":424},{"s":63,"m":33,"f":33,"t":66,"cum":490},{"s":62,"m":34,"f":29,"t":63,"cum":553},{"s":61,"m":40,"f":30,"t":70,"cum":623},{"s":60,"m":32,"f":64,"t":97,"cum":720},{"s":58,"m":34,"f":50,"t":84,"cum":804},{"s":57,"m":48,"f":60,"t":108,"cum":912},{"s":56,"m":54,"f":77,"t":131,"cum":1043},{"s":55,"m":66,"f":79,"t":146,"cum":1189},{"s":53,"m":72,"f":71,"t":143,"cum":1332},{"s":52,"m":80,"f":93,"t":173,"cum":1505},{"s":51,"m":92,"f":99,"t":191,"cum":1696},{"s":50,"m":74,"f":95,"t":169,"cum":1865},{"s":48,"m":89,"f":106,"t":195,"cum":2060},{"s":47,"m":90,"f":105,"t":195,"cum":2255},{"s":46,"m":178,"f":182,"t":363,"cum":2618},{"s":45,"m":67,"f":108,"t":175,"cum":2793},{"s":43,"m":341,"f":249,"t":590,"cum":3383},{"s":42,"m":91,"f":84,"t":176,"cum":3559},{"s":41,"m":69,"f":88,"t":157,"cum":3716},{"s":40,"m":92,"f":69,"t":161,"cum":3877},{"s":38,"m":70,"f":76,"t":146,"cum":4023},{"s":37,"m":26,"f":33,"t":59,"cum":4082},{"s":36,"m":30,"f":26,"t":56,"cum":4138},{"s":35,"m":21,"f":28,"t":49,"cum":4187},{"s":33,"m":7,"f":10,"t":17,"cum":4204},{"s":32,"m":19,"f":7,"t":26,"cum":4230},{"s":30,"m":4,"f":6,"t":10,"cum":4240}],"maxstd":92,"examinees":4240},"농업기초기술":{"name":"농업 기초 기술","area":"직업탐구","cut":[{"grade":1,"cut":72,"n":24,"pct":4.69},{"grade":2,"cut":64,"n":34,"pct":6.64},{"grade":3,"cut":55,"n":70,"pct":13.67},{"grade":4,"cut":50,"n":94,"pct":18.36},{"grade":5,"cut":46,"n":125,"pct":24.41},{"grade":6,"cut":43,"n":63,"pct":12.3},{"grade":7,"cut":40,"n":51,"pct":9.96},{"grade":8,"cut":36,"n":39,"pct":7.62},{"grade":9,"cut":"36미만","n":12,"pct":2.34}],"dist":[{"s":93,"m":1,"f":0,"t":1,"cum":1},{"s":88,"m":1,"f":0,"t":1,"cum":2},{"s":87,"m":2,"f":0,"t":2,"cum":4},{"s":82,"m":1,"f":0,"t":1,"cum":5},{"s":80,"m":2,"f":0,"t":2,"cum":7},{"s":78,"m":3,"f":0,"t":3,"cum":10},{"s":77,"m":2,"f":0,"t":2,"cum":12},{"s":75,"m":4,"f":0,"t":4,"cum":16},{"s":73,"m":4,"f":0,"t":4,"cum":20},{"s":72,"m":2,"f":2,"t":4,"cum":24},{"s":71,"m":3,"f":1,"t":4,"cum":28},{"s":70,"m":1,"f":1,"t":2,"cum":30},{"s":69,"m":3,"f":0,"t":3,"cum":33},{"s":67,"m":3,"f":3,"t":6,"cum":39},{"s":66,"m":3,"f":0,"t":3,"cum":42},{"s":65,"m":4,"f":3,"t":7,"cum":49},{"s":64,"m":7,"f":2,"t":9,"cum":58},{"s":62,"m":3,"f":3,"t":6,"cum":64},{"s":61,"m":2,"f":1,"t":3,"cum":67},{"s":60,"m":4,"f":8,"t":12,"cum":79},{"s":59,"m":4,"f":5,"t":9,"cum":88},{"s":57,"m":6,"f":5,"t":11,"cum":99},{"s":56,"m":10,"f":5,"t":15,"cum":114},{"s":55,"m":4,"f":10,"t":14,"cum":128},{"s":54,"m":5,"f":11,"t":16,"cum":144},{"s":52,"m":24,"f":16,"t":40,"cum":184},{"s":51,"m":9,"f":6,"t":15,"cum":199},{"s":50,"m":15,"f":8,"t":23,"cum":222},{"s":49,"m":9,"f":6,"t":15,"cum":237},{"s":48,"m":11,"f":6,"t":17,"cum":254},{"s":46,"m":63,"f":30,"t":93,"cum":347},{"s":45,"m":9,"f":8,"t":17,"cum":364},{"s":44,"m":12,"f":11,"t":23,"cum":387},{"s":43,"m":14,"f":9,"t":23,"cum":410},{"s":41,"m":26,"f":11,"t":37,"cum":447},{"s":40,"m":7,"f":7,"t":14,"cum":461},{"s":39,"m":7,"f":9,"t":16,"cum":477},{"s":38,"m":6,"f":5,"t":11,"cum":488},{"s":36,"m":10,"f":2,"t":12,"cum":500},{"s":35,"m":5,"f":0,"t":5,"cum":505},{"s":34,"m":1,"f":1,"t":2,"cum":507},{"s":31,"m":4,"f":1,"t":5,"cum":512}],"maxstd":93,"examinees":512},"공업일반":{"name":"공업 일반","area":"직업탐구","cut":[{"grade":1,"cut":71,"n":50,"pct":4.52},{"grade":2,"cut":66,"n":74,"pct":6.69},{"grade":3,"cut":58,"n":141,"pct":12.75},{"grade":4,"cut":50,"n":194,"pct":17.54},{"grade":5,"cut":44,"n":287,"pct":25.95},{"grade":6,"cut":43,"n":154,"pct":13.92},{"grade":7,"cut":40,"n":102,"pct":9.22},{"grade":8,"cut":38,"n":71,"pct":6.42},{"grade":9,"cut":"38미만","n":33,"pct":2.98}],"dist":[{"s":78,"m":2,"f":0,"t":2,"cum":2},{"s":76,"m":1,"f":0,"t":1,"cum":3},{"s":75,"m":13,"f":3,"t":16,"cum":19},{"s":74,"m":2,"f":1,"t":3,"cum":22},{"s":73,"m":17,"f":4,"t":21,"cum":43},{"s":71,"m":6,"f":1,"t":7,"cum":50},{"s":70,"m":9,"f":6,"t":15,"cum":65},{"s":69,"m":3,"f":2,"t":5,"cum":70},{"s":68,"m":14,"f":1,"t":15,"cum":85},{"s":67,"m":12,"f":3,"t":15,"cum":100},{"s":66,"m":17,"f":7,"t":24,"cum":124},{"s":65,"m":9,"f":5,"t":14,"cum":138},{"s":64,"m":10,"f":2,"t":12,"cum":150},{"s":63,"m":17,"f":5,"t":22,"cum":172},{"s":62,"m":13,"f":1,"t":14,"cum":186},{"s":61,"m":15,"f":2,"t":17,"cum":203},{"s":60,"m":10,"f":5,"t":15,"cum":218},{"s":59,"m":22,"f":6,"t":29,"cum":247},{"s":58,"m":17,"f":1,"t":18,"cum":265},{"s":57,"m":10,"f":3,"t":13,"cum":278},{"s":56,"m":14,"f":0,"t":14,"cum":292},{"s":55,"m":15,"f":4,"t":19,"cum":311},{"s":54,"m":9,"f":3,"t":12,"cum":323},{"s":53,"m":16,"f":10,"t":26,"cum":349},{"s":52,"m":19,"f":4,"t":23,"cum":372},{"s":51,"m":49,"f":9,"t":58,"cum":430},{"s":50,"m":22,"f":7,"t":29,"cum":459},{"s":49,"m":18,"f":6,"t":24,"cum":483},{"s":48,"m":23,"f":8,"t":31,"cum":514},{"s":47,"m":34,"f":12,"t":46,"cum":560},{"s":46,"m":31,"f":1,"t":32,"cum":592},{"s":45,"m":34,"f":7,"t":41,"cum":633},{"s":44,"m":92,"f":21,"t":113,"cum":746},{"s":43,"m":136,"f":16,"t":154,"cum":900},{"s":42,"m":21,"f":3,"t":24,"cum":924},{"s":41,"m":31,"f":2,"t":33,"cum":957},{"s":40,"m":37,"f":8,"t":45,"cum":1002},{"s":39,"m":15,"f":2,"t":17,"cum":1019},{"s":38,"m":42,"f":12,"t":54,"cum":1073},{"s":37,"m":12,"f":2,"t":14,"cum":1087},{"s":36,"m":10,"f":0,"t":10,"cum":1097},{"s":34,"m":7,"f":2,"t":9,"cum":1106}],"maxstd":78,"examinees":1106},"상업경제":{"name":"상업 경제","area":"직업탐구","cut":[{"grade":1,"cut":75,"n":65,"pct":5.15},{"grade":2,"cut":65,"n":80,"pct":6.33},{"grade":3,"cut":53,"n":170,"pct":13.46},{"grade":4,"cut":49,"n":215,"pct":17.02},{"grade":5,"cut":46,"n":249,"pct":19.71},{"grade":6,"cut":43,"n":225,"pct":17.81},{"grade":7,"cut":42,"n":123,"pct":9.74},{"grade":8,"cut":39,"n":93,"pct":7.36},{"grade":9,"cut":"39미만","n":43,"pct":3.4}],"dist":[{"s":81,"m":6,"f":6,"t":12,"cum":12},{"s":79,"m":5,"f":2,"t":7,"cum":19},{"s":78,"m":6,"f":13,"t":19,"cum":38},{"s":77,"m":1,"f":1,"t":2,"cum":40},{"s":76,"m":7,"f":2,"t":9,"cum":49},{"s":75,"m":10,"f":6,"t":16,"cum":65},{"s":74,"m":2,"f":1,"t":3,"cum":68},{"s":73,"m":6,"f":3,"t":9,"cum":77},{"s":72,"m":4,"f":3,"t":7,"cum":84},{"s":71,"m":2,"f":6,"t":8,"cum":92},{"s":70,"m":2,"f":3,"t":5,"cum":97},{"s":69,"m":4,"f":5,"t":9,"cum":106},{"s":68,"m":4,"f":7,"t":11,"cum":117},{"s":67,"m":4,"f":6,"t":10,"cum":127},{"s":66,"m":7,"f":2,"t":9,"cum":136},{"s":65,"m":4,"f":5,"t":9,"cum":145},{"s":64,"m":3,"f":3,"t":6,"cum":151},{"s":63,"m":2,"f":7,"t":9,"cum":160},{"s":62,"m":5,"f":5,"t":10,"cum":170},{"s":61,"m":9,"f":8,"t":17,"cum":187},{"s":60,"m":4,"f":5,"t":9,"cum":196},{"s":59,"m":6,"f":8,"t":14,"cum":210},{"s":58,"m":4,"f":7,"t":11,"cum":221},{"s":57,"m":6,"f":8,"t":14,"cum":235},{"s":56,"m":9,"f":10,"t":19,"cum":254},{"s":55,"m":4,"f":13,"t":17,"cum":271},{"s":54,"m":4,"f":15,"t":19,"cum":290},{"s":53,"m":6,"f":19,"t":25,"cum":315},{"s":52,"m":8,"f":23,"t":31,"cum":346},{"s":51,"m":13,"f":32,"t":45,"cum":391},{"s":50,"m":11,"f":27,"t":38,"cum":429},{"s":49,"m":31,"f":69,"t":101,"cum":530},{"s":48,"m":44,"f":76,"t":120,"cum":650},{"s":47,"m":12,"f":43,"t":56,"cum":706},{"s":46,"m":16,"f":57,"t":73,"cum":779},{"s":45,"m":15,"f":41,"t":56,"cum":835},{"s":44,"m":43,"f":76,"t":119,"cum":954},{"s":43,"m":15,"f":35,"t":50,"cum":1004},{"s":42,"m":48,"f":74,"t":123,"cum":1127},{"s":41,"m":7,"f":28,"t":35,"cum":1162},{"s":40,"m":6,"f":20,"t":26,"cum":1188},{"s":39,"m":7,"f":25,"t":32,"cum":1220},{"s":38,"m":3,"f":8,"t":11,"cum":1231},{"s":37,"m":8,"f":13,"t":22,"cum":1253},{"s":35,"m":4,"f":6,"t":10,"cum":1263}],"maxstd":81,"examinees":1263},"수산해운산업기초":{"name":"수산·해운 산업 기초","area":"직업탐구","cut":[{"grade":1,"cut":74,"n":5,"pct":5.26},{"grade":2,"cut":62,"n":6,"pct":6.32},{"grade":3,"cut":55,"n":12,"pct":12.63},{"grade":4,"cut":48,"n":30,"pct":31.58},{"grade":5,"cut":47,"n":9,"pct":9.47},{"grade":6,"cut":42,"n":17,"pct":17.89},{"grade":7,"cut":41,"n":10,"pct":10.53},{"grade":8,"cut":36,"n":4,"pct":4.21},{"grade":9,"cut":"36미만","n":2,"pct":2.11}],"dist":[{"s":79,"m":1,"f":0,"t":1,"cum":1},{"s":78,"m":1,"f":0,"t":1,"cum":2},{"s":76,"m":0,"f":1,"t":1,"cum":3},{"s":74,"m":2,"f":0,"t":2,"cum":5},{"s":73,"m":1,"f":0,"t":1,"cum":6},{"s":70,"m":1,"f":1,"t":2,"cum":8},{"s":69,"m":1,"f":0,"t":1,"cum":9},{"s":64,"m":1,"f":0,"t":1,"cum":10},{"s":62,"m":0,"f":1,"t":1,"cum":11},{"s":61,"m":3,"f":1,"t":4,"cum":15},{"s":60,"m":0,"f":2,"t":2,"cum":17},{"s":58,"m":2,"f":0,"t":2,"cum":19},{"s":57,"m":1,"f":0,"t":1,"cum":20},{"s":56,"m":0,"f":1,"t":1,"cum":21},{"s":55,"m":1,"f":1,"t":2,"cum":23},{"s":53,"m":3,"f":0,"t":3,"cum":26},{"s":52,"m":2,"f":0,"t":2,"cum":28},{"s":51,"m":1,"f":0,"t":1,"cum":29},{"s":50,"m":1,"f":1,"t":2,"cum":31},{"s":49,"m":4,"f":0,"t":4,"cum":35},{"s":48,"m":14,"f":4,"t":18,"cum":53},{"s":47,"m":6,"f":3,"t":9,"cum":62},{"s":46,"m":4,"f":1,"t":5,"cum":67},{"s":44,"m":2,"f":0,"t":2,"cum":69},{"s":42,"m":7,"f":3,"t":10,"cum":79},{"s":41,"m":6,"f":4,"t":10,"cum":89},{"s":39,"m":1,"f":0,"t":1,"cum":90},{"s":38,"m":0,"f":1,"t":1,"cum":91},{"s":36,"m":2,"f":0,"t":2,"cum":93},{"s":34,"m":1,"f":1,"t":2,"cum":95}],"maxstd":79,"examinees":95},"인간발달":{"name":"인간 발달","area":"직업탐구","cut":[{"grade":1,"cut":71,"n":58,"pct":4.16},{"grade":2,"cut":63,"n":98,"pct":7.03},{"grade":3,"cut":58,"n":173,"pct":12.41},{"grade":4,"cut":52,"n":254,"pct":18.22},{"grade":5,"cut":45,"n":282,"pct":20.23},{"grade":6,"cut":42,"n":219,"pct":15.71},{"grade":7,"cut":38,"n":183,"pct":13.13},{"grade":8,"cut":36,"n":79,"pct":5.67},{"grade":9,"cut":"36미만","n":48,"pct":3.44}],"dist":[{"s":77,"m":5,"f":10,"t":15,"cum":15},{"s":75,"m":3,"f":5,"t":8,"cum":23},{"s":74,"m":5,"f":9,"t":14,"cum":37},{"s":73,"m":0,"f":4,"t":4,"cum":41},{"s":72,"m":0,"f":7,"t":7,"cum":48},{"s":71,"m":5,"f":5,"t":10,"cum":58},{"s":70,"m":1,"f":4,"t":5,"cum":63},{"s":69,"m":3,"f":5,"t":8,"cum":71},{"s":68,"m":4,"f":8,"t":12,"cum":83},{"s":67,"m":5,"f":7,"t":12,"cum":95},{"s":66,"m":1,"f":8,"t":9,"cum":104},{"s":65,"m":6,"f":8,"t":14,"cum":118},{"s":64,"m":1,"f":17,"t":18,"cum":136},{"s":63,"m":8,"f":12,"t":20,"cum":156},{"s":62,"m":3,"f":12,"t":15,"cum":171},{"s":61,"m":5,"f":28,"t":33,"cum":204},{"s":60,"m":13,"f":46,"t":59,"cum":263},{"s":59,"m":9,"f":29,"t":38,"cum":301},{"s":58,"m":7,"f":21,"t":28,"cum":329},{"s":57,"m":15,"f":31,"t":46,"cum":375},{"s":56,"m":9,"f":25,"t":34,"cum":409},{"s":55,"m":12,"f":36,"t":48,"cum":457},{"s":54,"m":10,"f":30,"t":40,"cum":497},{"s":53,"m":7,"f":26,"t":33,"cum":530},{"s":52,"m":15,"f":38,"t":53,"cum":583},{"s":51,"m":10,"f":23,"t":33,"cum":616},{"s":50,"m":9,"f":27,"t":36,"cum":652},{"s":49,"m":15,"f":30,"t":45,"cum":697},{"s":48,"m":10,"f":14,"t":24,"cum":721},{"s":47,"m":19,"f":44,"t":63,"cum":784},{"s":46,"m":11,"f":26,"t":37,"cum":821},{"s":45,"m":22,"f":22,"t":44,"cum":865},{"s":44,"m":54,"f":80,"t":135,"cum":1000},{"s":43,"m":25,"f":32,"t":57,"cum":1057},{"s":42,"m":9,"f":18,"t":27,"cum":1084},{"s":41,"m":13,"f":17,"t":30,"cum":1114},{"s":40,"m":41,"f":54,"t":95,"cum":1209},{"s":39,"m":13,"f":18,"t":31,"cum":1240},{"s":38,"m":10,"f":17,"t":27,"cum":1267},{"s":37,"m":19,"f":24,"t":43,"cum":1310},{"s":36,"m":21,"f":15,"t":36,"cum":1346},{"s":35,"m":6,"f":11,"t":17,"cum":1363},{"s":34,"m":10,"f":10,"t":20,"cum":1383},{"s":33,"m":3,"f":4,"t":7,"cum":1390},{"s":31,"m":4,"f":0,"t":4,"cum":1394}],"maxstd":77,"examinees":1394}},"convert":{"국어_언어와매체":[{"raw":2,"std":48,"pct":0,"grade":9},{"raw":3,"std":49,"pct":0,"grade":9},{"raw":4,"std":50,"pct":0,"grade":9},{"raw":5,"std":51,"pct":0,"grade":9},{"raw":6,"std":52,"pct":0,"grade":9},{"raw":7,"std":53,"pct":0,"grade":9},{"raw":8,"std":54,"pct":0,"grade":9},{"raw":9,"std":55,"pct":0,"grade":9},{"raw":10,"std":56,"pct":1,"grade":9},{"raw":12,"std":57,"pct":1,"grade":9},{"raw":13,"std":58,"pct":1,"grade":9},{"raw":14,"std":59,"pct":1,"grade":9},{"raw":15,"std":60,"pct":2,"grade":9},{"raw":16,"std":61,"pct":2,"grade":9},{"raw":17,"std":62,"pct":3,"grade":9},{"raw":19,"std":63,"pct":4,"grade":8},{"raw":20,"std":64,"pct":5,"grade":8},{"raw":22,"std":65,"pct":6,"grade":8},{"raw":23,"std":66,"pct":7,"grade":8},{"raw":24,"std":67,"pct":7,"grade":8},{"raw":25,"std":68,"pct":9,"grade":8},{"raw":26,"std":69,"pct":10,"grade":8},{"raw":28,"std":70,"pct":11,"grade":7},{"raw":29,"std":71,"pct":12,"grade":7},{"raw":30,"std":72,"pct":13,"grade":7},{"raw":31,"std":73,"pct":14,"grade":7},{"raw":32,"std":74,"pct":15,"grade":7},{"raw":33,"std":75,"pct":15,"grade":7},{"raw":34,"std":76,"pct":16,"grade":7},{"raw":35,"std":77,"pct":17,"grade":7},{"raw":36,"std":78,"pct":18,"grade":7},{"raw":38,"std":79,"pct":19,"grade":7},{"raw":39,"std":80,"pct":20,"grade":7},{"raw":40,"std":81,"pct":21,"grade":7},{"raw":41,"std":82,"pct":22,"grade":7},{"raw":43,"std":83,"pct":23,"grade":6},{"raw":44,"std":84,"pct":24,"grade":6},{"raw":45,"std":85,"pct":25,"grade":6},{"raw":47,"std":86,"pct":26,"grade":6},{"raw":48,"std":87,"pct":27,"grade":6},{"raw":49,"std":88,"pct":28,"grade":6},{"raw":50,"std":89,"pct":29,"grade":6},{"raw":51,"std":90,"pct":31,"grade":6},{"raw":52,"std":91,"pct":32,"grade":6},{"raw":53,"std":92,"pct":33,"grade":6},{"raw":55,"std":93,"pct":35,"grade":6},{"raw":56,"std":94,"pct":36,"grade":6},{"raw":57,"std":95,"pct":37,"grade":6},{"raw":58,"std":96,"pct":39,"grade":6},{"raw":59,"std":97,"pct":40,"grade":5},{"raw":61,"std":98,"pct":42,"grade":5},{"raw":62,"std":99,"pct":43,"grade":5},{"raw":63,"std":100,"pct":45,"grade":5},{"raw":64,"std":101,"pct":46,"grade":5},{"raw":65,"std":102,"pct":48,"grade":5},{"raw":66,"std":103,"pct":50,"grade":5},{"raw":67,"std":104,"pct":52,"grade":5},{"raw":69,"std":105,"pct":53,"grade":5},{"raw":70,"std":106,"pct":55,"grade":5},{"raw":71,"std":107,"pct":57,"grade":5},{"raw":72,"std":108,"pct":59,"grade":5},{"raw":73,"std":109,"pct":61,"grade":4},{"raw":74,"std":110,"pct":63,"grade":4},{"raw":75,"std":111,"pct":64,"grade":4},{"raw":76,"std":112,"pct":66,"grade":4},{"raw":77,"std":113,"pct":68,"grade":4},{"raw":79,"std":114,"pct":70,"grade":4},{"raw":80,"std":115,"pct":72,"grade":4},{"raw":81,"std":116,"pct":74,"grade":4},{"raw":82,"std":117,"pct":76,"grade":4},{"raw":83,"std":118,"pct":78,"grade":3},{"raw":84,"std":119,"pct":80,"grade":3},{"raw":85,"std":120,"pct":82,"grade":3},{"raw":87,"std":121,"pct":83,"grade":3},{"raw":88,"std":122,"pct":85,"grade":3},{"raw":89,"std":123,"pct":87,"grade":3},{"raw":90,"std":124,"pct":89,"grade":2},{"raw":91,"std":125,"pct":91,"grade":2},{"raw":92,"std":126,"pct":92,"grade":2},{"raw":93,"std":127,"pct":94,"grade":2},{"raw":95,"std":128,"pct":95,"grade":1},{"raw":96,"std":129,"pct":97,"grade":1},{"raw":97,"std":130,"pct":98,"grade":1},{"raw":98,"std":131,"pct":99,"grade":1},{"raw":100,"std":132,"pct":100,"grade":1}],"국어_화법과작문":[{"raw":2,"std":48,"pct":0,"grade":9},{"raw":3,"std":49,"pct":0,"grade":9},{"raw":4,"std":50,"pct":0,"grade":9},{"raw":5,"std":51,"pct":0,"grade":9},{"raw":6,"std":52,"pct":0,"grade":9},{"raw":7,"std":53,"pct":0,"grade":9},{"raw":8,"std":54,"pct":0,"grade":9},{"raw":9,"std":55,"pct":0,"grade":9},{"raw":10,"std":56,"pct":1,"grade":9},{"raw":12,"std":57,"pct":1,"grade":9},{"raw":13,"std":58,"pct":1,"grade":9},{"raw":14,"std":59,"pct":1,"grade":9},{"raw":15,"std":60,"pct":2,"grade":9},{"raw":16,"std":61,"pct":2,"grade":9},{"raw":17,"std":62,"pct":3,"grade":9},{"raw":19,"std":63,"pct":4,"grade":8},{"raw":20,"std":64,"pct":5,"grade":8},{"raw":22,"std":65,"pct":6,"grade":8},{"raw":23,"std":66,"pct":7,"grade":8},{"raw":24,"std":67,"pct":7,"grade":8},{"raw":25,"std":68,"pct":9,"grade":8},{"raw":26,"std":69,"pct":10,"grade":8},{"raw":28,"std":70,"pct":11,"grade":7},{"raw":29,"std":71,"pct":12,"grade":7},{"raw":30,"std":72,"pct":13,"grade":7},{"raw":31,"std":73,"pct":14,"grade":7},{"raw":32,"std":74,"pct":15,"grade":7},{"raw":33,"std":75,"pct":15,"grade":7},{"raw":34,"std":76,"pct":16,"grade":7},{"raw":35,"std":77,"pct":17,"grade":7},{"raw":36,"std":78,"pct":18,"grade":7},{"raw":38,"std":79,"pct":19,"grade":7},{"raw":39,"std":80,"pct":20,"grade":7},{"raw":40,"std":81,"pct":21,"grade":7},{"raw":41,"std":82,"pct":22,"grade":7},{"raw":43,"std":83,"pct":23,"grade":6},{"raw":44,"std":84,"pct":24,"grade":6},{"raw":45,"std":85,"pct":25,"grade":6},{"raw":47,"std":86,"pct":26,"grade":6},{"raw":48,"std":87,"pct":27,"grade":6},{"raw":49,"std":88,"pct":28,"grade":6},{"raw":50,"std":89,"pct":29,"grade":6},{"raw":51,"std":90,"pct":31,"grade":6},{"raw":52,"std":91,"pct":32,"grade":6},{"raw":53,"std":92,"pct":33,"grade":6},{"raw":55,"std":93,"pct":35,"grade":6},{"raw":56,"std":94,"pct":36,"grade":6},{"raw":57,"std":95,"pct":37,"grade":6},{"raw":58,"std":96,"pct":39,"grade":6},{"raw":59,"std":97,"pct":40,"grade":5},{"raw":61,"std":98,"pct":42,"grade":5},{"raw":62,"std":99,"pct":43,"grade":5},{"raw":63,"std":100,"pct":45,"grade":5},{"raw":64,"std":101,"pct":46,"grade":5},{"raw":65,"std":102,"pct":48,"grade":5},{"raw":66,"std":103,"pct":50,"grade":5},{"raw":67,"std":104,"pct":52,"grade":5},{"raw":69,"std":105,"pct":53,"grade":5},{"raw":70,"std":106,"pct":55,"grade":5},{"raw":71,"std":107,"pct":57,"grade":5},{"raw":72,"std":108,"pct":59,"grade":5},{"raw":73,"std":109,"pct":61,"grade":4},{"raw":74,"std":110,"pct":63,"grade":4},{"raw":75,"std":111,"pct":64,"grade":4},{"raw":76,"std":112,"pct":66,"grade":4},{"raw":77,"std":113,"pct":68,"grade":4},{"raw":79,"std":114,"pct":70,"grade":4},{"raw":80,"std":115,"pct":72,"grade":4},{"raw":81,"std":116,"pct":74,"grade":4},{"raw":82,"std":117,"pct":76,"grade":4},{"raw":83,"std":118,"pct":78,"grade":3},{"raw":84,"std":119,"pct":80,"grade":3},{"raw":85,"std":120,"pct":82,"grade":3},{"raw":87,"std":121,"pct":83,"grade":3},{"raw":88,"std":122,"pct":85,"grade":3},{"raw":89,"std":123,"pct":87,"grade":3},{"raw":90,"std":124,"pct":89,"grade":2},{"raw":91,"std":125,"pct":91,"grade":2},{"raw":92,"std":126,"pct":92,"grade":2},{"raw":93,"std":127,"pct":94,"grade":2},{"raw":95,"std":128,"pct":95,"grade":1},{"raw":96,"std":129,"pct":97,"grade":1},{"raw":97,"std":130,"pct":98,"grade":1},{"raw":98,"std":131,"pct":99,"grade":1},{"raw":100,"std":132,"pct":100,"grade":1}],"수학_미적분":[{"raw":2,"std":63,"pct":0,"grade":9},{"raw":3,"std":64,"pct":0,"grade":9},{"raw":4,"std":65,"pct":1,"grade":9},{"raw":5,"std":66,"pct":1,"grade":9},{"raw":6,"std":67,"pct":1,"grade":9},{"raw":7,"std":68,"pct":3,"grade":9},{"raw":8,"std":69,"pct":4,"grade":8},{"raw":9,"std":70,"pct":5,"grade":8},{"raw":10,"std":71,"pct":7,"grade":8},{"raw":11,"std":72,"pct":9,"grade":8},{"raw":12,"std":73,"pct":11,"grade":7},{"raw":14,"std":74,"pct":13,"grade":7},{"raw":15,"std":75,"pct":15,"grade":7},{"raw":16,"std":76,"pct":17,"grade":7},{"raw":18,"std":77,"pct":20,"grade":7},{"raw":19,"std":78,"pct":22,"grade":6},{"raw":20,"std":79,"pct":24,"grade":6},{"raw":21,"std":80,"pct":25,"grade":6},{"raw":23,"std":81,"pct":27,"grade":6},{"raw":24,"std":82,"pct":28,"grade":6},{"raw":25,"std":83,"pct":29,"grade":6},{"raw":27,"std":84,"pct":30,"grade":6},{"raw":28,"std":85,"pct":32,"grade":6},{"raw":29,"std":86,"pct":33,"grade":6},{"raw":31,"std":87,"pct":34,"grade":6},{"raw":33,"std":88,"pct":35,"grade":6},{"raw":34,"std":89,"pct":36,"grade":6},{"raw":35,"std":90,"pct":37,"grade":6},{"raw":37,"std":91,"pct":38,"grade":6},{"raw":38,"std":92,"pct":39,"grade":6},{"raw":39,"std":93,"pct":40,"grade":6},{"raw":41,"std":94,"pct":40,"grade":5},{"raw":42,"std":95,"pct":42,"grade":5},{"raw":43,"std":96,"pct":42,"grade":5},{"raw":45,"std":97,"pct":43,"grade":5},{"raw":46,"std":98,"pct":44,"grade":5},{"raw":47,"std":99,"pct":45,"grade":5},{"raw":49,"std":100,"pct":46,"grade":5},{"raw":50,"std":101,"pct":47,"grade":5},{"raw":52,"std":102,"pct":49,"grade":5},{"raw":53,"std":103,"pct":50,"grade":5},{"raw":54,"std":104,"pct":51,"grade":5},{"raw":56,"std":105,"pct":52,"grade":5},{"raw":57,"std":106,"pct":53,"grade":5},{"raw":58,"std":107,"pct":55,"grade":5},{"raw":59,"std":108,"pct":56,"grade":5},{"raw":61,"std":109,"pct":57,"grade":5},{"raw":62,"std":110,"pct":59,"grade":5},{"raw":63,"std":111,"pct":60,"grade":4},{"raw":65,"std":112,"pct":62,"grade":4},{"raw":66,"std":113,"pct":65,"grade":4},{"raw":67,"std":114,"pct":66,"grade":4},{"raw":69,"std":115,"pct":69,"grade":4},{"raw":70,"std":116,"pct":71,"grade":4},{"raw":72,"std":117,"pct":73,"grade":4},{"raw":73,"std":118,"pct":76,"grade":3},{"raw":75,"std":119,"pct":78,"grade":3},{"raw":76,"std":120,"pct":80,"grade":3},{"raw":77,"std":121,"pct":83,"grade":3},{"raw":78,"std":122,"pct":85,"grade":3},{"raw":80,"std":123,"pct":87,"grade":2},{"raw":81,"std":124,"pct":90,"grade":2},{"raw":82,"std":125,"pct":91,"grade":2},{"raw":84,"std":126,"pct":93,"grade":2},{"raw":85,"std":127,"pct":95,"grade":2},{"raw":86,"std":128,"pct":95,"grade":2},{"raw":88,"std":129,"pct":96,"grade":1},{"raw":89,"std":130,"pct":97,"grade":1},{"raw":90,"std":131,"pct":97,"grade":1},{"raw":92,"std":132,"pct":98,"grade":1},{"raw":93,"std":133,"pct":99,"grade":1},{"raw":94,"std":134,"pct":99,"grade":1},{"raw":96,"std":135,"pct":99,"grade":1},{"raw":97,"std":136,"pct":100,"grade":1},{"raw":98,"std":137,"pct":100,"grade":1},{"raw":100,"std":138,"pct":100,"grade":1}],"수학_확률과통계":[{"raw":2,"std":63,"pct":0,"grade":9},{"raw":4,"std":64,"pct":0,"grade":9},{"raw":5,"std":65,"pct":1,"grade":9},{"raw":7,"std":66,"pct":1,"grade":9},{"raw":8,"std":67,"pct":1,"grade":9},{"raw":9,"std":68,"pct":3,"grade":9},{"raw":10,"std":69,"pct":4,"grade":8},{"raw":11,"std":70,"pct":5,"grade":8},{"raw":12,"std":71,"pct":7,"grade":8},{"raw":13,"std":72,"pct":9,"grade":8},{"raw":15,"std":73,"pct":11,"grade":7},{"raw":17,"std":74,"pct":13,"grade":7},{"raw":18,"std":75,"pct":15,"grade":7},{"raw":19,"std":76,"pct":17,"grade":7},{"raw":21,"std":77,"pct":20,"grade":7},{"raw":22,"std":78,"pct":22,"grade":6},{"raw":23,"std":79,"pct":24,"grade":6},{"raw":24,"std":80,"pct":25,"grade":6},{"raw":26,"std":81,"pct":27,"grade":6},{"raw":27,"std":82,"pct":28,"grade":6},{"raw":28,"std":83,"pct":29,"grade":6},{"raw":30,"std":84,"pct":30,"grade":6},{"raw":31,"std":85,"pct":32,"grade":6},{"raw":32,"std":86,"pct":33,"grade":6},{"raw":34,"std":87,"pct":34,"grade":6},{"raw":36,"std":88,"pct":35,"grade":6},{"raw":37,"std":89,"pct":36,"grade":6},{"raw":38,"std":90,"pct":37,"grade":6},{"raw":40,"std":91,"pct":38,"grade":6},{"raw":41,"std":92,"pct":39,"grade":6},{"raw":42,"std":93,"pct":40,"grade":6},{"raw":44,"std":94,"pct":40,"grade":5},{"raw":45,"std":95,"pct":42,"grade":5},{"raw":46,"std":96,"pct":42,"grade":5},{"raw":48,"std":97,"pct":43,"grade":5},{"raw":49,"std":98,"pct":44,"grade":5},{"raw":50,"std":99,"pct":45,"grade":5},{"raw":52,"std":100,"pct":46,"grade":5},{"raw":53,"std":101,"pct":47,"grade":5},{"raw":54,"std":102,"pct":49,"grade":5},{"raw":56,"std":103,"pct":50,"grade":5},{"raw":57,"std":104,"pct":51,"grade":5},{"raw":58,"std":105,"pct":52,"grade":5},{"raw":60,"std":106,"pct":53,"grade":5},{"raw":61,"std":107,"pct":55,"grade":5},{"raw":62,"std":108,"pct":56,"grade":5},{"raw":64,"std":109,"pct":57,"grade":5},{"raw":65,"std":110,"pct":59,"grade":5},{"raw":66,"std":111,"pct":60,"grade":4},{"raw":68,"std":112,"pct":62,"grade":4},{"raw":69,"std":113,"pct":65,"grade":4},{"raw":70,"std":114,"pct":66,"grade":4},{"raw":72,"std":115,"pct":69,"grade":4},{"raw":73,"std":116,"pct":71,"grade":4},{"raw":74,"std":117,"pct":73,"grade":4},{"raw":76,"std":118,"pct":76,"grade":3},{"raw":77,"std":119,"pct":78,"grade":3},{"raw":78,"std":120,"pct":80,"grade":3},{"raw":80,"std":121,"pct":83,"grade":3},{"raw":81,"std":122,"pct":85,"grade":3},{"raw":82,"std":123,"pct":87,"grade":2},{"raw":84,"std":124,"pct":90,"grade":2},{"raw":85,"std":125,"pct":91,"grade":2},{"raw":86,"std":126,"pct":93,"grade":2},{"raw":88,"std":127,"pct":95,"grade":2},{"raw":89,"std":128,"pct":95,"grade":2},{"raw":90,"std":129,"pct":96,"grade":1},{"raw":92,"std":130,"pct":97,"grade":1},{"raw":93,"std":131,"pct":97,"grade":1},{"raw":94,"std":132,"pct":98,"grade":1},{"raw":96,"std":133,"pct":99,"grade":1},{"raw":97,"std":134,"pct":99,"grade":1},{"raw":98,"std":135,"pct":99,"grade":1},{"raw":100,"std":136,"pct":100,"grade":1}],"탐구_생활과윤리":[{"raw":2,"std":29,"pct":0,"grade":9},{"raw":3,"std":30,"pct":0,"grade":9},{"raw":4,"std":31,"pct":1,"grade":9},{"raw":5,"std":32,"pct":1,"grade":9},{"raw":6,"std":33,"pct":2,"grade":9},{"raw":7,"std":34,"pct":4,"grade":8},{"raw":8,"std":35,"pct":6,"grade":8},{"raw":9,"std":36,"pct":9,"grade":8},{"raw":11,"std":37,"pct":11,"grade":7},{"raw":12,"std":38,"pct":14,"grade":7},{"raw":13,"std":39,"pct":17,"grade":7},{"raw":14,"std":40,"pct":20,"grade":7},{"raw":15,"std":41,"pct":22,"grade":7},{"raw":17,"std":42,"pct":24,"grade":6},{"raw":18,"std":43,"pct":26,"grade":6},{"raw":19,"std":44,"pct":30,"grade":6},{"raw":20,"std":45,"pct":34,"grade":6},{"raw":21,"std":46,"pct":37,"grade":6},{"raw":23,"std":47,"pct":40,"grade":5},{"raw":24,"std":48,"pct":43,"grade":5},{"raw":25,"std":49,"pct":47,"grade":5},{"raw":26,"std":50,"pct":52,"grade":5},{"raw":27,"std":51,"pct":55,"grade":5},{"raw":28,"std":52,"pct":58,"grade":5},{"raw":30,"std":53,"pct":61,"grade":4},{"raw":31,"std":54,"pct":66,"grade":4},{"raw":32,"std":55,"pct":69,"grade":4},{"raw":33,"std":56,"pct":72,"grade":4},{"raw":34,"std":57,"pct":74,"grade":4},{"raw":36,"std":58,"pct":76,"grade":3},{"raw":37,"std":59,"pct":79,"grade":3},{"raw":38,"std":60,"pct":82,"grade":3},{"raw":39,"std":61,"pct":84,"grade":3},{"raw":40,"std":62,"pct":85,"grade":3},{"raw":42,"std":63,"pct":87,"grade":3},{"raw":43,"std":64,"pct":89,"grade":2},{"raw":44,"std":65,"pct":92,"grade":2},{"raw":45,"std":66,"pct":93,"grade":2},{"raw":46,"std":67,"pct":94,"grade":2},{"raw":48,"std":68,"pct":96,"grade":1},{"raw":50,"std":70,"pct":98,"grade":1}],"탐구_윤리와사상":[{"raw":2,"std":33,"pct":0,"grade":9},{"raw":3,"std":34,"pct":1,"grade":9},{"raw":4,"std":35,"pct":2,"grade":9},{"raw":5,"std":36,"pct":3,"grade":9},{"raw":6,"std":37,"pct":6,"grade":8},{"raw":7,"std":38,"pct":10,"grade":7},{"raw":8,"std":39,"pct":13,"grade":7},{"raw":9,"std":40,"pct":17,"grade":7},{"raw":10,"std":41,"pct":21,"grade":7},{"raw":11,"std":42,"pct":26,"grade":6},{"raw":12,"std":43,"pct":31,"grade":6},{"raw":14,"std":44,"pct":34,"grade":6},{"raw":15,"std":45,"pct":38,"grade":6},{"raw":16,"std":46,"pct":41,"grade":5},{"raw":17,"std":47,"pct":44,"grade":5},{"raw":18,"std":48,"pct":49,"grade":5},{"raw":19,"std":49,"pct":53,"grade":5},{"raw":20,"std":50,"pct":56,"grade":5},{"raw":22,"std":51,"pct":59,"grade":4},{"raw":23,"std":52,"pct":62,"grade":4},{"raw":24,"std":53,"pct":64,"grade":4},{"raw":25,"std":54,"pct":67,"grade":4},{"raw":26,"std":55,"pct":70,"grade":4},{"raw":27,"std":56,"pct":73,"grade":4},{"raw":28,"std":57,"pct":75,"grade":4},{"raw":29,"std":58,"pct":77,"grade":3},{"raw":31,"std":59,"pct":79,"grade":3},{"raw":32,"std":60,"pct":81,"grade":3},{"raw":33,"std":61,"pct":83,"grade":3},{"raw":34,"std":62,"pct":84,"grade":3},{"raw":35,"std":63,"pct":87,"grade":3},{"raw":36,"std":64,"pct":89,"grade":2},{"raw":37,"std":65,"pct":90,"grade":2},{"raw":39,"std":66,"pct":92,"grade":2},{"raw":40,"std":67,"pct":93,"grade":2},{"raw":41,"std":68,"pct":94,"grade":2},{"raw":42,"std":69,"pct":95,"grade":2},{"raw":43,"std":70,"pct":96,"grade":1},{"raw":44,"std":71,"pct":97,"grade":1},{"raw":45,"std":72,"pct":98,"grade":1},{"raw":47,"std":73,"pct":99,"grade":1},{"raw":48,"std":74,"pct":99,"grade":1},{"raw":50,"std":76,"pct":100,"grade":1}],"탐구_한국지리":[{"raw":2,"std":33,"pct":1,"grade":9},{"raw":4,"std":34,"pct":1,"grade":9},{"raw":5,"std":35,"pct":2,"grade":9},{"raw":6,"std":36,"pct":3,"grade":9},{"raw":7,"std":37,"pct":4,"grade":8},{"raw":8,"std":38,"pct":8,"grade":8},{"raw":10,"std":39,"pct":12,"grade":7},{"raw":11,"std":40,"pct":16,"grade":7},{"raw":12,"std":41,"pct":21,"grade":6},{"raw":13,"std":42,"pct":28,"grade":6},{"raw":15,"std":43,"pct":32,"grade":6},{"raw":16,"std":44,"pct":36,"grade":6},{"raw":17,"std":45,"pct":39,"grade":5},{"raw":18,"std":46,"pct":42,"grade":5},{"raw":19,"std":47,"pct":46,"grade":5},{"raw":21,"std":48,"pct":50,"grade":5},{"raw":22,"std":49,"pct":53,"grade":5},{"raw":23,"std":50,"pct":55,"grade":5},{"raw":24,"std":51,"pct":59,"grade":4},{"raw":25,"std":52,"pct":63,"grade":4},{"raw":27,"std":53,"pct":65,"grade":4},{"raw":28,"std":54,"pct":67,"grade":4},{"raw":29,"std":55,"pct":69,"grade":4},{"raw":30,"std":56,"pct":72,"grade":4},{"raw":32,"std":57,"pct":75,"grade":4},{"raw":33,"std":58,"pct":77,"grade":3},{"raw":34,"std":59,"pct":79,"grade":3},{"raw":35,"std":60,"pct":81,"grade":3},{"raw":36,"std":61,"pct":83,"grade":3},{"raw":38,"std":62,"pct":84,"grade":3},{"raw":39,"std":63,"pct":86,"grade":3},{"raw":40,"std":64,"pct":87,"grade":3},{"raw":41,"std":65,"pct":89,"grade":2},{"raw":43,"std":66,"pct":91,"grade":2},{"raw":44,"std":67,"pct":92,"grade":2},{"raw":45,"std":68,"pct":93,"grade":2},{"raw":46,"std":69,"pct":95,"grade":1},{"raw":47,"std":70,"pct":97,"grade":1},{"raw":50,"std":72,"pct":99,"grade":1}],"탐구_세계지리":[{"raw":2,"std":31,"pct":0,"grade":9},{"raw":3,"std":32,"pct":1,"grade":9},{"raw":4,"std":33,"pct":1,"grade":9},{"raw":5,"std":34,"pct":2,"grade":9},{"raw":6,"std":35,"pct":5,"grade":8},{"raw":7,"std":36,"pct":8,"grade":8},{"raw":9,"std":37,"pct":10,"grade":8},{"raw":10,"std":38,"pct":12,"grade":7},{"raw":11,"std":39,"pct":13,"grade":7},{"raw":12,"std":40,"pct":18,"grade":7},{"raw":14,"std":41,"pct":22,"grade":6},{"raw":15,"std":42,"pct":24,"grade":6},{"raw":16,"std":43,"pct":27,"grade":6},{"raw":17,"std":44,"pct":32,"grade":6},{"raw":19,"std":45,"pct":36,"grade":6},{"raw":20,"std":46,"pct":40,"grade":5},{"raw":21,"std":47,"pct":42,"grade":5},{"raw":22,"std":48,"pct":47,"grade":5},{"raw":24,"std":49,"pct":51,"grade":5},{"raw":25,"std":50,"pct":54,"grade":5},{"raw":26,"std":51,"pct":57,"grade":5},{"raw":27,"std":52,"pct":60,"grade":4},{"raw":29,"std":53,"pct":64,"grade":4},{"raw":30,"std":54,"pct":66,"grade":4},{"raw":31,"std":55,"pct":68,"grade":4},{"raw":32,"std":56,"pct":71,"grade":4},{"raw":34,"std":57,"pct":74,"grade":4},{"raw":35,"std":58,"pct":76,"grade":3},{"raw":36,"std":59,"pct":78,"grade":3},{"raw":37,"std":60,"pct":80,"grade":3},{"raw":39,"std":61,"pct":82,"grade":3},{"raw":40,"std":62,"pct":85,"grade":3},{"raw":41,"std":63,"pct":86,"grade":3},{"raw":42,"std":64,"pct":88,"grade":3},{"raw":44,"std":65,"pct":90,"grade":2},{"raw":45,"std":66,"pct":93,"grade":2},{"raw":46,"std":67,"pct":94,"grade":2},{"raw":47,"std":68,"pct":95,"grade":1},{"raw":48,"std":69,"pct":97,"grade":1},{"raw":50,"std":70,"pct":99,"grade":1}],"탐구_동아시아사":[{"raw":2,"std":34,"pct":0,"grade":9},{"raw":3,"std":35,"pct":1,"grade":9},{"raw":4,"std":36,"pct":3,"grade":9},{"raw":5,"std":37,"pct":7,"grade":8},{"raw":7,"std":38,"pct":11,"grade":7},{"raw":8,"std":39,"pct":14,"grade":7},{"raw":10,"std":40,"pct":19,"grade":7},{"raw":11,"std":41,"pct":25,"grade":6},{"raw":13,"std":42,"pct":29,"grade":6},{"raw":14,"std":43,"pct":33,"grade":6},{"raw":15,"std":44,"pct":36,"grade":6},{"raw":17,"std":45,"pct":40,"grade":5},{"raw":18,"std":46,"pct":43,"grade":5},{"raw":20,"std":47,"pct":46,"grade":5},{"raw":21,"std":48,"pct":50,"grade":5},{"raw":23,"std":49,"pct":53,"grade":5},{"raw":24,"std":50,"pct":55,"grade":5},{"raw":25,"std":51,"pct":57,"grade":5},{"raw":27,"std":52,"pct":60,"grade":4},{"raw":28,"std":53,"pct":63,"grade":4},{"raw":30,"std":54,"pct":65,"grade":4},{"raw":31,"std":55,"pct":67,"grade":4},{"raw":33,"std":56,"pct":69,"grade":4},{"raw":34,"std":57,"pct":71,"grade":4},{"raw":35,"std":58,"pct":73,"grade":4},{"raw":37,"std":59,"pct":75,"grade":4},{"raw":38,"std":60,"pct":77,"grade":3},{"raw":40,"std":61,"pct":80,"grade":3},{"raw":41,"std":62,"pct":82,"grade":3},{"raw":43,"std":63,"pct":83,"grade":3},{"raw":44,"std":64,"pct":86,"grade":3},{"raw":45,"std":65,"pct":88,"grade":3},{"raw":47,"std":66,"pct":92,"grade":2},{"raw":50,"std":68,"pct":98,"grade":1}],"탐구_세계사":[{"raw":2,"std":35,"pct":0,"grade":9},{"raw":4,"std":36,"pct":1,"grade":9},{"raw":5,"std":37,"pct":2,"grade":9},{"raw":7,"std":38,"pct":4,"grade":8},{"raw":8,"std":39,"pct":8,"grade":7},{"raw":9,"std":40,"pct":13,"grade":7},{"raw":11,"std":41,"pct":20,"grade":6},{"raw":12,"std":42,"pct":28,"grade":6},{"raw":13,"std":43,"pct":32,"grade":6},{"raw":15,"std":44,"pct":38,"grade":5},{"raw":16,"std":45,"pct":43,"grade":5},{"raw":17,"std":46,"pct":48,"grade":5},{"raw":19,"std":47,"pct":52,"grade":5},{"raw":20,"std":48,"pct":54,"grade":5},{"raw":21,"std":49,"pct":57,"grade":5},{"raw":23,"std":50,"pct":60,"grade":4},{"raw":24,"std":51,"pct":62,"grade":4},{"raw":25,"std":52,"pct":64,"grade":4},{"raw":27,"std":53,"pct":67,"grade":4},{"raw":28,"std":54,"pct":69,"grade":4},{"raw":30,"std":55,"pct":71,"grade":4},{"raw":31,"std":56,"pct":72,"grade":4},{"raw":32,"std":57,"pct":74,"grade":4},{"raw":34,"std":58,"pct":76,"grade":4},{"raw":35,"std":59,"pct":77,"grade":3},{"raw":36,"std":60,"pct":79,"grade":3},{"raw":38,"std":61,"pct":80,"grade":3},{"raw":39,"std":62,"pct":82,"grade":3},{"raw":40,"std":63,"pct":84,"grade":3},{"raw":42,"std":64,"pct":85,"grade":3},{"raw":43,"std":65,"pct":87,"grade":3},{"raw":44,"std":66,"pct":89,"grade":2},{"raw":46,"std":67,"pct":90,"grade":2},{"raw":47,"std":68,"pct":93,"grade":2},{"raw":50,"std":70,"pct":97,"grade":1}],"탐구_경제":[{"raw":2,"std":36,"pct":1,"grade":9},{"raw":3,"std":37,"pct":1,"grade":9},{"raw":4,"std":38,"pct":4,"grade":8},{"raw":5,"std":39,"pct":7,"grade":8},{"raw":6,"std":40,"pct":11,"grade":7},{"raw":8,"std":41,"pct":14,"grade":7},{"raw":9,"std":42,"pct":19,"grade":6},{"raw":10,"std":43,"pct":26,"grade":6},{"raw":11,"std":44,"pct":36,"grade":5},{"raw":13,"std":45,"pct":45,"grade":5},{"raw":14,"std":46,"pct":50,"grade":5},{"raw":15,"std":47,"pct":55,"grade":5},{"raw":17,"std":48,"pct":57,"grade":5},{"raw":18,"std":49,"pct":59,"grade":4},{"raw":19,"std":50,"pct":63,"grade":4},{"raw":20,"std":51,"pct":66,"grade":4},{"raw":22,"std":52,"pct":67,"grade":4},{"raw":23,"std":53,"pct":70,"grade":4},{"raw":24,"std":54,"pct":72,"grade":4},{"raw":25,"std":55,"pct":73,"grade":4},{"raw":27,"std":56,"pct":75,"grade":4},{"raw":28,"std":57,"pct":76,"grade":3},{"raw":29,"std":58,"pct":78,"grade":3},{"raw":31,"std":59,"pct":79,"grade":3},{"raw":32,"std":60,"pct":80,"grade":3},{"raw":33,"std":61,"pct":82,"grade":3},{"raw":34,"std":62,"pct":84,"grade":3},{"raw":36,"std":63,"pct":85,"grade":3},{"raw":37,"std":64,"pct":86,"grade":3},{"raw":38,"std":65,"pct":87,"grade":3},{"raw":40,"std":66,"pct":89,"grade":2},{"raw":41,"std":67,"pct":90,"grade":2},{"raw":42,"std":68,"pct":91,"grade":2},{"raw":43,"std":69,"pct":93,"grade":2},{"raw":45,"std":70,"pct":94,"grade":2},{"raw":46,"std":71,"pct":95,"grade":2},{"raw":47,"std":72,"pct":96,"grade":1},{"raw":50,"std":74,"pct":99,"grade":1}],"탐구_정치와법":[{"raw":2,"std":34,"pct":1,"grade":9},{"raw":3,"std":35,"pct":1,"grade":9},{"raw":4,"std":36,"pct":2,"grade":9},{"raw":5,"std":37,"pct":4,"grade":8},{"raw":6,"std":38,"pct":7,"grade":8},{"raw":8,"std":39,"pct":9,"grade":8},{"raw":9,"std":40,"pct":14,"grade":7},{"raw":10,"std":41,"pct":20,"grade":7},{"raw":12,"std":42,"pct":25,"grade":6},{"raw":13,"std":43,"pct":32,"grade":6},{"raw":14,"std":44,"pct":39,"grade":5},{"raw":16,"std":45,"pct":42,"grade":5},{"raw":17,"std":46,"pct":47,"grade":5},{"raw":18,"std":47,"pct":51,"grade":5},{"raw":20,"std":48,"pct":53,"grade":5},{"raw":21,"std":49,"pct":56,"grade":5},{"raw":22,"std":50,"pct":59,"grade":5},{"raw":24,"std":51,"pct":61,"grade":4},{"raw":25,"std":52,"pct":62,"grade":4},{"raw":26,"std":53,"pct":65,"grade":4},{"raw":27,"std":54,"pct":67,"grade":4},{"raw":29,"std":55,"pct":69,"grade":4},{"raw":30,"std":56,"pct":71,"grade":4},{"raw":31,"std":57,"pct":73,"grade":4},{"raw":33,"std":58,"pct":75,"grade":4},{"raw":34,"std":59,"pct":77,"grade":3},{"raw":35,"std":60,"pct":79,"grade":3},{"raw":37,"std":61,"pct":81,"grade":3},{"raw":38,"std":62,"pct":82,"grade":3},{"raw":39,"std":63,"pct":84,"grade":3},{"raw":41,"std":64,"pct":87,"grade":3},{"raw":42,"std":65,"pct":88,"grade":2},{"raw":43,"std":66,"pct":91,"grade":2},{"raw":45,"std":67,"pct":93,"grade":2},{"raw":46,"std":68,"pct":94,"grade":2},{"raw":47,"std":69,"pct":96,"grade":1},{"raw":50,"std":71,"pct":99,"grade":1}],"탐구_사회문화":[{"raw":2,"std":28,"pct":0,"grade":9},{"raw":3,"std":29,"pct":0,"grade":9},{"raw":4,"std":30,"pct":0,"grade":9},{"raw":5,"std":31,"pct":1,"grade":9},{"raw":6,"std":32,"pct":2,"grade":9},{"raw":7,"std":33,"pct":3,"grade":9},{"raw":8,"std":34,"pct":5,"grade":8},{"raw":10,"std":35,"pct":7,"grade":8},{"raw":11,"std":36,"pct":9,"grade":8},{"raw":12,"std":37,"pct":12,"grade":7},{"raw":13,"std":38,"pct":15,"grade":7},{"raw":15,"std":39,"pct":18,"grade":7},{"raw":16,"std":40,"pct":19,"grade":7},{"raw":17,"std":41,"pct":23,"grade":6},{"raw":18,"std":42,"pct":26,"grade":6},{"raw":19,"std":43,"pct":29,"grade":6},{"raw":21,"std":44,"pct":31,"grade":6},{"raw":22,"std":45,"pct":33,"grade":6},{"raw":23,"std":46,"pct":37,"grade":6},{"raw":24,"std":47,"pct":41,"grade":5},{"raw":25,"std":48,"pct":44,"grade":5},{"raw":27,"std":49,"pct":46,"grade":5},{"raw":28,"std":50,"pct":50,"grade":5},{"raw":29,"std":51,"pct":54,"grade":5},{"raw":30,"std":52,"pct":56,"grade":5},{"raw":32,"std":53,"pct":59,"grade":5},{"raw":33,"std":54,"pct":61,"grade":4},{"raw":34,"std":55,"pct":65,"grade":4},{"raw":35,"std":56,"pct":68,"grade":4},{"raw":36,"std":57,"pct":71,"grade":4},{"raw":38,"std":58,"pct":73,"grade":4},{"raw":39,"std":59,"pct":77,"grade":3},{"raw":40,"std":60,"pct":80,"grade":3},{"raw":41,"std":61,"pct":83,"grade":3},{"raw":43,"std":62,"pct":85,"grade":3},{"raw":44,"std":63,"pct":87,"grade":3},{"raw":45,"std":64,"pct":91,"grade":2},{"raw":46,"std":65,"pct":94,"grade":2},{"raw":47,"std":66,"pct":96,"grade":1},{"raw":50,"std":68,"pct":99,"grade":1}],"탐구_물리학I":[{"raw":2,"std":32,"pct":0,"grade":9},{"raw":4,"std":33,"pct":1,"grade":9},{"raw":5,"std":34,"pct":2,"grade":9},{"raw":6,"std":35,"pct":3,"grade":9},{"raw":7,"std":36,"pct":4,"grade":8},{"raw":8,"std":37,"pct":6,"grade":8},{"raw":10,"std":38,"pct":8,"grade":8},{"raw":11,"std":39,"pct":13,"grade":7},{"raw":12,"std":40,"pct":18,"grade":7},{"raw":13,"std":41,"pct":23,"grade":6},{"raw":15,"std":42,"pct":27,"grade":6},{"raw":16,"std":43,"pct":32,"grade":6},{"raw":17,"std":44,"pct":37,"grade":6},{"raw":18,"std":45,"pct":40,"grade":5},{"raw":19,"std":46,"pct":42,"grade":5},{"raw":21,"std":47,"pct":45,"grade":5},{"raw":22,"std":48,"pct":49,"grade":5},{"raw":23,"std":49,"pct":52,"grade":5},{"raw":24,"std":50,"pct":54,"grade":5},{"raw":25,"std":51,"pct":57,"grade":5},{"raw":27,"std":52,"pct":60,"grade":4},{"raw":28,"std":53,"pct":63,"grade":4},{"raw":29,"std":54,"pct":65,"grade":4},{"raw":30,"std":55,"pct":67,"grade":4},{"raw":32,"std":56,"pct":68,"grade":4},{"raw":33,"std":57,"pct":71,"grade":4},{"raw":34,"std":58,"pct":74,"grade":4},{"raw":35,"std":59,"pct":77,"grade":3},{"raw":36,"std":60,"pct":79,"grade":3},{"raw":38,"std":61,"pct":82,"grade":3},{"raw":39,"std":62,"pct":85,"grade":3},{"raw":40,"std":63,"pct":87,"grade":3},{"raw":41,"std":64,"pct":89,"grade":2},{"raw":43,"std":65,"pct":90,"grade":2},{"raw":44,"std":66,"pct":93,"grade":2},{"raw":45,"std":67,"pct":95,"grade":2},{"raw":46,"std":68,"pct":96,"grade":1},{"raw":47,"std":69,"pct":97,"grade":1},{"raw":48,"std":70,"pct":98,"grade":1},{"raw":50,"std":71,"pct":99,"grade":1}],"탐구_화학I":[{"raw":2,"std":32,"pct":0,"grade":9},{"raw":3,"std":33,"pct":1,"grade":9},{"raw":4,"std":34,"pct":1,"grade":9},{"raw":5,"std":35,"pct":2,"grade":9},{"raw":6,"std":36,"pct":4,"grade":8},{"raw":8,"std":37,"pct":6,"grade":8},{"raw":9,"std":38,"pct":11,"grade":7},{"raw":10,"std":39,"pct":16,"grade":7},{"raw":11,"std":40,"pct":20,"grade":7},{"raw":13,"std":41,"pct":23,"grade":6},{"raw":14,"std":42,"pct":28,"grade":6},{"raw":15,"std":43,"pct":32,"grade":6},{"raw":17,"std":44,"pct":35,"grade":6},{"raw":18,"std":45,"pct":38,"grade":6},{"raw":19,"std":46,"pct":42,"grade":5},{"raw":20,"std":47,"pct":46,"grade":5},{"raw":22,"std":48,"pct":48,"grade":5},{"raw":23,"std":49,"pct":52,"grade":5},{"raw":24,"std":50,"pct":55,"grade":5},{"raw":25,"std":51,"pct":57,"grade":5},{"raw":27,"std":52,"pct":59,"grade":4},{"raw":28,"std":53,"pct":62,"grade":4},{"raw":29,"std":54,"pct":65,"grade":4},{"raw":31,"std":55,"pct":67,"grade":4},{"raw":32,"std":56,"pct":69,"grade":4},{"raw":33,"std":57,"pct":72,"grade":4},{"raw":34,"std":58,"pct":75,"grade":4},{"raw":36,"std":59,"pct":77,"grade":3},{"raw":37,"std":60,"pct":79,"grade":3},{"raw":38,"std":61,"pct":82,"grade":3},{"raw":40,"std":62,"pct":84,"grade":3},{"raw":41,"std":63,"pct":85,"grade":3},{"raw":42,"std":64,"pct":88,"grade":2},{"raw":43,"std":65,"pct":90,"grade":2},{"raw":45,"std":66,"pct":92,"grade":2},{"raw":46,"std":67,"pct":94,"grade":2},{"raw":47,"std":68,"pct":96,"grade":1},{"raw":50,"std":70,"pct":99,"grade":1}],"탐구_생명과학I":[{"raw":2,"std":24,"pct":0,"grade":9},{"raw":3,"std":25,"pct":0,"grade":9},{"raw":4,"std":26,"pct":0,"grade":9},{"raw":5,"std":27,"pct":1,"grade":9},{"raw":6,"std":28,"pct":1,"grade":9},{"raw":7,"std":29,"pct":2,"grade":9},{"raw":8,"std":30,"pct":2,"grade":9},{"raw":9,"std":31,"pct":3,"grade":9},{"raw":10,"std":32,"pct":5,"grade":8},{"raw":11,"std":33,"pct":7,"grade":8},{"raw":12,"std":34,"pct":8,"grade":8},{"raw":13,"std":35,"pct":9,"grade":8},{"raw":14,"std":36,"pct":10,"grade":8},{"raw":15,"std":37,"pct":12,"grade":7},{"raw":16,"std":38,"pct":13,"grade":7},{"raw":17,"std":39,"pct":15,"grade":7},{"raw":18,"std":40,"pct":17,"grade":7},{"raw":19,"std":41,"pct":19,"grade":7},{"raw":20,"std":42,"pct":22,"grade":6},{"raw":21,"std":43,"pct":24,"grade":6},{"raw":22,"std":44,"pct":27,"grade":6},{"raw":23,"std":45,"pct":30,"grade":6},{"raw":24,"std":46,"pct":33,"grade":6},{"raw":25,"std":47,"pct":37,"grade":6},{"raw":26,"std":48,"pct":40,"grade":5},{"raw":27,"std":49,"pct":44,"grade":5},{"raw":28,"std":50,"pct":47,"grade":5},{"raw":29,"std":51,"pct":51,"grade":5},{"raw":30,"std":52,"pct":55,"grade":5},{"raw":31,"std":53,"pct":59,"grade":4},{"raw":32,"std":54,"pct":63,"grade":4},{"raw":33,"std":55,"pct":66,"grade":4},{"raw":34,"std":56,"pct":70,"grade":4},{"raw":35,"std":57,"pct":73,"grade":4},{"raw":36,"std":58,"pct":77,"grade":3},{"raw":37,"std":59,"pct":80,"grade":3},{"raw":38,"std":60,"pct":83,"grade":3},{"raw":39,"std":61,"pct":85,"grade":3},{"raw":40,"std":62,"pct":88,"grade":2},{"raw":41,"std":63,"pct":90,"grade":2},{"raw":42,"std":64,"pct":92,"grade":2},{"raw":43,"std":65,"pct":94,"grade":2},{"raw":44,"std":66,"pct":95,"grade":2},{"raw":45,"std":67,"pct":97,"grade":1},{"raw":46,"std":68,"pct":97,"grade":1},{"raw":47,"std":69,"pct":98,"grade":1},{"raw":48,"std":70,"pct":99,"grade":1},{"raw":50,"std":72,"pct":100,"grade":1}],"탐구_지구과학I":[{"raw":2,"std":31,"pct":0,"grade":9},{"raw":4,"std":32,"pct":1,"grade":9},{"raw":5,"std":33,"pct":2,"grade":9},{"raw":6,"std":34,"pct":4,"grade":8},{"raw":7,"std":35,"pct":6,"grade":8},{"raw":8,"std":36,"pct":8,"grade":8},{"raw":10,"std":37,"pct":12,"grade":7},{"raw":11,"std":38,"pct":16,"grade":7},{"raw":12,"std":39,"pct":18,"grade":7},{"raw":13,"std":40,"pct":21,"grade":7},{"raw":15,"std":41,"pct":23,"grade":6},{"raw":16,"std":42,"pct":27,"grade":6},{"raw":17,"std":43,"pct":31,"grade":6},{"raw":18,"std":44,"pct":33,"grade":6},{"raw":19,"std":45,"pct":36,"grade":6},{"raw":21,"std":46,"pct":39,"grade":5},{"raw":22,"std":47,"pct":42,"grade":5},{"raw":23,"std":48,"pct":45,"grade":5},{"raw":24,"std":49,"pct":47,"grade":5},{"raw":25,"std":50,"pct":49,"grade":5},{"raw":27,"std":51,"pct":52,"grade":5},{"raw":28,"std":52,"pct":55,"grade":5},{"raw":29,"std":53,"pct":58,"grade":5},{"raw":30,"std":54,"pct":60,"grade":4},{"raw":32,"std":55,"pct":63,"grade":4},{"raw":33,"std":56,"pct":67,"grade":4},{"raw":34,"std":57,"pct":71,"grade":4},{"raw":35,"std":58,"pct":73,"grade":4},{"raw":36,"std":59,"pct":76,"grade":3},{"raw":38,"std":60,"pct":80,"grade":3},{"raw":39,"std":61,"pct":84,"grade":3},{"raw":40,"std":62,"pct":87,"grade":3},{"raw":41,"std":63,"pct":89,"grade":2},{"raw":43,"std":64,"pct":91,"grade":2},{"raw":44,"std":65,"pct":94,"grade":2},{"raw":45,"std":66,"pct":96,"grade":1},{"raw":46,"std":67,"pct":97,"grade":1},{"raw":47,"std":68,"pct":98,"grade":1},{"raw":48,"std":69,"pct":99,"grade":1},{"raw":50,"std":70,"pct":100,"grade":1}],"탐구_물리학II":[{"raw":2,"std":36,"pct":1,"grade":9},{"raw":4,"std":37,"pct":2,"grade":9},{"raw":5,"std":38,"pct":3,"grade":8},{"raw":6,"std":39,"pct":5,"grade":8},{"raw":8,"std":40,"pct":10,"grade":7},{"raw":9,"std":41,"pct":17,"grade":7},{"raw":10,"std":42,"pct":21,"grade":6},{"raw":12,"std":43,"pct":28,"grade":6},{"raw":13,"std":44,"pct":34,"grade":6},{"raw":14,"std":45,"pct":40,"grade":5},{"raw":16,"std":46,"pct":48,"grade":5},{"raw":17,"std":47,"pct":53,"grade":5},{"raw":18,"std":48,"pct":56,"grade":5},{"raw":20,"std":49,"pct":61,"grade":4},{"raw":21,"std":50,"pct":64,"grade":4},{"raw":22,"std":51,"pct":66,"grade":4},{"raw":24,"std":52,"pct":68,"grade":4},{"raw":25,"std":53,"pct":70,"grade":4},{"raw":26,"std":54,"pct":72,"grade":4},{"raw":27,"std":55,"pct":73,"grade":4},{"raw":29,"std":56,"pct":75,"grade":4},{"raw":30,"std":57,"pct":76,"grade":4},{"raw":31,"std":58,"pct":77,"grade":3},{"raw":33,"std":59,"pct":78,"grade":3},{"raw":34,"std":60,"pct":80,"grade":3},{"raw":35,"std":61,"pct":80,"grade":3},{"raw":37,"std":62,"pct":82,"grade":3},{"raw":38,"std":63,"pct":84,"grade":3},{"raw":39,"std":64,"pct":85,"grade":3},{"raw":41,"std":65,"pct":87,"grade":3},{"raw":42,"std":66,"pct":89,"grade":2},{"raw":43,"std":67,"pct":90,"grade":2},{"raw":45,"std":68,"pct":91,"grade":2},{"raw":46,"std":69,"pct":93,"grade":2},{"raw":47,"std":70,"pct":94,"grade":2},{"raw":48,"std":71,"pct":96,"grade":1},{"raw":50,"std":72,"pct":98,"grade":1}],"탐구_화학II":[{"raw":2,"std":36,"pct":1,"grade":9},{"raw":4,"std":37,"pct":2,"grade":9},{"raw":5,"std":38,"pct":3,"grade":8},{"raw":6,"std":39,"pct":5,"grade":8},{"raw":7,"std":40,"pct":7,"grade":8},{"raw":8,"std":41,"pct":13,"grade":7},{"raw":10,"std":42,"pct":22,"grade":6},{"raw":11,"std":43,"pct":28,"grade":6},{"raw":12,"std":44,"pct":32,"grade":6},{"raw":13,"std":45,"pct":39,"grade":5},{"raw":15,"std":46,"pct":48,"grade":5},{"raw":16,"std":47,"pct":54,"grade":5},{"raw":17,"std":48,"pct":57,"grade":5},{"raw":18,"std":49,"pct":60,"grade":4},{"raw":19,"std":50,"pct":64,"grade":4},{"raw":21,"std":51,"pct":68,"grade":4},{"raw":22,"std":52,"pct":70,"grade":4},{"raw":23,"std":53,"pct":72,"grade":4},{"raw":24,"std":54,"pct":73,"grade":4},{"raw":25,"std":55,"pct":76,"grade":4},{"raw":27,"std":56,"pct":78,"grade":3},{"raw":28,"std":57,"pct":79,"grade":3},{"raw":29,"std":58,"pct":80,"grade":3},{"raw":30,"std":59,"pct":81,"grade":3},{"raw":32,"std":60,"pct":82,"grade":3},{"raw":33,"std":61,"pct":84,"grade":3},{"raw":34,"std":62,"pct":85,"grade":3},{"raw":35,"std":63,"pct":86,"grade":3},{"raw":36,"std":64,"pct":87,"grade":3},{"raw":38,"std":65,"pct":88,"grade":3},{"raw":39,"std":66,"pct":89,"grade":2},{"raw":40,"std":67,"pct":90,"grade":2},{"raw":41,"std":68,"pct":90,"grade":2},{"raw":43,"std":69,"pct":91,"grade":2},{"raw":44,"std":70,"pct":92,"grade":2},{"raw":45,"std":71,"pct":94,"grade":2},{"raw":46,"std":72,"pct":94,"grade":2},{"raw":47,"std":73,"pct":95,"grade":1},{"raw":50,"std":75,"pct":98,"grade":1}],"탐구_생명과학II":[{"raw":2,"std":37,"pct":1,"grade":9},{"raw":4,"std":38,"pct":2,"grade":9},{"raw":5,"std":39,"pct":4,"grade":8},{"raw":6,"std":40,"pct":7,"grade":8},{"raw":7,"std":41,"pct":10,"grade":7},{"raw":9,"std":42,"pct":20,"grade":6},{"raw":10,"std":43,"pct":31,"grade":6},{"raw":11,"std":44,"pct":36,"grade":6},{"raw":12,"std":45,"pct":43,"grade":5},{"raw":14,"std":46,"pct":49,"grade":5},{"raw":15,"std":47,"pct":54,"grade":5},{"raw":16,"std":48,"pct":57,"grade":5},{"raw":17,"std":49,"pct":61,"grade":4},{"raw":19,"std":50,"pct":64,"grade":4},{"raw":20,"std":51,"pct":67,"grade":4},{"raw":21,"std":52,"pct":69,"grade":4},{"raw":22,"std":53,"pct":71,"grade":4},{"raw":24,"std":54,"pct":73,"grade":4},{"raw":25,"std":55,"pct":75,"grade":4},{"raw":26,"std":56,"pct":77,"grade":3},{"raw":27,"std":57,"pct":79,"grade":3},{"raw":29,"std":58,"pct":80,"grade":3},{"raw":30,"std":59,"pct":80,"grade":3},{"raw":31,"std":60,"pct":82,"grade":3},{"raw":32,"std":61,"pct":83,"grade":3},{"raw":34,"std":62,"pct":84,"grade":3},{"raw":35,"std":63,"pct":84,"grade":3},{"raw":36,"std":64,"pct":86,"grade":3},{"raw":37,"std":65,"pct":87,"grade":3},{"raw":39,"std":66,"pct":88,"grade":3},{"raw":40,"std":67,"pct":89,"grade":2},{"raw":41,"std":68,"pct":90,"grade":2},{"raw":42,"std":69,"pct":91,"grade":2},{"raw":44,"std":70,"pct":92,"grade":2},{"raw":45,"std":71,"pct":94,"grade":2},{"raw":46,"std":72,"pct":96,"grade":1},{"raw":47,"std":73,"pct":98,"grade":1},{"raw":50,"std":75,"pct":99,"grade":1}],"탐구_지구과학II":[{"raw":2,"std":36,"pct":1,"grade":9},{"raw":4,"std":37,"pct":2,"grade":9},{"raw":5,"std":38,"pct":3,"grade":8},{"raw":6,"std":39,"pct":5,"grade":8},{"raw":8,"std":40,"pct":11,"grade":7},{"raw":9,"std":41,"pct":17,"grade":7},{"raw":10,"std":42,"pct":20,"grade":7},{"raw":11,"std":43,"pct":24,"grade":6},{"raw":13,"std":44,"pct":32,"grade":6},{"raw":14,"std":45,"pct":40,"grade":5},{"raw":15,"std":46,"pct":44,"grade":5},{"raw":17,"std":47,"pct":50,"grade":5},{"raw":18,"std":48,"pct":55,"grade":5},{"raw":19,"std":49,"pct":59,"grade":4},{"raw":20,"std":50,"pct":63,"grade":4},{"raw":22,"std":51,"pct":68,"grade":4},{"raw":23,"std":52,"pct":70,"grade":4},{"raw":24,"std":53,"pct":72,"grade":4},{"raw":25,"std":54,"pct":75,"grade":4},{"raw":27,"std":55,"pct":77,"grade":3},{"raw":28,"std":56,"pct":78,"grade":3},{"raw":29,"std":57,"pct":80,"grade":3},{"raw":31,"std":58,"pct":81,"grade":3},{"raw":32,"std":59,"pct":82,"grade":3},{"raw":33,"std":60,"pct":82,"grade":3},{"raw":34,"std":61,"pct":83,"grade":3},{"raw":36,"std":62,"pct":84,"grade":3},{"raw":37,"std":63,"pct":85,"grade":3},{"raw":38,"std":64,"pct":85,"grade":3},{"raw":40,"std":65,"pct":86,"grade":3},{"raw":41,"std":66,"pct":87,"grade":3},{"raw":42,"std":67,"pct":88,"grade":3},{"raw":43,"std":68,"pct":89,"grade":2},{"raw":45,"std":69,"pct":91,"grade":2},{"raw":46,"std":70,"pct":92,"grade":2},{"raw":47,"std":71,"pct":94,"grade":2},{"raw":50,"std":73,"pct":98,"grade":1}]},"absolute":{"영어":[[1,"90 이상",16979,4.13],[2,"80~89",55038,13.4],[3,"70~79",102765,25.02],[4,"60~69",89047,21.68],[5,"50~59",50503,12.3],[6,"40~49",31820,7.75],[7,"30~39",24281,5.91],[8,"20~29",25014,6.09],[9,"20 미만",15208,3.7]],"한국사":[[1,"40 이상",69161,16.82],[2,"35~39",49436,12.02],[3,"30~34",60556,14.72],[4,"25~29",62277,15.14],[5,"20~24",53155,12.92],[6,"15~19",43930,10.68],[7,"10~14",54726,13.31],[8,"5~9",13449,3.27],[9,"5 미만",4612,1.12]]}};
+// 2027 6월 모의평가 분석 도구 — 앱 로직 (template.html 의 APPJS 자리에 주입)
+'use strict';
+const GC = ['#7f1d1d','#9a3324','#b5502e','#c47f3d','#8a7a55','#5f7355','#4a6b6b','#5a6178','#6b6b6b']; // 등급1~9
+const fmtNum = n => (n==null?'—':Number(n).toLocaleString('ko-KR'));
+const fmtPct = p => (p==null?'—':Number(p).toFixed(2)+'%');
+const cutTxt = c => (typeof c==='string'? c : c); // '63미만' 등 문자열 보존
+const $ = s => document.querySelector(s);
+
+const ORDER = ['국어','수학','생활과윤리','윤리와사상','한국지리','세계지리','동아시아사','세계사','경제','정치와법','사회문화',
+  '물리학I','화학I','생명과학I','지구과학I','물리학II','화학II','생명과학II','지구과학II',
+  '성공적인직업생활','농업기초기술','공업일반','상업경제','수산해운산업기초','인간발달'];
+const subjList = () => ORDER.map(k => DB.subjects[k]).filter(Boolean);
+
+/* ---------- 뷰 전환 ---------- */
+document.querySelectorAll('nav.tabs button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('nav.tabs button').forEach(x => x.classList.toggle('active', x===b));
+    const v = b.dataset.view;
+    document.querySelectorAll('.view').forEach(s => s.classList.toggle('show', s.dataset.view===v));
+    window.scrollTo({top:0, behavior:'smooth'});
+    if (v==='cuts') renderCuts();
+  });
+});
+
+/* ================= 개요 ================= */
+function renderOverview(){
+  const m = DB.meta;
+  $('#metaStrip').innerHTML =
+    ['<span>'+m.date+'</span>','<span>'+m.notice+'</span>','<span>출처 '+m.source+'</span>'].join('');
+  const kpis = [
+    {label:'전체 응시자', v:fmtNum(m.total), u:'명', sub:'재학 '+fmtNum(m.jaehak)+' · 졸업·검정 '+fmtNum(m['졸업검정'])},
+    {label:'국어 응시', v:fmtNum(DB.subjects['국어'].examinees), u:'명', sub:'만점 표준점수 '+DB.subjects['국어'].maxstd},
+    {label:'수학 응시', v:fmtNum(DB.subjects['수학'].examinees), u:'명', sub:'만점 표준점수 '+DB.subjects['수학'].maxstd},
+    {label:'탐구 응시', v:fmtNum(m['탐구계']), u:'명', sub:'사회·과학 '+fmtNum(m.areas[4][1])+' · 직업 '+fmtNum(m.areas[5][1])},
+  ];
+  $('#kpiRow').innerHTML = kpis.map(k =>
+    '<div class="kpi"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.v+
+    '<span class="unit">'+k.u+'</span></div><div class="kpi-sub">'+k.sub+'</div></div>').join('');
+
+  // 영역별 응시 막대
+  const items = m.areas;
+  const max = Math.max.apply(null, items.map(i=>i[1]));
+  $('#areaBars').innerHTML = items.map(it => {
+    const w = (it[1]/max*100).toFixed(1);
+    return '<div class="bar-row"><div class="bar-label">'+it[0]+'</div>'+
+      '<div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div>'+
+      '<div class="bar-value">'+fmtNum(it[1])+'</div></div>';
+  }).join('');
+
+  // 도넛 (국어/수학 선택과목)
+  $('#donuts').innerHTML = donut('국어', m['국어선택']) + '<div style="height:16px"></div>' + donut('수학', m['수학선택']);
+
+  // 탐구 상위 과목
+  const inq = subjList().filter(s => s.area==='사회탐구' || s.area==='과학탐구')
+    .map(s => ({label:s.name, count:s.examinees, sci:s.area==='과학탐구'}))
+    .sort((a,b)=>b.count-a.count).slice(0,10);
+  const imax = Math.max.apply(null, inq.map(i=>i.count));
+  $('#inquiryBars').innerHTML = inq.map(it => {
+    const w=(it.count/imax*100).toFixed(1);
+    return '<div class="bar-row"><div class="bar-label">'+it.label+'</div>'+
+      '<div class="bar-track"><div class="bar-fill '+(it.sci?'gold':'accent')+'" style="width:'+w+'%"></div></div>'+
+      '<div class="bar-value">'+fmtNum(it.count)+'</div></div>';
+  }).join('');
+
+  // 절대평가 미니 (영어/한국사)
+  $('#absMini').innerHTML = absMini('영어') + '<div style="height:14px"></div>' + absMini('한국사');
+
+  // 노트
+  const n = m['국어선택'], s = m['수학선택'], tc = m['탐구조합'];
+  $('#overviewNote').innerHTML =
+    '전체 <b>'+fmtNum(m.total)+'명</b>이 응시했으며, 재학생 '+fmtNum(m.jaehak)+'명·졸업생 및 검정고시 등 '+fmtNum(m['졸업검정'])+'명이었습니다. '+
+    '국어는 화법과 작문 <b>'+n[0][2]+'%</b>·언어와 매체 <b>'+n[1][2]+'%</b>, '+
+    '수학은 확률과 통계 <b>'+s[0][2]+'%</b>·미적분 <b>'+s[1][2]+'%</b>·기하 '+s[2][2]+'%가 응시했습니다. '+
+    '탐구는 사회탐구만 '+fmtNum(tc['사탐만'])+'명, 과학탐구만 '+fmtNum(tc['과탐만'])+'명, 두 영역 조합 '+fmtNum(tc['사+과'])+'명이었습니다.';
+}
+function donut(title, rows){
+  const total = rows.reduce((a,r)=>a+r[1],0);
+  const cols = ['#8b2c2c','#b08a3e','#3d6b4e','#5a6178'];
+  let acc=0; const R=52, C=2*Math.PI*R, segs=[];
+  rows.forEach((r,i)=>{ const frac=r[1]/total; const len=frac*C;
+    segs.push('<circle r="'+R+'" cx="70" cy="70" fill="none" stroke="'+cols[i%4]+'" stroke-width="20" '+
+      'stroke-dasharray="'+len.toFixed(1)+' '+(C-len).toFixed(1)+'" stroke-dashoffset="'+(-acc).toFixed(1)+'" transform="rotate(-90 70 70)"/>');
+    acc+=len; });
+  const leg = rows.map((r,i)=>'<div class="lg"><span class="sw" style="background:'+cols[i%4]+'"></span><b>'+r[0]+'</b> '+r[2]+'%<span class="n">'+fmtNum(r[1])+'명</span></div>').join('');
+  return '<div class="donut-wrap"><svg width="140" height="140" viewBox="0 0 140 140">'+segs.join('')+
+    '<text x="70" y="66" text-anchor="middle" style="font:600 13px Inter;fill:var(--muted)">'+title+'</text>'+
+    '<text x="70" y="84" text-anchor="middle" style="font:600 12px Inter;fill:var(--ink)">'+fmtNum(total)+'명</text></svg>'+
+    '<div class="donut-legend">'+leg+'</div></div>';
+}
+function absMini(name){
+  const rows = DB.absolute[name];
+  const max = Math.max.apply(null, rows.map(r=>r[3]));
+  const head = '<div class="r h"><span>등급</span><span>원점수</span><span>인원</span><span>비율</span></div>';
+  const body = rows.map(r=>'<div class="r"><span class="gg" style="color:'+GC[r[0]-1]+'">'+r[0]+'</span>'+
+    '<span>'+r[1]+'<div class="bar2"><i style="width:'+(r[3]/max*100).toFixed(0)+'%;background:'+GC[r[0]-1]+'"></i></div></span>'+
+    '<span>'+fmtNum(r[2])+'</span><span>'+r[3].toFixed(2)+'%</span></div>').join('');
+  return '<div style="font:600 13px \'Noto Serif KR\';margin-bottom:6px">'+name+' <span style="color:var(--muted);font-weight:400;font-size:11px">절대평가</span></div><div class="abs-mini">'+head+body+'</div>';
+}
+
+/* ================= 과목별 분석 ================= */
+let curSubj = '국어';
+function renderChips(){
+  $('#subjChips').innerHTML = subjList().map(s =>
+    '<button class="chip '+(s.name===curSubj?'active':'')+'" data-k="'+encodeURIComponent(s.name)+'">'+s.name+'</button>').join('');
+  $('#subjChips').querySelectorAll('.chip').forEach(c => c.addEventListener('click', ()=>{
+    curSubj = decodeURIComponent(c.dataset.k); renderChips(); renderSubjDetail();
+  }));
+}
+function subjByName(n){ return subjList().find(s=>s.name===n); }
+function renderSubjDetail(){
+  const s = subjByName(curSubj); if(!s) return;
+  const g1 = s.cut[0];
+  const header =
+    '<div class="subj-header"><div><div class="subj-tag">'+s.area+'</div><div class="subj-title">'+s.name+'</div></div>'+
+    '<div class="subj-stats">'+
+      stat('응시자', fmtNum(s.examinees), '명')+
+      stat('만점 표준점수', s.maxstd, '점')+
+      stat('1등급 구분', cutTxt(g1.cut), '점')+
+    '</div></div>';
+  // 등급 스택바
+  const stack = '<div class="card" style="margin-top:0"><h3>등급별 인원 비율</h3>'+gstack(s.cut)+'</div>';
+  // 등급 구분표
+  let rows = s.cut.map(r =>
+    '<tr><td class="g" style="color:'+GC[r.grade-1]+'">'+r.grade+'</td><td class="cut">'+cutTxt(r.cut)+'</td>'+
+    '<td>'+fmtNum(r.n)+'</td><td>'+fmtPct(r.pct)+'</td></tr>').join('');
+  const table = '<div class="card"><h3>등급 구분 표준점수 <span class="hint">9등급</span></h3>'+
+    '<table class="cut-table"><thead><tr><th>등급</th><th>구분 표준점수</th><th>인원(명)</th><th>비율(%)</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+  // 분포 차트
+  const chart = '<div class="card"><h3>표준점수 분포 <span class="hint">막대=인원 · 선=상위 누적%</span></h3>'+distChart(s)+'</div>';
+  $('#subjDetail').innerHTML = header + '<div class="grid-2" style="margin-top:20px">'+table+chart+'</div>'+
+    '<div style="margin-top:20px">'+stack+'</div>';
+}
+function stat(l,v,u){ return '<div class="stat-cell"><div class="stat-label">'+l+'</div><div class="stat-value">'+v+'<span class="unit">'+u+'</span></div></div>'; }
+function gstack(cut){
+  const total = cut.reduce((a,r)=>a+(r.n||0),0);
+  const segs = cut.map(r => { const w=(r.n/total*100);
+    return '<div class="seg" style="width:'+w.toFixed(2)+'%;background:'+GC[r.grade-1]+'" title="'+r.grade+'등급 '+r.pct+'%">'+(w>6?r.grade:'')+'</div>';
+  }).join('');
+  const leg = cut.map(r=>'<span><i style="background:'+GC[r.grade-1]+'"></i>'+r.grade+'등급 '+r.pct+'%</span>').join('');
+  return '<div class="gstack">'+segs+'</div><div class="gstack-legend">'+leg+'</div>';
+}
+function distChart(s){
+  const d = s.dist; if(!d||!d.length) return '<div style="padding:24px;text-align:center;color:var(--muted)">분포 자료가 없습니다.</div>';
+  const pts = d.slice().sort((a,b)=>a.s-b.s); // 표준점수 오름차순
+  const W=520,H=240,pl=38,pr=14,pt=14,pb=26, iw=W-pl-pr, ih=H-pt-pb;
+  const minS=pts[0].s, maxS=pts[pts.length-1].s, xr=maxS-minS||1;
+  const tmax=Math.max.apply(null, pts.map(p=>p.t));
+  const total=s.examinees;
+  const xp=v=>pl+(v-minS)/xr*iw, yp=v=>pt+(1-v/tmax)*ih;
+  const bw=Math.max(1.5, iw/pts.length*0.8);
+  const bars=pts.map(p=>'<rect class="bar" x="'+(xp(p.s)-bw/2).toFixed(1)+'" y="'+yp(p.t).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(pt+ih-yp(p.t)).toFixed(1)+'"/>').join('');
+  // 누적 % (상위: cum/total)
+  const cy=v=>pt+(1-v/100)*ih;
+  let path=''; pts.slice().sort((a,b)=>b.s-a.s).forEach((p,i)=>{ path+=(i?'L':'M')+xp(p.s).toFixed(1)+','+cy(p.cum/total*100).toFixed(1); });
+  // 등급컷 세로선 (숫자형만)
+  const cuts = s.cut.filter(r=>typeof r.cut==='number' && r.cut>=minS && r.cut<=maxS);
+  const clines = cuts.map(r=>'<line class="cutline" x1="'+xp(r.cut).toFixed(1)+'" y1="'+pt+'" x2="'+xp(r.cut).toFixed(1)+'" y2="'+(pt+ih)+'"/>'+
+    '<text class="cutlbl" x="'+xp(r.cut).toFixed(1)+'" y="'+(pt+9)+'" text-anchor="middle">'+r.grade+'</text>').join('');
+  // 축
+  let xax=''; for(let i=0;i<=4;i++){ const v=Math.round(minS+xr*i/4); xax+='<text class="axis" x="'+xp(v).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+v+'</text>'; }
+  let yax=''; [0,50,100].forEach(pc=>{ yax+='<text class="axis" x="'+(pl-6)+'" y="'+(cy(pc)+3).toFixed(1)+'" text-anchor="end">'+pc+'%</text>'; });
+  return '<svg class="dist-chart" viewBox="0 0 '+W+' '+H+'" width="100%">'+bars+clines+'<path class="cumpath" d="'+path+'"/>'+xax+yax+'</svg>';
+}
+
+/* ================= 원점수 변환기 ================= */
+const CK = Object.keys(DB.convert);
+const KOR = CK.filter(k=>k.startsWith('국어_'));
+const MATH = CK.filter(k=>k.startsWith('수학_'));
+const EXPL = CK.filter(k=>k.startsWith('탐구_'));
+const label = k => k.split('_')[1];
+function optionSet(arr, sel){ return arr.map(k=>'<option value="'+k+'"'+(k===sel?' selected':'')+'>'+label(k)+'</option>').join(''); }
+function calcRow(id, name, opts, defRaw){
+  return '<div class="calc-row"><label>'+name+'</label>'+
+    '<select id="sel_'+id+'">'+opts+'</select>'+
+    '<input id="raw_'+id+'" type="number" min="0" max="'+(id[0]==='e'?50:100)+'" placeholder="원점수" '+(defRaw!=null?'value="'+defRaw+'"':'')+'></div>';
+}
+function renderCalc(){
+  $('#calcInputs').innerHTML =
+    calcRow('kor','국어', optionSet(KOR, KOR.find(k=>k.includes('화법'))||KOR[0])) +
+    calcRow('math','수학', optionSet(MATH, MATH.find(k=>k.includes('확률'))||MATH[0])) +
+    calcRow('e1','탐구 ①', optionSet(EXPL, EXPL[0])) +
+    calcRow('e2','탐구 ②', optionSet(EXPL, EXPL[1]||EXPL[0]));
+  $('#calcNote').innerHTML =
+    '· 표준점수·백분위·등급은 <b>원표백등 변환표</b>(원점수 추정 포함)를 기준으로 합니다.<br>'+
+    '· 수학 <b>기하</b>와 제2외국어/한문은 변환표 미제공으로 이 도구에서 제외됩니다.<br>'+
+    '· 탐구 원점수 대비 표준점수는 <b>추정치</b>이므로 실제 성적표와 1점 내외 차이가 있을 수 있습니다.';
+  document.querySelectorAll('#calcInputs select, #calcInputs input').forEach(el => el.addEventListener('input', compute));
+  compute();
+}
+function lookup(key, raw){
+  const arr = DB.convert[key]; if(!arr||raw===''||raw==null||isNaN(raw)) return null;
+  raw = Number(raw);
+  let exact = arr.find(e=>e.raw===raw);
+  if(exact) return exact;
+  // 근사: raw 이하 최대
+  let below = arr.filter(e=>e.raw<=raw);
+  if(below.length) return {...below[below.length-1], approx:true};
+  return {...arr[0], approx:true};
+}
+function gradePill(g){ return g? '<span class="grade-pill" style="background:'+GC[g-1]+'">'+g+'</span>' : '—'; }
+function compute(){
+  const rows = [['kor','국어'],['math','수학'],['e1','탐구 ①'],['e2','탐구 ②']];
+  let stdSum=0, pctList=[], any=false, filled=0;
+  const lines = rows.map(([id,nm])=>{
+    const key = $('#sel_'+id).value, raw = $('#raw_'+id).value;
+    const r = lookup(key, raw);
+    if(r){ any=true; filled++; stdSum+=r.std; if(r.pct!=null) pctList.push(r.pct); }
+    return '<div class="res-line"><span class="rname">'+nm+'<br><small style="font-family:Inter;font-weight:400;color:var(--muted);font-size:10px">'+label(key)+'</small></span>'+
+      '<span class="rv">'+(r?r.std:'—')+'<small>표준점수'+(r&&r.approx?' *':'')+'</small></span>'+
+      '<span class="rv">'+(r&&r.pct!=null?r.pct:'—')+'<small>백분위</small></span>'+
+      '<span class="rv" style="font-size:13px">'+(r?gradePill(r.grade):'—')+'<small>등급</small></span></div>';
+  }).join('');
+  const pctAvg = pctList.length? (pctList.reduce((a,b)=>a+b,0)/pctList.length) : null;
+  const head = '<div class="res-line head"><span>영역</span><span>표준점수</span><span>백분위</span><span>등급</span></div>';
+  const totalPanel = '<div class="res-total"><div class="tt">국·수·탐 조합 결과 ('+filled+'개 영역 입력)</div>'+
+    '<div style="display:flex;gap:26px;align-items:baseline;flex-wrap:wrap">'+
+    '<div><span class="big">'+(any?stdSum:'—')+'</span> <span style="color:var(--muted);font-size:13px">표준점수 합</span></div>'+
+    '<div><span class="big" style="color:var(--green)">'+(pctAvg!=null?pctAvg.toFixed(1):'—')+'</span> <span style="color:var(--muted);font-size:13px">백분위 평균</span></div>'+
+    '</div></div>';
+  $('#calcResult').innerHTML = '<h3 style="padding:18px 16px 4px;margin:0;font-family:\'Noto Serif KR\';font-size:15px;font-weight:600">산출 결과</h3>'+head+lines+totalPanel;
+}
+
+/* ================= 등급컷 통합표 ================= */
+let cutsRendered=false;
+function renderCuts(){
+  if(cutsRendered) return; cutsRendered=true;
+  const t = $('#cutBigTable');
+  let html = '<thead><tr><th class="name">과목</th>';
+  for(let g=1; g<=9; g++) html += '<th style="color:'+GC[g-1]+'">'+g+'등급</th>';
+  html += '<th>만점표준</th><th>응시자</th></tr></thead><tbody>';
+  const groups = [['국어/수학',['국어','수학']],
+    ['절대평가 (원점수)', null],
+    ['사회탐구', subjList().filter(s=>s.area==='사회탐구').map(s=>s.name)],
+    ['과학탐구', subjList().filter(s=>s.area==='과학탐구').map(s=>s.name)],
+    ['직업탐구', subjList().filter(s=>s.area==='직업탐구').map(s=>s.name)]];
+  groups.forEach(([g,names])=>{
+    html += '<tr class="grouphdr"><td colspan="12">'+g+'</td></tr>';
+    if(g.startsWith('절대평가')){
+      ['영어','한국사'].forEach(nm=>{
+        const rows=DB.absolute[nm];
+        html+='<tr><td class="name">'+nm+'</td>'+rows.map((r,i)=>'<td'+(i===0?' class="v1"':'')+'>'+r[1]+'</td>').join('')+'<td>—</td><td>—</td></tr>';
+      });
+      return;
+    }
+    names.forEach(nm=>{ const s=subjByName(nm); if(!s) return;
+      html += '<tr><td class="name">'+nm+'</td>'+
+        s.cut.map((r,i)=>'<td'+(i===0?' class="v1"':'')+'>'+cutTxt(r.cut)+'</td>').join('')+
+        '<td>'+s.maxstd+'</td><td>'+fmtNum(s.examinees)+'</td></tr>';
+    });
+  });
+  t.innerHTML = html + '</tbody>';
+}
+
+/* ---------- init ---------- */
+renderOverview();
+renderChips();
+renderSubjDetail();
+renderCalc();
+
+</script>
+</body>
+</html>
