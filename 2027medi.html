@@ -61,6 +61,8 @@
     .adm-table tr.adm-note-row td{background:#F4FBF6!important;border-top:0;padding-top:0;font-size:12.5px;color:#2A4A34}
     .adm-table tr.adm-note-row.plain td{background:#FBFCFE!important;color:#5A6B80}
     .adm-kind .kind-type{display:block;font-size:11.5px;font-weight:800;color:var(--muted);margin-top:3px}
+    .adm-table td.adm-uni-head{background:var(--sky)!important;color:var(--navy);font-size:14.5px;border-top:2px solid #C9DCEF;padding:12px 13px}
+    .adm-table tr.pend td.adm-uni-head{background:var(--amber)!important;color:#6B4A00;border-top-color:#F2DFC0}
     @media(max-width:960px){html{scroll-padding-top:112px}.hero-grid,.grid-2,.checker,.calc-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.grid-3,.grid-4,.teacher-use,.source-map{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-step:not(:last-child):after{display:none}.topbar-inner{flex-wrap:wrap;align-items:center;gap:8px 10px;padding:10px 14px}.brand{min-width:0;flex:1 1 auto}.brand-mark{width:36px;height:36px;font-size:20px}.main-link-top{margin-left:auto;padding:8px 13px}.nav{order:3;width:100%;margin-left:0;gap:4px;-webkit-overflow-scrolling:touch}.nav a{padding:7px 10px}.hero{padding-top:38px}.section{padding:38px 0}.section-head{display:block}}
     @media(max-width:560px){.container{padding:0 14px}.stat-grid{grid-template-columns:1fr}.hero h1{font-size:34px}.hero p.lead{font-size:17px}.hero-actions .btn{width:100%;justify-content:center}.card{padding:18px}.floating-tools{right:12px;bottom:12px;display:grid}.tool-btn{width:44px;height:44px}.tool-main{width:auto;height:44px;padding:0 14px;font-size:13px}.checker .btn{width:100%;justify-content:center}}
     @media print{.topbar,.floating-tools,.hero-actions,.btn,.tabs{display:none!important}body{background:#fff;color:#000}.hero{background:#fff;color:#000;padding:20px 0}.hero p.lead{color:#000}.hero-panel{border:1px solid #ccc;background:#fff;color:#000;box-shadow:none}.stat,.card,.form-card,.result,.flow-step,details{box-shadow:none;break-inside:avoid}.section{padding:20px 0}.section h2{color:#000}.table-wrap{overflow:visible}table{min-width:0;font-size:11px}th{background:#ddd;color:#000}.warning,.note,.success,.amber{border:1px solid #aaa;background:#fff;color:#000}}
@@ -275,13 +277,17 @@
           <div>
             <span class="pill green">전형별 모집안내</span>
             <h2>대학별 2027 수시 전형과 지역의사 전형</h2>
-            <p class="desc">대학을 선택하면 2027학년도 의예과 수시 전형 목록이 표시됩니다. <b>지역의사 전형은 초록색으로 강조</b>되며, 지역의사제에 해당하지 않는 일반 수시 전형도 함께 확인해 중복지원 전략을 세울 수 있습니다. 자가진단·배분표의 대학명을 눌러도 이곳으로 이동합니다.</p>
+            <p class="desc">대학을 선택하면 2027학년도 의예과 수시 전형 목록이 표시됩니다. <b>지역의사 전형은 초록색으로 강조</b>되며, 지역의사제에 해당하지 않는 일반 수시 전형도 함께 확인해 중복지원 전략을 세울 수 있습니다. <b>권역별 지역의사 전형</b>을 누르면 선택한 권역 소속 대학 전체의 지역의사 전형을 한눈에 볼 수 있습니다. 자가진단·배분표의 대학명을 눌러도 이곳으로 이동합니다.</p>
           </div>
         </div>
         <div class="card">
+          <div class="tabs" role="tablist" aria-label="전형 보기 방식" style="margin-bottom:12px">
+            <button class="tab active" type="button" id="admModeUni">대학별 전체 전형</button>
+            <button class="tab" type="button" id="admModeRegion">권역별 지역의사 전형</button>
+          </div>
           <div class="grid-2">
-            <div class="field" style="margin-bottom:8px"><label for="admUni">대학 선택</label><select id="admUni"></select></div>
-            <div class="field" style="margin-bottom:8px;display:flex;align-items:flex-end"><label class="checkrow" style="margin:0"><input type="checkbox" id="admRiOnly"><span>지역의사 전형만 보기</span></label></div>
+            <div class="field" style="margin-bottom:8px" id="admUniField"><label for="admUni">대학 선택</label><select id="admUni"></select></div>
+            <div class="field" style="margin-bottom:8px;display:none" id="admBroadField"><label for="admBroad">권역 선택</label><select id="admBroad"></select></div>
           </div>
           <div id="admResult" aria-live="polite"></div>
           <div class="note small" style="margin-top:14px"><b>유의</b> 전형명·모집인원·전형방법·수능최저학력기준은 각 대학 발표 자료 기준이며, 최종 수시모집요강에서 변동될 수 있습니다. 지원 전 반드시 해당 대학 입학처 공고를 확인하세요.</div>
@@ -808,6 +814,7 @@ wrap.innerHTML = html;
 function setupTabs(){
   document.querySelectorAll('.tabpanel').forEach(p=>p.setAttribute('role','tabpanel'));
   document.querySelectorAll('.tab').forEach(btn=>{
+    if(!btn.dataset.tab) return;
     btn.setAttribute('aria-selected', btn.classList.contains('active') ? 'true' : 'false');
     btn.setAttribute('aria-controls', btn.dataset.tab);
     btn.addEventListener('click',()=>{
@@ -902,6 +909,7 @@ function admQuota(uniKey){
   broadGroups.forEach(g=>{ if(g.gwQuota){ const i = g.gwQuota.universities.indexOf(uniKey); if(i > -1) q += g.gwQuota.quotas[i] || 0; } });
   return q;
 }
+let admMode = 'uni';
 function setupAdm(){
   const sel = byId('admUni');
   sel.innerHTML = '';
@@ -915,16 +923,32 @@ function setupAdm(){
     sel.appendChild(og);
   });
   sel.value = '충남대';
+  const bsel = byId('admBroad');
+  bsel.innerHTML = broadGroups.map(g=>`<option value="${g.id}">${g.name}</option>`).join('');
+  bsel.value = 'daejeon_chungcheong';
   sel.addEventListener('change', renderAdm);
-  byId('admRiOnly').addEventListener('change', renderAdm);
+  bsel.addEventListener('change', renderAdm);
+  byId('admModeUni').addEventListener('click', ()=>setAdmMode('uni'));
+  byId('admModeRegion').addEventListener('click', ()=>setAdmMode('region'));
   document.addEventListener('click', e=>{
     const btn = e.target.closest('[data-adm-uni]');
     if(btn) gotoAdm(btn.dataset.admUni);
   });
   renderAdm();
 }
+function setAdmMode(m){
+  admMode = m;
+  byId('admModeUni').classList.toggle('active', m === 'uni');
+  byId('admModeRegion').classList.toggle('active', m === 'region');
+  byId('admModeUni').setAttribute('aria-selected', m === 'uni' ? 'true' : 'false');
+  byId('admModeRegion').setAttribute('aria-selected', m === 'region' ? 'true' : 'false');
+  byId('admUniField').style.display = m === 'uni' ? '' : 'none';
+  byId('admBroadField').style.display = m === 'region' ? '' : 'none';
+  renderAdm();
+}
 function gotoAdm(uni){
   if(!ADM_DATA[uni]) return;
+  if(admMode !== 'uni') setAdmMode('uni');
   byId('admUni').value = uni;
   renderAdm();
   byId('adm').scrollIntoView({behavior:'smooth'});
@@ -936,7 +960,52 @@ function admNoteLine(r){
   if(r.note && !(r.memo && r.note === r.memo)) parts.push(r.note);
   return parts.join(' · ');
 }
-function renderAdm(){
+function renderAdm(){ if(admMode === 'region'){ renderAdmRegion(); } else { renderAdmUni(); } }
+function admRowHtml(r){
+  const kind = r.ri ? `<span class="tag green">지역의사</span>` : `<span class="tag">일반</span>`;
+  const nw = r.nw ? ` <span class="tag orange">신설</span>` : '';
+  let html = `<tr class="${r.ri?'ri-row':''}">
+      <td class="adm-kind">${kind}${nw}<span class="kind-type">${r.t}</span></td>
+      <td class="adm-name">${r.name}</td>
+      <td class="adm-n">${r.n}명</td>
+      <td class="adm-m">${r.m || '<span class="muted">—</span>'}</td>
+      <td class="adm-c">${r.c || '<span class="muted">—</span>'}</td>
+      <td class="small">${r.ref || '<span class="muted">—</span>'}</td>
+    </tr>`;
+  const noteLine = admNoteLine(r);
+  if(noteLine) html += `<tr class="adm-note-row ${r.ri?'ri-row':'plain'}"><td colspan="6">↳ ${noteLine}</td></tr>`;
+  return html;
+}
+function renderAdmRegion(){
+  const bg = findBroad(byId('admBroad').value);
+  const wrap = byId('admResult');
+  let riCnt = 0, riSum = 0, pendCnt = 0, body = '';
+  bg.universities.forEach(u=>{
+    const U = ADM_DATA[u];
+    const q = admQuota(u);
+    const rows = U && U.rows ? U.rows.filter(r=>r.ri) : [];
+    if(!rows.length){
+      pendCnt++;
+      body += `<tr class="pend"><td colspan="6" class="adm-uni-head"><b>${U ? U.name : u}</b> — 지역의사 배분 ${q}명 · 2027 전형 자료 미확정(대학 공고 확인 필요)</td></tr>`;
+      return;
+    }
+    const s = rows.reduce((a,r)=>a+r.n,0);
+    riCnt += rows.length; riSum += s;
+    body += `<tr><td colspan="6" class="adm-uni-head"><button type="button" class="tag blue tag-btn" data-adm-uni="${u}">${U.name}</button> <b>지역의사 수시 ${rows.length}개 전형 · ${s}명</b> <span class="muted small">(배분 ${q}명${q > s ? ` · 잔여 ${q - s}명 정시 등 추정` : ''})</span></td></tr>`;
+    rows.forEach(r=>{ body += admRowHtml(r); });
+  });
+  let html = `<div class="grid-3" style="margin-top:6px">
+    <div class="card compact" style="box-shadow:none;border-color:#BDE7C6;background:var(--lightgreen)"><h4 style="color:#136B2A">${bg.name} 지역의사 수시 전형</h4><div style="font-size:28px;font-weight:1000;color:#147033">${riCnt}개 · ${riSum}명</div></div>
+    <div class="card compact" style="box-shadow:none"><h4>권역 배분 인원</h4><div style="font-size:28px;font-weight:1000;color:var(--teal)">${bg.totalQuota}명</div><p class="muted small" style="margin:4px 0 0">진료권+광역권 배분표 합계</p></div>
+    <div class="card compact" style="box-shadow:none"><h4>소속 의과대학</h4><div style="font-size:28px;font-weight:1000;color:var(--navy)">${bg.universities.length}개교</div>${pendCnt ? `<p class="muted small" style="margin:4px 0 0">이 중 ${pendCnt}개교 전형 미확정</p>` : ''}</div>
+  </div>`;
+  html += `<div class="table-wrap" style="margin-top:14px"><table class="adm-table">
+    <thead><tr><th>구분</th><th>전형명</th><th>모집인원</th><th>전형방법</th><th>수능최저학력기준</th><th>반영교과</th></tr></thead>
+    <tbody>${body}</tbody></table></div>`;
+  html += `<p class="muted small" style="margin-top:10px">대학명을 누르면 해당 대학의 전체 수시 전형(일반 전형 포함)으로 이동합니다.</p>`;
+  wrap.innerHTML = html;
+}
+function renderAdmUni(){
   const uni = byId('admUni').value;
   const U = ADM_DATA[uni];
   const wrap = byId('admResult');
@@ -945,7 +1014,6 @@ function renderAdm(){
     wrap.innerHTML = `<div class="warning" style="margin-top:6px"><b>${U ? U.name : uni} — 2027학년도 수시 전형 자료 미확정</b><br>이 대학의 2027학년도 전형별 세부 자료가 아직 발표·수집되지 않았습니다. 지역의사선발전형 배분 인원은 <b>${quota}명</b>이며, 전형 방식은 대학의 입학전형 공고를 확인해야 합니다.</div>`;
     return;
   }
-  const riOnly = byId('admRiOnly').checked;
   const riRows = U.rows.filter(r=>r.ri), otRows = U.rows.filter(r=>!r.ri);
   const riSum = riRows.reduce((s,r)=>s+r.n,0), otSum = otRows.reduce((s,r)=>s+r.n,0);
   const remain = quota - riSum;
@@ -960,26 +1028,8 @@ function renderAdm(){
   if(!riRows.length){
     html += `<div class="warning small" style="margin-top:12px"><b>지역의사 전형 정보 없음</b> — 이 대학의 지역의사선발전형(배분 ${quota}명) 세부 전형은 아직 확인되지 않았습니다. 아래는 그 외 2027 수시 전형입니다.</div>`;
   }
-  const rows = riOnly ? riRows : U.rows;
-  if(riOnly && !riRows.length){
-    wrap.innerHTML = html + `<p class="muted" style="margin-top:14px">표시할 지역의사 전형이 없습니다.</p>`;
-    return;
-  }
   let body = '';
-  rows.forEach(r=>{
-    const kind = r.ri ? `<span class="tag green">지역의사</span>` : `<span class="tag">일반</span>`;
-    const nw = r.nw ? ` <span class="tag orange">신설</span>` : '';
-    body += `<tr class="${r.ri?'ri-row':''}">
-      <td class="adm-kind">${kind}${nw}<span class="kind-type">${r.t}</span></td>
-      <td class="adm-name">${r.name}</td>
-      <td class="adm-n">${r.n}명</td>
-      <td class="adm-m">${r.m || '<span class="muted">—</span>'}</td>
-      <td class="adm-c">${r.c || '<span class="muted">—</span>'}</td>
-      <td class="small">${r.ref || '<span class="muted">—</span>'}</td>
-    </tr>`;
-    const noteLine = admNoteLine(r);
-    if(noteLine) body += `<tr class="adm-note-row ${r.ri?'':'plain'} ${r.ri?'ri-row':''}"><td colspan="6">↳ ${noteLine}</td></tr>`;
-  });
+  U.rows.forEach(r=>{ body += admRowHtml(r); });
   html += `<div class="table-wrap" style="margin-top:14px"><table class="adm-table">
     <thead><tr><th>구분</th><th>전형명</th><th>모집인원</th><th>전형방법</th><th>수능최저학력기준</th><th>반영교과</th></tr></thead>
     <tbody>${body}</tbody></table></div>`;
