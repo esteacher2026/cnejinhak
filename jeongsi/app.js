@@ -4,7 +4,7 @@
  * 헤드라인 지표는 수능 평균백분위 70%컷. 모든 값은 발표 원본 그대로 표기(재가공 없음).
  */
 let DATA = { metadata: {}, records: [] };
-const DATA_VERSION = "20";
+const DATA_VERSION = "21";
 const DATA_URL = `./data/jeongsi-data.json?v=${DATA_VERSION}`;
 const DEFAULT_HIDDEN_UNV_CDS = new Set(["0000053", "0000065"]);
 // 대학발표 정시 입시결과 3개년. 반영 과목수는 일부 모집단위만 배지 표기.
@@ -159,6 +159,12 @@ function admissionFamily(value) {
   if (text.includes("특성화고")) return "특성화고";
   if (text.includes("저소득") || text.includes("기초생활") || text.includes("차상위") || text.includes("한부모")) return "저소득";
   if (text.includes("기회") || text.includes("기균") || text.includes("고른기회")) return "기회균형";
+  if (text.includes("장애") || text.includes("특수교육")) return "장애인등";
+  if (text.includes("만학") || text.includes("성인학습")) return "만학도";
+  if (text.includes("사회배려") || text.includes("사회다양") || text.includes("사회통합") || text.includes("사회기여")) return "사회배려";
+  if (text.includes("보훈")) return "국가보훈";
+  if (text.includes("서해")) return "서해5도";
+  if (text.includes("재외") || text.includes("북한")) return "재외·북한";
   if (text.includes("일반학생") || text.includes("일반전형") || text.includes("일반")) return "일반";
   if (text.includes("실기") || text.includes("실적")) return "실기";
   if (text.includes("수능위주") || text.includes("수능100") || text.includes("미래인재") || text.includes("약학대학")) return "일반";
@@ -177,6 +183,12 @@ function shortAdmission(value) {
   if (text.includes("저소득")) return "저소득";
   if (text.includes("지역기회")) return "지역기회";
   if (text.includes("기회") || text.includes("기균") || text.includes("고른기회")) return "기회균형";
+  if (text.includes("장애") || text.includes("특수교육")) return "장애인등";
+  if (text.includes("만학") || text.includes("성인학습")) return "만학도";
+  if (text.includes("사회배려") || text.includes("사회다양") || text.includes("사회통합") || text.includes("사회기여")) return "사회배려";
+  if (text.includes("보훈")) return "국가보훈";
+  if (text.includes("서해")) return "서해5도";
+  if (text.includes("재외") || text.includes("북한")) return "재외·북한";
   if (text.includes("실기") || text.includes("실적")) return "실기";
   if (text.includes("일반학생") || text.includes("일반전형") || text.includes("일반") || text.includes("수능위주")) return "일반";
   return String(value || "전형")
