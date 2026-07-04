@@ -18,7 +18,8 @@ header{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 70%,#2e4a77
 header h1{font-size:1.45rem;letter-spacing:-.5px}
 header h1 b{color:var(--gold)}
 header .sub{margin-top:6px;font-size:.86rem;opacity:.85}
-header .src{margin-top:10px;display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 12px;font-size:.78rem}
+.homebtn{display:inline-block;margin-bottom:10px;color:#e8edf6;text-decoration:none;font-size:.82rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px}
+.homebtn:hover{background:rgba(255,255,255,.22)}
 nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:2px solid var(--navy);box-shadow:0 2px 8px rgba(20,30,60,.08)}
 nav .wrap{display:flex;gap:2px;overflow-x:auto}
 nav button{flex:0 0 auto;border:0;background:none;padding:12px 18px;font-size:.95rem;font-weight:600;color:#5a6579;cursor:pointer;border-bottom:3px solid transparent}
@@ -89,9 +90,9 @@ footer b{color:#fff}
 </head>
 <body>
 <header><div class="wrap">
+  <a class="homebtn" href="index.html">← 진학 도구 메인</a>
   <h1>2027학년도 <b>의예·치의예·한의예·약학·수의예</b> 수시 전형 탐색기</h1>
   <div class="sub">전국 의약학계열 수시 전형방법·수능최저·경쟁률·면접을 한눈에 — 교사 상담용</div>
-  <div class="src">출처: 2027학년도 수시모집요강 · SEN진학 프리뷰 + 대학발표 입시결과(어디가, 2024~2026)</div>
 </div></header>
 <nav><div class="wrap">
   <button data-tab="home">한눈에 보기</button>
@@ -154,7 +155,6 @@ function vHome(){
   }
   h += '</tbody></table></div>';
   h += `<div class="legend"><span><span class="r-red">붉은 글씨(X)</span> = 해당 계열 미선발</span><span>셀의 계열명 클릭 시 전형 목록으로 이동</span></div>`;
-  h += vNotes();
   return h;
 }
 
@@ -326,7 +326,6 @@ function vCoach(){
     h += `<div class="p" onclick="applyPreset(${i})"><div class="t">${p.t}</div><div class="d">${p.d}</div><div class="n">${n}건</div></div>`;
   });
   h += '</div>';
-  h += vNotes();
   return h;
 }
 function applyPreset(i){
@@ -337,18 +336,6 @@ function applyPreset(i){
   setTab('find');
 }
 function clearPreset(){ S.presetSet=null; S.presetLabel=''; render(); }
-function vNotes(){
-  let h = '<div class="note"><b>이용 유의사항</b><ul>';
-  h += '<li>본표의 인원·최저기준·경쟁률·70%컷은 <b>원문(2027 수시모집요강·SEN진학 프리뷰) 표기 그대로</b>이며, 임의로 수정하지 않았습니다.</li>';
-  h += '<li>상세(행 클릭)의 3개년 입결(모집·경쟁률·실질경쟁률·충원·50%·70%컷)은 <b>대학발표 입시결과(어디가, 2024~2026)</b> 원자료입니다. 논술전형은 수집 대상이 아닙니다.</li>';
-  for(const n of DATA.notes) h += `<li>원문 특이 표기 보존: ${esc(n)}</li>`;
-  if(DATA.xnotes.length){
-    h += `<li>두 출처의 2026 수치가 서로 다른 전형 <b>${DATA.xnotes.length}건</b>은 임의 판정 없이 양쪽 값을 그대로 병기했습니다(해당 행 상세에 ⚠ 표시): `;
-    h += DATA.xnotes.map(x=>`${esc(x.label)} ${esc(x.kind)} ${esc(String(x.pdf))}↔${esc(String(x.adiga))}`).join(' · ') + '</li>';
-  }
-  h += '<li>지원 전 반드시 대학별 <b>최종 수시모집요강</b>을 확인하세요.</li></ul></div>';
-  return h;
-}
 
 function render(){
   document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.tab===S.tab));
