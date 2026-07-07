@@ -20,6 +20,13 @@
   <meta property="og:title" content="과학 교과 연계 심화 탐구활동 가이드" />
   <meta property="og:description" content="468개 교과·전공별 탐구 주제, 세특 기록 전략, 면접 대비, 탐구 설계서 빌더까지 담은 이공계 학생부종합전형 탐구 가이드" />
   <meta property="og:url" content="https://jinhak.esteacher.kr/sciencetam.html" />
+  <script>
+    (function(){ try{
+      var t = localStorage.getItem('sciencetam_theme');
+      if(t!=='dark' && t!=='light'){ t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    }catch(e){} })();
+  </script>
   <style>
     :root {
       --bg:#0a1020;
@@ -311,6 +318,158 @@
     .source-links .ext { color:#94a3b8; font-size:.8rem; flex:none; }
     @media (max-width:720px) { .modal-foot { justify-content:stretch; } .modal-foot .group { width:100%; } .modal-foot .group .btn { flex:1; } }
 
+    /* ===== v3 upgrade: theme + domain color system ===== */
+    :root{
+      --surface:#eef5fb; --card-bg:#ffffff; --surface-2:#f8fafc; --surface-3:#f1f5f9;
+      --text:#0f172a; --text-2:#475569; --text-3:#64748b; --border:#e2e8f0; --border-2:#cbd5e1; --input-bg:#ffffff;
+    }
+    html{ color-scheme:light; }
+    .theme-toggle{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; flex:none; border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.08); color:#fff; border-radius:12px; cursor:pointer; font-size:1.1rem; transition:.15s ease; }
+    .theme-toggle:hover{ background:rgba(255,255,255,.16); }
+    .theme-toggle:focus-visible{ outline:3px solid rgba(45,212,191,.55); outline-offset:2px; }
+    .nav-right{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    @media (max-width:720px){ .nav-right{ flex:1; } }
+
+    /* domain accent bar + tinted domain pill (driven by --dc set inline) */
+    .topic-card{ position:relative; }
+    .topic-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; border-radius:24px 24px 0 0; background:var(--dc,#94a3b8); opacity:.9; }
+    .topic-card{ border-top-color:transparent; }
+    .pill.domain{ background:color-mix(in srgb, var(--dc,#1d4ed8) 14%, transparent); color:var(--dc,#1d4ed8); }
+    .domain-dot{ width:9px; height:9px; border-radius:50%; background:var(--dc,#94a3b8); display:inline-block; flex:none; }
+    .guide-tag.precise{ background:#ecfdf5; border-color:#6ee7b7; color:#047857; }
+
+    /* legend of domains under hero stats */
+    .domain-legend{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .domain-legend button{ display:inline-flex; align-items:center; gap:7px; padding:6px 11px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#dbeafe; font-weight:700; font-size:.82rem; cursor:pointer; transition:.15s ease; }
+    .domain-legend button:hover{ background:rgba(255,255,255,.14); transform:translateY(-1px); }
+
+    /* library controls v3 */
+    .segmented{ display:inline-flex; background:var(--surface-3); border:1px solid var(--border); border-radius:12px; padding:3px; gap:2px; }
+    .segmented button{ border:0; background:transparent; color:var(--text-2); font-weight:800; font-size:.88rem; padding:8px 13px; border-radius:9px; cursor:pointer; transition:.14s ease; }
+    .segmented button.active{ background:var(--card-bg); color:var(--text); box-shadow:0 2px 8px rgba(15,23,42,.12); }
+    .controls-row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:12px; }
+    .controls-row .spacer{ flex:1; }
+    .active-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .active-chips:empty{ display:none; }
+    .chip{ display:inline-flex; align-items:center; gap:6px; padding:6px 8px 6px 12px; border-radius:999px; background:color-mix(in srgb, var(--brand2) 12%, transparent); border:1px solid color-mix(in srgb, var(--brand2) 35%, transparent); color:var(--text); font-size:.84rem; font-weight:700; }
+    .chip button{ border:0; background:rgba(15,23,42,.12); color:inherit; width:18px; height:18px; border-radius:50%; cursor:pointer; font-size:.8rem; line-height:1; display:grid; place-items:center; }
+    .chip button:hover{ background:rgba(15,23,42,.25); }
+    .sort-select{ border:1px solid var(--border-2); border-radius:12px; padding:9px 12px; background:var(--input-bg); color:var(--text); font-weight:700; font-size:.9rem; }
+
+    .dom-legend{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px; }
+    .dom-legend button{ display:inline-flex; align-items:center; gap:7px; padding:7px 13px; border-radius:999px; border:1px solid var(--border); background:var(--card-bg); color:var(--text-2); font-weight:800; font-size:.84rem; cursor:pointer; transition:.14s ease; }
+    .dom-legend button:hover{ border-color:var(--dc); color:var(--text); transform:translateY(-1px); }
+    .dom-legend button.active{ background:color-mix(in srgb,var(--dc) 15%,transparent); border-color:var(--dc); color:var(--dc); }
+    .dom-legend .dot{ width:10px; height:10px; border-radius:50%; background:var(--dc); flex:none; }
+    .dom-legend .count{ font-size:.76rem; opacity:.7; }
+    .modal-head{ position:relative; }
+    .modal-head::before{ content:""; position:absolute; left:0; right:0; top:0; height:5px; background:var(--dc,var(--brand)); }
+    /* related topics in modal */
+    .related-list{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+    .related-item{ text-align:left; border:1px solid var(--border); border-radius:13px; padding:11px 12px; background:var(--card-bg); cursor:pointer; transition:.14s ease; display:flex; flex-direction:column; gap:4px; }
+    .related-item:hover{ border-color:var(--dc,var(--brand2)); transform:translateY(-2px); box-shadow:0 8px 20px rgba(15,23,42,.1); }
+    .related-item b{ font-size:.92rem; color:var(--text); line-height:1.35; letter-spacing:-.02em; }
+    .related-item span{ font-size:.78rem; color:var(--text-3); }
+    @media (max-width:720px){ .related-list{ grid-template-columns:1fr; } }
+
+    /* ===== dark theme ===== */
+    :root[data-theme="dark"]{
+      color-scheme:dark;
+      --surface:#0a1020; --card-bg:#111a30; --surface-2:#0f1830; --surface-3:#182241;
+      --text:#e8eef8; --text-2:#aab6cc; --text-3:#8494ad; --border:#243352; --border-2:#324263; --input-bg:#0f1830;
+      --line:#243352; --ink:#e8eef8; --muted:#8494ad; --card:#111a30;
+    }
+    :root[data-theme="dark"] body{ background:var(--surface); color:var(--text); }
+    :root[data-theme="dark"] .card,
+    :root[data-theme="dark"] .topic-card,
+    :root[data-theme="dark"] .method,
+    :root[data-theme="dark"] .controls,
+    :root[data-theme="dark"] .builder,
+    :root[data-theme="dark"] .source-note,
+    :root[data-theme="dark"] .flow-step,
+    :root[data-theme="dark"] .qa-pair,
+    :root[data-theme="dark"] .example,
+    :root[data-theme="dark"] .rubric-table,
+    :root[data-theme="dark"] .evidence-table table,
+    :root[data-theme="dark"] .guide-table,
+    :root[data-theme="dark"] .checklist li,
+    :root[data-theme="dark"] .empty{ background:var(--card-bg); border-color:var(--border); color:var(--text-2); }
+    :root[data-theme="dark"] .card h3,
+    :root[data-theme="dark"] .topic-card h3,
+    :root[data-theme="dark"] h2.section-title,
+    :root[data-theme="dark"] .method b,
+    :root[data-theme="dark"] .flow-step b,
+    :root[data-theme="dark"] .example b{ color:var(--text); }
+    :root[data-theme="dark"] .card p,
+    :root[data-theme="dark"] .topic-card p,
+    :root[data-theme="dark"] .section-desc,
+    :root[data-theme="dark"] .method span,
+    :root[data-theme="dark"] .flow-step span,
+    :root[data-theme="dark"] .year ul,
+    :root[data-theme="dark"] .small-note{ color:var(--text-2); }
+    :root[data-theme="dark"] body{ background:var(--surface); }
+    :root[data-theme="dark"] .library{ background:linear-gradient(180deg,#0a1020,#0c1428); }
+    :root[data-theme="dark"] .filters input,
+    :root[data-theme="dark"] .filters select,
+    :root[data-theme="dark"] .field textarea,
+    :root[data-theme="dark"] .field input,
+    :root[data-theme="dark"] .sort-select{ background:var(--input-bg); border-color:var(--border-2); color:var(--text); }
+    :root[data-theme="dark"] .filters input::placeholder{ color:var(--text-3); }
+    :root[data-theme="dark"] .pill{ background:var(--surface-3); color:var(--text-2); }
+    :root[data-theme="dark"] .pill.grade{ background:rgba(45,212,191,.14); color:#5eead4; }
+    :root[data-theme="dark"] .pill.diff{ background:rgba(245,158,11,.16); color:#fbbf24; }
+    :root[data-theme="dark"] .tag{ background:var(--surface-2); border-color:var(--border); color:var(--text-2); }
+    :root[data-theme="dark"] .segmented{ background:var(--surface-3); border-color:var(--border); }
+    :root[data-theme="dark"] .segmented button.active{ background:var(--card-bg); color:var(--text); }
+    :root[data-theme="dark"] .num{ background:#182241; color:#93c5fd; }
+    :root[data-theme="dark"] .year:before{ color:rgba(255,255,255,.05); }
+    :root[data-theme="dark"] .year .badge{ background:rgba(56,189,248,.15); color:#7dd3fc; }
+    :root[data-theme="dark"] .method:before{ opacity:.8; }
+    :root[data-theme="dark"] dialog{ background:var(--card-bg); }
+    :root[data-theme="dark"] .modal-body{ background:var(--card-bg); }
+    :root[data-theme="dark"] .detail,
+    :root[data-theme="dark"] .guide-summary div,
+    :root[data-theme="dark"] .mini-list li,
+    :root[data-theme="dark"] .number-list li,
+    :root[data-theme="dark"] .data-columns span,
+    :root[data-theme="dark"] .claim-box div,
+    :root[data-theme="dark"] .competency-list li,
+    :root[data-theme="dark"] .related-item{ background:var(--surface-2); border-color:var(--border); color:var(--text-2); }
+    :root[data-theme="dark"] .detail h3,
+    :root[data-theme="dark"] .detail p b,
+    :root[data-theme="dark"] .claim-box b,
+    :root[data-theme="dark"] .guide-summary b,
+    :root[data-theme="dark"] .related-item b{ color:var(--text); }
+    :root[data-theme="dark"] .detail p,
+    :root[data-theme="dark"] .detail ol,
+    :root[data-theme="dark"] .detail ul{ color:var(--text-2); }
+    :root[data-theme="dark"] .guide-table th{ background:var(--surface-3); color:var(--text); }
+    :root[data-theme="dark"] .guide-table td,
+    :root[data-theme="dark"] .guide-table th{ border-color:var(--border); color:var(--text-2); }
+    :root[data-theme="dark"] .evidence-table th{ background:var(--surface-3); color:var(--text); }
+    :root[data-theme="dark"] .evidence-table td,
+    :root[data-theme="dark"] .evidence-table th{ border-color:var(--border); color:var(--text-2); }
+    :root[data-theme="dark"] .rubric-table th{ background:#0b1730; color:#fff; }
+    :root[data-theme="dark"] .rubric-table td{ border-color:var(--border); color:var(--text-2); }
+    :root[data-theme="dark"] .rubric-table td:first-child{ color:#5eead4; }
+    :root[data-theme="dark"] .fav-btn{ background:var(--surface-2); border-color:var(--border); color:#475569; }
+    :root[data-theme="dark"] .preview{ background:var(--surface-2); border-color:var(--border-2); color:var(--text-2); }
+    :root[data-theme="dark"] .field label{ color:var(--text-2); }
+    :root[data-theme="dark"] .notice{ background:#0d2030; border-color:#164e63; }
+    :root[data-theme="dark"] .notice h2{ color:var(--text); }
+    :root[data-theme="dark"] .notice p{ color:var(--text-2); }
+    :root[data-theme="dark"] .callout{ background:linear-gradient(135deg,#0d2030,#111a30); border-color:#164e63; color:var(--text-2); }
+    :root[data-theme="dark"] .callout strong{ color:var(--text); }
+    :root[data-theme="dark"] .qa-pair b{ color:var(--text-3); }
+    :root[data-theme="dark"] .source-links a{ background:var(--surface-2); border-color:var(--border); color:var(--text-2); }
+    :root[data-theme="dark"] .source-links a:hover{ background:#152548; border-color:var(--brand2); }
+    :root[data-theme="dark"] .chip{ color:var(--text); }
+    :root[data-theme="dark"] .chip button{ background:rgba(255,255,255,.14); }
+    :root[data-theme="dark"] .result-meta{ color:var(--text-2); }
+    :root[data-theme="dark"] .section-kicker{ color:#5eead4; }
+    :root[data-theme="dark"] .pill.verified{ background:rgba(16,185,129,.14); color:#6ee7b7; border-color:#065f46; }
+    :root[data-theme="dark"] .guide-tag{ background:rgba(45,212,191,.12); border-color:#155e63; color:#5eead4; }
+
     @media print {
       .site-header, .hero-actions, .controls, .topic-actions, .builder, .floating-actions, dialog { display:none!important; }
       body { background:#fff; }
@@ -330,19 +489,22 @@
       <span class="logo-mark">🔬</span>
       <span>과학 탐구 가이드<small>Science Inquiry Design Studio</small></span>
     </a>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="#principles">설계 원칙</a>
-      <a href="#roadmap">학년별 전략</a>
-      <a href="#course-map">교과-탐구 연결</a>
-      <a href="#quality-check">주제 진단</a>
-      <a href="#methods">탐구 기법</a>
-      <a href="#data-sources">자료 출처</a>
-      <a href="#library">주제 라이브러리</a>
-      <a href="#evidence-map">증거화 전략</a>
-      <a href="#records">세특 기록</a>
-      <a href="#interview">면접 대비</a>
-      <a href="#builder">탐구 설계서</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#principles">설계 원칙</a>
+        <a href="#roadmap">학년별 전략</a>
+        <a href="#course-map">교과-탐구 연결</a>
+        <a href="#quality-check">주제 진단</a>
+        <a href="#methods">탐구 기법</a>
+        <a href="#data-sources">자료 출처</a>
+        <a href="#library">주제 라이브러리</a>
+        <a href="#evidence-map">증거화 전략</a>
+        <a href="#records">세특 기록</a>
+        <a href="#interview">면접 대비</a>
+        <a href="#builder">탐구 설계서</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="라이트/다크 모드 전환" title="라이트/다크 모드 전환">🌙</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
     </div>
   </nav>
 </header>
@@ -601,6 +763,7 @@
           <p class="section-desc">총 468개 주제. 각 카드는 탐구 배경, 교과 연계점, 탐구 질문, 가설, 변인 설계, 데이터 기록표, 분석 방법, 세특 기록 포인트, 면접 질문까지 포함합니다.</p>
         </div>
       </div>
+      <div class="dom-legend" id="domLegend" aria-label="분야별 바로가기 및 색상 안내"></div>
       <div class="controls" role="search" aria-label="탐구 주제 검색 및 필터">
         <div class="filters">
           <input id="searchInput" type="search" placeholder="키워드 검색: 예) 데이터, 효소, 전자공학, 기후, 최적화" />
@@ -671,10 +834,24 @@
           </select>
           <button class="btn dark" type="button" id="resetBtn">초기화</button>
         </div>
-        <div class="filter-actions">
-          <button class="btn light" type="button" id="randomBtn">🎲 랜덤 3개 추천</button>
-          <button class="btn light" type="button" id="favToggleBtn">⭐ 즐겨찾기만 보기 (<span id="favCount">0</span>)</button>
+        <div class="controls-row">
+          <div class="segmented" id="typeSeg" role="tablist" aria-label="유형 필터">
+            <button class="active" type="button" data-type="all">전체</button>
+            <button type="button" data-type="과학 교과">과학 교과</button>
+            <button type="button" data-type="공학·전공">공학·전공</button>
+          </div>
+          <span class="spacer"></span>
+          <button class="btn light" type="button" id="preciseToggle" title="교사가 손수 검증한 정밀 가이드 주제만 보기">✓ 정밀검증만</button>
+          <button class="btn light" type="button" id="randomBtn">🎲 랜덤 추천</button>
+          <button class="btn light" type="button" id="favToggleBtn">⭐ 즐겨찾기 (<span id="favCount">0</span>)</button>
+          <select class="sort-select" id="sortSelect" aria-label="정렬 기준">
+            <option value="default">기본 정렬</option>
+            <option value="grade">학년 낮은순</option>
+            <option value="domain">분야별 묶기</option>
+            <option value="title">제목 가나다순</option>
+          </select>
         </div>
+        <div class="active-chips" id="activeChips" aria-live="polite"></div>
         <div class="result-meta"><span id="resultCount"></span><span>카드를 열어 세부 가이드 확인</span></div>
       </div>
       <div id="topicGrid" class="topic-grid" aria-live="polite"></div>
@@ -2861,6 +3038,10 @@ const searchInput = document.getElementById('searchInput');
 const domainFilter = document.getElementById('domainFilter');
 const gradeFilter = document.getElementById('gradeFilter');
 const methodFilter = document.getElementById('methodFilter');
+const typeSeg = document.getElementById('typeSeg');
+const preciseToggle = document.getElementById('preciseToggle');
+const sortSelect = document.getElementById('sortSelect');
+const activeChips = document.getElementById('activeChips');
 const resultCount = document.getElementById('resultCount');
 const dialog = document.getElementById('topicDialog');
 const modalTitle = document.getElementById('modalTitle');
@@ -2883,6 +3064,9 @@ function loadJSON(key, fallback) { try { const v = JSON.parse(localStorage.getIt
 function saveJSON(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) {} }
 let favs = new Set(loadJSON(FAV_KEY, []));
 let favOnly = false;
+let typeFilter = 'all';
+let preciseOnly = false;
+let sortMode = 'default';
 let randomIds = null;
 let visibleLimit = BATCH;
 let currentList = [];
@@ -2892,6 +3076,7 @@ let modalTopic = null;
 function updateFavUI() {
   favCountEl.textContent = favs.size;
   favToggleBtn.classList.toggle('active', favOnly);
+  preciseToggle.classList.toggle('active', preciseOnly);
 }
 function toggleFav(id) {
   if (favs.has(id)) favs.delete(id); else favs.add(id);
@@ -2910,8 +3095,31 @@ function topicMatches(t) {
   const m = methodFilter.value;
   const hay = [t.title,t.tagline,t.type,t.domain,t.grade,t.difficulty,t.courses,t.concepts,t.background,...t.methods,...t.action,t.record,...t.competencies,t.extension,t.interview].join(' ').toLowerCase();
   if (favOnly && !favs.has(t.id)) return false;
+  if (preciseOnly && !ENRICHED_GUIDES[t.id]) return false;
+  if (typeFilter !== 'all' && t.type !== typeFilter) return false;
   if (randomIds && !randomIds.has(t.id)) return false;
   return (!q || hay.includes(q)) && (d==='all' || t.domain===d) && (g==='all' || t.grade===g) && (m==='all' || t.methods.includes(m));
+}
+const GRADE_ORDER = { '1학년':1, '2학년':2, '3학년':3 };
+function sortTopics(list) {
+  const arr = list.slice();
+  if (sortMode === 'grade') arr.sort((a,b)=> (GRADE_ORDER[a.grade]-GRADE_ORDER[b.grade]) || a.domain.localeCompare(b.domain,'ko'));
+  else if (sortMode === 'domain') arr.sort((a,b)=> a.domain.localeCompare(b.domain,'ko') || (GRADE_ORDER[a.grade]-GRADE_ORDER[b.grade]));
+  else if (sortMode === 'title') arr.sort((a,b)=> a.title.localeCompare(b.title,'ko'));
+  return arr;
+}
+function renderChips() {
+  const chips = [];
+  const q = searchInput.value.trim();
+  if (q) chips.push(['검색: ' + q, 'search']);
+  if (typeFilter !== 'all') chips.push([typeFilter, 'type']);
+  if (domainFilter.value !== 'all') chips.push([domainFilter.value, 'domain']);
+  if (gradeFilter.value !== 'all') chips.push([gradeFilter.value, 'grade']);
+  if (methodFilter.value !== 'all') chips.push([methodFilter.value, 'method']);
+  if (preciseOnly) chips.push(['정밀검증만', 'precise']);
+  if (favOnly) chips.push(['즐겨찾기만', 'fav']);
+  activeChips.innerHTML = chips.map(([label, key]) => `<span class="chip">${esc(label)}<button type="button" data-clear="${key}" aria-label="필터 제거">×</button></span>`).join('');
+  if (typeof domLegend !== 'undefined' && domLegend) [...domLegend.children].forEach(b => b.classList.toggle('active', b.getAttribute('data-domain') === domainFilter.value));
 }
 
 function populateMethodOptions() {
@@ -2920,12 +3128,31 @@ function populateMethodOptions() {
   methodFilter.innerHTML = '<option value="all">전체 기법</option>' + methods.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join('');
   methodFilter.value = methods.includes(current) ? current : 'all';
 }
+const domLegend = document.getElementById('domLegend');
+function populateDomainLegend() {
+  const counts = {};
+  TOPICS.forEach(t => counts[t.domain] = (counts[t.domain]||0)+1);
+  domLegend.innerHTML = Object.keys(DOMAIN_COLORS).map(d =>
+    `<button type="button" data-domain="${esc(d)}" style="--dc:${domainColor(d)}"><span class="dot"></span>${esc(d)}<span class="count">${counts[d]||0}</span></button>`).join('');
+}
+domLegend.addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-domain]'); if (!btn) return;
+  const d = btn.getAttribute('data-domain');
+  domainFilter.value = (domainFilter.value === d) ? 'all' : d;
+  randomIds = null; visibleLimit = BATCH; renderTopics();
+});
 
+const DOMAIN_COLORS = {
+  '물리':'#2563eb','화학':'#f59e0b','생명과학':'#16a34a','지구과학':'#0891b2',
+  '기계공학':'#dc2626','전자공학':'#7c3aed','컴퓨터공학':'#4f46e5','화학공학':'#db2777','생명공학':'#0d9488'
+};
+function domainColor(d){ return DOMAIN_COLORS[d] || '#64748b'; }
 function topicCard(t) {
-  const guideBadge = ENRICHED_GUIDES[t.id] ? '<span class="tag guide-tag">정밀검증</span>' : '<span class="tag guide-tag">확장가이드</span>';
+  const isPrecise = !!ENRICHED_GUIDES[t.id];
+  const guideBadge = isPrecise ? '<span class="tag guide-tag precise">✓ 정밀검증</span>' : '<span class="tag guide-tag">확장가이드</span>';
   return `
-    <article class="topic-card">
-      <div class="topic-top"><div style="display:flex; gap:6px; flex-wrap:wrap"><span class="pill domain">${esc(t.domain)}</span><span class="pill grade">${esc(t.grade)}</span></div><button class="fav-btn${favs.has(t.id)?' active':''}" type="button" data-fav="${esc(t.id)}" aria-label="즐겨찾기 추가/해제" title="즐겨찾기">★</button></div>
+    <article class="topic-card" data-domain="${esc(t.domain)}" style="--dc:${domainColor(t.domain)}">
+      <div class="topic-top"><div style="display:flex; gap:6px; flex-wrap:wrap"><span class="pill domain"><span class="domain-dot"></span>${esc(t.domain)}</span><span class="pill grade">${esc(t.grade)}</span></div><button class="fav-btn${favs.has(t.id)?' active':''}" type="button" data-fav="${esc(t.id)}" aria-label="즐겨찾기 추가/해제" title="즐겨찾기">★</button></div>
       <h3>${esc(t.title)}</h3>
       <p>${esc(t.tagline)}</p>
       <div class="taglist">${guideBadge}${t.methods.slice(0,3).map(m=>`<span class="tag">${esc(m)}</span>`).join('')}<span class="tag">${esc(t.difficulty)}</span></div>
@@ -2933,10 +3160,11 @@ function topicCard(t) {
     </article>`;
 }
 function renderTopics() {
-  currentList = TOPICS.filter(topicMatches);
-  const label = randomIds ? `랜덤 추천 ${currentList.length}개` : favOnly ? `즐겨찾기 ${currentList.length}개` : `총 ${currentList.length}개 주제 표시`;
+  currentList = sortTopics(TOPICS.filter(topicMatches));
+  const label = randomIds ? `랜덤 추천 ${currentList.length}개` : `${currentList.length}개 주제 표시`;
   resultCount.textContent = `${label} / 전체 ${TOPICS.length}개`;
   updateFavUI();
+  renderChips();
   if (!currentList.length) {
     grid.innerHTML = `<div class="empty">${favOnly ? '아직 즐겨찾기한 주제가 없습니다. 카드의 ★ 버튼을 눌러 관심 주제를 모아 보세요.' : '조건에 맞는 주제가 없습니다. 검색어를 줄이거나 필터를 초기화해 보세요.'}</div>`;
     return;
@@ -2989,12 +3217,25 @@ function renderEnrichedModal(t, g) {
     ${detailBlock('안전·윤리 유의점', `<p>${esc(t.safety)}</p>`, true)}
   </div>`;
 }
+function relatedTopicsHtml(t) {
+  const rel = TOPICS.filter(x => x.id !== t.id && x.domain === t.domain);
+  rel.sort((a, b) => {
+    const ga = (a.grade !== t.grade ? 0 : 1) - (b.grade !== t.grade ? 0 : 1);
+    if (ga) return ga;
+    return (ENRICHED_GUIDES[b.id] ? 1 : 0) - (ENRICHED_GUIDES[a.id] ? 1 : 0);
+  });
+  const pick = rel.slice(0, 4);
+  if (!pick.length) return '';
+  const items = pick.map(x => `<button class="related-item" type="button" data-open="${esc(x.id)}" style="--dc:${domainColor(x.domain)}"><b>${esc(x.title)}</b><span>${esc(x.domain)} · ${esc(x.grade)} · ${esc(x.difficulty)}</span></button>`).join('');
+  return `<section class="detail full"><h3>같은 분야 관련 탐구 주제</h3><div class="related-list">${items}</div></section>`;
+}
 function renderModal(t) {
   const guide = getTopicGuide(t);
-  const guideLabel = guide.guideType === 'manual' ? '정밀 검증 가이드' : '전수 확장 가이드';
-  modalPills.innerHTML = `<span class="pill domain">${esc(t.domain)}</span> <span class="pill grade">${esc(t.grade)}</span> <span class="pill diff">${esc(t.difficulty)}</span> <span class="pill verified">${guideLabel}</span>`;
+  const guideLabel = guide.guideType === 'manual' ? '✓ 정밀 검증 가이드' : '전수 확장 가이드';
+  dialog.style.setProperty('--dc', domainColor(t.domain));
+  modalPills.innerHTML = `<span class="pill domain"><span class="domain-dot"></span>${esc(t.domain)}</span> <span class="pill grade">${esc(t.grade)}</span> <span class="pill diff">${esc(t.difficulty)}</span> <span class="pill verified">${guideLabel}</span>`;
   modalTitle.textContent = t.title;
-  modalBody.innerHTML = renderEnrichedModal(t, guide);
+  modalBody.innerHTML = renderEnrichedModal(t, guide) + relatedTopicsHtml(t);
   favModalBtn.textContent = favs.has(t.id) ? '★ 즐겨찾기 해제' : '☆ 즐겨찾기';
   prevTopicBtn.disabled = currentIndex <= 0;
   nextTopicBtn.disabled = currentIndex < 0 || currentIndex >= currentList.length - 1;
@@ -3026,15 +3267,42 @@ grid.addEventListener('click', (e) => {
   if (openBtn) { openTopic(openBtn.getAttribute('data-open')); return; }
   if (e.target.closest('#moreBtn')) { visibleLimit += BATCH; renderTopics(); }
 });
+modalBody.addEventListener('click', (e) => {
+  const openBtn = e.target.closest('[data-open]');
+  if (openBtn) openTopic(openBtn.getAttribute('data-open'));
+});
 let searchTimer = null;
 searchInput.addEventListener('input', () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => { randomIds = null; visibleLimit = BATCH; renderTopics(); }, 150);
 });
 [domainFilter, gradeFilter, methodFilter].forEach(el => el.addEventListener('input', () => { randomIds = null; visibleLimit = BATCH; renderTopics(); }));
-document.getElementById('resetBtn').addEventListener('click', () => {
+sortSelect.addEventListener('input', () => { sortMode = sortSelect.value; visibleLimit = BATCH; renderTopics(); });
+typeSeg.addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-type]'); if (!btn) return;
+  typeFilter = btn.getAttribute('data-type');
+  [...typeSeg.children].forEach(b => b.classList.toggle('active', b === btn));
+  randomIds = null; visibleLimit = BATCH; renderTopics();
+});
+preciseToggle.addEventListener('click', () => { preciseOnly = !preciseOnly; randomIds = null; visibleLimit = BATCH; renderTopics(); });
+function resetFilters() {
   searchInput.value=''; domainFilter.value='all'; gradeFilter.value='all'; methodFilter.value='all';
-  favOnly = false; randomIds = null; visibleLimit = BATCH; renderTopics();
+  typeFilter='all'; preciseOnly=false; favOnly=false; randomIds=null; sortMode='default'; sortSelect.value='default';
+  [...typeSeg.children].forEach(b => b.classList.toggle('active', b.getAttribute('data-type')==='all'));
+  visibleLimit = BATCH; renderTopics();
+}
+document.getElementById('resetBtn').addEventListener('click', resetFilters);
+activeChips.addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-clear]'); if (!btn) return;
+  const key = btn.getAttribute('data-clear');
+  if (key==='search') searchInput.value='';
+  else if (key==='type') { typeFilter='all'; [...typeSeg.children].forEach(b => b.classList.toggle('active', b.getAttribute('data-type')==='all')); }
+  else if (key==='domain') domainFilter.value='all';
+  else if (key==='grade') gradeFilter.value='all';
+  else if (key==='method') methodFilter.value='all';
+  else if (key==='precise') preciseOnly=false;
+  else if (key==='fav') favOnly=false;
+  randomIds=null; visibleLimit=BATCH; renderTopics();
 });
 favToggleBtn.addEventListener('click', () => { favOnly = !favOnly; randomIds = null; visibleLimit = BATCH; renderTopics(); });
 randomBtn.addEventListener('click', () => {
@@ -3241,6 +3509,23 @@ window.addEventListener('resize', onScroll, { passive:true });
 onScroll();
 topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
+const themeToggle = document.getElementById('themeToggle');
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+function applyThemeIcon() {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  themeToggle.textContent = dark ? '☀️' : '🌙';
+  themeToggle.setAttribute('aria-label', dark ? '라이트 모드로 전환' : '다크 모드로 전환');
+  if (themeMeta) themeMeta.setAttribute('content', dark ? '#0a1020' : '#0a1020');
+}
+applyThemeIcon();
+themeToggle.addEventListener('click', () => {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = dark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('sciencetam_theme', next); } catch(e) {}
+  applyThemeIcon();
+});
+
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 function closeNav() { navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); navToggle.textContent = '☰'; }
@@ -3264,6 +3549,7 @@ if ('IntersectionObserver' in window) {
 }
 
 populateMethodOptions();
+populateDomainLegend();
 renderTopics();
 if (location.hash.indexOf('#topic=') === 0) {
   const id = decodeURIComponent(location.hash.slice(7));
