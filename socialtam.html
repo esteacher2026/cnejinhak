@@ -841,6 +841,31 @@ td b { color:var(--navy) }
 .reveal.in { opacity:1; transform:none }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none } }
 
+/* ===== v4 polish ===== */
+/* staggered card entrance */
+@keyframes cardIn { from { opacity:0; transform:translateY(14px) } to { opacity:1; transform:none } }
+.topic-card { animation:cardIn .5s cubic-bezier(.2,.7,.2,1) both; animation-delay:calc(var(--i,0) * 26ms) }
+/* field-tinted hover elevation (overrides generic hover shadow, keeps lift) */
+.topic-card.field-accent:hover { box-shadow:0 22px 50px -12px color-mix(in srgb, var(--fc) 45%, transparent), 0 8px 20px rgba(15,29,54,.10) }
+.topic-card.field-accent::after {
+  content:""; position:absolute; inset:0; border-radius:20px; pointer-events:none;
+  background:radial-gradient(120% 80% at 100% 0%, color-mix(in srgb, var(--fc) 8%, transparent), transparent 60%);
+  opacity:0; transition:opacity .25s ease;
+}
+.topic-card.field-accent:hover::after { opacity:1 }
+/* modal header field accent */
+.modal-box { overflow:hidden }
+.modal-head { border-top:3px solid var(--fc, var(--blue)); background:linear-gradient(135deg, var(--paper-soft), color-mix(in srgb, var(--fc, var(--blue)) 6%, var(--paper))) }
+/* field chip active gets a soft field glow */
+.field-chip.active { box-shadow:0 6px 18px -6px color-mix(in srgb, var(--fc) 60%, transparent) }
+.field-chip { transition:.18s cubic-bezier(.2,.7,.2,1) }
+/* count-up stat tabular alignment */
+.stat b { font-variant-numeric:tabular-nums }
+/* smoother global focus ring */
+:focus-visible { outline:none }
+.btn:focus-visible, .icon-btn:focus-visible, .field-chip:focus-visible, .sort-select:focus-visible, select:focus-visible, input:focus-visible { box-shadow:0 0 0 3px color-mix(in srgb, var(--blue) 32%, transparent) }
+@media (prefers-reduced-motion: reduce) { .topic-card { animation:none } }
+
 /* Print styles */
 @media print {
   header, .float-actions, .filter-panel, .nav-tools, .hero-actions, .progress-bar, #scrollTop, .modal, .modal-foot { display:none !important }
@@ -13639,10 +13664,10 @@ const TOPICS_PER_PAGE = 60;
 let currentPage = 1;
 let lastFilteredCount = 0;
 
-function topicCard(t) {
+function topicCard(t, i = 0) {
   const isFav = favorites.has(t.id);
   const guide = getSocialGuide(t);
-  return `<article class="topic-card field-accent" tabindex="0" data-id="${t.id}" role="listitem" aria-label="${escapeHtml(t.title)}" style="--fc:${fieldColor(t.field)}">
+  return `<article class="topic-card field-accent" tabindex="0" data-id="${t.id}" role="listitem" aria-label="${escapeHtml(t.title)}" style="--fc:${fieldColor(t.field)};--i:${Math.min(i, 22)}">
     <button class="fav-btn ${isFav ? 'on' : ''}" type="button" data-id="${t.id}" aria-label="${isFav ? '즐겨찾기 해제' : '즐겨찾기'}" title="${isFav ? '즐겨찾기 해제' : '즐겨찾기 추가'}">
       <svg viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
@@ -13719,7 +13744,8 @@ function renderTopics(resetPage = true) {
     return;
   }
   const shown = list.slice(0, currentPage * TOPICS_PER_PAGE);
-  $('#topicGrid').innerHTML = shown.map(topicCard).join('');
+  const startIdx = (currentPage - 1) * TOPICS_PER_PAGE;
+  $('#topicGrid').innerHTML = shown.map((t, i) => topicCard(t, i - startIdx)).join('');
   $('#loadMoreWrap').style.display = list.length > shown.length ? 'block' : 'none';
   $('#loadMoreBtn').textContent = `더 보기 (${list.length - shown.length}개 남음)`;
   updateFieldChipState();
@@ -14210,6 +14236,32 @@ $('#scrollTop').addEventListener('click', () => window.scrollTo({ top: 0, behavi
     });
   }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
   els.forEach(el => { el.classList.add('reveal'); obs.observe(el); });
+})();
+
+/* --- 통계 카운트업 --- */
+(function countUpStats() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const nums = $$('.stat b');
+  if (!nums.length) return;
+  const run = (el) => {
+    const target = parseInt(el.textContent.replace(/[^\d]/g, ''), 10);
+    if (!Number.isFinite(target)) return;
+    const dur = 1100, start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target.toLocaleString();
+    };
+    el.textContent = '0';
+    requestAnimationFrame(tick);
+  };
+  if (!('IntersectionObserver' in window)) { nums.forEach(run); return; }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { run(e.target); obs.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  nums.forEach(n => obs.observe(n));
 })();
 
 /* --- 모바일 메뉴 --- */
