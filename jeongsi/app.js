@@ -411,6 +411,14 @@ function bindStaticEvents() {
   const tab = document.querySelector("#tabContent");
   tab.addEventListener("click", handleTabClick);
   tab.addEventListener("keydown", handleTabKeydown);
+
+  document.querySelector("#resultSummary").addEventListener("click", (e) => {
+    const chipButton = e.target.closest("[data-chip]");
+    if (!chipButton) return;
+    if (chipButton.dataset.chip === "all") { resetState(); return; }
+    const chip = lastChips[Number(chipButton.dataset.chip)];
+    if (chip) removeFilter(chip);
+  });
 }
 function toggleSet(set, value, checked) { checked ? set.add(value) : set.delete(value); }
 
@@ -464,20 +472,62 @@ function renderDynamic() {
   renderSummary(records);
   document.querySelector("#tabContent").innerHTML = renderResults(records);
 }
+// 적용 중인 필터를 칩 목록으로 수집(요약 스트립에서 개별 해제 가능).
+let lastChips = [];
+
+function activeFilterChips() {
+  const chips = [];
+  const push = (type, value, label) => chips.push({ type, value, label });
+  if (state.query.trim()) push("query", "", `검색 “${state.query.trim()}”`);
+  if (state.university.trim()) push("university", "", `대학 ${state.university.trim()}`);
+  if (state.major.trim()) push("major", "", `모집단위·전형 ${state.major.trim()}`);
+  if (state.percentile !== "" && toNumber(state.percentile) !== null) push("percentile", "", `내 백분위 ${state.percentile} ±${state.band}`);
+  state.guns.forEach((v) => push("gun", v, ["가", "나", "다", "라", "마"].includes(v) ? `${v}군` : v));
+  state.regions.forEach((v) => push("region", v, v));
+  return chips;
+}
+
+function removeFilter(chip) {
+  switch (chip.type) {
+    case "query": state.query = ""; break;
+    case "university": state.university = ""; break;
+    case "major": state.major = ""; break;
+    case "percentile": state.percentile = ""; break;
+    case "gun": state.guns.delete(chip.value); break;
+    case "region": state.regions.delete(chip.value); break;
+  }
+  state.page = 1;
+  mount(); // 입력·체크박스 DOM을 상태와 다시 맞추기 위해 전체 재마운트
+}
+
 function renderSummary(records) {
   const vals = records.map((r) => latest(r, avg70)).filter((v) => v !== null);
   const med = vals.length ? medianOf(vals) : null;
   const unis = new Set(records.map((r) => r.unvCd)).size;
   const scaleShown = records.filter(hasHwansanFallback).length;
-  const target = toNumber(state.percentile);
-  const matchNote = target === null ? "" :
-    ` · <strong class="hl-match">내 백분위 ${target} ±${escapeHtml(state.band)}</strong> 매칭`;
-  const scaleNote = scaleShown ? ` · 환산70 표시 <strong>${scaleShown.toLocaleString("ko-KR")}</strong>건` : "";
+  lastChips = activeFilterChips();
+  const chipsHtml = lastChips.length
+    ? `<div class="active-filters">
+        <span class="af-label">적용 필터</span>
+        ${lastChips
+          .map(
+            (chip, index) =>
+              `<button type="button" class="filter-chip" data-chip="${index}" aria-label="${escapeAttr(chip.label)} 필터 해제">${escapeHtml(chip.label)}<i aria-hidden="true">×</i></button>`
+          )
+          .join("")}
+        <button type="button" class="filter-chip clear-all" data-chip="all">전체 해제</button>
+      </div>`
+    : "";
+  const scaleNote = scaleShown ? `<span class="stat-note">환산70 표시 ${scaleShown.toLocaleString("ko-KR")}건</span>` : "";
   document.querySelector("#resultSummary").innerHTML = `
-    <strong>${records.length.toLocaleString("ko-KR")}</strong>개 모집단위
-    · ${unis}개 대학
-    · 전체 ${DATA.records.length.toLocaleString("ko-KR")}건 중
-    · 평균백분위 70% 중앙값 <strong>${med == null ? "–" : med}</strong>${matchNote}${scaleNote}`;
+    <div class="stat-strip">
+      <span class="stat"><b>${records.length.toLocaleString("ko-KR")}</b>모집단위</span>
+      <span class="stat"><b>${unis}</b>대학</span>
+      <span class="stat"><b>${med == null ? "–" : med}</b>평균백분위 70% 중앙값</span>
+      ${scaleNote}
+      <span class="stat-total">전체 ${DATA.records.length.toLocaleString("ko-KR")}건</span>
+    </div>
+    ${chipsHtml}`;
 }
 function medianOf(values) {
   const s = [...values].sort((a, b) => a - b);
@@ -497,7 +547,17 @@ function sortableTh(extra, key, label, sub) {
 }
 
 function renderResults(records) {
-  if (!records.length) return `<div class="empty"><div>조건에 맞는 모집단위가 없습니다.</div></div>`;
+  if (!records.length) {
+    return `
+      <div class="empty">
+        <div class="empty-inner">
+          <span class="empty-icon" aria-hidden="true">🔍</span>
+          <strong>조건에 맞는 모집단위가 없습니다</strong>
+          <span>필터를 일부 해제하거나 허용 범위(±)를 넓혀 보세요.</span>
+        </div>
+      </div>
+    `;
+  }
   const start = (state.page - 1) * state.pageSize;
   const pageRecords = records.slice(start, start + state.pageSize);
   const maxPage = Math.max(1, Math.ceil(records.length / state.pageSize));
@@ -611,6 +671,57 @@ function diffBadge(record) {
 }
 
 /* ---------- 상세 패널 ---------- */
+// 상세 히어로: 대표 수치(평균백분위 70%컷, 없으면 환산70)와 경쟁률을 크게 표시.
+function detailHero(record) {
+  const cut = latestEntry(record, avg70);
+  const scale = cut ? null : latestEntry(record, hwansan70);
+  const comp = latestEntry(record, competition);
+  const yearBadge = (entry) =>
+    entry && entry.year !== RESULT_YEAR ? ` <span class="year-tag">${String(entry.year).slice(2)}</span>` : "";
+
+  let extras = "";
+  const v26 = avg70(record, 2026);
+  const v25 = avg70(record, 2025);
+  if (v26 !== null && v25 !== null) {
+    const d = Math.round((v26 - v25) * 10) / 10;
+    const cls = d >= 0.5 ? "up" : d <= -0.5 ? "down" : "flat";
+    extras += `<span class="delta ${cls}" title="평균백분위 70%컷 전년 대비">25→26 ${d > 0 ? "+" : ""}${d}</span>`;
+  }
+  const target = toNumber(state.percentile);
+  if (target !== null && cut) {
+    const d = Math.round((target - cut.value) * 10) / 10;
+    extras += `<span class="diff-badge ${d >= 0 ? "up" : "down"}" title="내 백분위 − 70%컷">내 백분위와 차 ${d > 0 ? "+" : ""}${d.toFixed(1)}</span>`;
+  }
+
+  const primary = cut
+    ? `<div class="cut-box primary">
+        <span class="cut-label">평균백분위 70%컷${yearBadge(cut)}</span>
+        <strong>${escapeHtml(cut.value)}</strong>
+        ${extras || `<span class="cut-note">국·수·탐 평균 · 높을수록 우수</span>`}
+      </div>`
+    : scale
+      ? `<div class="cut-box primary scale-box">
+          <span class="cut-label">환산점수 70%컷 (대학별)${yearBadge(scale)}</span>
+          <strong>${escapeHtml(scale.value)}</strong>
+          <span class="cut-note">대학별 산출식 · 타 대학과 비교 불가</span>
+        </div>`
+      : `<div class="cut-box primary">
+          <span class="cut-label">평균백분위 70%컷</span>
+          <strong>–</strong>
+          <span class="cut-note">점수 미공시</span>
+        </div>`;
+
+  return `
+    <div class="cut-hero">
+      ${primary}
+      <div class="cut-box">
+        <span class="cut-label">경쟁률${yearBadge(comp)}</span>
+        <strong>${comp ? escapeHtml(comp.value) : "–"}</strong>
+        <span class="cut-note">최종 경쟁률</span>
+      </div>
+    </div>`;
+}
+
 function renderDetail(record) {
   if (!record) return `<aside class="detail-panel"><div class="panel panel-pad empty">선택된 모집단위가 없습니다.</div></aside>`;
   return `
@@ -626,6 +737,7 @@ function renderDetail(record) {
           <h2>${escapeHtml(record.university)} ${escapeHtml(record.dept)}</h2>
           <p class="detail-jeonhyeong">${escapeHtml(record.jname)}</p>
         </div>
+        ${detailHero(record)}
         ${record.areas ? `<p class="area-note">⚠ 이 모집단위는 수능 <b>${record.areas.length}과목</b>(${record.areas.join("·")})만 반영합니다(반영비율 표 기준). 평균백분위는 이 과목들의 평균이라 4과목 반영 대학과 직접 비교는 부적절합니다.</p>` : ""}
         ${scaleOnlyNotice(record)}
         <div class="section-title"><h3>모집 · 경쟁 · 충원</h3><span>2024·2025·2026</span></div>
