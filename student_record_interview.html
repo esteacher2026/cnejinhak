@@ -23,18 +23,36 @@
   <meta name="twitter:title" content="학생부 활동·탐구 면접 질문 생성 - 충청남도교육청" />
   <meta name="twitter:description" content="학생부 활동명과 지원 분야를 입력하면 활동 경험과 탐구 과정에 맞춘 면접 예상문항을 생성합니다." />
   <link rel="stylesheet" href="student_record_interview_styles.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("sri_theme");
+        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <div class="app-shell">
     <nav class="utility-bar" aria-label="상단 바로가기">
       <a class="main-link" href="index.html">메인</a>
-      <span class="credit">제작 : 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+      <div class="utility-right">
+        <span class="credit">제작 : 충청남도교육청진로융합교육원 교육연구사 정재연</span>
+        <button class="icon-btn theme-btn" id="themeBtn" type="button" title="화면 모드 전환" aria-label="화면 모드 전환">🌙</button>
+      </div>
     </nav>
 
     <header class="topbar">
       <p class="eyebrow">학교생활기록부 기반 활동·탐구 역량평가</p>
       <h1>학생부 활동·탐구 면접 질문 생성</h1>
       <p class="top-lead">학생부에 적힌 활동명과 지원 분야를 입력하면 활동 경험, 탐구 질문, 방법 선택, 협력 과정, 성찰과 후속 탐구를 중심으로 심층 문항을 구성합니다.</p>
+      <div class="hero-stats" aria-label="도구 요약">
+        <span class="stat-chip"><b id="statQuestions">30</b>맞춤 예상문항</span>
+        <span class="stat-chip"><b>5</b>활동 유형 자동 인식</span>
+        <span class="stat-chip"><b id="statDims">9</b>평가요소 루브릭</span>
+        <span class="stat-chip"><b id="statUnis">104</b>대학 면접 평가기준</span>
+      </div>
     </header>
 
     <main class="workspace">
@@ -57,6 +75,11 @@
           </label>
           <p class="activity-feedback" id="activityFeedback"></p>
 
+          <div class="field">
+            <span>예시 활동으로 시작하기</span>
+            <div class="quick-grid" id="exampleChips"></div>
+          </div>
+
           <label class="field">
             <span>지원 분야</span>
             <input id="majorInput" type="text" value="환경공학·생명과학 계열" />
@@ -78,6 +101,15 @@
               <span>중심 평가요소</span>
               <select id="focusSelect"></select>
             </label>
+
+            <label class="field">
+              <span>문항 수</span>
+              <select id="countSelect">
+                <option value="10">10문항</option>
+                <option value="20">20문항</option>
+                <option value="30" selected>30문항</option>
+              </select>
+            </label>
           </div>
 
           <div class="option-row">
@@ -85,7 +117,7 @@
             <label><input id="hardToggle" type="checkbox" checked /> 심층 꼬리질문 강화</label>
           </div>
 
-          <button class="primary-btn" id="generateBtn" type="button">30문항 생성</button>
+          <button class="primary-btn" id="generateBtn" type="button">문항 생성</button>
         </div>
 
         <div class="mode-panel" id="mode-mock">
@@ -99,21 +131,31 @@
               <input id="answerSeconds" type="number" min="10" max="600" value="90" />
             </label>
           </div>
+          <div class="option-row mock-opts">
+            <label><input id="mockShuffle" type="checkbox" /> 순서 섞기</label>
+            <label><input id="mockStarOnly" type="checkbox" /> ★ 문항만</label>
+            <label><input id="mockSound" type="checkbox" checked /> 알림음</label>
+            <label><input id="mockTts" type="checkbox" /> 읽어주기</label>
+          </div>
           <button class="primary-btn" id="startMockBtn" type="button">생성 문항으로 시작</button>
           <div class="mock-card">
             <div class="mock-top">
               <span id="mockProgress">문항 1 / 30</span>
               <b id="mockTimer">00:30</b>
             </div>
+            <div class="timer-track"><i id="timerFill"></i></div>
             <p class="mock-stage" id="mockStage">준비</p>
             <p class="mock-question" id="mockQuestion">먼저 문항을 생성한 뒤 모의면접을 시작하세요.</p>
+            <div class="mock-progressbar"><i id="mockProgressFill"></i></div>
             <div class="mock-actions">
-              <button class="tool-btn" id="skipStageBtn" type="button">단계 건너뛰기</button>
+              <button class="tool-btn" id="prevMockBtn" type="button">이전 문항</button>
+              <button class="tool-btn" id="skipStageBtn" type="button">단계 넘기기</button>
               <button class="tool-btn" id="nextMockBtn" type="button">다음 문항</button>
             </div>
+            <p class="mock-hint">단축키 : Space 단계 넘기기 · ← → 문항 이동</p>
           </div>
           <label class="field">
-            <span>답변 메모</span>
+            <span>답변 메모 (문항별 자동 저장)</span>
             <textarea id="mockNotes" rows="4" spellcheck="false" placeholder="답변 키워드, 부족했던 근거, 다음에 보완할 점을 적어보세요."></textarea>
           </label>
           <div class="mock-checks">
@@ -132,6 +174,7 @@
             <h2 id="resultTitle">바이오 플라스틱 제작 및 생분해성 비교 실험 면접 예상문항</h2>
           </div>
           <div class="toolbar-actions">
+            <button class="tool-btn" id="starFilterBtn" type="button" title="★ 표시한 문항만 보기">★ 중요만</button>
             <button class="tool-btn" id="copyBtn" type="button">복사</button>
             <button class="tool-btn" id="downloadBtn" type="button">TXT</button>
             <button class="tool-btn" id="printBtn" type="button">인쇄</button>
@@ -139,6 +182,7 @@
         </div>
 
         <div class="intent-strip" id="intentStrip"></div>
+        <div class="filter-note" id="filterNote" hidden></div>
         <div class="question-list" id="questionList"></div>
       </section>
     </main>
@@ -151,6 +195,10 @@
         </div>
         <p id="selectedQuestionText" class="selected-question"></p>
         <div class="answer-frame" id="answerFrame"></div>
+        <label class="field memo-field">
+          <span>내 답변 메모 (자동 저장)</span>
+          <textarea id="answerMemo" rows="4" spellcheck="false" placeholder="이 문항에 대한 답변 개요, 핵심 근거, 학생부 기록과의 연결점을 적어 두세요. 같은 문항을 다시 열면 그대로 남아 있습니다."></textarea>
+        </label>
       </div>
       <div class="mini-dashboard">
         <h2>질문 분포</h2>
@@ -167,6 +215,7 @@
       <div class="tab-body on" id="tab-universities">
         <div class="university-layout">
           <aside>
+            <div class="region-chips" id="regionChips"></div>
             <input id="universitySearch" type="search" placeholder="대학명 검색" />
             <div id="universityList" class="university-list"></div>
           </aside>

@@ -4,14 +4,44 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 const number = new Intl.NumberFormat("ko-KR");
 
+const STORE = {
+  theme: "sri_theme",
+  inputs: "sri_inputs",
+  stars: "sri_stars",
+  memos: "sri_memos",
+};
+
+function loadJSON(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value ?? fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function saveJSON(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {}
+}
+
 const state = {
   generated: [],
   selectedQuestion: 0,
   selectedUniversity: null,
-  mockIndex: 0,
+  filterDimension: null,
+  starOnly: false,
+  stars: new Set(loadJSON(STORE.stars, [])),
+  memos: loadJSON(STORE.memos, {}),
+  regionFilter: 0,
+  mockOrder: [],
+  mockPos: 0,
   mockStage: "prep",
   mockRemaining: 30,
+  mockStageTotal: 30,
   mockTimer: null,
+  audioCtx: null,
 };
 
 const standardColors = {
@@ -43,6 +73,39 @@ const slotPriority = {
   creative: ["unexpected", "limitation", "alternative", "comparison", "ethical_issue", "condition_change"],
   collaboration: ["collaboration_role", "conflict", "responsibility", "social_impact", "community_value"],
 };
+
+const trackBoost = {
+  "인문": ["communication", "creative", "reflection"],
+  "자연": ["inquiry", "academic", "creative"],
+  "의약": ["collaboration", "communication", "reflection"],
+  "예체능": ["self", "major", "reflection"],
+};
+
+const trackNotes = {
+  "인문": "인문·사회 계열에 맞춰 의사소통·비판적 사고·성찰 문항을 앞쪽에 배치합니다.",
+  "자연": "자연·공학 계열에 맞춰 탐구·학업역량 문항을 앞쪽에 배치합니다.",
+  "의약": "의약·보건 계열에 맞춰 인성·협력·소통 문항을 앞쪽에 배치합니다.",
+  "예체능": "예술·체육 계열에 맞춰 자기주도성·전공 관심 문항을 앞쪽에 배치합니다.",
+};
+
+const exampleActivities = [
+  { activity: "바이오 플라스틱 제작 및 생분해성 비교 실험", major: "환경공학·생명과학 계열" },
+  { activity: "기후변화에 따른 지역 이상기온 공공데이터 분석 탐구", major: "대기과학·환경 계열" },
+  { activity: "청소년 문해력 저하 원인 조사 및 개선 방안 보고서", major: "국어교육·인문 계열" },
+  { activity: "지역 아동센터 학습 멘토링 봉사활동", major: "교육학·사회복지 계열" },
+  { activity: "교내 급식 잔반 감소 캠페인 공동 프로젝트", major: "경영·사회과학 계열" },
+  { activity: "머신러닝을 활용한 지역 교통량 예측 모델 제작 프로젝트", major: "컴퓨터공학·AI 계열" },
+];
+
+const regionGroups = [
+  ["전체", null],
+  ["서울", ["서울"]],
+  ["경기·인천", ["경기", "인천"]],
+  ["충청", ["대전", "세종", "충남", "충북"]],
+  ["강원", ["강원"]],
+  ["영남", ["부산", "대구", "울산", "경북", "경남"]],
+  ["호남·제주", ["광주", "전남", "전북", "제주"]],
+];
 
 const activitySuffixes = [
   "탐구",
@@ -201,6 +264,15 @@ function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function qkey(text) {
+  let hash = 5381;
+  const value = String(text ?? "");
+  for (let i = 0; i < value.length; i += 1) {
+    hash = ((hash << 5) + hash + value.charCodeAt(i)) >>> 0;
+  }
+  return `q${hash.toString(36)}`;
+}
+
 function hasFinalConsonant(value) {
   const chars = String(value ?? "").trim();
   for (let i = chars.length - 1; i >= 0; i -= 1) {
@@ -251,6 +323,27 @@ function toast(message) {
   toast.timer = setTimeout(() => box.classList.remove("show"), 1600);
 }
 
+function applyTheme(dark) {
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+  const btn = $("#themeBtn");
+  if (btn) {
+    btn.textContent = dark ? "☀️" : "🌙";
+    btn.title = dark ? "밝은 화면으로 전환" : "어두운 화면으로 전환";
+  }
+}
+
+function initTheme() {
+  const dark = document.documentElement.dataset.theme === "dark";
+  applyTheme(dark);
+  $("#themeBtn").addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme !== "dark";
+    applyTheme(next);
+    try {
+      localStorage.setItem(STORE.theme, next ? "dark" : "light");
+    } catch {}
+  });
+}
+
 function fillControls() {
   $("#focusSelect").innerHTML = `<option value="">균형 구성</option>${DATA.dimensions
     .filter((item) => item.id !== "basic")
@@ -258,10 +351,69 @@ function fillControls() {
     .join("")}`;
 }
 
+function renderExampleChips() {
+  $("#exampleChips").innerHTML = exampleActivities
+    .map((item, index) => `<button class="chip-btn" type="button" data-example="${index}">${esc(item.activity)}</button>`)
+    .join("");
+  $("#exampleChips").onclick = (event) => {
+    const btn = event.target.closest("[data-example]");
+    if (!btn) return;
+    const example = exampleActivities[Number(btn.dataset.example)];
+    if (!example) return;
+    $("#keywordInput").value = example.activity;
+    $("#majorInput").value = example.major;
+    generate();
+    toast("예시 활동으로 문항을 생성했습니다.");
+  };
+}
+
+function fillHeroStats() {
+  $("#statDims").textContent = DATA.dimensions.length;
+  $("#statUnis").textContent = DATA.jinhak.universities.length;
+  $("#statQuestions").textContent = $("#countSelect").value;
+}
+
+function saveInputs() {
+  saveJSON(STORE.inputs, {
+    activity: $("#keywordInput").value,
+    major: $("#majorInput").value,
+    track: $("#trackSelect").value,
+    focus: $("#focusSelect").value,
+    count: $("#countSelect").value,
+    generic: $("#genericToggle").checked,
+    hard: $("#hardToggle").checked,
+    prep: $("#prepSeconds").value,
+    answer: $("#answerSeconds").value,
+    shuffle: $("#mockShuffle").checked,
+    starOnly: $("#mockStarOnly").checked,
+    sound: $("#mockSound").checked,
+    tts: $("#mockTts").checked,
+  });
+}
+
+function restoreInputs() {
+  const saved = loadJSON(STORE.inputs, null);
+  if (!saved) return;
+  if (saved.activity) $("#keywordInput").value = saved.activity;
+  if (saved.major) $("#majorInput").value = saved.major;
+  if (saved.track != null) $("#trackSelect").value = saved.track;
+  if (saved.focus != null) $("#focusSelect").value = saved.focus;
+  if (saved.count) $("#countSelect").value = saved.count;
+  if (typeof saved.generic === "boolean") $("#genericToggle").checked = saved.generic;
+  if (typeof saved.hard === "boolean") $("#hardToggle").checked = saved.hard;
+  if (saved.prep) $("#prepSeconds").value = saved.prep;
+  if (saved.answer) $("#answerSeconds").value = saved.answer;
+  if (typeof saved.shuffle === "boolean") $("#mockShuffle").checked = saved.shuffle;
+  if (typeof saved.starOnly === "boolean") $("#mockStarOnly").checked = saved.starOnly;
+  if (typeof saved.sound === "boolean") $("#mockSound").checked = saved.sound;
+  if (typeof saved.tts === "boolean") $("#mockTts").checked = saved.tts;
+}
+
 function switchMode(mode) {
   $$(".mode-tab").forEach((tab) => tab.classList.toggle("on", tab.dataset.mode === mode));
   $$(".mode-panel").forEach((panel) => panel.classList.toggle("on", panel.id === `mode-${mode}`));
   if (mode === "mock") updateMockDisplay();
+  else stopSpeech();
 }
 
 function hasActivitySuffix(activity) {
@@ -291,10 +443,11 @@ function renderActivityFeedback(activity, profile) {
   const hasSuffix = hasActivitySuffix(activity);
   const feedback = $("#activityFeedback");
   if (!feedback) return;
+  const trackNote = trackNotes[$("#trackSelect").value] || "";
   feedback.classList.toggle("warn", !hasSuffix);
   feedback.textContent = hasSuffix
-    ? `${profile.guidance} 현재 활동명은 학생부식 활동명으로 충분히 읽힙니다.`
-    : `${profile.guidance} 다만 활동명 끝을 '탐구', '실험', '분석 보고서', '프로젝트', '활동'처럼 마무리하면 질문이 더 자연스럽게 맞춰집니다.`;
+    ? `${profile.guidance} 현재 활동명은 학생부식 활동명으로 충분히 읽힙니다. ${trackNote}`.trim()
+    : `${profile.guidance} 다만 활동명 끝을 '탐구', '실험', '분석 보고서', '프로젝트', '활동'처럼 마무리하면 질문이 더 자연스럽게 맞춰집니다. ${trackNote}`.trim();
 }
 
 function sortTemplatesForProfile(list, profile, fallbackPriority = []) {
@@ -309,7 +462,7 @@ function sortTemplatesForProfile(list, profile, fallbackPriority = []) {
   });
 }
 
-function selectTemplates(focus, includeBasic, count = 30, profile = null) {
+function selectTemplates(focus, includeBasic, count = 30, profile = null, track = "") {
   const groups = new Map();
   for (const template of DATA.templates) {
     if (template.dimension === "basic" && !includeBasic) continue;
@@ -343,7 +496,12 @@ function selectTemplates(focus, includeBasic, count = 30, profile = null) {
     "collaboration",
     "communication",
   ];
-  const dimensionOrder = focus ? [focus, ...baseOrder.filter((dimension) => dimension !== focus)] : baseOrder;
+  let dimensionOrder = focus ? [focus, ...baseOrder.filter((dimension) => dimension !== focus)] : [...baseOrder];
+  const boost = trackBoost[track];
+  if (boost) {
+    const boosted = boost.filter((dimension) => groups.has(dimension) && dimension !== focus);
+    dimensionOrder = focus ? [focus, ...boosted, ...dimensionOrder.slice(1)] : [...boosted, ...dimensionOrder];
+  }
   if (includeBasic) dimensionOrder.splice(Math.min(4, dimensionOrder.length), 0, "basic");
 
   const picked = [];
@@ -401,10 +559,12 @@ function generate() {
   const activity = compact($("#keywordInput").value || "학생부 활동", 100);
   const major = compact($("#majorInput").value || "지원 전공", 80);
   const focus = $("#focusSelect").value;
+  const track = $("#trackSelect").value;
+  const count = Number($("#countSelect").value) || 30;
   const includeBasic = $("#genericToggle").checked;
   const hard = $("#hardToggle").checked;
   const profile = detectActivityProfile(activity);
-  const templates = selectTemplates(focus, includeBasic, 30, profile);
+  const templates = selectTemplates(focus, includeBasic, count, profile, track);
   renderActivityFeedback(activity, profile);
 
   state.generated = templates.map((template, index) => {
@@ -426,8 +586,11 @@ function generate() {
   });
 
   state.selectedQuestion = 0;
-  state.mockIndex = 0;
+  state.mockOrder = [];
+  state.mockPos = 0;
   $("#resultTitle").textContent = `${activity} 면접 예상문항`;
+  $("#statQuestions").textContent = state.generated.length;
+  saveInputs();
   renderAll();
   updateMockDisplay();
 }
@@ -439,22 +602,65 @@ function renderAll() {
   renderCategoryChart();
 }
 
+function questionVisible(item) {
+  if (state.filterDimension && item.dimension !== state.filterDimension) return false;
+  if (state.starOnly && !state.stars.has(qkey(item.question))) return false;
+  return true;
+}
+
 function renderIntentStrip() {
   const counts = new Map();
   for (const item of state.generated) counts.set(item.dimension, (counts.get(item.dimension) || 0) + 1);
   $("#intentStrip").innerHTML = [...counts.entries()].map(([id, count]) => {
     const d = dim(id);
-    return `<div class="intent-item" style="border-left-color:${esc(d.color)}">
-      <span>${esc(d.short)}</span>
+    const active = state.filterDimension === id;
+    return `<button type="button" class="intent-item ${active ? "active" : ""}" data-dim="${esc(id)}" style="border-left-color:${esc(d.color)}" title="클릭하면 이 평가요소 문항만 표시합니다">
+      <span>${esc(d.short)}${active ? " · 필터 중" : ""}</span>
       <b>${esc(d.name)} ${count}문항</b>
-    </div>`;
+    </button>`;
   }).join("");
+
+  $("#intentStrip").onclick = (event) => {
+    const btn = event.target.closest(".intent-item");
+    if (!btn) return;
+    state.filterDimension = state.filterDimension === btn.dataset.dim ? null : btn.dataset.dim;
+    renderIntentStrip();
+    renderQuestions();
+  };
+}
+
+function renderFilterNote(visibleCount) {
+  const note = $("#filterNote");
+  const active = Boolean(state.filterDimension || state.starOnly);
+  note.hidden = !active;
+  if (!active) return;
+  const labels = [];
+  if (state.filterDimension) labels.push(`${dim(state.filterDimension).name} 문항`);
+  if (state.starOnly) labels.push("★ 중요 문항");
+  note.innerHTML = `${esc(labels.join(" · "))}만 표시 중 (${visibleCount}문항) <button type="button" id="clearFilterBtn">필터 해제</button>`;
+  $("#clearFilterBtn").onclick = () => {
+    state.filterDimension = null;
+    state.starOnly = false;
+    $("#starFilterBtn").classList.remove("on");
+    renderIntentStrip();
+    renderQuestions();
+  };
 }
 
 function renderQuestions() {
-  $("#questionList").innerHTML = state.generated.map((item, index) => {
+  const visible = state.generated.filter(questionVisible);
+  renderFilterNote(visible.length);
+
+  if (!visible.length) {
+    $("#questionList").innerHTML = `<div class="empty">${state.starOnly ? "★ 표시한 문항이 없습니다. 문항 카드의 별을 눌러 중요 문항을 표시해 보세요." : "표시할 문항이 없습니다."}</div>`;
+    return;
+  }
+
+  $("#questionList").innerHTML = visible.map((item, order) => {
+    const index = state.generated.indexOf(item);
     const d = dim(item.dimension);
-    return `<article class="question-card ${index === state.selectedQuestion ? "selected" : ""}" style="border-left-color:${esc(d.color)}" data-index="${index}">
+    const starred = state.stars.has(qkey(item.question));
+    return `<article class="question-card ${index === state.selectedQuestion ? "selected" : ""}" style="border-left-color:${esc(d.color)};animation-delay:${Math.min(order * 25, 400)}ms" data-index="${index}">
       <div class="question-main">
         <div class="qno">Q${item.number}</div>
         <div>
@@ -466,6 +672,7 @@ function renderQuestions() {
             <span class="badge">${esc(item.title)}</span>
           </div>
         </div>
+        <button class="star-btn ${starred ? "on" : ""}" type="button" data-star="${index}" title="중요 문항 표시" aria-label="중요 문항 표시" aria-pressed="${starred}">${starred ? "★" : "☆"}</button>
       </div>
       <div class="tail-box">
         <p>꼬리질문</p>
@@ -475,12 +682,27 @@ function renderQuestions() {
   }).join("");
 
   $("#questionList").onclick = (event) => {
+    const starBtn = event.target.closest(".star-btn");
+    if (starBtn) {
+      toggleStar(Number(starBtn.dataset.star));
+      return;
+    }
     const card = event.target.closest(".question-card");
     if (!card) return;
     state.selectedQuestion = Number(card.dataset.index);
     renderQuestions();
     renderAnswer();
   };
+}
+
+function toggleStar(index) {
+  const item = state.generated[index];
+  if (!item) return;
+  const key = qkey(item.question);
+  if (state.stars.has(key)) state.stars.delete(key);
+  else state.stars.add(key);
+  saveJSON(STORE.stars, [...state.stars]);
+  renderQuestions();
 }
 
 function frameHint(step, question) {
@@ -533,12 +755,23 @@ function renderAnswer() {
   const item = state.generated[state.selectedQuestion];
   if (!item) return;
   const d = dim(item.dimension);
-  $("#selectedQuestionLabel").textContent = `Q${item.number}`;
+  const label = $("#selectedQuestionLabel");
+  label.textContent = `Q${item.number}`;
+  label.style.background = d.color;
   $("#selectedQuestionText").textContent = item.question;
   $("#answerFrame").innerHTML = d.answerFrame.map((step) => `<div class="frame-step" style="border-top-color:${esc(d.color)}">
     <b>${esc(step)}</b>
     <span>${esc(frameHint(step, item.question))}</span>
   </div>`).join("");
+  $("#answerMemo").value = state.memos[qkey(item.question)] || "";
+}
+
+function saveMemo(question, text) {
+  const key = qkey(question);
+  const value = String(text ?? "").trim();
+  if (value) state.memos[key] = String(text);
+  else delete state.memos[key];
+  saveJSON(STORE.memos, state.memos);
 }
 
 function renderCategoryChart() {
@@ -555,9 +788,24 @@ function renderCategoryChart() {
   }).join("");
 }
 
+function renderRegionChips() {
+  $("#regionChips").innerHTML = regionGroups
+    .map(([label], index) => `<button class="region-chip ${state.regionFilter === index ? "on" : ""}" type="button" data-region="${index}">${esc(label)}</button>`)
+    .join("");
+  $("#regionChips").onclick = (event) => {
+    const btn = event.target.closest(".region-chip");
+    if (!btn) return;
+    state.regionFilter = Number(btn.dataset.region);
+    renderRegionChips();
+    renderUniversities();
+  };
+}
+
 function renderUniversities() {
   const query = normalize($("#universitySearch").value);
+  const regions = regionGroups[state.regionFilter || 0][1];
   const rows = DATA.jinhak.universities
+    .filter((uni) => !regions || regions.includes(uni.region))
     .filter((uni) => !query || universitySearchText(uni).includes(query))
     .sort((a, b) => (b.recruitment || 0) - (a.recruitment || 0))
     .slice(0, 80);
@@ -566,10 +814,12 @@ function renderUniversities() {
     state.selectedUniversity = rows[0]?.code || null;
   }
 
-  $("#universityList").innerHTML = rows.map((uni) => `<button class="uni-btn ${uni.code === state.selectedUniversity ? "on" : ""}" type="button" data-code="${esc(uni.code)}">
-    <b>${esc(uni.name)}</b>
-    <span>${esc(uni.region)} · ${esc(uni.status)} · ${number.format(uni.recruitment || 0)}명</span>
-  </button>`).join("");
+  $("#universityList").innerHTML = rows.length
+    ? rows.map((uni) => `<button class="uni-btn ${uni.code === state.selectedUniversity ? "on" : ""}" type="button" data-code="${esc(uni.code)}">
+        <b>${esc(uni.name)}</b>
+        <span>${esc(uni.region)} · ${esc(uni.status)} · ${number.format(uni.recruitment || 0)}명</span>
+      </button>`).join("")
+    : `<div class="empty">조건에 맞는 대학이 없습니다.</div>`;
 
   $("#universityList").onclick = (event) => {
     const btn = event.target.closest(".uni-btn");
@@ -651,6 +901,67 @@ function formatTime(seconds) {
   return `${m}:${s}`;
 }
 
+function beep(frequency = 880, duration = 0.15, delay = 0) {
+  if (!$("#mockSound").checked) return;
+  try {
+    state.audioCtx = state.audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const ctx = state.audioCtx;
+    if (ctx.state === "suspended") ctx.resume();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = frequency;
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    const start = ctx.currentTime + delay;
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(0.18, start + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+    osc.start(start);
+    osc.stop(start + duration + 0.05);
+  } catch {}
+}
+
+function stopSpeech() {
+  try {
+    window.speechSynthesis?.cancel();
+  } catch {}
+}
+
+function speakCurrentQuestion() {
+  if (!$("#mockTts").checked || !window.speechSynthesis) return;
+  const item = currentMockItem();
+  if (!item) return;
+  stopSpeech();
+  const utterance = new SpeechSynthesisUtterance(item.question);
+  utterance.lang = "ko-KR";
+  utterance.rate = 1;
+  window.speechSynthesis.speak(utterance);
+}
+
+function currentMockItem() {
+  if (!state.generated.length) return null;
+  const index = state.mockOrder.length ? state.mockOrder[state.mockPos] : 0;
+  return state.generated[index] || null;
+}
+
+function buildMockOrder() {
+  let indices = state.generated.map((_, index) => index);
+  if ($("#mockStarOnly").checked) {
+    const starred = indices.filter((index) => state.stars.has(qkey(state.generated[index].question)));
+    if (starred.length) indices = starred;
+    else toast("★ 표시한 문항이 없어 전체 문항으로 진행합니다.");
+  }
+  if ($("#mockShuffle").checked) {
+    for (let i = indices.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+  }
+  state.mockOrder = indices;
+  state.mockPos = 0;
+}
+
 function clearMockTimer() {
   if (state.mockTimer) clearInterval(state.mockTimer);
   state.mockTimer = null;
@@ -658,6 +969,7 @@ function clearMockTimer() {
 
 function startMockTimer(seconds) {
   clearMockTimer();
+  state.mockStageTotal = Math.max(1, Number(seconds) || 0);
   state.mockRemaining = Math.max(0, Number(seconds) || 0);
   updateMockDisplay();
   state.mockTimer = setInterval(() => {
@@ -668,6 +980,8 @@ function startMockTimer(seconds) {
       } else {
         clearMockTimer();
         state.mockRemaining = 0;
+        beep(523, 0.14);
+        beep(392, 0.2, 0.18);
         toast("답변 시간이 끝났습니다.");
         updateMockDisplay();
       }
@@ -679,31 +993,58 @@ function startMockTimer(seconds) {
 
 function startMock() {
   if (!state.generated.length) generate();
-  state.mockIndex = 0;
+  buildMockOrder();
   state.mockStage = "prep";
+  loadMockMemo();
   startMockTimer(Number($("#prepSeconds").value || 30));
-  updateMockDisplay();
+  speakCurrentQuestion();
+  saveInputs();
 }
 
 function startAnswerStage() {
   state.mockStage = "answer";
+  beep(880, 0.16);
   startMockTimer(Number($("#answerSeconds").value || 90));
 }
 
-function nextMockQuestion() {
+function loadMockMemo() {
+  const item = currentMockItem();
+  $("#mockNotes").value = item ? state.memos[qkey(item.question)] || "" : "";
+}
+
+function moveMockQuestion(step) {
   if (!state.generated.length) return;
-  state.mockIndex = (state.mockIndex + 1) % state.generated.length;
+  if (!state.mockOrder.length) buildMockOrder();
+  const total = state.mockOrder.length;
+  state.mockPos = (state.mockPos + step + total) % total;
   state.mockStage = "prep";
-  $("#mockNotes").value = "";
+  loadMockMemo();
   startMockTimer(Number($("#prepSeconds").value || 30));
+  speakCurrentQuestion();
 }
 
 function updateMockDisplay() {
-  const total = state.generated.length || 30;
-  const item = state.generated[state.mockIndex];
-  $("#mockProgress").textContent = `문항 ${Math.min(state.mockIndex + 1, total)} / ${total}`;
-  $("#mockTimer").textContent = formatTime(state.mockRemaining);
-  $("#mockStage").textContent = state.mockStage === "prep" ? "준비" : "답변";
+  const total = state.mockOrder.length || state.generated.length || 30;
+  const position = state.mockOrder.length ? state.mockPos : 0;
+  const item = currentMockItem();
+  const isAnswer = state.mockStage === "answer";
+  const danger = state.mockTimer && state.mockRemaining <= 10;
+
+  $("#mockProgress").textContent = `문항 ${Math.min(position + 1, total)} / ${total}`;
+  const timer = $("#mockTimer");
+  timer.textContent = formatTime(state.mockRemaining);
+  timer.classList.toggle("danger", Boolean(danger));
+
+  const stage = $("#mockStage");
+  stage.textContent = isAnswer ? "답변" : "준비";
+  stage.classList.toggle("answer", isAnswer);
+
+  const fill = $("#timerFill");
+  fill.style.width = `${Math.max(0, Math.min(100, (state.mockRemaining / state.mockStageTotal) * 100))}%`;
+  fill.classList.toggle("answer", isAnswer && !danger);
+  fill.classList.toggle("danger", Boolean(danger));
+
+  $("#mockProgressFill").style.width = `${((position + 1) / total) * 100}%`;
   $("#mockQuestion").textContent = item ? item.question : "먼저 문항을 생성한 뒤 모의면접을 시작하세요.";
 }
 
@@ -725,10 +1066,13 @@ function exportText() {
   const lines = [title, ""];
   for (const item of state.generated) {
     const d = dim(item.dimension);
-    lines.push(`Q${item.number}. ${item.question}`);
+    const starred = state.stars.has(qkey(item.question));
+    lines.push(`Q${item.number}.${starred ? " ★" : ""} ${item.question}`);
     lines.push(`평가요소: ${d.name}`);
     lines.push(`평가의도: ${item.intent}`);
     if (item.tails.length) lines.push(`꼬리질문: ${item.tails.join(" / ")}`);
+    const memo = state.memos[qkey(item.question)];
+    if (memo) lines.push(`내 답변 메모: ${memo.replace(/\s*\n\s*/g, " / ")}`);
     lines.push("");
   }
   return lines.join("\n");
@@ -758,6 +1102,21 @@ function bindEvents() {
     const activity = compact($("#keywordInput").value || "학생부 활동", 100);
     renderActivityFeedback(activity, detectActivityProfile(activity));
   });
+  $("#trackSelect").addEventListener("change", generate);
+  $("#focusSelect").addEventListener("change", generate);
+  $("#countSelect").addEventListener("change", generate);
+
+  $("#starFilterBtn").addEventListener("click", () => {
+    state.starOnly = !state.starOnly;
+    $("#starFilterBtn").classList.toggle("on", state.starOnly);
+    renderQuestions();
+  });
+
+  $("#answerMemo").addEventListener("input", () => {
+    const item = state.generated[state.selectedQuestion];
+    if (item) saveMemo(item.question, $("#answerMemo").value);
+  });
+
   $("#copyBtn").addEventListener("click", copyQuestions);
   $("#downloadBtn").addEventListener("click", downloadQuestions);
   $("#printBtn").addEventListener("click", () => window.print());
@@ -766,22 +1125,57 @@ function bindEvents() {
     $("#majorInput").value = "환경공학·생명과학 계열";
     $("#trackSelect").value = "";
     $("#focusSelect").value = "";
+    $("#countSelect").value = "30";
     $("#genericToggle").checked = false;
     $("#hardToggle").checked = true;
+    state.filterDimension = null;
+    state.starOnly = false;
+    $("#starFilterBtn").classList.remove("on");
     clearMockTimer();
-    state.mockIndex = 0;
+    stopSpeech();
+    state.mockOrder = [];
+    state.mockPos = 0;
     state.mockStage = "prep";
     state.mockRemaining = Number($("#prepSeconds").value || 30);
     switchMode("generate");
     generate();
+    toast("입력값을 초기화했습니다.");
   });
 
   $("#startMockBtn").addEventListener("click", startMock);
   $("#skipStageBtn").addEventListener("click", () => {
     if (state.mockStage === "prep") startAnswerStage();
-    else nextMockQuestion();
+    else moveMockQuestion(1);
   });
-  $("#nextMockBtn").addEventListener("click", nextMockQuestion);
+  $("#nextMockBtn").addEventListener("click", () => moveMockQuestion(1));
+  $("#prevMockBtn").addEventListener("click", () => moveMockQuestion(-1));
+
+  $("#mockNotes").addEventListener("input", () => {
+    const item = currentMockItem();
+    if (item) saveMemo(item.question, $("#mockNotes").value);
+  });
+
+  ["mockShuffle", "mockStarOnly", "mockSound", "mockTts"].forEach((id) => {
+    $(`#${id}`).addEventListener("change", () => {
+      if (id === "mockTts" && !$("#mockTts").checked) stopSpeech();
+      saveInputs();
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!$("#mode-mock").classList.contains("on")) return;
+    const target = event.target;
+    if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+    if (event.code === "Space") {
+      event.preventDefault();
+      if (state.mockStage === "prep") startAnswerStage();
+      else moveMockQuestion(1);
+    } else if (event.key === "ArrowRight") {
+      moveMockQuestion(1);
+    } else if (event.key === "ArrowLeft") {
+      moveMockQuestion(-1);
+    }
+  });
 
   $("#universitySearch").addEventListener("input", renderUniversities);
 
@@ -798,12 +1192,18 @@ function init() {
     document.body.innerHTML = "<p>데이터를 불러오지 못했습니다.</p>";
     return;
   }
+  initTheme();
   fillControls();
+  renderExampleChips();
+  restoreInputs();
+  fillHeroStats();
   bindEvents();
+  renderRegionChips();
   renderRubric();
   renderUniversities();
   generate();
   state.mockRemaining = Number($("#prepSeconds").value || 30);
+  state.mockStageTotal = state.mockRemaining;
   updateMockDisplay();
 }
 
