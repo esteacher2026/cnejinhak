@@ -61,8 +61,12 @@ function formatNumber(value, digits = 2) {
   return number.toLocaleString("ko-KR", { minimumFractionDigits: 0, maximumFractionDigits: digits });
 }
 
+// 등급은 항상 소수 둘째 자리로 고정 표기(1 → 1.00) — 표·히어로에서 자릿수 정렬.
 function formatGrade(value) {
-  return formatNumber(value, 2);
+  if (value === null || value === undefined || Number.isNaN(value)) return "–";
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "–";
+  return number.toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function fmtMetric(kind, value) {
@@ -402,6 +406,17 @@ function bindStaticEvents() {
   const tab = document.querySelector("#tabContent");
   tab.addEventListener("click", handleTabClick);
   tab.addEventListener("keydown", handleTabKeydown);
+
+  document.querySelector("#resultSummary").addEventListener("click", (event) => {
+    const chipButton = event.target.closest("[data-chip]");
+    if (!chipButton) return;
+    if (chipButton.dataset.chip === "all") {
+      resetState();
+      return;
+    }
+    const chip = lastChips[Number(chipButton.dataset.chip)];
+    if (chip) removeFilter(chip);
+  });
 }
 
 function toggleSet(set, value, checked) {
@@ -495,15 +510,63 @@ function renderDynamic() {
   document.querySelector("#tabContent").innerHTML = renderResults(records);
 }
 
+// 적용 중인 필터를 칩 목록으로 수집(요약 스트립에서 개별 해제 가능).
+let lastChips = [];
+
+function activeFilterChips() {
+  const chips = [];
+  const push = (type, value, label) => chips.push({ type, value, label });
+  if (state.query.trim()) push("query", "", `검색 “${state.query.trim()}”`);
+  if (state.university.trim()) push("university", "", `대학 ${state.university.trim()}`);
+  if (state.major.trim()) push("major", "", `모집단위 ${state.major.trim()}`);
+  if (state.grade !== "" && toNumber(state.grade) !== null) push("grade", "", `내신 ${state.grade} ±${GRADE_BAND}`);
+  state.tracks.forEach((value) => push("track", value, value));
+  state.domains.forEach((value) => push("domain", value, value));
+  if (state.field) push("field", "", state.field);
+  state.regions.forEach((value) => push("region", value, value));
+  return chips;
+}
+
+function removeFilter(chip) {
+  switch (chip.type) {
+    case "query": state.query = ""; break;
+    case "university": state.university = ""; break;
+    case "major": state.major = ""; break;
+    case "grade": state.grade = ""; break;
+    case "field": state.field = ""; break;
+    case "track": state.tracks.delete(chip.value); break;
+    case "domain": state.domains.delete(chip.value); break;
+    case "region": state.regions.delete(chip.value); break;
+  }
+  state.page = 1;
+  mount(); // 입력·체크박스 DOM을 상태와 다시 맞추기 위해 전체 재마운트
+}
+
 function renderSummary(records) {
   const cut70 = records.map((record) => metricValue(record, 2026, "grade70")).filter((value) => value !== null);
   const median = cut70.length ? medianOf(cut70) : null;
   const universities = new Set(records.map((record) => record.university)).size;
+  lastChips = activeFilterChips();
+  const chipsHtml = lastChips.length
+    ? `<div class="active-filters">
+        <span class="af-label">적용 필터</span>
+        ${lastChips
+          .map(
+            (chip, index) =>
+              `<button type="button" class="filter-chip" data-chip="${index}" aria-label="${escapeAttr(chip.label)} 필터 해제">${escapeHtml(chip.label)}<i aria-hidden="true">×</i></button>`
+          )
+          .join("")}
+        <button type="button" class="filter-chip clear-all" data-chip="all">전체 해제</button>
+      </div>`
+    : "";
   document.querySelector("#resultSummary").innerHTML = `
-    <strong>${formatNumber(records.length, 0)}</strong>개 모집단위
-    · ${formatNumber(universities, 0)}개 대학
-    · 전체 ${formatNumber(DATA.records.length, 0)}건 중
-    · 2026 70%컷 중앙값 <strong>${formatGrade(median)}</strong>
+    <div class="stat-strip">
+      <span class="stat"><b>${formatNumber(records.length, 0)}</b>모집단위</span>
+      <span class="stat"><b>${formatNumber(universities, 0)}</b>대학</span>
+      <span class="stat"><b>${formatGrade(median)}</b>2026 70%컷 중앙값</span>
+      <span class="stat-total">전체 ${formatNumber(DATA.records.length, 0)}건</span>
+    </div>
+    ${chipsHtml}
   `;
 }
 
@@ -536,7 +599,15 @@ function yr3(record, metric) {
 
 function renderResults(records) {
   if (!records.length) {
-    return `<div class="empty"><div>조건에 맞는 모집단위가 없습니다.</div></div>`;
+    return `
+      <div class="empty">
+        <div class="empty-inner">
+          <span class="empty-icon" aria-hidden="true">🔍</span>
+          <strong>조건에 맞는 모집단위가 없습니다</strong>
+          <span>필터를 일부 해제하거나 검색어를 줄여 보세요.</span>
+        </div>
+      </div>
+    `;
   }
 
   const start = (state.page - 1) * state.pageSize;
@@ -605,10 +676,13 @@ function renderDetail(record) {
     return `<aside class="detail-panel"><div class="panel panel-pad empty">선택된 모집단위가 없습니다.</div></aside>`;
   }
   const delta = delta2526(record);
+  const direction = record.history?.trend?.direction;
   const deltaText =
     delta === null
-      ? ""
-      : `<span class="delta ${trendClass(record)}">25→26 ${delta > 0 ? "+" : ""}${formatGrade(delta)}</span>`;
+      ? `<span class="delta flat">전년 비교 자료 없음</span>`
+      : `<span class="delta ${trendClass(record)}">25→26 ${direction && direction !== "자료부족" ? `${direction} ` : ""}${delta > 0 ? "+" : ""}${formatGrade(delta)}</span>`;
+  const g70 = metricValue(record, 2026, "grade70");
+  const g50 = metricValue(record, 2026, "grade50");
 
   return `
     <aside class="detail-panel">
@@ -623,9 +697,21 @@ function renderDetail(record) {
           <h2>${escapeHtml(record.university)} ${escapeHtml(record.major)}</h2>
           <p class="detail-jeonhyeong">${escapeHtml(record.program)}</p>
         </div>
+        <div class="cut-hero">
+          <div class="cut-box primary">
+            <span class="cut-label">2026 70%컷</span>
+            <strong>${fmtMetric("grade", g70)}</strong>
+            ${deltaText}
+          </div>
+          <div class="cut-box">
+            <span class="cut-label">2026 50%컷</span>
+            <strong>${fmtMetric("grade", g50)}</strong>
+            <span class="cut-note">등급 · 낮을수록 우수</span>
+          </div>
+        </div>
         <div class="section-title">
           <h3>입결 컷 (3개년)</h3>
-          ${deltaText}
+          <span>70%·50%컷</span>
         </div>
         ${renderCutTable(record)}
         <div class="trend-chart">${trendChart(record)}</div>
