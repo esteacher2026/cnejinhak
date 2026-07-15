@@ -171,6 +171,7 @@ footer b{color:var(--ink2)}
 <main class="wrap">
   <!-- COMPARE (hero) -->
   <section class="view on" id="v-compare">
+    <div id="cmp-pop"></div>
     <div class="note" id="cmp-note"></div>
     <div class="toolbar">
       <div class="field"><label>학년도</label><div class="chips" id="cmp-years"></div></div>
@@ -281,12 +282,12 @@ function legend(mode,target){
   const defs=segDefs(mode);
   target.innerHTML=defs.map(d=>`<span class="lg"><span class="sw" style="background:${d.color}"></span>${d.key}</span>`).join('');
 }
-// 모집단(전국 고3 재학생) — 요약 8종 기준. 데이터 있는 5종만 존재.
+// 현재 고3 재학생 고교유형 분포 (전국·2025). 자료에 있는 5종만.
 function baselineAgg(){
-  const defs=segDefs('group'); const cn=BASELINE.counts;
-  let total=0; defs.forEach(d=>total+=(cn[d.key]||0));
-  const seg=defs.map(d=>{const c=cn[d.key]; const has=c!=null;
-    return {key:d.key,color:d.color,count:has?c:0,pct:has&&total?c/total*100:0,na:!has};});
+  const defs=segDefs('group').filter(d=>BASELINE.counts[d.key]!=null);
+  const cn=BASELINE.counts;
+  let total=0; defs.forEach(d=>total+=cn[d.key]);
+  const seg=defs.map(d=>({key:d.key,color:d.color,count:cn[d.key],pct:total?cn[d.key]/total*100:0}));
   return {total,seg};
 }
 
@@ -318,10 +319,9 @@ function fillSelect(id,opts,cb){const s=el(id);s.innerHTML='';
 /* ============ COMPARE ============ */
 const cmp={year:'all',mode:'group',region:''};
 function initCompare(){
-  el('cmp-note').innerHTML=`<b>이 전형으로는 어떤 고교 유형이 뽑히나?</b> 맨 위 <b>‘${BASELINE.label}(모집단)’</b> 막대는 전국 고3의 실제 고교유형 구성비입니다. `+
-    `각 전형 막대와 견주면 어떤 전형이 특정 유형을 <b>재학생 비율보다 더/덜</b> 뽑는지 보입니다(예: 정시는 자사고를 재학생 대비 크게 선발). `+
-    `선발 수치는 대학알리미 공시 수도권 주요 대학 합산, ‘3개년 합산’은 2023~2025 인원 합산 기준입니다. `+
-    `모집단은 요약 8종 기준이며 영재학교·검정고시·기타는 자료에 없어 제외했습니다.`;
+  el('cmp-note').innerHTML=`<b>이 전형으로는 어떤 고교 유형이 뽑히나?</b> 4개 전형별로 합격생의 출신 고교유형 분포를 보여줍니다. `+
+    `선발 수치는 대학알리미 공시 수도권 주요 대학 합산이며, ‘3개년 합산’은 2023~2025 인원을 모두 더해 비율을 계산합니다.`;
+  renderPop();
   yearChips(el('cmp-years'),cmp,renderCompare,true);
   fillSelect('cmp-region',['전체 지역',...REGIONS],v=>{cmp.region=v==='전체 지역'?'':v;renderCompare();});
   el('cmp-mode').querySelectorAll('button').forEach(b=>b.onclick=()=>{cmp.mode=b.dataset.m;
@@ -331,17 +331,20 @@ function initCompare(){
 function cmpFilter(ci){
   return R.filter(r=>r[C_CAT]===ci && (cmp.year==='all'||r[C_YEAR]===+cmp.year) && (!cmp.region||UNIS[r[C_UNI]].region===cmp.region));
 }
+// 상단 독립 블록: 현재 고3 재학생 고교유형 분포 (한 번만 렌더, 필터 무관)
+function renderPop(){
+  const b=baselineAgg();
+  el('cmp-pop').innerHTML=
+    `<div class="card cmprow base" style="margin-bottom:16px">
+      <div class="cmphead"><div class="nm">📌 현재 고3 재학생 고교유형 분포 <span class="basetag">전국 · ${BASELINE.year}</span></div>
+        <div class="tt">고3 재학생 <b>${nf(b.total)}</b>명</div></div>
+     ${stackBar(b.seg)}${segChips(b.seg)}
+     <div class="muted" style="font-size:11.5px;margin-top:9px">전국 고등학교 3학년 재학생 기준 · 출처 대학알리미(교육통계). 아래 전형별 선발 분포와 별개의 참고 자료입니다.</div>
+    </div>`;
+}
 function renderCompare(){
   legend(cmp.mode,el('cmp-legend'));
   const bars=el('cmp-bars');bars.innerHTML='';
-  // 모집단 기준선 (요약 8종 모드에서만)
-  if(cmp.mode==='group'){
-    const b=baselineAgg();
-    bars.appendChild(h('div','card cmprow base',
-      `<div class="cmphead"><div class="nm">${BASELINE.label} <span class="basetag">모집단 · ${BASELINE.year}</span></div>
-        <div class="tt">고3 재학생 <b>${nf(b.total)}</b>명</div></div>
-       ${stackBar(b.seg)}${segChips(b.seg)}`));
-  }
   const aggs=CATS.map((cat,ci)=>({cat,ci,...aggregate(cmpFilter(ci),cmp.mode)}));
   aggs.forEach(a=>{
     if(!a.total){return;}
@@ -356,11 +359,6 @@ function renderCompare(){
   const defs=segDefs(cmp.mode);
   let html=`<div class="tablewrap"><table><thead><tr><th>전형유형</th>`+
     defs.map(d=>`<th>${d.key}</th>`).join('')+`</tr></thead><tbody>`;
-  if(cmp.mode==='group'){
-    const b=baselineAgg();
-    html+=`<tr class="baserow"><td>${BASELINE.label}</td>`+b.seg.map(s=>
-      `<td>${s.na?'<span class="muted">–</span>':pf(s.pct)}</td>`).join('')+`</tr>`;
-  }
   aggs.forEach(a=>{
     if(!a.total)return;
     html+=`<tr><td>${a.cat}</td>`+a.seg.map(s=>{
