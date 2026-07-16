@@ -1542,6 +1542,354 @@
         padding: 10px 12px 10px 16px;
       }
     }
+
+    /* ============================================================
+       (신규) 스트립 — 시즌 추천 · 즐겨찾기 · 최근 본 자료
+       ============================================================ */
+    .strips { padding: 18px 0 0; }
+    .strip { margin-bottom: 10px; }
+    .strip-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .strip-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--navy);
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    [data-theme="dark"] .strip-title { color: var(--ink); }
+    .strip-title svg { width: 15px; height: 15px; color: var(--gold); }
+    .strip-hint { color: var(--muted); font-size: 0.78rem; font-weight: 600; }
+
+    .strip-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .strip-row::-webkit-scrollbar { height: 5px; }
+    .strip-row::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+
+    .strip-card {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      max-width: 300px;
+      padding: 9px 14px 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper);
+      box-shadow: 0 1px 3px rgba(16, 42, 76, 0.05);
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+    }
+    .strip-card:hover, .strip-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--blue);
+      box-shadow: var(--shadow-soft);
+    }
+    .strip-card .strip-ico {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+    .strip-card .strip-ico svg { width: 15px; height: 15px; }
+    .strip-card b {
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .strip-card small {
+      flex-shrink: 0;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    /* 시즌 스트립 강조 톤 */
+    .strip-season .strip-card { border-color: rgba(180, 137, 50, 0.35); }
+    .strip-season .strip-card:hover { border-color: var(--gold); }
+    .strip-season .strip-card .strip-ico { color: #8a6420; background: var(--gold-soft); }
+    [data-theme="dark"] .strip-season .strip-card .strip-ico { color: var(--gold); }
+
+    .strip { display: none; }
+    .strip.visible { display: block; }
+    .strip-remove {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      margin-left: 2px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .strip-remove:hover { background: var(--blue-soft); color: var(--blue); }
+    .strip-remove svg { width: 11px; height: 11px; }
+
+    /* ============================================================
+       (신규) 정렬 토글
+       ============================================================ */
+    .sort-toggle {
+      display: inline-flex;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-2);
+    }
+    .sort-toggle button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      height: 36px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .sort-toggle button:hover { color: var(--blue); }
+    .sort-toggle button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+    [data-theme="dark"] .sort-toggle button[aria-pressed="true"] { background: var(--blue); color: var(--bg); }
+
+    /* ============================================================
+       (신규) 유형 칩 행
+       ============================================================ */
+    .type-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+    }
+    .type-chips .type-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-right: 2px;
+    }
+
+    /* ============================================================
+       (신규) 검색 제안 드롭다운
+       ============================================================ */
+    .search-wrap { z-index: 25; }
+    .suggest {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: none;
+      max-height: 380px;
+      overflow-y: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .suggest.visible { display: block; }
+    .suggest-group {
+      padding: 8px 12px 2px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+    .suggest-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+    .suggest-item.active, .suggest-item:hover { background: var(--blue-soft); }
+    .suggest-item .s-ico {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+    .suggest-item.active .s-ico, .suggest-item:hover .s-ico { background: var(--paper); }
+    .suggest-item .s-ico svg { width: 14px; height: 14px; }
+    .suggest-item .s-text { flex: 1; min-width: 0; }
+    .suggest-item .s-title {
+      display: block;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .suggest-item .s-desc {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .suggest-item .s-badge {
+      flex-shrink: 0;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .suggest-foot {
+      padding: 7px 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .suggest-foot kbd {
+      padding: 0 5px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--paper-2);
+      font-family: inherit;
+      font-size: 0.68rem;
+    }
+
+    /* ============================================================
+       (신규) NEW / UPDATE 배지 + 카드 날짜
+       ============================================================ */
+    .badge-new, .badge-upd {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 6px;
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      vertical-align: 2px;
+    }
+    .badge-new { color: #fff; background: #d13b53; }
+    .badge-upd { color: #fff; background: #0e7c66; }
+    [data-theme="dark"] .badge-new { color: #0a1628; background: #ff8095; }
+    [data-theme="dark"] .badge-upd { color: #0a1628; background: #5eead4; }
+
+    .card-date {
+      display: block;
+      margin-top: auto;
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+    body[data-view="compact"] .card-date { display: none; }
+
+    /* ============================================================
+       (신규) 즐겨찾기 별 버튼 — 카드 우하단 (기존 화살표 대체)
+       ============================================================ */
+    .resource-card::after, .support-card::after,
+    .instructional-card::after, .stats-card::after { content: none; }
+
+    .fav-btn {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+    .fav-btn svg { width: 16px; height: 16px; }
+    .resource-card:hover .fav-btn, .support-card:hover .fav-btn,
+    .instructional-card:hover .fav-btn, .stats-card:hover .fav-btn,
+    .fav-btn:focus-visible { opacity: 1; }
+    .fav-btn:hover { background: var(--gold-soft); color: var(--gold); transform: scale(1.12); }
+    .fav-btn[aria-pressed="true"] { opacity: 1; color: var(--gold); }
+    .fav-btn[aria-pressed="true"] svg { fill: currentColor; }
+    body[data-view="compact"] .fav-btn {
+      position: static;
+      grid-column: 3;
+      grid-row: 1 / span 2;
+      align-self: center;
+      opacity: 1;
+    }
+    body[data-view="compact"] .resource-card,
+    body[data-view="compact"] .support-card,
+    body[data-view="compact"] .instructional-card,
+    body[data-view="compact"] .stats-card {
+      grid-template-columns: 90px 1fr 34px;
+    }
+
+    /* 모바일 보정 */
+    @media (max-width: 700px) {
+      .strips { padding-top: 14px; }
+      .strip-card b { max-width: 170px; }
+      .sort-toggle { width: 100%; }
+      .sort-toggle button { flex: 1; min-width: 0; }
+      .type-chips {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .type-chips::-webkit-scrollbar { display: none; }
+      .type-chips .chip { flex-shrink: 0; }
+      .suggest { max-height: 300px; }
+      .fav-btn { opacity: 1; width: 28px; height: 28px; }
+      body[data-view="compact"] .resource-card,
+      body[data-view="compact"] .support-card,
+      body[data-view="compact"] .instructional-card,
+      body[data-view="compact"] .stats-card {
+        grid-template-columns: 78px 1fr 30px;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -1647,6 +1995,31 @@
       </div>
     </section>
 
+    <!-- (신규) 시즌 추천 · 즐겨찾기 · 최근 본 자료 스트립 -->
+    <div class="wrap strips">
+      <div class="strip strip-season" id="seasonStrip">
+        <div class="strip-head">
+          <span class="strip-title"><svg aria-hidden="true"><use href="#i-cal"></use></svg><span id="seasonLabel"></span></span>
+          <span class="strip-hint">시기에 맞춰 추천하는 자료</span>
+        </div>
+        <div class="strip-row" id="seasonRow"></div>
+      </div>
+      <div class="strip strip-fav" id="favStrip">
+        <div class="strip-head">
+          <span class="strip-title"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="m12 2.5 3.09 6.26 6.91 1.01-5 4.87 1.18 6.88L12 18.27l-6.18 3.25L7 14.64 2 9.77l6.91-1.01z"/></svg>즐겨찾기</span>
+          <span class="strip-hint">카드의 별(★)을 눌러 자주 쓰는 자료를 모아두세요</span>
+        </div>
+        <div class="strip-row" id="favRow"></div>
+      </div>
+      <div class="strip strip-recent" id="recentStrip">
+        <div class="strip-head">
+          <span class="strip-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>최근 본 자료</span>
+        </div>
+        <div class="strip-row" id="recentRow"></div>
+      </div>
+    </div>
+
+
     <!-- 전역 도구: 사이트 전체 검색 + 섹션 스코프 + 뷰 토글 -->
     <section class="global-tools-section" aria-label="자료 검색 및 필터">
       <div class="wrap">
@@ -1670,6 +2043,7 @@
                   <path d="M18 6 6 18M6 6l12 12"></path>
                 </svg>
               </button>
+              <div class="suggest" id="suggest" role="listbox" aria-label="검색 제안"></div>
             </div>
 
             <div class="view-toggle" role="group" aria-label="보기 방식 전환">
@@ -1694,6 +2068,12 @@
                 리스트
               </button>
             </div>
+
+            <div class="sort-toggle" role="group" aria-label="정렬 방식">
+              <button type="button" data-sort="default" aria-pressed="true" title="큐레이션 순서">기본</button>
+              <button type="button" data-sort="updated" aria-pressed="false" title="최근 갱신된 자료부터">최신순</button>
+              <button type="button" data-sort="name" aria-pressed="false" title="제목 가나다순">가나다</button>
+            </div>
           </div>
 
           <div class="scope-chips" role="group" aria-label="섹션 범위 필터">
@@ -1702,6 +2082,17 @@
             <button class="chip" type="button" data-scope="support" aria-pressed="false">보조 자료 <span class="count" data-scope-count="support">—</span></button>
             <button class="chip" type="button" data-scope="instructional" aria-pressed="false">수업 자료 <span class="count" data-scope-count="instructional">—</span></button>
             <button class="chip" type="button" data-scope="statistics" aria-pressed="false">통계 자료 <span class="count" data-scope-count="statistics">—</span></button>
+          </div>
+
+          <div class="type-chips" role="group" aria-label="도구 유형 필터">
+            <span class="type-label">유형</span>
+            <button class="chip" type="button" data-type-filter="all" aria-pressed="true">모든 유형 <span class="count">83</span></button>
+            <button class="chip" type="button" data-type-filter="explore" aria-pressed="false">조회·비교 <span class="count">28</span></button>
+            <button class="chip" type="button" data-type-filter="guide" aria-pressed="false">안내서 <span class="count">39</span></button>
+            <button class="chip" type="button" data-type-filter="download" aria-pressed="false">다운로드 <span class="count">5</span></button>
+            <button class="chip" type="button" data-type-filter="calc" aria-pressed="false">계산·생성 <span class="count">4</span></button>
+            <button class="chip" type="button" data-type-filter="map" aria-pressed="false">지도·캘린더 <span class="count">4</span></button>
+            <button class="chip" type="button" data-type-filter="video" aria-pressed="false">영상 <span class="count">3</span></button>
           </div>
         </div>
 
@@ -1734,309 +2125,350 @@
 
         <div class="admission-grid" id="admissionGrid">
 
-          <!-- ===== 2026 입시결과 ===== -->
           <div class="group-divider" data-group="result" role="presentation">
             <span class="group-divider-label">입시결과 · 선행학습</span>
           </div>
-          <a class="resource-card" href="adiga/" data-category="result" data-keywords="2026 입시결과 어디가 대학발표 70컷 50컷 3개년 수시 모집단위 조회 경쟁률 충원">
+
+          <a class="resource-card" href="adiga/" data-id="adiga" data-category="result" data-type="explore" data-added="2026-06-08" data-updated="2026-07-08" data-keywords="2026 입시결과 어디가 대학발표 70컷 50컷 3개년 수시 모집단위 조회 경쟁률 충원">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026대학발표 입시결과 조회</h3>
             <p>어디가 24·25·26 수시 70%·50%컷 3개년 비교 조회</p>
+            <span class="card-date">2026.07.08 갱신</span>
           </a>
 
-          <a class="resource-card" href="jeongsi/" data-category="result" data-keywords="2026 정시 입시결과 수능위주 대학발표 백분위 70컷 50컷 평균백분위 경쟁률 충원 모집단위 모집군 영어 등급 환산점수 내 백분위 매칭">
+          <a class="resource-card" href="jeongsi/" data-id="jeongsi" data-category="result" data-type="explore" data-added="2026-06-28" data-updated="2026-07-08" data-keywords="2026 정시 입시결과 수능위주 대학발표 백분위 70컷 50컷 평균백분위 경쟁률 충원 모집단위 모집군 영어 등급 환산점수 내 백분위 매칭">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026 정시(수능위주) 입시결과(백분위) 조회</h3>
             <p>대학발표 2026 정시 수능 백분위 70%컷·경쟁률을 대학·모집단위별 조회 + 내 백분위 매칭</p>
+            <span class="card-date">2026.07.08 갱신</span>
           </a>
 
-          <a class="resource-card" href="2026results-download.html" data-category="result" data-keywords="2026 입시결과 대학별 원문 다운로드 PDF 엑셀 한글 수시 정시 대학발표">
+          <a class="resource-card" href="2026results-download.html" data-id="2026results-download" data-category="result" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2026 입시결과 대학별 원문 다운로드 PDF 엑셀 한글 수시 정시 대학발표">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026대학발표 입시결과 다운로드</h3>
             <p>대학 발표 자료를 대학별로 검색하고 내려받기</p>
+            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
-          <a class="resource-card" href="2026prelearning-report.html" data-category="result" data-keywords="2026 선행학습영향평가 결과보고서 대학별고사 문항카드 논술 면접 원문 다운로드 PDF HWP">
+          <a class="resource-card" href="2026prelearning-report.html" data-id="2026prelearning-report" data-category="result" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2026 선행학습영향평가 결과보고서 대학별고사 문항카드 논술 면접 원문 다운로드 PDF HWP">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-result">2026 선행학습</span>
             <h3>2026 선행학습영향평가 결과보고서</h3>
             <p>대학별 결과보고서·문항카드·부속자료 원문 검색 및 다운로드</p>
+            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
-          <a class="resource-card" href="procollege6.html" data-category="result" data-keywords="전문대학 전문대 간호 보건 물리치료 치위생 방사선 응급구조 임상병리 입시결과 경쟁률 합격자 등급 3개년 전문대학포털 수시 정시">
+          <a class="resource-card" href="procollege6.html" data-id="procollege6" data-category="result" data-type="explore" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="전문대학 전문대 간호 보건 물리치료 치위생 방사선 응급구조 임상병리 입시결과 경쟁률 합격자 등급 3개년 전문대학포털 수시 정시">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>전문대학 간호·보건 6개 학과 입시결과</h3>
             <p>간호·물리치료·방사선·응급구조·임상병리·치위생 24~26 경쟁률·합격자 성적</p>
+            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
           <div class="group-divider" data-group="2027" role="presentation">
             <span class="group-divider-label">2027 대입</span>
           </div>
-          <a class="resource-card" href="jonghap_eval.html" data-category="2027" data-keywords="2027 어디가 학생부종합전형 서류평가 평가요소 비율 대학별 비교">
+
+          <a class="resource-card" href="jonghap_eval.html" data-id="jonghap_eval" data-category="2027" data-type="explore" data-added="2026-06-06" data-updated="2026-06-07" data-keywords="2027 어디가 학생부종합전형 서류평가 평가요소 비율 대학별 비교">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 서류평가 비교</h3>
             <p>대학별 서류평가 내용과 전형별 평가요소 비율 확인</p>
+            <span class="card-date">2026.06.07 갱신</span>
           </a>
 
-          <a class="resource-card" href="jonghap_interview.html" data-category="2027" data-keywords="2027 어디가 학생부종합전형 면접평가 면접시간 평가요소 비율 대학별 비교">
+          <a class="resource-card" href="jonghap_interview.html" data-id="jonghap_interview" data-category="2027" data-type="explore" data-added="2026-06-06" data-updated="2026-06-07" data-keywords="2027 어디가 학생부종합전형 면접평가 면접시간 평가요소 비율 대학별 비교">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 면접평가 비교</h3>
             <p>대학별 면접 방식, 면접시간, 문항유형과 평가요소 비율 확인</p>
+            <span class="card-date">2026.06.07 갱신</span>
           </a>
 
-          <a class="resource-card" href="student_record_interview.html" data-category="2027" data-keywords="2027 학생부종합전형 면접 학생부 활동 탐구 예상문항 모의면접 충청남도교육청 진로융합교육원">
+          <a class="resource-card" href="student_record_interview.html" data-id="student_record_interview" data-category="2027" data-type="calc" data-added="2026-06-16" data-updated="2026-07-08" data-keywords="2027 학생부종합전형 면접 학생부 활동 탐구 예상문항 모의면접 충청남도교육청 진로융합교육원">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>학생부 활동·탐구 면접 질문 생성</h3>
             <p>학생부 활동명과 지원 분야를 입력해 활동·탐구 과정 중심 예상문항 30개 생성</p>
+            <span class="card-date">2026.07.08 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027hakjong-guide.html" data-category="2027" data-keywords="2027 학생부종합전형 가이드북 학생부위주전형 학생부전형 학종 대학별 원문 다운로드 PDF">
+          <a class="resource-card" href="2027hakjong-guide.html" data-id="2027hakjong-guide" data-category="2027" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2027 학생부종합전형 가이드북 학생부위주전형 학생부전형 학종 대학별 원문 다운로드 PDF">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 가이드북</h3>
             <p>대학별 학생부종합·학생부위주전형 가이드북 PDF 원문 검색 및 다운로드</p>
+            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027gosa.html" data-category="2027" data-keywords="2027 수시 대학별고사 일정 캘린더 논술 면접 실기 고사일 충돌 상담 어디가">
+          <a class="resource-card" href="2027gosa.html" data-id="2027gosa" data-category="2027" data-type="map" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="2027 수시 대학별고사 일정 캘린더 논술 면접 실기 고사일 충돌 상담 어디가">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-cal"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시 대학별고사 일정 캘린더</h3>
             <p>논술·면접·실기 일정을 달력·대학별로 보고, 상담 모드로 겹침 확인</p>
+            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027susi-download.html" data-category="2027" data-keywords="2027 수시모집요강 대학별 모집요강 원문 다운로드 PDF HWP 수시 대학 입학처">
+          <a class="resource-card" href="2027susi-download.html" data-id="2027susi-download" data-category="2027" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2027 수시모집요강 대학별 모집요강 원문 다운로드 PDF HWP 수시 대학 입학처">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시모집요강 원문 다운로드</h3>
             <p>대학별 수시모집요강 PDF·HWP 원문을 지역과 대학명으로 검색</p>
+            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
-          <!-- ===== 2027 대입 ===== -->
-          <a class="resource-card" href="2027admissions2.html" data-category="2027" data-keywords="2027 대입전형 이해 초급자 웹 안내서 대입정보119 대교협">
+          <a class="resource-card" href="2027admissions2.html" data-id="2027admissions2" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-05" data-keywords="2027 대입전형 이해 초급자 웹 안내서 대입정보119 대교협">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027학년도 대입전형의 이해(초급자용)</h3>
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
+            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027special.html" data-category="2027" data-keywords="2027 농어촌학생 특별전형 웹 안내서">
+          <a class="resource-card" href="2027special.html" data-id="2027special" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2027 농어촌학생 특별전형 웹 안내서">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 농어촌학생 특별전형</h3>
             <p>농어촌학생 특별전형,자격부터 대학별 전형까지</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="localmedi.html" data-category="2027" data-keywords="2027 지역인재 특별전형">
+          <a class="resource-card" href="localmedi.html" data-id="localmedi" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-23" data-keywords="2027 지역인재 특별전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 지역인재 특별전형</h3>
             <p>의예, 치의예, 한의예, 약학, 수의예, 간호</p>
+            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027medi.html" data-category="2027" data-keywords="2027 지역의사선발전형 안내서">
+          <a class="resource-card" href="2027medi.html" data-id="2027medi" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-07-02" data-keywords="2027 지역의사선발전형 안내서">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 지역의사선발전형</h3>
             <p>지역의사 선발전형 안내</p>
+            <span class="card-date">2026.07.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027uichihan.html" data-category="2027" data-keywords="2027 의치한약수 의예 치의예 한의예 약학 수의예 수시 전형 수능최저 면접 경쟁률 70%컷 입시결과 어디가">
+          <a class="resource-card" href="2027uichihan.html" data-id="2027uichihan" data-category="2027" data-type="explore" data-added="2026-07-04" data-updated="2026-07-06" data-keywords="2027 의치한약수 의예 치의예 한의예 약학 수의예 수시 전형 수능최저 면접 경쟁률 70%컷 입시결과 어디가">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 의·치·한·약·수 수시 전형 탐색기</h3>
             <p>의약학계열 수시 전형·수능최저·면접·3개년 입결을 한눈에</p>
+            <span class="card-date">2026.07.06 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027yeche.html" data-category="2027" data-keywords="2027 예체능 비실기전형 음악 미술 체육 연기연출 응용예술 전공자율선택제 수능최저 모집단위 정시 반영영역 대입정보119">
+          <a class="resource-card" href="2027yeche.html" data-id="2027yeche" data-category="2027" data-type="explore" data-added="2026-06-10" data-updated="2026-06-11" data-keywords="2027 예체능 비실기전형 음악 미술 체육 연기연출 응용예술 전공자율선택제 수능최저 모집단위 정시 반영영역 대입정보119">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 예체능계열 비실기전형</h3>
             <p>음악·미술·체육·연기/연출·응용예술 비실기 모집단위 검색·비교</p>
+            <span class="card-date">2026.06.11 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027cheomdan.html" data-category="2027" data-keywords="2027 계약학과 첨단학과 기업체취업형 조기취업형 군의무복무형 채용조건형 반도체 삼성전자 SK하이닉스 분야 모집단위 검색 비교 대입정보119">
+          <a class="resource-card" href="2027cheomdan.html" data-id="2027cheomdan" data-category="2027" data-type="explore" data-added="2026-06-11" data-updated="2026-06-23" data-keywords="2027 계약학과 첨단학과 기업체취업형 조기취업형 군의무복무형 채용조건형 반도체 삼성전자 SK하이닉스 분야 모집단위 검색 비교 대입정보119">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 계약학과·첨단학과</h3>
             <p>기업체취업형·조기취업형·군의무복무형 계약학과와 첨단학과 검색·비교</p>
+            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027gyogwa.html" data-category="2027" data-keywords="학생부교과전형 교과 반영방법 수능최저">
+          <a class="resource-card" href="2027gyogwa.html" data-id="2027gyogwa" data-category="2027" data-type="explore" data-added="2026-06-02" data-updated="2026-06-23" data-keywords="학생부교과전형 교과 반영방법 수능최저">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부교과전형</h3>
             <p>2027학생부교과전형, 한 화면에서 검색하고 비교</p>
+            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027chuchon.html" data-category="2027" data-keywords="2027 학교장추천전형 학교장추천 지역균형 고교추천 추천형 교과 종합 학종 사관학교 경찰대 국군간호사관 수능최저 면접 모집인원 비교 SEN진학 장진호">
+          <a class="resource-card" href="2027chuchon.html" data-id="2027chuchon" data-category="2027" data-type="explore" data-added="2026-06-23" data-updated="2026-06-29" data-keywords="2027 학교장추천전형 학교장추천 지역균형 고교추천 추천형 교과 종합 학종 사관학교 경찰대 국군간호사관 수능최저 면접 모집인원 비교 SEN진학 장진호">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학교장추천전형</h3>
             <p>교과·종합·사관/경찰 학교장추천 60개 전형을 검색·비교</p>
+            <span class="card-date">2026.06.29 갱신</span>
           </a>
 
-          <a class="resource-card" href="2027-specialized-highschool-standards/" data-category="2027" data-keywords="2027 특성화고 기준학과 특성화고교졸업자 특별전형 동일계열 시도교육청 한국대학교육협의회 대교협 기준학과 학교 학과 검색">
+          <a class="resource-card" href="2027-specialized-highschool-standards/" data-id="2027-specialized-highschool-standards" data-category="2027" data-type="explore" data-added="2026-06-24" data-updated="2026-06-24" data-keywords="2027 특성화고 기준학과 특성화고교졸업자 특별전형 동일계열 시도교육청 한국대학교육협의회 대교협 기준학과 학교 학과 검색">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 특성화고 기준학과</h3>
             <p>시도교육청별 특성화고 학과와 기준학과를 원본 행 기준으로 검색</p>
+            <span class="card-date">2026.06.24 갱신</span>
           </a>
 
-          <!-- ===== 2028 대입 ===== -->
           <div class="group-divider" data-group="2028" role="presentation">
             <span class="group-divider-label">2028 대입</span>
           </div>
-          <a class="resource-card" href="2028admission-plan-download.html" data-category="2028" data-keywords="2028 대학입학전형시행계획 대학별 시행계획 기본계획 주요사항 모집인원 원문 다운로드 PDF HWP XLSX">
+
+          <a class="resource-card" href="2028admission-plan-download.html" data-id="2028admission-plan-download" data-category="2028" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2028 대학입학전형시행계획 대학별 시행계획 기본계획 주요사항 모집인원 원문 다운로드 PDF HWP XLSX">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대학입학전형시행계획 원문 다운로드</h3>
             <p>대학별 시행계획·기본계획·주요사항·모집인원 원문 검색 및 다운로드</p>
+            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028gyogwa-change.html" data-category="2028" data-keywords="학생부교과전형 5등급제 성취도 환산점수 지역균형 학교장추천 수능최저 반영교과 내신산출 모집인원 유홍규">
+          <a class="resource-card" href="2028gyogwa-change.html" data-id="2028gyogwa-change" data-category="2028" data-type="explore" data-added="2026-06-11" data-updated="2026-06-11" data-keywords="학생부교과전형 5등급제 성취도 환산점수 지역균형 학교장추천 수능최저 반영교과 내신산출 모집인원 유홍규">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 학생부교과전형의 변화</h3>
             <p>5등급제·환산점수·지역균형·수능최저·내신산출방식까지 교과전형 변화 총정리</p>
+            <span class="card-date">2026.06.11 갱신</span>
           </a>
 
-          <a class="resource-card" href="hakjong2028.html" data-category="2028" data-keywords="2028 학생부종합전형">
+          <a class="resource-card" href="hakjong2028.html" data-id="hakjong2028" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 학생부종합전형</h3>
             <p>주요 13개 대학의 학생부종합전형 정리</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028castrow.html" data-category="2028" data-keywords="2028 수능최저 빠른보기">
+          <a class="resource-card" href="2028castrow.html" data-id="2028castrow" data-category="2028" data-type="explore" data-added="2026-06-04" data-updated="2026-06-13" data-keywords="2028 수능최저 빠른보기">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 수능최저 빠른보기</h3>
             <p>수능최저가 있는 교과·종합·논술 전형만 빠르게 비교</p>
+            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028suneung.html" data-category="2028" data-keywords="2028 수능 정시 수능위주전형 반영비율 모집인원 모집군 영어 등급별 점수 탐구 통합사회 통합과학 국가거점국립대 대학별 조회 표준점수 백분위 등급 서울 15개 대학">
+          <a class="resource-card" href="2028suneung.html" data-id="2028suneung" data-category="2028" data-type="explore" data-added="2026-06-23" data-updated="2026-06-23" data-keywords="2028 수능 정시 수능위주전형 반영비율 모집인원 모집군 영어 등급별 점수 탐구 통합사회 통합과학 국가거점국립대 대학별 조회 표준점수 백분위 등급 서울 15개 대학">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 수능·정시 안내</h3>
             <p>수능 체제 변화와 서울 15개 대학·국가거점국립대 정시(수능위주전형)를 대학별로 조회</p>
+            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028gyogwa.html" data-category="2028" data-keywords="2028 교과반영방법 반영과목 반영지표 등급환산 성취도환산 반영범위">
+          <a class="resource-card" href="2028gyogwa.html" data-id="2028gyogwa" data-category="2028" data-type="explore" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="2028 교과반영방법 반영과목 반영지표 등급환산 성취도환산 반영범위">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 교과반영방법</h3>
             <p>대학별 반영과목·반영지표·환산방식을 빠르게 검색·비교</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
-          <a class="resource-card" href="jinhak2028.html" data-category="2028" data-keywords="2028 대입 변화 전년도 비교 정태영">
+          <a class="resource-card" href="jinhak2028.html" data-id="jinhak2028" data-category="2028" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 대입 변화 전년도 비교 정태영">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대입 변화 비교</h3>
             <p>2028학년도 대입 전형의 핵심 변경사항과 이전 연도와의 차이점을 상세히 비교 분석합니다.</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="202815uni.html" data-category="2028" data-keywords="15개 대학 입학전형 시행계획 변경사항">
+          <a class="resource-card" href="202815uni.html" data-id="202815uni" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="15개 대학 입학전형 시행계획 변경사항">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>15개 대학 입학전형</h3>
             <p>2026년 4월 발표 기준 15개 대학 시행계획을 분석한 자료입니다.</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028ist.html" data-category="2028" data-keywords="KAIST GIST DGIST UNIST KENTECH POSTECH 과학기술원 이공계">
+          <a class="resource-card" href="2028ist.html" data-id="2028ist" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="KAIST GIST DGIST UNIST KENTECH POSTECH 과학기술원 이공계">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>과학기술원 시행계획</h3>
             <p>KAIST, GIST, DGIST, UNIST, KENTECH, POSTECH</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028edu.html" data-category="2028" data-keywords="교육대학교 교대 시행계획">
+          <a class="resource-card" href="2028edu.html" data-id="2028edu" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="교육대학교 교대 시행계획">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>교육대학교 시행계획</h3>
             <p>교육대학교 시행계획 안내</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="gyogwa70cut.html" data-category="2028" data-keywords="2026 어디가 교과전형 70%컷 성적 변환 대학 발표자료">
+          <a class="resource-card" href="gyogwa70cut.html" data-id="gyogwa70cut" data-category="2028" data-type="calc" data-added="2026-06-06" data-updated="2026-06-12" data-keywords="2026 어디가 교과전형 70%컷 성적 변환 대학 발표자료">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028대입 5등급-9등급 성적 변환(교과전형)</h3>
             <p>2026 교과전형 발표자료의 70%컷 살펴보기</p>
+            <span class="card-date">2026.06.12 갱신</span>
           </a>
 
-          <a class="resource-card" href="jonghap70cut.html" data-category="2028" data-keywords="2026 어디가 종합전형 학생부종합전형 70%컷 성적 변환 대학 발표자료">
+          <a class="resource-card" href="jonghap70cut.html" data-id="jonghap70cut" data-category="2028" data-type="calc" data-added="2026-06-02" data-updated="2026-06-12" data-keywords="2026 어디가 종합전형 학생부종합전형 70%컷 성적 변환 대학 발표자료">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028대입 5등급-9등급 성적 변환(종합전형)</h3>
             <p>2026 종합전형 발표자료의 70%컷 살펴보기</p>
+            <span class="card-date">2026.06.12 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028guide.html" data-category="2028" data-keywords="2028 대입전형 이해 초급자 웹 안내서">
+          <a class="resource-card" href="2028guide.html" data-id="2028guide" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 대입전형 이해 초급자 웹 안내서">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028학년도 대입전형의 이해(초급자용)</h3>
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="2028nonsul.html" data-category="2028" data-keywords="2028 논술전형 논술 모집인원 수능최저학력기준 전형방법 환산점수 논술고사 유형 인문 자연 수리논술 언어논술 약술형 의약학 대학별 비교 검색">
+          <a class="resource-card" href="2028nonsul.html" data-id="2028nonsul" data-category="2028" data-type="explore" data-added="2026-06-15" data-updated="2026-06-15" data-keywords="2028 논술전형 논술 모집인원 수능최저학력기준 전형방법 환산점수 논술고사 유형 인문 자연 수리논술 언어논술 약술형 의약학 대학별 비교 검색">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 논술전형</h3>
             <p>12,727명·46개 대학 — 모집인원·수능최저·전형방법·논술유형을 검색·비교</p>
+            <span class="card-date">2026.06.15 갱신</span>
           </a>
 
-          <!-- ===== 대입 정보 ===== -->
           <div class="group-divider" data-group="info" role="presentation">
             <span class="group-divider-label">대입 정보</span>
           </div>
-          <a class="resource-card" href="./2028-admission-plans/unimap.html" data-category="info" data-keywords="대학교 입학안내 지도 목록 입학처 수시모집요강 시행계획 선행학습 영향평가 보고서 학생부종합 가이드북">
+
+          <a class="resource-card" href="./2028-admission-plans/unimap.html" data-id="2028-admission-plans_unimap" data-category="info" data-type="map" data-added="2026-06-02" data-updated="2026-06-15" data-keywords="대학교 입학안내 지도 목록 입학처 수시모집요강 시행계획 선행학습 영향평가 보고서 학생부종합 가이드북">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>대학교 입학안내 지도</h3>
             <p>지도·목록으로 — 입학처·모집요강·시행계획·선행학습 보고서·가이드북을 한눈에</p>
+            <span class="card-date">2026.06.15 갱신</span>
           </a>
 
-          <a class="resource-card" href="2unimap.html" data-category="info" data-keywords="전국 전문대학 입학 안내 지도 목록 입학처 전문대">
+          <a class="resource-card" href="2unimap.html" data-id="2unimap" data-category="info" data-type="map" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="전국 전문대학 입학 안내 지도 목록 입학처 전문대">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>전국 전문대학 입학 안내 지도</h3>
             <p>전국 전문대학을 지도·목록으로 한눈에, 입학처·홈페이지 링크까지</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
-          <a class="resource-card" href="dong.html" data-category="info" data-keywords="입시 동영상 유튜브 김태진 대학어디가 쎈진학">
+          <a class="resource-card" href="dong.html" data-id="dong" data-category="info" data-type="video" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="입시 동영상 유튜브 김태진 대학어디가 쎈진학">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>입시동영상 모음</h3>
             <p>대입전형 이해를 위한 유튜브 영상 자료 모음집</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="resource-card" href="2026_2028py.html" data-category="info" data-keywords="체육 대학 요강 노동기">
+          <a class="resource-card" href="2026_2028py.html" data-id="2026_2028py" data-category="info" data-type="guide" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="체육 대학 요강 노동기">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>체육 대학</h3>
             <p>2026~2028 체육대학 요강 정리</p>
+            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
-          <a class="resource-card" href="jinhakdong2.html" data-category="info" data-keywords="대입 영상 충청남도교육청 진로융합교육원 진학해유">
+          <a class="resource-card" href="jinhakdong2.html" data-id="jinhakdong2" data-category="info" data-type="video" data-added="2026-06-02" data-updated="2026-06-28" data-keywords="대입 영상 충청남도교육청 진로융합교육원 진학해유">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>대입 관련 영상</h3>
             <p>충청남도교육청진로융합교육원 진학해유</p>
+            <span class="card-date">2026.06.28 갱신</span>
           </a>
 
-          <a class="resource-card" href="hakjongguide.html" data-category="info" data-keywords="학생부종합전형에 대한 이해">
+          <a class="resource-card" href="hakjongguide.html" data-id="hakjongguide" data-category="info" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="학생부종합전형에 대한 이해">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>학생부종합전형에 대한 이해(초급자용)</h3>
             <p>대학의 평가기준을 바탕으로한 학생부종합전형</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
-          
+
           <!-- Empty state -->
           <div class="empty-state" id="emptyState" role="status">
             <strong>검색 결과가 없습니다</strong>
@@ -2058,109 +2490,125 @@
         </div>
 
         <div class="support-grid" id="supportGrid">
-          <a class="support-card" href="jinrodesign.html" data-keywords="진로 진학 학업설계 고1 고2 2022개정 교육과정 고교학점제 과목선택 자기이해 대입 전형 로드맵">
+
+          <a class="support-card" href="jinrodesign.html" data-id="jinrodesign" data-type="guide" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="진로 진학 학업설계 고1 고2 2022개정 교육과정 고교학점제 과목선택 자기이해 대입 전형 로드맵">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
             <span class="tag">진로</span>
             <h3>고1·고2를 위한 진로·학업 설계</h3>
             <p>자기 이해부터 과목 선택, 월별 로드맵, 셀프 체크까지 한눈에</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
-          <a class="support-card" href="aisc.html" data-keywords="탐구 데이터분석 지구과학 고등학생 주제 344">
+          <a class="support-card" href="aisc.html" data-id="aisc" data-type="explore" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="탐구 데이터분석 지구과학 고등학생 주제 344">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>데이터 분석 탐구 주제</h3>
             <p>고등학생 지구과학 데이터 분석형 탐구 주제 344</p>
+            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
-          <a class="support-card" href="sub2.html" data-keywords="진로 선택과목 설계 2022개정 교육과정 전공">
+          <a class="support-card" href="sub2.html" data-id="sub2" data-type="guide" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="진로 선택과목 설계 2022개정 교육과정 전공">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
             <span class="tag">진로</span>
             <h3>선택과목설계</h3>
             <p>2022개정교육과정에서 전공별 선택과목을 설계하는 방법에 대한 정보를 제공합니다.</p>
+            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
-          <a class="support-card" href="toon1.html" data-keywords="진로 웹툰 학업설계 고1 2022개정 교육과정">
+          <a class="support-card" href="toon1.html" data-id="toon1" data-type="video" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="진로 웹툰 학업설계 고1 2022개정 교육과정">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="tag">진로</span>
             <h3>진로학업설계 웹툰</h3>
             <p>2022 개정 교육과정 고1 학생을 위한 웹툰</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="support-card" href="csat2028.html" data-keywords="학습 2028수능 국어 수학 영어 통합사회 통합과학 대비전략">
+          <a class="support-card" href="csat2028.html" data-id="csat2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="학습 2028수능 국어 수학 영어 통합사회 통합과학 대비전략">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">학습</span>
             <h3>2028수능 대비 방법</h3>
             <p>국어·수학·영어·통합사회·통합과학의 2028 수능 대비 전략</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
-          <a class="support-card" href="preview.html" data-keywords="학습 내신 공부방법 고등학생 2022개정 교육과정">
+          <a class="support-card" href="preview.html" data-id="preview" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="학습 내신 공부방법 고등학생 2022개정 교육과정">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">학습</span>
             <h3>고등학생을 위한 내신 공부 방법</h3>
             <p>2022 개정 교육과정 기반 고등학생 내신 학습 방법</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
-          <a class="support-card" href="sciencetam.html" data-keywords="탐구 학생부종합전형 과학교과 심화탐구 가이드">
+          <a class="support-card" href="sciencetam.html" data-id="sciencetam" data-type="guide" data-added="2026-06-10" data-updated="2026-07-07" data-keywords="탐구 학생부종합전형 과학교과 심화탐구 가이드">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>학생부종합전형 대비 과학교과 탐구 방법</h3>
             <p>과학 교과에서 출발해 탐구력으로 확장하는 심화 탐구활동 가이드</p>
+            <span class="card-date">2026.07.07 갱신</span>
           </a>
 
-          <a class="support-card" href="socialtam.html" data-keywords="탐구 학생부종합전형 사회교과 사회현상 대안 탐구">
+          <a class="support-card" href="socialtam.html" data-id="socialtam" data-type="guide" data-added="2026-06-02" data-updated="2026-07-07" data-keywords="탐구 학생부종합전형 사회교과 사회현상 대안 탐구">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>학생부종합전형 대비 사회교과 탐구 방법</h3>
             <p>사회현상을 근거로 읽고, 대안으로 확장하는 탐구</p>
+            <span class="card-date">2026.07.07 갱신</span>
           </a>
 
-          <a class="support-card" href="ai_prompt.html" data-keywords="탐구 데이터분석 AI 실험데이터 공공데이터 센서로그 이미지 텍스트">
+          <a class="support-card" href="ai_prompt.html" data-id="ai_prompt" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="탐구 데이터분석 AI 실험데이터 공공데이터 센서로그 이미지 텍스트">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>데이터 분석 방법 가이드</h3>
             <p>실험데이터·공공데이터·센서로그·이미지·텍스트 등의 AI활용 분석 방법</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-         <a class="support-card" href="2027uni.html" data-keywords="2027 진로 전국대학 학과 검색 모집인원 수업주제 관심사">
+          <a class="support-card" href="2027uni.html" data-id="2027uni" data-type="explore" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="2027 진로 전국대학 학과 검색 모집인원 수업주제 관심사">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="tag">진로</span>
             <h3>2027 대학 개설학과·모집인원 검색</h3>
             <p>학과, 모집인원, 교과·직업·상담 주제를 함께 탐색합니다.</p>
+            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
-        <a class="support-card" href="studentguide.html" data-keywords="학교생활기록부 학생부 기재요령 2026">
+          <a class="support-card" href="studentguide.html" data-id="studentguide" data-type="guide" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="학교생활기록부 학생부 기재요령 2026">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">학교생활기록부</span>
             <h3>2026학교생활기록부 기재요령</h3>
             <p>학교생활기록부 기재요령 도우미</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
-        <a class="support-card" href="saenggibu_check.html" data-keywords="학교생활기록부 생기부 글자수 바이트 맞춤법 띄어쓰기 기재금지 세특 행특 진로활동 NEIS 점검 500자 900자">
+          <a class="support-card" href="saenggibu_check.html" data-id="saenggibu_check" data-type="calc" data-added="2026-06-22" data-updated="2026-06-29" data-keywords="학교생활기록부 생기부 글자수 바이트 맞춤법 띄어쓰기 기재금지 세특 행특 진로활동 NEIS 점검 500자 900자">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="tag">학교생활기록부</span>
             <h3>생기부 글자수·점검 도우미</h3>
             <p>NEIS 바이트 글자수와 맞춤법·기재금지 항목을 한 번에 점검합니다.</p>
+            <span class="card-date">2026.06.29 갱신</span>
           </a>
 
-        <a class="support-card" href="seongjeok2026.html" data-keywords="성적관리 학업성적관리 시행지침 2026 평가 정기시험 수행평가 성적처리 인정점 충청남도교육청 고등학교 NEIS 나이스 조문 별표 부록 검색">
+          <a class="support-card" href="seongjeok2026.html" data-id="seongjeok2026" data-type="guide" data-added="2026-06-04" data-updated="2026-06-05" data-keywords="성적관리 학업성적관리 시행지침 2026 평가 정기시험 수행평가 성적처리 인정점 충청남도교육청 고등학교 NEIS 나이스 조문 별표 부록 검색">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">성적관리</span>
             <h3>2026 고등학교 학업성적관리 시행지침</h3>
             <p>조문·별표·부록을 검색하고 바로 찾아보는 시행지침 도우미</p>
+            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
-        <a class="support-card" href="transfer2026.html" data-keywords="전입학 편입학 재입학 전·편입학 업무처리 지침 2026 충청남도교육청 귀국학생 가거주 체육특기자 교육감전형 학교장전형 배정 신청서 양식 원문">
+          <a class="support-card" href="transfer2026.html" data-id="transfer2026" data-type="guide" data-added="2026-06-02" data-updated="2026-06-05" data-keywords="전입학 편입학 재입학 전·편입학 업무처리 지침 2026 충청남도교육청 귀국학생 가거주 체육특기자 교육감전형 학교장전형 배정 신청서 양식 원문">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">전·편입학</span>
             <h3>2026 고등학교 전·편입학 및 재입학 업무처리 지침</h3>
             <p>유형별 처리·제출서류·양식·원문을 한 번에 찾는 업무 도우미</p>
+            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
-        <a class="support-card" href="chungnam_admission.html" data-keywords="고입 고등학교 입학전형 2027 충남 충청남도">
+          <a class="support-card" href="chungnam_admission.html" data-id="chungnam_admission" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="고입 고등학교 입학전형 2027 충남 충청남도">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">고입</span>
             <h3>2027학년도 고등학교 입학전형 기본계획</h3>
             <p>충청남도 고등학교 입학전형 종합 안내서</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <div class="section-empty" id="supportEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -2179,123 +2627,141 @@
         </div>
 
         <div class="instructional-grid" id="instructionalGrid">
-          <a class="instructional-card" href="soouppy.html" data-keywords="물리 물리학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+
+          <a class="instructional-card" href="soouppy.html" data-id="soouppy" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="물리 물리학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">물리</span>
             <h3>2022개정교육과정에서 물리학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-       <a class="instructional-card" href="sooupch.html" data-keywords="화학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupch.html" data-id="sooupch" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="화학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">화학</span>
             <h3>2022개정교육과정에서 화학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupbio.html" data-keywords="생명과학 생물 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupbio.html" data-id="sooupbio" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="생명과학 생물 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">생명과학</span>
             <h3>2022개정교육과정에서 생명과학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupes.html" data-keywords="지구과학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupes.html" data-id="sooupes" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="지구과학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">지구과학</span>
             <h3>2022개정교육과정에서 지구과학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupalg.html" data-keywords="수학 대수 일반선택 지수 로그 상용로그 지수함수 로그함수 삼각함수 사인법칙 코사인법칙 수열 등차수열 등비수열 시그마 수학적 귀납법 증명 모델링 그래프 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupalg.html" data-id="sooupalg" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 대수 일반선택 지수 로그 상용로그 지수함수 로그함수 삼각함수 사인법칙 코사인법칙 수열 등차수열 등비수열 시그마 수학적 귀납법 증명 모델링 그래프 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">대수</span>
             <h3>2022개정교육과정에서 대수 수업</h3>
             <p>함수·수열·증명 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupcalc1.html" data-keywords="수학 미적분Ⅰ 미적분1 미적분 1 일반선택 함수의 극한 연속 미분 미분계수 도함수 평균값 정리 그래프 개형 방정식 부등식 부정적분 정적분 넓이 속도 가속도 이동거리 누적량 모델링 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupcalc1.html" data-id="sooupcalc1" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 미적분Ⅰ 미적분1 미적분 1 일반선택 함수의 극한 연속 미분 미분계수 도함수 평균값 정리 그래프 개형 방정식 부등식 부정적분 정적분 넓이 속도 가속도 이동거리 누적량 모델링 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">미적분Ⅰ</span>
             <h3>2022개정교육과정에서 미적분Ⅰ 수업</h3>
             <p>극한·변화율·누적량 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupprobstat.html" data-keywords="수학 확률과 통계 확통 일반선택 경우의 수 중복순열 중복조합 이항정리 확률 조건부확률 독립 종속 곱셈정리 확률변수 확률분포 기댓값 표준편차 이항분포 정규분포 표본추출 모평균 모비율 신뢰구간 통계적 추정 공학도구 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupprobstat.html" data-id="sooupprobstat" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 확률과 통계 확통 일반선택 경우의 수 중복순열 중복조합 이항정리 확률 조건부확률 독립 종속 곱셈정리 확률변수 확률분포 기댓값 표준편차 이항분포 정규분포 표본추출 모평균 모비율 신뢰구간 통계적 추정 공학도구 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">확률과 통계</span>
             <h3>2022개정교육과정에서 확률과 통계 수업</h3>
             <p>조건·자료·추정 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupeng1.html" data-keywords="영어 영어Ⅰ 영어I 영어1 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 요지 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 감수성 사실정보 설명 요약 서식 작성 고쳐쓰기 쓰기윤리 협력적 의사소통 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupeng1.html" data-id="sooupeng1" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어Ⅰ 영어I 영어1 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 요지 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 감수성 사실정보 설명 요약 서식 작성 고쳐쓰기 쓰기윤리 협력적 의사소통 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">영어Ⅰ</span>
             <h3>2022개정교육과정에서 영어Ⅰ 수업</h3>
             <p>근거·맥락·표현 전략 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupeng2.html" data-keywords="영어 영어Ⅱ 영어II 영어2 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 관점 감수성 사실정보 설명 감상 설득 요약 서식 자기소개서 이력서 보고서 고쳐쓰기 쓰기윤리 정보윤리 협력적 의사소통 프로젝트 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupeng2.html" data-id="sooupeng2" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어Ⅱ 영어II 영어2 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 관점 감수성 사실정보 설명 감상 설득 요약 서식 자기소개서 이력서 보고서 고쳐쓰기 쓰기윤리 정보윤리 협력적 의사소통 프로젝트 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">영어Ⅱ</span>
             <h3>2022개정교육과정에서 영어Ⅱ 수업</h3>
             <p>비판적 이해·학업 표현·매체 윤리 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupengrw.html" data-keywords="영어 영어 독해와 작문 영어독해와작문 일반선택 독해 작문 읽기 쓰기 읽기전략 쓰기전략 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 글구조 전개방식 매체 정보 문화 관점 포용 사실정보 설명 경험 계획 사건 의견 감정 요약 자기소개서 이력서 이메일 서식 고쳐쓰기 쓰기윤리 정보윤리 Greenwashing 그린워싱 공정여행 리플릿 계획서 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupengrw.html" data-id="sooupengrw" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어 독해와 작문 영어독해와작문 일반선택 독해 작문 읽기 쓰기 읽기전략 쓰기전략 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 글구조 전개방식 매체 정보 문화 관점 포용 사실정보 설명 경험 계획 사건 의견 감정 요약 자기소개서 이력서 이메일 서식 고쳐쓰기 쓰기윤리 정보윤리 Greenwashing 그린워싱 공정여행 리플릿 계획서 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">영어 독해와 작문</span>
             <h3>2022개정교육과정에서 영어 독해와 작문 수업</h3>
             <p>읽기 전략·작문 전이·윤리적 고쳐쓰기 기반 개념기반탐구학습</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupgeo.html" data-keywords="세계시민과 지리 사회 지리 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupgeo.html" data-id="sooupgeo" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="세계시민과 지리 사회 지리 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">세계시민과 지리</span>
             <h3>2022개정교육과정에서 세계시민과 지리 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupsoc.html" data-keywords="사회와 문화 사회문화 사문 사회 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사회조사 미디어 불평등 복지">
+          <a class="instructional-card" href="sooupsoc.html" data-id="sooupsoc" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="사회와 문화 사회문화 사문 사회 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사회조사 미디어 불평등 복지">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">사회와 문화</span>
             <h3>2022개정교육과정에서 사회와 문화 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupwh.html" data-keywords="세계사 역사 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사료 비판 역사 글쓰기 현대 세계 과제">
+          <a class="instructional-card" href="sooupwh.html" data-id="sooupwh" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="세계사 역사 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사료 비판 역사 글쓰기 현대 세계 과제">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">세계사</span>
             <h3>2022개정교육과정에서 세계사 수업</h3>
             <p>사료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupeth.html" data-keywords="현대사회와 윤리 현대사회 윤리 도덕 실천윤리 생명윤리 생태윤리 AI윤리 인공지능윤리 민주시민 평화 공존 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupeth.html" data-id="sooupeth" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="현대사회와 윤리 현대사회 윤리 도덕 실천윤리 생명윤리 생태윤리 AI윤리 인공지능윤리 민주시민 평화 공존 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">현대사회와 윤리</span>
             <h3>2022개정교육과정에서 현대사회와 윤리 수업</h3>
             <p>윤리 쟁점 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupkor.html" data-keywords="국어 화법과 언어 화법 언어 말하기 듣기 문법 담화 표준발음 어휘 발표 토의 토론 협상 국어생활 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupkor.html" data-id="sooupkor" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="국어 화법과 언어 화법 언어 말하기 듣기 문법 담화 표준발음 어휘 발표 토의 토론 협상 국어생활 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">화법과 언어</span>
             <h3>2022개정교육과정에서 화법과 언어 수업</h3>
             <p>담화·언어 자료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="sooupdw.html" data-keywords="국어 독서와 작문 독서 작문 읽기 쓰기 문어 의사소통 자료 탐색 자료 선별 사실적 독해 추론적 독해 비판적 독해 주제 통합 읽기 정보 전달 논증 고쳐쓰기 매체 글쓰기 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="sooupdw.html" data-id="sooupdw" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="국어 독서와 작문 독서 작문 읽기 쓰기 문어 의사소통 자료 탐색 자료 선별 사실적 독해 추론적 독해 비판적 독해 주제 통합 읽기 정보 전달 논증 고쳐쓰기 매체 글쓰기 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">독서와 작문</span>
             <h3>2022개정교육과정에서 독서와 작문 수업</h3>
             <p>읽기·쓰기 전이 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
-          <a class="instructional-card" href="soouplit.html" data-keywords="국어 문학 일반선택 문학 작품 근거 해석 갈래 맥락 한국문학사 비교문학 보편성 특수성 내용 형식 비평 창작 매체 문학 자아 성찰 타자 이해 공동체 문학 생활화 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
+          <a class="instructional-card" href="soouplit.html" data-id="soouplit" data-type="guide" data-added="2026-06-05" data-updated="2026-06-06" data-keywords="국어 문학 일반선택 문학 작품 근거 해석 갈래 맥락 한국문학사 비교문학 보편성 특수성 내용 형식 비평 창작 매체 문학 자아 성찰 타자 이해 공동체 문학 생활화 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">문학</span>
             <h3>2022개정교육과정에서 문학 수업</h3>
             <p>작품 근거 해석과 비평·창작 전이 기반 개념기반탐구학습</p>
+            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <div class="section-empty" id="instructionalEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -2314,74 +2780,85 @@
         </div>
 
         <div class="stats-grid" id="statsGrid">
-          <a class="stats-card" href="highschool-type.html" data-keywords="전형유형별 고교유형 선발 비율 출신고교 2023 2024 2025 학생부종합 학생부교과 논술 수능위주 정시 일반고 자사고 자공고 특목고 특성화고 영재학교 외고 국제고 과학고 검정고시 대학알리미 통계">
+
+          <a class="stats-card" href="highschool-type.html" data-id="highschool-type" data-type="explore" data-added="2026-07-15" data-updated="2026-07-15" data-keywords="전형유형별 고교유형 선발 비율 출신고교 2023 2024 2025 학생부종합 학생부교과 논술 수능위주 정시 일반고 자사고 자공고 특목고 특성화고 영재학교 외고 국제고 과학고 검정고시 대학알리미 통계">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">대학</span>
             <h3>전형유형별 고교유형 선발 비율</h3>
             <p>2023–2025 · 전형별 합격생의 출신 고교유형 분포</p>
+            <span class="card-date">2026.07.15 갱신</span>
           </a>
 
-          <a class="stats-card" href="admission-type-results.html" data-keywords="대학 입학전형 유형별 선발 결과 2024 2025 2026 학생부종합 학생부교과 논술 수능위주 기타 모집인원 등록인원 등록률 정원내 정원외 대학알리미 통계">
+          <a class="stats-card" href="admission-type-results.html" data-id="admission-type-results" data-type="explore" data-added="2026-07-15" data-updated="2026-07-15" data-keywords="대학 입학전형 유형별 선발 결과 2024 2025 2026 학생부종합 학생부교과 논술 수능위주 기타 모집인원 등록인원 등록률 정원내 정원외 대학알리미 통계">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">대학</span>
             <h3>대학 입학전형 유형별 선발 결과</h3>
             <p>2024–2026 · 학종·교과·논술·수능위주별 모집·등록 현황</p>
+            <span class="card-date">2026.07.15 갱신</span>
           </a>
 
-          <a class="stats-card" href="2026cast.html" data-keywords="수능 2026 수학능력시험 등급컷 인원 비율 대시보드">
+          <a class="stats-card" href="2026cast.html" data-id="2026cast" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="수능 2026 수학능력시험 등급컷 인원 비율 대시보드">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2026수학능력시험</h3>
             <p>등급컷 · 인원 · 비율 종합 대시보드</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="stats-card" href="2027-june-mock-analysis/" data-keywords="수능 모의평가 2027 6월 대수능 국어 수학 영어 탐구 분석 원문 충남">
+          <a class="stats-card" href="2027-june-mock-analysis/" data-id="2027-june-mock-analysis" data-type="explore" data-added="2026-06-22" data-updated="2026-06-29" data-keywords="수능 모의평가 2027 6월 대수능 국어 수학 영어 탐구 분석 원문 충남">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2027학년도 6월 대수능 모의평가</h3>
             <p>국수영 · 탐구 통합 분석자료</p>
+            <span class="card-date">2026.06.29 갱신</span>
           </a>
 
-          <a class="stats-card" href="20276cast.html" data-keywords="수능 모의평가 2027학년도 6월 채점결과 평가원 등급컷 등급구분 표준점수 도수분포 백분위 원점수 변환 계산기 상담 국어 수학 영어 탐구 절대평가">
+          <a class="stats-card" href="20276cast.html" data-id="20276cast" data-type="explore" data-added="2026-07-01" data-updated="2026-07-01" data-keywords="수능 모의평가 2027학년도 6월 채점결과 평가원 등급컷 등급구분 표준점수 도수분포 백분위 원점수 변환 계산기 상담 국어 수학 영어 탐구 절대평가">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2027학년도 6월 모의평가 채점 결과</h3>
             <p>등급컷 · 표준점수 분포 · 원점수 변환 계산기</p>
+            <span class="card-date">2026.07.01 갱신</span>
           </a>
 
-          <a class="stats-card" href="unimo.html" data-keywords="대학 등록금 연간 평균 진학상담 공공데이터포털">
+          <a class="stats-card" href="unimo.html" data-id="unimo" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="대학 등록금 연간 평균 진학상담 공공데이터포털">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="tag">대학</span>
             <h3>대학별 연간 평균등록금</h3>
             <p>교사용 진학상담 자료 · 공공데이터포털 기반</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-        <a class="stats-card" href="20265cast.html" data-keywords="수능 2026 5월 고3 전국연합학력평가 모의고사 과목별 분석">
+          <a class="stats-card" href="20265cast.html" data-id="20265cast" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="수능 2026 5월 고3 전국연합학력평가 모의고사 과목별 분석">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2026학년도 5월 고3 전국연합학력평가</h3>
             <p>과목별 분석자료</p>
+            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
-          <a class="stats-card" href="20266cast1.html" data-keywords="학평 모의고사 2026 6월 고1 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
+          <a class="stats-card" href="20266cast1.html" data-id="20266cast1" data-type="explore" data-added="2026-06-22" data-updated="2026-06-22" data-keywords="학평 모의고사 2026 6월 고1 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">학평</span>
             <h3>2026학년도 6월 고1 전국연합학력평가</h3>
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
+            <span class="card-date">2026.06.22 갱신</span>
           </a>
 
-          <a class="stats-card" href="20266cast2.html" data-keywords="학평 모의고사 2026 6월 고2 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
+          <a class="stats-card" href="20266cast2.html" data-id="20266cast2" data-type="explore" data-added="2026-06-22" data-updated="2026-06-22" data-keywords="학평 모의고사 2026 6월 고2 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">학평</span>
             <h3>2026학년도 6월 고2 전국연합학력평가</h3>
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
+            <span class="card-date">2026.06.22 갱신</span>
           </a>
 
-          <a class="stats-card" href="highschoolmap.html" data-keywords="고등학교 지도 전국 학교 위치 학생수 학급 교원 학교알리미 지역 진학 map">
+          <a class="stats-card" href="highschoolmap.html" data-id="highschoolmap" data-type="map" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="고등학교 지도 전국 학교 위치 학생수 학급 교원 학교알리미 지역 진학 map">
             <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
             <span class="tag">학교</span>
             <h3>전국 고등학교 지도</h3>
             <p>전국 2,440개 고교 위치 · 학생수 · 학급 · 교원 인터랙티브 지도</p>
+            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <div class="section-empty" id="statsEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -2452,6 +2929,50 @@
 
       var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+      // 빌드 시 주입되는 월별 시즌 추천 데이터
+      var SEASONS = {"1":{"label":"1월 · 정시 상담 시즌","ids":["jeongsi","adiga","2026results-download","unimo"]},"2":{"label":"2월 · 새 학년 준비","ids":["jinrodesign","sub2","chungnam_admission","studentguide"]},"3":{"label":"3월 · 학년 초 진로·학업 설계","ids":["jinrodesign","sub2","2027admissions2","studentguide"]},"4":{"label":"4월 · 시행계획 발표 시즌","ids":["2028admission-plan-download","202815uni","jinhak2028","2028ist"]},"5":{"label":"5월 · 중간고사·학평 상담","ids":["20265cast","saenggibu_check","sciencetam","socialtam"]},"6":{"label":"6월 · 모의평가·학력평가","ids":["20276cast","20266cast1","20266cast2","2027-june-mock-analysis"]},"7":{"label":"7월 · 수시 준비 시작","ids":["2027gosa","2027susi-download","20276cast","jonghap_eval","2027uichihan","adiga"]},"8":{"label":"8월 · 수시 원서 직전 점검","ids":["2027gosa","2027chuchon","jonghap_eval","2027uichihan","student_record_interview"]},"9":{"label":"9월 · 수시 원서·면접 준비","ids":["jonghap_interview","student_record_interview","2027gosa","2026prelearning-report"]},"10":{"label":"10월 · 대학별고사 시즌","ids":["2027gosa","2026prelearning-report","jonghap_interview","student_record_interview"]},"11":{"label":"11월 · 수능·정시 준비","ids":["2026cast","jeongsi","adiga","2028suneung"]},"12":{"label":"12월 · 정시 상담 시즌","ids":["jeongsi","adiga","2026results-download","unimo"]}};
+
+      var TYPE_LABELS = {
+        explore: '조회·비교', guide: '안내서', download: '다운로드',
+        calc: '계산·생성', map: '지도·캘린더', video: '영상'
+      };
+      var SECTION_LABELS = { admission: '진학', support: '보조', instructional: '수업', statistics: '통계' };
+
+      // 동의어 그룹 — 질의어가 그룹의 한 단어와 일치하면 그룹 전체로 확장해 검색
+      var SYNONYMS = [
+        ['학종', '학생부종합', '종합전형'],
+        ['교과전형', '학생부교과'],
+        ['최저', '수능최저', '수능최저학력기준'],
+        ['모평', '모의평가'],
+        ['학평', '학력평가', '전국연합'],
+        ['입결', '입시결과'],
+        ['생기부', '학교생활기록부', '학생부'],
+        ['의대', '의예', '의약학', '의치한'],
+        ['전문대', '전문대학'],
+        ['요강', '모집요강'],
+        ['등급컷', '등급구분점수'],
+        ['정시', '수능위주'],
+        ['대학별고사', '논술 면접 실기'],
+        ['고입', '고등학교 입학전형']
+      ];
+
+      function lsGet(key, fallback) {
+        try {
+          var v = localStorage.getItem(key);
+          return v == null ? fallback : JSON.parse(v);
+        } catch (e) { return fallback; }
+      }
+      function lsSet(key, value) {
+        try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+      }
+
+      function escapeRegExp(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\<!--APP_JS-->'); }
+      function escapeHTML(s) {
+        return s.replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
       // ============================================================
       // 1) Theme toggle
       // ============================================================
@@ -2475,50 +2996,108 @@
       // 2) Card index — all four grids
       // ============================================================
       var SECTIONS = [
-        { key: 'admission',     gridId: 'admissionGrid',     cardSel: '.resource-card',     emptyId: null },
-        { key: 'support',       gridId: 'supportGrid',       cardSel: '.support-card',      emptyId: 'supportEmpty' },
+        { key: 'admission',     gridId: 'admissionGrid',     cardSel: '.resource-card',      emptyId: 'emptyState' },
+        { key: 'support',       gridId: 'supportGrid',       cardSel: '.support-card',       emptyId: 'supportEmpty' },
         { key: 'instructional', gridId: 'instructionalGrid', cardSel: '.instructional-card', emptyId: 'instructionalEmpty' },
-        { key: 'statistics',    gridId: 'statsGrid',         cardSel: '.stats-card',        emptyId: 'statsEmpty' }
+        { key: 'statistics',    gridId: 'statsGrid',         cardSel: '.stats-card',         emptyId: 'statsEmpty' }
       ];
 
+      var DAY = 86400000;
+      var NOW = Date.now();
+      function daysSince(dateStr) {
+        if (!dateStr) return 99999;
+        var t = Date.parse(dateStr + 'T00:00:00');
+        return isNaN(t) ? 99999 : (NOW - t) / DAY;
+      }
+
+      var STAR_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 3.09 6.26 6.91 1.01-5 4.87 1.18 6.88L12 18.27l-6.18 3.25L7 14.64 2 9.77l6.91-1.01z"/></svg>';
+
       var entries = [];      // flat list of all cards
-      var bySection = {};    // section key -> { cards, empty, sectionEl, headEl }
+      var entryById = {};
+      var bySection = {};    // section key -> { cards, empty, sectionEl, grid, originalNodes }
+
+      var favs = lsGet('est-favs', []);
+      var recent = lsGet('est-recent', []);
 
       SECTIONS.forEach(function (sec) {
         var grid = document.getElementById(sec.gridId);
         if (!grid) return;
         var cards = grid.querySelectorAll(sec.cardSel);
         var sectionEl = grid.closest('section');
-        var headEl = sectionEl ? sectionEl.querySelector('.section-head') : null;
+        var emptyEl = sec.emptyId ? document.getElementById(sec.emptyId) : null;
         var arr = [];
         cards.forEach(function (card) {
           var h3 = card.querySelector('h3');
           var p = card.querySelector('p');
+          var badgeEl = card.querySelector('.audience, .tag');
+          var useEl = card.querySelector('.card-ico use');
+          var added = card.dataset.added || '';
+          var updated = card.dataset.updated || '';
+          var badgeHTML = '';
+          if (daysSince(added) <= 21) badgeHTML = '<span class="badge-new">NEW</span>';
+          else if (daysSince(updated) <= 14) badgeHTML = '<span class="badge-upd">UPDATE</span>';
           var entry = {
             card: card,
+            id: card.dataset.id || '',
             section: sec.key,
             category: card.dataset.category || '',
+            type: card.dataset.type || '',
+            added: added,
+            updated: updated,
+            href: card.getAttribute('href'),
+            iconRef: useEl ? useEl.getAttribute('href') : '#i-book',
+            badgeText: badgeEl ? badgeEl.textContent.trim() : '',
+            badgeHTML: badgeHTML,
             h3: h3, p: p,
             h3Text: h3 ? h3.textContent : '',
             pText: p ? p.textContent : '',
             keywords: (card.dataset.keywords || '').toLowerCase()
           };
+          if (badgeHTML && h3) h3.innerHTML = badgeHTML + escapeHTML(entry.h3Text);
           arr.push(entry);
           entries.push(entry);
+          if (entry.id) entryById[entry.id] = entry;
+
+          // 즐겨찾기 별 버튼 (a 내부라 button 대신 role=button span 사용)
+          var favBtn = document.createElement('span');
+          favBtn.className = 'fav-btn';
+          favBtn.setAttribute('role', 'button');
+          favBtn.setAttribute('tabindex', '0');
+          favBtn.setAttribute('aria-pressed', favs.indexOf(entry.id) !== -1 ? 'true' : 'false');
+          favBtn.setAttribute('aria-label', '즐겨찾기 추가/해제');
+          favBtn.setAttribute('title', '즐겨찾기');
+          favBtn.innerHTML = STAR_SVG;
+          favBtn.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            toggleFav(entry);
+          });
+          favBtn.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault();
+              ev.stopPropagation();
+              toggleFav(entry);
+            }
+          });
+          card.appendChild(favBtn);
+          entry.favBtn = favBtn;
+
+          // 최근 본 자료 기록 (이동은 그대로 진행)
+          card.addEventListener('click', function () { recordRecent(entry.id); });
         });
         bySection[sec.key] = {
           cards: arr,
-          empty: sec.emptyId ? document.getElementById(sec.emptyId) : null,
+          empty: emptyEl,
           sectionEl: sectionEl,
-          headEl: headEl
+          grid: grid,
+          // 기본 정렬 복원용 — 구분선 포함, empty-state 제외한 초기 순서
+          originalNodes: Array.prototype.filter.call(grid.children, function (n) {
+            return n !== emptyEl && !n.classList.contains('empty-state');
+          })
         };
       });
 
-      // Reveal admission cards on page load (not on scroll).
-      // Previously cards stayed invisible (opacity:0) until scrolled into view,
-      // so the first screen showed only the row peeking at the bottom — making
-      // the site look nearly empty. Now every card appears on load with a gentle,
-      // capped stagger, and a safety timer guarantees none stay hidden.
+      // Reveal admission cards on page load with a gentle, capped stagger.
       var admissionCards = bySection.admission ? bySection.admission.cards.map(function (e) { return e.card; }) : [];
       if (prefersReducedMotion) {
         admissionCards.forEach(function (c) { c.classList.add('is-visible'); });
@@ -2526,20 +3105,18 @@
         admissionCards.forEach(function (c, idx) {
           setTimeout(function () { c.classList.add('is-visible'); }, Math.min(idx, 12) * 35);
         });
-        // Safety net: reveal everything shortly after, regardless of timing.
         setTimeout(function () {
           admissionCards.forEach(function (c) { c.classList.add('is-visible'); });
         }, 700);
       }
 
       // ============================================================
-      // 3) Static counts (nav badges, hero stats, scope chips, category chips)
+      // 3) Static counts (hero stats, scope chips, category chips)
       // ============================================================
       function computeStaticCounts() {
         var totals = { all: entries.length };
         SECTIONS.forEach(function (s) { totals[s.key] = bySection[s.key] ? bySection[s.key].cards.length : 0; });
 
-        // Hero stat numbers
         ['admission','support','instructional','statistics'].forEach(function (k) {
           var el = document.getElementById('stat' + k.charAt(0).toUpperCase() + k.slice(1));
           if (el) el.textContent = totals[k];
@@ -2547,19 +3124,11 @@
         var totalEl = document.getElementById('statTotal');
         if (totalEl) totalEl.textContent = totals.all;
 
-        // Nav count badges
-        document.querySelectorAll('[data-nav-count]').forEach(function (el) {
-          var k = el.dataset.navCount;
-          el.textContent = totals[k] != null ? totals[k] : '';
-        });
-
-        // Scope chip counts
         document.querySelectorAll('[data-scope-count]').forEach(function (el) {
           var k = el.dataset.scopeCount;
           el.textContent = totals[k] != null ? totals[k] : totals.all;
         });
 
-        // Admission category chip counts (auto-synced from data-category)
         var catCounts = { all: bySection.admission ? bySection.admission.cards.length : 0 };
         if (bySection.admission) {
           bySection.admission.cards.forEach(function (e) {
@@ -2574,7 +3143,7 @@
       computeStaticCounts();
 
       // ============================================================
-      // 4) Global search + scope filter + admission category filter
+      // 4) Global search + scope + category + type filters
       // ============================================================
       var searchInput = document.getElementById('searchInput');
       var searchClear = document.getElementById('searchClear');
@@ -2582,57 +3151,75 @@
       var resultCount = document.getElementById('resultCount');
       var scopeChips = document.querySelectorAll('.scope-chips .chip');
       var categoryChips = document.querySelectorAll('#admission .toolbar .chip');
+      var typeChips = document.querySelectorAll('.type-chips .chip');
       var groupDividers = document.querySelectorAll('#admissionGrid .group-divider');
 
       var activeQuery = '';
       var activeScope = 'all';
       var activeCategory = 'all';
+      var activeType = 'all';
+      var activeSort = 'default';
 
-      function escapeRegExp(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
-      function escapeHTML(s) {
-        return s.replace(/[&<>"']/g, function (c) {
-          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      // 질의어 → 동의어 확장 (소문자 기준)
+      function expandTerms(q) {
+        var raw = q ? q.split(/\s+/).filter(Boolean) : [];
+        return raw.map(function (t) {
+          var variants = [t];
+          SYNONYMS.forEach(function (group) {
+            if (group.indexOf(t) !== -1) {
+              group.forEach(function (g) {
+                g.split(/\s+/).forEach(function (w) {
+                  if (variants.indexOf(w) === -1) variants.push(w);
+                });
+              });
+            }
+          });
+          return variants;
         });
       }
-      // 띄어쓰기로 구분한 여러 키워드를 모두 포함(AND)하는 자료를 찾는다.
-      function highlight(text, terms) {
-        if (!terms.length) return escapeHTML(text);
-        var re = new RegExp('(' + terms.map(escapeRegExp).join('|') + ')', 'gi');
+
+      function highlight(text, flatTerms) {
+        if (!flatTerms.length) return escapeHTML(text);
+        var re = new RegExp('(' + flatTerms.map(escapeRegExp).join('|') + ')', 'gi');
         return escapeHTML(text).replace(re, '<mark>$1</mark>');
       }
 
       function applyFilters() {
         var q = activeQuery.trim().toLowerCase();
-        var terms = q ? q.split(/\s+/) : [];
+        var termGroups = expandTerms(q);
+        var flatTerms = [];
+        termGroups.forEach(function (g) { g.forEach(function (v) { if (flatTerms.indexOf(v) === -1) flatTerms.push(v); }); });
         var totalVisible = 0;
         var perSection = { admission: 0, support: 0, instructional: 0, statistics: 0 };
 
-        // 그룹 구분선: 카테고리 '전체' + 검색어 없음 + 진학 섹션 노출 시에만 표시
-        var showGroups = activeCategory === 'all' && terms.length === 0 &&
-                         (activeScope === 'all' || activeScope === 'admission');
+        // 그룹 구분선: 기본 정렬 + 카테고리/유형 '전체' + 검색어 없음 + 진학 섹션 노출 시에만
+        var showGroups = activeSort === 'default' && activeCategory === 'all' && activeType === 'all' &&
+                         termGroups.length === 0 && (activeScope === 'all' || activeScope === 'admission');
         groupDividers.forEach(function (d) { d.classList.toggle('is-hidden', !showGroups); });
 
         entries.forEach(function (e) {
           var inScope = activeScope === 'all' || e.section === activeScope;
           var inCategory = e.section !== 'admission' || activeCategory === 'all' || e.category === activeCategory;
+          var inType = activeType === 'all' || e.type === activeType;
           var haystack = (e.h3Text + ' ' + e.pText + ' ' + e.keywords).toLowerCase();
-          var matchQuery = terms.every(function (t) { return haystack.indexOf(t) !== -1; });
-          var visible = inScope && inCategory && matchQuery;
+          var matchQuery = termGroups.every(function (group) {
+            return group.some(function (v) { return haystack.indexOf(v) !== -1; });
+          });
+          var visible = inScope && inCategory && inType && matchQuery;
 
           if (visible) {
             e.card.classList.remove('is-hidden');
             totalVisible += 1;
             perSection[e.section] += 1;
-            if (e.h3) e.h3.innerHTML = highlight(e.h3Text, terms);
-            if (e.p) e.p.innerHTML = highlight(e.pText, terms);
+            if (e.h3) e.h3.innerHTML = e.badgeHTML + highlight(e.h3Text, flatTerms);
+            if (e.p) e.p.innerHTML = highlight(e.pText, flatTerms);
           } else {
             e.card.classList.add('is-hidden');
-            if (e.h3) e.h3.textContent = e.h3Text;
+            if (e.h3) e.h3.innerHTML = e.badgeHTML + escapeHTML(e.h3Text);
             if (e.p) e.p.textContent = e.pText;
           }
         });
 
-        // Section-level empty / hidden
         SECTIONS.forEach(function (s) {
           var ctx = bySection[s.key];
           if (!ctx || !ctx.sectionEl) return;
@@ -2640,48 +3227,32 @@
           var visibleHere = perSection[s.key];
           var scopeMatches = activeScope === 'all' || activeScope === s.key;
 
-          // Hide entire section if scope excludes it
-          if (!scopeMatches) {
-            ctx.sectionEl.classList.add('is-hidden');
-          } else {
-            ctx.sectionEl.classList.remove('is-hidden');
-          }
-          // Toggle empty state inside section
-          if (ctx.empty) {
-            if (scopeMatches && sectionTotal > 0 && visibleHere === 0) {
-              ctx.empty.classList.add('visible');
-            } else {
-              ctx.empty.classList.remove('visible');
-            }
+          ctx.sectionEl.classList.toggle('is-hidden', !scopeMatches);
+          if (ctx.empty && s.key !== 'admission') {
+            ctx.empty.classList.toggle('visible', scopeMatches && sectionTotal > 0 && visibleHere === 0);
           }
         });
 
-        // Admission has its own "result count" + reuses old emptyState
         var oldEmpty = document.getElementById('emptyState');
         if (oldEmpty) {
-          if ((activeScope === 'all' || activeScope === 'admission') &&
-              perSection.admission === 0 && bySection.admission && bySection.admission.cards.length > 0) {
-            oldEmpty.classList.add('visible');
-          } else {
-            oldEmpty.classList.remove('visible');
-          }
+          var showEmpty = (activeScope === 'all' || activeScope === 'admission') &&
+              perSection.admission === 0 && bySection.admission && bySection.admission.cards.length > 0;
+          oldEmpty.classList.toggle('visible', showEmpty);
         }
         if (resultCount) {
-          if (activeCategory !== 'all' || q || activeScope !== 'all') {
+          if (activeCategory !== 'all' || activeType !== 'all' || q || activeScope !== 'all') {
             resultCount.innerHTML = '<strong>' + perSection.admission + '</strong>개 진학 자료 표시';
           } else {
             resultCount.innerHTML = '<strong>' + (bySection.admission ? bySection.admission.cards.length : 0) + '</strong>개 자료 표시';
           }
         }
 
-        // Global result line
         if (globalResult) {
-          if (q || activeScope !== 'all') {
+          if (q || activeScope !== 'all' || activeType !== 'all') {
             var parts = [];
             ['admission','support','instructional','statistics'].forEach(function (k) {
               if (activeScope === 'all' || activeScope === k) {
-                var label = { admission: '진학', support: '보조', instructional: '수업', statistics: '통계' }[k];
-                parts.push(label + ' ' + perSection[k]);
+                parts.push(SECTION_LABELS[k] + ' ' + perSection[k]);
               }
             });
             globalResult.innerHTML = '<strong>' + totalVisible + '</strong>건 일치 — ' + parts.join(' · ');
@@ -2693,13 +3264,14 @@
         updateURL();
       }
 
-      // 검색어·필터 상태를 주소창에 보존 — 새로고침해도 유지되고 링크로 공유 가능
+      // 검색어·필터 상태를 주소창에 보존
       function updateURL() {
         try {
           var params = new URLSearchParams();
           if (activeQuery.trim()) params.set('q', activeQuery.trim());
           if (activeScope !== 'all') params.set('scope', activeScope);
           if (activeCategory !== 'all') params.set('cat', activeCategory);
+          if (activeType !== 'all') params.set('type', activeType);
           var qs = params.toString();
           history.replaceState(null, '', qs ? '?' + qs : location.pathname);
         } catch (e) {}
@@ -2711,41 +3283,153 @@
         var q0 = initParams.get('q') || '';
         var scope0 = initParams.get('scope') || 'all';
         var cat0 = initParams.get('cat') || 'all';
+        var type0 = initParams.get('type') || 'all';
         if (q0) {
           searchInput.value = q0;
           activeQuery = q0;
           searchClear.classList.add('visible');
         }
-        var hasScope = false;
-        scopeChips.forEach(function (c) { if (c.dataset.scope === scope0) hasScope = true; });
-        if (hasScope && scope0 !== 'all') {
-          activeScope = scope0;
-          scopeChips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.scope === scope0 ? 'true' : 'false'); });
-        }
-        var hasCat = false;
-        categoryChips.forEach(function (c) { if (c.dataset.filter === cat0) hasCat = true; });
-        if (hasCat && cat0 !== 'all') {
-          activeCategory = cat0;
-          categoryChips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === cat0 ? 'true' : 'false'); });
-        }
+        scopeChips.forEach(function (c) {
+          if (c.dataset.scope === scope0 && scope0 !== 'all') {
+            activeScope = scope0;
+            scopeChips.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.scope === scope0 ? 'true' : 'false'); });
+          }
+        });
+        categoryChips.forEach(function (c) {
+          if (c.dataset.filter === cat0 && cat0 !== 'all') {
+            activeCategory = cat0;
+            categoryChips.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.filter === cat0 ? 'true' : 'false'); });
+          }
+        });
+        typeChips.forEach(function (c) {
+          if (c.dataset.typeFilter === type0 && type0 !== 'all') {
+            activeType = type0;
+            typeChips.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.typeFilter === type0 ? 'true' : 'false'); });
+          }
+        });
       } catch (e) {}
+
+      // ============================================================
+      // 5) 검색 제안 드롭다운
+      // ============================================================
+      var suggestEl = document.getElementById('suggest');
+      var suggestItems = [];
+      var suggestActive = -1;
+
+      function scoreEntry(e, termGroups) {
+        var title = e.h3Text.toLowerCase();
+        var meta = (e.badgeText + ' ' + e.category + ' ' + (TYPE_LABELS[e.type] || '')).toLowerCase();
+        var body = (e.pText + ' ' + e.keywords).toLowerCase();
+        var score = 0;
+        for (var i = 0; i < termGroups.length; i++) {
+          var g = termGroups[i], best = 0;
+          for (var j = 0; j < g.length; j++) {
+            var v = g[j];
+            if (title.indexOf(v) !== -1) { best = Math.max(best, 3); }
+            else if (meta.indexOf(v) !== -1) { best = Math.max(best, 2); }
+            else if (body.indexOf(v) !== -1) { best = Math.max(best, 1); }
+          }
+          if (best === 0) return 0;
+          score += best;
+        }
+        return score;
+      }
+
+      function hideSuggest() {
+        if (!suggestEl) return;
+        suggestEl.classList.remove('visible');
+        suggestEl.innerHTML = '';
+        suggestItems = [];
+        suggestActive = -1;
+      }
+
+      function renderSuggest() {
+        if (!suggestEl) return;
+        var q = activeQuery.trim().toLowerCase();
+        if (!q) { hideSuggest(); return; }
+        var termGroups = expandTerms(q);
+        var flatTerms = [];
+        termGroups.forEach(function (g) { g.forEach(function (v) { if (flatTerms.indexOf(v) === -1) flatTerms.push(v); }); });
+
+        var scored = [];
+        entries.forEach(function (e) {
+          var s = scoreEntry(e, termGroups);
+          if (s > 0) scored.push({ e: e, s: s });
+        });
+        scored.sort(function (a, b) { return b.s - a.s || a.e.h3Text.localeCompare(b.e.h3Text, 'ko'); });
+        scored = scored.slice(0, 8);
+        if (!scored.length) { hideSuggest(); return; }
+
+        var html = '';
+        scored.forEach(function (item, idx) {
+          var e = item.e;
+          html += '<div class="suggest-item" role="option" data-idx="' + idx + '">' +
+            '<span class="s-ico" aria-hidden="true"><svg><use href="' + e.iconRef + '"></use></svg></span>' +
+            '<span class="s-text">' +
+              '<span class="s-title">' + highlight(e.h3Text, flatTerms) + '</span>' +
+              '<span class="s-desc">' + escapeHTML(e.pText) + '</span>' +
+            '</span>' +
+            '<span class="s-badge">' + SECTION_LABELS[e.section] + ' · ' + (TYPE_LABELS[e.type] || '') + '</span>' +
+          '</div>';
+        });
+        html += '<div class="suggest-foot"><kbd>↑</kbd><kbd>↓</kbd> 이동 · <kbd>Enter</kbd> 바로 열기 · <kbd>Esc</kbd> 닫기</div>';
+        suggestEl.innerHTML = html;
+        suggestEl.classList.add('visible');
+        suggestActive = -1;
+        suggestItems = Array.prototype.slice.call(suggestEl.querySelectorAll('.suggest-item'));
+        suggestItems.forEach(function (node, idx) {
+          node.addEventListener('mousedown', function (ev) {
+            // blur보다 먼저 실행되도록 mousedown 사용
+            ev.preventDefault();
+            recordRecent(scored[idx].e.id);
+            location.href = scored[idx].e.href;
+          });
+        });
+        suggestEl._scored = scored;
+      }
+
+      function setSuggestActive(idx) {
+        if (!suggestItems.length) return;
+        suggestActive = (idx + suggestItems.length) % suggestItems.length;
+        suggestItems.forEach(function (n, i) { n.classList.toggle('active', i === suggestActive); });
+        var node = suggestItems[suggestActive];
+        if (node && node.scrollIntoView) node.scrollIntoView({ block: 'nearest' });
+      }
 
       // Search input (debounced)
       var debounceTimer;
       searchInput.addEventListener('input', function (e) {
         clearTimeout(debounceTimer);
         var value = e.target.value;
-        if (value) searchClear.classList.add('visible');
-        else searchClear.classList.remove('visible');
+        searchClear.classList.toggle('visible', !!value);
         debounceTimer = setTimeout(function () {
           activeQuery = value;
           applyFilters();
+          renderSuggest();
         }, 120);
+      });
+      searchInput.addEventListener('blur', function () {
+        setTimeout(hideSuggest, 150);
+      });
+      searchInput.addEventListener('focus', function () {
+        if (activeQuery.trim()) renderSuggest();
+      });
+      searchInput.addEventListener('keydown', function (e) {
+        var visible = suggestEl && suggestEl.classList.contains('visible');
+        if (e.key === 'ArrowDown' && visible) { e.preventDefault(); setSuggestActive(suggestActive + 1); }
+        else if (e.key === 'ArrowUp' && visible) { e.preventDefault(); setSuggestActive(suggestActive - 1); }
+        else if (e.key === 'Enter' && visible && suggestActive >= 0 && suggestEl._scored) {
+          e.preventDefault();
+          var chosen = suggestEl._scored[suggestActive];
+          recordRecent(chosen.e.id);
+          location.href = chosen.e.href;
+        }
       });
       searchClear.addEventListener('click', function () {
         searchInput.value = '';
         activeQuery = '';
         searchClear.classList.remove('visible');
+        hideSuggest();
         applyFilters();
         searchInput.focus();
       });
@@ -2766,7 +3450,6 @@
           chip.setAttribute('aria-pressed', 'true');
           activeScope = chip.dataset.scope;
           applyFilters();
-          // Scroll to that section (unless 'all')
           if (activeScope !== 'all') {
             var target = document.getElementById(activeScope);
             if (target) target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
@@ -2784,7 +3467,17 @@
         });
       });
 
-      // Old admission emptyState reset
+      // Type chips
+      typeChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          typeChips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          activeType = chip.dataset.typeFilter;
+          applyFilters();
+        });
+      });
+
+      // Reset (empty state)
       var resetBtn = document.getElementById('resetBtn');
       if (resetBtn) {
         resetBtn.addEventListener('click', function () {
@@ -2792,36 +3485,171 @@
           activeQuery = '';
           activeCategory = 'all';
           activeScope = 'all';
+          activeType = 'all';
           searchClear.classList.remove('visible');
-          categoryChips.forEach(function (c) {
-            c.setAttribute('aria-pressed', c.dataset.filter === 'all' ? 'true' : 'false');
-          });
-          scopeChips.forEach(function (c) {
-            c.setAttribute('aria-pressed', c.dataset.scope === 'all' ? 'true' : 'false');
-          });
+          hideSuggest();
+          categoryChips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === 'all' ? 'true' : 'false'); });
+          scopeChips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.scope === 'all' ? 'true' : 'false'); });
+          typeChips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.typeFilter === 'all' ? 'true' : 'false'); });
           applyFilters();
         });
       }
 
-      // Keyboard: '/' focuses search, Esc clears
+      // Keyboard: '/' 또는 Ctrl+K → 검색 포커스, Esc → 제안 닫기/검색어 지우기
       document.addEventListener('keydown', function (e) {
-        if (e.key === '/' && document.activeElement !== searchInput && !e.ctrlKey && !e.metaKey) {
+        if ((e.key === '/' && !e.ctrlKey && !e.metaKey) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) {
           var tag = (document.activeElement && document.activeElement.tagName) || '';
-          if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+          if (document.activeElement !== searchInput && tag !== 'INPUT' && tag !== 'TEXTAREA') {
             e.preventDefault();
-            searchInput.focus();
+            searchInput.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+            searchInput.focus({ preventScroll: true });
           }
         }
         if (e.key === 'Escape' && document.activeElement === searchInput) {
-          searchInput.value = '';
-          activeQuery = '';
-          searchClear.classList.remove('visible');
-          applyFilters();
+          if (suggestEl && suggestEl.classList.contains('visible')) {
+            hideSuggest();
+          } else {
+            searchInput.value = '';
+            activeQuery = '';
+            searchClear.classList.remove('visible');
+            applyFilters();
+          }
         }
       });
 
       // ============================================================
-      // 5) View toggle (grid / compact list) — persisted
+      // 6) 정렬 (기본 / 최신순 / 가나다)
+      // ============================================================
+      var sortButtons = document.querySelectorAll('.sort-toggle button');
+
+      function reorderGrid(sectionKey) {
+        var ctx = bySection[sectionKey];
+        if (!ctx) return;
+        var nodes;
+        if (activeSort === 'default') {
+          nodes = ctx.originalNodes;
+        } else {
+          var sorted = ctx.cards.slice();
+          if (activeSort === 'updated') {
+            sorted.sort(function (a, b) {
+              return (b.updated || '').localeCompare(a.updated || '') || a.h3Text.localeCompare(b.h3Text, 'ko');
+            });
+          } else {
+            sorted.sort(function (a, b) { return a.h3Text.localeCompare(b.h3Text, 'ko'); });
+          }
+          nodes = sorted.map(function (e) { return e.card; });
+        }
+        nodes.forEach(function (n) { ctx.grid.appendChild(n); });
+        if (ctx.empty) ctx.grid.appendChild(ctx.empty);
+      }
+
+      function applySort(sort) {
+        activeSort = sort;
+        sortButtons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.dataset.sort === sort ? 'true' : 'false');
+        });
+        SECTIONS.forEach(function (s) { reorderGrid(s.key); });
+        lsSet('est-sort', sort);
+        applyFilters();
+      }
+      sortButtons.forEach(function (b) {
+        b.addEventListener('click', function () { applySort(b.dataset.sort); });
+      });
+
+      // ============================================================
+      // 7) 스트립 — 시즌 추천 · 즐겨찾기 · 최근 본 자료
+      // ============================================================
+      function stripCardHTML(e) {
+        return '<span class="strip-ico" aria-hidden="true"><svg><use href="' + e.iconRef + '"></use></svg></span>' +
+               '<b>' + escapeHTML(e.h3Text) + '</b>' +
+               '<small>' + (TYPE_LABELS[e.type] || '') + '</small>';
+      }
+
+      function renderRow(rowEl, ids, removable, onRemove) {
+        rowEl.innerHTML = '';
+        var count = 0;
+        ids.forEach(function (id) {
+          var e = entryById[id];
+          if (!e) return;
+          count += 1;
+          var a = document.createElement('a');
+          a.className = 'strip-card';
+          a.href = e.href;
+          a.innerHTML = stripCardHTML(e);
+          a.addEventListener('click', function () { recordRecent(e.id); });
+          if (removable) {
+            var rm = document.createElement('span');
+            rm.className = 'strip-remove';
+            rm.setAttribute('role', 'button');
+            rm.setAttribute('tabindex', '0');
+            rm.setAttribute('aria-label', '즐겨찾기에서 제거');
+            rm.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>';
+            rm.addEventListener('click', function (ev) {
+              ev.preventDefault();
+              ev.stopPropagation();
+              onRemove(e);
+            });
+            rm.addEventListener('keydown', function (ev) {
+              if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); ev.stopPropagation(); onRemove(e); }
+            });
+            a.appendChild(rm);
+          }
+          rowEl.appendChild(a);
+        });
+        return count;
+      }
+
+      var seasonStrip = document.getElementById('seasonStrip');
+      var favStrip = document.getElementById('favStrip');
+      var recentStrip = document.getElementById('recentStrip');
+
+      function renderStrips() {
+        // 시즌 추천
+        if (seasonStrip) {
+          var month = String(new Date().getMonth() + 1);
+          var season = SEASONS[month];
+          var seasonRow = document.getElementById('seasonRow');
+          var seasonLabel = document.getElementById('seasonLabel');
+          if (season && seasonRow) {
+            if (seasonLabel) seasonLabel.textContent = season.label;
+            var n = renderRow(seasonRow, season.ids, false);
+            seasonStrip.classList.toggle('visible', n > 0);
+          }
+        }
+        // 즐겨찾기
+        if (favStrip) {
+          var favRow = document.getElementById('favRow');
+          var nf = renderRow(favRow, favs, true, function (e) { toggleFav(e); });
+          favStrip.classList.toggle('visible', nf > 0);
+        }
+        // 최근 본 자료
+        if (recentStrip) {
+          var recentRow = document.getElementById('recentRow');
+          var nr = renderRow(recentRow, recent, false);
+          recentStrip.classList.toggle('visible', nr > 0);
+        }
+      }
+
+      function toggleFav(entry) {
+        var idx = favs.indexOf(entry.id);
+        if (idx === -1) favs.unshift(entry.id);
+        else favs.splice(idx, 1);
+        lsSet('est-favs', favs);
+        if (entry.favBtn) entry.favBtn.setAttribute('aria-pressed', favs.indexOf(entry.id) !== -1 ? 'true' : 'false');
+        renderStrips();
+      }
+
+      function recordRecent(id) {
+        if (!id) return;
+        var idx = recent.indexOf(id);
+        if (idx !== -1) recent.splice(idx, 1);
+        recent.unshift(id);
+        recent = recent.slice(0, 6);
+        lsSet('est-recent', recent);
+      }
+
+      // ============================================================
+      // 8) View toggle (grid / compact list) — persisted
       // ============================================================
       var viewButtons = document.querySelectorAll('.view-toggle button');
       function applyView(view) {
@@ -2840,7 +3668,7 @@
       } catch (e) { applyView('grid'); }
 
       // ============================================================
-      // 6) Scrollspy — highlight active nav link
+      // 9) Scrollspy — highlight active nav link
       // ============================================================
       var navLinkMap = {};
       document.querySelectorAll('#navLinks a[data-nav]').forEach(function (a) {
@@ -2854,7 +3682,6 @@
       }
       if ('IntersectionObserver' in window) {
         var spy = new IntersectionObserver(function (obs) {
-          // Pick the section closest to top among intersecting ones
           var best = null;
           obs.forEach(function (o) {
             if (o.isIntersecting) {
@@ -2873,18 +3700,15 @@
       }
 
       // ============================================================
-      // 7) Scroll-to-top
+      // 10) Scroll-to-top + sticky 측정
       // ============================================================
       var scrollTopBtn = document.getElementById('scrollTop');
       var toolsSection = document.querySelector('.global-tools-section');
       var topbarEl = document.querySelector('.topbar');
       var ticking = false;
 
-      // 상단바·검색바의 실제 높이를 재서 sticky 위치/앵커 오프셋을 동적으로 맞춘다.
-      // (네비 링크 줄바꿈, 폰트 로드, 화면 크기에 따라 높이가 달라지므로)
       function measureSticky() {
         var th = topbarEl ? topbarEl.offsetHeight : 73;
-        // sticky로 고정되는 검색바 영역 전체 높이(패딩·결과줄 포함)
         var ch = toolsSection ? toolsSection.offsetHeight : 185;
         var root = document.documentElement.style;
         root.setProperty('--topbar-h', th + 'px');
@@ -2904,7 +3728,6 @@
       function onScroll() {
         if (window.scrollY > 480) scrollTopBtn.classList.add('visible');
         else scrollTopBtn.classList.remove('visible');
-        // 검색바가 상단바 바로 아래에 붙었는지 감지해 분리 그림자 토글
         if (toolsSection && topbarEl) {
           var threshold = topbarEl.offsetHeight + 1;
           if (toolsSection.getBoundingClientRect().top <= threshold) toolsSection.classList.add('is-stuck');
@@ -2921,10 +3744,17 @@
       });
 
       // ============================================================
-      // 8) Initial render
+      // 11) Initial render
       // ============================================================
-      applyFilters();
+      var savedSort = lsGet('est-sort', 'default');
+      if (savedSort !== 'default' && ['updated','name'].indexOf(savedSort) !== -1) {
+        applySort(savedSort); // applyFilters 포함
+      } else {
+        applyFilters();
+      }
+      renderStrips();
     })();
+
   </script>
 </body>
 </html>
