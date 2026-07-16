@@ -3033,8 +3033,9 @@
           var useEl = card.querySelector('.card-ico use');
           var added = card.dataset.added || '';
           var updated = card.dataset.updated || '';
+          // 최근 2주(14일) 내 변화가 있을 때만 배지 표시
           var badgeHTML = '';
-          if (daysSince(added) <= 21) badgeHTML = '<span class="badge-new">NEW</span>';
+          if (daysSince(added) <= 14) badgeHTML = '<span class="badge-new">NEW</span>';
           else if (daysSince(updated) <= 14) badgeHTML = '<span class="badge-upd">UPDATE</span>';
           var entry = {
             card: card,
