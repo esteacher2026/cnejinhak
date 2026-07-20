@@ -547,8 +547,8 @@
     section { padding: 52px 0 46px; }
     section + section { border-top: 1px solid var(--line); }
 
-    /* 고정 헤더 + sticky 검색바에 가려지지 않도록 앵커 착지 지점을 내림 */
-    section[id] { scroll-margin-top: calc(var(--sticky-offset, 200px) + 14px); }
+    /* 고정 헤더에 가려지지 않도록 앵커 착지 지점을 내림 */
+    section[id] { scroll-margin-top: calc(var(--topbar-h, 73px) + 14px); }
 
     .section-head {
       display: flex;
@@ -1291,22 +1291,10 @@
     /* ============================================================
        Global toolbar (site-wide search + scope filter + view toggle)
        ============================================================ */
+    /* 화면을 가리지 않도록 본문과 함께 스크롤되는 정적 배치 */
     .global-tools-section {
-      position: sticky;
-      top: var(--topbar-h, 73px);
-      z-index: 20;
       padding: 10px 0 10px;
       background: var(--bg);
-      border-bottom: 1px solid transparent;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-    /* 스크롤로 상단바 아래에 붙었을 때만 분리감을 위한 그림자 */
-    .global-tools-section.is-stuck {
-      border-bottom-color: var(--line);
-      box-shadow: 0 10px 22px rgba(16, 42, 76, 0.07);
-    }
-    [data-theme="dark"] .global-tools-section.is-stuck {
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
     }
 
     .global-tools {
@@ -1514,12 +1502,6 @@
     section.is-hidden { display: none; }
 
     @media (max-width: 700px) {
-      /* 모바일은 화면이 좁아 sticky 검색바가 과해 — 정적 배치로 되돌림 */
-      .global-tools-section {
-        position: static;
-        box-shadow: none;
-        border-bottom-color: transparent;
-      }
       .scope-chips {
         width: 100%;
         overflow-x: auto;
@@ -3704,16 +3686,12 @@
       // 10) Scroll-to-top + sticky 측정
       // ============================================================
       var scrollTopBtn = document.getElementById('scrollTop');
-      var toolsSection = document.querySelector('.global-tools-section');
       var topbarEl = document.querySelector('.topbar');
       var ticking = false;
 
       function measureSticky() {
         var th = topbarEl ? topbarEl.offsetHeight : 73;
-        var ch = toolsSection ? toolsSection.offsetHeight : 185;
-        var root = document.documentElement.style;
-        root.setProperty('--topbar-h', th + 'px');
-        root.setProperty('--sticky-offset', (th + ch) + 'px');
+        document.documentElement.style.setProperty('--topbar-h', th + 'px');
       }
       measureSticky();
       window.addEventListener('load', measureSticky);
@@ -3729,11 +3707,6 @@
       function onScroll() {
         if (window.scrollY > 480) scrollTopBtn.classList.add('visible');
         else scrollTopBtn.classList.remove('visible');
-        if (toolsSection && topbarEl) {
-          var threshold = topbarEl.offsetHeight + 1;
-          if (toolsSection.getBoundingClientRect().top <= threshold) toolsSection.classList.add('is-stuck');
-          else toolsSection.classList.remove('is-stuck');
-        }
         ticking = false;
       }
       onScroll();
