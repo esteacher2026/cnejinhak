@@ -74,6 +74,11 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <!-- Noto Serif KR: 헤드라인용 세리프 디스플레이 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap" />
 
   <style>
     /* ============================================================
@@ -105,6 +110,8 @@
       --radius-md: 12px;
       --max: 1120px;
       --focus-ring: 0 0 0 3px rgba(36, 87, 166, 0.35);
+      --font-display: "Noto Serif KR", "Pretendard Variable", Pretendard, serif;
+      --gold-line: rgba(212, 169, 85, 0.45);
     }
 
     [data-theme="dark"] {
@@ -129,6 +136,7 @@
       --shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
       --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
       --focus-ring: 0 0 0 3px rgba(126, 180, 255, 0.45);
+      --gold-line: rgba(212, 169, 85, 0.35);
     }
 
     * { box-sizing: border-box; }
@@ -213,8 +221,8 @@
     }
 
     .topline {
-      height: 5px;
-      background: linear-gradient(90deg, var(--navy), var(--blue), var(--gold));
+      height: 4px;
+      background: linear-gradient(90deg, #0d2340 0%, #2457a6 42%, #b48932 78%, #f3d9a4 100%);
     }
 
     /* ============================================================
@@ -371,6 +379,17 @@
       mask-image: radial-gradient(ellipse 80% 100% at 70% 0%, black, transparent 80%);
       pointer-events: none;
     }
+    /* 하단 골드 헤어라인 — 밴드 마감 */
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 4%, var(--gold-line) 30%, rgba(243, 217, 164, 0.7) 50%, var(--gold-line) 70%, transparent 96%);
+      pointer-events: none;
+    }
 
     .hero-box {
       position: relative;
@@ -415,13 +434,14 @@
       align-items: center;
       gap: 8px;
       width: fit-content;
-      padding: 5px 11px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border: 1px solid rgba(212, 169, 85, 0.42);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #f7efd9;
-      font-size: 0.84rem;
+      background: linear-gradient(135deg, rgba(212, 169, 85, 0.14), rgba(212, 169, 85, 0.05));
+      color: #f3d9a4;
+      font-size: 0.82rem;
       font-weight: 800;
+      letter-spacing: 0.06em;
     }
 
     .eyebrow::before {
@@ -436,11 +456,12 @@
     h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      margin: 14px 0 12px;
+      margin: 16px 0 14px;
       max-width: 720px;
-      font-size: clamp(1.75rem, 3.6vw, 2.75rem);
-      line-height: 1.18;
-      letter-spacing: -0.045em;
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.6vw, 2.7rem);
+      line-height: 1.26;
+      letter-spacing: -0.015em;
       font-weight: 900;
     }
 
@@ -478,12 +499,12 @@
     .button svg { width: 17px; height: 17px; }
 
     .button.primary {
-      color: #102a4c;
-      background: #fff;
+      color: #241a05;
+      background: linear-gradient(135deg, #f3d9a4 0%, #d9ae5f 100%);
       border: 0;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
-    .button.primary:hover { background: #f3d9a4; }
+    .button.primary:hover { filter: brightness(1.06); }
 
     .button.secondary {
       color: #fff;
@@ -511,12 +532,13 @@
       display: grid;
       align-content: center;
       gap: 10px;
-      padding: 18px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 20px 22px;
+      border: 1px solid rgba(212, 169, 85, 0.32);
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.12);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.07));
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
     }
 
     .focus-label {
@@ -569,13 +591,15 @@
       letter-spacing: 0.12em;
     }
 
+    .section-label { letter-spacing: 0.15em; }
     .section-label b {
       display: inline-grid;
       place-items: center;
       min-width: 28px;
       height: 28px;
-      border: 1.5px solid currentColor;
+      border: 1px solid currentColor;
       border-radius: 9px;
+      background: color-mix(in srgb, currentColor 8%, transparent);
       font-size: 0.78rem;
       font-weight: 900;
       letter-spacing: 0;
@@ -598,9 +622,10 @@
     h2 {
       margin-bottom: 0;
       color: var(--navy);
-      font-size: clamp(1.45rem, 2.6vw, 1.95rem);
-      line-height: 1.22;
-      letter-spacing: -0.045em;
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+      line-height: 1.3;
+      letter-spacing: -0.015em;
       font-weight: 900;
     }
     [data-theme="dark"] h2 { color: var(--ink); }
@@ -627,7 +652,7 @@
       margin-bottom: 18px;
       padding: 12px 14px;
       border: 1px solid var(--line);
-      border-radius: var(--radius-md);
+      border-radius: 14px;
       background: var(--paper);
       box-shadow: 0 4px 12px rgba(16, 42, 76, 0.04);
     }
@@ -816,14 +841,38 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      min-height: 150px;
+      min-height: 142px;
       padding: 18px 18px 20px;
       border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: var(--paper);
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
       box-shadow: 0 1px 3px rgba(16, 42, 76, 0.05);
+      overflow: hidden;
       transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, opacity 0.4s ease;
     }
+    /* 상단 컬러 헤어라인 — 호버 시 살짝 드러나는 섹션 악센트 */
+    .resource-card::before,
+    .support-card::before,
+    .instructional-card::before,
+    .stats-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, var(--blue), rgba(36, 87, 166, 0));
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .support-card::before { background: linear-gradient(90deg, var(--gold), rgba(180, 137, 50, 0)); }
+    .instructional-card::before { background: linear-gradient(90deg, #6d28d9, rgba(109, 40, 217, 0)); }
+    .stats-card::before { background: linear-gradient(90deg, #0e7c66, rgba(14, 124, 102, 0)); }
+    .resource-card:hover::before, .resource-card:focus-visible::before,
+    .support-card:hover::before, .support-card:focus-visible::before,
+    .instructional-card:hover::before, .instructional-card:focus-visible::before,
+    .stats-card:hover::before, .stats-card:focus-visible::before { opacity: 1; }
     [data-theme="dark"] .resource-card,
     [data-theme="dark"] .support-card,
     [data-theme="dark"] .instructional-card,
@@ -861,21 +910,28 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       margin-bottom: 12px;
-      border-radius: 10px;
+      border-radius: 12px;
       color: var(--blue);
-      background: var(--blue-soft);
+      background: linear-gradient(140deg, var(--blue-soft) 0%, rgba(234, 242, 255, 0.45) 100%);
+      border: 1px solid rgba(36, 87, 166, 0.14);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
       transition: transform 0.18s ease;
     }
+    [data-theme="dark"] .card-ico {
+      box-shadow: none;
+      background: var(--blue-soft);
+      border-color: rgba(126, 180, 255, 0.18);
+    }
     .card-ico svg { width: 19px; height: 19px; }
-    .support-card .card-ico { color: #8a6420; background: var(--gold-soft); }
-    .instructional-card .card-ico { color: #6d28d9; background: #ede9fe; }
-    .stats-card .card-ico { color: #0e7c66; background: #d4f5ec; }
-    [data-theme="dark"] .support-card .card-ico { color: var(--gold); }
-    [data-theme="dark"] .instructional-card .card-ico { color: #c4b5fd; background: #2a2347; }
-    [data-theme="dark"] .stats-card .card-ico { color: #5eead4; background: #0f2a25; }
+    .support-card .card-ico { color: #8a6420; background: linear-gradient(140deg, var(--gold-soft) 0%, rgba(247, 239, 217, 0.4) 100%); border-color: rgba(180, 137, 50, 0.22); }
+    .instructional-card .card-ico { color: #6d28d9; background: linear-gradient(140deg, #ede9fe 0%, rgba(237, 233, 254, 0.4) 100%); border-color: rgba(109, 40, 217, 0.16); }
+    .stats-card .card-ico { color: #0e7c66; background: linear-gradient(140deg, #d4f5ec 0%, rgba(212, 245, 236, 0.4) 100%); border-color: rgba(14, 124, 102, 0.18); }
+    [data-theme="dark"] .support-card .card-ico { color: var(--gold); background: var(--gold-soft); border-color: rgba(212, 169, 85, 0.25); }
+    [data-theme="dark"] .instructional-card .card-ico { color: #c4b5fd; background: #2a2347; border-color: rgba(196, 181, 253, 0.2); }
+    [data-theme="dark"] .stats-card .card-ico { color: #5eead4; background: #0f2a25; border-color: rgba(94, 234, 212, 0.2); }
     .resource-card:hover .card-ico, .support-card:hover .card-ico,
     .instructional-card:hover .card-ico, .stats-card:hover .card-ico {
       transform: scale(1.08);
@@ -955,6 +1011,16 @@
     [data-theme="dark"] .support-card h3,
     [data-theme="dark"] .instructional-card h3,
     [data-theme="dark"] .stats-card h3 { color: var(--ink); }
+    .resource-card h3 { transition: color 0.18s ease; }
+    .support-card h3, .instructional-card h3, .stats-card h3 { transition: color 0.18s ease; }
+    .resource-card:hover h3 { color: var(--blue); }
+    .support-card:hover h3 { color: #8a6420; }
+    .instructional-card:hover h3 { color: #6d28d9; }
+    .stats-card:hover h3 { color: #0e7c66; }
+    [data-theme="dark"] .resource-card:hover h3 { color: var(--blue); }
+    [data-theme="dark"] .support-card:hover h3 { color: var(--gold); }
+    [data-theme="dark"] .instructional-card:hover h3 { color: #c4b5fd; }
+    [data-theme="dark"] .stats-card:hover h3 { color: #5eead4; }
 
     .resource-card p,
     .support-card p,
@@ -1038,12 +1104,28 @@
        Footer
        ============================================================ */
     .footer {
+      position: relative;
       margin-top: 46px;
       padding: 36px 0 40px;
       color: #cbd5e1;
-      background: #0c223d;
+      background:
+        radial-gradient(ellipse 55% 90% at 90% 0%, rgba(180, 137, 50, 0.08), transparent 60%),
+        #0c223d;
     }
-    [data-theme="dark"] .footer { background: #050d1a; }
+    [data-theme="dark"] .footer {
+      background:
+        radial-gradient(ellipse 55% 90% at 90% 0%, rgba(180, 137, 50, 0.06), transparent 60%),
+        #050d1a;
+    }
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 4%, var(--gold-line) 50%, transparent 96%);
+    }
 
     .footer-cols {
       display: grid;
@@ -1300,9 +1382,9 @@
     .global-tools {
       padding: 14px;
       border: 1px solid var(--line);
-      border-radius: var(--radius-md);
+      border-radius: 16px;
       background: var(--paper);
-      box-shadow: 0 4px 14px rgba(16, 42, 76, 0.06);
+      box-shadow: 0 6px 18px rgba(16, 42, 76, 0.06);
     }
     [data-theme="dark"] .global-tools { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3); }
 
@@ -1793,17 +1875,6 @@
     [data-theme="dark"] .badge-new { color: #0a1628; background: #ff8095; }
     [data-theme="dark"] .badge-upd { color: #0a1628; background: #5eead4; }
 
-    .card-date {
-      display: block;
-      margin-top: auto;
-      padding-top: 10px;
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 600;
-      font-variant-numeric: tabular-nums;
-    }
-    body[data-view="compact"] .card-date { display: none; }
-
     /* ============================================================
        (신규) 즐겨찾기 별 버튼 — 카드 우하단 (기존 화살표 대체)
        ============================================================ */
@@ -2116,7 +2187,6 @@
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026대학발표 입시결과 조회</h3>
             <p>어디가 24·25·26 수시 70%·50%컷 3개년 비교 조회</p>
-            <span class="card-date">2026.07.08 갱신</span>
           </a>
 
           <a class="resource-card" href="jeongsi/" data-id="jeongsi" data-category="result" data-type="explore" data-added="2026-06-28" data-updated="2026-07-08" data-keywords="2026 정시 입시결과 수능위주 대학발표 백분위 70컷 50컷 평균백분위 경쟁률 충원 모집단위 모집군 영어 등급 환산점수 내 백분위 매칭">
@@ -2124,7 +2194,6 @@
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026 정시(수능위주) 입시결과(백분위) 조회</h3>
             <p>대학발표 2026 정시 수능 백분위 70%컷·경쟁률을 대학·모집단위별 조회 + 내 백분위 매칭</p>
-            <span class="card-date">2026.07.08 갱신</span>
           </a>
 
           <a class="resource-card" href="2026results-download.html" data-id="2026results-download" data-category="result" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2026 입시결과 대학별 원문 다운로드 PDF 엑셀 한글 수시 정시 대학발표">
@@ -2132,7 +2201,6 @@
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026대학발표 입시결과 다운로드</h3>
             <p>대학 발표 자료를 대학별로 검색하고 내려받기</p>
-            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
           <a class="resource-card" href="2026prelearning-report.html" data-id="2026prelearning-report" data-category="result" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2026 선행학습영향평가 결과보고서 대학별고사 문항카드 논술 면접 원문 다운로드 PDF HWP">
@@ -2140,7 +2208,6 @@
             <span class="audience cat-result">2026 선행학습</span>
             <h3>2026 선행학습영향평가 결과보고서</h3>
             <p>대학별 결과보고서·문항카드·부속자료 원문 검색 및 다운로드</p>
-            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
           <a class="resource-card" href="procollege6.html" data-id="procollege6" data-category="result" data-type="explore" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="전문대학 전문대 간호 보건 물리치료 치위생 방사선 응급구조 임상병리 입시결과 경쟁률 합격자 등급 3개년 전문대학포털 수시 정시">
@@ -2148,7 +2215,6 @@
             <span class="audience cat-result">2026 입시결과</span>
             <h3>전문대학 간호·보건 6개 학과 입시결과</h3>
             <p>간호·물리치료·방사선·응급구조·임상병리·치위생 24~26 경쟁률·합격자 성적</p>
-            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
           <div class="group-divider" data-group="2027" role="presentation">
@@ -2160,7 +2226,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 서류평가 비교</h3>
             <p>대학별 서류평가 내용과 전형별 평가요소 비율 확인</p>
-            <span class="card-date">2026.06.07 갱신</span>
           </a>
 
           <a class="resource-card" href="jonghap_interview.html" data-id="jonghap_interview" data-category="2027" data-type="explore" data-added="2026-06-06" data-updated="2026-06-07" data-keywords="2027 어디가 학생부종합전형 면접평가 면접시간 평가요소 비율 대학별 비교">
@@ -2168,7 +2233,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 면접평가 비교</h3>
             <p>대학별 면접 방식, 면접시간, 문항유형과 평가요소 비율 확인</p>
-            <span class="card-date">2026.06.07 갱신</span>
           </a>
 
           <a class="resource-card" href="student_record_interview.html" data-id="student_record_interview" data-category="2027" data-type="calc" data-added="2026-06-16" data-updated="2026-07-08" data-keywords="2027 학생부종합전형 면접 학생부 활동 탐구 예상문항 모의면접 충청남도교육청 진로융합교육원">
@@ -2176,7 +2240,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>학생부 활동·탐구 면접 질문 생성</h3>
             <p>학생부 활동명과 지원 분야를 입력해 활동·탐구 과정 중심 예상문항 30개 생성</p>
-            <span class="card-date">2026.07.08 갱신</span>
           </a>
 
           <a class="resource-card" href="2027hakjong-guide.html" data-id="2027hakjong-guide" data-category="2027" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2027 학생부종합전형 가이드북 학생부위주전형 학생부전형 학종 대학별 원문 다운로드 PDF">
@@ -2184,7 +2247,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 가이드북</h3>
             <p>대학별 학생부종합·학생부위주전형 가이드북 PDF 원문 검색 및 다운로드</p>
-            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
           <a class="resource-card" href="2027gosa.html" data-id="2027gosa" data-category="2027" data-type="map" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="2027 수시 대학별고사 일정 캘린더 논술 면접 실기 고사일 충돌 상담 어디가">
@@ -2192,7 +2254,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시 대학별고사 일정 캘린더</h3>
             <p>논술·면접·실기 일정을 달력·대학별로 보고, 상담 모드로 겹침 확인</p>
-            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
           <a class="resource-card" href="2027susi-download.html" data-id="2027susi-download" data-category="2027" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2027 수시모집요강 대학별 모집요강 원문 다운로드 PDF HWP 수시 대학 입학처">
@@ -2200,7 +2261,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시모집요강 원문 다운로드</h3>
             <p>대학별 수시모집요강 PDF·HWP 원문을 지역과 대학명으로 검색</p>
-            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
           <a class="resource-card" href="2027admissions2.html" data-id="2027admissions2" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-05" data-keywords="2027 대입전형 이해 초급자 웹 안내서 대입정보119 대교협">
@@ -2208,7 +2268,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027학년도 대입전형의 이해(초급자용)</h3>
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
-            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
           <a class="resource-card" href="2027special.html" data-id="2027special" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2027 농어촌학생 특별전형 웹 안내서">
@@ -2216,7 +2275,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 농어촌학생 특별전형</h3>
             <p>농어촌학생 특별전형,자격부터 대학별 전형까지</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="localmedi.html" data-id="localmedi" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-23" data-keywords="2027 지역인재 특별전형">
@@ -2224,7 +2282,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 지역인재 특별전형</h3>
             <p>의예, 치의예, 한의예, 약학, 수의예, 간호</p>
-            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
           <a class="resource-card" href="2027medi.html" data-id="2027medi" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-07-02" data-keywords="2027 지역의사선발전형 안내서">
@@ -2232,7 +2289,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 지역의사선발전형</h3>
             <p>지역의사 선발전형 안내</p>
-            <span class="card-date">2026.07.02 갱신</span>
           </a>
 
           <a class="resource-card" href="2027uichihan.html" data-id="2027uichihan" data-category="2027" data-type="explore" data-added="2026-07-04" data-updated="2026-07-06" data-keywords="2027 의치한약수 의예 치의예 한의예 약학 수의예 수시 전형 수능최저 면접 경쟁률 70%컷 입시결과 어디가">
@@ -2240,7 +2296,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 의·치·한·약·수 수시 전형 탐색기</h3>
             <p>의약학계열 수시 전형·수능최저·면접·3개년 입결을 한눈에</p>
-            <span class="card-date">2026.07.06 갱신</span>
           </a>
 
           <a class="resource-card" href="2027yeche.html" data-id="2027yeche" data-category="2027" data-type="explore" data-added="2026-06-10" data-updated="2026-06-11" data-keywords="2027 예체능 비실기전형 음악 미술 체육 연기연출 응용예술 전공자율선택제 수능최저 모집단위 정시 반영영역 대입정보119">
@@ -2248,7 +2303,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 예체능계열 비실기전형</h3>
             <p>음악·미술·체육·연기/연출·응용예술 비실기 모집단위 검색·비교</p>
-            <span class="card-date">2026.06.11 갱신</span>
           </a>
 
           <a class="resource-card" href="2027cheomdan.html" data-id="2027cheomdan" data-category="2027" data-type="explore" data-added="2026-06-11" data-updated="2026-06-23" data-keywords="2027 계약학과 첨단학과 기업체취업형 조기취업형 군의무복무형 채용조건형 반도체 삼성전자 SK하이닉스 분야 모집단위 검색 비교 대입정보119">
@@ -2256,7 +2310,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 계약학과·첨단학과</h3>
             <p>기업체취업형·조기취업형·군의무복무형 계약학과와 첨단학과 검색·비교</p>
-            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
           <a class="resource-card" href="2027gyogwa.html" data-id="2027gyogwa" data-category="2027" data-type="explore" data-added="2026-06-02" data-updated="2026-06-23" data-keywords="학생부교과전형 교과 반영방법 수능최저">
@@ -2264,7 +2317,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부교과전형</h3>
             <p>2027학생부교과전형, 한 화면에서 검색하고 비교</p>
-            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
           <a class="resource-card" href="2027chuchon.html" data-id="2027chuchon" data-category="2027" data-type="explore" data-added="2026-06-23" data-updated="2026-06-29" data-keywords="2027 학교장추천전형 학교장추천 지역균형 고교추천 추천형 교과 종합 학종 사관학교 경찰대 국군간호사관 수능최저 면접 모집인원 비교 SEN진학 장진호">
@@ -2272,7 +2324,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학교장추천전형</h3>
             <p>교과·종합·사관/경찰 학교장추천 60개 전형을 검색·비교</p>
-            <span class="card-date">2026.06.29 갱신</span>
           </a>
 
           <a class="resource-card" href="2027-specialized-highschool-standards/" data-id="2027-specialized-highschool-standards" data-category="2027" data-type="explore" data-added="2026-06-24" data-updated="2026-06-24" data-keywords="2027 특성화고 기준학과 특성화고교졸업자 특별전형 동일계열 시도교육청 한국대학교육협의회 대교협 기준학과 학교 학과 검색">
@@ -2280,7 +2331,6 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 특성화고 기준학과</h3>
             <p>시도교육청별 특성화고 학과와 기준학과를 원본 행 기준으로 검색</p>
-            <span class="card-date">2026.06.24 갱신</span>
           </a>
 
           <div class="group-divider" data-group="2028" role="presentation">
@@ -2292,7 +2342,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대학입학전형시행계획 원문 다운로드</h3>
             <p>대학별 시행계획·기본계획·주요사항·모집인원 원문 검색 및 다운로드</p>
-            <span class="card-date">2026.06.16 갱신</span>
           </a>
 
           <a class="resource-card" href="2028gyogwa-change.html" data-id="2028gyogwa-change" data-category="2028" data-type="explore" data-added="2026-06-11" data-updated="2026-06-11" data-keywords="학생부교과전형 5등급제 성취도 환산점수 지역균형 학교장추천 수능최저 반영교과 내신산출 모집인원 유홍규">
@@ -2300,7 +2349,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 학생부교과전형의 변화</h3>
             <p>5등급제·환산점수·지역균형·수능최저·내신산출방식까지 교과전형 변화 총정리</p>
-            <span class="card-date">2026.06.11 갱신</span>
           </a>
 
           <a class="resource-card" href="hakjong2028.html" data-id="hakjong2028" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 학생부종합전형">
@@ -2308,7 +2356,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 학생부종합전형</h3>
             <p>주요 13개 대학의 학생부종합전형 정리</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="2028castrow.html" data-id="2028castrow" data-category="2028" data-type="explore" data-added="2026-06-04" data-updated="2026-06-13" data-keywords="2028 수능최저 빠른보기">
@@ -2316,7 +2363,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 수능최저 빠른보기</h3>
             <p>수능최저가 있는 교과·종합·논술 전형만 빠르게 비교</p>
-            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
           <a class="resource-card" href="2028suneung.html" data-id="2028suneung" data-category="2028" data-type="explore" data-added="2026-06-23" data-updated="2026-06-23" data-keywords="2028 수능 정시 수능위주전형 반영비율 모집인원 모집군 영어 등급별 점수 탐구 통합사회 통합과학 국가거점국립대 대학별 조회 표준점수 백분위 등급 서울 15개 대학">
@@ -2324,7 +2370,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 수능·정시 안내</h3>
             <p>수능 체제 변화와 서울 15개 대학·국가거점국립대 정시(수능위주전형)를 대학별로 조회</p>
-            <span class="card-date">2026.06.23 갱신</span>
           </a>
 
           <a class="resource-card" href="2028gyogwa.html" data-id="2028gyogwa" data-category="2028" data-type="explore" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="2028 교과반영방법 반영과목 반영지표 등급환산 성취도환산 반영범위">
@@ -2332,7 +2377,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 교과반영방법</h3>
             <p>대학별 반영과목·반영지표·환산방식을 빠르게 검색·비교</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <a class="resource-card" href="jinhak2028.html" data-id="jinhak2028" data-category="2028" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 대입 변화 전년도 비교 정태영">
@@ -2340,7 +2384,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대입 변화 비교</h3>
             <p>2028학년도 대입 전형의 핵심 변경사항과 이전 연도와의 차이점을 상세히 비교 분석합니다.</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="202815uni.html" data-id="202815uni" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="15개 대학 입학전형 시행계획 변경사항">
@@ -2348,7 +2391,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>15개 대학 입학전형</h3>
             <p>2026년 4월 발표 기준 15개 대학 시행계획을 분석한 자료입니다.</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="2028ist.html" data-id="2028ist" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="KAIST GIST DGIST UNIST KENTECH POSTECH 과학기술원 이공계">
@@ -2356,7 +2398,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>과학기술원 시행계획</h3>
             <p>KAIST, GIST, DGIST, UNIST, KENTECH, POSTECH</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="2028edu.html" data-id="2028edu" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="교육대학교 교대 시행계획">
@@ -2364,7 +2405,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>교육대학교 시행계획</h3>
             <p>교육대학교 시행계획 안내</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="gyogwa70cut.html" data-id="gyogwa70cut" data-category="2028" data-type="calc" data-added="2026-06-06" data-updated="2026-06-12" data-keywords="2026 어디가 교과전형 70%컷 성적 변환 대학 발표자료">
@@ -2372,7 +2412,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028대입 5등급-9등급 성적 변환(교과전형)</h3>
             <p>2026 교과전형 발표자료의 70%컷 살펴보기</p>
-            <span class="card-date">2026.06.12 갱신</span>
           </a>
 
           <a class="resource-card" href="jonghap70cut.html" data-id="jonghap70cut" data-category="2028" data-type="calc" data-added="2026-06-02" data-updated="2026-06-12" data-keywords="2026 어디가 종합전형 학생부종합전형 70%컷 성적 변환 대학 발표자료">
@@ -2380,7 +2419,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028대입 5등급-9등급 성적 변환(종합전형)</h3>
             <p>2026 종합전형 발표자료의 70%컷 살펴보기</p>
-            <span class="card-date">2026.06.12 갱신</span>
           </a>
 
           <a class="resource-card" href="2028guide.html" data-id="2028guide" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 대입전형 이해 초급자 웹 안내서">
@@ -2388,7 +2426,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028학년도 대입전형의 이해(초급자용)</h3>
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="2028nonsul.html" data-id="2028nonsul" data-category="2028" data-type="explore" data-added="2026-06-15" data-updated="2026-06-15" data-keywords="2028 논술전형 논술 모집인원 수능최저학력기준 전형방법 환산점수 논술고사 유형 인문 자연 수리논술 언어논술 약술형 의약학 대학별 비교 검색">
@@ -2396,7 +2433,6 @@
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 논술전형</h3>
             <p>12,727명·46개 대학 — 모집인원·수능최저·전형방법·논술유형을 검색·비교</p>
-            <span class="card-date">2026.06.15 갱신</span>
           </a>
 
           <div class="group-divider" data-group="info" role="presentation">
@@ -2408,7 +2444,6 @@
             <span class="audience cat-info">대입 정보</span>
             <h3>대학교 입학안내 지도</h3>
             <p>지도·목록으로 — 입학처·모집요강·시행계획·선행학습 보고서·가이드북을 한눈에</p>
-            <span class="card-date">2026.06.15 갱신</span>
           </a>
 
           <a class="resource-card" href="2unimap.html" data-id="2unimap" data-category="info" data-type="map" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="전국 전문대학 입학 안내 지도 목록 입학처 전문대">
@@ -2416,7 +2451,6 @@
             <span class="audience cat-info">대입 정보</span>
             <h3>전국 전문대학 입학 안내 지도</h3>
             <p>전국 전문대학을 지도·목록으로 한눈에, 입학처·홈페이지 링크까지</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <a class="resource-card" href="dong.html" data-id="dong" data-category="info" data-type="video" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="입시 동영상 유튜브 김태진 대학어디가 쎈진학">
@@ -2424,7 +2458,6 @@
             <span class="audience cat-info">대입 정보</span>
             <h3>입시동영상 모음</h3>
             <p>대입전형 이해를 위한 유튜브 영상 자료 모음집</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="resource-card" href="2026_2028py.html" data-id="2026_2028py" data-category="info" data-type="guide" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="체육 대학 요강 노동기">
@@ -2432,7 +2465,6 @@
             <span class="audience cat-info">대입 정보</span>
             <h3>체육 대학</h3>
             <p>2026~2028 체육대학 요강 정리</p>
-            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
           <a class="resource-card" href="jinhakdong2.html" data-id="jinhakdong2" data-category="info" data-type="video" data-added="2026-06-02" data-updated="2026-06-28" data-keywords="대입 영상 충청남도교육청 진로융합교육원 진학해유">
@@ -2440,7 +2472,6 @@
             <span class="audience cat-info">대입 정보</span>
             <h3>대입 관련 영상</h3>
             <p>충청남도교육청진로융합교육원 진학해유</p>
-            <span class="card-date">2026.06.28 갱신</span>
           </a>
 
           <a class="resource-card" href="hakjongguide.html" data-id="hakjongguide" data-category="info" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="학생부종합전형에 대한 이해">
@@ -2448,7 +2479,6 @@
             <span class="audience cat-info">대입 정보</span>
             <h3>학생부종합전형에 대한 이해(초급자용)</h3>
             <p>대학의 평가기준을 바탕으로한 학생부종합전형</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <!-- Empty state -->
@@ -2478,7 +2508,6 @@
             <span class="tag">진로</span>
             <h3>고1·고2를 위한 진로·학업 설계</h3>
             <p>자기 이해부터 과목 선택, 월별 로드맵, 셀프 체크까지 한눈에</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <a class="support-card" href="aisc.html" data-id="aisc" data-type="explore" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="탐구 데이터분석 지구과학 고등학생 주제 344">
@@ -2486,7 +2515,6 @@
             <span class="tag">탐구</span>
             <h3>데이터 분석 탐구 주제</h3>
             <p>고등학생 지구과학 데이터 분석형 탐구 주제 344</p>
-            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
           <a class="support-card" href="sub2.html" data-id="sub2" data-type="guide" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="진로 선택과목 설계 2022개정 교육과정 전공">
@@ -2494,7 +2522,6 @@
             <span class="tag">진로</span>
             <h3>선택과목설계</h3>
             <p>2022개정교육과정에서 전공별 선택과목을 설계하는 방법에 대한 정보를 제공합니다.</p>
-            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
           <a class="support-card" href="toon1.html" data-id="toon1" data-type="video" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="진로 웹툰 학업설계 고1 2022개정 교육과정">
@@ -2502,7 +2529,6 @@
             <span class="tag">진로</span>
             <h3>진로학업설계 웹툰</h3>
             <p>2022 개정 교육과정 고1 학생을 위한 웹툰</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="support-card" href="csat2028.html" data-id="csat2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="학습 2028수능 국어 수학 영어 통합사회 통합과학 대비전략">
@@ -2510,7 +2536,6 @@
             <span class="tag">학습</span>
             <h3>2028수능 대비 방법</h3>
             <p>국어·수학·영어·통합사회·통합과학의 2028 수능 대비 전략</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <a class="support-card" href="preview.html" data-id="preview" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="학습 내신 공부방법 고등학생 2022개정 교육과정">
@@ -2518,7 +2543,6 @@
             <span class="tag">학습</span>
             <h3>고등학생을 위한 내신 공부 방법</h3>
             <p>2022 개정 교육과정 기반 고등학생 내신 학습 방법</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <a class="support-card" href="sciencetam.html" data-id="sciencetam" data-type="guide" data-added="2026-06-10" data-updated="2026-07-07" data-keywords="탐구 학생부종합전형 과학교과 심화탐구 가이드">
@@ -2526,7 +2550,6 @@
             <span class="tag">탐구</span>
             <h3>학생부종합전형 대비 과학교과 탐구 방법</h3>
             <p>과학 교과에서 출발해 탐구력으로 확장하는 심화 탐구활동 가이드</p>
-            <span class="card-date">2026.07.07 갱신</span>
           </a>
 
           <a class="support-card" href="socialtam.html" data-id="socialtam" data-type="guide" data-added="2026-06-02" data-updated="2026-07-07" data-keywords="탐구 학생부종합전형 사회교과 사회현상 대안 탐구">
@@ -2534,7 +2557,6 @@
             <span class="tag">탐구</span>
             <h3>학생부종합전형 대비 사회교과 탐구 방법</h3>
             <p>사회현상을 근거로 읽고, 대안으로 확장하는 탐구</p>
-            <span class="card-date">2026.07.07 갱신</span>
           </a>
 
           <a class="support-card" href="ai_prompt.html" data-id="ai_prompt" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="탐구 데이터분석 AI 실험데이터 공공데이터 센서로그 이미지 텍스트">
@@ -2542,7 +2564,6 @@
             <span class="tag">탐구</span>
             <h3>데이터 분석 방법 가이드</h3>
             <p>실험데이터·공공데이터·센서로그·이미지·텍스트 등의 AI활용 분석 방법</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="support-card" href="2027uni.html" data-id="2027uni" data-type="explore" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="2027 진로 전국대학 학과 검색 모집인원 수업주제 관심사">
@@ -2550,7 +2571,6 @@
             <span class="tag">진로</span>
             <h3>2027 대학 개설학과·모집인원 검색</h3>
             <p>학과, 모집인원, 교과·직업·상담 주제를 함께 탐색합니다.</p>
-            <span class="card-date">2026.06.13 갱신</span>
           </a>
 
           <a class="support-card" href="studentguide.html" data-id="studentguide" data-type="guide" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="학교생활기록부 학생부 기재요령 2026">
@@ -2558,7 +2578,6 @@
             <span class="tag">학교생활기록부</span>
             <h3>2026학교생활기록부 기재요령</h3>
             <p>학교생활기록부 기재요령 도우미</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <a class="support-card" href="saenggibu_check.html" data-id="saenggibu_check" data-type="calc" data-added="2026-06-22" data-updated="2026-06-29" data-keywords="학교생활기록부 생기부 글자수 바이트 맞춤법 띄어쓰기 기재금지 세특 행특 진로활동 NEIS 점검 500자 900자">
@@ -2566,7 +2585,6 @@
             <span class="tag">학교생활기록부</span>
             <h3>생기부 글자수·점검 도우미</h3>
             <p>NEIS 바이트 글자수와 맞춤법·기재금지 항목을 한 번에 점검합니다.</p>
-            <span class="card-date">2026.06.29 갱신</span>
           </a>
 
           <a class="support-card" href="seongjeok2026.html" data-id="seongjeok2026" data-type="guide" data-added="2026-06-04" data-updated="2026-06-05" data-keywords="성적관리 학업성적관리 시행지침 2026 평가 정기시험 수행평가 성적처리 인정점 충청남도교육청 고등학교 NEIS 나이스 조문 별표 부록 검색">
@@ -2574,7 +2592,6 @@
             <span class="tag">성적관리</span>
             <h3>2026 고등학교 학업성적관리 시행지침</h3>
             <p>조문·별표·부록을 검색하고 바로 찾아보는 시행지침 도우미</p>
-            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
           <a class="support-card" href="transfer2026.html" data-id="transfer2026" data-type="guide" data-added="2026-06-02" data-updated="2026-06-05" data-keywords="전입학 편입학 재입학 전·편입학 업무처리 지침 2026 충청남도교육청 귀국학생 가거주 체육특기자 교육감전형 학교장전형 배정 신청서 양식 원문">
@@ -2582,7 +2599,6 @@
             <span class="tag">전·편입학</span>
             <h3>2026 고등학교 전·편입학 및 재입학 업무처리 지침</h3>
             <p>유형별 처리·제출서류·양식·원문을 한 번에 찾는 업무 도우미</p>
-            <span class="card-date">2026.06.05 갱신</span>
           </a>
 
           <a class="support-card" href="chungnam_admission.html" data-id="chungnam_admission" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="고입 고등학교 입학전형 2027 충남 충청남도">
@@ -2590,7 +2606,6 @@
             <span class="tag">고입</span>
             <h3>2027학년도 고등학교 입학전형 기본계획</h3>
             <p>충청남도 고등학교 입학전형 종합 안내서</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <div class="section-empty" id="supportEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -2615,7 +2630,6 @@
             <span class="tag">물리</span>
             <h3>2022개정교육과정에서 물리학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupch.html" data-id="sooupch" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="화학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2623,7 +2637,6 @@
             <span class="tag">화학</span>
             <h3>2022개정교육과정에서 화학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupbio.html" data-id="sooupbio" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="생명과학 생물 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2631,7 +2644,6 @@
             <span class="tag">생명과학</span>
             <h3>2022개정교육과정에서 생명과학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupes.html" data-id="sooupes" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="지구과학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2639,7 +2651,6 @@
             <span class="tag">지구과학</span>
             <h3>2022개정교육과정에서 지구과학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupalg.html" data-id="sooupalg" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 대수 일반선택 지수 로그 상용로그 지수함수 로그함수 삼각함수 사인법칙 코사인법칙 수열 등차수열 등비수열 시그마 수학적 귀납법 증명 모델링 그래프 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2647,7 +2658,6 @@
             <span class="tag">대수</span>
             <h3>2022개정교육과정에서 대수 수업</h3>
             <p>함수·수열·증명 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupcalc1.html" data-id="sooupcalc1" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 미적분Ⅰ 미적분1 미적분 1 일반선택 함수의 극한 연속 미분 미분계수 도함수 평균값 정리 그래프 개형 방정식 부등식 부정적분 정적분 넓이 속도 가속도 이동거리 누적량 모델링 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2655,7 +2665,6 @@
             <span class="tag">미적분Ⅰ</span>
             <h3>2022개정교육과정에서 미적분Ⅰ 수업</h3>
             <p>극한·변화율·누적량 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupprobstat.html" data-id="sooupprobstat" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 확률과 통계 확통 일반선택 경우의 수 중복순열 중복조합 이항정리 확률 조건부확률 독립 종속 곱셈정리 확률변수 확률분포 기댓값 표준편차 이항분포 정규분포 표본추출 모평균 모비율 신뢰구간 통계적 추정 공학도구 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2663,7 +2672,6 @@
             <span class="tag">확률과 통계</span>
             <h3>2022개정교육과정에서 확률과 통계 수업</h3>
             <p>조건·자료·추정 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupeng1.html" data-id="sooupeng1" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어Ⅰ 영어I 영어1 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 요지 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 감수성 사실정보 설명 요약 서식 작성 고쳐쓰기 쓰기윤리 협력적 의사소통 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2671,7 +2679,6 @@
             <span class="tag">영어Ⅰ</span>
             <h3>2022개정교육과정에서 영어Ⅰ 수업</h3>
             <p>근거·맥락·표현 전략 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupeng2.html" data-id="sooupeng2" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어Ⅱ 영어II 영어2 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 관점 감수성 사실정보 설명 감상 설득 요약 서식 자기소개서 이력서 보고서 고쳐쓰기 쓰기윤리 정보윤리 협력적 의사소통 프로젝트 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2679,7 +2686,6 @@
             <span class="tag">영어Ⅱ</span>
             <h3>2022개정교육과정에서 영어Ⅱ 수업</h3>
             <p>비판적 이해·학업 표현·매체 윤리 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupengrw.html" data-id="sooupengrw" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어 독해와 작문 영어독해와작문 일반선택 독해 작문 읽기 쓰기 읽기전략 쓰기전략 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 글구조 전개방식 매체 정보 문화 관점 포용 사실정보 설명 경험 계획 사건 의견 감정 요약 자기소개서 이력서 이메일 서식 고쳐쓰기 쓰기윤리 정보윤리 Greenwashing 그린워싱 공정여행 리플릿 계획서 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2687,7 +2693,6 @@
             <span class="tag">영어 독해와 작문</span>
             <h3>2022개정교육과정에서 영어 독해와 작문 수업</h3>
             <p>읽기 전략·작문 전이·윤리적 고쳐쓰기 기반 개념기반탐구학습</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupgeo.html" data-id="sooupgeo" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="세계시민과 지리 사회 지리 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2695,7 +2700,6 @@
             <span class="tag">세계시민과 지리</span>
             <h3>2022개정교육과정에서 세계시민과 지리 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupsoc.html" data-id="sooupsoc" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="사회와 문화 사회문화 사문 사회 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사회조사 미디어 불평등 복지">
@@ -2703,7 +2707,6 @@
             <span class="tag">사회와 문화</span>
             <h3>2022개정교육과정에서 사회와 문화 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupwh.html" data-id="sooupwh" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="세계사 역사 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사료 비판 역사 글쓰기 현대 세계 과제">
@@ -2711,7 +2714,6 @@
             <span class="tag">세계사</span>
             <h3>2022개정교육과정에서 세계사 수업</h3>
             <p>사료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupeth.html" data-id="sooupeth" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="현대사회와 윤리 현대사회 윤리 도덕 실천윤리 생명윤리 생태윤리 AI윤리 인공지능윤리 민주시민 평화 공존 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2719,7 +2721,6 @@
             <span class="tag">현대사회와 윤리</span>
             <h3>2022개정교육과정에서 현대사회와 윤리 수업</h3>
             <p>윤리 쟁점 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupkor.html" data-id="sooupkor" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="국어 화법과 언어 화법 언어 말하기 듣기 문법 담화 표준발음 어휘 발표 토의 토론 협상 국어생활 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2727,7 +2728,6 @@
             <span class="tag">화법과 언어</span>
             <h3>2022개정교육과정에서 화법과 언어 수업</h3>
             <p>담화·언어 자료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="sooupdw.html" data-id="sooupdw" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="국어 독서와 작문 독서 작문 읽기 쓰기 문어 의사소통 자료 탐색 자료 선별 사실적 독해 추론적 독해 비판적 독해 주제 통합 읽기 정보 전달 논증 고쳐쓰기 매체 글쓰기 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2735,7 +2735,6 @@
             <span class="tag">독서와 작문</span>
             <h3>2022개정교육과정에서 독서와 작문 수업</h3>
             <p>읽기·쓰기 전이 기반 개념기반탐구학습과 학생부종합전형 대비</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <a class="instructional-card" href="soouplit.html" data-id="soouplit" data-type="guide" data-added="2026-06-05" data-updated="2026-06-06" data-keywords="국어 문학 일반선택 문학 작품 근거 해석 갈래 맥락 한국문학사 비교문학 보편성 특수성 내용 형식 비평 창작 매체 문학 자아 성찰 타자 이해 공동체 문학 생활화 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
@@ -2743,7 +2742,6 @@
             <span class="tag">문학</span>
             <h3>2022개정교육과정에서 문학 수업</h3>
             <p>작품 근거 해석과 비평·창작 전이 기반 개념기반탐구학습</p>
-            <span class="card-date">2026.06.06 갱신</span>
           </a>
 
           <div class="section-empty" id="instructionalEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -2768,7 +2766,6 @@
             <span class="tag">대학</span>
             <h3>전형유형별 고교유형 선발 비율</h3>
             <p>2023–2025 · 전형별 합격생의 출신 고교유형 분포</p>
-            <span class="card-date">2026.07.15 갱신</span>
           </a>
 
           <a class="stats-card" href="admission-type-results.html" data-id="admission-type-results" data-type="explore" data-added="2026-07-15" data-updated="2026-07-15" data-keywords="대학 입학전형 유형별 선발 결과 2024 2025 2026 학생부종합 학생부교과 논술 수능위주 기타 모집인원 등록인원 등록률 정원내 정원외 대학알리미 통계">
@@ -2776,7 +2773,6 @@
             <span class="tag">대학</span>
             <h3>대학 입학전형 유형별 선발 결과</h3>
             <p>2024–2026 · 학종·교과·논술·수능위주별 모집·등록 현황</p>
-            <span class="card-date">2026.07.15 갱신</span>
           </a>
 
           <a class="stats-card" href="2026cast.html" data-id="2026cast" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="수능 2026 수학능력시험 등급컷 인원 비율 대시보드">
@@ -2784,7 +2780,6 @@
             <span class="tag">수능</span>
             <h3>2026수학능력시험</h3>
             <p>등급컷 · 인원 · 비율 종합 대시보드</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="stats-card" href="2027-june-mock-analysis/" data-id="2027-june-mock-analysis" data-type="explore" data-added="2026-06-22" data-updated="2026-06-29" data-keywords="수능 모의평가 2027 6월 대수능 국어 수학 영어 탐구 분석 원문 충남">
@@ -2792,7 +2787,6 @@
             <span class="tag">수능</span>
             <h3>2027학년도 6월 대수능 모의평가</h3>
             <p>국수영 · 탐구 통합 분석자료</p>
-            <span class="card-date">2026.06.29 갱신</span>
           </a>
 
           <a class="stats-card" href="20276cast.html" data-id="20276cast" data-type="explore" data-added="2026-07-01" data-updated="2026-07-01" data-keywords="수능 모의평가 2027학년도 6월 채점결과 평가원 등급컷 등급구분 표준점수 도수분포 백분위 원점수 변환 계산기 상담 국어 수학 영어 탐구 절대평가">
@@ -2800,7 +2794,6 @@
             <span class="tag">수능</span>
             <h3>2027학년도 6월 모의평가 채점 결과</h3>
             <p>등급컷 · 표준점수 분포 · 원점수 변환 계산기</p>
-            <span class="card-date">2026.07.01 갱신</span>
           </a>
 
           <a class="stats-card" href="unimo.html" data-id="unimo" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="대학 등록금 연간 평균 진학상담 공공데이터포털">
@@ -2808,7 +2801,6 @@
             <span class="tag">대학</span>
             <h3>대학별 연간 평균등록금</h3>
             <p>교사용 진학상담 자료 · 공공데이터포털 기반</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="stats-card" href="20265cast.html" data-id="20265cast" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="수능 2026 5월 고3 전국연합학력평가 모의고사 과목별 분석">
@@ -2816,7 +2808,6 @@
             <span class="tag">수능</span>
             <h3>2026학년도 5월 고3 전국연합학력평가</h3>
             <p>과목별 분석자료</p>
-            <span class="card-date">2026.06.02 갱신</span>
           </a>
 
           <a class="stats-card" href="20266cast1.html" data-id="20266cast1" data-type="explore" data-added="2026-06-22" data-updated="2026-06-22" data-keywords="학평 모의고사 2026 6월 고1 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
@@ -2824,7 +2815,6 @@
             <span class="tag">학평</span>
             <h3>2026학년도 6월 고1 전국연합학력평가</h3>
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
-            <span class="card-date">2026.06.22 갱신</span>
           </a>
 
           <a class="stats-card" href="20266cast2.html" data-id="20266cast2" data-type="explore" data-added="2026-06-22" data-updated="2026-06-22" data-keywords="학평 모의고사 2026 6월 고2 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
@@ -2832,7 +2822,6 @@
             <span class="tag">학평</span>
             <h3>2026학년도 6월 고2 전국연합학력평가</h3>
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
-            <span class="card-date">2026.06.22 갱신</span>
           </a>
 
           <a class="stats-card" href="highschoolmap.html" data-id="highschoolmap" data-type="map" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="고등학교 지도 전국 학교 위치 학생수 학급 교원 학교알리미 지역 진학 map">
@@ -2840,7 +2829,6 @@
             <span class="tag">학교</span>
             <h3>전국 고등학교 지도</h3>
             <p>전국 2,440개 고교 위치 · 학생수 · 학급 · 교원 인터랙티브 지도</p>
-            <span class="card-date">2026.06.04 갱신</span>
           </a>
 
           <div class="section-empty" id="statsEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
