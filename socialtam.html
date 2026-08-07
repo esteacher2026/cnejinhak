@@ -27,7 +27,10 @@
 <title>사회교과 연계 심화 탐구활동 가이드</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root {
   --navy:#0f1d36;
@@ -56,7 +59,8 @@
   --radius:18px;
   --radius-lg:24px;
   --serif:'Fraunces','Gowun Batang',ui-serif,Georgia,serif;
-  --sans:'Inter','IBM Plex Sans KR','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  --sans:'Pretendard Variable',Pretendard,'Inter',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 [data-theme="dark"] {
   --navy:#dde6fa;
@@ -90,10 +94,15 @@ body {
   font-family:var(--sans);
   color:var(--ink);
   background:var(--paper);
-  line-height:1.65;
-  font-feature-settings:"ss01","cv01";
-  letter-spacing:-.005em;
+  line-height:1.68;
+  letter-spacing:-.012em;
+  word-break:keep-all; overflow-wrap:anywhere;
+  -webkit-font-smoothing:antialiased;
   transition:background .3s ease, color .3s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto }
+  *, *::before, *::after { animation-duration:.001ms!important; transition-duration:.001ms!important }
 }
 [data-theme="light"] body, body {
   background:
@@ -470,7 +479,7 @@ td b { color:var(--navy) }
   padding:20px;
   box-shadow:var(--shadow-sm);
   display:flex; flex-direction:column; gap:11px;
-  min-height:230px; cursor:pointer;
+  min-height:262px; cursor:pointer;
   transition:.22s cubic-bezier(.2,.7,.2,1);
   position:relative; overflow:hidden;
 }
@@ -493,10 +502,30 @@ td b { color:var(--navy) }
 .topic-card .fav-btn:hover { color:var(--gold); border-color:var(--gold) }
 .topic-card .fav-btn.on { color:var(--gold); border-color:var(--gold); background:var(--gold-soft) }
 .topic-card .fav-btn svg { width:16px; height:16px }
-.topic-card h3 { margin:0; font-size:1.04rem; line-height:1.45; color:var(--navy); letter-spacing:-.025em; padding-right:40px; font-weight:800 }
+.topic-card h3 { margin:0; font-size:1.06rem; line-height:1.46; color:var(--navy); letter-spacing:-.035em; padding-right:40px; font-weight:800 }
 .topic-card p { margin:0; color:var(--ink-soft); font-size:.88rem; line-height:1.55 }
+/* 연구 질문 — 카드의 핵심 정보 */
+.card-rq {
+  position:relative; padding:9px 11px 9px 13px; border-radius:11px;
+  background:color-mix(in srgb, var(--blue) 5%, var(--paper-soft));
+  border-left:2.5px solid color-mix(in srgb, var(--blue) 42%, transparent);
+  font-size:.855rem!important; line-height:1.62!important; color:var(--ink-soft);
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+}
+.card-data { font-size:.8rem!important; color:var(--muted)!important }
+.card-data b { color:var(--muted-2); font-weight:700 }
 .topic-meta { display:flex; gap:5px; flex-wrap:wrap }
-.topic-footer { margin-top:auto; padding-top:8px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:.82rem; border-top:1px dashed var(--line-soft) }
+.topic-footer { margin-top:auto; padding-top:9px; display:flex; justify-content:space-between; align-items:center; gap:8px; color:var(--muted); font-size:.82rem; border-top:1px dashed var(--line-soft) }
+.cf-method { font-weight:700; color:var(--teal) }
+.cf-actions { display:inline-flex; align-items:center; gap:8px }
+.cmp-btn {
+  width:28px; height:28px; border-radius:9px; flex:none;
+  border:1px solid var(--line); background:var(--paper); color:var(--muted-2);
+  cursor:pointer; font-weight:800; font-size:.9rem; line-height:1;
+  display:grid; place-items:center; transition:.16s var(--ease);
+}
+.cmp-btn:hover { border-color:var(--blue); color:var(--blue); background:color-mix(in srgb, var(--blue) 8%, var(--paper)) }
+.cmp-btn.on { border-color:var(--blue); color:#fff; background:var(--blue) }
 .topic-footer .open-arrow { color:var(--blue); font-weight:700; transition:transform .2s ease; display:inline-flex; align-items:center; gap:4px }
 .topic-card:hover .open-arrow { transform:translateX(3px) }
 .level { width:8px; height:8px; border-radius:999px; display:inline-block; margin-right:5px; background:var(--blue) }
@@ -872,8 +901,91 @@ td b { color:var(--navy) }
 .btn:focus-visible, .icon-btn:focus-visible, .field-chip:focus-visible, .sort-select:focus-visible, select:focus-visible, input:focus-visible { box-shadow:0 0 0 3px color-mix(in srgb, var(--blue) 32%, transparent) }
 @media (prefers-reduced-motion: reduce) { .topic-card { animation:none } }
 
+/* ===== v2 upgrade: 비교 담기 · 추천 마법사 · 요약 스트립 ===== */
+.cmp-tray {
+  position:fixed; left:50%; bottom:22px; transform:translate(-50%,140%);
+  z-index:120; display:flex; align-items:center; gap:12px;
+  padding:11px 12px 11px 18px; border-radius:999px;
+  background:color-mix(in srgb, var(--navy) 96%, transparent);
+  border:1px solid rgba(255,255,255,.14); color:#fff;
+  box-shadow:0 24px 56px rgba(15,29,54,.42); backdrop-filter:blur(14px);
+  opacity:0; pointer-events:none; transition:transform .34s var(--ease), opacity .24s var(--ease);
+  max-width:min(760px, calc(100vw - 28px));
+}
+[data-theme="dark"] .cmp-tray { background:color-mix(in srgb, #0a1020 94%, transparent); border-color:rgba(255,255,255,.18) }
+.cmp-tray.show { transform:translate(-50%,0); opacity:1; pointer-events:auto }
+.cmp-tray .cmp-label { font-weight:800; font-size:.9rem; white-space:nowrap; color:#fff }
+.cmp-tray .cmp-label b { color:#7fe3df }
+.cmp-items { display:flex; gap:7px; overflow:auto; scrollbar-width:none }
+.cmp-items::-webkit-scrollbar { display:none }
+.cmp-items span {
+  display:inline-flex; align-items:center; gap:6px; padding:5px 7px 5px 11px; border-radius:999px;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.16);
+  font-size:.8rem; font-weight:600; white-space:nowrap; max-width:190px; color:#fff;
+}
+.cmp-items span i { font-style:normal; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.cmp-items span button { border:0; background:rgba(255,255,255,.2); color:#fff; width:17px; height:17px; border-radius:50%; cursor:pointer; font-size:.72rem; line-height:1; display:grid; place-items:center; flex:none }
+.cmp-items span button:hover { background:rgba(255,255,255,.36) }
+@media (max-width:760px) {
+  .cmp-tray { left:12px; right:12px; transform:translateY(140%); max-width:none; flex-wrap:wrap; padding:10px 12px }
+  .cmp-tray.show { transform:translateY(0) }
+  .cmp-items { order:3; width:100% }
+}
+
+/* 비교 표 */
+.cmp-wrap { overflow:auto; border-radius:16px; border:1px solid var(--line) }
+.cmp-table { width:100%; border-collapse:separate; border-spacing:0; background:var(--paper); min-width:660px }
+.cmp-table th, .cmp-table td { padding:12px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line-soft); font-size:.9rem; color:var(--ink-soft); line-height:1.62 }
+.cmp-table thead th { position:sticky; top:0; z-index:2; background:var(--paper-soft); color:var(--navy); font-weight:800; border-bottom:2px solid var(--line) }
+.cmp-table tbody th { width:124px; background:var(--paper-soft); color:var(--navy); font-weight:700; font-size:.85rem; position:sticky; left:0; z-index:1 }
+.cmp-table tr:last-child th, .cmp-table tr:last-child td { border-bottom:0 }
+.cmp-head-title { display:block; font-weight:800; color:var(--navy); margin-bottom:6px; line-height:1.42 }
+.cmp-diff { background:color-mix(in srgb, var(--gold) 11%, transparent) }
+
+/* 추천 마법사 */
+.wiz-progress { display:flex; gap:6px; margin-bottom:22px }
+.wiz-progress i { flex:1; height:4px; border-radius:2px; background:var(--line); transition:.3s var(--ease) }
+.wiz-progress i.done { background:linear-gradient(90deg, var(--blue), var(--teal)) }
+.wiz-q { font-family:var(--serif); font-size:1.5rem; font-weight:700; letter-spacing:-.03em; margin:0 0 8px; color:var(--navy); line-height:1.34 }
+.wiz-hint { color:var(--muted); margin:0 0 20px; font-size:.9rem }
+.wiz-opts { display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr)); gap:10px }
+.wiz-opt {
+  position:relative; display:flex; flex-direction:column; gap:4px; align-items:flex-start; text-align:left;
+  padding:14px 16px; border-radius:15px; border:1.5px solid var(--line); background:var(--paper);
+  cursor:pointer; transition:.16s var(--ease); color:var(--navy); font-weight:700; font-size:.94rem;
+}
+.wiz-opt small { font-weight:500; color:var(--muted); font-size:.81rem; line-height:1.45 }
+.wiz-opt:hover { border-color:var(--blue); transform:translateY(-2px); box-shadow:var(--shadow-sm) }
+.wiz-opt.on { border-color:var(--teal); background:color-mix(in srgb, var(--teal) 10%, transparent); padding-right:38px }
+.wiz-opt.on::after { content:"✓"; position:absolute; right:12px; top:13px; width:20px; height:20px; border-radius:50%; background:var(--teal); color:#fff; font-size:.7rem; font-weight:900; display:grid; place-items:center }
+.wiz-result { display:grid; gap:12px }
+.wiz-card {
+  display:block; width:100%; text-align:left; font-family:var(--sans);
+  border:1px solid var(--line); border-radius:16px; padding:16px 18px; background:var(--paper);
+  border-left:4px solid var(--fc, var(--blue)); cursor:pointer; transition:.16s var(--ease);
+}
+.wiz-card:hover { transform:translateX(3px); box-shadow:var(--shadow) }
+.wiz-card b { display:block; font-size:1.02rem; letter-spacing:-.03em; color:var(--navy); margin-bottom:6px; line-height:1.42 }
+.wiz-card p { margin:0 0 9px; color:var(--ink-soft); font-size:.88rem; line-height:1.6 }
+.wiz-why { display:inline-flex; align-items:center; gap:6px; font-size:.8rem; font-weight:700; color:var(--teal); background:var(--mint); border:1px solid color-mix(in srgb, var(--teal) 30%, transparent); border-radius:999px; padding:4px 11px }
+
+/* 결과 요약 스트립 */
+.lib-summary { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px }
+.lib-stat { display:inline-flex; align-items:baseline; gap:7px; padding:7px 13px; border-radius:999px;
+  background:var(--paper); border:1px solid var(--line); font-size:.84rem; color:var(--muted); font-weight:600 }
+.lib-stat b { font-size:.98rem; font-weight:800; color:var(--navy) }
+
+/* 검색 단축키 */
+.kbd { display:inline-grid; place-items:center; min-width:20px; height:20px; padding:0 5px; border-radius:6px;
+  border:1px solid var(--line); border-bottom-width:2px; background:var(--paper-soft); color:var(--muted-2);
+  font-size:.72rem; font-weight:700 }
+.search-wrap { position:relative; display:block }
+.search-wrap .kbd { position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:none }
+@media (max-width:760px) { .search-wrap .kbd { display:none } }
+
 /* Print styles */
 @media print {
+  .cmp-tray { display:none !important }
   header, .float-actions, .filter-panel, .nav-tools, .hero-actions, .progress-bar, #scrollTop, .modal, .modal-foot { display:none !important }
   .reveal { opacity:1 !important; transform:none !important }
   body { background:#fff; color:#000 }
@@ -1252,7 +1364,7 @@ td b { color:var(--navy) }
 
     <div class="filter-panel">
       <div class="controls">
-        <input id="searchInput" type="search" placeholder="🔍 키워드 검색: 기후정의, 판례, 지역소멸, 미디어, 경제…" aria-label="주제 키워드 검색" />
+        <span class="search-wrap"><input id="searchInput" type="search" placeholder="🔍 키워드 검색: 기후정의, 판례, 지역소멸, 미디어, 경제…" aria-label="주제 키워드 검색" /><span class="kbd" aria-hidden="true">/</span></span>
         <select id="fieldFilter" aria-label="분야 필터"><option value="">전체 분야</option></select>
         <select id="gradeFilter" aria-label="학년 필터"><option value="">전체 학년</option><option value="1">1학년</option><option value="2">2학년</option><option value="3">3학년</option></select>
         <select id="methodFilter" aria-label="기법 필터"><option value="">전체 기법</option></select>
@@ -1269,13 +1381,15 @@ td b { color:var(--navy) }
           </select>
           <button class="btn small outline" id="precisionBtn" type="button" title="정밀검증 가이드가 있는 주제만 보기">✓ 정밀검증만</button>
           <button class="btn small outline" id="favFilterBtn" type="button" title="즐겨찾기만 보기">⭐ 즐겨찾기</button>
-          <button class="btn small dark" id="randomBtn" type="button">🎲 무작위 추천</button>
+          <button class="btn small dark" id="wizardBtn" type="button" title="몇 가지 질문에 답하면 조건에 맞는 주제를 추천합니다">🎯 주제 추천받기</button>
+          <button class="btn small outline" id="randomBtn" type="button">🎲 무작위 추천</button>
           <button class="btn small outline" id="resetBtn" type="button">초기화</button>
           <button class="btn small outline" id="shareBtn" type="button" title="현재 필터로 링크 복사">🔗 공유</button>
         </div>
       </div>
       <div class="active-chips" id="activeChips" aria-live="polite"></div>
     </div>
+    <div class="lib-summary" id="libSummary" aria-live="polite"></div>
     <div class="topic-grid" id="topicGrid" role="list"></div>
     <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
       <button class="btn outline" id="loadMoreBtn">더 많은 주제 보기</button>
@@ -1504,6 +1618,55 @@ td b { color:var(--navy) }
       <button class="btn small outline" id="prevTopicBtn" type="button">← 이전 주제</button>
       <span class="modal-pos" id="modalPos" aria-live="polite"></span>
       <button class="btn small outline" id="nextTopicBtn" type="button">다음 주제 →</button>
+    </div>
+  </div>
+</div>
+
+<div class="cmp-tray" id="cmpTray" aria-live="polite">
+  <span class="cmp-label">비교함 <b id="cmpCount">0</b>/3</span>
+  <div class="cmp-items" id="cmpItems"></div>
+  <button class="btn small dark" type="button" id="cmpOpenBtn">비교하기</button>
+</div>
+
+<div class="modal" id="compareModal" role="dialog" aria-modal="true" aria-labelledby="cmpTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div class="kicker">COMPARE</div>
+        <h3 class="modal-title" id="cmpTitle">탐구 주제 비교</h3>
+      </div>
+      <button class="close" id="closeCompare" aria-label="닫기">×</button>
+    </div>
+    <div class="modal-body" id="compareBody"></div>
+    <div class="modal-foot">
+      <span class="modal-pos">값이 다른 칸은 배경색으로 표시됩니다</span>
+      <span style="display:flex;gap:8px">
+        <button class="btn small outline" id="cmpCopyBtn" type="button">비교표 복사</button>
+        <button class="btn small outline" id="cmpClearBtn" type="button">모두 비우기</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="wizardModal" role="dialog" aria-modal="true" aria-labelledby="wizTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div class="kicker">TOPIC FINDER</div>
+        <h3 class="modal-title" id="wizTitle">나에게 맞는 탐구 주제 찾기</h3>
+      </div>
+      <button class="close" id="closeWizard" aria-label="닫기">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="wiz-progress" id="wizProgress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div id="wizBody"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn small outline" id="wizPrev" type="button">← 이전</button>
+      <span style="display:flex;gap:8px">
+        <button class="btn small outline" id="wizRestart" type="button">처음부터</button>
+        <button class="btn small dark" id="wizNext" type="button">다음 →</button>
+      </span>
     </div>
   </div>
 </div>
@@ -14856,6 +15019,8 @@ window.filterByMethod = function(m) {
 let favorites = new Set(safeStore.get('favorites', []));
 let favOnly = false;
 let preciseOnly = false;
+const compareIds = (safeStore.get('socialtam_compare', []) || []).slice(0, 3);
+const CMP_MAX = 3;
 let sortMode = 'default';
 function toggleFavorite(id) {
   if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
@@ -14885,11 +15050,15 @@ function topicCard(t, i = 0) {
       <span class="badge ${guide.precision ? 'rose' : 'outline'}">${guide.label}</span>
     </div>
     <h3>${escapeHtml(t.title)}</h3>
-    <p><b>기법</b> · ${escapeHtml(t.method)}</p>
-    <p><b>자료</b> · ${escapeHtml(t.data.length > 60 ? t.data.slice(0, 60) + '…' : t.data)}</p>
+    ${t.researchQuestion ? `<p class="card-rq">${escapeHtml(t.researchQuestion)}</p>` : ''}
+    <p class="card-data"><b>자료</b> · ${escapeHtml(t.data.length > 58 ? t.data.slice(0, 58) + '…' : t.data)}</p>
     <div class="topic-footer">
-      <span>역량 ${t.competencies.slice(0, 2).join(' · ')}</span>
-      <span class="open-arrow">자세히 →</span>
+      <span class="cf-method">${escapeHtml(t.method)}</span>
+      <span class="cf-actions">
+        <button class="cmp-btn ${compareIds.includes(t.id) ? 'on' : ''}" type="button" data-cmp="${t.id}"
+                aria-label="비교함에 담기" title="비교함에 담기 (최대 3개)">⇄</button>
+        <span class="open-arrow">자세히 →</span>
+      </span>
     </div>
   </article>`;
 }
@@ -14957,17 +15126,59 @@ function renderTopics(resetPage = true) {
   $('#loadMoreBtn').textContent = `더 보기 (${list.length - shown.length}개 남음)`;
   updateFieldChipState();
   bindTopicCards();
+  renderLibSummary(list);
+  syncFilterUrl();
+}
+
+/* 현재 필터 결과의 분포 요약 */
+function renderLibSummary(list) {
+  const el = $('#libSummary');
+  if (!el) return;
+  if (!list.length) { el.innerHTML = ''; return; }
+  const count = (key) => {
+    const c = {};
+    list.forEach(t => { c[t[key]] = (c[t[key]] || 0) + 1; });
+    return Object.entries(c).sort((a, b) => b[1] - a[1]);
+  };
+  const parts = [];
+  [1, 2, 3].forEach(g => {
+    const n = list.filter(t => t.grade === g).length;
+    if (n) parts.push(`<span class="lib-stat">${gradeLabel(g)} <b>${n}</b></span>`);
+  });
+  count('method').slice(0, 4).forEach(([k, v]) => parts.push(`<span class="lib-stat">${escapeHtml(k)} <b>${v}</b></span>`));
+  const prec = list.filter(t => PRECISION_SOCIAL_GUIDE_IDS.has(t.id)).length;
+  if (prec) parts.push(`<span class="lib-stat">✓ 정밀검증 <b>${prec}</b></span>`);
+  el.innerHTML = parts.join('');
+}
+
+/* 필터 상태를 주소에 반영해 그대로 공유·복원되게 한다 */
+let urlSyncReady = false;
+function syncFilterUrl() {
+  if (!urlSyncReady) return;
+  const p = new URLSearchParams();
+  const q = $('#searchInput').value.trim();
+  if (q) p.set('q', q);
+  if ($('#fieldFilter').value) p.set('f', $('#fieldFilter').value);
+  if ($('#gradeFilter').value) p.set('g', $('#gradeFilter').value);
+  if ($('#methodFilter').value) p.set('m', $('#methodFilter').value);
+  if ($('#courseFilter').value) p.set('c', $('#courseFilter').value);
+  if (preciseOnly) p.set('p', '1');
+  const qs = p.toString();
+  const hash = location.hash.indexOf('#topic=') === 0 ? location.hash : '';
+  history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + hash);
 }
 
 function bindTopicCards() {
   $$('.topic-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if (e.target.closest('.fav-btn')) return;
+      const cmp = e.target.closest('[data-cmp]');
+      if (cmp) { e.stopPropagation(); toggleCompare(Number(cmp.dataset.cmp)); return; }
       openTopic(Number(card.dataset.id));
     });
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
-        if (e.target.closest('.fav-btn')) return;
+        if (e.target.closest('.fav-btn') || e.target.closest('[data-cmp]')) return;
         e.preventDefault();
         openTopic(Number(card.dataset.id));
       }
@@ -15046,6 +15257,225 @@ $('#loadMoreBtn').addEventListener('click', () => {
   renderTopics(false);
 });
 
+/* ===================== 비교 담기 ===================== */
+function saveCompare() { safeStore.set('socialtam_compare', compareIds); }
+function toggleCompare(id) {
+  const i = compareIds.indexOf(id);
+  if (i >= 0) compareIds.splice(i, 1);
+  else {
+    if (compareIds.length >= CMP_MAX) { toast(`비교함은 최대 ${CMP_MAX}개까지 담을 수 있습니다`); return; }
+    compareIds.push(id);
+  }
+  saveCompare();
+  updateCompareUI();
+  if ($('#compareModal').classList.contains('open')) renderCompare();
+}
+function updateCompareUI() {
+  $('#cmpCount').textContent = compareIds.length;
+  $('#cmpTray').classList.toggle('show', compareIds.length > 0);
+  $('#cmpItems').innerHTML = compareIds.map(id => {
+    const t = TOPICS.find(x => x.id === id);
+    if (!t) return '';
+    return `<span><i>${escapeHtml(t.title)}</i><button type="button" data-del="${id}" aria-label="비교함에서 빼기">×</button></span>`;
+  }).join('');
+  $$('[data-cmp]').forEach(b => b.classList.toggle('on', compareIds.includes(Number(b.dataset.cmp))));
+}
+$('#cmpItems').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-del]');
+  if (b) toggleCompare(Number(b.dataset.del));
+});
+
+const CMP_ROWS = [
+  ['분야·학년', t => `${t.field} · ${gradeLabel(t.grade)}`],
+  ['연계 과목', t => t.course],
+  ['탐구 기법', t => t.method],
+  ['연구 질문', t => t.researchQuestion || getSocialGuide(t).researchQuestion],
+  ['탐구 배경', t => t.background || ''],
+  ['핵심 개념', t => (t.concepts || []).join(', ')],
+  ['활용 자료', t => t.data],
+  ['연계 전공', t => t.major],
+  ['윤리 유의점', t => t.ethicsNote || ''],
+  ['평가 역량', t => (t.competencies || []).join(' / ')],
+  ['권장 범위', t => getSocialGuide(t).timebox || ''],
+  ['가이드 수준', t => PRECISION_SOCIAL_GUIDE_IDS.has(t.id) ? '정밀검증' : '확장가이드']
+];
+function renderCompare() {
+  const list = compareIds.map(id => TOPICS.find(t => t.id === id)).filter(Boolean);
+  if (!list.length) {
+    $('#compareBody').innerHTML = `<div class="empty-state"><h3>비교함이 비어 있습니다</h3><p>카드 아래 ⇄ 버튼으로 주제를 담아 보세요.</p></div>`;
+    return;
+  }
+  const head = list.map(t => `<th scope="col"><span class="cmp-head-title">${escapeHtml(t.title)}</span>
+    <span class="badge field-badge" style="--fc:${fieldColor(t.field)}"><span class="fdot"></span>${escapeHtml(t.field)}</span></th>`).join('');
+  const rows = CMP_ROWS.map(([label, get]) => {
+    const vals = list.map(t => String(get(t) == null ? '' : get(t)));
+    const same = vals.every(v => v === vals[0]);
+    const cls = (!same && vals.length > 1) ? ' class="cmp-diff"' : '';
+    return `<tr><th scope="row">${escapeHtml(label)}</th>${vals.map(v => `<td${cls}>${escapeHtml(v)}</td>`).join('')}</tr>`;
+  }).join('');
+  $('#compareBody').innerHTML = `<div class="cmp-wrap"><table class="cmp-table">
+    <thead><tr><th scope="col" style="width:124px">항목</th>${head}</tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
+}
+function openCompare() {
+  if (!compareIds.length) { toast('먼저 카드의 ⇄ 버튼으로 주제를 담아 주세요'); return; }
+  renderCompare();
+  $('#compareModal').classList.add('open');
+  document.body.classList.add('modal-open');
+}
+function closeCompare() { $('#compareModal').classList.remove('open'); document.body.classList.remove('modal-open'); }
+$('#cmpOpenBtn').addEventListener('click', openCompare);
+$('#closeCompare').addEventListener('click', closeCompare);
+$('#compareModal').addEventListener('click', (e) => { if (e.target.id === 'compareModal') closeCompare(); });
+$('#cmpClearBtn').addEventListener('click', () => { compareIds.length = 0; saveCompare(); updateCompareUI(); closeCompare(); });
+$('#cmpCopyBtn').addEventListener('click', () => {
+  const list = compareIds.map(id => TOPICS.find(t => t.id === id)).filter(Boolean);
+  if (!list.length) return;
+  const lines = ['■ 사회교과 탐구 주제 비교', '', ...list.map((t, i) => `${i + 1}. ${t.title}`), ''];
+  CMP_ROWS.forEach(([label, get]) => {
+    lines.push(`[${label}]`);
+    list.forEach((t, i) => lines.push(`  ${i + 1}) ${get(t)}`));
+    lines.push('');
+  });
+  lines.push('출처: 사회교과 연계 심화 탐구활동 가이드 (jinhak.esteacher.kr/socialtam.html)');
+  navigator.clipboard.writeText(lines.join('\n')).then(() => toast('비교표를 복사했습니다'));
+});
+
+/* ===================== 추천 마법사 ===================== */
+const WIZ_STEPS = [
+  { key: 'grade', multi: false, q: '몇 학년인가요?', hint: '학년에 맞는 탐구 위계와 과목으로 좁혀 드립니다.',
+    opts: [{ v: '1', l: '1학년', d: '통합사회·한국사 개념에서 출발' }, { v: '2', l: '2학년', d: '일반·진로선택 과목과 연결' },
+           { v: '3', l: '3학년', d: '진로·융합선택 심화' }, { v: '', l: '상관없어요', d: '전 학년에서 찾기' }] },
+  { key: 'field', multi: true, q: '어떤 분야가 궁금한가요?', hint: '여러 개를 고를 수 있습니다.', opts: [] },
+  { key: 'style', multi: false, q: '어떤 방식이 더 끌리나요?', hint: '탐구 기법으로 성향에 맞는 주제를 고릅니다.',
+    opts: [{ v: '자료', l: '📊 공개 자료 분석', d: '통계·지표·시각화로 경향 읽기' },
+           { v: '텍스트', l: '📰 텍스트 읽기', d: '기사·판례·사료·담론 분석' },
+           { v: '현장', l: '🗣 사람과 현장', d: '설문·인터뷰·관찰 기록' },
+           { v: '', l: '상관없어요', d: '전부 보기' }] },
+  { key: 'aim', multi: false, q: '무엇을 만들어 내고 싶나요?', hint: '탐구의 결론 형태를 고르면 그에 맞는 주제를 봅니다.',
+    opts: [{ v: '진단', l: '🔍 실태 드러내기', d: '차이·격차·패턴을 자료로 보이기' },
+           { v: '평가', l: '⚖️ 제도 따져보기', d: '정책·법·기준의 정합성 평가' },
+           { v: '설계', l: '🧩 대안 만들기', d: '지표·모형·개선안 제안' },
+           { v: '', l: '상관없어요', d: '전부 보기' }] }
+];
+const STYLE_METHODS = {
+  자료: ['통계분석', '공간분석', '데이터시각화', '네트워크분석', '인과추론', '비용편익', '텍스트마이닝'],
+  텍스트: ['내용분석', '담론분석', '법령분석', '판례분석', '사료비판', '문헌분석', '비교사례'],
+  현장: ['설문조사', '인터뷰', '관찰기록']
+};
+const AIM_METHODS = {
+  진단: ['통계분석', '공간분석', '설문조사', '관찰기록', '데이터시각화', '텍스트마이닝', '네트워크분석'],
+  평가: ['정책평가', '법령분석', '판례분석', '비교사례', '내용분석', '윤리논증', '문헌분석'],
+  설계: ['지표개발', '의사결정모형', '비용편익', '인과추론', '담론분석']
+};
+let wizStep = 0;
+const wizAns = { grade: '', field: [], style: '', aim: '' };
+function wizRender() {
+  WIZ_STEPS[1].opts = [...new Set(TOPICS.map(t => t.field))].map(f => ({ v: f, l: f }));
+  $('#wizProgress').innerHTML = WIZ_STEPS.map((_, i) => `<i class="${i <= wizStep ? 'done' : ''}"></i>`).join('');
+  $('#wizPrev').disabled = wizStep === 0;
+  if (wizStep >= WIZ_STEPS.length) { wizResult(); return; }
+  const s = WIZ_STEPS[wizStep];
+  const cur = wizAns[s.key];
+  $('#wizNext').textContent = wizStep === WIZ_STEPS.length - 1 ? '주제 추천받기 →' : '다음 →';
+  $('#wizBody').innerHTML = `<h4 class="wiz-q">${escapeHtml(s.q)}</h4>
+    <p class="wiz-hint">${escapeHtml(s.hint)}</p>
+    <div class="wiz-opts">${s.opts.map(o => {
+      const on = s.multi ? cur.includes(o.v) : cur === o.v;
+      return `<button class="wiz-opt${on ? ' on' : ''}" type="button" data-wiz="${escapeHtml(o.v)}">
+        <span>${escapeHtml(o.l)}</span>${o.d ? `<small>${escapeHtml(o.d)}</small>` : ''}</button>`;
+    }).join('')}</div>`;
+}
+function wizScore(t) {
+  let s = 0;
+  if (wizAns.grade && String(t.grade) === wizAns.grade) s += 40;
+  if (wizAns.field.length && wizAns.field.includes(t.field)) s += 30;
+  if (wizAns.style && (STYLE_METHODS[wizAns.style] || []).includes(t.method)) s += 22;
+  if (wizAns.aim && (AIM_METHODS[wizAns.aim] || []).includes(t.method)) s += 18;
+  if (PRECISION_SOCIAL_GUIDE_IDS.has(t.id)) s += 6;
+  return s;
+}
+function wizReason(t) {
+  const r = [];
+  if (wizAns.grade && String(t.grade) === wizAns.grade) r.push(gradeLabel(t.grade));
+  if (wizAns.field.includes(t.field)) r.push(t.field);
+  if ((wizAns.style && (STYLE_METHODS[wizAns.style] || []).includes(t.method)) ||
+      (wizAns.aim && (AIM_METHODS[wizAns.aim] || []).includes(t.method))) r.push(t.method);
+  if (PRECISION_SOCIAL_GUIDE_IDS.has(t.id)) r.push('정밀검증 가이드');
+  return r.length ? r.join(' · ') + ' 조건에 맞습니다' : '조건을 폭넓게 만족합니다';
+}
+function wizResult() {
+  $('#wizNext').textContent = '조건으로 목록 보기';
+  const ranked = TOPICS.map(t => ({ t, s: wizScore(t) }))
+    .sort((a, b) => b.s - a.s || a.t.title.localeCompare(b.t.title, 'ko'));
+  const top = ranked.slice(0, 14);
+  const picked = [], used = new Set();
+  for (const r of top) { if (picked.length >= 3) break; if (used.has(r.t.field)) continue; used.add(r.t.field); picked.push(r); }
+  for (const r of top) { if (picked.length >= 3) break; if (!picked.includes(r)) picked.push(r); }
+  $('#wizBody').innerHTML = `<h4 class="wiz-q">이 조건이라면 이 주제들을 추천합니다</h4>
+    <p class="wiz-hint">카드를 누르면 세부 가이드가 열립니다. 마음에 들지 않으면 ‘처음부터’로 조건을 바꿔 보세요.</p>
+    <div class="wiz-result">${picked.map(({ t }) => `
+      <button class="wiz-card" type="button" data-open="${t.id}" style="--fc:${fieldColor(t.field)}">
+        <b>${escapeHtml(t.title)}</b>
+        <p>${escapeHtml(t.researchQuestion || getSocialGuide(t).researchQuestion)}</p>
+        <span class="wiz-why">✓ ${escapeHtml(wizReason(t))}</span>
+      </button>`).join('')}</div>`;
+}
+function wizApply() {
+  $('#resetBtn').click();
+  if (wizAns.grade) $('#gradeFilter').value = wizAns.grade;
+  if (wizAns.field.length === 1) $('#fieldFilter').value = wizAns.field[0];
+  renderTopics(true);
+  closeWizard();
+  document.getElementById('library').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function openWizard() {
+  wizStep = 0; wizAns.grade = ''; wizAns.field = []; wizAns.style = ''; wizAns.aim = '';
+  wizRender();
+  $('#wizardModal').classList.add('open');
+  document.body.classList.add('modal-open');
+}
+function closeWizard() { $('#wizardModal').classList.remove('open'); document.body.classList.remove('modal-open'); }
+$('#wizBody').addEventListener('click', (e) => {
+  const opt = e.target.closest('[data-wiz]');
+  if (opt) {
+    const s = WIZ_STEPS[wizStep];
+    const v = opt.dataset.wiz;
+    if (s.multi) {
+      if (!v) wizAns[s.key] = [];
+      else { const i = wizAns[s.key].indexOf(v); if (i >= 0) wizAns[s.key].splice(i, 1); else wizAns[s.key].push(v); }
+      wizRender();
+    } else { wizAns[s.key] = v; wizStep++; wizRender(); }
+    return;
+  }
+  const card = e.target.closest('[data-open]');
+  if (card) { closeWizard(); openTopic(Number(card.dataset.open)); }
+});
+$('#wizNext').addEventListener('click', () => {
+  if (wizStep >= WIZ_STEPS.length) { wizApply(); return; }
+  wizStep++; wizRender();
+});
+$('#wizPrev').addEventListener('click', () => { if (wizStep > 0) { wizStep--; wizRender(); } });
+$('#wizRestart').addEventListener('click', () => { wizStep = 0; wizAns.grade = ''; wizAns.field = []; wizAns.style = ''; wizAns.aim = ''; wizRender(); });
+$('#closeWizard').addEventListener('click', closeWizard);
+$('#wizardModal').addEventListener('click', (e) => { if (e.target.id === 'wizardModal') closeWizard(); });
+$('#wizardBtn').addEventListener('click', openWizard);
+
+/* ===================== 검색 단축키 ===================== */
+document.addEventListener('keydown', (e) => {
+  const tag = (e.target.tagName || '').toLowerCase();
+  const typing = tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable;
+  if (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey) {
+    e.preventDefault();
+    $('#searchInput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => $('#searchInput').focus(), 320);
+  }
+  if (e.key === 'Escape') {
+    if ($('#compareModal').classList.contains('open')) { closeCompare(); return; }
+    if ($('#wizardModal').classList.contains('open')) { closeWizard(); return; }
+  }
+});
+
 /* URL 파라미터로 초기 필터 적용 */
 (function initFromURL() {
   const p = new URLSearchParams(window.location.search);
@@ -15054,9 +15484,12 @@ $('#loadMoreBtn').addEventListener('click', () => {
   if (p.get('g')) $('#gradeFilter').value = p.get('g');
   if (p.get('m')) $('#methodFilter').value = p.get('m');
   if (p.get('c')) $('#courseFilter').value = p.get('c');
+  if (p.get('p') === '1') { preciseOnly = true; $('#precisionBtn').classList.add('precision-on'); }
+  urlSyncReady = true;
 })();
 
 renderTopics(true);
+updateCompareUI();
 
 /* #topic=id 해시 딥링크 → 해당 주제 모달 자동 열기 */
 if (location.hash.indexOf('#topic=') === 0) {
