@@ -455,6 +455,81 @@ pre{margin:0;padding:16px;overflow:auto;white-space:pre;font-family:"SFMono-Regu
 .search-wrap .kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none}
 @media(max-width:720px){.search-wrap .kbd{display:none}}
 @media print{.cmp-tray{display:none!important}}
+
+/* ===== v3: 카테고리 색 시스템 · 타이포 정제 · 히어로 ===== */
+/* 14개 카테고리에 고유 색을 주어 훑을 때 구분되게 한다(--cc는 JS가 인라인으로 넣는다) */
+.method-card{position:relative;overflow:hidden;border-top-color:transparent}
+.method-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:var(--cc,var(--blue));transform:scaleX(0);transform-origin:left;
+  transition:transform .32s var(--ease)}
+.method-card:hover::before{transform:scaleX(1)}
+.method-card:hover{border-color:color-mix(in srgb,var(--cc,var(--blue)) 36%,var(--line))}
+.pill.cat{background:color-mix(in srgb,var(--cc,var(--blue)) 12%,transparent);
+  color:var(--cc,var(--blue));border-color:color-mix(in srgb,var(--cc,var(--blue)) 34%,transparent)}
+[data-theme="dark"] .pill.cat{background:color-mix(in srgb,var(--cc,var(--blue)) 20%,transparent);
+  color:color-mix(in srgb,var(--cc,var(--blue)) 72%,white);
+  border-color:color-mix(in srgb,var(--cc,var(--blue)) 42%,transparent)}
+.cat-dot{width:8px;height:8px;border-radius:50%;background:var(--cc,var(--blue));
+  display:inline-block;margin-right:6px;flex:none}
+
+/* 카테고리 범례 겸 필터 */
+.cat-legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
+.cat-legend button{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;
+  border:1px solid var(--line);background:var(--paper);color:var(--muted);
+  font-size:.83rem;font-weight:700;cursor:pointer;transition:.16s var(--ease)}
+.cat-legend button:hover{border-color:var(--cc);color:var(--cc);transform:translateY(-1px)}
+.cat-legend button.on{border-color:var(--cc);background:color-mix(in srgb,var(--cc) 12%,transparent);color:var(--cc)}
+.cat-legend .n{font-weight:800;color:var(--navy);font-size:.79rem}
+[data-theme="dark"] .cat-legend .n{color:#cbd5e1}
+
+/* 카드에 담을 정보 정리 */
+.method-card .m-use{font-size:.83rem;color:var(--muted);margin:0;display:flex;gap:6px;align-items:baseline}
+.method-card .m-use b{color:var(--navy);font-weight:700;flex:none;font-size:.79rem}
+[data-theme="dark"] .method-card .m-use b{color:#cbd5e1}
+.slot-badge{display:inline-flex;align-items:center;gap:5px;font-size:.77rem;font-weight:700;
+  color:var(--purple);background:rgba(124,58,237,.09);border:1px solid rgba(124,58,237,.24);
+  border-radius:999px;padding:4px 9px}
+[data-theme="dark"] .slot-badge{background:rgba(167,139,250,.16);color:#c4b5fd;border-color:rgba(167,139,250,.34)}
+
+/* 타이포 정제 — 950 일변도를 걷어내고 한글에 맞는 자간으로 */
+.brand{font-weight:800;letter-spacing:-.04em}
+.navlinks a{font-weight:600}
+h1{font-size:clamp(2.2rem,4.6vw,4.2rem);letter-spacing:-.055em;font-weight:800;line-height:1.08}
+.section-title{letter-spacing:-.045em;font-weight:800}
+.badge{font-weight:700;letter-spacing:-.01em}
+.btn{font-weight:700;letter-spacing:-.015em;border-radius:999px;
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
+.btn:active{transform:translateY(0) scale(.985)}
+.pill{font-weight:700;letter-spacing:-.01em}
+.method-card h3{font-weight:800;letter-spacing:-.04em;line-height:1.42}
+.method-card button{font-weight:700;border-radius:999px}
+.hero p.lead{font-size:clamp(1rem,1.35vw,1.16rem);line-height:1.75;max-width:54ch;color:#cbdcf5}
+
+/* 히어로 — 격자를 옅게 낮추고 천천히 흐르는 빛 한 겹 */
+.hero:before{background-size:56px 56px;opacity:.55;
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 0%,#000 18%,transparent 76%);
+  mask-image:radial-gradient(120% 80% at 50% 0%,#000 18%,transparent 76%)}
+.hero::after{content:"";position:absolute;width:58vw;height:58vw;left:-12vw;top:-24vw;
+  background:radial-gradient(circle,rgba(6,182,212,.20),transparent 62%);
+  filter:blur(34px);pointer-events:none;animation:heroDrift 24s var(--ease) infinite alternate}
+@keyframes heroDrift{to{transform:translate3d(16vw,9vw,0) scale(1.14)}}
+.hero-inner{padding:88px 20px 68px}
+.hero-stat b{background:linear-gradient(135deg,#7dd3fc,#67e8f9);-webkit-background-clip:text;
+  background-clip:text;color:transparent;font-weight:800}
+.hero-stat{transition:.2s var(--ease)}
+.hero-stat:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+
+/* 헤더 스크롤 상태 */
+header.scrolled{box-shadow:0 10px 30px rgba(15,35,84,.12)}
+[data-theme="dark"] header.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.4)}
+
+/* 섹션 제목 위 헤어라인 키커 */
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:.75rem;letter-spacing:.11em;
+  text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:10px}
+.kicker::before{content:"";width:22px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan))}
+@media(max-width:900px){.method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.method-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -596,7 +671,8 @@ pre{margin:0;padding:16px;overflow:auto;white-space:pre;font-family:"SFMono-Regu
     <select id="levelFilter"><option value="all">전체 수준</option><option>기초</option><option>중급</option><option>심화</option></select>
   </div>
   <p class="method-count" id="methodCount"></p>
-  <div class="lib-summary" id="libSummary" aria-live="polite"></div>
+  <div class="cat-legend" id="catLegend" aria-label="분류별 바로가기"></div>
+<div class="lib-summary" id="libSummary" aria-live="polite"></div>
 <div class="method-grid" id="methodGrid"></div>
 </section>
 
@@ -4939,6 +5015,27 @@ function highlightHTML(text, q) {
   return escapedText.replace(re, '<mark style="background:#fef3c7;color:#92400e;padding:0 2px;border-radius:3px">$1</mark>');
 }
 
+
+/* 14개 카테고리 색 — 훑을 때 구분되도록 색상환을 고르게 나눈다 */
+const CAT_COLORS = {
+  '데이터 준비·품질':'#2563eb', '시각화·EDA':'#0891b2', '통계 비교':'#0d9488',
+  '상관·회귀':'#16a34a', '머신러닝 예측':'#7c3aed', '분류·평가':'#9333ea',
+  '군집·차원축소':'#c026d3', '시계열·센서':'#e11d48', '텍스트 분석':'#ea580c',
+  '이미지 분석':'#d97706', '최적화·시뮬레이션':'#65a30d', '설명가능성·검증':'#0284c7',
+  '자동화·보고':'#4f46e5', '공간·네트워크':'#db2777'
+};
+function catColor(c){ return CAT_COLORS[c] || '#64748b'; }
+
+function renderCatLegend() {
+  const el = document.getElementById('catLegend');
+  if (!el) return;
+  const counts = {};
+  methods.forEach(m => { counts[m.cat] = (counts[m.cat] || 0) + 1; });
+  el.innerHTML = Object.keys(CAT_COLORS).filter(c => counts[c]).map(c =>
+    `<button type="button" data-cat="${escapeHTML(c)}" style="--cc:${catColor(c)}"
+       class="${catFilter.value === c ? 'on' : ''}">
+       <span class="cat-dot"></span>${escapeHTML(c)}<span class="n">${counts[c]}</span></button>`).join('');
+}
 function renderMethods() {
   const q = searchInput.value.trim().toLowerCase();
   const cat = catFilter.value;
@@ -4953,17 +5050,19 @@ function renderMethods() {
     return;
   }
   methodGrid.innerHTML = filtered.map(m => `
-    <article class="method-card">
-      <div class="method-meta"><span class="pill blue">${escapeHTML(m.cat)}</span><span class="pill green">${escapeHTML(m.level)}</span></div>
+    <article class="method-card" style="--cc:${catColor(m.cat)}">
+      <div class="method-meta"><span class="pill cat"><span class="cat-dot"></span>${escapeHTML(m.cat)}</span><span class="pill green">${escapeHTML(m.level)}</span></div>
       <h3>${highlightHTML(m.name, q)}</h3>
       <p>${highlightHTML(m.goal, q)}</p>
-      <div class="pill-row"><span class="pill">${escapeHTML(m.data)}</span></div>
+      <p class="m-use"><b>언제</b>${highlightHTML(m.use, q)}</p>
+      <div class="pill-row"><span class="pill">${escapeHTML(m.data)}</span><span class="slot-badge">✍️ 빈칸 ${parseSlots(m.prompt).length}개</span></div>
       <div class="card-foot">
         <button onclick="openMethod(${methods.indexOf(m)})" aria-label="${escapeHTML(m.name)} 자세히 보기">자세히 보기 →</button>
         <button class="cmp-btn${compareIdx.includes(methods.indexOf(m)) ? ' on' : ''}" onclick="event.stopPropagation();toggleCompare(${methods.indexOf(m)})" aria-label="비교함에 담기" title="비교함에 담기 (최대 3개)">⇄</button>
       </div>
     </article>`).join('');
   renderLibSummary(filtered);
+  renderCatLegend();
   syncFilterUrl();
 }
 
@@ -4971,7 +5070,7 @@ function openMethod(i) {
   const m = methods[i];
   currentMethodIdx = i;
   modalTitle.textContent = m.name;
-  modalPills.innerHTML = `<span class="pill blue">${escapeHTML(m.cat)}</span><span class="pill green">${escapeHTML(m.level)}</span>`;
+  modalPills.innerHTML = `<span class="pill cat" style="--cc:${catColor(m.cat)}"><span class="cat-dot"></span>${escapeHTML(m.cat)}</span><span class="pill green">${escapeHTML(m.level)}</span>`;
   modalBody.innerHTML = `
     <div class="detail-grid">
       <div class="detail"><b>언제 쓰나</b><p>${escapeHTML(m.use)}</p></div>
@@ -5109,7 +5208,7 @@ function renderCompare() {
   const list = compareIdx.map(i => methods[i]).filter(Boolean);
   const body = document.getElementById('compareBody');
   if (!list.length) { body.innerHTML = '<p style="color:#64748b">비교함이 비어 있습니다. 카드의 ⇄ 버튼으로 담아 보세요.</p>'; return; }
-  const head = list.map(m => `<th scope="col"><b style="display:block;color:var(--navy);margin-bottom:5px">${escapeHTML(m.name)}</b><span class="pill blue">${escapeHTML(m.cat)}</span></th>`).join('');
+  const head = list.map(m => `<th scope="col"><b style="display:block;color:var(--navy);margin-bottom:5px">${escapeHTML(m.name)}</b><span class="pill cat" style="--cc:${catColor(m.cat)}"><span class="cat-dot"></span>${escapeHTML(m.cat)}</span></th>`).join('');
   const rows = CMP_ROWS.map(([label, get]) => {
     const vals = list.map(get).map(v => String(v == null ? '' : v));
     const same = vals.every(v => v === vals[0]);
@@ -5200,6 +5299,23 @@ document.addEventListener('keydown', e => {
 
 renderMethods();
 updateCompareUI();
+/* 카테고리 범례 클릭 = 분류 필터 토글 */
+document.getElementById('catLegend').addEventListener('click', e => {
+  const b = e.target.closest('[data-cat]'); if (!b) return;
+  const c = b.dataset.cat;
+  catFilter.value = (catFilter.value === c) ? 'all' : c;
+  renderMethods();
+  document.getElementById('library').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+/* 헤더가 떠 있을 때 대비를 높인다 */
+(function () {
+  const h = document.querySelector('header');
+  if (!h) return;
+  const on = () => h.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', on, { passive: true });
+  on();
+})();
+
 
 
 // ==================== 프롬프트 라이브러리 필터 ====================
