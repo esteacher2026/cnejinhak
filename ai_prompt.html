@@ -15,12 +15,17 @@
 <meta name="description" content="고등학생을 위한 AI 활용 데이터 분석 실전 가이드. 실험데이터·공공데이터·센서로그·이미지·텍스트를 어떤 AI 분석 방법으로 다룰지 단계별로 안내합니다." />
 <meta name="theme-color" content="#0f2454" />
 <title>AI 데이터 분석 방법 가이드 | 프롬프트·코드·검증 실전 매뉴얼</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root {
   --bg:#f5f7fb; --paper:#ffffff; --ink:#172033; --muted:#64748b; --line:#dbe4f0;
   --blue:#2563eb; --navy:#0f2454; --cyan:#06b6d4; --green:#10b981; --orange:#f59e0b; --red:#ef4444; --purple:#7c3aed;
   --shadow:0 22px 60px rgba(15,35,84,.13); --radius:22px; --max:1200px;
   --code-bg:#0b1220; --code-ink:#dbeafe;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 [data-theme="dark"]{
   --bg:#0b1220; --paper:#0f1a2e; --ink:#e2e8f0; --muted:#94a3b8; --line:#1f2d4a;
@@ -29,7 +34,9 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.64;transition:background .25s ease,color .25s ease}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.68;letter-spacing:-.012em;word-break:keep-all;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased;transition:background .25s ease,color .25s ease}
+h1,h2,h3,h4{letter-spacing:-.035em}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
 :focus-visible{outline:3px solid var(--cyan);outline-offset:2px;border-radius:6px}
@@ -384,6 +391,70 @@ pre{margin:0;padding:16px;overflow:auto;white-space:pre;font-family:"SFMono-Regu
   pre{color:black}
   .card,.method-card,.flow-step,.check-card,.route-card,.builder,.selector,.source-card,.ethics-card,.faq-item,.prompt-card,.prompt-formula{break-inside:avoid;page-break-inside:avoid}
 }
+
+/* ===== v2: 슬롯 채우기 · 비교 담기 · 요약 ===== */
+.slot-fill{margin-top:14px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--bg)}
+.slot-fill h4{margin:0 0 4px;font-size:.98rem;color:var(--navy);letter-spacing:-.02em}
+.slot-fill .sf-hint{margin:0 0 12px;color:var(--muted);font-size:.85rem;line-height:1.6}
+.slot-row{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:10px;align-items:start;margin-bottom:9px}
+.slot-row label{font-size:.85rem;font-weight:700;color:var(--navy);padding-top:9px;line-height:1.45}
+.slot-row textarea{width:100%;min-height:40px;border:1px solid var(--line);border-radius:11px;padding:8px 11px;
+  background:var(--paper);color:var(--ink);font:inherit;font-size:.88rem;resize:vertical;line-height:1.55}
+.slot-row textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.slot-row textarea::placeholder{color:var(--muted);opacity:.72}
+.slot-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+@media(max-width:640px){.slot-row{grid-template-columns:1fr}.slot-row label{padding-top:0}}
+
+.cmp-btn{border:1px solid var(--line);background:var(--paper);color:var(--muted);border-radius:10px;
+  width:34px;height:34px;cursor:pointer;font-weight:800;font-size:.95rem;line-height:1;flex:none;
+  display:grid;place-items:center;transition:.16s var(--ease)}
+.cmp-btn:hover{border-color:var(--blue);color:var(--blue)}
+.cmp-btn.on{border-color:var(--blue);background:var(--blue);color:#fff}
+.method-card .card-foot{display:flex;gap:8px;align-items:center;margin-top:auto}
+.method-card .card-foot > button:first-child{flex:1}
+
+.cmp-tray{position:fixed;left:50%;bottom:20px;transform:translate(-50%,140%);z-index:180;
+  display:flex;align-items:center;gap:12px;padding:11px 12px 11px 18px;border-radius:999px;
+  background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 22px 54px rgba(15,35,84,.42);opacity:0;pointer-events:none;
+  transition:transform .32s var(--ease),opacity .24s var(--ease);max-width:min(740px,calc(100vw - 28px))}
+.cmp-tray.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.cmp-tray .lbl{font-weight:800;font-size:.9rem;white-space:nowrap}
+.cmp-tray .lbl b{color:#7dd3fc}
+.cmp-items{display:flex;gap:7px;overflow:auto;scrollbar-width:none}
+.cmp-items::-webkit-scrollbar{display:none}
+.cmp-items span{display:inline-flex;align-items:center;gap:6px;padding:5px 7px 5px 11px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);font-size:.8rem;font-weight:600;
+  white-space:nowrap;max-width:180px}
+.cmp-items span i{font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmp-items span button{border:0;background:rgba(255,255,255,.2);color:#fff;width:17px;height:17px;
+  border-radius:50%;cursor:pointer;font-size:.72rem;line-height:1;display:grid;place-items:center;flex:none}
+.cmp-tray .go{border:0;border-radius:999px;background:var(--blue);color:#fff;font-weight:800;
+  padding:9px 16px;cursor:pointer;font-size:.88rem;white-space:nowrap}
+@media(max-width:720px){.cmp-tray{left:12px;right:12px;transform:translateY(140%);max-width:none;flex-wrap:wrap}
+  .cmp-tray.show{transform:translateY(0)}.cmp-items{order:3;width:100%}}
+
+.cmp-wrap{overflow:auto;border-radius:16px;border:1px solid var(--line)}
+.cmp-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--paper);min-width:640px}
+.cmp-table th,.cmp-table td{padding:12px 14px;text-align:left;vertical-align:top;
+  border-bottom:1px solid var(--line);font-size:.9rem;color:var(--ink);line-height:1.6}
+.cmp-table thead th{position:sticky;top:0;z-index:2;background:var(--bg);color:var(--navy);font-weight:800}
+.cmp-table tbody th{width:118px;background:var(--bg);color:var(--navy);font-weight:700;font-size:.85rem;
+  position:sticky;left:0;z-index:1}
+.cmp-table tr:last-child th,.cmp-table tr:last-child td{border-bottom:0}
+.cmp-diff{background:rgba(245,158,11,.13)}
+
+.lib-summary{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.lib-stat{display:inline-flex;align-items:baseline;gap:7px;padding:7px 13px;border-radius:999px;
+  background:var(--paper);border:1px solid var(--line);font-size:.84rem;color:var(--muted);font-weight:600}
+.lib-stat b{font-size:.98rem;font-weight:800;color:var(--navy)}
+.kbd{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:6px;
+  border:1px solid var(--line);border-bottom-width:2px;background:var(--bg);color:var(--muted);
+  font-size:.72rem;font-weight:700}
+.search-wrap{position:relative;display:block}
+.search-wrap .kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none}
+@media(max-width:720px){.search-wrap .kbd{display:none}}
+@media print{.cmp-tray{display:none!important}}
 </style>
 </head>
 <body id="top">
@@ -520,12 +591,13 @@ pre{margin:0;padding:16px;overflow:auto;white-space:pre;font-family:"SFMono-Regu
   <h2 class="section-title">AI 분석 방법 라이브러리</h2>
   <p class="section-sub">분석법을 이름만 아는 데서 멈추지 않도록, 언제 쓰는지·AI에게 무엇을 시킬지·학생이 무엇을 검증할지까지 정리했습니다. 카드를 클릭하면 자세한 설명과 복사 가능한 프롬프트가 열립니다.</p>
   <div class="controls">
-    <input id="searchInput" type="search" placeholder="🔍 분석법, 데이터, 키워드 검색 (예: 회귀, 이미지, 결측, 군집)" />
+    <span class="search-wrap"><input id="searchInput" type="search" placeholder="🔍 분석법, 데이터, 키워드 검색 (예: 회귀, 이미지, 결측, 군집)" /><span class="kbd" aria-hidden="true">/</span></span>
     <select id="catFilter"><option value="all">전체 분야</option></select>
     <select id="levelFilter"><option value="all">전체 수준</option><option>기초</option><option>중급</option><option>심화</option></select>
   </div>
   <p class="method-count" id="methodCount"></p>
-  <div class="method-grid" id="methodGrid"></div>
+  <div class="lib-summary" id="libSummary" aria-live="polite"></div>
+<div class="method-grid" id="methodGrid"></div>
 </section>
 
 <section class="container" id="routes">
@@ -1104,7 +1176,7 @@ log = pd.DataFrame([
         'date': '2026-05-14',
         'step': 1,
         'purpose': '결측치 점검 코드 작성',
-        'ai_model': 'ChatGPT-4',
+        'ai_model': '사용한 AI 도구와 버전',
         'prompt_summary': '결측률 계산 pandas 코드 요청',
         'ai_suggestion': 'isna().sum(), 결측률 계산 코드 제안',
         'my_verification': '원자료 3개 행을 직접 확인해 실제 결측과 일치하는지 검토',
@@ -3214,7 +3286,7 @@ Y: {붙여넣기}
       <h3><span class="num">3</span>AI 사용 명시</h3>
       <p>AI를 사용했다는 사실을 보고서·발표 자료에 명확히 적습니다. 어떤 부분에서 어떤 모델을 어떻게 사용했고, 학생이 어떻게 검증·수정했는지 함께 기록하면 표절 논란을 피할 수 있습니다.</p>
       <ul>
-        <li>사용 모델과 버전(예: ChatGPT-4, Claude 3.5)</li>
+        <li>사용한 AI 도구의 이름과 버전(대화 화면에 표시된 그대로)</li>
         <li>사용 단계: 코드, 해석, 문장 다듬기 등</li>
         <li>학생이 직접 검증·수정한 내용</li>
         <li>AI 생성문을 그대로 복붙하지 않기</li>
@@ -3348,9 +3420,1420 @@ Y: {붙여넣기}
   </div>
 </div>
 
+<div class="cmp-tray" id="cmpTray" aria-live="polite">
+  <span class="lbl">비교함 <b id="cmpCount">0</b>/3</span>
+  <div class="cmp-items" id="cmpItems"></div>
+  <button class="go" type="button" id="cmpOpenBtn">비교하기</button>
+</div>
+
+<div class="modal" id="compareModal" role="dialog" aria-modal="true" aria-labelledby="cmpTitle">
+  <div class="modal-card">
+    <div class="modal-head"><div><h2 id="cmpTitle">분석법 비교</h2></div><button class="close" id="cmpClose" aria-label="닫기">×</button></div>
+    <div class="modal-body" id="compareBody"></div>
+    <div style="padding:0 24px 20px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="copy" id="cmpCopyBtn">📋 비교표 복사</button>
+      <button class="copy" id="cmpClearBtn">모두 비우기</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script id="methodsData" type="application/json">[{"cat": "데이터 준비·품질", "level": "기초", "name": "데이터 구조 진단", "goal": "열 이름, 단위, 자료형, 표본 수를 먼저 확인해 분석 가능한 데이터인지 판단한다.", "data": "CSV, 엑셀, 센서 로그, 실험 기록표", "use": "분석을 시작하기 전 모든 데이터", "ai": "열별 의미 추정, 데이터 딕셔너리 초안, 전처리 목록 작성", "human": "열의 실제 의미와 단위는 원자료 설명·실험노트로 직접 확인", "output": "데이터 요약표, 열별 자료형, 분석 가능성 판단", "caution": "AI가 열 이름만 보고 의미를 단정할 수 있으므로 샘플 행과 측정 맥락을 함께 제공한다.", "prompt": "다음 데이터의 열 이름과 샘플 10행을 보고 열별 의미, 자료형, 단위 추정, 전처리 필요 여부, 가능한 분석법을 표로 정리해줘. 모르는 부분은 추정이라고 표시해줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "결측치 패턴 분석", "goal": "빈칸이 우연한 누락인지 특정 조건에서 반복되는 누락인지 구분한다.", "data": "반복 측정, 공공데이터, 설문", "use": "결측값이 있는 모든 데이터", "ai": "열별 결측률 계산 코드, 결측 패턴 시각화 코드", "human": "결석, 센서 고장, 측정 누락 등 실제 원인 판단", "output": "결측률 표, 결측 패턴 그래프, 처리 기준", "caution": "평균 대체를 무조건 적용하면 분산과 관계가 왜곡될 수 있다.", "prompt": "결측치가 있는 열을 찾고 열별 결측률, 행별 결측 패턴을 확인하는 pandas 코드를 작성해줘. 삭제·대체·보류 판단 기준도 알려줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "이상치 후보 탐지", "goal": "측정 오류, 극단값, 의미 있는 특이 사례를 분리해 판단한다.", "data": "온도, pH, 속도, 농도, 길이, 전압 등 수치형 자료", "use": "측정값 범위가 넓거나 반복 측정이 많은 경우", "ai": "IQR, z-score, 산점도 기반 후보 탐지 코드", "human": "장비 오류인지 실제 현상인지 기록과 대조", "output": "이상치 후보 목록, 처리 전후 비교", "caution": "불리한 값을 삭제하는 방식은 연구윤리 문제가 될 수 있다.", "prompt": "수치형 데이터에서 IQR과 z-score 방식으로 이상치 후보를 찾는 코드를 작성해줘. 삭제 전 확인해야 할 실험 맥락 질문도 함께 제시해줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "단위 통일과 스케일링", "goal": "서로 다른 단위와 크기를 가진 변수를 비교 가능하게 만든다.", "data": "시간, 거리, 질량, 농도, 전압, 전력 등", "use": "여러 변수를 함께 분석하거나 모델에 넣을 때", "ai": "단위 변환식 제안, 표준화·정규화 코드", "human": "원단위와 변환 단위가 물리적으로 맞는지 확인", "output": "변환 전후 표, 표준화 변수", "caution": "단위를 지우고 숫자만 비교하면 해석이 틀린다.", "prompt": "열별 단위를 확인하고 통일해야 할 단위와 변환식을 제안해줘. 표준화가 필요한 열과 필요하지 않은 열을 구분해줘."}, {"cat": "데이터 준비·품질", "level": "기초", "name": "반복 측정 요약", "goal": "반복 실험값을 평균, 표준편차, 표준오차, 신뢰구간으로 요약한다.", "data": "조건별 3회 이상 반복 측정값", "use": "실험 조건 간 비교 전", "ai": "요약 통계표와 오차막대 그래프 코드", "human": "반복이 독립인지, 반복 수가 충분한지 판단", "output": "조건별 평균±표준편차, 오차막대", "caution": "반복 수가 너무 적으면 우연한 오차와 조건 효과를 구분하기 어렵다.", "prompt": "조건별 반복 측정 데이터로 평균, 표준편차, 표준오차, 95% 신뢰구간을 계산하고 오차막대 그래프를 그리는 코드를 작성해줘."}, {"cat": "데이터 준비·품질", "level": "중급", "name": "데이터 병합과 키 정합", "goal": "여러 출처의 데이터를 날짜, 지역, ID 기준으로 결합한다.", "data": "날씨+대기질, 실험조건+결과, 설문+성적 등", "use": "공공데이터와 실험데이터를 연결할 때", "ai": "merge 코드, 중복 키 점검, 매칭 실패 목록 생성", "human": "동일한 날짜·지역·대상을 가리키는지 확인", "output": "병합 데이터셋, 매칭 실패 표", "caution": "시간 단위가 다르면 가짜 관계가 만들어질 수 있다.", "prompt": "두 데이터프레임을 날짜와 지역 기준으로 병합하려고 한다. 키 중복, 누락, 시간 단위 불일치 점검 절차와 pandas 코드를 작성해줘."}, {"cat": "데이터 준비·품질", "level": "중급", "name": "파생변수 생성", "goal": "원자료에서 분석에 더 의미 있는 비율·변화율·효율·지수를 만든다.", "data": "시간, 거리, 전력, 인구, 면적, 농도 등", "use": "원자료만으로 관계가 잘 보이지 않을 때", "ai": "파생변수 후보와 계산식 제안", "human": "새 변수가 교과 개념상 의미 있는지 판단", "output": "변화율, 밀도, 효율, 위험지수 등", "caution": "결과값을 포함해 파생변수를 만들면 데이터 누수가 발생한다.", "prompt": "이 데이터에서 물리·화학·생명·환경 맥락상 의미 있는 파생변수 후보를 계산식과 함께 제안해줘. 데이터 누수 위험이 있는 변수도 표시해줘."}, {"cat": "데이터 준비·품질", "level": "중급", "name": "표본 균형 확인", "goal": "집단별 데이터 수가 지나치게 불균형한지 확인한다.", "data": "분류 데이터, 비교 실험, 설문 데이터", "use": "처리/대조, 정상/이상 등 집단 비교 전", "ai": "집단별 표본 수 표와 불균형 경고 작성", "human": "표본 추가 가능성, 비교 타당성 판단", "output": "집단별 표본 수, 불균형 비율", "caution": "표본 수가 크게 다른 집단의 정확도만 비교하면 착시가 생긴다.", "prompt": "범주형 변수별 표본 수를 확인하고 표본 불균형이 심한 경우 어떤 평가 지표와 보정 방법을 써야 하는지 설명해줘."}, {"cat": "데이터 준비·품질", "level": "심화", "name": "데이터 누수 점검", "goal": "미래 정보나 정답 정보를 모델 학습에 몰래 넣는 오류를 막는다.", "data": "예측·분류 모델 데이터", "use": "머신러닝 모델을 만들기 전", "ai": "잠재적 누수 변수 후보 탐지 질문 목록 작성", "human": "변수가 측정되는 시점과 실제 사용 시점을 직접 검토", "output": "누수 의심 변수 목록, 제거 사유", "caution": "데이터 누수가 있으면 모델 성능이 비현실적으로 높아진다.", "prompt": "이 예측 모델의 입력 변수 목록을 보고 데이터 누수 가능성이 있는 변수를 찾아줘. 각 변수에 대해 왜 위험한지, 제거 또는 수정 방법을 제안해줘."}, {"cat": "데이터 준비·품질", "level": "심화", "name": "재현 가능한 데이터 파이프라인", "goal": "원자료에서 최종 결과까지 같은 절차로 다시 실행 가능하게 만든다.", "data": "모든 분석 프로젝트", "use": "보고서 제출 전", "ai": "폴더 구조, 파일명 규칙, 분석 순서 스크립트 제안", "human": "원자료를 보존하고 수정본을 별도 관리", "output": "분석 폴더 구조, 실행 순서 문서", "caution": "엑셀에서 수작업으로 고친 값은 추적이 어렵다.", "prompt": "원자료, 전처리본, 분석 코드, 그래프, 보고서가 분리된 재현 가능한 폴더 구조와 파일명 규칙을 제안해줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "히스토그램 분포 분석", "goal": "데이터가 한쪽으로 치우쳤는지, 두 집단이 섞였는지 확인한다.", "data": "수치형 단일 변수", "use": "평균을 내기 전", "ai": "히스토그램과 평균·중앙값 비교 코드", "human": "분포 형태가 측정 원리와 맞는지 판단", "output": "분포 그래프, 치우침 해석", "caution": "평균 하나만 보면 치우침과 다봉성을 놓칠 수 있다.", "prompt": "이 수치형 변수의 히스토그램을 그리고 평균·중앙값·최빈값·왜도 관점에서 해석하는 문장 예시를 작성해줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "상자그림 Boxplot", "goal": "집단별 중앙값, 산포, 이상치를 한눈에 비교한다.", "data": "집단 변수 + 수치형 결과", "use": "조건별 결과 비교 전", "ai": "boxplot 코드와 이상치 후보 설명", "human": "극단값의 원인과 실험 맥락 확인", "output": "상자그림, 집단별 비교 해석", "caution": "표본 수가 적으면 상자그림 해석이 불안정하다.", "prompt": "조건별 결과값을 boxplot으로 비교하고 중앙값, 사분위범위, 이상치 관점에서 해석하는 방법을 알려줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "산점도와 추세선", "goal": "두 수치형 변수 사이 관계의 방향과 형태를 확인한다.", "data": "두 개 이상의 연속형 변수", "use": "상관·회귀 분석 전", "ai": "산점도, 추세선, 라벨링 코드", "human": "상관이 인과를 의미하지 않음을 해석에 반영", "output": "산점도, 추세선, 관계 해석", "caution": "몇 개의 이상치가 전체 추세를 만들 수 있다.", "prompt": "두 변수의 산점도와 선형 추세선을 그리고 관계가 선형인지 비선형인지 판단하는 기준을 알려줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "상관행렬 Heatmap", "goal": "여러 변수 간 관계 후보를 한꺼번에 살펴본다.", "data": "여러 수치형 변수", "use": "다중회귀나 변수 선택 전", "ai": "상관계수 행렬, heatmap 코드", "human": "물리적으로 불가능한 관계와 우연한 상관 걸러내기", "output": "상관행렬 표, 강한 관계 후보", "caution": "상관이 높아도 공통 원인이나 시간 추세 때문일 수 있다.", "prompt": "수치형 변수의 상관계수 행렬을 만들고 강한 양의 상관, 강한 음의 상관, 다중공선성 의심 변수를 표로 정리해줘."}, {"cat": "시각화·EDA", "level": "기초", "name": "오차막대 그래프", "goal": "조건별 평균 차이가 오차 범위보다 큰지 시각적으로 판단한다.", "data": "조건별 반복 측정값", "use": "실험 결과 발표", "ai": "평균과 표준편차/표준오차 계산 후 그래프 작성", "human": "오차막대가 무엇을 나타내는지 명확히 표기", "output": "평균±표준편차 또는 평균±표준오차 그래프", "caution": "표준편차와 표준오차를 혼동하면 해석이 달라진다.", "prompt": "조건별 반복 측정값으로 평균과 표준편차를 계산해 오차막대 그래프를 그려줘. 그래프 제목, 축 이름, 단위까지 포함해줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "구간별 프로파일 그래프", "goal": "시간, 농도, 거리 구간에 따라 값이 어떻게 변하는지 본다.", "data": "시간별 온도, 농도별 반응, 거리별 신호", "use": "변화 양상을 설명할 때", "ai": "구간 평균, 이동평균, 라인 그래프 코드", "human": "구간 폭이 의미 있는지 판단", "output": "구간별 변화 그래프", "caution": "구간을 임의로 나누면 결론이 달라질 수 있다.", "prompt": "연속형 독립변수를 일정 구간으로 나누어 종속변수 평균 변화를 보여주는 그래프와 표를 만드는 코드를 작성해줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "누적막대와 비율 비교", "goal": "범주별 구성비가 어떻게 다른지 시각화한다.", "data": "범주형 변수 2개", "use": "설문, 생태종 구성, 유형별 빈도 비교", "ai": "교차표와 비율 그래프 코드", "human": "비율과 실제 표본 수를 함께 확인", "output": "구성비 그래프, 교차표", "caution": "표본 수가 작은 집단의 비율은 과장될 수 있다.", "prompt": "두 범주형 변수의 교차표와 행 기준 비율을 만들고 누적막대그래프로 시각화하는 코드를 작성해줘."}, {"cat": "시각화·EDA", "level": "중급", "name": "대시보드형 요약", "goal": "핵심 지표를 한 화면에 정리해 빠르게 판단한다.", "data": "여러 변수와 요약 지표", "use": "프로젝트 발표와 보고서 요약", "ai": "요약 지표 선정, 표와 그래프 배치 제안", "human": "지표가 연구 질문에 직접 답하는지 검토", "output": "요약 카드, 핵심 그래프 3개", "caution": "그래프가 많으면 메시지가 흐려진다.", "prompt": "이 분석 결과를 발표용 대시보드 1페이지로 정리하려고 한다. 핵심 지표 4개, 그래프 3개, 해석 문장 구조를 제안해줘."}, {"cat": "시각화·EDA", "level": "심화", "name": "불확실성 시각화", "goal": "결과값의 오차와 신뢰구간을 그래프에 반영한다.", "data": "반복 측정, 추정값, 예측값", "use": "결과를 과장하지 않기 위해", "ai": "부트스트랩 신뢰구간 계산과 시각화 코드", "human": "오차의 원인과 표본 수 한계 설명", "output": "신뢰구간 그래프, 예측구간", "caution": "선 하나만 그리면 결과가 지나치게 확정적으로 보인다.", "prompt": "반복 측정 데이터에서 부트스트랩으로 평균의 95% 신뢰구간을 계산하고 그래프에 표시하는 코드를 작성해줘."}, {"cat": "시각화·EDA", "level": "심화", "name": "전후 비교 시각화", "goal": "개입 전후 변화가 실제로 일어났는지 표현한다.", "data": "전후 측정 데이터, 동일 대상 반복 측정", "use": "캠페인, 장치 개선, 조건 변화 평가", "ai": "paired line plot, 전후 차이 계산 코드", "human": "동일 대상 매칭이 맞는지 확인", "output": "전후 변화 그래프, 변화량 표", "caution": "전후 데이터가 같은 대상이 아니면 해석이 달라진다.", "prompt": "동일 대상의 개입 전후 데이터를 선 그래프로 연결하고 변화량 평균과 변화 방향을 요약하는 코드를 작성해줘."}, {"cat": "통계 비교", "level": "기초", "name": "평균 비교", "goal": "두 집단의 평균 차이가 어느 정도인지 계산한다.", "data": "두 조건의 반복 측정 수치", "use": "처리군과 대조군 비교", "ai": "평균, 표준편차, 차이 계산 코드", "human": "표본 수와 반복 독립성 확인", "output": "평균 차이 표, 오차막대", "caution": "평균 차이가 있어도 산포가 크면 결론이 약하다.", "prompt": "두 조건의 평균, 표준편차, 표준오차, 평균 차이를 계산하고 결과 해석 문장을 써줘."}, {"cat": "통계 비교", "level": "중급", "name": "효과크기 Cohen's d", "goal": "차이가 통계적으로만이 아니라 실제로 얼마나 큰지 본다.", "data": "두 집단 수치형 결과", "use": "평균 비교를 보고서에 설득력 있게 제시할 때", "ai": "Cohen's d 계산 코드와 해석 기준", "human": "단위와 실제 의미를 함께 설명", "output": "효과크기, 실질적 차이 설명", "caution": "p값만으로 결과의 의미를 판단하지 않는다.", "prompt": "두 집단의 평균 차이에 대해 Cohen's d 효과크기를 계산하고 작은/중간/큰 효과인지 해석하는 코드를 작성해줘."}, {"cat": "통계 비교", "level": "중급", "name": "신뢰구간 비교", "goal": "평균이나 비율 추정값의 불확실성을 범위로 표현한다.", "data": "반복 측정, 비율 자료", "use": "표본 기반 추정 결과 제시", "ai": "부트스트랩 또는 표준오차 기반 신뢰구간 코드", "human": "표본 추출 방식의 타당성 확인", "output": "95% 신뢰구간, 시각화", "caution": "신뢰구간은 참값이 들어갈 확률이라는 단순 표현으로 오해하지 않도록 주의한다.", "prompt": "평균의 95% 신뢰구간을 계산하고 결과를 ‘추정값 ± 불확실성’ 관점에서 해석하는 문장 예시를 작성해줘."}, {"cat": "통계 비교", "level": "중급", "name": "분산 비교", "goal": "조건별 결과의 흔들림이 다른지 확인한다.", "data": "반복 측정 수치 자료", "use": "안정성, 재현성, 정밀도 비교", "ai": "분산, 표준편차, 변동계수 계산", "human": "측정 단위와 평균 크기를 고려", "output": "변동계수 표, 안정성 비교", "caution": "평균이 다른 집단의 표준편차만 비교하면 왜곡될 수 있다.", "prompt": "조건별 평균, 표준편차, 변동계수를 계산하고 어느 조건이 더 안정적인지 해석해줘."}, {"cat": "통계 비교", "level": "중급", "name": "범주형 비율 비교", "goal": "두 집단에서 성공/실패, 유무, 유형 비율이 다른지 본다.", "data": "교차표, 설문, 발아율, 합격/불합격 등", "use": "비율 차이를 비교할 때", "ai": "교차표, 비율, 카이제곱 검정 개념 설명", "human": "기대빈도가 너무 작지 않은지 확인", "output": "교차표, 비율 그래프", "caution": "표본 수가 작으면 비율 차이가 불안정하다.", "prompt": "두 범주형 변수의 교차표와 비율을 계산하고, 카이제곱 검정이 적절한지 판단 기준을 설명해줘."}, {"cat": "통계 비교", "level": "심화", "name": "분산분석 ANOVA", "goal": "세 집단 이상 평균 차이를 한 번에 비교한다.", "data": "세 조건 이상 반복 측정값", "use": "농도 4수준, 온도 5수준 등 여러 조건 비교", "ai": "ANOVA 절차와 사후 비교 개념 설명", "human": "정규성·분산 동질성·반복 수 확인", "output": "조건별 평균, 전체 차이 판단", "caution": "ANOVA 후 어떤 집단끼리 다른지는 별도 확인이 필요하다.", "prompt": "세 집단 이상의 평균 차이를 비교할 때 ANOVA를 쓰는 절차, 가정, 사후비교가 필요한 이유를 고등학생 수준으로 설명해줘."}, {"cat": "통계 비교", "level": "심화", "name": "비모수 비교", "goal": "정규분포 가정이 어려운 작은 표본을 비교한다.", "data": "소표본, 순위형 자료, 치우친 분포", "use": "표본 수가 작고 이상치가 많은 경우", "ai": "Mann-Whitney, Kruskal-Wallis 개념 안내", "human": "순위 비교의 의미를 정확히 해석", "output": "중앙값 비교, 순위 기반 결과", "caution": "비모수 검정도 표본 설계가 나쁘면 해결책이 아니다.", "prompt": "표본 수가 작고 분포가 치우친 두 집단을 비교하려고 한다. 평균 비교 대신 어떤 비모수 방법을 고려할 수 있는지 설명해줘."}, {"cat": "통계 비교", "level": "심화", "name": "부트스트랩 비교", "goal": "분포 가정이 어려울 때 재표집으로 차이의 불확실성을 추정한다.", "data": "반복 측정 수치 자료", "use": "복잡한 공식 없이 신뢰구간을 만들 때", "ai": "재표집 코드와 신뢰구간 계산", "human": "원자료가 대표성을 갖는지 판단", "output": "차이의 부트스트랩 분포, 신뢰구간", "caution": "원자료 표본이 편향되면 재표집도 편향된다.", "prompt": "두 조건의 평균 차이에 대해 부트스트랩으로 95% 신뢰구간을 구하는 Python 코드를 작성해줘."}, {"cat": "상관·회귀", "level": "기초", "name": "피어슨 상관분석", "goal": "두 연속형 변수의 선형 관계 강도를 계산한다.", "data": "연속형 변수 2개", "use": "산점도에서 직선 관계가 보일 때", "ai": "상관계수 계산과 산점도 코드", "human": "이상치와 비선형 관계 확인", "output": "상관계수 r, 산점도", "caution": "상관은 인과가 아니다.", "prompt": "두 변수의 피어슨 상관계수를 계산하고 산점도와 함께 해석하는 코드를 작성해줘. 상관과 인과의 차이도 설명해줘."}, {"cat": "상관·회귀", "level": "중급", "name": "스피어만 순위상관", "goal": "비선형 단조 관계나 순위형 자료의 관계를 본다.", "data": "순위형 자료, 치우친 수치 자료", "use": "피어슨 상관 가정이 약할 때", "ai": "순위상관 계산 절차 설명", "human": "관계가 단조적인지 그래프로 확인", "output": "Spearman rho, 순위 관계 해석", "caution": "복잡한 곡선 관계를 모두 설명하지는 못한다.", "prompt": "피어슨 상관과 스피어만 상관의 차이를 설명하고, 이 데이터에 어떤 상관분석이 적절한지 판단 기준을 알려줘."}, {"cat": "상관·회귀", "level": "중급", "name": "단순선형회귀", "goal": "하나의 독립변수로 결과를 설명하거나 예측한다.", "data": "x-y 연속형 변수", "use": "농도-흡광도, 시간-온도, 거리-신호 관계", "ai": "회귀식, 결정계수, 예측 코드", "human": "잔차 패턴과 단위 해석 확인", "output": "회귀식, R², 추세선", "caution": "R²가 높아도 원리 설명이 부실하면 약한 분석이다.", "prompt": "단순선형회귀를 적용해 회귀식, R², 잔차를 계산하고 결과를 해석하는 코드를 작성해줘."}, {"cat": "상관·회귀", "level": "중급", "name": "다중회귀", "goal": "여러 변수가 결과에 동시에 미치는 영향을 본다.", "data": "독립변수 여러 개 + 연속형 결과", "use": "기상요인과 대기질, 조건과 반응속도 등", "ai": "모델 학습, 계수 비교, 표준화 안내", "human": "변수 간 중복과 물리적 의미 확인", "output": "회귀계수, 예측 성능, 변수 영향", "caution": "변수가 많으면 표본 수 부족과 다중공선성 문제가 생긴다.", "prompt": "여러 독립변수로 종속변수를 예측하는 다중회귀 코드를 작성하고, 계수 해석 시 주의할 점을 알려줘."}, {"cat": "상관·회귀", "level": "심화", "name": "다항회귀", "goal": "직선이 아닌 곡선 관계를 모델링한다.", "data": "곡선형 산점도", "use": "최적 온도, 포화 곡선, 저항 변화 등", "ai": "다항 특성 생성과 차수 비교 코드", "human": "과적합 여부와 과학적 근거 확인", "output": "곡선 회귀식, 차수 비교", "caution": "차수가 높을수록 좋은 모델은 아니다.", "prompt": "산점도 관계가 곡선형일 때 1차, 2차, 3차 다항회귀를 비교하고 과적합을 판단하는 코드를 작성해줘."}, {"cat": "상관·회귀", "level": "심화", "name": "로지스틱 회귀", "goal": "결과가 성공/실패처럼 이진일 때 확률을 예측한다.", "data": "발아 여부, 고장 여부, 위험/정상 등", "use": "분류와 확률 해석이 모두 필요할 때", "ai": "로지스틱 모델 코드와 계수 해석", "human": "클래스 불균형과 임계값 확인", "output": "확률 예측, 분류 기준", "caution": "정확도만 보면 소수 클래스를 놓칠 수 있다.", "prompt": "이진 결과를 예측하는 로지스틱 회귀 코드를 작성하고, 계수·확률·임계값을 어떻게 해석하는지 설명해줘."}, {"cat": "상관·회귀", "level": "중급", "name": "잔차분석", "goal": "모델이 놓친 패턴과 오차 원인을 확인한다.", "data": "회귀 모델 결과", "use": "회귀식 제시 후 검증 단계", "ai": "잔차 그래프와 오차 지표 코드", "human": "잔차 패턴이 교과 원리와 관련 있는지 해석", "output": "잔차 산점도, 오차 원인 분석", "caution": "잔차가 패턴을 보이면 모델 가정이 맞지 않을 수 있다.", "prompt": "회귀 모델의 잔차를 계산하고 잔차 그래프를 그려줘. 잔차에 패턴이 있을 때 가능한 원인을 알려줘."}, {"cat": "상관·회귀", "level": "심화", "name": "교호작용 분석", "goal": "두 변수가 함께 작용할 때 결과가 어떻게 달라지는지 확인한다.", "data": "온도×pH, 습도×풍속 등 복수 조건 데이터", "use": "한 변수 효과가 다른 변수 조건에 따라 달라질 때", "ai": "상호작용 변수 생성과 3D/등고선 시각화 제안", "human": "표본 수와 조건 조합이 충분한지 확인", "output": "교호작용 그래프, 조건별 해석", "caution": "데이터가 희박하면 교호작용 해석이 과장된다.", "prompt": "온도와 pH가 효소 활성에 미치는 영향을 분석하려고 한다. 교호작용 변수를 만드는 방법과 결과 해석 방법을 알려줘."}, {"cat": "머신러닝 예측", "level": "기초", "name": "훈련/검증 데이터 분리", "goal": "모델이 새 데이터에서도 작동하는지 확인한다.", "data": "예측 모델 데이터", "use": "머신러닝 시작 전", "ai": "train_test_split 코드와 비율 제안", "human": "분리 전 전처리로 인한 데이터 누수 방지", "output": "훈련 점수, 검증 점수", "caution": "전체 데이터로 학습하고 평가하면 성능이 부풀려진다.", "prompt": "예측 모델을 만들기 전에 데이터를 훈련/검증 세트로 나누는 이유와 Python 코드를 설명해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "KNN 회귀·분류", "goal": "비슷한 사례를 기준으로 값을 예측하거나 분류한다.", "data": "수치형 특징이 여러 개인 데이터", "use": "간단한 기준 모델이 필요할 때", "ai": "스케일링, k값 비교 코드", "human": "거리 개념이 의미 있는 변수인지 확인", "output": "예측값, k별 성능 비교", "caution": "스케일링을 하지 않으면 단위가 큰 변수가 지배한다.", "prompt": "KNN 모델을 적용할 때 스케일링이 필요한 이유와 k값을 비교하는 코드를 작성해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "의사결정나무", "goal": "조건 분기 규칙으로 예측 과정을 설명한다.", "data": "표 형태의 수치·범주 데이터", "use": "해석 가능한 모델이 필요할 때", "ai": "트리 모델 학습, 규칙 추출, 깊이 제한 코드", "human": "규칙이 과학적으로 말이 되는지 검토", "output": "분기 규칙, 변수 중요도", "caution": "깊은 트리는 훈련데이터를 외울 수 있다.", "prompt": "의사결정나무 모델을 학습하고 max_depth를 바꾸며 과적합을 확인하는 코드를 작성해줘."}, {"cat": "머신러닝 예측", "level": "심화", "name": "랜덤포레스트", "goal": "여러 결정나무를 결합해 예측 안정성을 높인다.", "data": "표 형태의 다변량 데이터", "use": "비선형 관계와 변수 중요도를 함께 볼 때", "ai": "모델 학습, 변수 중요도 시각화 코드", "human": "중요도가 높은 변수가 실제 원인인지 구분", "output": "예측 성능, 변수 중요도", "caution": "중요도는 인과 효과가 아니라 예측 기여도다.", "prompt": "랜덤포레스트로 예측 모델을 만들고 변수 중요도를 시각화하는 코드를 작성해줘. 중요도 해석의 한계도 알려줘."}, {"cat": "머신러닝 예측", "level": "심화", "name": "그래디언트 부스팅", "goal": "약한 모델을 순차적으로 개선해 높은 예측 성능을 낸다.", "data": "표 형태의 복잡한 데이터", "use": "예측 성능이 중요한 경우", "ai": "부스팅 모델 학습과 검증 성능 비교", "human": "과적합과 하이퍼파라미터 확인", "output": "검증 성능, 오차 지표", "caution": "성능은 높지만 해석이 어려울 수 있다.", "prompt": "Gradient Boosting 계열 모델을 사용할 때 학습률, 트리 수, 깊이가 어떤 의미인지 고등학생 수준으로 설명해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "교차검증", "goal": "데이터 분할 운에 따라 성능이 흔들리는지 확인한다.", "data": "표본 수가 제한된 모델링 데이터", "use": "검증 신뢰도를 높이고 싶을 때", "ai": "k-fold cross validation 코드", "human": "동일 대상 데이터가 여러 번 섞이지 않는지 확인", "output": "평균 성능±표준편차", "caution": "시계열 데이터는 무작위 교차검증이 부적절할 수 있다.", "prompt": "k-fold 교차검증으로 모델 성능 평균과 표준편차를 계산하는 코드를 작성해줘. 시계열 데이터에서는 왜 주의해야 하는지도 설명해줘."}, {"cat": "머신러닝 예측", "level": "중급", "name": "하이퍼파라미터 탐색", "goal": "모델 설정값을 체계적으로 비교한다.", "data": "모델링 데이터", "use": "모델 성능 개선 단계", "ai": "GridSearchCV 또는 반복 실험 코드", "human": "검증 데이터에 과도하게 맞추지 않도록 제한", "output": "설정별 성능표, 최적 설정", "caution": "테스트 데이터를 반복적으로 보며 튜닝하면 평가가 오염된다.", "prompt": "랜덤포레스트의 n_estimators와 max_depth를 비교하는 하이퍼파라미터 탐색 코드를 작성해줘."}, {"cat": "머신러닝 예측", "level": "심화", "name": "모델 베이스라인 비교", "goal": "복잡한 모델이 단순 평균 예측보다 실제로 나은지 확인한다.", "data": "모든 예측 데이터", "use": "모델을 주장하기 전", "ai": "평균 예측, 선형회귀, 트리 모델 성능 비교 코드", "human": "성능 향상이 문제 맥락상 의미 있는지 판단", "output": "베이스라인 대비 개선율", "caution": "베이스라인 없이 높은 성능이라고 말하면 설득력이 약하다.", "prompt": "평균 예측, 선형회귀, 랜덤포레스트를 같은 데이터에서 비교하고 베이스라인 대비 개선율을 계산하는 코드를 작성해줘."}, {"cat": "분류·평가", "level": "기초", "name": "혼동행렬", "goal": "분류 모델이 어떤 유형을 맞히고 틀리는지 확인한다.", "data": "정답 라벨이 있는 분류 데이터", "use": "정확도 이상의 평가가 필요할 때", "ai": "혼동행렬 계산과 시각화 코드", "human": "오분류 사례의 실제 의미 검토", "output": "TP, FP, FN, TN 표", "caution": "정확도만 보면 중요한 오류 유형을 놓친다.", "prompt": "분류 모델의 혼동행렬을 만들고 TP, FP, FN, TN의 의미를 실제 사례로 설명해줘."}, {"cat": "분류·평가", "level": "중급", "name": "정밀도·재현율·F1", "goal": "소수 클래스 탐지가 중요한 문제에서 성능을 평가한다.", "data": "불균형 분류 데이터", "use": "이상 탐지, 위험 예측, 질병 여부 등", "ai": "precision, recall, f1 계산 코드", "human": "어떤 오류가 더 위험한지 문제 맥락 판단", "output": "지표표, 임계값 선택 근거", "caution": "정밀도와 재현율은 동시에 높이기 어렵다.", "prompt": "정확도, 정밀도, 재현율, F1의 차이를 설명하고 이 데이터에 어떤 지표가 중요한지 판단해줘."}, {"cat": "분류·평가", "level": "심화", "name": "ROC와 AUC", "goal": "분류 임계값 변화에 따른 성능을 비교한다.", "data": "확률 예측 분류 모델", "use": "임계값을 조정해야 할 때", "ai": "ROC 곡선과 AUC 계산 코드", "human": "AUC가 높아도 실제 임계값에서 성능 확인", "output": "ROC 곡선, AUC 값", "caution": "불균형이 심하면 PR 곡선도 함께 봐야 한다.", "prompt": "로지스틱 회귀의 예측확률로 ROC 곡선과 AUC를 계산하는 코드를 작성하고 해석 방법을 알려줘."}, {"cat": "분류·평가", "level": "중급", "name": "임계값 튜닝", "goal": "확률을 분류로 바꾸는 기준을 문제 목적에 맞게 조정한다.", "data": "확률 예측 결과", "use": "거짓 양성/거짓 음성 비용이 다를 때", "ai": "임계값별 지표표와 그래프 코드", "human": "오류 비용을 실제 맥락으로 정의", "output": "임계값 선택표, 선택 근거", "caution": "0.5가 항상 최적 임계값은 아니다.", "prompt": "분류 확률에서 임계값을 0.1~0.9로 바꾸며 precision, recall, F1을 비교하는 코드를 작성해줘."}, {"cat": "분류·평가", "level": "중급", "name": "클래스 불균형 보정", "goal": "소수 클래스를 무시하는 모델을 개선한다.", "data": "정상 95%, 이상 5% 같은 데이터", "use": "드문 사건 분류", "ai": "class_weight, resampling 개념 안내", "human": "인위적 증강이 실제 분포를 왜곡하지 않는지 확인", "output": "보정 전후 성능 비교", "caution": "소수 클래스를 복제하면 과적합이 생길 수 있다.", "prompt": "클래스 불균형 데이터에서 class_weight와 resampling의 차이를 설명하고, 어떤 경우에 어떤 방법이 적절한지 알려줘."}, {"cat": "분류·평가", "level": "심화", "name": "다중분류 평가", "goal": "세 개 이상 라벨의 예측 성능을 유형별로 본다.", "data": "종 분류, 감정 분류, 등급 분류", "use": "분류 라벨이 여러 개인 경우", "ai": "classification_report와 라벨별 성능표 코드", "human": "헷갈리는 라벨 쌍을 실제로 검토", "output": "라벨별 precision/recall/F1", "caution": "전체 평균 성능만 보면 취약한 라벨을 놓친다.", "prompt": "다중분류 모델의 라벨별 precision, recall, F1을 계산하고 어떤 라벨에서 오류가 많은지 해석하는 코드를 작성해줘."}, {"cat": "분류·평가", "level": "심화", "name": "오분류 사례 분석", "goal": "모델이 틀린 사례를 모아 원인을 해석한다.", "data": "분류 예측 결과와 원자료", "use": "모델 개선 또는 보고서 한계 분석", "ai": "오분류 표 추출, 특징 요약 코드", "human": "라벨 오류인지 모델 한계인지 직접 확인", "output": "오분류 사례표, 개선 아이디어", "caution": "오류 사례를 보지 않으면 성능 수치만 남는다.", "prompt": "분류 모델이 틀린 행만 추출하고, 오분류 사례의 공통 특징을 요약하는 pandas 코드를 작성해줘."}, {"cat": "군집·차원축소", "level": "중급", "name": "K-means 군집화", "goal": "비슷한 데이터끼리 그룹을 나눠 숨은 패턴을 찾는다.", "data": "라벨 없는 수치형 다변량 데이터", "use": "유형 발견, 조건 그룹화", "ai": "스케일링, k값 비교, 군집 시각화 코드", "human": "군집이 실제 의미 있는 유형인지 확인", "output": "군집 라벨, 중심값, 군집별 특징", "caution": "k값을 임의로 정하면 결론이 흔들린다.", "prompt": "K-means 군집화를 적용하고 k값을 2~6까지 비교하는 방법과 군집별 특징을 해석하는 코드를 작성해줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "DBSCAN", "goal": "밀도가 높은 영역을 군집으로 찾고 잡음을 분리한다.", "data": "공간 데이터, 센서 데이터, 비정형 분포", "use": "군집 모양이 원형이 아닐 때", "ai": "eps, min_samples 개념과 탐색 절차", "human": "파라미터 선택이 결과에 미치는 영향 확인", "output": "군집과 잡음 라벨", "caution": "스케일링과 파라미터에 매우 민감하다.", "prompt": "DBSCAN의 eps와 min_samples가 무엇인지 설명하고, 적절한 값을 찾는 방법을 알려줘."}, {"cat": "군집·차원축소", "level": "중급", "name": "계층적 군집화", "goal": "데이터가 단계적으로 묶이는 구조를 본다.", "data": "라벨 없는 수치형 자료", "use": "유사도 구조를 설명하고 싶을 때", "ai": "덴드로그램 개념과 코드 안내", "human": "거리 기준과 연결 방식 선택 이유 확인", "output": "덴드로그램, 군집 해석", "caution": "거리 기준이 바뀌면 결과도 달라진다.", "prompt": "계층적 군집화의 덴드로그램을 해석하는 방법과 K-means와의 차이를 설명해줘."}, {"cat": "군집·차원축소", "level": "중급", "name": "PCA 주성분분석", "goal": "여러 변수를 적은 축으로 압축해 구조를 본다.", "data": "상관된 수치형 변수 여러 개", "use": "시각화, 노이즈 축소, 변수 구조 이해", "ai": "스케일링, 주성분, 설명분산 계산 코드", "human": "주성분 축의 의미를 변수 기여도로 해석", "output": "2D 투영 그래프, 설명분산", "caution": "주성분은 원래 변수 그대로의 의미가 아니다.", "prompt": "PCA를 적용해 2차원으로 시각화하고, 각 주성분이 어떤 변수 조합인지 해석하는 코드를 작성해줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "t-SNE/UMAP 개념", "goal": "고차원 데이터를 2차원으로 펼쳐 가까운 구조를 시각화한다.", "data": "이미지 특징, 텍스트 벡터, 생명정보 데이터", "use": "복잡한 패턴을 그림으로 탐색할 때", "ai": "기법의 목적과 파라미터 의미 설명", "human": "거리와 군집을 과도하게 해석하지 않도록 주의", "output": "2D 임베딩 시각화", "caution": "시각화용이지 인과나 명확한 군집 증명은 아니다.", "prompt": "t-SNE와 PCA의 차이를 고등학생 수준으로 설명하고, 시각화 결과를 해석할 때 주의할 점을 알려줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "군집 안정성 점검", "goal": "군집 결과가 초기값이나 표본 변화에 따라 흔들리는지 본다.", "data": "군집 분석 결과", "use": "군집을 결론으로 제시하기 전", "ai": "여러 시드와 k값 비교 절차 제안", "human": "군집별 의미가 반복적으로 유지되는지 확인", "output": "군집 안정성 요약", "caution": "한 번 나온 군집을 실제 유형으로 단정하면 위험하다.", "prompt": "K-means 군집 결과의 안정성을 확인하기 위해 여러 random_state와 k값을 비교하는 절차를 설계해줘."}, {"cat": "군집·차원축소", "level": "심화", "name": "군집 프로파일링", "goal": "나뉜 군집이 어떤 특징을 갖는지 표로 설명한다.", "data": "군집 라벨 + 원자료", "use": "군집 결과 해석 단계", "ai": "군집별 평균·중앙값·빈도 요약 코드", "human": "이름 붙이기가 과장되지 않았는지 점검", "output": "군집 프로파일표, 유형명", "caution": "군집 이름은 데이터 근거가 있어야 한다.", "prompt": "군집 라벨이 있는 데이터에서 군집별 변수 평균과 특징을 표로 정리하고 군집 이름을 붙이는 기준을 알려줘."}, {"cat": "시계열·센서", "level": "기초", "name": "이동평균", "goal": "시간에 따른 노이즈를 줄이고 큰 흐름을 본다.", "data": "시간별 온도, 습도, 전압, 미세먼지", "use": "센서값이 요동칠 때", "ai": "rolling mean 코드와 창 크기 비교", "human": "창 크기가 과학적으로 타당한지 확인", "output": "원자료+이동평균 그래프", "caution": "창이 너무 크면 중요한 변화가 사라진다.", "prompt": "시간별 센서 데이터에 이동평균을 적용하고 원자료와 함께 그래프로 그리는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "기초", "name": "추세선과 변화율", "goal": "시간에 따라 증가·감소하는 정도를 계산한다.", "data": "연속 시간 측정값", "use": "장기 변화 경향 설명", "ai": "기울기 계산, 선형 추세 코드", "human": "계절성이나 외부 요인 확인", "output": "추세선, 변화율", "caution": "짧은 기간 추세를 장기 결론으로 확대하면 위험하다.", "prompt": "시간에 따른 변화율과 선형 추세선을 계산하고 결과를 해석하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "중급", "name": "피크 탐지", "goal": "최댓값이 나타나는 시점과 빈도를 찾는다.", "data": "신호, 심박, 소음, 전압, 센서값", "use": "이벤트 발생 시점을 찾을 때", "ai": "임계값 기반 피크 탐지 코드", "human": "피크가 실제 사건인지 로그와 대조", "output": "피크 시점표, 피크 빈도", "caution": "임계값을 임의로 정하면 결과가 바뀐다.", "prompt": "센서 데이터에서 일정 임계값 이상인 피크를 찾고 피크 간 간격을 계산하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "중급", "name": "이상 구간 탐지", "goal": "평소 패턴과 다른 시간 구간을 찾는다.", "data": "연속 센서 로그", "use": "고장, 급격한 환경 변화, 이벤트 탐지", "ai": "이동평균·z-score 기반 구간 탐지", "human": "센서 교정 오류와 실제 현상 구분", "output": "이상 구간 목록, 원인 후보", "caution": "센서 고장이 자연현상처럼 보일 수 있다.", "prompt": "센서 시계열에서 평소보다 3표준편차 이상 벗어난 구간을 찾고 그래프에 표시하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "중급", "name": "지연 상관 Lag 분석", "goal": "한 변수 변화가 다른 변수에 시간차를 두고 영향을 주는지 본다.", "data": "기상+대기질, 온도+전력, 자극+반응", "use": "원인 후보와 반응 사이 지연이 있을 때", "ai": "lag 변수 생성과 상관 비교 코드", "human": "인과 과대해석을 피하고 외부 요인 고려", "output": "지연별 상관표, 최적 lag 후보", "caution": "상관이 높아도 실제 원인이라는 뜻은 아니다.", "prompt": "두 시계열 변수 사이의 lag를 0~24시간까지 바꾸며 상관계수를 비교하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "심화", "name": "계절성 분리", "goal": "반복되는 주기와 장기 추세를 나눠 본다.", "data": "일별·월별 공공데이터", "use": "날씨, 전력, 교통, 대기질 분석", "ai": "추세·주기·잔차 개념 설명", "human": "측정 기간이 충분한지 확인", "output": "추세 그래프, 주기 패턴", "caution": "기간이 짧으면 계절성을 믿기 어렵다.", "prompt": "시계열 데이터에서 추세, 주기, 잔차를 구분하는 사고방식과 간단한 이동평균 기반 분석 절차를 설명해줘."}, {"cat": "시계열·센서", "level": "심화", "name": "간단 예측 모델", "goal": "과거 값을 이용해 미래 값을 예측한다.", "data": "시간 순서가 있는 수치 데이터", "use": "단기 예측 또는 시나리오 비교", "ai": "lag feature 생성, 시간순 train/test 코드", "human": "미래 정보가 학습에 섞이지 않도록 확인", "output": "예측 그래프, MAE/RMSE", "caution": "시계열은 무작위로 섞어 나누면 안 된다.", "prompt": "시계열 데이터를 시간순으로 훈련/검증 분리하고 lag 변수를 만들어 예측하는 코드를 작성해줘."}, {"cat": "시계열·센서", "level": "심화", "name": "센서 캘리브레이션", "goal": "저가 센서값을 기준 장비나 표준값에 맞게 보정한다.", "data": "센서값 + 기준값", "use": "아두이노, 스마트폰 센서, IoT 데이터", "ai": "보정식 회귀와 보정 전후 오차 비교", "human": "기준값의 신뢰도와 측정 조건 확인", "output": "보정식, 보정 전후 RMSE", "caution": "보정 데이터 범위를 벗어나면 식이 틀릴 수 있다.", "prompt": "저가 센서값과 기준 장비값을 비교해 선형 보정식을 만들고 보정 전후 오차를 비교하는 코드를 작성해줘."}, {"cat": "텍스트 분석", "level": "기초", "name": "키워드 빈도 분석", "goal": "문서에서 자주 등장하는 단어를 세어 핵심 주제를 본다.", "data": "기사 제목, 보고서 요약, 설문 서술형", "use": "텍스트 데이터 첫 분석", "ai": "불용어 제거, 빈도표, 막대그래프 코드", "human": "단어 의미가 맥락에 따라 다른지 확인", "output": "상위 키워드 표, 빈도 그래프", "caution": "많이 나온 단어가 항상 중요한 개념은 아니다.", "prompt": "한국어 텍스트 목록에서 불용어를 제거하고 키워드 빈도표와 막대그래프를 만드는 코드를 작성해줘."}, {"cat": "텍스트 분석", "level": "중급", "name": "n-gram 분석", "goal": "연속된 단어 묶음을 세어 표현 패턴을 찾는다.", "data": "문장·기사·응답 텍스트", "use": "단어 하나만으로 의미가 부족할 때", "ai": "2-gram, 3-gram 빈도 계산 방법", "human": "띄어쓰기와 형태소 처리 한계 인식", "output": "상위 구문 목록", "caution": "자동 토큰화 오류가 결과에 영향을 준다.", "prompt": "텍스트에서 2단어 묶음과 3단어 묶음 빈도를 구하는 방법을 설명하고 Python 예시를 작성해줘."}, {"cat": "텍스트 분석", "level": "중급", "name": "TF-IDF", "goal": "문서별로 특징적인 단어를 찾는다.", "data": "여러 문서, 기사, 보고서 묶음", "use": "단순 빈도보다 문서 차이를 보고 싶을 때", "ai": "TF-IDF 벡터화 코드와 상위 단어 추출", "human": "단어가 실제 주제를 대표하는지 검토", "output": "문서별 특징어 표", "caution": "짧은 문서에서는 값이 불안정할 수 있다.", "prompt": "여러 문서에 TF-IDF를 적용해 각 문서의 특징어 상위 10개를 뽑는 코드를 작성해줘."}, {"cat": "텍스트 분석", "level": "중급", "name": "텍스트 군집화", "goal": "비슷한 문서끼리 묶어 주제 유형을 찾는다.", "data": "기사, 보고서, 설문 응답", "use": "라벨이 없는 텍스트 묶음", "ai": "TF-IDF + K-means 절차 제안", "human": "군집 이름을 원문 근거로 붙임", "output": "문서 군집, 군집별 키워드", "caution": "군집이 실제 주제와 다를 수 있으므로 원문 검토가 필요하다.", "prompt": "TF-IDF 벡터와 K-means로 텍스트를 군집화하고 군집별 대표 키워드를 뽑는 절차를 알려줘."}, {"cat": "텍스트 분석", "level": "심화", "name": "감성·태도 분류", "goal": "문장에 나타난 긍정·부정·우려·찬성 등을 분류한다.", "data": "설문 응답, 댓글, 기사 문장", "use": "태도 변화 분석", "ai": "분류 기준표 작성과 샘플 라벨링 보조", "human": "모호한 문장은 사람이 직접 판단", "output": "범주별 빈도, 예시 문장", "caution": "AI 감성분석 결과를 그대로 정답으로 쓰면 안 된다.", "prompt": "설문 서술형 응답을 긍정, 부정, 중립, 우려로 분류하려고 한다. 분류 기준표와 검증 절차를 제안해줘."}, {"cat": "텍스트 분석", "level": "심화", "name": "문헌 요약 매트릭스", "goal": "여러 논문·기사의 방법과 결과를 비교표로 정리한다.", "data": "초록, 논문 요약, 기사 자료", "use": "선행연구 정리 또는 자료조사", "ai": "연구목적·자료·방법·결론 추출 표 생성", "human": "원문을 대조해 왜곡 여부 확인", "output": "문헌 비교표, 공통점·차이점", "caution": "AI 요약은 원문 출처 확인 없이 인용하면 위험하다.", "prompt": "논문 초록 5개를 비교해 연구목적, 데이터, 분석방법, 주요 결과, 한계를 표로 정리하는 프롬프트를 만들어줘."}, {"cat": "텍스트 분석", "level": "심화", "name": "질문 자동 생성", "goal": "텍스트 자료에서 후속 분석 질문을 뽑아낸다.", "data": "교과서, 기사, 보고서, 논문 요약", "use": "자료 읽기 후 분석 방향 설정", "ai": "개념 질문, 비교 질문, 데이터 질문 생성", "human": "질문이 실제 데이터로 답 가능한지 판단", "output": "후속 분석 질문 목록", "caution": "질문 생성은 출발점일 뿐 검증 가능한 형태로 다시 고쳐야 한다.", "prompt": "다음 자료를 바탕으로 데이터로 답할 수 있는 분석 질문 10개를 만들고, 각 질문에 필요한 데이터와 분석법을 연결해줘."}, {"cat": "이미지 분석", "level": "기초", "name": "색상 평균 분석", "goal": "이미지의 RGB, 밝기, 색상 비율을 수치화한다.", "data": "식물 잎, 용액 색, 지표면 사진", "use": "색 변화로 상태를 추정할 때", "ai": "이미지 로드, RGB 평균, 히스토그램 코드", "human": "촬영 조명과 배경 조건 통제", "output": "색상 평균, 색상 분포 그래프", "caution": "조명 차이가 색 변화처럼 보일 수 있다.", "prompt": "이미지 파일 여러 장에서 RGB 평균과 밝기 평균을 계산하고 조건별로 비교하는 Python 코드를 작성해줘."}, {"cat": "이미지 분석", "level": "중급", "name": "임계값 분할", "goal": "밝기나 색 기준으로 관심 영역을 배경과 분리한다.", "data": "현미경 이미지, 잎 면적, 얼룩, 물체 사진", "use": "객체 면적이나 개수를 측정할 때", "ai": "threshold 적용과 마스크 생성 절차", "human": "임계값 선택 기준을 사진 예시로 검토", "output": "마스크 이미지, 면적 비율", "caution": "자동 임계값이 모든 사진에 맞지는 않는다.", "prompt": "이미지에서 특정 색 영역을 분리해 면적 비율을 계산하는 알고리즘 절차와 Python 예시를 작성해줘."}, {"cat": "이미지 분석", "level": "중급", "name": "객체 계수", "goal": "이미지 속 점, 세포, 입자, 씨앗 수를 센다.", "data": "현미경 사진, 입자 사진, 씨앗 발아 사진", "use": "반복 계수가 필요한 경우", "ai": "분할 후 객체 라벨링 절차 설명", "human": "겹친 객체와 노이즈를 사람이 검토", "output": "객체 수, 크기 분포", "caution": "자동 계수는 수동 검증 샘플이 필요하다.", "prompt": "현미경 이미지에서 세포 수를 자동으로 세려면 어떤 전처리, 임계값, 객체 분리, 검증 절차가 필요한지 설명해줘."}, {"cat": "이미지 분석", "level": "중급", "name": "면적·길이 측정", "goal": "사진 속 대상의 크기를 픽셀에서 실제 단위로 변환한다.", "data": "식물 길이, 결정 크기, 얼룩 면적", "use": "성장, 확산, 침식 등 변화 측정", "ai": "스케일바 또는 기준물 기반 변환식 안내", "human": "카메라 각도와 기준물 위치 확인", "output": "실제 길이·면적 측정값", "caution": "기준물 없이 픽셀만으로 실제 크기를 말할 수 없다.", "prompt": "이미지에서 기준자 10cm가 몇 픽셀인지 이용해 대상 길이와 면적을 실제 단위로 환산하는 절차를 설명해줘."}, {"cat": "이미지 분석", "level": "심화", "name": "엣지 검출", "goal": "경계선을 찾아 형태 변화를 분석한다.", "data": "물체 윤곽, 균열, 해안선, 잎 가장자리", "use": "형태와 경계 변화가 핵심일 때", "ai": "윤곽 추출 개념과 전처리 제안", "human": "노이즈와 그림자를 제거했는지 확인", "output": "윤곽선, 경계 길이, 형태 지표", "caution": "경계가 실제 물체인지 그림자인지 구분해야 한다.", "prompt": "이미지에서 물체 윤곽선을 추출해 둘레와 면적을 계산하는 분석 절차를 단계별로 설명해줘."}, {"cat": "이미지 분석", "level": "심화", "name": "타임랩스 이미지 분석", "goal": "시간에 따른 이미지 변화를 수치화한다.", "data": "식물 생장, 결정 성장, 확산 사진 연속", "use": "영상 또는 시간순 사진 데이터", "ai": "프레임별 특징 추출과 변화 그래프 코드", "human": "촬영 위치와 조명 고정 여부 확인", "output": "시간-면적/색/길이 그래프", "caution": "프레임마다 촬영 조건이 달라지면 변화가 왜곡된다.", "prompt": "시간순 이미지 여러 장에서 관심 영역 면적을 계산해 시간에 따른 변화 그래프를 만드는 절차를 알려줘."}, {"cat": "이미지 분석", "level": "심화", "name": "이미지 분류 기초", "goal": "사진을 유형별로 자동 분류하는 모델의 원리를 이해한다.", "data": "라벨 있는 이미지 데이터", "use": "정상/이상, 종류 분류 등", "ai": "훈련/검증 분리, 특징 추출, 평가 지표 안내", "human": "라벨 품질과 데이터 편향 확인", "output": "분류 정확도, 오분류 사례", "caution": "이미지 수가 적으면 딥러닝보다 규칙 기반 분석이 더 적절할 수 있다.", "prompt": "고등학생 수준에서 이미지 분류 프로젝트를 할 때 데이터 수, 라벨링, 검증, 오분류 분석 절차를 설계해줘."}, {"cat": "공간·네트워크", "level": "기초", "name": "위치 데이터 지도화", "goal": "측정 지점을 지도나 좌표평면에 표시한다.", "data": "위도·경도, 장소명, GPS 로그", "use": "환경 측정, 통학로, 지역 비교", "ai": "좌표 변환, 지도 시각화 방법 제안", "human": "개인 위치 정보 보호 확인", "output": "측정 지점 지도, 위치별 값", "caution": "개인 이동경로는 익명화가 필요하다.", "prompt": "위도·경도와 측정값이 있는 데이터를 지도에 표시하고 색으로 값의 크기를 나타내는 절차를 설명해줘."}, {"cat": "공간·네트워크", "level": "중급", "name": "거리 기반 분석", "goal": "학교, 도로, 공원 등 기준점과의 거리가 결과에 미치는 영향을 본다.", "data": "좌표 + 측정값", "use": "소음, 대기질, 접근성 분석", "ai": "거리 계산과 산점도·회귀 제안", "human": "거리 외 요인을 함께 고려", "output": "거리-결과 관계 그래프", "caution": "가까움이 원인을 의미하지는 않는다.", "prompt": "측정 지점과 도로 사이 거리를 계산하고 거리와 소음 값의 관계를 분석하는 절차를 알려줘."}, {"cat": "공간·네트워크", "level": "중급", "name": "공간 격자화", "goal": "지역을 일정 격자로 나눠 평균값을 비교한다.", "data": "지역별 측정값, 좌표 데이터", "use": "열섬, 미세먼지, 소음 지도 만들기", "ai": "격자 평균과 히트맵 생성 아이디어", "human": "격자 크기 선택 근거 확인", "output": "공간 히트맵, 격자별 평균", "caution": "격자 크기를 바꾸면 패턴이 달라질 수 있다.", "prompt": "위치 측정 데이터를 일정 격자로 나누어 격자별 평균을 계산하고 히트맵으로 표현하는 방법을 설명해줘."}, {"cat": "공간·네트워크", "level": "심화", "name": "공간 자기상관 사고", "goal": "가까운 지역의 값이 서로 비슷한지 확인한다.", "data": "지역 단위 통계, 환경 관측값", "use": "공간 패턴의 군집 여부 설명", "ai": "Moran's I 개념과 해석 안내", "human": "행정구역 경계와 이웃 정의 확인", "output": "공간 군집 여부 판단", "caution": "전문 통계가 필요하므로 개념 수준으로 신중히 사용한다.", "prompt": "공간 자기상관이 무엇인지 고등학생 수준으로 설명하고, 지역별 미세먼지 데이터에서 어떤 질문으로 연결할 수 있는지 알려줘."}, {"cat": "공간·네트워크", "level": "중급", "name": "네트워크 중심성", "goal": "연결망에서 중요한 노드나 허브를 찾는다.", "data": "친구관계, 교통, 인용, 정보 흐름 네트워크", "use": "관계 데이터 분석", "ai": "노드·엣지 표 구성과 중심성 개념 설명", "human": "개인관계 데이터는 동의와 익명화 필요", "output": "중심 노드, 연결 구조 그림", "caution": "중심성이 높다고 가치가 높다는 뜻은 아니다.", "prompt": "노드와 엣지 데이터로 네트워크를 만들고 연결 중심성, 매개 중심성을 해석하는 방법을 설명해줘."}, {"cat": "공간·네트워크", "level": "심화", "name": "경로 최적화 기초", "goal": "여러 지점 방문 순서나 이동 비용을 줄이는 방법을 탐색한다.", "data": "좌표, 거리, 시간 비용", "use": "통학로, 센서 배치, 배송 경로 문제", "ai": "탐욕 알고리즘, 완전탐색, 휴리스틱 설명", "human": "안전·현실 제약을 함께 반영", "output": "추천 경로, 비용 비교", "caution": "최단거리가 항상 최선은 아니다.", "prompt": "여러 측정 지점을 방문하는 경로를 줄이기 위해 사용할 수 있는 단순 알고리즘과 Python 구현 아이디어를 알려줘."}, {"cat": "최적화·시뮬레이션", "level": "기초", "name": "격자 탐색 Grid Search", "goal": "여러 조건 조합을 체계적으로 비교해 최적 조건을 찾는다.", "data": "조건 조합과 결과값", "use": "온도·농도·시간 등 실험 조건 최적화", "ai": "조건표 생성, 결과 랭킹 코드", "human": "최적 조건 주변을 추가 실험할지 판단", "output": "조건별 성능표, 최적 조건", "caution": "측정하지 않은 범위까지 최적이라고 말하면 안 된다.", "prompt": "온도, pH, 시간 조건 조합별 결과 데이터에서 최적 조건을 찾고 상위 5개 조건을 표로 정리하는 코드를 작성해줘."}, {"cat": "최적화·시뮬레이션", "level": "중급", "name": "민감도 분석", "goal": "입력값이 조금 바뀔 때 결과가 얼마나 달라지는지 확인한다.", "data": "모델식, 시뮬레이션, 계산 지표", "use": "어떤 변수가 중요한지 파악", "ai": "변수별 변화 범위와 결과 그래프 생성", "human": "변화 범위가 현실적인지 판단", "output": "민감도 그래프, 핵심 변수", "caution": "입력 범위를 비현실적으로 잡으면 결론이 왜곡된다.", "prompt": "모델의 입력 변수 3개를 각각 변화시키며 결과값 변화를 비교하는 민감도 분석 절차와 코드를 작성해줘."}, {"cat": "최적화·시뮬레이션", "level": "중급", "name": "몬테카를로 시뮬레이션", "goal": "불확실한 입력값을 여러 번 무작위로 뽑아 결과 분포를 본다.", "data": "오차 범위가 있는 계산 모델", "use": "측정 오차가 결론에 미치는 영향 분석", "ai": "무작위 샘플링과 결과 분포 코드", "human": "입력 분포 가정의 타당성 확인", "output": "결과 분포, 위험 확률", "caution": "분포 가정이 틀리면 시뮬레이션도 틀린다.", "prompt": "측정값의 오차 범위를 반영해 몬테카를로 시뮬레이션으로 결과값 분포를 계산하는 코드를 작성해줘."}, {"cat": "최적화·시뮬레이션", "level": "중급", "name": "파라미터 피팅", "goal": "실험 데이터에 가장 잘 맞는 모델식의 상수를 찾는다.", "data": "시간-농도, 냉각곡선, 성장곡선", "use": "이론식과 실험값 비교", "ai": "최소제곱 피팅 개념과 코드 제안", "human": "상수의 단위와 물리적 의미 확인", "output": "피팅 곡선, 추정 파라미터", "caution": "데이터에만 잘 맞고 원리상 말이 안 될 수 있다.", "prompt": "실험 데이터에 지수함수 또는 선형 모델을 피팅하고 모델별 오차를 비교하는 절차를 알려줘."}, {"cat": "최적화·시뮬레이션", "level": "심화", "name": "시나리오 비교", "goal": "정책이나 설계 선택에 따라 결과가 어떻게 달라지는지 비교한다.", "data": "공공데이터, 계산 모델, 가정표", "use": "에너지 절감, 탄소 배출, 예산 배분", "ai": "시나리오 표와 계산식 구조 제안", "human": "가정이 현실적인지 출처 확인", "output": "시나리오별 결과표, 의사결정 근거", "caution": "가정을 숨기면 결론을 검증할 수 없다.", "prompt": "에너지 절감 시나리오 3개를 비교하는 분석표를 만들려고 한다. 필요한 변수, 계산식, 그래프, 해석 구조를 제안해줘."}, {"cat": "최적화·시뮬레이션", "level": "심화", "name": "선형계획법 개념", "goal": "제약조건 안에서 목적함수를 최대화·최소화한다.", "data": "자원 배분, 혼합 비율, 시간표 문제", "use": "최적화 사고를 보여주고 싶을 때", "ai": "목적함수와 제약조건 작성 보조", "human": "제약조건이 현실과 맞는지 검토", "output": "최적해, 제약조건 표", "caution": "전문 도구 없이 개념과 작은 예제로 접근하는 것이 적절하다.", "prompt": "고등학생 수준의 선형계획법 예시로 목적함수와 제약조건을 세우는 방법을 설명해줘."}, {"cat": "최적화·시뮬레이션", "level": "심화", "name": "디지털 트윈 기초", "goal": "현실 시스템의 간단한 계산 모델을 만들어 조건 변화를 실험한다.", "data": "학교 전력, 실내 온도, 물 순환, 교통 흐름", "use": "실험하기 어려운 시스템을 모델로 비교", "ai": "모델 변수, 입력, 출력, 검증 방법 구조화", "human": "모델이 단순화한 부분을 명확히 기록", "output": "시뮬레이션 모델, 조건별 결과", "caution": "모델은 현실의 축소판이므로 한계를 반드시 써야 한다.", "prompt": "학교 교실 온도 변화를 간단한 디지털 트윈으로 모델링하려고 한다. 필요한 변수, 가정, 검증 데이터, 결과 그래프를 설계해줘."}, {"cat": "설명가능성·검증", "level": "기초", "name": "모델 성능 지표 선택", "goal": "문제 목적에 맞는 평가 지표를 고른다.", "data": "예측·분류 모델 결과", "use": "모델 결과를 보고서에 쓸 때", "ai": "회귀/분류별 지표 추천과 해석", "human": "어떤 오류가 더 중요한지 판단", "output": "MAE, RMSE, R², F1 등", "caution": "지표 하나로 모델을 평가하지 않는다.", "prompt": "회귀와 분류 문제에서 각각 어떤 성능 지표를 써야 하는지 데이터 예시와 함께 표로 정리해줘."}, {"cat": "설명가능성·검증", "level": "중급", "name": "교차검증 리포트", "goal": "모델 성능의 평균과 흔들림을 함께 제시한다.", "data": "예측 모델", "use": "성능 신뢰도 표현", "ai": "fold별 점수와 평균±표준편차 표 생성", "human": "fold가 데이터 구조를 깨지 않는지 확인", "output": "교차검증 표, 신뢰도 해석", "caution": "평균이 높아도 표준편차가 크면 안정성이 낮다.", "prompt": "교차검증 결과를 평균과 표준편차로 요약하고, 모델 안정성을 해석하는 문장 예시를 써줘."}, {"cat": "설명가능성·검증", "level": "중급", "name": "변수 중요도", "goal": "모델이 어떤 변수를 많이 사용했는지 확인한다.", "data": "트리 기반 모델, 회귀 모델", "use": "모델 해석과 후속 실험 설계", "ai": "중요도 계산과 막대그래프 코드", "human": "예측 기여도와 원인 효과를 구분", "output": "중요도 순위, 해석 문장", "caution": "중요도는 인과관계 증거가 아니다.", "prompt": "모델의 변수 중요도를 계산하고, 이를 인과가 아니라 예측 기여도로 해석하는 보고서 문장을 작성해줘."}, {"cat": "설명가능성·검증", "level": "심화", "name": "부분의존도 사고", "goal": "한 변수를 바꿀 때 예측값이 어떻게 변하는지 본다.", "data": "머신러닝 모델", "use": "비선형 모델 해석", "ai": "부분의존도 개념과 그래프 생성 안내", "human": "다른 변수와의 상호작용을 함께 고려", "output": "변수-예측 변화 그래프", "caution": "상관된 변수에서는 해석이 왜곡될 수 있다.", "prompt": "부분의존도 그래프가 무엇인지 설명하고, 랜덤포레스트 모델에서 특정 변수 효과를 해석하는 방법을 알려줘."}, {"cat": "설명가능성·검증", "level": "중급", "name": "오차 분석", "goal": "예측이 크게 빗나간 사례를 찾아 원인을 추적한다.", "data": "예측값과 실제값", "use": "모델 개선과 한계 작성", "ai": "잔차 큰 행 추출, 공통 특징 요약", "human": "측정 오류, 누락 변수, 특수 조건 확인", "output": "오차 상위 사례표, 원인 후보", "caution": "평균 오차만 보면 특정 조건의 실패를 놓친다.", "prompt": "예측 오차가 큰 상위 10개 사례를 추출하고 공통 특징을 분석하는 pandas 코드를 작성해줘."}, {"cat": "설명가능성·검증", "level": "심화", "name": "외부 검증", "goal": "다른 시간·장소·집단 데이터에서도 모델이 작동하는지 확인한다.", "data": "추가 데이터, 다른 기간 공공데이터", "use": "모델 일반화 주장 전", "ai": "외부 검증 데이터 설계와 성능 비교표", "human": "훈련 데이터와 다른 조건을 명확히 기록", "output": "내부/외부 성능 비교", "caution": "외부 검증이 없으면 일반화 주장이 약하다.", "prompt": "모델을 다른 지역 데이터로 외부 검증하려고 한다. 어떤 조건을 맞추고 어떤 성능표를 만들어야 하는지 알려줘."}, {"cat": "설명가능성·검증", "level": "심화", "name": "AI 답변 검증 루틴", "goal": "AI가 만든 코드와 해석의 오류를 체계적으로 검토한다.", "data": "AI 생성 코드, 분석 결과, 해석문", "use": "AI를 분석 보조로 사용할 때마다", "ai": "체크리스트와 반례 질문 생성", "human": "코드 실행 결과와 원자료를 직접 확인", "output": "검증 체크리스트, 수정 로그", "caution": "AI 답변은 권위가 아니라 초안이다.", "prompt": "AI가 작성한 분석 코드와 해석문을 검증하기 위한 체크리스트를 만들어줘. 데이터, 코드, 통계, 해석, 윤리 항목으로 나눠줘."}, {"cat": "자동화·보고", "level": "기초", "name": "분석 계획서 자동 초안", "goal": "데이터 목표와 분석법을 한 장 계획서로 정리한다.", "data": "분석 전 정보", "use": "분석 시작 단계", "ai": "목표, 변수, 방법, 산출물 구조화", "human": "실현 가능성과 자료 접근성 판단", "output": "분석 계획서", "caution": "AI 초안을 그대로 제출하지 말고 실제 데이터 조건에 맞춰 수정해야 한다.", "prompt": "내 데이터 목표, 변수, 자료 출처를 바탕으로 분석 계획서 초안을 작성해줘. 분석법 선택 이유와 예상 산출물을 포함해줘."}, {"cat": "자동화·보고", "level": "중급", "name": "코드 주석 생성", "goal": "분석 코드의 목적과 흐름을 이해하기 쉽게 설명한다.", "data": "Python 코드", "use": "코드 제출·공유 전", "ai": "셀별 주석과 함수 설명 생성", "human": "주석이 코드 동작과 일치하는지 확인", "output": "주석 달린 코드", "caution": "주석이 많아도 실제 이해가 없으면 면접에서 드러난다.", "prompt": "다음 Python 코드에 고등학생이 이해할 수 있는 주석을 달아줘. 각 단계가 데이터 분석에서 어떤 역할을 하는지도 설명해줘."}, {"cat": "자동화·보고", "level": "중급", "name": "그래프 캡션 작성", "goal": "그래프가 말하는 핵심을 한두 문장으로 정리한다.", "data": "분석 그래프", "use": "보고서와 발표 자료 작성", "ai": "그래프 제목, 축, 단위, 핵심 패턴 문장 제안", "human": "그래프가 실제 수치를 정확히 반영하는지 확인", "output": "그래프 캡션, 해석 문장", "caution": "그래프 해석은 관찰과 추론을 구분해야 한다.", "prompt": "이 그래프 결과를 보고서에 넣을 캡션으로 작성해줘. 관찰된 패턴과 가능한 해석을 구분해줘."}, {"cat": "자동화·보고", "level": "중급", "name": "결과 해석 문장화", "goal": "분석 결과를 수치 근거가 있는 문장으로 바꾼다.", "data": "통계표, 모델 결과", "use": "보고서 결과·논의 작성", "ai": "수치 기반 해석문, 한계 문장 제안", "human": "과장 표현과 인과 표현 검토", "output": "결과 문단, 한계 문단", "caution": "수치 없는 ‘유의미하다’ 표현은 피한다.", "prompt": "다음 분석 결과표를 바탕으로 결과 문단을 작성해줘. 반드시 수치 근거를 포함하고, 인과가 아니라 관계로 표현해줘."}, {"cat": "자동화·보고", "level": "심화", "name": "분석 로그 작성", "goal": "AI 사용 과정과 사람의 판단을 투명하게 기록한다.", "data": "프롬프트, 코드, 수정 기록", "use": "AI 활용 보고서 작성", "ai": "프롬프트-응답-검증-수정 기록 양식", "human": "어떤 결정을 사람이 했는지 명확히 작성", "output": "AI 활용 기록표", "caution": "AI가 한 일과 학생이 한 일을 구분하지 않으면 신뢰가 떨어진다.", "prompt": "AI 활용 기록표 양식을 만들어줘. 날짜, 목적, 입력 데이터, 프롬프트, AI 제안, 내가 검증한 내용, 수정한 내용, 최종 반영 여부를 포함해줘."}, {"cat": "자동화·보고", "level": "심화", "name": "발표 질문 생성", "goal": "분석 과정에서 받을 수 있는 질문을 미리 점검한다.", "data": "완성된 분석 보고서", "use": "발표·면접 대비", "ai": "방법, 데이터, 해석, 한계 질문 생성", "human": "질문에 수치와 근거로 답변 연습", "output": "예상 질문, 답변 키워드", "caution": "답변 암기가 아니라 분석 근거 이해가 중요하다.", "prompt": "내 분석 보고서를 바탕으로 예상 질문 15개를 만들어줘. 데이터 품질, 분석법 선택, 결과 해석, 한계, 후속 분석으로 나눠줘."}, {"cat": "자동화·보고", "level": "심화", "name": "동료 검토 프롬프트", "goal": "분석의 약점을 찾기 위해 비판적 검토를 요청한다.", "data": "보고서 초안, 코드, 그래프", "use": "제출 전 최종 점검", "ai": "검토자 역할 프롬프트와 루브릭 생성", "human": "AI 지적사항 중 타당한 것만 반영", "output": "수정 체크리스트", "caution": "AI의 비판도 틀릴 수 있으므로 근거를 확인한다.", "prompt": "내 보고서를 엄격한 데이터 분석 멘토 관점에서 검토해줘. 데이터, 전처리, 분석법, 그래프, 해석, 윤리 항목별로 문제점과 수정안을 제시해줘."}]</script>
+<script id="methodsData" type="application/json">
+[
+ {
+  "cat": "데이터 준비·품질",
+  "level": "기초",
+  "name": "데이터 구조 진단",
+  "goal": "열 이름, 단위, 자료형, 표본 수를 먼저 확인해 분석 가능한 데이터인지 판단한다.",
+  "data": "CSV, 엑셀, 센서 로그, 실험 기록표",
+  "use": "분석을 시작하기 전 모든 데이터",
+  "ai": "열별 의미 추정, 데이터 딕셔너리 초안, 전처리 목록 작성",
+  "human": "열의 실제 의미와 단위는 원자료 설명·실험노트로 직접 확인",
+  "output": "데이터 요약표, 열별 자료형, 분석 가능성 판단",
+  "caution": "AI가 열 이름만 보고 의미를 단정할 수 있으므로 샘플 행과 측정 맥락을 함께 제공한다.",
+  "prompt": "너는 학생 탐구 자료를 처음 열어보는 데이터 검수자야. 이 자료가 분석 가능한 상태인지부터 진단해줘.\n[데이터 출처와 수집 방식] {예: 학교 실험실에서 조도 조건별 광합성량을 3회 반복 측정}\n[열 이름과 단위] {예: light_lux, trial, o2_ppm}\n[샘플 데이터 10행] {붙여넣기}\n[전체 표본 수와 눈에 띄는 빈칸] {예: 45행, o2_ppm에 결측 3개}\n다음 형식으로 답해줘.\n1. 열별 의미·자료형·단위 추정표\n2. 원자료 설명서나 실험노트에서 꼭 확인할 항목\n3. 전처리가 필요한 부분과 그 이유\n4. 이 자료로 할 수 있는 분석과 표본 수 때문에 어려운 분석\n5. 내가 직접 확인해야 할 질문\n열 이름만 보고 추정한 내용은 '추정'이라고 표시하고, 단위와 측정 방식은 단정하지 말아줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "기초",
+  "name": "결측치 패턴 분석",
+  "goal": "빈칸이 우연한 누락인지 특정 조건에서 반복되는 누락인지 구분한다.",
+  "data": "반복 측정, 공공데이터, 설문",
+  "use": "결측값이 있는 모든 데이터",
+  "ai": "열별 결측률 계산 코드, 결측 패턴 시각화 코드",
+  "human": "빈칸이 결석·장비 고장·측정 누락 중 무엇 때문인지 기록으로 확인하고, 그 원인이 값의 크기와 관련 있는지 판단",
+  "output": "결측률 표, 결측 패턴 그래프, 처리 기준",
+  "caution": "결측이 왜 생겼는지 확인하지 않고 평균으로 채우면 채운 값이 모두 평균이라 표준편차가 줄고 다른 변수와의 상관도 실제보다 약하게 나온다. 값이 클 때만 기록이 빠지는 식의 비무작위 결측이면 삭제도 대체도 편향을 만든다.",
+  "prompt": "너는 빈칸이 생긴 이유부터 따지는 통계 조교야. 결측을 지우거나 채우기 전에 패턴을 먼저 보게 도와줘.\n[열 이름과 단위] {예: date, station, pm10_ugm3, temp_C}\n[결측이 있는 열과 빈칸 수] {예: 전체 730행 중 pm10_ugm3에 62개}\n[수집 상황에서 짐작되는 이유] {예: 주말과 장비 점검일에 기록이 빈다}\n다음 형식에 맞춰 답해줘.\n1. 열별 결측률과 행별 결측 패턴을 보는 pandas 코드\n2. 결측이 완전 무작위(MCAR)인지, 다른 변수에 따라 달라지는지(MAR), 값 자체 때문인지(MNAR) 확인하는 점검 방법\n3. 삭제·대체·보류를 고르는 기준과 각각이 치르는 대가\n4. 평균 대체 전후로 표준편차와 상관계수가 얼마나 줄어드는지 비교하는 코드\n5. 보고서에 쓸 결측 처리 서술 예시\n원인을 확인하지 않고 대체하면 왜 위험한지, 대체가 부적절해지는 조건도 알려줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "기초",
+  "name": "이상치 후보 탐지",
+  "goal": "측정 오류, 극단값, 의미 있는 특이 사례를 분리해 판단한다.",
+  "data": "온도, pH, 속도, 농도, 길이, 전압 등 수치형 자료",
+  "use": "측정값 범위가 넓거나 반복 측정이 많은 경우",
+  "ai": "IQR·z점수·중앙값 기반(MAD) 후보 탐지 코드, 처리 전후 비교표 작성",
+  "human": "장비 오류인지 실제 현상인지 실험 기록과 대조하고, 유지·수정·제외 여부를 근거와 함께 결정",
+  "output": "이상치 후보 목록, 처리 전후 비교",
+  "caution": "이상치는 찾으면 지우는 것이 아니라 원인을 확인한 뒤 판단한다. 제외 기준은 데이터를 보기 전에 정해야 하고, z점수는 평균과 표준편차가 그 극단값에 끌려가 정작 큰 이상치를 놓칠 수 있다. 결과에 불리한 값만 지우면 연구윤리 문제가 된다.",
+  "prompt": "너는 측정 오류와 진짜 특이 현상을 갈라내는 실험 검토자야. 이상치를 바로 지우지 말고 원인부터 따지게 도와줘.\n[측정 변수와 단위] {예: reaction_time_ms}\n[측정 조건과 반복 수] {예: 온도 4조건 × 각 10회}\n[의심되는 값과 그때 상황] {예: 1200ms 2건, 장비 재부팅 직후 기록}\n답은 다음 형식으로 정리해줘.\n1. IQR과 z점수로 후보를 뽑는 코드\n2. z점수 기준이 극단값 자체에 끌려가 둔해지는 이유와 대안(중앙값·MAD)\n3. 삭제 전 실험노트에서 확인할 질문 목록\n4. 유지·수정·제외 중 무엇을 골랐는지 쓰는 근거 문장 예시\n5. 처리 전후 결과 비교표\n제외 기준은 데이터를 보기 전에 정해 두어야 한다는 점을 전제로 답하고, 결과에 유리한 값만 지우는 것이 왜 문제인지도 짚어줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "기초",
+  "name": "단위 통일과 스케일링",
+  "goal": "서로 다른 단위와 크기를 가진 변수를 비교 가능하게 만든다.",
+  "data": "시간, 거리, 질량, 농도, 전압, 전력 등",
+  "use": "여러 변수를 함께 분석하거나 모델에 넣을 때",
+  "ai": "단위 변환식 제안, 분석 종류에 맞는 표준화·정규화 코드",
+  "human": "원단위와 변환 단위가 물리적으로 맞는지 확인",
+  "output": "변환 전후 표, 표준화 변수",
+  "caution": "단위를 지우고 숫자만 비교하면 해석이 틀린다. 표준화는 모든 분석의 필수 절차가 아니라 거리를 계산하는 분석(군집·주성분·KNN)에서 필요하고, 회귀계수 해석이나 나무 기반 모형에서는 오히려 해석을 어렵게 한다.",
+  "prompt": "너는 단위와 척도를 점검하는 실험 조교야. 숫자만 맞추지 말고 물리적으로 말이 되는지 함께 봐줘.\n[열 이름과 현재 단위] {예: dist_cm, time_ms, mass_g}\n[함께 비교하거나 모델에 넣을 변수] {예: dist_cm과 mass_g}\n[하려는 분석] {예: k-평균 군집 / 다중회귀 / 그래프 비교}\n다음 형식으로 알려줘.\n1. 단위를 통일해야 할 열과 변환식\n2. 표준화(z)·정규화(0~1)·원단위 유지 중 무엇을 쓸지 열별 판단과 근거\n3. 군집·주성분분석처럼 거리 계산에 표준화가 꼭 필요한 경우와, 회귀계수 해석이나 의사결정나무처럼 필요 없는 경우 구분\n4. pandas와 scikit-learn 변환 코드, 변환 전후 요약표\n5. 해석할 때 원단위로 되돌려 말해야 하는 부분\n표준화가 오히려 해석을 방해하는 상황이 있으면 그 조건도 알려줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "기초",
+  "name": "반복 측정 요약",
+  "goal": "반복 실험값을 평균, 표준편차, 표준오차, 신뢰구간으로 요약한다.",
+  "data": "조건별 3회 이상 반복 측정값",
+  "use": "실험 조건 간 비교 전",
+  "ai": "요약 통계표와 오차막대 그래프 코드",
+  "human": "반복이 서로 독립인지(같은 시료를 나눠 잰 것은 아닌지), 반복 수가 충분한지 판단",
+  "output": "조건별 평균·표준편차·표준오차·95% 신뢰구간 표, 표본 수를 표기한 오차막대 그래프",
+  "caution": "반복 수가 적으면 우연한 오차와 조건 효과를 구분하기 어렵다. 표준편차는 값들이 흩어진 정도, 표준오차는 평균 추정의 정밀도라 뜻이 다르므로 무엇을 제시했는지 반드시 밝힌다.",
+  "prompt": "너는 반복 실험값을 요약해 주는 실험 통계 도우미야. 평균 하나로 끝내지 말고 흩어짐과 표본 수까지 같이 보여줘.\n[조건 목록과 조건별 반복 수] {예: 20·30·40℃, 각 5회}\n[측정 변수와 단위] {예: absorbance_change_per_min}\n[측정값 표] {붙여넣기}\n다음 형식으로 답해줘.\n1. 조건별 평균·표준편차·표준오차·95% 신뢰구간 요약표를 만드는 pandas 코드\n2. 표준편차와 표준오차가 각각 무엇을 나타내고 어느 상황에 쓰는지\n3. 오차막대 그래프 코드(무엇을 그린 오차막대인지 그림 설명에 표기)\n4. 반복이 3~5회일 때 이 요약을 읽을 때의 한계\n5. 보고서에 넣을 결과 서술 문장 예시\n반복 측정이 서로 독립이 아닐 가능성(같은 시료를 나눠 잰 경우 등)이 있으면 그 영향도 알려줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "중급",
+  "name": "데이터 병합과 키 정합",
+  "goal": "여러 출처의 데이터를 날짜, 지역, ID 기준으로 결합한다.",
+  "data": "날씨+대기질, 실험조건+결과, 설문+성적 등",
+  "use": "공공데이터와 실험데이터를 연결할 때",
+  "ai": "merge 코드, 중복 키 점검, 매칭 실패 목록 생성",
+  "human": "동일한 날짜·지역·대상을 가리키는지 확인",
+  "output": "병합 데이터셋, 매칭 실패 표",
+  "caution": "시간 단위나 지역 표기가 다르면 가짜 관계가 만들어질 수 있다. 키가 중복되면 다대다 결합으로 행 수가 불어나 같은 값이 여러 번 세어지므로 병합 전후 행 수를 반드시 비교한다.",
+  "prompt": "너는 서로 다른 출처의 표를 이어붙이는 데이터 정합 담당자야. 붙이기 전에 키가 같은 대상을 가리키는지부터 확인해줘.\n[표 A의 열·단위·기간·시간 단위] {예: 기상청 일별 기온, 2024년, date/region}\n[표 B의 열·단위·기간·시간 단위] {예: 학교 측정 미세먼지, 시간별, 측정일시/지점}\n[병합 기준으로 쓰려는 키] {예: 날짜 + 지역}\n다음 형식에 맞춰 답해줘.\n1. 키 표준화(날짜 형식, 지역명 표기, 공백) 점검 코드\n2. 키가 중복돼 행이 불어나는 다대다 결합을 확인하는 방법\n3. merge 코드와 매칭 실패 목록 만들기\n4. 병합 전후 행 수·결측 변화 비교표\n5. 시간 단위가 다를 때 어느 쪽에 맞춰 집계할지 판단 기준\n키가 같아 보여도 실제로는 다른 대상일 수 있는 경우를 예로 들고, 그때 생기는 가짜 관계도 설명해줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "중급",
+  "name": "파생변수 생성",
+  "goal": "원자료에서 분석에 더 의미 있는 비율·변화율·효율·지수를 만든다.",
+  "data": "시간, 거리, 전력, 인구, 면적, 농도 등",
+  "use": "원자료만으로 관계가 잘 보이지 않을 때",
+  "ai": "파생변수 후보와 계산식 제안",
+  "human": "새 변수가 교과 개념상 의미 있는지 판단",
+  "output": "변화율, 밀도, 효율, 위험지수 등",
+  "caution": "결과값을 포함해 파생변수를 만들면 데이터 누수가 발생한다.",
+  "prompt": "너는 교과 개념과 데이터를 잇는 탐구 설계 코치야. 계산할 수 있는 변수 말고 의미가 있는 변수를 제안해줘.\n[원자료 열 이름과 단위] {예: time_s, dist_m, mass_g, area_cm2}\n[탐구 주제와 관련 교과 개념] {예: 낙하 속도와 공기저항}\n[알고 싶은 것] {예: 조건에 따라 속도 변화가 어떻게 달라지는지}\n답은 다음 형식으로 정리해줘.\n1. 파생변수 후보와 계산식, 단위\n2. 각 후보가 교과 개념상 왜 의미 있는지 한 줄 근거\n3. pandas 계산 코드\n4. 결과(정답) 정보가 섞여 데이터 누수가 되는 후보 표시\n5. 원변수와 파생변수를 함께 넣으면 정보가 겹치는 조합 경고\n계산은 되지만 과학적으로 해석이 안 되는 변수는 만들지 말라고 표시하고, 근거가 확실하지 않으면 추정이라고 밝혀줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "중급",
+  "name": "표본 균형 확인",
+  "goal": "집단별 데이터 수가 지나치게 불균형한지 확인한다.",
+  "data": "분류 데이터, 비교 실험, 설문 데이터",
+  "use": "처리/대조, 정상/이상 등 집단 비교 전",
+  "ai": "집단별 표본 수 표 작성, 불균형에 맞는 평가 지표 후보 제시",
+  "human": "표본을 더 모을 수 있는지, 지금 표본 구성으로 비교가 타당한지 판단",
+  "output": "집단별 표본 수, 불균형 비율",
+  "caution": "한쪽 집단이 훨씬 많으면 정확도가 높아 보여도 다수 집단만 맞힌 결과일 수 있다. 정확도 대신 혼동행렬과 정밀도·재현율·F1을 함께 보고, 오버샘플링은 데이터를 나눈 뒤 훈련 데이터에만 적용한다.",
+  "prompt": "너는 집단 비교가 공정한지 먼저 살피는 분석 조교야. 표본 수부터 확인하고 비교가 가능한지 알려줘.\n[집단 변수와 집단 이름] {예: group = 처리군/대조군}\n[집단별 표본 수] {예: 처리군 120, 대조군 18}\n[하려는 분석] {예: 평균 비교 / 분류 모델}\n다음 형식으로 알려줘.\n1. 집단별 표본 수와 비율을 정리하는 코드\n2. 불균형이 심할 때 정확도 대신 봐야 할 지표(혼동행렬, 정밀도, 재현율, F1, 균형정확도)\n3. 층화 분할·클래스 가중치 등 다룰 수 있는 방법과 각각의 한계\n4. 표본을 더 모으는 것이 최선인 상황 판단\n5. 결과를 쓸 때 표본 수를 함께 밝히는 문장 예시\n오버샘플링을 쓴다면 훈련 데이터에만 적용해야 하는 이유도 알려줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "심화",
+  "name": "데이터 누수 점검",
+  "goal": "미래 정보나 정답 정보를 모델 학습에 몰래 넣는 오류를 막는다.",
+  "data": "예측·분류 모델 데이터",
+  "use": "머신러닝 모델을 만들기 전",
+  "ai": "누수 의심 변수 후보와 점검 질문 목록, 전처리 순서 점검표 작성",
+  "human": "변수가 측정되는 시점과 실제 사용 시점을 직접 검토",
+  "output": "누수 의심 변수 목록, 제거 사유",
+  "caution": "데이터 누수가 있으면 모델 성능이 비현실적으로 높아진다. 누수는 변수에서만 생기지 않는다. 전체 데이터로 결측 대체나 표준화를 먼저 하거나, 같은 대상의 기록이 훈련과 시험에 나뉘어 들어가도 성능이 부풀려진다.",
+  "prompt": "너는 예측 모델의 반칙을 잡아내는 검수자야. 성능이 지나치게 좋으면 먼저 누수를 의심해줘.\n[예측할 목표 변수와 예측 시점] {예: 다음 주 결석 여부를 이번 주 금요일에 예측}\n[입력 변수 목록과 각 변수가 측정되는 시점] {붙여넣기}\n[데이터 분할 방식] {예: 무작위 8:2 분할}\n다음 형식으로 답해줘.\n1. 누수가 의심되는 변수와 위험한 이유, 제거·수정 방안 표\n2. 결측 대체나 표준화를 전체 데이터에 먼저 적용해 생기는 전처리 누수 점검\n3. 시간 순서가 있는 자료에서 분할 방식을 바꿔야 하는 경우\n4. 같은 대상의 여러 기록이나 중복 행이 훈련과 시험에 나뉘어 들어갔는지 확인하는 방법\n5. 누수를 없앤 뒤 성능이 얼마나 떨어지는지 비교하는 절차\n판단이 애매한 변수는 단정하지 말고 내가 확인할 질문으로 남겨줘."
+ },
+ {
+  "cat": "데이터 준비·품질",
+  "level": "심화",
+  "name": "재현 가능한 데이터 파이프라인",
+  "goal": "원자료에서 최종 결과까지 같은 절차로 다시 실행 가능하게 만든다.",
+  "data": "모든 분석 프로젝트",
+  "use": "보고서 제출 전",
+  "ai": "폴더 구조, 파일명 규칙, 분석 순서 스크립트 제안",
+  "human": "원자료를 보존하고 수정본을 별도 관리",
+  "output": "분석 폴더 구조, 실행 순서 문서",
+  "caution": "엑셀에서 수작업으로 고친 값은 추적이 어렵다.",
+  "prompt": "너는 분석 과정을 남에게 넘겨줄 수 있게 정리하는 연구 기록 담당자야. 같은 결과가 다시 나오도록 절차를 설계해줘.\n[분석 주제와 최종 산출물] {예: 하천 수질 비교, 보고서와 그래프 4장}\n[지금 가진 파일 목록] {예: 원본 엑셀 3개, 수정본 5개, 코드 없음}\n[사용하는 도구] {예: 엑셀과 Python, 학교 노트북}\n다음 형식에 맞춰 답해줘.\n1. 원자료·전처리본·코드·그림·보고서를 나눈 폴더 구조\n2. 파일명 규칙과 버전 표기 방법\n3. 실행 순서 문서(어떤 파일을 어떤 순서로 돌리는지)\n4. 엑셀에서 손으로 고친 값을 기록으로 남기는 방법\n5. 제출 전 재현 점검 체크리스트\n원자료는 절대 덮어쓰지 않는 것을 전제로 하고, 학교 노트북에서 감당하기 어려운 방식은 빼줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "기초",
+  "name": "히스토그램 분포 분석",
+  "goal": "데이터가 한쪽으로 치우쳤는지, 두 집단이 섞였는지 확인한다.",
+  "data": "수치형 단일 변수",
+  "use": "평균을 내기 전",
+  "ai": "히스토그램과 평균·중앙값 비교 코드",
+  "human": "분포 형태가 측정 원리와 맞는지 판단",
+  "output": "분포 그래프, 치우침 해석",
+  "caution": "히스토그램은 구간 폭(bin)을 어떻게 잡느냐에 따라 봉우리가 하나로도 둘로도 보인다. 구간 폭을 여러 개로 바꿔 보고 어떤 설정으로 그렸는지 밝혀야 하며, 표본이 적으면 모양 자체를 신뢰하기 어렵다.",
+  "prompt": "너는 분포의 모양을 읽어 주는 데이터 탐색 코치야. 평균을 내기 전에 분포부터 보게 도와줘.\n[변수 이름과 단위] {예: seed_length_mm}\n[표본 수와 값의 대략적 범위] {예: 180개, 4~19mm}\n[측정 방법과 섞여 있을 수 있는 집단] {예: 두 품종을 한 표에 기록}\n답은 다음 형식으로 정리해줘.\n1. 히스토그램을 그리는 matplotlib 코드\n2. 구간 폭(bin)을 3가지로 바꿔 그려 모양이 달라지는지 확인하는 코드\n3. 평균·중앙값·최빈값·왜도를 비교해 치우침을 읽는 방법\n4. 봉우리가 둘로 보일 때 집단이 섞였는지 확인하는 절차\n5. 분포를 서술하는 보고서 문장 예시\n구간 폭에 따라 결론이 달라질 수 있다는 점을 명시하고, 표본이 적어 히스토그램으로 판단하기 어려운 경우도 알려줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "기초",
+  "name": "상자그림 Boxplot",
+  "goal": "집단별 중앙값, 산포, 이상치를 한눈에 비교한다.",
+  "data": "집단 변수 + 수치형 결과",
+  "use": "조건별 결과 비교 전",
+  "ai": "상자그림과 개별 관측값 겹쳐 그리기 코드, 수염 밖 값 목록 정리",
+  "human": "극단값의 원인과 실험 맥락 확인",
+  "output": "상자그림, 집단별 비교 해석",
+  "caution": "표본 수가 적으면 사분위수가 크게 흔들려 상자 모양을 믿기 어렵다. 수염 밖 점은 1.5×IQR 관례로 표시된 후보일 뿐 그 자체로 이상치나 오류가 아니므로, 표본 수를 함께 적고 개별 값을 겹쳐 그린다.",
+  "prompt": "너는 집단별 결과를 비교해 주는 실험 결과 해설자야. 상자그림에서 읽을 수 있는 것과 없는 것을 같이 알려줘.\n[집단 변수와 집단 목록] {예: 비료 종류 A/B/C}\n[결과 변수와 단위] {예: plant_height_cm}\n[집단별 표본 수] {예: 각 8개}\n다음 형식으로 알려줘.\n1. 상자그림을 그리는 코드(개별 관측값을 점으로 함께 표시)\n2. 중앙값·사분위범위·수염 범위가 각각 무엇을 뜻하는지\n3. 수염 밖 점을 자동으로 이상치로 표시하는 1.5×IQR 관례의 한계\n4. 표본이 10개 미만일 때 상자 모양을 믿기 어려운 이유\n5. 집단 차이를 서술하는 문장 예시\n상자그림만으로는 차이가 있다고 결론지을 수 없다는 점과, 그다음에 필요한 확인을 알려줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "기초",
+  "name": "산점도와 추세선",
+  "goal": "두 수치형 변수 사이 관계의 방향과 형태를 확인한다.",
+  "data": "두 개 이상의 연속형 변수",
+  "use": "상관·회귀 분석 전",
+  "ai": "산점도, 추세선, 라벨링 코드",
+  "human": "상관이 인과를 의미하지 않음을 해석에 반영",
+  "output": "산점도, 추세선, 관계 해석",
+  "caution": "몇 개의 이상치가 전체 추세를 만들 수 있다.",
+  "prompt": "너는 두 변수 관계를 눈으로 확인하게 돕는 탐색 분석가야. 추세선을 긋기 전에 관계의 형태부터 보게 해줘.\n[x 변수와 단위] {예: temperature_C}\n[y 변수와 단위] {예: reaction_rate}\n[표본 수와 측정 범위] {예: 40개, 10~40℃}\n다음 형식으로 답해줘.\n1. 산점도와 선형 추세선을 그리는 코드\n2. 직선인지 곡선인지 판단하는 기준(잔차 그림 포함)\n3. 소수의 극단값이 추세선을 끌고 가는지 확인하는 방법\n4. 측정 범위 밖으로 추세선을 늘려 예측하면 안 되는 이유\n5. 인과 표현을 피해 관계를 서술하는 문장 예시\n관계가 보여도 원인으로 단정하지 말고, 함께 작용했을 수 있는 다른 변수 후보를 적어줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "중급",
+  "name": "상관행렬 Heatmap",
+  "goal": "여러 변수 간 관계 후보를 한꺼번에 살펴본다.",
+  "data": "여러 수치형 변수",
+  "use": "다중회귀나 변수 선택 전",
+  "ai": "상관계수 행렬, heatmap 코드",
+  "human": "물리적으로 불가능한 관계와 우연한 상관 걸러내기",
+  "output": "상관행렬 표, 강한 관계 후보",
+  "caution": "상관이 높아도 공통 원인이나 시간 추세 때문일 수 있고, 상관계수는 직선 관계만 잡아내 곡선 관계는 낮게 나온다. 변수 쌍이 많으면 우연히 높은 값도 생기며, 다중공선성은 상관행렬만으로 판단하지 말고 VIF 등을 함께 본다.",
+  "prompt": "너는 변수들 사이 관계 후보를 훑어보게 돕는 분석 조교야. 상관행렬을 결론이 아니라 탐색의 출발점으로 쓰게 해줘.\n[수치형 열 이름과 단위] {붙여넣기}\n[표본 수] {예: 120행}\n[관심 있는 결과 변수] {예: 수확량}\n다음 형식에 맞춰 답해줘.\n1. 상관계수 행렬과 heatmap을 만드는 코드\n2. 피어슨과 스피어만 중 무엇을 쓸지 판단 기준\n3. 강한 양·음의 상관 후보 표와, 산점도로 다시 확인해야 하는 이유\n4. 변수 쌍이 많을 때 우연히 높은 상관이 나오는 문제와 대처\n5. 다중공선성이 의심될 때 상관행렬만으로는 부족하고 VIF 같은 지표를 봐야 하는 이유\n상관계수는 직선 관계만 잡아낸다는 점, 공통 원인이나 시간 추세로 생긴 상관을 구분하는 방법도 알려줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "기초",
+  "name": "오차막대 그래프",
+  "goal": "조건별 평균 차이가 오차 범위보다 큰지 시각적으로 판단한다.",
+  "data": "조건별 반복 측정값",
+  "use": "실험 결과 발표",
+  "ai": "평균과 표준편차/표준오차 계산 후 그래프 작성",
+  "human": "오차막대가 무엇을 나타내는지 명확히 표기",
+  "output": "평균±표준편차 또는 평균±표준오차 그래프",
+  "caution": "표준편차와 표준오차를 혼동하면 해석이 달라지므로 무엇을 그렸는지 그림 설명에 반드시 적는다. 오차막대가 겹치는지 여부만으로 차이가 있다·없다고 판단할 수 없고, 표본 수도 함께 제시해야 한다.",
+  "prompt": "너는 결과 그래프가 과장되지 않았는지 보는 발표 자료 검토자야. 오차막대의 정체를 분명히 하고 그려줘.\n[조건별 평균과 반복 수] {예: A 12.4(n=5), B 15.1(n=5)}\n[측정 변수와 단위] {예: 용존산소 mg/L}\n[오차막대로 쓰려는 값] {예: 표준편차 / 표준오차 / 95% 신뢰구간}\n답은 다음 형식으로 정리해줘.\n1. 오차막대 그래프를 그리는 matplotlib 코드(제목·축 이름·단위 포함)\n2. 무엇을 그린 오차막대인지 그림 설명에 쓰는 문장\n3. 표준편차·표준오차·신뢰구간 중 무엇을 고를지 목적별 판단 기준\n4. 막대마다 표본 수(n)를 표시하는 코드\n5. 결과를 서술하는 문장 예시\n오차막대가 겹치지 않는다고 차이가 유의한 것도 아니고 겹친다고 차이가 없는 것도 아니라는 점을 함께 설명해줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "중급",
+  "name": "구간별 프로파일 그래프",
+  "goal": "시간, 농도, 거리 구간에 따라 값이 어떻게 변하는지 본다.",
+  "data": "시간별 온도, 농도별 반응, 거리별 신호",
+  "use": "변화 양상을 설명할 때",
+  "ai": "구간 평균, 이동평균, 라인 그래프 코드",
+  "human": "구간 폭이 측정 원리상 의미 있는지, 구간별 표본 수가 충분한지 판단",
+  "output": "구간별 변화 그래프, 구간별 표본 수와 산포를 포함한 요약표",
+  "caution": "구간을 임의로 나누면 결론이 달라질 수 있다.",
+  "prompt": "너는 변화 양상을 구간으로 나눠 보여 주는 데이터 정리 도우미야. 구간을 어떻게 나누느냐가 결론을 바꾼다는 점을 전제로 답해줘.\n[구간을 나눌 변수와 단위] {예: 측정 시각 time_min}\n[값 변수와 단위] {예: 수온 temp_C}\n[표본 수와 측정 간격] {예: 300개, 2분 간격}\n다음 형식으로 알려줘.\n1. 구간을 나누고 구간별 평균·표준편차·표본 수를 계산하는 pandas 코드\n2. 구간 폭을 정하는 기준(측정 간격, 표본 수, 물리적 의미)\n3. 구간 폭을 2~3가지로 바꿔 결과가 달라지는지 비교하는 코드\n4. 구간별 표본 수와 산포를 함께 보여 주는 그래프\n5. 변화 양상을 서술하는 문장 예시\n표본이 적은 구간의 평균은 흔들린다는 점을 표시하고, 이 방법이 부적절해지는 경우도 알려줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "중급",
+  "name": "누적막대와 비율 비교",
+  "goal": "범주별 구성비가 어떻게 다른지 시각화한다.",
+  "data": "범주형 변수 2개",
+  "use": "설문, 생태종 구성, 유형별 빈도 비교",
+  "ai": "교차표와 비율 그래프 코드",
+  "human": "비율과 실제 표본 수를 함께 확인",
+  "output": "구성비 그래프, 교차표",
+  "caution": "표본 수가 작은 집단의 비율은 한두 명 차이로 크게 움직이므로 비율 옆에 표본 수를 함께 적는다. 범주가 많을 때 원그래프는 크기 비교가 어려워 막대그래프가 낫고, 색만으로 범주를 구분하면 색각 이상이 있는 사람은 읽을 수 없다.",
+  "prompt": "너는 구성비를 정확하게 보여 주는 시각화 코치야. 비율만 커 보이고 표본 수가 숨는 그림을 막아줘.\n[범주형 변수 A와 값 목록] {예: 학년 1/2/3}\n[범주형 변수 B와 값 목록] {예: 응답 매우그렇다~전혀아니다}\n[집단별 표본 수] {예: 1학년 150, 2학년 22, 3학년 90}\n다음 형식으로 답해줘.\n1. 교차표(빈도)와 행 기준 비율표를 만드는 pandas 코드\n2. 누적막대(100% 기준) 그래프 코드와 막대마다 n을 표기하는 방법\n3. 원그래프 대신 막대그래프를 권하는 이유와 원그래프가 그래도 괜찮은 조건\n4. 색각 이상이 있어도 구분되는 색·명도·패턴 선택\n5. 구성비 차이를 서술하는 문장 예시\n표본이 20명대인 집단의 비율은 크게 흔들린다는 점을 그림과 문장에 어떻게 반영할지 알려줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "중급",
+  "name": "대시보드형 요약",
+  "goal": "핵심 지표를 한 화면에 정리해 빠르게 판단한다.",
+  "data": "여러 변수와 요약 지표",
+  "use": "프로젝트 발표와 보고서 요약",
+  "ai": "요약 지표 후보 선정, 그래프 종류와 배치 제안, 축·색 설정 점검",
+  "human": "지표가 탐구 질문에 직접 답하는지, 축 범위와 색 선택이 결과를 과장하지 않는지 검토",
+  "output": "요약 카드, 핵심 그래프 3개",
+  "caution": "그래프가 많으면 메시지가 흐려진다. 축 범위를 좁게 잡으면 작은 차이가 커 보이고, 좌우 축이 다른 이중 축 그래프는 두 값의 관계를 임의로 만들어 낸다. 평균만 크게 쓰고 산포와 표본 수를 빼면 결과가 실제보다 확정적으로 보인다.",
+  "prompt": "너는 발표 화면을 설계하는 정보디자인 조언자야. 한 화면에서 탐구 질문에 답이 되는 구성을 만들어줘.\n[탐구 질문] {예: 등굣길 소음이 시간대에 따라 다른가}\n[가진 결과와 표본 수] {예: 시간대별 평균 소음 dB, 각 30회 측정}\n[발표 상황과 시간] {예: 교내 발표 5분, 빔프로젝터}\n다음 형식에 맞춰 답해줘.\n1. 핵심 지표 4개와 각각을 고른 이유\n2. 그래프 3개 구성안(무엇을 어떤 형태로)\n3. y축 범위를 어떻게 정할지, 0에서 시작할지 판단 기준\n4. 좌우에 서로 다른 축을 쓰는 이중 축 그래프를 피해야 하는 이유와 대안\n5. 색각 이상과 흑백 인쇄를 고려한 색·패턴 선택\n6. 한 문장 결론과 한 문장 한계 예시\n지표는 평균만 쓰지 말고 산포와 표본 수를 함께 넣는 방식으로 제안해줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "심화",
+  "name": "불확실성 시각화",
+  "goal": "결과값의 오차와 신뢰구간을 그래프에 반영한다.",
+  "data": "반복 측정, 추정값, 예측값",
+  "use": "결과를 과장하지 않기 위해",
+  "ai": "부트스트랩 신뢰구간 계산과 시각화 코드",
+  "human": "오차의 원인과 표본 수 한계 설명",
+  "output": "평균의 신뢰구간을 표시한 그래프, 구간 폭과 표본 수 요약표",
+  "caution": "선 하나만 그리면 결과가 지나치게 확정적으로 보인다. 부트스트랩은 가진 표본을 다시 뽑는 방법이라 표본이 적거나 편향돼 있으면 구간이 실제보다 좁게 나온다. 평균의 신뢰구간은 개별 값이 흩어지는 범위와 다르다.",
+  "prompt": "너는 결과를 확정적으로 보이지 않게 표현하는 불확실성 코치야. 값 하나가 아니라 범위로 보여 주게 도와줘.\n[측정값 또는 추정값 목록] {붙여넣기}\n[표본 수와 반복 방식] {예: 조건당 8회 반복 측정}\n[보여 주려는 것] {예: 조건별 평균 차이}\n답은 다음 형식으로 정리해줘.\n1. 부트스트랩으로 평균의 95% 신뢰구간을 계산하는 numpy 코드\n2. 신뢰구간을 그래프에 띠나 구간으로 표시하는 코드\n3. 신뢰구간이 뜻하는 것과 뜻하지 않는 것\n4. 표본이 10개 미만일 때 부트스트랩 구간이 실제보다 좁게 나올 수 있는 이유\n5. 결과를 과장하지 않는 서술 문장 예시\n평균의 신뢰구간과 개별 값이 흩어지는 범위는 다르다는 점을 구분해서 설명해줘."
+ },
+ {
+  "cat": "시각화·EDA",
+  "level": "심화",
+  "name": "전후 비교 시각화",
+  "goal": "개입 전후 변화가 실제로 일어났는지 표현한다.",
+  "data": "전후 측정 데이터, 동일 대상 반복 측정",
+  "use": "캠페인, 장치 개선, 조건 변화 평가",
+  "ai": "paired line plot, 전후 차이 계산 코드",
+  "human": "동일 대상 매칭이 맞는지, 개입 말고 같은 기간에 함께 변한 요인이 없는지 확인",
+  "output": "전후 변화 그래프, 변화량 표",
+  "caution": "전후 데이터가 같은 대상이 아니면 해석이 달라진다. 대조군 없이 전후만 비교하면 계절·학사일정 같은 다른 변화와 구분되지 않고, 처음 값이 유난히 높거나 낮았던 대상은 개입이 없어도 평균 쪽으로 돌아온다. 변화가 있어도 개입이 원인이라고 단정할 수 없다.",
+  "prompt": "너는 개입 효과를 성급히 인정하지 않는 결과 검토자야. 전후 변화를 보여 주되 원인 주장까지 가지 않게 잡아줘.\n[개입 내용과 시점] {예: 2주간 분리배출 캠페인}\n[전후 측정 변수와 단위] {예: 학급별 잔반량 kg}\n[대상 수와 같은 대상 매칭 여부] {예: 12개 학급, 전후 동일 학급}\n다음 형식으로 알려줘.\n1. 같은 대상을 선으로 잇는 전후 비교 그래프 코드\n2. 대상별 변화량과 그 분포(평균만이 아니라 산포까지) 정리 코드\n3. 늘어난 대상과 줄어든 대상을 나눠 보여 주는 표\n4. 대조군이 없을 때 이 결과로 말할 수 있는 것과 없는 것\n5. 처음 값이 극단적인 대상이 저절로 평균 쪽으로 돌아오는 현상을 확인하는 방법\n6. 인과를 단정하지 않는 결론 문장 예시\n전후 대상이 다르거나 중간에 빠진 대상이 있으면 해석이 어떻게 달라지는지도 알려줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "기초",
+  "name": "평균 비교",
+  "goal": "두 집단의 평균 차이가 어느 정도인지 계산한다.",
+  "data": "두 조건의 반복 측정 수치",
+  "use": "처리군과 대조군 비교",
+  "ai": "평균, 표준편차, 차이 계산 코드",
+  "human": "표본 수와 함께, 각 측정이 서로 다른 개체에서 나온 독립 관측인지 확인",
+  "output": "집단별 평균·표준편차·표준오차 표, 기준을 밝힌 오차막대",
+  "caution": "평균 차이가 있어도 산포가 크고 표본이 적으면 우연으로도 나올 수 있는 차이다. 오차막대가 표준편차인지 표준오차인지 95% 신뢰구간인지 반드시 밝혀야 한다. 같은 자료라도 무엇을 그렸느냐에 따라 막대 길이가 크게 달라진다.",
+  "prompt": "너는 고등학생 실험 보고서의 기초 통계를 도와주는 분석 코치야.\n[두 집단이 무엇인지] {예: 처리군=비료 준 화분 12개, 대조군=안 준 화분 12개}\n[측정 변수와 단위] {예: 14일 뒤 줄기 길이 cm}\n[집단별 표본 수와 결측] {예: 각 12개, 결측 2개}\n[측정 원자료] {붙여넣기}\n다음 형식으로 답해줘.\n1. 집단별 평균·표준편차·표준오차를 구하는 pandas 코드\n2. 표준편차와 표준오차의 차이, 오차막대에 무엇을 그렸는지 그림 설명에 밝히는 방법\n3. 평균 차이와 그 차이의 95% 신뢰구간\n4. 산포가 커서 차이를 단정할 수 없을 때 쓸 표현 문장\n5. 같은 개체를 반복 측정했다면 독립 표본이 아니라는 점과 그때의 대안\n마지막에 이 자료에서 평균만으로는 말할 수 없는 것이 무엇인지 한 줄로 정리해줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "중급",
+  "name": "효과크기 Cohen's d",
+  "goal": "차이가 통계적으로만이 아니라 실제로 얼마나 큰지 본다.",
+  "data": "두 집단 수치형 결과",
+  "use": "평균 비교를 보고서에 설득력 있게 제시할 때",
+  "ai": "합동 표준편차 기반 Cohen's d와 신뢰구간 계산 코드",
+  "human": "d 값이 우리 자료의 단위에서 실질적으로 의미 있는 차이인지 판단",
+  "output": "효과크기 d와 신뢰구간, 실질적 차이 설명",
+  "caution": "p값은 효과의 크기가 아니다. 표본이 크면 사소한 차이도 유의해지고 작으면 큰 차이도 유의하지 않게 나온다. Cohen's d의 0.2/0.5/0.8은 관습적 참고값일 뿐 절대 기준이 아니며, 소표본에서는 d가 과대추정되므로 Hedges' g 보정과 신뢰구간을 함께 본다.",
+  "prompt": "너는 '차이가 얼마나 큰가'를 따지는 효과크기 담당 통계 튜터야.\n[비교하는 두 집단] {예: 아침 자습 실시 반 28명, 미실시 반 30명}\n[결과 변수와 단위] {예: 국어 형성평가 점수(100점 만점)}\n[집단별 평균·표준편차·표본 수] {예: 72.4 / 8.1 / 28, 68.9 / 9.4 / 30}\n아래 형식으로 정리해줘.\n1. 합동 표준편차를 쓰는 Cohen's d 계산 Python 코드\n2. d 값과 그 95% 신뢰구간\n3. 0.2/0.5/0.8 구분이 분야 관습적 참고값일 뿐 절대 기준이 아닌 이유\n4. 표본이 작을 때 d가 부풀려지는 이유와 Hedges' g 보정\n5. p값과 효과크기가 각각 답해 주는 질문의 차이\n이 정도 차이가 우리 자료의 단위에서 실제로 의미 있는지는 내가 판단할 몫이라는 점도 짚어줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "중급",
+  "name": "신뢰구간 비교",
+  "goal": "평균이나 비율 추정값의 불확실성을 범위로 표현한다.",
+  "data": "반복 측정, 비율 자료",
+  "use": "표본 기반 추정 결과 제시",
+  "ai": "부트스트랩 또는 표준오차 기반 신뢰구간 코드",
+  "human": "표본 추출 방식이 대표성을 갖는지, 편의표본이라면 어디까지 일반화할 수 있는지 판단",
+  "output": "95% 신뢰구간, 시각화",
+  "caution": "신뢰구간은 '참값이 이 구간에 있을 확률 95%'가 아니라, 같은 방식으로 표본을 반복해서 뽑으면 그렇게 만든 구간의 95%가 참값을 포함한다는 뜻이다. 또 두 집단의 신뢰구간이 겹친다고 차이가 없는 것은 아니므로 차이 자체의 신뢰구간을 따로 구해야 한다. 구간은 무작위 오차만 다루고 표집 편향은 줄여 주지 않는다.",
+  "prompt": "너는 추정값에 붙는 불확실성을 설명해 주는 통계 코치야.\n[추정하려는 값] {예: 우리 학교 학생의 하루 평균 스마트폰 사용 시간}\n[표본 수와 추출 방식] {예: 2학년 3개 반 84명, 편의표본}\n[측정 자료] {붙여넣기: 분 단위 값}\n[비교할 집단이 있으면 구분 열] {예: 남/여}\n다음 순서로 답해줘.\n1. 평균(또는 비율)의 95% 신뢰구간을 구하는 코드와 결과\n2. '95%'가 무엇에 대한 비율인지 오해 없는 문장으로 서술\n3. 두 집단의 구간이 겹쳐도 차이가 없다고 결론지을 수 없는 이유, 그리고 차이 자체의 신뢰구간 구하는 법\n4. 편의표본일 때 신뢰구간이 보정해 주지 못하는 편향\n5. 보고서에 넣을 해석 문장 2개\n계산에 깔린 가정 중 확실하지 않은 것은 '가정'이라고 표시해줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "중급",
+  "name": "분산 비교",
+  "goal": "조건별 결과의 흔들림이 다른지 확인한다.",
+  "data": "반복 측정 수치 자료",
+  "use": "안정성, 재현성, 정밀도 비교",
+  "ai": "분산·표준편차·(적용 가능할 때) 변동계수 계산과 등분산 검정 코드",
+  "human": "쓰는 척도가 변동계수를 적용할 수 있는 자료인지, 산포 차이가 측정 절차 탓인지 확인",
+  "output": "조건별 산포 표, 상자그림, 안정성 비교",
+  "caution": "변동계수는 절대영점이 있는 비율척도에서만 뜻이 있다. 섭씨온도나 시각처럼 영점이 임의인 자료, 평균이 0에 가까운 자료에는 쓰면 안 된다. 평균이 다른 집단의 표준편차만 나란히 비교하는 것도 왜곡되기 쉽다.",
+  "prompt": "너는 측정값이 얼마나 흔들리는지 따지는 실험 재현성 코치야.\n[비교할 조건들] {예: 측정기 A·B·C로 같은 시료를 10회씩 측정}\n[측정 변수·단위·척도] {예: 흡광도(절대영점 있음) 또는 실내온도 ℃}\n[조건별 반복 수] {예: 각 10회}\n[원자료] {붙여넣기}\n아래 형식에 맞춰 답해줘.\n1. 조건별 분산·표준편차 계산 코드와 상자그림\n2. 변동계수를 쓸 수 있는 조건(절대영점이 있는 비율척도, 평균이 0에서 충분히 떨어짐)과 섭씨온도처럼 쓰면 안 되는 경우\n3. 산포가 실제로 다른지 보는 Levene 검정, 정규성에 민감한 Bartlett과의 차이\n4. 산포가 큰 원인을 측정 절차에서 찾는 점검 항목 3가지\n표본이 적으면 분산 추정 자체가 불안정하다는 점도 알려줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "중급",
+  "name": "범주형 비율 비교",
+  "goal": "두 집단에서 성공/실패, 유무, 유형 비율이 다른지 본다.",
+  "data": "교차표, 설문, 발아율, 합격/불합격 등",
+  "use": "비율 차이를 비교할 때",
+  "ai": "교차표·비율·비율 차이 신뢰구간과 카이제곱/Fisher 검정 코드",
+  "human": "관측이 서로 독립인지, 기대빈도가 너무 작지 않은지 확인",
+  "output": "교차표, 비율 그래프",
+  "caution": "표본이 작으면 비율 차이가 불안정하다. 카이제곱 검정은 관측 하나하나가 서로 다른 개체여야 하므로 같은 대상을 전후로 측정한 자료에는 쓸 수 없고 McNemar 검정을 쓴다. 기대빈도가 5보다 작은 칸이 있으면 Fisher 정확검정으로 바꾼다. 검정은 관계의 유무만 말해 주므로 효과크기를 함께 본다.",
+  "prompt": "너는 세어서 얻은 자료의 비율 비교를 봐 주는 통계 도우미야.\n[두 집단과 범주] {예: 처리 종자와 무처리 종자 × 발아·미발아}\n[교차표 관측 빈도] {예: 34/16, 22/28}\n[관측 단위가 서로 다른 개체인지] {예: 종자 100립, 중복 측정 없음}\n다음 형식으로 답해줘.\n1. 교차표와 행별 비율, 100% 누적막대 그림 코드\n2. 비율 차이와 그 95% 신뢰구간\n3. 카이제곱 검정 조건(관측의 독립성, 기대빈도 5 이상)과 위반 시 Fisher 정확검정\n4. 같은 대상을 전후로 두 번 측정한 대응 자료라면 McNemar를 써야 하는 이유\n5. 관계의 크기를 보는 Cramer's V 같은 효과크기\n검정이 유의해도 '왜 그런지'는 설명해 주지 않는다는 점을 마지막에 적어줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "심화",
+  "name": "분산분석 ANOVA",
+  "goal": "세 집단 이상 평균 차이를 한 번에 비교한다.",
+  "data": "세 조건 이상 반복 측정값",
+  "use": "농도 4수준, 온도 5수준 등 여러 조건 비교",
+  "ai": "분산분석 코드, 가정 점검과 사후검정 절차 설명",
+  "human": "정규성·분산 동질성·반복 수 확인",
+  "output": "조건별 평균과 신뢰구간, F·p·효과크기, 사후검정 결과",
+  "caution": "분산분석이 유의하다는 것은 '적어도 한 쌍이 다르다'는 뜻일 뿐 어느 쌍인지는 말해 주지 않는다. 사후검정 없이 조건을 두 개씩 반복 비교하면 위양성이 늘어나므로 Tukey 같은 다중비교 보정을 쓴다. 등분산이 깨지면 Welch, 정규성이 어려우면 Kruskal-Wallis를 고려한다.",
+  "prompt": "너는 여러 조건을 한꺼번에 비교하는 실험 설계 조언자야.\n[비교할 조건 목록] {예: 배양 온도 20·25·30·35℃ 네 수준}\n[조건별 반복 수] {예: 각 6회, 모두 24개}\n[결과 변수와 단위] {예: 24시간 뒤 균락 지름 mm}\n[측정 자료] {붙여넣기}\n아래 형식으로 정리해줘.\n1. 일원배치 분산분석 코드와 F값·p값·효과크기(에타제곱) 출력\n2. 독립성·정규성·등분산 가정을 확인하는 방법\n3. 등분산이 깨지면 Welch 분산분석, 정규성이 어려우면 Kruskal-Wallis로 가는 갈림길\n4. 유의한 결과가 '적어도 한 쌍이 다르다'까지만 말해 주는 이유와 Tukey 사후검정\n5. 조건별 평균과 신뢰구간을 함께 보여 주는 그림\n반복 수가 적어 결론을 유보해야 하는 상황이면 그렇게 말해줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "심화",
+  "name": "비모수 비교",
+  "goal": "정규분포 가정이 어려운 작은 표본을 비교한다.",
+  "data": "소표본, 순위형 자료, 치우친 분포",
+  "use": "표본 수가 작고 이상치가 많은 경우",
+  "ai": "Mann-Whitney, Kruskal-Wallis 개념 안내",
+  "human": "순위로 바꾸며 잃는 정보를 감안하고, 두 집단의 분포 모양을 그림으로 확인",
+  "output": "중앙값·사분위수 요약, 순위 기반 검정 결과와 효과크기",
+  "caution": "Mann-Whitney와 Kruskal-Wallis는 '한 집단의 값이 다른 집단보다 클 확률'을 보는 검정이지 중앙값 차이 검정이 아니다. 중앙값 차이로 해석하려면 두 분포의 모양이 비슷하다는 가정이 추가로 필요하다. 표본이 작으면 정규성 검정 자체의 검정력이 낮고, 비모수로 바꿔도 표본 설계의 결함은 해결되지 않는다.",
+  "prompt": "너는 분포 가정이 흔들릴 때 대안을 찾아 주는 통계 상담자야.\n[집단 구분과 표본 수] {예: A군 9개, B군 8개}\n[측정 변수와 척도] {예: 5점 리커트 만족도(순위형)}\n[분포가 의심스러운 이유] {예: 상자그림이 한쪽으로 치우치고 극단값 2개}\n[원자료] {붙여넣기}\n다음 형식으로 답해줘.\n1. Mann-Whitney U(두 집단)와 Kruskal-Wallis(세 집단 이상)의 적용 조건과 scipy 코드\n2. 이 검정이 보는 것은 '한쪽 값이 더 클 확률'이지 중앙값 차이가 아니며, 중앙값으로 읽으려면 두 분포 모양이 비슷해야 한다는 설명\n3. 중앙값·사분위수 요약과 순위 기반 효과크기\n4. 표본이 작으면 정규성 검정의 검정력도 낮아 '정규성 문제없음'을 근거로 삼기 어려운 이유\n확실하지 않은 판단은 추정이라고 표시해줘."
+ },
+ {
+  "cat": "통계 비교",
+  "level": "심화",
+  "name": "부트스트랩 비교",
+  "goal": "분포 가정이 어려울 때 재표집으로 차이의 불확실성을 추정한다.",
+  "data": "반복 측정 수치 자료",
+  "use": "복잡한 공식 없이 신뢰구간을 만들 때",
+  "ai": "복원추출 재표집 코드와 백분위수 신뢰구간, 난수 시드 고정",
+  "human": "원자료가 대표성을 갖는지 판단",
+  "output": "차이의 부트스트랩 분포, 신뢰구간",
+  "caution": "원자료 표본이 편향되면 재표집도 그 편향을 그대로 복제한다. 표본이 아주 적으면 부트스트랩 신뢰구간도 불안정하므로 결과를 단정하지 않는다.",
+  "prompt": "너는 재표집 시뮬레이션으로 불확실성을 눈에 보이게 해 주는 분석 코치야.\n[비교할 두 조건] {예: 정수기 물과 빗물로 키운 무순}\n[조건별 표본 수] {예: 각 15개}\n[관심 통계량] {예: 평균 차이, 또는 중앙값 차이}\n[원자료] {붙여넣기}\n다음 순서로 답해줘.\n1. numpy로 원표본과 같은 크기의 복원추출을 2000회 이상 반복해 차이 분포를 만드는 코드\n2. 백분위수 방식 95% 신뢰구간과 히스토그램\n3. 결과를 '차이가 이 범위 안에 있다고 볼 만하다'로 쓰는 문장\n4. 표본이 10개 안팎으로 적으면 부트스트랩 구간도 믿기 어려운 이유\n5. 원자료가 편향되면 재표집이 그 편향을 그대로 복제한다는 한계\n실행할 때마다 결과가 달라지지 않게 난수 시드를 고정하는 법도 알려줘."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "기초",
+  "name": "피어슨 상관분석",
+  "goal": "두 연속형 변수의 선형 관계 강도를 계산한다.",
+  "data": "연속형 변수 2개",
+  "use": "산점도에서 직선 관계가 보일 때",
+  "ai": "상관계수 계산과 산점도 코드",
+  "human": "산점도로 직선성과 이상치를 먼저 확인하고 교란변수 후보를 검토",
+  "output": "상관계수 r, 산점도",
+  "caution": "상관은 인과가 아니다. 교란변수, 역인과, 우연 상관을 먼저 의심해야 한다. 피어슨 상관계수는 직선 관계만 잡아내므로 값이 0에 가까워도 뚜렷한 곡선 관계가 있을 수 있고, 이상치 하나에도 크게 흔들린다. 산점도를 반드시 함께 본다.",
+  "prompt": "너는 관계를 숫자보다 그림부터 확인하게 하는 데이터 분석 코치야.\n[두 변수의 이름과 단위] {예: 일 평균기온(℃), 매점 아이스크림 판매량(개)}\n[표본 수와 관측 단위] {예: 60일치, 하루가 한 행}\n[자료 출처와 수집 방법] {예: 기상청 공공데이터와 매점 판매기록}\n[샘플 10행] {붙여넣기}\n다음 형식으로 답해줘.\n1. 산점도를 먼저 그리는 코드와 그림에서 확인할 점(직선성·이상치·덩어리)\n2. 피어슨 상관계수와 그 95% 신뢰구간\n3. 상관계수가 0에 가까워도 곡선 관계가 숨어 있을 수 있는 경우, 이상치 하나로 값이 흔들리는 예\n4. 이 관계를 인과로 쓰면 안 되는 이유를 교란변수·역인과·우연 상관으로 나눠 설명\n5. 인과 표현 없이 쓰는 보고서 문장\n이 자료에서 의심할 만한 교란변수 후보도 3개 제안해줘."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "중급",
+  "name": "스피어만 순위상관",
+  "goal": "비선형 단조 관계나 순위형 자료의 관계를 본다.",
+  "data": "순위형 자료, 치우친 수치 자료",
+  "use": "피어슨 상관 가정이 약할 때",
+  "ai": "순위상관 계산 절차 설명",
+  "human": "관계가 단조적인지 그래프로 확인",
+  "output": "Spearman rho, 순위 관계 해석",
+  "caution": "스피어만은 한 방향으로 증가하거나 감소하는 단조 관계만 잡는다. 오르다 내려가는 관계는 값이 0에 가깝게 나올 수 있고, 같은 값이 많으면 계수가 왜곡된다. 순위로 바꾸면 값 사이 간격 정보는 사라진다.",
+  "prompt": "너는 어떤 상관 지표를 써야 할지 골라 주는 통계 조언자야.\n[두 변수와 척도] {예: 학습 시간(분, 연속형), 자기평가 등급(1~5 순위형)}\n[표본 수와 같은 값이 겹치는 정도] {예: 45명, 등급 3이 20명}\n[분포 특징] {예: 학습 시간이 오른쪽으로 길게 치우침}\n[샘플 10행] {붙여넣기}\n아래 형식에 맞춰 답해줘.\n1. 원자료 산점도와 순위 산점도를 함께 그리는 코드\n2. 피어슨과 스피어만을 모두 계산하고 값이 갈리는 이유 해석\n3. 두 지표의 가정 차이(선형 관계와 단조 관계)와 이 자료에 맞는 선택 근거\n4. 같은 값이 많을 때 순위상관이 왜곡되는 문제와 확인 방법\n5. 순위로 바꾸면서 잃는 정보\n오르다 내려가는 산 모양 관계라면 상관계수 대신 무엇을 봐야 하는지도 알려줘."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "중급",
+  "name": "단순선형회귀",
+  "goal": "하나의 독립변수로 결과를 설명하거나 예측한다.",
+  "data": "x-y 연속형 변수",
+  "use": "농도-흡광도, 시간-온도, 거리-신호 관계",
+  "ai": "회귀식, 결정계수, 예측 코드",
+  "human": "잔차 패턴과 단위 해석 확인",
+  "output": "회귀식과 기울기 신뢰구간, 결정계수와 RMSE, 잔차 그림",
+  "caution": "결정계수는 예측 정확도가 아니라 종속변수의 변동 중 모델이 설명한 비율이다. 값이 높아도 잔차에 패턴이 남으면 모델이 잘못된 것이고, 관측한 범위 밖으로 예측을 넓히는 외삽은 근거가 없다. 회귀는 어느 쪽이 원인인지 정해 주지 않으므로 인과로 읽지 않는다.",
+  "prompt": "너는 회귀식을 세우면서 그 한계를 같이 짚어 주는 분석 코치야.\n[독립변수와 단위] {예: 용액 농도(mM)}\n[종속변수와 단위] {예: 흡광도}\n[독립변수의 실제 관측 범위와 표본 수] {예: 0~5mM, 21개}\n[측정 자료] {붙여넣기}\n다음 순서로 답해줘.\n1. statsmodels나 scikit-learn으로 기울기·절편과 신뢰구간을 구하는 코드\n2. 기울기를 단위까지 넣어 읽은 해석 문장\n3. 결정계수가 '종속변수 변동 중 모델이 설명한 비율'이지 예측 정확도가 아니라는 설명과 함께 볼 오차 지표(RMSE)\n4. 잔차 그림으로 직선 가정을 점검하는 방법\n5. 관측 범위 밖으로 예측을 넓히는 외삽이 위험한 이유와 이 자료의 안전 범위\n기울기가 통계적으로 유의해도 인과를 뜻하지 않는다는 점을 마지막 줄에 넣어줘."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "중급",
+  "name": "다중회귀",
+  "goal": "여러 변수가 결과에 동시에 미치는 영향을 본다.",
+  "data": "독립변수 여러 개 + 연속형 결과",
+  "use": "기상요인과 대기질, 조건과 반응속도 등",
+  "ai": "모델 학습, 계수 비교, 표준화 안내",
+  "human": "변수 간 중복과 물리적 의미, 표본 수 대비 변수 개수가 적절한지 확인",
+  "output": "회귀계수와 신뢰구간, 수정 결정계수와 교차검증 성능, VIF",
+  "caution": "독립변수를 늘리면 결정계수는 항상 오르므로 수정 결정계수와 교차검증으로 판단해야 한다. 변수끼리 상관이 크면(다중공선성) 계수의 부호와 크기가 불안정해지고, 표본 수에 비해 변수가 많으면 과적합된다. 계수는 다른 변수를 고정했을 때의 부분 효과일 뿐 인과 효과가 아니다.",
+  "prompt": "너는 변수 여러 개가 얽힌 회귀를 검토해 주는 분석 코치야.\n[종속변수와 단위] {예: 초미세먼지 농도(마이크로그램/㎥)}\n[독립변수 목록과 단위] {예: 기온℃, 풍속m/s, 습도%, 요일}\n[표본 수] {예: 180일치 관측}\n[샘플 10행] {붙여넣기}\n다음 형식으로 답해줘.\n1. statsmodels로 다중회귀를 적합하고 계수·표준오차·p값을 출력하는 코드\n2. 계수를 '다른 변수를 고정했을 때의 부분 효과'로 읽는 해석 문장\n3. 결정계수는 변수를 넣을수록 항상 오르므로 수정 결정계수와 교차검증을 함께 봐야 하는 이유\n4. 다중공선성 진단(상관행렬, VIF)과 대응 방법\n5. 표본 수에 비해 변수가 너무 많은지 판단하는 기준\n계수 크기를 서로 견주려면 표준화가 필요하다는 점, 그리고 어떤 계수도 인과의 증거가 아니라는 점을 짚어줘."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "심화",
+  "name": "다항회귀",
+  "goal": "직선이 아닌 곡선 관계를 모델링한다.",
+  "data": "곡선형 산점도",
+  "use": "최적 온도, 포화 곡선, 저항 변화 등",
+  "ai": "다항 특성 생성과 차수 비교 코드",
+  "human": "과적합 여부와 과학적 근거 확인",
+  "output": "곡선 회귀식, 차수 비교",
+  "caution": "차수를 높이면 훈련 자료의 결정계수는 계속 오르지만 새 자료 예측력은 나빠진다. 차수는 교차검증으로 고르고, 고차항은 서로 상관이 커지므로 독립변수를 중심화한다. 다항식은 관측 범위 밖에서 급격히 발산하므로 외삽에 쓰지 않는다.",
+  "prompt": "너는 곡선 관계를 모델로 옮기면서 과적합을 경계하는 분석 코치야.\n[독립변수와 종속변수, 단위] {예: 배양 온도(℃), 효소 반응속도(마이크로몰/분)}\n[관측 범위와 표본 수] {예: 10~50℃에서 9개 지점, 각 3반복}\n[곡선이라고 본 근거] {예: 산점도가 35℃ 부근에서 꺾임}\n[자료] {붙여넣기}\n아래 형식으로 정리해줘.\n1. 1·2·3차 다항회귀를 적합하고 곡선을 겹쳐 그리는 코드\n2. 훈련 자료 결정계수만으로 차수를 고르면 안 되는 이유와 홀드아웃·교차검증 비교표\n3. 잔차 그림으로 남은 패턴 확인하기\n4. 고차항끼리 상관이 커지는 문제와 독립변수 중심화\n5. 차수가 높을수록 관측 범위 밖에서 값이 급격히 튀는 위험\n이 곡선 모양을 설명할 과학적 근거가 있는지는 내가 확인할 몫이라고 알려주고, 근거 없는 고차항은 권하지 마."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "심화",
+  "name": "로지스틱 회귀",
+  "goal": "결과가 성공/실패처럼 이진일 때 확률을 예측한다.",
+  "data": "발아 여부, 고장 여부, 위험/정상 등",
+  "use": "분류와 확률 해석이 모두 필요할 때",
+  "ai": "로지스틱 모델 코드와 오즈비 해석, 임계값·평가지표 안내",
+  "human": "양성 클래스 정의, 클래스 불균형, 임계값 선택 기준 확인",
+  "output": "확률 예측, 분류 기준",
+  "caution": "로지스틱 회귀의 계수는 로그 오즈의 변화이고 지수를 취한 값이 오즈비다. 확률의 변화량으로 읽으면 틀린다. 임계값 0.5는 기본값일 뿐이며, 클래스가 불균형하면 정확도만으로는 소수 클래스를 놓치므로 혼동행렬·정밀도·재현율을 함께 본다. 사건 수가 적으면 계수가 불안정해진다.",
+  "prompt": "너는 성공·실패 같은 이진 결과의 확률을 다루는 분류 분석 코치야.\n[예측할 이진 결과와 양성의 정의] {예: 발아=1, 미발아=0}\n[설명변수와 단위] {예: 침지 시간(시간), 온도(℃)}\n[표본 수와 클래스 비율] {예: 200립 중 발아 34립(17%)}\n[샘플 10행] {붙여넣기}\n다음 순서로 답해줘.\n1. scikit-learn으로 로지스틱 회귀를 적합하고 확률을 예측하는 코드\n2. 계수는 로그 오즈의 변화이고 지수를 취하면 오즈비라는 해석, 확률 변화량과 다른 이유\n3. 임계값 0.5는 기본값일 뿐이며 목적에 따라 바꿔야 하는 이유\n4. 불균형 자료에서 정확도 대신 볼 지표(혼동행렬, 정밀도, 재현율)\n5. 사건 수가 적거나 완전 분리가 일어날 때 나타나는 경고 신호\n훈련 자료로만 평가하면 성능이 부풀려진다는 점과 자료 분리 방법도 알려줘."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "중급",
+  "name": "잔차분석",
+  "goal": "모델이 놓친 패턴과 오차 원인을 확인한다.",
+  "data": "회귀 모델 결과",
+  "use": "회귀식 제시 후 검증 단계",
+  "ai": "잔차 그래프와 오차 지표 코드",
+  "human": "잔차 패턴이 교과 원리와 관련 있는지 해석",
+  "output": "잔차 대 예측값·Q-Q·관측 순서별 잔차 그림과 진단 결과",
+  "caution": "잔차에 패턴이 남으면 모델 가정이 어긋난 것이다. 곡선 모양은 항 누락, 깔때기 모양은 이분산, 관측 순서에 따른 흐름은 자기상관을 뜻한다. 잔차가 큰 값은 실험 기록을 확인하기 전에 지우지 않는다. 표본이 적으면 잔차만으로 정규성을 판단하기 어렵다.",
+  "prompt": "너는 모델이 놓친 것을 잔차에서 찾아내는 진단 도우미야.\n[사용한 모델과 변수] {예: 단순선형회귀, 시간(분)으로 수온(℃) 예측}\n[표본 수와 관측 순서 정보] {예: 40개, 1분 간격}\n[모델 결과] {붙여넣기: 실제값과 예측값}\n아래 형식에 맞춰 답해줘.\n1. 잔차 대 예측값 산점도, Q-Q 그림, 관측 순서별 잔차 그림을 그리는 코드\n2. 곡선 패턴·깔때기 모양·순서에 따른 흐름이 각각 뜻하는 것(항 누락, 이분산, 자기상관)\n3. 잔차가 유난히 큰 관측을 찾는 기준과 그 값을 함부로 지우면 안 되는 이유\n4. 패턴이 보일 때 가능한 대응(변수 변환, 항 추가, 다른 모델)\n5. 표본이 적으면 잔차 그림만으로 정규성을 단정하기 어려운 이유\n이상치가 측정 실수인지 실제 현상인지는 실험 기록으로 내가 확인해야 한다고 짚어줘."
+ },
+ {
+  "cat": "상관·회귀",
+  "level": "심화",
+  "name": "교호작용 분석",
+  "goal": "두 변수가 함께 작용할 때 결과가 어떻게 달라지는지 확인한다.",
+  "data": "온도×pH, 습도×풍속 등 복수 조건 데이터",
+  "use": "한 변수 효과가 다른 변수 조건에 따라 달라질 때",
+  "ai": "상호작용 항 생성과 조건별 선그래프·등고선 시각화 코드",
+  "human": "조건 조합별 반복 수가 충분한지, 교차 패턴이 과학적으로 설명되는지 확인",
+  "output": "교호작용 그래프, 조건별 해석",
+  "caution": "조건 조합별 자료가 희박하면 교호작용 추정이 불안정하고 과장되기 쉽다. 상호작용 항을 넣으면 주효과 계수는 '다른 변수가 0일 때의 효과'로 뜻이 바뀌므로 변수를 중심화해 해석한다. 교호작용 검정은 주효과보다 검정력이 낮아, 유의하지 않다고 교호작용이 없는 것은 아니다.",
+  "prompt": "너는 두 조건이 서로 영향을 주고받는지 살피는 실험 분석 코치야.\n[두 독립변수와 수준] {예: 온도 25·35·45℃ × pH 5·7·9}\n[조건 조합별 반복 수] {예: 9개 조합에 각 3반복, 모두 27개}\n[결과 변수와 단위] {예: 효소 활성(마이크로몰/분)}\n[자료] {붙여넣기}\n다음 형식으로 답해줘.\n1. 상호작용 항을 포함한 회귀나 이원배치 분산분석 코드\n2. 한 변수의 수준별로 다른 변수의 효과를 선으로 그린 교호작용 그림\n3. 상호작용 항을 넣으면 주효과 계수의 뜻이 바뀌므로 변수를 중심화해야 하는 이유\n4. 조합별 표본이 적을 때 교호작용 검정의 검정력이 낮아 결론을 유보해야 하는 기준\n5. 선이 조금 교차했다고 바로 교호작용이라 말할 수 없는 이유\n관측하지 않은 조건 조합으로 결론을 넓히지 말라고도 경고해줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "기초",
+  "name": "훈련/검증 데이터 분리",
+  "goal": "모델이 새 데이터에서도 작동하는지 확인한다.",
+  "data": "예측 모델 데이터",
+  "use": "머신러닝 시작 전",
+  "ai": "train_test_split 2회로 훈련/검증/시험을 나누고 전처리를 Pipeline으로 묶는 코드 제안",
+  "human": "전처리를 분할 전에 하지 않았는지, 시험 세트를 한 번만 썼는지 확인",
+  "output": "훈련 점수, 검증 점수, 시험 점수(마지막 1회)",
+  "caution": "전체 데이터로 학습하고 평가하면 성능이 부풀려진다. 검증 세트로 설정을 고른 뒤 같은 세트로 최종 성능을 보고해도 마찬가지다.",
+  "prompt": "너는 고등학생 예측 모델 실습을 지도하는 데이터 분석 코치야.\n[데이터 출처와 한 행의 의미] {예: 학교 화단 40개 구획의 토양·생육 측정, 한 행=구획 1개}\n[예측하려는 목표 변수] {예: plant_height_cm}\n[설명 변수와 단위] {예: soil_moisture_pct, light_lux, pH}\n[전체 표본 수] {예: 120행}\n다음 형식으로 답해줘.\n1. 훈련/검증/시험 3분할 비율 제안과 그 이유\n2. train_test_split을 두 번 써서 3분할하는 코드\n3. 표준화·결측 대체를 Pipeline에 넣어 훈련 부분에서만 학습시키는 코드\n4. 훈련 점수와 검증 점수를 나란히 출력하고 차이를 읽는 법\n5. 분할 전에 전처리하면 왜 누수인지 이 데이터를 예로 설명\n시험 세트는 마지막에 딱 한 번만 쓰라고 못 박아줘. 이 표본 수에서 3분할이 무리라면 교차검증을 대신 권해줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "중급",
+  "name": "KNN 회귀·분류",
+  "goal": "비슷한 사례를 기준으로 값을 예측하거나 분류한다.",
+  "data": "수치형 특징이 여러 개인 데이터",
+  "use": "간단한 기준 모델이 필요할 때",
+  "ai": "스케일링, k값 비교 코드",
+  "human": "스케일링을 Pipeline 안에 넣어 훈련 부분에서만 학습시켰는지, 거리 개념이 의미 있는 변수인지 확인",
+  "output": "예측값, k별 성능 비교",
+  "caution": "스케일링을 하지 않으면 단위가 큰 변수가 거리를 지배한다. 변수가 많아질수록 거리 차이가 흐려져 성능이 떨어진다.",
+  "prompt": "너는 거리 기반 예측을 가르치는 머신러닝 튜터야.\n[분석 목적과 목표 변수] {예: 잎 측정값 3개로 종(species) 분류}\n[특징 변수와 단위] {예: leaf_length_mm, leaf_width_mm, mass_g}\n[표본 수와 클래스별 개수] {예: 총 90행, 종별 30개}\n다음 형식으로 답해줘.\n1. 단위가 다른 변수를 그대로 쓰면 거리 계산이 어떻게 왜곡되는지\n2. StandardScaler와 KNN을 Pipeline으로 묶어 학습하는 코드\n3. k를 1~15로 바꾸며 교차검증 점수를 그리는 코드\n4. k가 너무 작을 때와 너무 클 때 각각 생기는 문제\n5. 이 변수들에서 '거리가 가깝다'가 실제로 무슨 뜻인지 해석\n스케일러를 분할 전 전체 데이터에 fit하면 누수라는 점을 코드 주석으로 표시해줘. 변수 개수가 표본 수에 비해 많으면 KNN이 부적절해지는 이유도 한 줄로 알려줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "중급",
+  "name": "의사결정나무",
+  "goal": "조건 분기 규칙으로 예측 과정을 설명한다.",
+  "data": "표 형태의 수치·범주 데이터",
+  "use": "해석 가능한 모델이 필요할 때",
+  "ai": "트리 모델 학습, 규칙 추출, 깊이 제한 코드",
+  "human": "규칙이 과학적으로 말이 되는지 검토",
+  "output": "분기 규칙, 변수 중요도",
+  "caution": "깊은 트리는 훈련 데이터를 외운다. 변수 중요도는 인과가 아니며 상관된 변수끼리 나뉘어 과소평가된다. 표본이 바뀌면 규칙 자체가 달라질 수 있다.",
+  "prompt": "너는 규칙 기반 모델의 해석을 돕는 분석 멘토야.\n[예측 문제와 목표 변수] {예: 기상 조건으로 미세먼지 '나쁨' 여부 분류}\n[입력 변수와 자료형] {예: temp_C 수치, humidity_pct 수치, season 범주}\n[표본 수] {예: 200행}\n다음 형식으로 답해줘.\n1. DecisionTree 학습과 plot_tree 시각화 코드\n2. max_depth를 1~10으로 바꾸며 훈련 점수와 검증 점수를 함께 그리는 코드\n3. 두 점수가 벌어지는 지점을 과적합으로 읽는 방법\n4. 분기 규칙을 문장으로 바꿔 쓴 예시 3개\n5. 변수 중요도 표와 그 한계\n중요도는 예측 기여도일 뿐 원인이 아니고, 서로 상관이 높은 변수끼리는 중요도가 나뉘어 작아 보인다는 점을 꼭 적어줘. 데이터가 조금만 바뀌어도 트리 구조가 통째로 달라진다는 불안정성도 짚어줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "심화",
+  "name": "랜덤포레스트",
+  "goal": "여러 결정나무를 결합해 예측 안정성을 높인다.",
+  "data": "표 형태의 다변량 데이터",
+  "use": "비선형 관계와 변수 중요도를 함께 볼 때",
+  "ai": "모델 학습, permutation_importance 기반 중요도 계산과 시각화 코드",
+  "human": "중요도가 높은 변수가 실제 원인인지 구분",
+  "output": "예측 성능, 변수 중요도",
+  "caution": "중요도는 인과 효과가 아니라 예측 기여도다. 상관이 높은 변수끼리는 중요도가 나뉘어 실제보다 낮게 보이고, 불순도 기반 중요도는 값의 종류가 많은 변수를 과대평가한다.",
+  "prompt": "너는 앙상블 모델을 다루는 데이터 분석 코치야.\n[탐구 주제와 예측 목표] {예: 하천 수질 지표로 어종 서식 여부 예측}\n[변수 목록과 단위] {예: DO_mg_L, BOD_mg_L, temp_C, pH}\n[표본 수와 결측 여부] {예: 150행, DO 3건 결측}\n다음 형식으로 답해줘.\n1. RandomForest 학습과 훈련/검증/시험 분리 코드\n2. 검증 성능을 단순 베이스라인(평균 또는 최빈 클래스)과 비교\n3. permutation_importance로 중요도를 구해 막대그래프로 그리는 코드\n4. 상관된 변수 때문에 중요도가 갈라지는 현상을 이 변수 목록으로 설명\n5. 중요도 상위 변수를 보고서에 쓸 때 허용되는 표현과 금지되는 표현\n'중요도가 높다=원인이다'라는 문장을 쓰지 말라고 명시해줘. 표본이 수십 행뿐이면 성능 수치의 불확실성이 커서 결론을 단정할 수 없다는 점도 알려줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "심화",
+  "name": "그래디언트 부스팅",
+  "goal": "약한 모델을 순차적으로 개선해 높은 예측 성능을 낸다.",
+  "data": "표 형태의 복잡한 데이터",
+  "use": "예측 성능이 중요한 경우",
+  "ai": "부스팅 모델 학습과 검증 성능 비교",
+  "human": "훈련·검증 점수 차이로 과적합을 직접 확인하고, 이 표본 규모에 이 모델이 필요한지 판단",
+  "output": "검증 성능, 오차 지표",
+  "caution": "표본이 적으면 설정 몇 개만 바꿔도 검증 점수가 크게 흔들려 과적합되기 쉽다. 수십~수백 행 자료에서는 단순 회귀나 요약 그래프가 더 정직한 결론을 준다.",
+  "prompt": "너는 예측 성능과 과적합의 균형을 설명하는 머신러닝 튜터야.\n[예측 문제와 목표 변수] {예: 급식 잔반량(kg) 예측}\n[변수 목록과 단위] {예: menu_type, weekday, temp_C, attendance}\n[표본 수] {예: 180행}\n다음 형식으로 답해줘.\n1. learning_rate·n_estimators·max_depth가 각각 무엇을 조절하는지 비유로 설명\n2. HistGradientBoosting 계열 모델 학습과 검증 곡선 코드\n3. 설정을 바꿔가며 훈련 오차와 검증 오차 차이를 표로 정리하는 코드\n4. 과적합으로 판단하는 기준\n5. 선형회귀·랜덤포레스트와 성능을 비교한 결과 해석\n설정 탐색은 검증 세트로만 하고 시험 세트는 마지막 한 번만 쓰라고 강조해줘. 표본이 수십~수백 행이면 부스팅이 과한 도구라 단순 회귀나 그래프 요약이 더 정직한 결론을 준다는 점도 판단해줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "중급",
+  "name": "교차검증",
+  "goal": "데이터 분할 운에 따라 성능이 흔들리는지 확인한다.",
+  "data": "표본 수가 제한된 모델링 데이터",
+  "use": "검증 신뢰도를 높이고 싶을 때",
+  "ai": "k-fold cross validation 코드",
+  "human": "같은 개체의 반복 측정이 폴드를 넘나들지 않는지, 전처리가 폴드 안에서만 학습됐는지 확인",
+  "output": "평균 성능±표준편차",
+  "caution": "시계열 자료는 무작위 교차검증이 부적절하다. 폴드를 나누기 전에 표준화나 결측 대체를 해두면 폴드마다 누수가 생긴다.",
+  "prompt": "너는 성능 수치의 신뢰도를 따지는 검증 담당 코치야.\n[모델과 예측 목표] {예: 로지스틱 회귀로 발아 성공 여부 예측}\n[표본 수와 반복 구조] {예: 총 60행, 씨앗 20개를 3회씩 측정}\n[시간 순서가 있는 자료인지] {예: 없음 / 2025-03~06 일자별}\n다음 형식으로 답해줘.\n1. 이 자료에 맞는 방식 선택(KFold·StratifiedKFold·GroupKFold·TimeSeriesSplit)과 이유\n2. cross_val_score로 평균과 표준편차를 구하는 코드\n3. 전처리를 Pipeline에 넣어 각 폴드의 훈련부에서만 학습시키는 코드\n4. 폴드별 점수 편차가 클 때 읽는 법\n5. 보고서에 쓸 성능 보고 문장 예시\n같은 개체를 여러 번 측정한 자료를 무작위로 섞으면 누수라는 점을 이 반복 구조에 맞춰 설명해줘. 표본이 적어 어떤 방식으로도 추정이 안정되지 않는다면 그렇다고 말해줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "중급",
+  "name": "하이퍼파라미터 탐색",
+  "goal": "모델 설정값을 체계적으로 비교한다.",
+  "data": "모델링 데이터",
+  "use": "모델 성능 개선 단계",
+  "ai": "GridSearchCV 또는 반복 실험 코드",
+  "human": "검증 데이터에 과도하게 맞추지 않도록 제한",
+  "output": "설정별 성능표, 최적 설정",
+  "caution": "시험 데이터를 반복해서 보며 튜닝하면 평가가 오염된다. 많은 조합 중 최고 점수만 고르면 그 점수는 검증 세트에 과적합된 낙관적 값이다.",
+  "prompt": "너는 모델 설정 실험을 설계하는 분석 코치야.\n[모델과 조정할 설정값] {예: RandomForest의 n_estimators, max_depth}\n[예측 목표와 평가 지표] {예: 이상 여부 분류, F1}\n[표본 수와 클래스 비율] {예: 240행, 정상 90% 이상 10%}\n다음 형식으로 답해줘.\n1. 탐색할 값의 범위와 그렇게 잡은 이유\n2. GridSearchCV를 Pipeline과 함께 쓰는 코드\n3. cv_results_로 설정별 성능표를 정리하는 코드\n4. 최적 설정으로 시험 세트를 한 번만 평가하는 코드\n5. 탐색 결과를 보고서에 적을 때 주의할 문장\n시험 세트를 보며 설정을 고치면 평가가 오염된다는 점, 그리고 여러 조합 중 최고 점수만 고르면 그 점수 자체가 낙관적으로 치우친다는 점을 함께 설명해줘. 조합 수가 표본 수에 비해 지나치게 많으면 탐색을 줄이라고 조언해줘."
+ },
+ {
+  "cat": "머신러닝 예측",
+  "level": "중급",
+  "name": "모델 베이스라인 비교",
+  "goal": "복잡한 모델이 단순 평균 예측보다 실제로 나은지 확인한다.",
+  "data": "예측·분류 모델링 데이터(같은 분할을 모든 모델에 동일하게 적용)",
+  "use": "모델을 주장하기 전",
+  "ai": "DummyRegressor/DummyClassifier와 선형회귀·트리 모델을 같은 분할로 비교하는 코드",
+  "human": "성능 향상이 문제 맥락상 의미 있는지 판단",
+  "output": "베이스라인 대비 개선율",
+  "caution": "베이스라인 없이 높은 성능이라고 말하면 설득력이 약하다. 분류의 베이스라인은 평균이 아니라 최빈 클래스이며, 개선폭이 폴드별 편차보다 작으면 차이가 있다고 말할 수 없다.",
+  "prompt": "너는 결과의 설득력을 점검하는 심사자 역할이야.\n[예측 문제 유형] {예: 회귀(잔반량 kg) / 분류(합격 여부)}\n[비교할 모델 목록] {예: 평균 예측, 선형회귀, 랜덤포레스트}\n[표본 수와 평가 지표] {예: 150행, MAE와 R²}\n다음 형식으로 답해줘.\n1. 이 문제에 맞는 베이스라인 정의(회귀는 평균, 분류는 최빈 클래스)\n2. DummyRegressor 또는 DummyClassifier와 실제 모델을 같은 분할로 비교하는 코드\n3. 모델별 성능과 베이스라인 대비 개선폭 표\n4. 개선폭이 교차검증 폴드별 표준편차보다 작을 때의 해석\n5. 보고서에 쓸 결론 문장 초안\n개선폭이 작으면 '성능이 좋다'고 쓰지 말고 차이를 확인하지 못했다고 정직하게 쓰라고 알려줘. 이 표본 수에서 복잡한 모델을 굳이 쓸 필요가 있는지도 판단해줘."
+ },
+ {
+  "cat": "분류·평가",
+  "level": "기초",
+  "name": "혼동행렬",
+  "goal": "분류 모델이 어떤 유형을 맞히고 틀리는지 확인한다.",
+  "data": "정답 라벨이 있는 분류 데이터",
+  "use": "정확도 이상의 평가가 필요할 때",
+  "ai": "혼동행렬 계산과 시각화 코드",
+  "human": "오분류 사례의 실제 의미 검토",
+  "output": "TP, FP, FN, TN 표",
+  "caution": "정확도만 보면 중요한 오류 유형을 놓친다. 소수 클래스가 5%인 자료는 전부 다수 클래스로 찍어도 정확도가 95%가 되므로 혼동행렬을 반드시 함께 봐야 한다.",
+  "prompt": "너는 분류 결과를 하나하나 뜯어보는 평가 코치야.\n[분류 문제와 두 클래스의 의미] {예: 이상 기온일=1, 평년=0}\n[클래스별 개수] {예: 이상 18건, 평년 342건}\n[틀렸을 때 더 곤란한 쪽] {예: 이상인데 놓치는 경우}\n다음 형식으로 답해줘.\n1. confusion_matrix와 ConfusionMatrixDisplay로 표를 그리는 코드\n2. TP·FP·FN·TN을 이 문제의 말로 각각 바꿔 쓴 문장\n3. 표의 숫자에서 정확도·정밀도·재현율이 어떻게 계산되는지 직접 보여주기\n4. 전부 다수 클래스로 찍었을 때의 정확도와 비교\n5. 이 문제에서 줄여야 할 오류 유형과 그 근거\n클래스 비율이 치우친 자료에서는 정확도가 높아도 의미가 없다는 점을 3번과 4번을 이어서 보여줘. 사례 수가 너무 적어 비율을 믿기 어려운 칸이 있으면 먼저 알려줘."
+ },
+ {
+  "cat": "분류·평가",
+  "level": "중급",
+  "name": "정밀도·재현율·F1",
+  "goal": "소수 클래스 탐지가 중요한 문제에서 성능을 평가한다.",
+  "data": "불균형 분류 데이터",
+  "use": "이상 탐지, 위험 예측, 질병 여부 등",
+  "ai": "precision, recall, f1 계산 코드",
+  "human": "어떤 오류가 더 위험한지 문제 맥락 판단",
+  "output": "지표표, 임계값 선택 근거",
+  "caution": "불균형 자료에서 정확도는 사실상 무의미하다. 정밀도와 재현율은 임계값을 옮기면 한쪽이 오르고 다른 쪽이 내려가므로 동시에 높이기 어렵고, 양성 사례가 적으면 지표가 몇 건 차이로 요동친다.",
+  "prompt": "너는 지표 선택의 근거를 따지는 평가 멘토야.\n[분류 목적과 양성 클래스 정의] {예: 양성=수질 기준 초과}\n[클래스 비율] {예: 초과 7%, 정상 93%}\n[거짓 양성과 거짓 음성 중 더 큰 손해] {예: 초과를 놓치는 쪽이 위험}\n다음 형식으로 답해줘.\n1. 정확도·정밀도·재현율·F1을 이 문제의 말로 정의\n2. classification_report로 지표를 뽑는 코드\n3. 이 비율에서 정확도를 주 지표로 쓰면 안 되는 이유를 숫자로 예시\n4. 문제 맥락상 우선할 지표 추천과 근거\n5. 보고서에 쓸 지표 보고 문장\n임계값을 옮기면 정밀도와 재현율 중 한쪽이 오르고 다른 쪽이 내려간다는 점을 함께 설명해줘. 양성 사례 수가 적어 지표가 몇 건 차이로 크게 흔들리는 상황이면 그 점을 먼저 경고해줘."
+ },
+ {
+  "cat": "분류·평가",
+  "level": "심화",
+  "name": "ROC와 AUC",
+  "goal": "분류 임계값 변화에 따른 성능을 비교한다.",
+  "data": "확률 예측 분류 모델",
+  "use": "임계값을 조정해야 할 때",
+  "ai": "ROC 곡선과 AUC 계산 코드",
+  "human": "AUC가 높아도 실제 임계값에서 성능 확인",
+  "output": "ROC 곡선, AUC 값",
+  "caution": "불균형이 심하면 ROC-AUC는 참음성이 많다는 이유만으로 낙관적으로 보이므로 PR 곡선을 함께 봐야 한다. AUC는 모든 임계값 평균이라 실제 쓸 임계값의 성능을 보장하지 않는다.",
+  "prompt": "너는 임계값에 따라 성능이 어떻게 변하는지 보여주는 분석 코치야.\n[모델과 예측 확률] {예: 로지스틱 회귀 predict_proba의 양성 열}\n[양성 클래스의 의미와 개수] {예: 발아 성공=1, 34건 / 실패 126건}\n[비교하려는 모델 수] {예: 로지스틱 회귀와 랜덤포레스트 2개}\n다음 형식으로 답해줘.\n1. roc_curve와 roc_auc_score로 곡선과 값을 구하는 코드\n2. AUC 값을 확률의 말로 풀어 쓴 해석 한 문장\n3. 무작위 기준선(대각선)을 함께 그리는 코드\n4. precision_recall_curve와 average_precision_score도 함께 비교\n5. 실제로 쓸 임계값에서의 혼동행렬\n양성이 아주 드문 자료에서는 ROC-AUC가 실제보다 좋아 보이므로 PR 곡선을 같이 봐야 한다는 점을 4번에서 근거와 함께 설명해줘. 검증 세트로 그린 곡선을 시험 성능처럼 말하지 말라고도 적어줘."
+ },
+ {
+  "cat": "분류·평가",
+  "level": "중급",
+  "name": "임계값 튜닝",
+  "goal": "확률을 분류로 바꾸는 기준을 문제 목적에 맞게 조정한다.",
+  "data": "확률 예측 결과",
+  "use": "거짓 양성/거짓 음성 비용이 다를 때",
+  "ai": "임계값별 지표표와 그래프 코드",
+  "human": "오류 비용을 실제 맥락으로 정의하고, 임계값을 검증 세트에서 고른 뒤 시험 세트로는 확인만 했는지 점검",
+  "output": "임계값 선택표, 선택 근거",
+  "caution": "0.5가 항상 최적 임계값은 아니다. 시험 세트를 보며 임계값을 고르면 그 성능은 더 이상 공정한 평가가 아니고, 양성 사례가 적으면 최적 임계값이 우연히 정해진다.",
+  "prompt": "너는 오류 비용을 따져 기준선을 정하는 의사결정 코치야.\n[분류 문제와 양성의 의미] {예: 양성=결석 위험 학생}\n[거짓 양성과 거짓 음성의 실제 비용] {예: 헛된 상담 1회 vs 위험 학생 방치}\n[확률 예측 결과] {붙여넣기 또는 예: y_proba 배열과 y_true}\n다음 형식으로 답해줘.\n1. 임계값을 0.05~0.95로 바꾸며 정밀도·재현율·F1을 계산하는 코드\n2. 세 지표를 한 그림에 겹쳐 그리는 코드\n3. 위 비용 설명을 반영한 임계값 추천과 근거\n4. 선택한 임계값에서의 혼동행렬과 예상 오류 건수\n5. 임계값을 보고서에 밝혀 적는 문장 예시\n임계값은 반드시 검증 세트에서 고르고 시험 세트로는 확인만 하라고 못 박아줘. 0.5는 기본값일 뿐이며 표본이 적으면 최적처럼 보이는 임계값이 우연히 정해질 수 있다는 점도 알려줘."
+ },
+ {
+  "cat": "분류·평가",
+  "level": "중급",
+  "name": "클래스 불균형 보정",
+  "goal": "소수 클래스를 무시하는 모델을 개선한다.",
+  "data": "정상 95%, 이상 5% 같은 데이터",
+  "use": "드문 사건 분류",
+  "ai": "class_weight 설정과 훈련 부분에만 적용하는 리샘플링 코드 구조 안내",
+  "human": "샘플링이 훈련 부분에만 적용됐는지, 평가 세트가 원래 비율을 유지하는지 확인",
+  "output": "보정 전후 성능 비교",
+  "caution": "분할 전에 전체 데이터를 오버샘플링하면 복제된 같은 사례가 훈련과 평가에 나뉘어 들어가 성능이 크게 부풀려진다. 평가 세트는 원래 클래스 비율을 유지해야 하고, 양성이 수십 건뿐이면 어떤 보정도 한계가 있다.",
+  "prompt": "너는 드문 사건 분류 문제의 설계를 조언하는 분석 멘토야.\n[양성 클래스와 비율] {예: 이상 발생 4%, 정상 96%}\n[전체 표본 수와 양성 건수] {예: 500행 중 20건}\n[사용 중인 모델] {예: 로지스틱 회귀}\n다음 형식으로 답해줘.\n1. class_weight='balanced'와 오버/언더샘플링의 차이\n2. 이 비율과 양성 건수에는 어떤 방법이 맞는지 추천과 이유\n3. 샘플링을 훈련 부분에만 적용하는 코드 구조\n4. 보정 전후를 정밀도·재현율·F1·PR곡선으로 비교하는 코드\n5. 보고서에 쓸 한계 문장\n분할이나 교차검증 전에 전체 데이터를 샘플링하면 같은 사례가 훈련과 평가에 함께 들어가 성능이 크게 부풀려진다는 점을 반드시 경고해줘. 평가 세트의 클래스 비율은 원래대로 두어야 한다는 점도 알려줘."
+ },
+ {
+  "cat": "분류·평가",
+  "level": "심화",
+  "name": "다중분류 평가",
+  "goal": "세 개 이상 라벨의 예측 성능을 유형별로 본다.",
+  "data": "종 분류, 감정 분류, 등급 분류",
+  "use": "분류 라벨이 여러 개인 경우",
+  "ai": "classification_report와 라벨별 성능표, macro·weighted 평균 비교 코드",
+  "human": "헷갈리는 라벨 쌍을 실제로 검토",
+  "output": "라벨별 precision/recall/F1과 macro·weighted 평균, 정규화 혼동행렬",
+  "caution": "전체 평균 성능만 보면 취약한 라벨을 놓친다. macro 평균은 라벨을 동등하게 취급하고 weighted 평균은 표본이 많은 라벨에 끌려가므로 어느 쪽을 썼는지 밝혀야 한다.",
+  "prompt": "너는 라벨이 여러 개인 분류 결과를 뜯어보는 평가 코치야.\n[라벨 목록과 각 라벨의 개수] {예: 종A 60, 종B 45, 종C 12}\n[분류 목적] {예: 잎 측정값으로 3개 종 구분}\n[헷갈릴 것 같은 라벨 쌍] {예: 종B와 종C}\n다음 형식으로 답해줘.\n1. classification_report로 라벨별 precision·recall·F1을 뽑는 코드\n2. macro 평균과 weighted 평균이 왜 달라지는지 이 개수로 설명\n3. 다중 혼동행렬을 행 기준으로 정규화해 그리는 코드\n4. 어떤 라벨 쌍이 서로 오분류되는지 읽는 법\n5. 취약한 라벨을 개선할 아이디어\n표본이 적은 라벨의 지표는 한두 건 차이로 크게 흔들리니 라벨별 개수를 반드시 함께 적으라고 알려줘. 전체 평균만 보고 성능이 좋다고 쓰지 말라고도 강조해줘."
+ },
+ {
+  "cat": "분류·평가",
+  "level": "중급",
+  "name": "오분류 사례 분석",
+  "goal": "모델이 틀린 사례를 모아 원인을 해석한다.",
+  "data": "분류 예측 결과와 원자료",
+  "use": "모델 개선 또는 보고서 한계 분석",
+  "ai": "오분류 표 추출, 특징 요약 코드",
+  "human": "라벨 오류인지 모델 한계인지 직접 확인",
+  "output": "오분류 사례표, 개선 아이디어",
+  "caution": "오류 사례를 보지 않으면 성능 수치만 남는다. 다만 시험 세트의 오분류를 보고 모델을 고치면 그 세트는 더 이상 공정한 평가 기준이 아니므로, 개선은 검증 세트에서 한다.",
+  "prompt": "너는 모델이 틀린 지점을 함께 들여다보는 분석 파트너야.\n[원자료 열 이름과 의미] {예: date, temp_C, humidity, label}\n[예측 결과] {예: y_test, y_pred, 확률 y_proba}\n[의심되는 오류 원인] {예: 흐린 날 자료는 라벨 기준이 애매함}\n다음 형식으로 답해줘.\n1. 정답과 예측이 다른 행만 골라내는 pandas 코드\n2. 오분류 행과 정분류 행의 변수 분포를 비교하는 코드\n3. 예측 확률이 0.5 근처인 애매한 사례를 따로 뽑는 코드\n4. 오분류 사례의 공통 특징을 요약하는 방식\n5. 라벨 오류·특징 부족·모델 한계 중 무엇인지 가려낼 질문 목록\n오분류 사례를 보고 모델을 고치면 그 세트는 더 이상 공정한 평가 기준이 아니라는 점을 알려줘. 원인 판정은 학생이 원자료를 직접 확인해야 한다는 점도 적어줘."
+ },
+ {
+  "cat": "군집·차원축소",
+  "level": "중급",
+  "name": "K-means 군집화",
+  "goal": "비슷한 데이터끼리 그룹을 나눠 숨은 패턴을 찾는다.",
+  "data": "라벨 없는 수치형 다변량 데이터",
+  "use": "유형 발견, 조건 그룹화",
+  "ai": "스케일링, k값 비교, 군집 시각화 코드",
+  "human": "표준화 여부와 k를 바꿔가며 군집이 유지되는지 확인하고, 군집이 실제 의미 있는 유형인지 판단",
+  "output": "군집 라벨, 중심값, 군집별 특징",
+  "caution": "군집에는 정답이 없다. 표준화 여부와 거리 척도, k에 따라 결과가 통째로 달라지며 엘보·실루엣은 참고 지표일 뿐이다. KMeans는 비슷한 크기의 둥근 군집을 가정한다.",
+  "prompt": "너는 라벨 없는 자료에서 유형을 찾는 탐색적 분석 코치야.\n[변수 목록과 단위] {예: height_cm, mass_g, leaf_count}\n[표본 수] {예: 80행}\n[군집으로 알아보고 싶은 것] {예: 생육 형태가 몇 가지로 나뉘는지}\n다음 형식으로 답해줘.\n1. 표준화 후 KMeans를 적용하는 코드\n2. k를 2~6으로 바꾸며 관성(엘보)과 실루엣 계수를 함께 그리는 코드\n3. 고른 k의 군집별 변수 평균표\n4. 표준화하지 않았을 때 결과가 어떻게 달라지는지 실제로 비교\n5. 군집 결과를 보고서에 쓸 때의 표현 수위\n군집에는 정답이 없고 엘보와 실루엣은 참고 지표일 뿐이며 k는 결국 사람이 고른다는 점을 명시해줘. KMeans가 비슷한 크기의 둥근 덩어리를 가정한다는 점, 그래서 이 자료 모양에는 안 맞을 수 있다는 점도 짚어줘."
+ },
+ {
+  "cat": "군집·차원축소",
+  "level": "심화",
+  "name": "DBSCAN",
+  "goal": "밀도가 높은 영역을 군집으로 찾고 잡음을 분리한다.",
+  "data": "공간 데이터, 센서 데이터, 비정형 분포",
+  "use": "군집 모양이 원형이 아닐 때",
+  "ai": "eps·min_samples 개념 설명과 k-거리 그래프 기반 탐색 절차",
+  "human": "파라미터 선택이 결과에 미치는 영향 확인",
+  "output": "군집과 잡음 라벨",
+  "caution": "표준화와 파라미터에 매우 민감해 같은 자료에서도 군집 수가 달라진다. 잡음(-1)은 '이상한 데이터'라는 뜻이 아니라 밀도 기준을 못 채운 점일 뿐이다.",
+  "prompt": "너는 밀도 기반 군집을 안내하는 탐색 분석 튜터야.\n[변수 목록과 단위] {예: x_m, y_m 좌표 또는 센서값 2개}\n[표본 수와 예상 잡음 비율] {예: 300행, 이상치 5% 정도}\n[군집 모양에 대한 예상] {예: 길게 이어진 띠 모양}\n다음 형식으로 답해줘.\n1. eps와 min_samples가 각각 무엇을 정하는지 그림 설명하듯 서술\n2. 표준화 후 k-거리 그래프를 그려 eps 후보를 찾는 코드\n3. eps와 min_samples를 격자로 바꾸며 군집 수와 잡음 비율을 표로 만드는 코드\n4. 잡음(-1) 라벨을 어떻게 다룰지 판단 기준\n5. K-means와 결과가 갈리는 지점 비교\n같은 자료라도 표준화 방식과 파라미터에 따라 군집 수가 통째로 바뀐다는 점을 3번 표로 직접 보여줘. 잡음으로 분류된 점을 곧바로 오류 데이터라고 부르지 말라고도 알려줘."
+ },
+ {
+  "cat": "군집·차원축소",
+  "level": "중급",
+  "name": "계층적 군집화",
+  "goal": "데이터가 단계적으로 묶이는 구조를 본다.",
+  "data": "라벨 없는 수치형 자료",
+  "use": "유사도 구조를 설명하고 싶을 때",
+  "ai": "덴드로그램 개념과 코드 안내",
+  "human": "거리 기준과 연결 방식 선택 이유 확인",
+  "output": "덴드로그램, 군집 해석",
+  "caution": "거리 척도와 연결 방식(ward·average·complete)이 바뀌면 결과도 달라진다. ward는 유클리드 거리에서만 정의되며, 자를 높이를 정하는 것은 결국 사람의 선택이다.",
+  "prompt": "너는 자료가 묶이는 구조를 계단식으로 보여주는 분석 코치야.\n[변수 목록과 단위] {예: 지역별 대기오염 물질 6종 농도 µg/m³}\n[관측 단위와 개수] {예: 시군 15개}\n[비교하고 싶은 대상] {예: 어느 시군끼리 서로 비슷한지}\n다음 형식으로 답해줘.\n1. 표준화 후 scipy의 linkage와 dendrogram으로 그리는 코드\n2. ward·average·complete 연결 방식의 차이와 결과 비교\n3. 덴드로그램을 자를 높이를 정해 군집 라벨을 얻는 코드\n4. K-means와 달리 이 방법이 알려주는 정보\n5. 군집 구조를 설명하는 문장 예시\n연결 방식이나 거리 척도를 바꾸면 묶이는 순서가 달라진다는 점을 2번에서 실제로 보여줘. ward는 유클리드 거리에서만 정의된다는 점, 관측 수가 적으면 덴드로그램 모양이 몇몇 사례에 좌우된다는 점도 알려줘."
+ },
+ {
+  "cat": "군집·차원축소",
+  "level": "중급",
+  "name": "PCA 주성분분석",
+  "goal": "여러 변수를 적은 축으로 압축해 구조를 본다.",
+  "data": "상관된 수치형 변수 여러 개",
+  "use": "시각화, 노이즈 축소, 변수 구조 이해",
+  "ai": "스케일링, 주성분, 설명분산 계산 코드",
+  "human": "주성분 축의 의미를 변수 기여도로 해석",
+  "output": "2D 투영 그래프, 설명분산",
+  "caution": "표준화를 안 하면 단위가 큰 변수가 주성분을 지배한다. 주성분은 분산이 큰 방향일 뿐 중요한 변수가 아니며, 축의 부호는 임의라 방향 자체에 의미를 두면 안 된다.",
+  "prompt": "너는 여러 변수를 압축해 구조를 보는 차원축소 튜터야.\n[변수 목록과 단위] {예: 영양성분 8개, g과 mg 혼재}\n[표본 수] {예: 60행}\n[알고 싶은 것] {예: 어떤 변수들이 함께 움직이는지}\n다음 형식으로 답해줘.\n1. 단위가 섞인 이 변수들로 표준화가 왜 필수인지 설명\n2. PCA 적용과 설명분산 비율·누적 비율 출력 코드\n3. PC1·PC2 산점도와 변수 기여도(로딩) 표를 함께 그리는 코드\n4. 각 주성분을 문장으로 해석한 예시와 그 근거\n5. 주성분을 몇 개까지 쓸지 정하는 기준\n주성분은 분산이 큰 방향일 뿐 '중요한 변수'가 아니라는 점, 축의 부호는 임의라 방향을 뒤집어 읽으면 안 된다는 점을 명시해줘. 누적 설명분산이 낮으면 2차원 그림만 보고 구조를 단정하지 말라고도 적어줘."
+ },
+ {
+  "cat": "군집·차원축소",
+  "level": "심화",
+  "name": "t-SNE/UMAP 개념",
+  "goal": "고차원 데이터를 2차원으로 펼쳐 가까운 구조를 시각화한다.",
+  "data": "이미지 특징, 텍스트 벡터, 생명정보 데이터",
+  "use": "복잡한 패턴을 그림으로 탐색할 때",
+  "ai": "기법의 목적과 파라미터 의미 설명, TSNE 시각화 코드(UMAP은 umap-learn 별도 설치)",
+  "human": "거리와 군집을 과도하게 해석하지 않도록 주의",
+  "output": "2D 임베딩 시각화",
+  "caution": "시각화용이지 인과나 군집의 증명이 아니다. 덩어리 사이의 거리와 덩어리 크기는 의미가 없고, perplexity와 난수 시드에 따라 그림 모양이 바뀐다.",
+  "prompt": "너는 고차원 자료의 시각화를 안내하는 데이터 시각화 멘토야.\n[데이터 종류와 차원 수] {예: 잎 이미지에서 뽑은 특징 20개}\n[표본 수] {예: 250행}\n[색으로 구분하고 싶은 정보] {예: 채집 장소}\n다음 형식으로 답해줘.\n1. PCA와 t-SNE가 각각 무엇을 보존하려 하는지 차이 설명\n2. 표준화 후 PCA로 먼저 줄이고 TSNE를 적용하는 코드\n3. perplexity와 random_state를 바꿔 여러 장을 그려 비교하는 코드\n4. 그림에서 읽어도 되는 것과 읽으면 안 되는 것 목록\n5. 보고서 그림 설명 문장 예시\nt-SNE 그림에서 덩어리 사이의 거리와 덩어리 크기는 의미가 없고 설정에 따라 모양이 바뀐다는 점을 4번에 반드시 넣어줘. UMAP은 scikit-learn에 없어 umap-learn을 따로 설치해야 한다는 점도 알려줘."
+ },
+ {
+  "cat": "군집·차원축소",
+  "level": "심화",
+  "name": "군집 안정성 점검",
+  "goal": "군집 결과가 초기값이나 표본 변화에 따라 흔들리는지 본다.",
+  "data": "군집 분석 결과",
+  "use": "군집을 결론으로 제시하기 전",
+  "ai": "여러 시드·k 비교 절차와 adjusted_rand_score로 라벨 일치도를 계산하는 코드",
+  "human": "군집별 의미가 반복적으로 유지되는지 확인",
+  "output": "군집 안정성 요약",
+  "caution": "한 번 나온 군집을 실제 유형으로 단정하면 위험하다. 군집 번호는 실행마다 순서가 바뀌므로 번호끼리 직접 비교하면 안 되고, 일치도는 adjusted_rand_score처럼 라벨 순서에 무관한 지표로 봐야 한다.",
+  "prompt": "너는 결과가 우연인지 따져 묻는 재현성 점검 담당이야.\n[군집에 쓴 변수와 표준화 여부] {예: 변수 5개, StandardScaler 적용}\n[표본 수와 현재 k] {예: 120행, k=3}\n[군집을 어디에 쓸 계획인지] {예: 보고서에서 3가지 유형으로 제시}\n다음 형식으로 답해줘.\n1. random_state를 여러 개 바꿔 군집 라벨을 저장하는 코드\n2. adjusted_rand_score로 시드 간 라벨 일치도를 계산하는 코드\n3. 표본의 80%만 뽑아 반복했을 때 군집이 유지되는지 확인하는 절차\n4. k를 바꿨을 때 기존 군집이 쪼개지는지 새로 생기는지 비교\n5. 안정성 결과에 따라 보고서 표현을 조절하는 기준\n일치도가 낮으면 군집을 '발견한 유형'이라고 쓰지 말고 탐색 결과로만 보고하라고 알려줘. 군집 번호는 실행할 때마다 순서가 달라지므로 번호를 그대로 비교하면 안 된다는 점도 짚어줘."
+ },
+ {
+  "cat": "군집·차원축소",
+  "level": "심화",
+  "name": "군집 프로파일링",
+  "goal": "나뉜 군집이 어떤 특징을 갖는지 표로 설명한다.",
+  "data": "군집 라벨 + 원자료",
+  "use": "군집 결과 해석 단계",
+  "ai": "군집별 평균·중앙값·빈도 요약 코드",
+  "human": "붙인 이름이 표의 수치를 넘어서지 않는지, 작은 군집의 특징을 과장하지 않았는지 점검",
+  "output": "군집 프로파일표, 유형명",
+  "caution": "군집 이름은 데이터 근거가 있어야 하고 이름을 붙이는 순간 해석이 개입한다. 군집을 나눌 때 쓴 변수로 군집 간 차이를 검정하는 것은 순환논리이므로 유의성 주장의 근거가 되지 못한다.",
+  "prompt": "너는 군집 결과를 말로 옮기는 작업을 감독하는 해석 코치야.\n[군집 라벨 열과 군집 수] {예: cluster, 3개}\n[요약할 변수와 자료형] {예: 수치 4개, 범주 2개}\n[군집별 표본 수] {예: 52 / 31 / 9}\n다음 형식으로 답해줘.\n1. groupby로 군집별 평균·중앙값·표준편차와 범주 빈도를 내는 코드\n2. 표준화 값 기준으로 각 군집이 전체 평균에서 얼마나 벗어났는지 보여주는 표\n3. 군집별 특징을 근거 수치와 함께 서술한 문장 예시\n4. 군집에 이름을 붙일 때 지켜야 할 규칙\n5. 이름 대신 '군집 1'로 두는 편이 나은 경우\n군집을 나눌 때 쓴 변수로 다시 군집 간 차이를 검정하면 순환논리라 반드시 유의하게 나온다는 점을 알려줘. 표본이 9개뿐인 군집처럼 작은 군집의 평균은 단정하지 말라고도 적어줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "기초",
+  "name": "이동평균",
+  "goal": "시간에 따른 노이즈를 줄이고 큰 흐름을 본다.",
+  "data": "시간별 온도, 습도, 전압, 미세먼지",
+  "use": "센서값이 요동칠 때",
+  "ai": "rolling 평균 코드, 창 크기별 비교와 중심이동평균 차이 설명",
+  "human": "창 크기가 과학적으로 타당한지 확인",
+  "output": "원자료+이동평균 그래프",
+  "caution": "창이 커질수록 잡음은 줄지만 변화 시점이 뒤로 밀리고(지연) 급변이 지워진다. 결과가 좋아 보이는 쪽으로 창 크기를 고르면 안 된다.",
+  "prompt": "너는 학교 센서 실험을 도와주는 시계열 평활 코치야.\n[측정 대상과 센서] {예: 교실 간이측정기로 잰 미세먼지}\n[측정 간격과 총 기간] {예: 1분 간격, 3일}\n[열 이름과 단위] {예: timestamp, pm25_ugm3}\n[샘플 10행] {붙여넣기}\npandas의 rolling으로 이동평균을 구해 원자료와 겹쳐 그리는 코드를 짜줘.\n다음 형식으로 답해줘.\n1. 결측·중복 시각을 먼저 처리하는 방법\n2. 창 크기 3개(예: 5·15·60)를 한 그림에 비교한 코드\n3. 창 크기별 그래프 해석\n4. 이동평균이 만드는 지연과 중심이동평균으로 줄이는 법\n5. 창을 키울 때 사라지는 변화가 무엇인지\n원자료에서 보이던 급변 시점이 평활 후 흐려졌는지 꼭 짚어주고, 그래프가 예뻐 보이는 쪽으로 창 크기를 고르면 왜 안 되는지도 알려줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "기초",
+  "name": "추세선과 변화율",
+  "goal": "시간에 따라 증가·감소하는 정도를 계산한다.",
+  "data": "연속 시간 측정값",
+  "use": "장기 변화 경향 설명",
+  "ai": "기울기 계산, 선형 추세 코드",
+  "human": "계절성·외부 요인을 확인하고 관측 기간이 결론을 낼 만큼 긴지 판단",
+  "output": "추세선, 변화율",
+  "caution": "짧은 기간의 추세를 장기 결론으로 확대하면 위험하다. R²가 높아도 인과나 미래 예측력을 뜻하지 않는다.",
+  "prompt": "너는 장기 변화 자료를 읽어 주는 탐구 지도교사야.\n[자료 출처와 관측 기간] {예: 기상자료개방포털, 2015~2025년 월평균기온}\n[열 이름과 단위] {예: date, temp_C}\n[측정 간격] {예: 월 1회}\n[알고 싶은 것] {예: 10년 동안의 상승 폭}\nscipy.stats.linregress로 선형 추세를 구하는 코드를 써줘.\n답은 이 순서로 정리해줘.\n1. 단위를 붙인 변화율(예: °C/10년)과 기울기 해석\n2. 코드와 추세선 그래프\n3. R²가 뜻하는 것, 그리고 '예측 정확도'가 아닌 이유\n4. 계절성이나 특이 연도 때문에 기울기가 흔들리는지 확인하는 법\n5. 이 추세를 미래로 늘려 말하면 안 되는 이유\n관측 기간이 짧아 경향을 단정할 수 없으면 결론 대신 '판단 보류'라고 분명히 써줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "중급",
+  "name": "피크 탐지",
+  "goal": "최댓값이 나타나는 시점과 빈도를 찾는다.",
+  "data": "신호, 심박, 소음, 전압, 센서값",
+  "use": "이벤트 발생 시점을 찾을 때",
+  "ai": "find_peaks 기반 피크 탐지 코드와 임계값 민감도 비교",
+  "human": "피크가 실제 사건인지 로그와 대조",
+  "output": "피크 시점표, 피크 빈도",
+  "caution": "임계값을 데이터를 본 뒤 정하면 결과가 바뀐다. 표본화 주기보다 빠른 변화는 아예 잡히지 않고, 잡음 스파이크가 피크로 잡힐 수 있다.",
+  "prompt": "너는 센서 신호에서 사건 시점을 찾아 주는 신호 분석 조교야.\n[신호 종류와 센서] {예: 아두이노 광센서로 잰 맥박 신호}\n[표본화 주기] {예: 0.01초 간격(100Hz)}\n[열 이름과 단위] {예: t_s, voltage_V}\n[피크가 뜻하는 사건] {예: 심장 박동 1회}\nscipy.signal.find_peaks로 피크를 찾고 간격을 계산하는 코드를 써줘.\n아래 형식대로 답해줘.\n1. height·distance·prominence를 각각 무엇을 근거로 정할지\n2. 코드와 피크가 표시된 그래프\n3. 피크 개수, 간격의 평균과 표준편차\n4. 임계값을 ±20% 바꿨을 때 개수가 얼마나 달라지는 민감도 표\n5. 표본화 주기보다 빠른 진동은 왜 원리상 잡히지 않는지\n임계값을 데이터를 보기 전에 정해야 하는 이유를 먼저 말해주고, 잡음 스파이크를 사건으로 오인하지 않으려면 무엇과 대조해야 하는지도 알려줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "중급",
+  "name": "이상 구간 탐지",
+  "goal": "평소 패턴과 다른 시간 구간을 찾는다.",
+  "data": "연속 센서 로그",
+  "use": "고장, 급격한 환경 변화, 이벤트 탐지",
+  "ai": "이동 z-score 코드와 중앙값·MAD 기반 대안 비교",
+  "human": "센서 고장·영점 드리프트·결측 구간과 실제 현상을 구분",
+  "output": "이상 구간 목록, 원인 후보",
+  "caution": "이상치가 표준편차를 키워 오히려 탐지에 실패할 수 있고, 3표준편차 기준은 정규분포에 가까울 때만 뜻이 있다. 센서 고장이 자연현상처럼 보이기도 한다.",
+  "prompt": "너는 센서 로그에서 평소와 다른 구간을 찾아내는 이상 탐지 조교야.\n[센서와 설치 위치] {예: 실험실 창가 온습도 로거}\n[측정 간격과 기간] {예: 5분 간격, 2주}\n[열 이름과 단위] {예: time, temp_C, humidity_pct}\n[평소 패턴과 알려진 사건 기록] {예: 낮 25~28도, 3일차 창문 개방}\n이동평균·이동표준편차로 z-score를 구해 이상 구간을 표시하는 코드를 써줘.\n다음 순서로 정리해줘.\n1. 창 크기와 기준(예: |z|>3)을 정한 근거\n2. 코드와 이상 구간이 색칠된 그래프\n3. 이상 구간 목록(시작·끝·지속시간·최대 편차)\n4. 이상치가 표준편차를 키워 탐지에 실패하는 경우와 중앙값·MAD 대안\n5. 센서 고장·드리프트·결측과 실제 현상을 구분하는 확인 항목\nz-score 기준은 값이 대체로 정규분포일 때 쓰는 것이니, 그 가정이 깨져 보이면 그렇다고 말해줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "중급",
+  "name": "지연 상관 Lag 분석",
+  "goal": "한 변수 변화가 다른 변수에 시간차를 두고 영향을 주는지 본다.",
+  "data": "기상+대기질, 온도+전력, 자극+반응",
+  "use": "원인 후보와 반응 사이 지연이 있을 때",
+  "ai": "lag 변수 생성과 상관 비교 코드",
+  "human": "인과 과대해석을 피하고 외부 요인 고려",
+  "output": "지연별 상관표, 최적 lag 후보",
+  "caution": "추세나 일주기를 함께 가진 두 시계열은 관계가 없어도 상관이 높게 나온다. 여러 lag를 비교하면 우연히 높은 값이 나오므로, 상관이 커도 인과는 아니다.",
+  "prompt": "너는 두 시계열 사이의 시간차 관계를 살펴 주는 분석 코치야.\n[두 변수와 단위] {예: 일 평균기온 temp_C, 학교 전력사용량 kWh}\n[측정 간격과 기간] {예: 1시간 간격, 60일}\n[지연을 예상하는 이유] {예: 더워진 뒤 냉방이 켜지기까지 시간이 걸림}\n[샘플 10행] {붙여넣기}\nlag를 0부터 24까지 바꾸며 상관계수를 비교하는 pandas 코드를 써줘.\n다음 형식으로 답해줘.\n1. 두 자료의 시각을 맞추고 결측을 처리하는 방법\n2. lag별 상관표와 상관 곡선 그래프 코드\n3. 상관이 가장 큰 lag와 그 크기를 읽는 법\n4. 두 변수 모두 추세·일주기를 가질 때 상관이 부풀려지는 문제와 차분 등 확인법\n5. lag를 여러 개 비교하는 것 자체가 다중 비교라서 우연히 높은 값이 나오는 위험\n최적 lag를 찾았더라도 원인이라고 쓰면 안 되는 이유와, 공통 원인 후보를 함께 적어줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "심화",
+  "name": "계절성 분리",
+  "goal": "반복되는 주기와 장기 추세를 나눠 본다.",
+  "data": "일별·월별 공공데이터",
+  "use": "날씨, 전력, 교통, 대기질 분석",
+  "ai": "추세·주기·잔차 분해 절차 설명과 seasonal_decompose 예시 코드",
+  "human": "측정 기간이 충분한지 확인",
+  "output": "추세 그래프, 주기 패턴",
+  "caution": "주기를 2~3회 이상 담을 만큼 기간이 길지 않으면 계절성 추정을 믿기 어렵고, 분해 결과는 고른 주기를 가정한 값이다.",
+  "prompt": "너는 공공데이터의 주기와 장기 흐름을 갈라 주는 시계열 해설자야.\n[자료와 관측 기간] {예: 2019~2025년 일별 미세먼지 공공데이터}\n[측정 간격과 예상 주기] {예: 일 단위, 1년 주기 의심}\n[열 이름과 단위] {예: date, pm10_ugm3}\n[알고 싶은 것] {예: 계절 효과를 뺀 뒤에도 농도가 줄었는지}\nstatsmodels의 seasonal_decompose를 쓰는 방법과 이동평균으로 직접 분해하는 방법을 같이 알려줘.\n답은 이 순서로 써줘.\n1. 주기 길이를 정하는 근거와 필요한 최소 관측 기간\n2. 가법 모형과 승법 모형 중 무엇을 고를지\n3. 추세·주기·잔차 그래프를 만드는 코드\n4. 잔차에 패턴이 남았는지 확인하는 법\n5. 분해 결과로 말할 수 있는 것과 말할 수 없는 것\n관측 기간이 주기 2~3회분에 못 미치면 계절성 추정을 신뢰할 수 없다고 분명히 알려줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "심화",
+  "name": "간단 예측 모델",
+  "goal": "과거 값을 이용해 미래 값을 예측한다.",
+  "data": "시간 순서가 있는 수치 데이터",
+  "use": "단기 예측 또는 시나리오 비교",
+  "ai": "lag 특성 생성, 시간 순 분할과 기준 모형 비교 코드",
+  "human": "미래 정보가 학습에 섞이지 않도록 확인",
+  "output": "예측 그래프, 기준 모형 대비 MAE/RMSE",
+  "caution": "시계열을 무작위로 섞어 나누면 미래 정보가 학습에 새어 든다. 직전 값 유지 같은 기준 모형을 이기지 못하면 예측했다고 말할 수 없다.",
+  "prompt": "너는 시계열 예측을 처음 해 보는 학생을 이끄는 예측 모델 코치야.\n[예측 대상과 단위] {예: 다음 날 교실 최고기온 °C}\n[시간 간격과 총 관측 수] {예: 일 단위, 400일}\n[쓸 수 있는 입력 변수] {예: 전날 기온, 습도, 요일}\n[예측 지평] {예: 1일 뒤}\nlag 변수를 만들고 시간 순으로 나눠 학습하는 scikit-learn 코드를 써줘.\n다음 순서로 정리해줘.\n1. 뒤쪽 20%를 시험 구간으로 두는 시간 순 분할 코드\n2. lag·이동평균 특성을 만들 때 미래 값이 섞이지 않게 하는 방법\n3. 학습과 예측 코드, 실제값과 예측값 그래프\n4. 직전 값을 그대로 쓰는 기준 모형과 MAE·RMSE를 나란히 비교한 표\n5. 데이터 누수 점검 항목 목록\n기준 모형을 못 이기면 '예측에 성공했다'고 쓸 수 없다는 점을 결론에 넣고, 워크포워드로 여러 구간을 검증하는 방법도 짧게 알려줘."
+ },
+ {
+  "cat": "시계열·센서",
+  "level": "심화",
+  "name": "센서 캘리브레이션",
+  "goal": "저가 센서값을 기준 장비나 표준값에 맞게 보정한다.",
+  "data": "센서값 + 기준값",
+  "use": "아두이노, 스마트폰 센서, IoT 데이터",
+  "ai": "보정식 회귀와 보정 전후 오차 비교",
+  "human": "기준 장비의 신뢰도와 두 센서를 같은 조건에서 동시 측정했는지 확인",
+  "output": "보정식, 보정 전후 RMSE",
+  "caution": "보정 데이터 범위를 벗어난 값에 식을 적용하면 틀리고, 보정에 쓴 자료로 성능을 재면 오차가 실제보다 좋게 나온다.",
+  "prompt": "너는 저가 센서를 기준 장비에 맞추는 계측 보정 조교야.\n[센서와 기준 장비] {예: 아두이노 CO2 센서와 학교 보유 측정기}\n[동시 측정 조건과 표본 수] {예: 같은 위치·같은 시각, 5분 간격 300쌍}\n[열 이름과 단위] {예: sensor_ppm, reference_ppm}\n[실제로 쓸 측정 범위] {예: 400~1500ppm}\n보정식을 세우고 보정 전후 오차를 비교하는 코드를 써줘.\n아래 형식대로 답해줘.\n1. 두 값을 시각으로 맞추고 이상치를 걸러내는 방법\n2. 선형 보정식(기울기·절편)과 코드\n3. 보정에 쓰지 않은 구간으로 평가한 보정 전후 RMSE 표\n4. 잔차 그래프로 영점 치우침이나 드리프트를 확인하는 법\n5. 보정 범위 밖에 식을 쓰면 안 되는 이유\n보정에 쓴 자료로 성능까지 재면 오차가 실제보다 좋게 나온다는 점을 짚어주고, 관계가 곡선으로 보이면 직선식이 부적절하다고 말해줘."
+ },
+ {
+  "cat": "텍스트 분석",
+  "level": "기초",
+  "name": "키워드 빈도 분석",
+  "goal": "문서에서 자주 등장하는 단어를 세어 핵심 주제를 본다.",
+  "data": "기사 제목, 보고서 요약, 설문 서술형",
+  "use": "텍스트 데이터 첫 분석",
+  "ai": "형태소 분석기로 명사 추출, 불용어 제거, 빈도표와 막대그래프 코드",
+  "human": "토큰화 단위가 적절한지, 단어 의미가 맥락에 따라 다른지 원문으로 확인",
+  "output": "상위 키워드 표, 빈도 그래프",
+  "caution": "한국어는 형태소 분석 없이 세면 조사·어미 때문에 결과가 왜곡되고, 흔한 단어가 상위를 차지한다. 수집한 글은 이용약관·저작권을 지키고 작성자 식별 정보를 지운다.",
+  "prompt": "너는 한국어 텍스트를 처음 정리하는 학생을 돕는 텍스트 분석 조교야.\n[자료 출처와 수집 방법] {예: 학급 설문 서술형 응답 120건}\n[문서 수와 평균 길이] {예: 120건, 한 건 2~3문장}\n[샘플 텍스트 10건] {붙여넣기}\n[주제상 빼고 싶은 단어] {예: 설문, 응답, 생각}\n형태소 분석기로 명사를 뽑아 빈도표와 막대그래프를 만드는 코드를 써줘.\n다음 형식으로 답해줘.\n1. konlpy나 kiwipiepy로 명사를 추출하는 코드\n2. 불용어 목록을 정하는 기준과 적용 코드\n3. 상위 20개 빈도표와 그래프\n4. 어절 단위로 셌을 때와 형태소 단위로 셌을 때 결과 차이\n5. 흔한 단어가 상위를 차지해 생기는 착각과 보완책\n형태소 분석이 신조어나 띄어쓰기 오류에서 틀리는 사례를 예로 들어주고, 수집한 글은 이용약관·저작권을 지키고 작성자를 알 수 있는 정보는 지우라고 알려줘."
+ },
+ {
+  "cat": "텍스트 분석",
+  "level": "중급",
+  "name": "n-gram 분석",
+  "goal": "연속된 단어 묶음을 세어 표현 패턴을 찾는다.",
+  "data": "문장·기사·응답 텍스트",
+  "use": "단어 하나만으로 의미가 부족할 때",
+  "ai": "전처리와 2-gram·3-gram 빈도 계산 코드",
+  "human": "띄어쓰기와 형태소 처리 한계 인식",
+  "output": "상위 구문 목록",
+  "caution": "자동 토큰화 오류가 결과에 영향을 준다.",
+  "prompt": "너는 문장 속 표현 패턴을 찾아 주는 언어 데이터 조교야.\n[텍스트 종류와 건수] {예: 기사 제목 300개}\n[분석 단위] {예: 어절 기준, 또는 형태소 기준}\n[샘플 텍스트 10건] {붙여넣기}\n[찾고 싶은 표현] {예: '탄소 중립'처럼 붙어 다니는 말}\n2단어·3단어 묶음 빈도를 구하는 Python 코드를 써줘.\n답은 이 순서로 정리해줘.\n1. 전처리(특수문자·숫자·불용어)와 토큰화 코드\n2. collections.Counter로 n-gram을 세는 코드\n3. 상위 2-gram·3-gram 표\n4. 단어 하나만 셌을 때와 달라진 점\n5. 띄어쓰기 오류와 형태소 분석 실패가 결과를 바꾸는 사례\n몇 번 안 나온 구문은 우연일 수 있으니 최소 등장 횟수 기준을 먼저 정하자고 제안하고, 그 기준도 함께 적어줘."
+ },
+ {
+  "cat": "텍스트 분석",
+  "level": "중급",
+  "name": "TF-IDF",
+  "goal": "문서별로 특징적인 단어를 찾는다.",
+  "data": "여러 문서, 기사, 보고서 묶음",
+  "use": "단순 빈도보다 문서 차이를 보고 싶을 때",
+  "ai": "TF-IDF 벡터화 코드와 상위 단어 추출",
+  "human": "단어가 실제 주제를 대표하는지 검토",
+  "output": "문서별 특징어 표",
+  "caution": "문서가 짧거나 문서 수가 적으면 IDF가 불안정해 값이 흔들린다. 점수가 높다고 주제를 대표하는 말은 아니다.",
+  "prompt": "너는 문서마다 다른 특징어를 뽑아 주는 텍스트 분석 코치야.\n[문서 묶음의 종류와 개수] {예: 신문사별 사설 6묶음, 총 90건}\n[문서 하나의 평균 길이] {예: 800자}\n[토큰화 방법] {예: 형태소 분석기로 명사만}\n[비교하고 싶은 축] {예: 신문사별로 강조하는 말의 차이}\nscikit-learn의 TfidfVectorizer로 문서별 특징어를 뽑는 코드를 써줘.\n아래 형식대로 답해줘.\n1. 전처리와 벡터화 코드\n2. min_df·max_df를 정하는 기준\n3. 문서별 상위 10개 특징어 표\n4. 단순 빈도 상위와 TF-IDF 상위가 달라지는 이유\n5. 짧은 문서나 문서 수가 적을 때 값이 흔들리는 문제\nTF-IDF 점수가 높다고 그 단어가 주제를 대표한다고 단정하지 말고, 원문에서 확인할 문장을 함께 뽑아줘."
+ },
+ {
+  "cat": "텍스트 분석",
+  "level": "중급",
+  "name": "텍스트 군집화",
+  "goal": "비슷한 문서끼리 묶어 주제 유형을 찾는다.",
+  "data": "기사, 보고서, 설문 응답",
+  "use": "라벨이 없는 텍스트 묶음",
+  "ai": "TF-IDF와 K-means 군집화 절차, 군집 수 선택 근거 제시",
+  "human": "군집 이름을 원문 근거로 붙임",
+  "output": "문서 군집, 군집별 키워드",
+  "caution": "군집은 정답이 아니라 벡터화 방식·거리 척도·군집 수에 따라 바뀌는 결과다. 이름은 원문을 읽고 붙여야 한다.",
+  "prompt": "너는 라벨 없는 문서를 비슷한 것끼리 묶어 보게 안내하는 군집 분석 조교야.\n[문서 종류와 개수] {예: 학교 신문 기사 200건}\n[예상되는 주제 수] {예: 4~6개 정도}\n[토큰화 방법] {예: 형태소 분석기로 명사만}\n[샘플 문서 3건] {붙여넣기}\nTF-IDF 벡터와 K-means로 군집을 만드는 절차와 코드를 알려줘.\n다음 순서로 정리해줘.\n1. 벡터화 설정과 K-means 코드\n2. 군집 수 k를 실루엣 점수·엘보로 살펴보는 방법\n3. 군집별 상위 단어와 대표 문서 3건 뽑는 코드\n4. k를 바꿨을 때 군집이 얼마나 달라지는지 비교\n5. 군집 이름을 원문 근거로 붙이는 절차\n군집은 정답이 아니라 거리 척도와 k에 따라 달라지는 결과라는 점을 밝히고, 이 자료에 군집화가 잘 안 맞는 신호도 알려줘."
+ },
+ {
+  "cat": "텍스트 분석",
+  "level": "심화",
+  "name": "감성·태도 분류",
+  "goal": "문장에 나타난 긍정·부정·우려·찬성 등을 분류한다.",
+  "data": "설문 응답, 댓글, 기사 문장",
+  "use": "태도 변화 분석",
+  "ai": "분류 기준표 작성과 샘플 라벨링 보조",
+  "human": "모호한 문장은 사람이 직접 판단하고, 두 사람 라벨의 일치율을 확인",
+  "output": "범주별 빈도, 예시 문장",
+  "caution": "감성 사전과 AI 분류는 도메인·반어·부정 표현에 약해 그대로 정답으로 쓰면 안 된다. 응답은 익명 처리해 다룬다.",
+  "prompt": "너는 서술형 응답의 태도를 분류하는 작업을 설계해 주는 조교야.\n[응답 출처와 질문 문항] {예: 급식 만족도 설문의 자유 서술}\n[응답 수와 평균 길이] {예: 210건, 한두 문장}\n[쓰려는 범주와 정의] {예: 긍정·부정·중립·우려}\n[샘플 응답 20건] {붙여넣기}\n분류 기준표와 사람이 검증하는 절차를 만들어줘.\n다음 형식으로 답해줘.\n1. 범주별 정의와 판단 예시, 헷갈리는 경계 사례\n2. 한 문장에 두 태도가 섞였을 때의 처리 규칙\n3. 두 사람이 같은 표본 30건을 매기고 일치율을 확인하는 절차\n4. AI 1차 분류 뒤 사람이 검수할 표본 크기와 방법\n5. 반어, 부정 표현, 이 학교에서만 쓰는 말 때문에 틀리는 사례\n일반 감성사전은 이 자료의 말투와 맞지 않을 수 있으니 그대로 쓰면 안 되는 이유를 설명하고, 애매한 응답은 '판단 보류'로 남기는 규칙도 넣어줘."
+ },
+ {
+  "cat": "텍스트 분석",
+  "level": "중급",
+  "name": "문헌 요약 매트릭스",
+  "goal": "여러 논문·기사의 방법과 결과를 비교표로 정리한다.",
+  "data": "초록, 논문 요약, 기사 자료",
+  "use": "선행연구 정리 또는 자료조사",
+  "ai": "연구목적·자료·방법·결론 추출 표 생성",
+  "human": "원문을 대조해 왜곡 여부 확인",
+  "output": "문헌 비교표, 공통점·차이점",
+  "caution": "AI 요약은 초록에 없는 내용을 그럴듯하게 지어낼 수 있다. 표의 수치와 결론은 원문과 대조한 뒤 인용한다.",
+  "prompt": "너는 선행연구를 표로 정리해 주는 자료조사 도우미야.\n[탐구 주제와 알고 싶은 질문] {예: 도시 녹지가 기온을 낮추는가}\n[문헌 수와 출처] {예: 학술 검색으로 찾은 논문 초록 5편}\n[초록 전문] {붙여넣기}\n[비교하고 싶은 축] {예: 측정 방법과 대상 지역}\n초록을 비교해 표로 정리해줘.\n답은 이 순서로 써줘.\n1. 저자·연도·연구목적·자료·분석방법·주요 결과·한계 표\n2. 연구들의 공통점\n3. 결과가 서로 어긋나는 지점과 그 이유 추정\n4. 내 탐구에 바로 쓸 수 있는 방법과 그렇지 않은 방법\n5. 원문을 직접 확인해야 하는 문장 목록\n초록에 없는 내용은 절대 채우지 말고 '초록에 없음'이라고 적어줘. 추정한 부분은 추정이라고 표시하고, 수치는 내가 원문과 대조할 수 있게 그대로 옮겨줘."
+ },
+ {
+  "cat": "텍스트 분석",
+  "level": "기초",
+  "name": "질문 자동 생성",
+  "goal": "텍스트 자료에서 후속 분석 질문을 뽑아낸다.",
+  "data": "교과서, 기사, 보고서, 논문 요약",
+  "use": "자료 읽기 후 분석 방향 설정",
+  "ai": "개념 질문, 비교 질문, 데이터 질문 생성",
+  "human": "질문이 실제 데이터로 답 가능한지 판단",
+  "output": "후속 분석 질문 목록",
+  "caution": "질문 생성은 출발점일 뿐 검증 가능한 형태로 다시 고쳐야 한다.",
+  "prompt": "너는 자료를 읽고 탐구 질문을 뽑아 주는 연구 설계 파트너야.\n[자료 원문 또는 요약] {붙여넣기}\n[내가 모을 수 있는 데이터] {예: 학교 옥상 온습도 센서, 기상청 공공데이터}\n[기간과 도구 제약] {예: 4주, 스프레드시트와 Python}\n[관심 있는 방향] {예: 도시 열섬}\n이 자료에서 데이터로 답할 수 있는 분석 질문 10개를 만들어줘.\n다음 순서로 정리해줘.\n1. 질문 10개(비교·관계·변화·분류 유형을 섞어서)\n2. 질문마다 필요한 변수, 표본 수, 어울리는 분석법\n3. 내 제약 안에서 실행 가능성 상·중·하 표시\n4. 데이터로는 답할 수 없는 질문과 그 이유\n5. 가장 해볼 만한 질문 3개를 측정 가능한 문장으로 다시 쓴 것\n질문은 출발점일 뿐이니, 각 질문이 어떤 결과가 나오면 반박되는지도 한 줄씩 붙여줘."
+ },
+ {
+  "cat": "이미지 분석",
+  "level": "기초",
+  "name": "색상 평균 분석",
+  "goal": "이미지의 RGB, 밝기, 색상 비율을 수치화한다.",
+  "data": "식물 잎, 용액 색, 지표면 사진",
+  "use": "색 변화로 상태를 추정할 때",
+  "ai": "이미지 로드, RGB 평균, 히스토그램 코드",
+  "human": "촬영 조명·배경을 통제하고 카메라 자동 보정을 껐는지 확인",
+  "output": "색상 평균, 색상 분포 그래프",
+  "caution": "조명과 자동 화이트밸런스 차이가 색 변화처럼 보인다. 기준 색표 없이 찍은 사진끼리 색을 비교하면 결론이 흔들린다.",
+  "prompt": "너는 사진으로 색을 재는 실험을 돕는 이미지 측정 조교야.\n[촬영 대상과 비교 조건] {예: 농도별 용액 5종, 조건당 3장}\n[촬영 환경] {예: 같은 스탠드 조명, 거리 30cm, 흰 배경}\n[이미지 파일 목록과 장수] {예: sample_01.jpg ~ sample_15.jpg}\n[관심 영역 지정 방법] {예: 가운데 200x200 픽셀}\n관심 영역의 RGB 평균과 밝기를 계산해 조건별로 비교하는 코드를 써줘.\n아래 형식대로 답해줘.\n1. Pillow와 numpy로 이미지를 읽고 관심 영역을 자르는 코드\n2. RGB 평균·밝기와 함께 색상(HSV)도 구하는 코드\n3. 조건별 평균과 표준편차 표\n4. 색상 분포 히스토그램\n5. 촬영 전에 고정해야 할 조건 목록\n카메라의 자동 화이트밸런스와 자동 노출을 끄고 회색 카드나 색표를 함께 찍어야 하는 이유를 설명하고, 조명이 달라진 사진끼리 비교하면 왜 안 되는지도 알려줘."
+ },
+ {
+  "cat": "이미지 분석",
+  "level": "중급",
+  "name": "임계값 분할",
+  "goal": "밝기나 색 기준으로 관심 영역을 배경과 분리한다.",
+  "data": "현미경 이미지, 잎 면적, 얼룩, 물체 사진",
+  "use": "객체 면적이나 개수를 측정할 때",
+  "ai": "threshold 적용과 마스크 생성 절차",
+  "human": "임계값 선택 기준을 사진 예시로 검토",
+  "output": "마스크 이미지, 면적 비율",
+  "caution": "임계값을 사진마다 결과가 좋아 보이게 바꾸면 측정이 아니다. 기준은 데이터를 보기 전에 정하고 모든 사진에 똑같이 적용한다.",
+  "prompt": "너는 사진에서 관심 영역을 골라내는 영상처리 조교야.\n[이미지 종류와 촬영 조건] {예: 배양접시 사진, 동일 조명·정면}\n[분리하려는 대상] {예: 초록색 잎 부분}\n[이미지 장수와 해상도] {예: 30장, 1920x1080}\n[면적을 어디에 쓸지] {예: 조건별 잎 면적 비율 비교}\n임계값으로 대상을 배경과 분리해 면적 비율을 구하는 절차와 코드를 알려줘.\n다음 형식으로 답해줘.\n1. 흑백 변환·블러 같은 전처리 순서\n2. 고정 임계값, Otsu 자동 임계값, HSV 색 범위 중 무엇을 쓸지\n3. 마스크를 만들고 면적 비율을 계산하는 코드\n4. 임계값을 ±10% 바꿨을 때 면적이 얼마나 변하는 표\n5. 마스크를 원본 위에 겹쳐 눈으로 확인하는 방법\n임계값 기준은 결과를 보기 전에 정하고 모든 사진에 같은 규칙을 적용해야 하는 이유를 짚어주고, 자동 임계값이 실패하는 사진 유형도 알려줘."
+ },
+ {
+  "cat": "이미지 분석",
+  "level": "중급",
+  "name": "객체 계수",
+  "goal": "이미지 속 점, 세포, 입자, 씨앗 수를 센다.",
+  "data": "현미경 사진, 입자 사진, 씨앗 발아 사진",
+  "use": "반복 계수가 필요한 경우",
+  "ai": "이진화·라벨링·watershed 분리 절차와 코드 설명",
+  "human": "겹친 객체와 노이즈를 사람이 검토",
+  "output": "객체 수, 크기 분포",
+  "caution": "자동 계수는 수동 검증 샘플이 필요하다.",
+  "prompt": "너는 사진 속 개체 수를 세는 절차를 설계하는 영상분석 조교야.\n[세려는 대상과 촬영 방법] {예: 현미경 400배로 찍은 효모 세포}\n[한 장당 대략 개수와 겹침 정도] {예: 100~200개, 일부 붙어 있음}\n[이미지 장수와 형식] {예: 24장, PNG}\n[개체로 인정하는 기준] {예: 지름 5픽셀 이상인 둥근 형태}\n자동 계수 절차와 코드를 알려줘.\n답은 이 순서로 정리해줘.\n1. 전처리와 이진화, 모폴로지로 잡티를 지우는 코드\n2. skimage.measure.label로 개체를 라벨링하고 크기로 거르는 코드\n3. 붙어 있는 개체를 watershed로 나누는 방법\n4. 개체 수와 크기 분포 출력\n5. 사람이 직접 센 사진 몇 장과 비교해 오차율을 재는 검증 절차\n자동 계수가 과대·과소로 틀리는 원인을 사례로 들어주고, 검증 없이 숫자만 보고하면 안 되는 이유도 적어줘."
+ },
+ {
+  "cat": "이미지 분석",
+  "level": "중급",
+  "name": "면적·길이 측정",
+  "goal": "사진 속 대상의 크기를 픽셀에서 실제 단위로 변환한다.",
+  "data": "식물 길이, 결정 크기, 얼룩 면적",
+  "use": "성장, 확산, 침식 등 변화 측정",
+  "ai": "스케일바 또는 기준물 기반 변환식 안내",
+  "human": "카메라 각도와 기준물 위치 확인",
+  "output": "실제 길이·면적 측정값",
+  "caution": "기준자 없이 픽셀만으로 실제 크기를 말할 수 없다. 기준자는 대상과 같은 평면에 두고 촬영 거리·각도를 고정해야 한다.",
+  "prompt": "너는 사진을 실제 치수로 바꾸는 계측 안내자야.\n[측정 대상과 측정량] {예: 콩나물 줄기 길이, 잎 면적}\n[기준자 정보] {예: 대상 옆에 놓은 10cm 자}\n[촬영 조건] {예: 삼각대, 정면 수직, 거리 40cm 고정}\n[이미지 해상도와 장수] {예: 4032x3024, 20장}\n픽셀을 실제 단위로 환산하는 절차를 알려줘.\n다음 순서로 정리해줘.\n1. 기준자에서 1cm가 몇 픽셀인지 구하는 방법\n2. ImageJ의 Set Scale 사용 절차와 Python으로 하는 대안\n3. 길이와 면적 환산식(면적은 왜 제곱으로 나누는지)\n4. 같은 대상을 세 번 재서 측정 오차를 확인하는 방법\n5. 각도가 기울거나 기준자가 대상과 다른 평면에 있을 때 생기는 왜곡\n기준자 없이 픽셀만으로 실제 크기를 말할 수 없다는 점을 먼저 못 박고, 촬영 거리나 초점거리가 사진마다 다르면 비교가 성립하지 않는 이유도 알려줘."
+ },
+ {
+  "cat": "이미지 분석",
+  "level": "심화",
+  "name": "엣지 검출",
+  "goal": "경계선을 찾아 형태 변화를 분석한다.",
+  "data": "물체 윤곽, 균열, 해안선, 잎 가장자리",
+  "use": "형태와 경계 변화가 핵심일 때",
+  "ai": "윤곽 추출 개념과 전처리 제안",
+  "human": "노이즈와 그림자를 제거했는지 확인",
+  "output": "윤곽선, 경계 길이, 형태 지표",
+  "caution": "경계가 실제 물체인지 그림자인지 구분해야 하고, 둘레 값은 해상도와 평활 정도에 따라 달라져 같은 설정에서만 비교할 수 있다.",
+  "prompt": "너는 형태와 경계 변화를 수치로 바꾸는 이미지 형태 분석 조교야.\n[분석 대상과 경계의 의미] {예: 잎 가장자리, 갈라진 정도}\n[촬영 조건] {예: 검은 배경, 확산광, 동일 거리}\n[이미지 장수와 비교 조건] {예: 처리군·대조군 각 15장}\n[구하고 싶은 지표] {예: 둘레, 면적, 둥근 정도}\n윤곽선을 뽑아 형태 지표를 계산하는 절차와 코드를 알려줘.\n아래 형식대로 답해줘.\n1. 잡음과 그림자를 줄이는 전처리\n2. Canny의 두 임계값을 정하는 기준\n3. OpenCV findContours로 둘레·면적·원형도를 구하는 코드\n4. 추출한 윤곽을 원본에 겹쳐 확인하는 방법\n5. 해상도와 평활 정도에 따라 둘레 값이 달라지는 문제와 대응\n검출된 경계가 실제 물체인지 그림자·반사인지 가려내는 방법을 알려주고, 조건이 다른 사진끼리 둘레를 비교하면 안 되는 경우도 말해줘."
+ },
+ {
+  "cat": "이미지 분석",
+  "level": "심화",
+  "name": "타임랩스 이미지 분석",
+  "goal": "시간에 따른 이미지 변화를 수치화한다.",
+  "data": "식물 생장, 결정 성장, 확산 사진 연속",
+  "use": "영상 또는 시간순 사진 데이터",
+  "ai": "프레임별 특징 추출과 변화 그래프 코드",
+  "human": "촬영 위치와 조명 고정 여부 확인",
+  "output": "시간-면적/색/길이 그래프",
+  "caution": "카메라 위치·조명·촬영 간격이 흔들리면 그 자체가 변화처럼 나타난다. 사람이 찍힌 프레임은 초상권 때문에 분석·공개 전에 걸러야 한다.",
+  "prompt": "너는 시간순 사진에서 변화를 뽑아내는 타임랩스 분석 코치야.\n[촬영 대상과 간격, 총 장수] {예: 콩 발아, 30분 간격, 120장}\n[카메라 고정 여부] {예: 삼각대 고정, 실내 조명 상시}\n[측정할 지표] {예: 싹의 초록 영역 면적}\n[파일 이름 규칙] {예: img_0001.jpg 순서대로}\n프레임별 지표를 계산해 시간에 따른 변화 그래프를 만드는 절차와 코드를 알려줘.\n다음 형식으로 답해줘.\n1. 파일을 촬영 시각 순으로 정렬하고 시각을 읽는 방법\n2. 관심 영역을 모든 프레임에 같게 두는 방법과 어긋났을 때 맞추는 법\n3. 프레임별 지표 계산 코드\n4. 시간-지표 그래프와 변화가 빨라지는 구간 표시\n5. 촬영 간격이 일정하지 않을 때의 처리\n조명이 바뀐 구간을 표시해 실제 변화와 구분하게 해주고, 사람이 찍힌 프레임이 있으면 초상권 때문에 분석 전에 걸러야 한다고 알려줘."
+ },
+ {
+  "cat": "이미지 분석",
+  "level": "심화",
+  "name": "이미지 분류 기초",
+  "goal": "사진을 유형별로 자동 분류하는 모델의 원리를 이해한다.",
+  "data": "라벨 있는 이미지 데이터",
+  "use": "정상/이상, 종류 분류 등",
+  "ai": "훈련/검증 분리, 특징 추출, 평가 지표 안내",
+  "human": "라벨 품질과 데이터 편향 확인",
+  "output": "혼동행렬, 정밀도·재현율, 오분류 사례",
+  "caution": "클래스가 불균형하면 정확도만으로는 성능을 알 수 없고, 같은 대상을 찍은 사진이 훈련·시험에 나뉘면 성능이 부풀려진다. 사진이 적으면 규칙 기반 분석이 더 낫다.",
+  "prompt": "너는 소규모 이미지 분류 프로젝트를 설계해 주는 멘토야.\n[분류 목적과 클래스] {예: 잎의 병징 있음·없음}\n[클래스별 사진 수] {예: 있음 60장, 없음 240장}\n[촬영 방법] {예: 스마트폰, 같은 배경과 거리}\n[쓸 수 있는 도구] {예: Python, scikit-learn, 노트북}\n학교에서 할 수 있는 규모로 절차를 설계해줘.\n답은 이 순서로 써줘.\n1. 클래스별 최소 장수와 촬영 계획\n2. 라벨 기준 문서와 두 사람 라벨 일치율 확인 절차\n3. 같은 개체를 찍은 사진이 훈련·시험에 나뉘지 않게 하는 그룹 단위 분할\n4. 사진이 적을 때 규칙 기반 특징(색·면적)과 학습 모델 중 무엇을 고를지\n5. 혼동행렬·정밀도·재현율로 평가하는 법과 정확도만 보면 안 되는 이유\n6. 오분류 사진을 다시 보며 배경이나 촬영 조건을 학습한 건 아닌지 점검하는 방법\n사람이 찍혔거나 남의 사진을 쓸 때 초상권·저작권을 어떻게 확인할지도 짚어줘."
+ },
+ {
+  "cat": "공간·네트워크",
+  "level": "기초",
+  "name": "위치 데이터 지도화",
+  "goal": "측정 지점을 지도나 좌표평면에 표시한다.",
+  "data": "위도·경도, 장소명, GPS 로그",
+  "use": "환경 측정, 통학로, 지역 비교",
+  "ai": "좌표계 확인과 변환, 지도 시각화 코드 제안",
+  "human": "개인 위치가 특정되지 않는지 확인하고 좌표계·기준 연도 표기",
+  "output": "측정 지점 지도, 위치별 값",
+  "caution": "개인 이동경로는 구역 단위로 묶어 익명화해야 한다. 좌표계(EPSG)와 기준 연도를 밝히지 않으면 위치가 어긋나거나 다른 자료와 비교할 수 없다.",
+  "prompt": "너는 좌표 데이터를 지도로 옮기는 공간 분석 안내자야.\n[좌표 열과 좌표계] {예: lat, lon, WGS84(EPSG:4326)}\n[측정값 열과 단위] {예: pm10_ugm3}\n[측정 시기와 지점 수] {예: 2026년 4월, 24개 지점}\n[개인정보 위험 여부] {예: 학생 통학로 기록 포함}\n다음 형식으로 나눠서 답해줘.\n1. 좌표계 확인과 필요한 변환 절차\n2. folium이나 matplotlib으로 지점을 찍고 값에 따라 색을 입히는 코드\n3. 색 구간을 등간격으로 할지 분위로 할지에 따라 인상이 달라지는 점\n4. 개인 위치가 역추적되지 않게 구역 단위로 묶는 방법\n5. 지점 수가 적을 때 지도만 보고 단정하지 않을 기준\n6. 지도에 반드시 표기할 자료 출처·기준 연도·좌표계"
+ },
+ {
+  "cat": "공간·네트워크",
+  "level": "중급",
+  "name": "거리 기반 분석",
+  "goal": "학교, 도로, 공원 등 기준점과의 거리가 결과에 미치는 영향을 본다.",
+  "data": "좌표 + 측정값",
+  "use": "소음, 대기질, 접근성 분석",
+  "ai": "좌표계 변환과 거리 계산, 산점도·회귀 코드 제안",
+  "human": "거리 외 요인을 함께 고려",
+  "output": "거리-결과 관계 그래프",
+  "caution": "가까움이 원인을 의미하지는 않는다. 위도·경도를 그대로 좌표평면처럼 빼서 거리를 구하면 위도에 따라 경도 1도의 실제 길이가 달라 거리가 왜곡된다.",
+  "prompt": "너는 거리와 결과의 관계를 조심스럽게 다루는 환경 데이터 코치야.\n[측정 지점 좌표와 좌표계] {예: lat, lon, EPSG:4326}\n[거리를 잴 기준 대상] {예: 왕복 4차선 도로 중심선}\n[결과 변수와 단위] {예: noise_dB, 지점마다 3회 평균}\n[함께 기록한 교란 요인] {예: 시간대, 차량 통행량, 건물 높이}\n다음 형식으로 차례대로 답해줘.\n1. 위도·경도로 유클리드 거리를 바로 계산하면 안 되는 이유와 대안(하버사인 공식 또는 투영좌표 EPSG:5179)\n2. 거리 계산 코드\n3. 거리와 결과의 산점도, 회귀 결과\n4. 소음처럼 거리의 로그에 가깝게 줄어드는 값의 모형 검토\n5. 거리 말고 결과를 설명할 수 있는 교란 요인 목록\n6. 인과로 읽히지 않게 쓴 결론 문장"
+ },
+ {
+  "cat": "공간·네트워크",
+  "level": "중급",
+  "name": "공간 격자화",
+  "goal": "지역을 일정 격자로 나눠 평균값을 비교한다.",
+  "data": "지역별 측정값, 좌표 데이터",
+  "use": "열섬, 미세먼지, 소음 지도 만들기",
+  "ai": "격자 평균과 히트맵 생성 아이디어",
+  "human": "격자 크기 선택 근거를 밝히고, 격자당 표본 수가 충분한지 확인",
+  "output": "공간 히트맵, 격자별 평균",
+  "caution": "격자 크기와 경계를 바꾸면 패턴이 달라진다(수정 가능 면적 단위 문제). 격자 평균으로 그 안의 개인을 추론하면 생태학적 오류이고, 지도는 총량보다 비율·밀도로 그려야 규모 효과에 속지 않는다.",
+  "prompt": "너는 집계 단위가 결론을 바꾼다는 점을 짚어주는 공간 통계 조교야.\n[좌표와 측정값 열] {예: lat, lon, temp_C}\n[대상 지역 범위와 기준 연도] {예: 학교 반경 2km, 2026년}\n[시도할 격자 크기] {예: 100m, 250m, 500m}\n[격자당 최소 표본 수 기준] {예: 3개 미만이면 표시하지 않음}\n다음 형식으로 정리해 답해줘.\n1. 좌표를 투영좌표로 바꾸고 격자에 배정하는 코드\n2. 격자별 평균과 표본 수 표\n3. 격자 크기 3가지로 만든 히트맵 비교\n4. 격자 크기와 경계를 바꾸면 패턴이 달라지는 문제(수정 가능 면적 단위) 설명\n5. 격자 평균으로 개인을 추론하면 생태학적 오류가 되는 예\n6. 표본이 적은 격자를 지도에서 어떻게 처리할지"
+ },
+ {
+  "cat": "공간·네트워크",
+  "level": "심화",
+  "name": "공간 자기상관 사고",
+  "goal": "가까운 지역의 값이 서로 비슷한지 확인한다.",
+  "data": "지역 단위 통계, 환경 관측값",
+  "use": "공간 패턴의 군집 여부 설명",
+  "ai": "Moran's I 개념과 해석 안내",
+  "human": "이웃 정의와 행정구역 경계, 기준 연도를 명확히 기록",
+  "output": "공간 군집 여부 판단",
+  "caution": "이웃을 어떻게 정의하느냐에 따라 결과가 달라지므로 정의와 근거를 반드시 밝힌다. 지역 단위 결과를 개인에게 적용하면 생태학적 오류가 된다.",
+  "prompt": "너는 '가까운 곳끼리 닮는가'를 따져보게 하는 공간 패턴 안내자야.\n[분석 단위와 기준 연도] {예: 시군구, 2025년}\n[값과 단위] {예: 연평균 PM10 ㎍/㎥}\n[이웃을 정의하는 방식] {예: 경계를 맞댄 지역 / 반경 10km / 가장 가까운 5곳}\n[단위 개수] {예: 17개 시도}\n다음 형식으로 빠짐없이 답해줘.\n1. 공간 자기상관을 고등학생 언어로 설명\n2. 이웃 정의를 바꾸면 결과가 달라지는 이유\n3. Moran's I를 쓸 때 값을 무작위로 섞은 경우와 비교해 해석하는 법\n4. 단위 개수가 적을 때 단정하면 안 되는 이유\n5. 계산까지 못 하더라도 지도와 이웃 평균 비교로 확인하는 대안\n6. 여기서 이어질 수 있는 탐구 질문 3개"
+ },
+ {
+  "cat": "공간·네트워크",
+  "level": "중급",
+  "name": "네트워크 중심성",
+  "goal": "연결망에서 중요한 노드나 허브를 찾는다.",
+  "data": "친구관계, 교통, 인용, 정보 흐름 네트워크",
+  "use": "관계 데이터 분석",
+  "ai": "노드·엣지 표 구성과 중심성 개념 설명",
+  "human": "개인관계 데이터는 동의와 익명화 필요",
+  "output": "중심 노드, 연결 구조 그림",
+  "caution": "중심성이 높다고 가치가 높다는 뜻은 아니다. 연결·매개·근접은 서로 다른 것을 재고, 조사 범위(경계)를 어디까지로 잡느냐에 따라 순위가 크게 달라진다.",
+  "prompt": "너는 관계 데이터를 조심스럽게 다루는 네트워크 분석 조교야.\n[노드와 엣지의 의미] {예: 노드=학급 학생, 엣지=같은 조로 활동한 경험}\n[방향과 가중치 여부] {예: 무방향, 가중치 없음}\n[네트워크 경계] {예: 우리 반 28명만, 반 밖 관계는 제외}\n[개인정보 처리 방식] {예: 이름 대신 익명 번호, 사전 동의}\n다음 형식으로 답해줘.\n1. networkx로 그래프를 만들고 그리는 코드\n2. 연결·매개·근접 중심성이 각각 무엇을 뜻하는지 이 데이터 맥락으로 설명\n3. 세 지표의 상위 노드 비교표\n4. 경계를 바꾸면(다른 반까지 포함) 중심성 순위가 달라지는 점\n5. 중심성이 높다는 것과 영향력·가치가 다른 이유\n6. 개인이 특정되지 않게 결과를 제시하는 방법"
+ },
+ {
+  "cat": "공간·네트워크",
+  "level": "심화",
+  "name": "경로 최적화 기초",
+  "goal": "여러 지점 방문 순서나 이동 비용을 줄이는 방법을 탐색한다.",
+  "data": "좌표, 거리, 시간 비용",
+  "use": "통학로, 센서 배치, 배송 경로 문제",
+  "ai": "완전탐색이 가능한 규모 판단, 탐욕 알고리즘과 2-opt 같은 개선법 설명",
+  "human": "안전·현실 제약을 함께 반영",
+  "output": "추천 경로, 비용 비교",
+  "caution": "최단거리가 항상 최선은 아니다. 완전탐색은 지점이 늘면 경우의 수가 폭발해 10곳 안팎까지만 가능하고, 탐욕 알고리즘은 최적해를 보장하지 않는다.",
+  "prompt": "너는 알고리즘의 한계까지 같이 알려주는 탐색 문제 코치야.\n[방문 지점 좌표와 개수] {예: 측정 지점 8곳, 위도·경도}\n[비용 기준] {예: 도보 이동 시간(분)}\n[출발과 복귀 조건] {예: 학교에서 출발해 학교로 돌아옴}\n[현실 제약] {예: 횡단보도만 이용, 야간 이동 제외}\n다음 형식으로 나눠서 답해줘.\n1. 완전탐색으로 풀 수 있는 지점 수의 한계와 계산량\n2. 최근접 이웃(탐욕) 알고리즘 Python 코드\n3. 2-opt 같은 개선 절차와 결과 비교표\n4. 탐욕 해가 최적이 아닐 수 있음을 보여주는 예\n5. 직선거리 대신 실제 도로 거리를 써야 하는 이유\n6. 안전·시간 제약을 넣으면 최단 경로가 최선이 아닌 이유"
+ },
+ {
+  "cat": "최적화·시뮬레이션",
+  "level": "기초",
+  "name": "격자 탐색 Grid Search",
+  "goal": "여러 조건 조합을 체계적으로 비교해 최적 조건을 찾는다.",
+  "data": "조건 조합과 결과값",
+  "use": "온도·농도·시간 등 실험 조건 최적화",
+  "ai": "조건표 생성, 결과 랭킹 코드",
+  "human": "순위 차이가 오차 범위 안인지, 최적 조건 주변을 추가 실험할지 판단",
+  "output": "조건별 성능표, 최적 조건",
+  "caution": "측정하지 않은 범위까지 최적이라고 말하면 안 된다. 반복 측정 없이 1회 값으로 순위를 매기면 측정 오차를 최적 조건으로 착각한다.",
+  "prompt": "너는 실험 조건 최적화를 돕는 탐구 설계 코치야.\n[조건 변수와 수준] {예: 온도 20/30/40℃, pH 5/7/9, 반응시간 5/10/20분}\n[결과 변수와 단위] {예: absorbance_change_per_min}\n[조합당 반복 측정 횟수] {예: 조합마다 3회}\n[조건-결과 표] {붙여넣기}\n조합별 평균과 표준편차를 계산해 상위 조건을 정리하는 pandas 코드를 만들어줘.\n다음 형식으로 답해줘.\n1. 총 조합 수와 실제로 측정한 조합 확인\n2. 조합별 평균·표준편차 계산 코드\n3. 상위 5개 조건 표\n4. 순위 차이가 측정 오차 범위 안이라 뒤바뀔 수 있는 조합 지적\n5. 측정하지 않은 구간까지 최적이라고 말하면 안 되는 이유\n6. 다음에 어느 구간을 촘촘히 재실험할지 제안"
+ },
+ {
+  "cat": "최적화·시뮬레이션",
+  "level": "중급",
+  "name": "민감도 분석",
+  "goal": "입력값이 조금 바뀔 때 결과가 얼마나 달라지는지 확인한다.",
+  "data": "모델식, 시뮬레이션, 계산 지표",
+  "use": "어떤 변수가 중요한지 파악",
+  "ai": "변수별 변화 범위와 결과 그래프 생성",
+  "human": "변화 범위가 현실적인지 판단",
+  "output": "민감도 그래프, 핵심 변수",
+  "caution": "입력 범위를 비현실적으로 잡으면 결론이 왜곡된다. 한 번에 한 변수만 바꾸는 방식은 변수 사이의 상호작용을 잡아내지 못한다.",
+  "prompt": "너는 모형의 가정을 따져 묻는 시뮬레이션 검토자야.\n[모델식 또는 계산 절차] {예: 냉방 전력 = 면적 × 사용시간 × 단위전력 × 효율계수}\n[입력 변수의 기준값과 단위] {예: 효율계수 0.8, 면적 60㎡}\n[변수별 현실적 변동 범위와 근거] {예: 효율계수 0.7~0.9, 기기 사양서}\n다음 형식으로 나눠서 답해줘.\n1. 변수별 변동 범위와 근거 정리표\n2. 한 번에 한 변수만 바꾸는 민감도 계산 코드와 토네이도 그래프(matplotlib)\n3. 여러 변수를 동시에 흔들었을 때와의 결과 차이\n4. 결과를 크게 바꾸는 변수 순위\n5. 한 번에 한 변수만 바꿀 때 놓치는 상호작용\n6. 모델식 자체가 현실과 어긋날 가능성과 확인 방법"
+ },
+ {
+  "cat": "최적화·시뮬레이션",
+  "level": "중급",
+  "name": "몬테카를로 시뮬레이션",
+  "goal": "불확실한 입력값을 여러 번 무작위로 뽑아 결과 분포를 본다.",
+  "data": "오차 범위가 있는 계산 모델",
+  "use": "측정 오차가 결론에 미치는 영향 분석",
+  "ai": "무작위 샘플링과 결과 분포 코드",
+  "human": "입력 분포 가정의 타당성과 반복 횟수·시드 기록 확인",
+  "output": "결과 분포, 위험 확률",
+  "caution": "분포 가정이 틀리면 시뮬레이션도 틀린다. 시드를 기록하지 않으면 결과를 재현할 수 없고, 시뮬레이션 분포를 실제 미래 예측처럼 제시하면 안 된다.",
+  "prompt": "너는 불확실성을 확률분포로 다루는 시뮬레이션 조교야.\n[계산식과 최종 출력값] {예: 밀도 = 질량 / 부피}\n[각 입력의 측정값과 오차] {예: 질량 12.40±0.05 g, 부피 5.2±0.1 mL}\n[가정할 분포와 그 근거] {예: 정규분포, 반복 측정 표준편차 기준}\n[반복 횟수] {예: 10000회}\nnumpy로 난수 시드를 고정해 재현되는 코드를 써줘.\n다음 형식으로 차례대로 답해줘.\n1. 입력 분포 설정과 시드 고정 코드\n2. 반복 실행 코드와 결과 히스토그램\n3. 평균, 표준편차, 2.5~97.5% 구간\n4. 이 값은 예측이 아니라 가정한 분포에서 나온 결과라는 점을 담은 해석 문장\n5. 분포를 균등분포로 바꾸면 결과가 얼마나 달라지는지"
+ },
+ {
+  "cat": "최적화·시뮬레이션",
+  "level": "중급",
+  "name": "파라미터 피팅",
+  "goal": "실험 데이터에 가장 잘 맞는 모델식의 상수를 찾는다.",
+  "data": "시간-농도, 냉각곡선, 성장곡선",
+  "use": "이론식과 실험값 비교",
+  "ai": "최소제곱 피팅 개념과 코드 제안",
+  "human": "상수의 단위와 물리적 의미 확인",
+  "output": "피팅 곡선, 추정 파라미터",
+  "caution": "데이터에만 잘 맞고 원리상 말이 안 될 수 있다. 비선형 피팅은 초기값에 따라 다른 해로 수렴하고, 파라미터가 많은 모델일수록 R²가 자동으로 커진다.",
+  "prompt": "너는 이론식과 실험값을 맞춰보는 물리·화학 데이터 코치야.\n[이론식과 파라미터의 물리적 의미] {예: C = C0·exp(-k·t), k는 반응속도상수(1/분)}\n[측정 데이터 열과 단위] {예: time_min, conc_mM}\n[표본 수와 반복 여부] {예: 12개 시점, 3회 반복}\nscipy.optimize.curve_fit으로 피팅하는 코드를 써줘.\n다음 형식으로 정리해 답해줘.\n1. 피팅 코드와 초기값을 정하는 방법\n2. 추정 파라미터, 표준오차, 단위\n3. 잔차 그래프로 본 계통적 편차 여부\n4. 후보 모델을 R² 하나로 고르면 안 되는 이유\n5. 추정된 상수가 물리적으로 말이 되는 범위인지 점검 질문\n6. 측정 범위 밖으로 외삽하면 위험한 이유"
+ },
+ {
+  "cat": "최적화·시뮬레이션",
+  "level": "심화",
+  "name": "시나리오 비교",
+  "goal": "정책이나 설계 선택에 따라 결과가 어떻게 달라지는지 비교한다.",
+  "data": "공공데이터, 계산 모델, 가정표",
+  "use": "에너지 절감, 탄소 배출, 예산 배분",
+  "ai": "시나리오 표와 계산식 구조 제안",
+  "human": "가정이 현실적인지 출처 확인",
+  "output": "시나리오별 결과표, 의사결정 근거",
+  "caution": "가정을 숨기면 결론을 검증할 수 없다. 시나리오 결과는 가정이 맞을 때의 계산 결과일 뿐 미래 예측이 아니다.",
+  "prompt": "너는 가정을 숨기지 않고 표에 드러내는 시나리오 분석 조력자야.\n[비교할 시나리오 3개] {예: 현행 유지 / LED 전면 교체 / 교체+사용시간 단축}\n[공통 계산식과 변수] {예: 연간 전력량 = 기기 수 × 소비전력 × 사용시간}\n[가정값과 출처] {예: 하루 사용 6시간, 학교 시설 대장}\n다음 형식으로 빠짐없이 답해줘.\n1. 가정을 모두 드러낸 시나리오별 입력표\n2. 계산식과 시나리오 결과 비교표\n3. 결과 막대그래프 코드(matplotlib)\n4. 가정값을 ±20% 흔들었을 때 시나리오 순위가 바뀌는지\n5. 출처가 불확실한 가정은 '추정'으로 따로 표시\n6. 이 비교가 미래 예측이 아니라 조건부 계산이라는 점을 밝힌 문장"
+ },
+ {
+  "cat": "최적화·시뮬레이션",
+  "level": "심화",
+  "name": "선형계획법 개념",
+  "goal": "제약조건 안에서 목적함수를 최대화·최소화한다.",
+  "data": "자원 배분, 혼합 비율, 시간표 문제",
+  "use": "최적화 사고를 보여주고 싶을 때",
+  "ai": "목적함수와 제약조건 작성 보조",
+  "human": "제약조건이 현실과 맞는지 검토",
+  "output": "최적해, 제약조건 표",
+  "caution": "제약조건과 목적함수가 현실과 맞을 때만 최적해가 의미를 가진다. 변수가 2개면 그래프로, 더 많으면 scipy.optimize.linprog 같은 무료 도구로 풀 수 있다.",
+  "prompt": "너는 현실 문제를 목적함수와 제약식으로 옮겨주는 수학 튜터야.\n[결정 변수와 단위] {예: x=상추 재배 면적(㎡), y=방울토마토 면적(㎡)}\n[최대화 또는 최소화할 목적] {예: 예상 수확량 합 최대화}\n[제약조건과 근거 수치] {예: 총면적 40㎡ 이하, 주당 급수 200L 이하}\n변수가 2개면 그래프 해법으로, 더 많으면 scipy.optimize.linprog로 푸는 법을 알려줘.\n다음 형식으로 답해줘.\n1. 목적함수와 제약식 수식화\n2. 그래프 해법 또는 linprog 코드\n3. 최적해와 그때 남는 자원\n4. 투입과 산출이 비례한다는 선형 가정이 깨지는 상황\n5. 제약 하나를 조금 완화하면 답이 얼마나 달라지는지\n6. 제약조건이 현실과 어긋나면 최적해가 의미를 잃는 이유"
+ },
+ {
+  "cat": "최적화·시뮬레이션",
+  "level": "심화",
+  "name": "디지털 트윈 기초",
+  "goal": "현실 시스템의 간단한 계산 모델을 만들어 조건 변화를 실험한다.",
+  "data": "학교 전력, 실내 온도, 물 순환, 교통 흐름",
+  "use": "실험하기 어려운 시스템을 모델로 비교",
+  "ai": "모델 변수, 입력, 출력, 검증 방법 구조화",
+  "human": "모델이 단순화한 부분을 명확히 기록",
+  "output": "시뮬레이션 모델, 조건별 결과",
+  "caution": "모델은 현실의 축소판이므로 한계를 반드시 써야 한다.",
+  "prompt": "너는 현실을 단순한 계산 모델로 옮기는 모델링 멘토야.\n[모델링할 시스템과 목적] {예: 교실 온도, 환기 시각 정하기}\n[입력 변수와 단위] {예: 외기온 ℃, 재실 인원, 창문 개폐 0/1}\n[출력과 시간 간격] {예: 실내온 ℃, 5분 간격}\n[검증에 쓸 실측 데이터] {붙여넣기}\n다음 형식으로 나눠서 답해줘.\n1. 모델 구조(입력→상태→출력)와 사용할 식\n2. 일부러 무시한 요소 목록과 그 이유\n3. Python 시뮬레이션 코드\n4. 실측값과 비교한 오차 지표와 그래프\n5. 모델이 잘 맞지 않는 조건 구간\n6. 이 모델로 말할 수 있는 것과 말할 수 없는 것"
+ },
+ {
+  "cat": "설명가능성·검증",
+  "level": "기초",
+  "name": "모델 성능 지표 선택",
+  "goal": "문제 목적에 맞는 평가 지표를 고른다.",
+  "data": "예측·분류 모델 결과",
+  "use": "모델 결과를 보고서에 쓸 때",
+  "ai": "회귀/분류별 지표 추천과 해석",
+  "human": "어떤 오류가 더 중요한지 판단",
+  "output": "MAE·RMSE·R²(회귀), 정밀도·재현율·F1(분류) 등 목적에 맞는 지표 조합",
+  "caution": "지표 하나로 모델을 평가하지 않는다. 클래스가 불균형하면 정확도가 높아도 소수 집단을 전혀 못 맞힐 수 있고, R²는 정확도가 아니라 설명된 분산의 비율이다.",
+  "prompt": "너는 목적에 맞는 평가 지표를 골라주는 모델 평가 조교야.\n[문제 유형] {예: 회귀 / 이진분류 / 다중분류}\n[예측 대상과 단위] {예: 다음날 미세먼지 농도(㎍/㎥)}\n[클래스 비율 또는 목표값 분포] {예: 나쁨 8% : 보통 92%}\n[어떤 오류가 더 곤란한지] {예: 나쁨을 놓치는 쪽이 더 위험}\n다음 형식으로 차례대로 답해줘.\n1. 이 문제에 맞는 주지표 1개와 보조지표 2개, 고른 이유\n2. 각 지표의 계산식과 단위\n3. scikit-learn으로 계산하는 코드\n4. 위 클래스 비율에서 정확도만 보면 안 되는 이유를 숫자로 보여줘\n5. R²를 '정확도'라고 쓰면 왜 틀린 표현인지\n6. 지표 값을 보고서 문장으로 옮긴 예시"
+ },
+ {
+  "cat": "설명가능성·검증",
+  "level": "중급",
+  "name": "교차검증 리포트",
+  "goal": "모델 성능의 평균과 흔들림을 함께 제시한다.",
+  "data": "예측 모델",
+  "use": "성능 신뢰도 표현",
+  "ai": "fold별 점수와 평균±표준편차 표 생성",
+  "human": "분할이 데이터 구조(반복 측정·시간 순서·집단)를 깨지 않는지, 전처리가 fold 안에서 이뤄졌는지 확인",
+  "output": "교차검증 표, 신뢰도 해석",
+  "caution": "표준화나 변수 선택을 교차검증 밖에서 먼저 하면 데이터 누수가 생겨 점수가 부풀려진다. 평균이 높아도 fold 간 편차가 크면 안정성이 낮다.",
+  "prompt": "너는 성능 수치의 흔들림까지 함께 보고하게 하는 검증 코치야.\n[데이터 구조] {예: 학생 30명 × 5회 반복 측정, 같은 학생이 여러 행}\n[표본 수와 분할 방식] {예: n=150, 5-fold}\n[전처리 단계] {예: 표준화, 결측 대체}\n[사용할 모델] {예: 랜덤포레스트}\n다음 형식으로 정리해 답해줘.\n1. 이 데이터에 맞는 분할 방법 추천(그룹·층화·시간 순 중에서)\n2. 전처리를 Pipeline 안에 넣어 누수를 막는 scikit-learn 코드\n3. fold별 점수표와 평균±표준편차\n4. 표준편차가 클 때 의심할 것\n5. fold 점수의 표준편차를 성능의 불확실성으로 그대로 읽으면 안 되는 이유\n6. 교차검증 결과를 보고서에 쓸 때의 한계 문장"
+ },
+ {
+  "cat": "설명가능성·검증",
+  "level": "중급",
+  "name": "변수 중요도",
+  "goal": "모델이 어떤 변수를 많이 사용했는지 확인한다.",
+  "data": "트리 기반 모델, 회귀 모델",
+  "use": "모델 해석과 후속 실험 설계",
+  "ai": "검증 세트 기준 순열 중요도 계산과 막대그래프 코드",
+  "human": "예측 기여도와 원인 효과를 구분하고, 모델 성능이 해석할 만한 수준인지 먼저 확인",
+  "output": "중요도 순위, 해석 문장",
+  "caution": "중요도는 인과관계 증거가 아니다. 순열 중요도는 훈련 세트가 아니라 검증 세트에서 계산해야 하고, 트리 내장 중요도는 값의 종류가 많은 변수를 과대평가한다.",
+  "prompt": "너는 모델 해석과 인과 주장을 갈라주는 분석 검토자야.\n[모델 종류와 검증 성능] {예: 랜덤포레스트 분류, 검증 F1=0.74}\n[변수 목록과 단위] {예: 기온℃, 습도%, 요일(범주)}\n[상관이 높은 변수 쌍] {예: 기온과 지면온도 r=0.92}\n[훈련/검증 분할 방식] {예: 8:2 층화 분할}\n다음 형식으로 빠짐없이 답해줘.\n1. 검증 세트에서 계산하는 순열 중요도 코드\n2. 중요도 막대그래프와 상위 변수 정리\n3. 트리 내장 중요도가 값의 종류가 많은 변수에 유리해지는 문제\n4. 상관 높은 변수끼리 중요도가 나뉘는 현상과 대처\n5. 모델 성능이 낮으면 중요도 해석 자체가 무의미한 이유\n6. '중요도가 높다=원인이다'가 아님을 밝힌 보고서 문장"
+ },
+ {
+  "cat": "설명가능성·검증",
+  "level": "심화",
+  "name": "부분의존도 사고",
+  "goal": "한 변수를 바꿀 때 예측값이 어떻게 변하는지 본다.",
+  "data": "머신러닝 모델",
+  "use": "비선형 모델 해석",
+  "ai": "부분의존도 개념과 그래프 생성 안내",
+  "human": "다른 변수와의 상호작용을 함께 보고, 모델 성능이 해석할 만한지 먼저 확인",
+  "output": "변수-예측 변화 그래프",
+  "caution": "상관된 변수에서는 현실에 없는 조합까지 평균에 들어가 해석이 왜곡된다. 부분의존도는 모델이 무엇에 반응하는지를 보여줄 뿐 인과 효과가 아니다.",
+  "prompt": "너는 비선형 모델의 반응을 그림으로 읽어주는 해석 도우미야.\n[모델과 검증 성능] {예: 랜덤포레스트 회귀, 검증 R²=0.71}\n[살펴볼 변수와 범위] {예: 기온 -5~35℃}\n[함께 볼 상호작용 변수] {예: 습도}\n[변수 간 상관] {예: 기온-습도 r=-0.6}\n다음 형식으로 답해줘.\n1. scikit-learn PartialDependenceDisplay로 그리는 코드\n2. ICE 곡선을 함께 그려 개체별 차이를 확인하는 법\n3. 그래프에서 읽히는 패턴 서술\n4. 상관된 변수 탓에 실제로 존재하지 않는 조합까지 평균에 들어가는 위험\n5. 모델 성능이 낮으면 이 그래프 해석이 의미 없는 이유\n6. 이것이 인과 효과가 아니라 모델의 반응이라는 점을 밝힌 문장"
+ },
+ {
+  "cat": "설명가능성·검증",
+  "level": "중급",
+  "name": "오차 분석",
+  "goal": "예측이 크게 빗나간 사례를 찾아 원인을 추적한다.",
+  "data": "예측값과 실제값",
+  "use": "모델 개선과 한계 작성",
+  "ai": "잔차 큰 행 추출, 공통 특징 요약",
+  "human": "측정 오류, 누락 변수, 특수 조건 확인",
+  "output": "오차 상위 사례표, 원인 후보",
+  "caution": "평균 오차만 보면 특정 조건의 실패를 놓친다. 오차 분석은 검증 세트에서 하고, 시험 세트를 보며 모델을 고치면 성능이 실제보다 좋아 보인다.",
+  "prompt": "너는 모델이 실패한 지점을 파고드는 오류 추적 조교야.\n[예측값·실제값 열 이름] {예: y_true, y_pred}\n[함께 볼 설명 변수] {예: 측정일, 장소, 측정자}\n[어느 세트의 결과인지] {예: 검증 세트 40행}\n[허용 가능한 오차 크기] {예: ±2℃까지는 괜찮음}\n다음 형식으로 나눠서 답해줘.\n1. 잔차 계산과 오차 상위 10개 사례 추출 pandas 코드\n2. 잔차 대 예측값 산점도에서 보이는 패턴\n3. 오차가 큰 사례들의 공통 조건 요약표\n4. 측정 오류·기록 오류인지 확인할 점검 목록\n5. 시험 세트를 보고 모델을 고치면 성능이 부풀려지는 이유\n6. 보고서에 쓸 '이 모델이 약한 조건' 문장"
+ },
+ {
+  "cat": "설명가능성·검증",
+  "level": "심화",
+  "name": "외부 검증",
+  "goal": "다른 시간·장소·집단 데이터에서도 모델이 작동하는지 확인한다.",
+  "data": "추가 데이터, 다른 기간 공공데이터",
+  "use": "모델 일반화 주장 전",
+  "ai": "외부 검증 데이터 설계와 성능 비교표",
+  "human": "훈련 데이터와 다른 조건을 명확히 기록",
+  "output": "내부/외부 성능 비교",
+  "caution": "외부 검증이 없으면 일반화 주장이 약하다. 외부 데이터를 보며 모델이나 설정을 조정하면 그 순간 외부 검증이 아니게 된다.",
+  "prompt": "너는 일반화 주장을 까다롭게 확인하는 검증 설계자야.\n[원래 데이터의 시기·장소·대상] {예: 2025년 우리 학교 3개 학급}\n[외부 검증에 쓸 데이터] {예: 2024년 인근 학교 공개자료}\n[두 데이터의 다른 점] {예: 측정 기기, 학년 구성}\n[비교할 성능 지표] {예: RMSE, F1}\n다음 형식으로 차례대로 답해줘.\n1. 변수 이름·단위·정의를 맞추는 절차\n2. 외부 데이터를 학습이나 모델 조정에 쓰지 않게 하는 코드 구조\n3. 내부/외부 성능 비교표\n4. 성능이 떨어졌을 때 원인 후보(분포 차이, 정의 차이, 과적합) 구분법\n5. 검증 결과에 맞춰 범위를 좁힌 일반화 주장 문장\n6. 외부 데이터가 없을 때 쓸 수 있는 차선책"
+ },
+ {
+  "cat": "설명가능성·검증",
+  "level": "심화",
+  "name": "AI 답변 검증 루틴",
+  "goal": "AI가 만든 코드와 해석의 오류를 체계적으로 검토한다.",
+  "data": "AI 생성 코드, 분석 결과, 해석문",
+  "use": "AI를 분석 보조로 사용할 때마다",
+  "ai": "체크리스트와 반례 질문 생성",
+  "human": "코드 실행 결과와 원자료를 직접 대조하고, 무엇을 고쳤는지 기록",
+  "output": "검증 체크리스트, 수정 로그",
+  "caution": "AI 답변은 권위가 아니라 초안이다.",
+  "prompt": "너는 AI가 낸 답을 완성본이 아니라 초안으로 취급하는 깐깐한 검토 파트너야.\n[검증할 대상] {붙여넣기: AI가 만든 코드 또는 해석문}\n[내 데이터의 실제 조건] {예: n=42, 결측 3행, 단위 ℃}\n[내가 이미 확인한 것] {예: 코드는 오류 없이 실행됨}\n다음 형식으로 정리해 답해줘.\n1. 데이터·코드·통계·해석·윤리 5개 영역 점검 항목\n2. 항목마다 무엇을 보면 통과인지 판정 기준\n3. 오류 없이 실행되면서도 조용히 틀릴 수 있는 지점(단위, 결측 처리, 인덱스, 정렬)\n4. 해석문에서 인과나 일반화가 과장된 문장 지적\n5. 내가 직접 실행해 확인할 반례 질문 3개\n6. 근거를 못 찾은 부분은 '확인 불가'로 표시해줘"
+ },
+ {
+  "cat": "자동화·보고",
+  "level": "기초",
+  "name": "분석 계획서 자동 초안",
+  "goal": "데이터 목표와 분석법을 한 장 계획서로 정리한다.",
+  "data": "분석 전 정보",
+  "use": "분석 시작 단계",
+  "ai": "목표, 변수, 방법, 산출물 구조화",
+  "human": "실현 가능성과 자료 접근성 판단",
+  "output": "분석 계획서",
+  "caution": "AI 초안을 그대로 제출하지 말고 실제 데이터 조건과 학교에서 가능한 규모에 맞춰 고쳐야 한다. 계획서에 데이터 수집 기간과 전처리 기준을 함께 적어 둔다.",
+  "prompt": "너는 탐구 시작 단계를 정리해주는 분석 기획 멘토야.\n[탐구 질문] {예: 등굣길 소음이 시간대에 따라 다른가}\n[확보했거나 확보할 데이터] {예: 소음계 측정, 하루 3개 시간대 × 2주}\n[변수와 단위] {예: dB, 시간대, 지점}\n[제약 조건] {예: 소음계 1대, 4주 안에 마무리}\n다음 형식으로 빠짐없이 답해줘.\n1. 검증 가능한 형태로 다듬은 탐구 질문\n2. 필요한 변수와 표본 수, 지금 부족한 부분\n3. 후보 분석법 2~3개와 선택 이유\n4. 예상 산출물(표·그래프·보고서 문장)\n5. 이 계획이 실패할 수 있는 지점과 대비책\n6. 확인이 필요한 가정은 '가정'이라고 표시해줘"
+ },
+ {
+  "cat": "자동화·보고",
+  "level": "중급",
+  "name": "코드 주석 생성",
+  "goal": "분석 코드의 목적과 흐름을 이해하기 쉽게 설명한다.",
+  "data": "Python 코드",
+  "use": "코드 제출·공유 전",
+  "ai": "셀별 주석과 함수 설명 생성",
+  "human": "주석이 코드 동작과 일치하는지 확인",
+  "output": "주석 달린 코드",
+  "caution": "주석이 코드의 실제 동작과 어긋날 수 있으므로 실행 결과로 확인해야 한다. 직접 설명하지 못하는 코드는 보고서에 넣지 않는다.",
+  "prompt": "너는 코드를 학생의 말로 풀어주는 프로그래밍 튜터야.\n[분석 코드] {붙여넣기}\n[이 코드로 답하려는 질문] {예: 학급별 평균 점수에 차이가 있는가}\n[데이터 구조] {예: 120행, 열은 class, score}\n[내가 이해하지 못한 부분] {예: groupby 다음의 agg}\n다음 형식으로 답해줘.\n1. 코드 전체 흐름을 4~5단계로 요약\n2. 줄마다 주석을 단 전체 코드\n3. 각 단계가 분석에서 맡은 역할\n4. 내가 이해 못 한 부분을 작은 예시 숫자로 풀이\n5. 이 코드가 조용히 잘못될 수 있는 조건(결측, 자료형, 정렬)\n6. 주석이 실제 동작과 맞는지 내가 확인하는 방법"
+ },
+ {
+  "cat": "자동화·보고",
+  "level": "중급",
+  "name": "그래프 캡션 작성",
+  "goal": "그래프가 말하는 핵심을 한두 문장으로 정리한다.",
+  "data": "분석 그래프",
+  "use": "보고서와 발표 자료 작성",
+  "ai": "그래프 제목, 축, 단위, 핵심 패턴 문장 제안",
+  "human": "그래프가 실제 수치를 정확히 반영하는지 확인",
+  "output": "그래프 캡션, 해석 문장",
+  "caution": "그래프 해석은 관찰과 추론을 구분해야 한다. 축 시작점을 0이 아닌 값으로 두거나 색 구간을 바꾸면 실제보다 큰 차이로 보인다.",
+  "prompt": "너는 그림 하나로 사실을 정확히 전달하게 돕는 보고서 편집자야.\n[그래프 종류와 축·단위] {예: 상자그림, x=학급, y=점수(점)}\n[표본 수와 결측] {예: 학급당 30명, 결측 2명}\n[그림에서 읽히는 수치] {예: A반 중앙값 72, B반 65}\n[이 그림을 넣을 위치] {예: 결과 2절}\n다음 형식으로 나눠서 답해줘.\n1. 그림 번호와 한 줄 제목\n2. 무엇을 어떻게 측정한 그림인지 밝힌 캡션\n3. 관찰된 사실만 담은 문장\n4. 해석(추론)임이 드러나게 쓴 문장\n5. 이 그림만으로는 말할 수 없는 것\n6. 축 범위나 색 때문에 차이가 과장돼 보이지 않는지 점검"
+ },
+ {
+  "cat": "자동화·보고",
+  "level": "중급",
+  "name": "결과 해석 문장화",
+  "goal": "분석 결과를 수치 근거가 있는 문장으로 바꾼다.",
+  "data": "통계표, 모델 결과",
+  "use": "보고서 결과·논의 작성",
+  "ai": "수치 기반 해석문, 한계 문장 제안",
+  "human": "과장 표현과 인과 표현 검토",
+  "output": "결과 문단, 한계 문단",
+  "caution": "수치 없는 '유의미하다'는 표현은 피한다. p값이 작다는 것은 차이가 크다는 뜻이 아니므로 효과 크기와 신뢰구간을 함께 적어야 한다.",
+  "prompt": "너는 수치 근거 없는 문장을 잡아내는 결과 서술 코치야.\n[분석 결과표] {붙여넣기: 통계량, p값, 효과 크기, 신뢰구간}\n[표본 수와 집단 구성] {예: A반 30명, B반 28명}\n[사용한 분석 방법] {예: 독립표본 t검정}\n[탐구 질문] {예: 두 학급의 점수 차이가 있는가}\n다음 형식으로 차례대로 답해줘.\n1. 수치와 단위를 넣은 결과 문장 3개\n2. 통계적 유의성과 차이의 크기를 구분해 쓴 문장\n3. 신뢰구간으로 불확실성을 드러낸 문장\n4. 관찰 자료이므로 인과 대신 관계로 쓴 표현\n5. 한계 문단(표본, 측정 방법, 일반화 범위)\n6. 근거 없는 단정 표현이 있으면 지적하고 대안 문장 제시"
+ },
+ {
+  "cat": "자동화·보고",
+  "level": "심화",
+  "name": "분석 로그 작성",
+  "goal": "AI 사용 과정과 사람의 판단을 투명하게 기록한다.",
+  "data": "프롬프트, 코드, 수정 기록",
+  "use": "AI 활용 보고서 작성",
+  "ai": "프롬프트-응답-검증-수정 기록 양식",
+  "human": "어떤 결정을 사람이 했는지 명확히 쓰고, 난수 시드·라이브러리 버전·데이터 수집일·전처리 기준을 직접 기록",
+  "output": "AI 활용 기록표",
+  "caution": "AI가 한 일과 학생이 한 일을 구분하지 않으면 신뢰가 떨어진다. 특정 모델명·버전에 매이기보다 사용한 도구와 사용 시점, 재현에 필요한 조건을 남기는 것이 중요하다.",
+  "prompt": "너는 남이 그대로 재현할 수 있게 기록을 남기도록 요구하는 연구 기록 관리자야.\n[탐구 주제] {예: 교실 이산화탄소 농도와 환기 시간}\n[AI를 사용한 단계] {예: 코드 초안 작성, 그래프 개선}\n[사용한 도구와 버전] {예: 사용한 AI 도구 이름과 사용 시점, Python 3.12, pandas 2.2}\n[데이터 수집일과 전처리 기준] {예: 2026-03-02~03-20 측정, 결측 3행 제외}\n다음 형식으로 정리해 답해줘.\n1. 날짜·목적·입력 데이터·프롬프트·AI 제안·내 검증·수정·최종 반영 열을 가진 기록표 양식\n2. AI가 한 일과 내가 한 일을 나눠 적은 예시 2행\n3. 재현에 필요한 항목 목록(난수 시드, 라이브러리 버전, 수집일, 전처리 기준)\n4. AI 문장을 그대로 쓰지 않고 고친 흔적을 남기는 방법\n5. 보고서 끝에 붙일 AI 활용 명시 문장 예시"
+ },
+ {
+  "cat": "자동화·보고",
+  "level": "심화",
+  "name": "발표 질문 생성",
+  "goal": "분석 과정에서 받을 수 있는 질문을 미리 점검한다.",
+  "data": "완성된 분석 보고서",
+  "use": "발표·면접 대비",
+  "ai": "방법, 데이터, 해석, 한계 질문 생성",
+  "human": "질문마다 원자료와 수치를 직접 확인해 답변을 준비",
+  "output": "예상 질문, 답변 키워드",
+  "caution": "답변 암기가 아니라 분석 근거 이해가 중요하다.",
+  "prompt": "너는 발표장에서 나올 날카로운 질문을 미리 던지는 심사자 역할이야.\n[보고서 요약] {붙여넣기}\n[분석 방법과 표본 수] {예: 단순회귀, n=58}\n[내가 약하다고 느끼는 부분] {예: 표본이 우리 반뿐}\n[발표 시간과 대상] {예: 7분, 교내 발표}\n다음 형식으로 빠짐없이 답해줘.\n1. 데이터 품질 질문 3개\n2. 분석법 선택 질문 3개\n3. 결과 해석 질문 3개\n4. 한계와 일반화 질문 3개\n5. 후속 탐구 질문 3개\n6. 질문마다 답변에 반드시 들어가야 할 수치나 근거 키워드\n모범 답안을 대신 써주지 말고 근거 키워드까지만 알려줘."
+ },
+ {
+  "cat": "자동화·보고",
+  "level": "심화",
+  "name": "동료 검토 프롬프트",
+  "goal": "분석의 약점을 찾기 위해 비판적 검토를 요청한다.",
+  "data": "보고서 초안, 코드, 그래프",
+  "use": "제출 전 최종 점검",
+  "ai": "검토자 역할 프롬프트와 루브릭 생성",
+  "human": "AI 지적사항 중 타당한 것만 반영",
+  "output": "수정 체크리스트",
+  "caution": "AI의 비판도 틀릴 수 있으므로 근거를 확인한다.",
+  "prompt": "너는 제출 전에 약점을 먼저 찾아주는 엄격한 심사 위원이야.\n[보고서 초안] {붙여넣기}\n[분석 코드와 그래프 설명] {붙여넣기}\n[데이터 출처와 표본 수] {예: 공공데이터포털 2025년 자료, n=1204}\n[내가 이미 아는 약점] {예: 결측 처리 근거가 부족함}\n다음 형식으로 답해줘.\n1. 데이터·전처리·분석법·그래프·해석·윤리 항목별 문제점\n2. 문제마다 심각도(치명/보통/사소)와 그렇게 본 근거\n3. 구체적인 수정안\n4. 잘된 점 2가지\n5. 지적 중 내가 원자료로 직접 확인해야 할 항목 표시\n6. 근거가 불확실한 지적은 '확인 필요'라고 적어줘"
+ }
+]
+</script>
 
 
 <script>
@@ -3475,12 +4958,18 @@ function renderMethods() {
       <h3>${highlightHTML(m.name, q)}</h3>
       <p>${highlightHTML(m.goal, q)}</p>
       <div class="pill-row"><span class="pill">${escapeHTML(m.data)}</span></div>
-      <button onclick="openMethod(${methods.indexOf(m)})" aria-label="${escapeHTML(m.name)} 자세히 보기">자세히 보기 →</button>
+      <div class="card-foot">
+        <button onclick="openMethod(${methods.indexOf(m)})" aria-label="${escapeHTML(m.name)} 자세히 보기">자세히 보기 →</button>
+        <button class="cmp-btn${compareIdx.includes(methods.indexOf(m)) ? ' on' : ''}" onclick="event.stopPropagation();toggleCompare(${methods.indexOf(m)})" aria-label="비교함에 담기" title="비교함에 담기 (최대 3개)">⇄</button>
+      </div>
     </article>`).join('');
+  renderLibSummary(filtered);
+  syncFilterUrl();
 }
 
 function openMethod(i) {
   const m = methods[i];
+  currentMethodIdx = i;
   modalTitle.textContent = m.name;
   modalPills.innerHTML = `<span class="pill blue">${escapeHTML(m.cat)}</span><span class="pill green">${escapeHTML(m.level)}</span>`;
   modalBody.innerHTML = `
@@ -3494,12 +4983,65 @@ function openMethod(i) {
     </div>
     <h3 style="color:var(--navy);margin:18px 0 8px">복사해서 쓰는 AI 요청문</h3>
     <div class="modal-prompt" id="modalPrompt">${escapeHTML(m.prompt)}</div>
-    <button class="copy" style="margin-top:10px" onclick="copyText(document.getElementById('modalPrompt').textContent)">📋 프롬프트 복사</button>`;
+    <div class="slot-actions">
+      <button class="copy" onclick="copyText(document.getElementById('modalPrompt').textContent)">📋 프롬프트 복사</button>
+      <button class="copy" onclick="toggleCompare(${i})">⇄ 비교함에 담기</button>
+    </div>
+    ${slotFillerHTML(m)}`;
   modal.classList.add('show');
   document.body.style.overflow = 'hidden';
-  // 첫 포커스를 닫기 버튼에 두기
   setTimeout(() => document.getElementById('modalClose').focus(), 50);
 }
+
+/* ── 프롬프트 슬롯 채우기 ─────────────────────────────────
+   재작성된 프롬프트는 "[항목] {예: …}" 꼴의 빈칸을 갖는다.
+   학생이 자기 데이터를 채우면 완성된 프롬프트를 만들어 준다. */
+function parseSlots(prompt) {
+  const out = [];
+  const re = /\[([^\]\n]+)\]\s*(?:\{([^}]*)\})?/g;
+  let mm;
+  while ((mm = re.exec(prompt)) !== null) {
+    const label = mm[1].trim();
+    if (out.some(s => s.label === label)) continue;
+    out.push({ label, hint: (mm[2] || '').trim(), raw: mm[0] });
+  }
+  return out;
+}
+function slotFillerHTML(m) {
+  const slots = parseSlots(m.prompt);
+  if (!slots.length) return '';
+  const rows = slots.map((s, k) => `
+    <div class="slot-row">
+      <label for="slot${k}">${escapeHTML(s.label)}</label>
+      <textarea id="slot${k}" data-label="${escapeHTML(s.label)}" rows="1"
+        placeholder="${escapeHTML(s.hint || '내 데이터에 맞게 적어 주세요')}"></textarea>
+    </div>`).join('');
+  return `<div class="slot-fill">
+      <h4>✍️ 빈칸을 채워 완성된 프롬프트 만들기</h4>
+      <p class="sf-hint">아래 칸에 내 탐구 데이터를 적으면 위 요청문의 <b>[ ]</b> 자리를 바꿔 완성본을 만들어 줍니다. 비워 두면 원래 안내 문구가 그대로 남습니다.</p>
+      ${rows}
+      <div class="slot-actions">
+        <button class="copy" onclick="buildFilledPrompt(true)">✨ 완성본 만들어 복사</button>
+        <button class="copy" onclick="buildFilledPrompt(false)">미리 보기</button>
+      </div>
+      <div class="modal-prompt" id="filledPrompt" style="display:none;margin-top:12px"></div>
+    </div>`;
+}
+function buildFilledPrompt(doCopy) {
+  const m = methods[currentMethodIdx];
+  if (!m) return;
+  const slots = parseSlots(m.prompt);
+  let text = m.prompt;
+  slots.forEach((s, k) => {
+    const el = document.getElementById('slot' + k);
+    const v = el && el.value.trim();
+    if (v) text = text.split(s.raw).join(`[${s.label}] ${v}`);
+  });
+  const box = document.getElementById('filledPrompt');
+  if (box) { box.textContent = text; box.style.display = 'block'; }
+  if (doCopy) copyText(text);
+}
+
 window.openMethod = openMethod;
 
 function closeModal() {
@@ -3520,7 +5062,145 @@ searchInput.addEventListener('input', () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(renderMethods, 150);
 });
+
+/* ===================== v2: 비교 담기 · 요약 · URL · 단축키 ===================== */
+let currentMethodIdx = -1;
+const CMP_KEY = 'aiprompt_compare';
+const compareIdx = (function () {
+  try { const v = JSON.parse(localStorage.getItem(CMP_KEY)); return Array.isArray(v) ? v.slice(0, 3) : []; }
+  catch (e) { return []; }
+})();
+function saveCompare() { try { localStorage.setItem(CMP_KEY, JSON.stringify(compareIdx)); } catch (e) {} }
+function toggleCompare(i) {
+  const k = compareIdx.indexOf(i);
+  if (k >= 0) compareIdx.splice(k, 1);
+  else {
+    if (compareIdx.length >= 3) { showToast('비교함은 최대 3개까지 담을 수 있습니다'); return; }
+    compareIdx.push(i);
+  }
+  saveCompare();
+  updateCompareUI();
+  if (document.getElementById('compareModal').classList.contains('show')) renderCompare();
+}
+function updateCompareUI() {
+  document.getElementById('cmpCount').textContent = compareIdx.length;
+  document.getElementById('cmpTray').classList.toggle('show', compareIdx.length > 0);
+  document.getElementById('cmpItems').innerHTML = compareIdx.map(i => {
+    const m = methods[i]; if (!m) return '';
+    return `<span><i>${escapeHTML(m.name)}</i><button type="button" data-del="${i}" aria-label="빼기">×</button></span>`;
+  }).join('');
+  document.querySelectorAll('.cmp-btn').forEach(b => {
+    const oc = b.getAttribute('onclick') || '';
+    const mm = oc.match(/toggleCompare\((\d+)\)/);
+    if (mm) b.classList.toggle('on', compareIdx.includes(Number(mm[1])));
+  });
+}
+const CMP_ROWS = [
+  ['분류·수준', m => `${m.cat} · ${m.level}`],
+  ['무엇을 하나', m => m.goal],
+  ['언제 쓰나', m => m.use],
+  ['데이터 형태', m => m.data],
+  ['AI에게 맡길 일', m => m.ai],
+  ['학생이 검증할 일', m => m.human],
+  ['산출물', m => m.output],
+  ['주의점', m => m.caution]
+];
+function renderCompare() {
+  const list = compareIdx.map(i => methods[i]).filter(Boolean);
+  const body = document.getElementById('compareBody');
+  if (!list.length) { body.innerHTML = '<p style="color:#64748b">비교함이 비어 있습니다. 카드의 ⇄ 버튼으로 담아 보세요.</p>'; return; }
+  const head = list.map(m => `<th scope="col"><b style="display:block;color:var(--navy);margin-bottom:5px">${escapeHTML(m.name)}</b><span class="pill blue">${escapeHTML(m.cat)}</span></th>`).join('');
+  const rows = CMP_ROWS.map(([label, get]) => {
+    const vals = list.map(get).map(v => String(v == null ? '' : v));
+    const same = vals.every(v => v === vals[0]);
+    const cls = (!same && vals.length > 1) ? ' class="cmp-diff"' : '';
+    return `<tr><th scope="row">${escapeHTML(label)}</th>${vals.map(v => `<td${cls}>${escapeHTML(v)}</td>`).join('')}</tr>`;
+  }).join('');
+  body.innerHTML = `<div class="cmp-wrap"><table class="cmp-table"><thead><tr><th scope="col" style="width:118px">항목</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+function openCompare() {
+  if (!compareIdx.length) { showToast('먼저 카드의 ⇄ 버튼으로 분석법을 담아 주세요'); return; }
+  renderCompare();
+  document.getElementById('compareModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeCompare() {
+  document.getElementById('compareModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.getElementById('cmpItems').addEventListener('click', e => {
+  const b = e.target.closest('[data-del]'); if (b) toggleCompare(Number(b.dataset.del));
+});
+document.getElementById('cmpOpenBtn').addEventListener('click', openCompare);
+document.getElementById('cmpClose').addEventListener('click', closeCompare);
+document.getElementById('compareModal').addEventListener('click', e => { if (e.target.id === 'compareModal') closeCompare(); });
+document.getElementById('cmpClearBtn').addEventListener('click', () => { compareIdx.length = 0; saveCompare(); updateCompareUI(); closeCompare(); });
+document.getElementById('cmpCopyBtn').addEventListener('click', () => {
+  const list = compareIdx.map(i => methods[i]).filter(Boolean);
+  if (!list.length) return;
+  const lines = ['■ AI 데이터 분석법 비교', '', ...list.map((m, i) => `${i + 1}. ${m.name}`), ''];
+  CMP_ROWS.forEach(([label, get]) => {
+    lines.push(`[${label}]`);
+    list.forEach((m, i) => lines.push(`  ${i + 1}) ${get(m)}`));
+    lines.push('');
+  });
+  lines.push('출처: AI 데이터 분석 방법 가이드 (jinhak.esteacher.kr/ai_prompt.html)');
+  copyText(lines.join('\n'));
+});
+
+/* 현재 필터 결과 요약 */
+function renderLibSummary(list) {
+  const el = document.getElementById('libSummary');
+  if (!el) return;
+  if (!list || !list.length) { el.innerHTML = ''; return; }
+  const parts = [];
+  ['기초', '중급', '심화'].forEach(lv => {
+    const n = list.filter(m => m.level === lv).length;
+    if (n) parts.push(`<span class="lib-stat">${lv} <b>${n}</b></span>`);
+  });
+  const cats = {};
+  list.forEach(m => { cats[m.cat] = (cats[m.cat] || 0) + 1; });
+  Object.entries(cats).sort((a, b) => b[1] - a[1]).slice(0, 4)
+    .forEach(([k, v]) => parts.push(`<span class="lib-stat">${escapeHTML(k)} <b>${v}</b></span>`));
+  el.innerHTML = parts.join('');
+}
+
+/* 필터를 주소에 반영해 그대로 공유·복원되게 한다 */
+let urlSyncReady = false;
+function syncFilterUrl() {
+  if (!urlSyncReady) return;
+  const p = new URLSearchParams();
+  const q = searchInput.value.trim();
+  if (q) p.set('q', q);
+  if (catFilter.value !== 'all') p.set('c', catFilter.value);
+  if (levelFilter.value !== 'all') p.set('l', levelFilter.value);
+  const qs = p.toString();
+  history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+}
+(function restoreFromUrl() {
+  const p = new URLSearchParams(location.search);
+  if (p.get('q')) searchInput.value = p.get('q');
+  const set = (el, v) => { if (v && [...el.options].some(o => o.value === v)) el.value = v; };
+  set(catFilter, p.get('c'));
+  set(levelFilter, p.get('l'));
+  urlSyncReady = true;
+})();
+
+/* 검색 단축키 */
+document.addEventListener('keydown', e => {
+  const tag = (e.target.tagName || '').toLowerCase();
+  const typing = tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable;
+  if (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey) {
+    e.preventDefault();
+    searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => searchInput.focus(), 320);
+  }
+  if (e.key === 'Escape' && document.getElementById('compareModal').classList.contains('show')) closeCompare();
+});
+
 renderMethods();
+updateCompareUI();
+
 
 // ==================== 프롬프트 라이브러리 필터 ====================
 const promptCards = Array.from(document.querySelectorAll('.prompt-card.pro'));
