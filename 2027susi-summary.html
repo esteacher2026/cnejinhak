@@ -92,7 +92,7 @@ main{padding-top:18px}
 .dmeta{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--sub)}
 .dmeta b{color:var(--txt);font-weight:600}
 /* 고정 섹션 목차 */
-.toc{position:sticky;top:47px;z-index:40;display:flex;flex-wrap:wrap;gap:5px;margin:14px -8px 6px;padding:8px;
+.toc{position:sticky;top:var(--stickyTop,47px);z-index:40;display:flex;flex-wrap:wrap;gap:5px;margin:14px -8px 6px;padding:8px;
   background:rgba(255,255,255,.96);backdrop-filter:blur(3px);border-bottom:1px solid var(--line);border-radius:0 0 10px 10px}
 .toc button{border:1px solid var(--line);background:var(--chip);border-radius:8px;padding:3px 9px;
   font-size:12.5px;color:var(--sub);font-weight:600;line-height:1.5}
@@ -157,7 +157,7 @@ details.card .cbody{border-top:1px solid var(--line);padding:12px 16px}
 .cmphead h2{font-size:19px;color:var(--brand)}
 .cmpgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
 .cmpcol{border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
-.cmpcol .cname{background:var(--brand);color:#fff;font-weight:800;padding:8px 12px;font-size:14.5px;position:sticky;top:88px;z-index:5}
+.cmpcol .cname{background:var(--brand);color:#fff;font-weight:800;padding:8px 12px;font-size:14.5px;position:sticky;top:var(--stickyToc,88px);z-index:5}
 .cmpcol.b .cname{background:#3f6ab0}
 .cmpcol .cbody{padding:10px 12px}
 .cmpcol .cbody p{margin:6px 0;white-space:pre-wrap;word-break:keep-all}
@@ -200,8 +200,11 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0;font-size
   .top h1{font-size:18.5px}
   .cmpgrid{grid-template-columns:1fr}
   .cmpcol .cname{position:static}
-  .toc{top:44px}
   #toList.avail{display:block}
+  /* 모바일: 섹션 목차를 가로 스크롤 한 줄로 (세로 점유 최소화) */
+  .toc{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .toc button{flex:none;white-space:nowrap}
+  .toc .expall{margin-left:4px;order:-1}
 }
 @media print{
   .tabbar,.filterbar,.ulist,.gres,.home-btn,.dbtns,.toc,#toTop,#toList,.recent{display:none!important}
@@ -584,9 +587,21 @@ function selectUni(i, sec){
   }
   if(window.innerWidth<=860) el.scrollIntoView({behavior:'smooth'});
   updateToList();
+  updateSticky();
 }
+/* sticky 오프셋: 탭바가 좁은 화면에서 2줄로 늘어나도 목차가 가려지지 않게 실측 반영 */
+const STICKY = {top:47, toc:88};
+function updateSticky(){
+  const tb = document.querySelector('.tabbar');
+  STICKY.top = (tb ? tb.getBoundingClientRect().height : 44) + 3;
+  document.documentElement.style.setProperty('--stickyTop', STICKY.top+'px');
+  const toc = document.querySelector('.toc');
+  STICKY.toc = STICKY.top + (toc ? toc.getBoundingClientRect().height : 41) + 4;
+  document.documentElement.style.setProperty('--stickyToc', STICKY.toc+'px');
+}
+window.addEventListener('resize', debounce(updateSticky,150));
 function scrollToSec(d){
-  const y = d.getBoundingClientRect().top + window.scrollY - 96;
+  const y = d.getBoundingClientRect().top + window.scrollY - (STICKY.toc + 8);
   window.scrollTo({top:y, behavior:'smooth'});
 }
 function shortTitle(n){
@@ -630,7 +645,7 @@ function renderCompare(a, b, sec){
     '<span><b>'+esc(ua.name)+'</b> vs <b>'+esc(ub.name)+'</b></span>'+
     '<button class="tbtn" id="cmpSwap">⇄ 좌우 교체</button>'+
     '<button class="tbtn" id="cmpExit">✕ 비교 종료</button></div>';
-  h += '<div class="toc" style="top:47px">';
+  h += '<div class="toc">';
   for(let n=1;n<=15;n++){
     const has = (ua.sections[n]||[]).length || (ub.sections[n]||[]).length;
     h += '<button data-s="'+n+'" class="'+(has?(n===sec?'':''):'none')+'" '+(has?'':'disabled')+
@@ -651,6 +666,7 @@ function renderCompare(a, b, sec){
   el.querySelector('#cmpSwap').addEventListener('click', ()=>renderCompare(b, a, cmpState.sec));
   el.querySelector('#cmpExit').addEventListener('click', ()=>selectUni(a));
   window.scrollTo({top:0, behavior:'smooth'});
+  updateSticky();
 }
 
 /* ---------- 전역 내용 검색 ---------- */
@@ -861,7 +877,7 @@ toList.addEventListener('click', ()=>{
 });
 
 /* ---------- 초기화 & 딥링크 ---------- */
-renderRecent(); renderUlist(); renderChg(true); renderLow(true); renderCal();
+renderRecent(); renderUlist(); renderChg(true); renderLow(true); renderCal(); updateSticky();
 (function(){
   const p = new URLSearchParams(location.hash.slice(1));
   const t = p.get('tab');
