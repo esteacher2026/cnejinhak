@@ -2424,5 +2424,591 @@ document.addEventListener("keydown",function(e){
 })();
 </script>
 
+
+
+<script>window.WB_CONF={subject:"문학",file:"soouplit.html"};</script>
+<!-- WB-UPGRADE-V3 START -->
+<style id="wb-up-style">
+/* ═══════ 워크북 업그레이드 레이어 v3 ═══════ */
+.wb-actions{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem;padding-top:.85rem;border-top:1px dashed var(--line)}
+.wb-btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.78rem;font-weight:600;color:var(--ink);
+  padding:.42rem .75rem;border:1px solid var(--ink);border-radius:2px;
+  background:var(--card);transition:background .15s ease,color .15s ease;
+}
+.wb-btn:hover{background:var(--ink);color:var(--paper-soft, #fbf8f0)}
+.wb-btn svg{width:13px;height:13px;flex:none}
+.wb-btn.wb-on{background:var(--gold);border-color:var(--gold);color:#fff}
+.wb-btn.wb-on:hover{background:var(--ink);border-color:var(--ink)}
+
+/* 즐겨찾기 필터 칩 + 목록 마커 */
+.wb-favfilter{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.7rem;font-weight:700;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;
+  padding:.18rem .6rem;margin-left:.5rem;background:var(--card);
+}
+.wb-favfilter.wb-on{color:#fff;background:var(--gold);border-color:var(--gold)}
+.wb-fav-mark{color:var(--gold);font-size:.8rem;margin-left:.25rem}
+
+/* 과목 전환 드롭다운 */
+.wb-switch{position:relative}
+.wb-switch-btn{
+  font-size:.83rem;font-weight:600;color:var(--muted);
+  padding:.5rem .85rem;border-radius:2px;
+}
+.wb-switch-btn:hover{color:var(--ink)}
+.wb-switch-panel{
+  display:none;position:absolute;right:0;top:calc(100% + .4rem);
+  width:min(520px, 92vw);background:var(--card);
+  border:1px solid var(--ink);border-radius:3px;
+  box-shadow:0 10px 40px rgba(26,22,18,.16);
+  padding:.9rem 1rem;z-index:80;
+}
+.wb-switch.wb-open .wb-switch-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.7rem 1rem}
+.wb-sw-group b{display:block;font-size:.68rem;letter-spacing:.08em;color:var(--faint);margin-bottom:.3rem;font-family:"JetBrains Mono",monospace}
+.wb-sw-group a{
+  display:block;font-size:.82rem;font-weight:600;color:var(--ink-2, #3a3328);
+  text-decoration:none;padding:.22rem 0;border-radius:2px;
+}
+.wb-sw-group a:hover{color:var(--gold)}
+.wb-sw-group a.wb-cur{color:var(--gold);pointer-events:none}
+.wb-sw-group a.wb-cur::after{content:" ●";font-size:.6rem}
+@media (max-width:900px){
+  .wb-switch-panel{position:fixed;left:1rem;right:1rem;top:4.6rem;width:auto;max-height:70vh;overflow:auto}
+}
+
+/* 홈 퀵스타트 */
+.wb-quickstart{
+  margin:2.2rem 0 0;border:1px solid var(--ink);border-radius:3px;
+  background:var(--card);box-shadow:var(--shadow-card, 0 2px 12px rgba(26,22,18,.04));
+  overflow:hidden;
+}
+.wb-qs-head{
+  padding:.7rem 1.2rem;border-bottom:1px solid var(--line-soft, #e8e0cb);
+  font-family:"Fraunces",serif;font-weight:700;font-size:1.02rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.wb-qs-head span{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.1em;color:var(--gold);font-weight:700}
+.wb-qs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0}
+.wb-qs-step{padding:1rem 1.2rem;border-right:1px solid var(--line-soft, #e8e0cb)}
+.wb-qs-step:last-child{border-right:0}
+.wb-qs-step b{display:block;font-size:.9rem;margin-bottom:.3rem}
+.wb-qs-step b i{font-style:normal;font-family:"Fraunces",serif;color:var(--gold);margin-right:.4rem}
+.wb-qs-step p{margin:0;font-size:.82rem;color:var(--muted);line-height:1.6}
+.wb-qs-tip{padding:.6rem 1.2rem;border-top:1px dashed var(--line);font-size:.78rem;color:var(--muted);background:var(--paper-soft, #fbf8f0)}
+@media (max-width:760px){.wb-qs-step{border-right:0;border-bottom:1px solid var(--line-soft, #e8e0cb)}}
+
+/* UbD 백워드 설계 스트립 */
+.wb-ubd{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.7rem}
+.wb-ubd-card{border:1px solid var(--line);border-radius:3px;background:var(--card);padding:.85rem 1rem;position:relative}
+.wb-ubd-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);border-radius:3px 0 0 3px}
+.wb-ubd-kicker{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:.25rem}
+.wb-ubd-card h4{font-size:.92rem;margin-bottom:.4rem}
+.wb-ubd-card p{margin:.25rem 0;font-size:.82rem;color:var(--muted);line-height:1.6}
+.wb-ubd-card p b{color:var(--ink)}
+.wb-ubd-ref{margin-top:.6rem;font-size:.72rem;color:var(--faint)}
+
+/* 차시 배분 제안 */
+.wb-period{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.7rem}
+.wb-period-card{border:1px solid var(--line);border-radius:3px;background:var(--card);padding:.85rem 1rem}
+.wb-period-card b{display:block;font-family:"Fraunces",serif;font-size:.92rem;margin-bottom:.35rem}
+.wb-period-card p{margin:.2rem 0;font-size:.82rem;color:var(--muted);line-height:1.65}
+.wb-period-card .wb-out{font-size:.74rem;color:var(--faint);margin-top:.4rem}
+.wb-period-note{margin-top:.6rem;font-size:.78rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:.5rem}
+
+/* 복사 버튼 행 + 토스트 */
+.wb-copyrow{display:flex;justify-content:flex-end;margin:.45rem 0 0}
+.wb-toast{
+  position:fixed;left:50%;bottom:2rem;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--paper-soft, #fbf8f0);
+  font-size:.82rem;font-weight:600;padding:.55rem 1.1rem;border-radius:3px;
+  opacity:0;pointer-events:none;transition:all .25s ease;z-index:200;
+}
+.wb-toast.wb-show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ═══════ 인쇄 문서 ═══════ */
+#wbPrintDoc{display:none}
+.wb-pr-head{border-bottom:2.5px solid #000;padding-bottom:.6rem;margin-bottom:1rem}
+.wb-pr-doctype{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.18em;color:#555;margin-bottom:.2rem}
+.wb-pr-head h1{font-size:1.35rem;line-height:1.35;margin:.15rem 0 .45rem}
+.wb-pr-meta{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:.76rem;color:#333}
+.wb-pr-meta b{color:#000}
+.wb-pr-std{border:1px solid #000;padding:.55rem .8rem;font-size:.84rem;margin-top:.6rem;line-height:1.6}
+.wb-pr-std b{display:block;font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.12em;margin-bottom:.2rem}
+.wb-pr-sec h2{
+  font-size:1.05rem;border-bottom:1.5px solid #000;padding-bottom:.3rem;margin:1.2rem 0 .7rem;
+  display:flex;align-items:baseline;gap:.5rem;
+}
+.wb-pr-sec h2 span{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:#777}
+.wb-pr-foot{margin-top:1.2rem;border-top:1px solid #999;padding-top:.4rem;font-size:.7rem;color:#666;display:flex;justify-content:space-between}
+/* 활동지 */
+.wb-ws-info{display:flex;gap:0;border:1.5px solid #000;margin:.8rem 0}
+.wb-ws-info div{flex:1;padding:.4rem .6rem;border-right:1px solid #000;font-size:.78rem}
+.wb-ws-info div:last-child{border-right:0}
+.wb-ws-info b{font-size:.68rem;color:#555;display:block;margin-bottom:.15rem}
+.wb-ws-item{margin:.85rem 0;break-inside:avoid}
+.wb-ws-item .wb-ws-q{font-size:.88rem;line-height:1.55;display:flex;gap:.5rem}
+.wb-ws-item .wb-ws-q b{flex:none;font-family:"Fraunces",serif}
+.wb-ws-lines{border:1px solid #888;border-radius:2px;margin-top:.4rem;background:repeating-linear-gradient(to bottom,transparent,transparent calc(2em - 1px),#ccc calc(2em - 1px),#ccc 2em)}
+.wb-ws-lines.h3{height:6em}.wb-ws-lines.h4{height:8em}.wb-ws-lines.h5{height:10em}
+.wb-ws-self{border:1.5px solid #000;padding:.55rem .8rem;margin-top:1rem;font-size:.8rem}
+.wb-ws-self b{display:block;margin-bottom:.3rem}
+.wb-ws-self label{display:inline-block;margin-right:1.2rem}
+
+@media print{
+  body.wb-printing main,
+  body.wb-printing .topbar,
+  body.wb-printing .fab-home,
+  body.wb-printing .wb-toast{display:none !important}
+  body.wb-printing #wbPrintDoc{display:block;color:#000}
+  #wbPrintDoc{font-size:10.5pt}
+  #wbPrintDoc .wb-pr-sec{page-break-before:always}
+  #wbPrintDoc .wb-pr-sec:first-of-type{page-break-before:auto}
+  #wbPrintDoc .cards,#wbPrintDoc .cards3,#wbPrintDoc .q-grid,
+  #wbPrintDoc .science-upgrade-grid,#wbPrintDoc .science-flow,
+  #wbPrintDoc .wb-ubd,#wbPrintDoc .wb-period{display:block}
+  #wbPrintDoc .card,#wbPrintDoc .q,#wbPrintDoc .science-upgrade-card,
+  #wbPrintDoc .wb-ubd-card,#wbPrintDoc .wb-period-card{
+    margin:.45rem 0;break-inside:avoid;border:1px solid #999;box-shadow:none;background:#fff
+  }
+  #wbPrintDoc .blk{break-inside:auto;margin:.9rem 0}
+  #wbPrintDoc .blk-h,#wbPrintDoc h2,#wbPrintDoc h4{break-after:avoid}
+  #wbPrintDoc .lesson-row,#wbPrintDoc .lesson-hd,#wbPrintDoc .step,
+  #wbPrintDoc .science-level-row,#wbPrintDoc .gen-row{break-inside:avoid}
+  #wbPrintDoc .general{background:#f4f4f4;border:1px solid #000;color:#000}
+  #wbPrintDoc .sample-record{border:1px solid #000;background:#fafafa}
+}
+@media (max-width:640px){
+  .wb-actions{gap:.35rem}
+  .wb-btn{font-size:.72rem;padding:.38rem .6rem}
+}
+</style>
+
+<div id="wbPrintDoc" aria-hidden="true"></div>
+<div class="wb-toast" id="wbToast" role="status"></div>
+
+<script id="wb-up-script">
+(function(){
+"use strict";
+var CONF = window.WB_CONF || {subject:"과학", file:""};
+
+/* ───── 유틸 ───── */
+function toast(msg){
+  var t=document.getElementById("wbToast");
+  t.textContent=msg;
+  t.classList.add("wb-show");
+  clearTimeout(t._tm);
+  t._tm=setTimeout(function(){t.classList.remove("wb-show");},1900);
+}
+function copyText(str, okMsg){
+  function done(){toast(okMsg||"복사했습니다. 학생 개별 수행에 맞게 가공해 사용하세요.");}
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(str).then(done, function(){fallback();});
+  }else{fallback();}
+  function fallback(){
+    var ta=document.createElement("textarea");
+    ta.value=str; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try{document.execCommand("copy"); done();}catch(e){toast("복사에 실패했습니다. 본문을 드래그해 복사해 주세요.");}
+    document.body.removeChild(ta);
+  }
+}
+
+/* ───── 1. 과목 전환 메뉴 ───── */
+var FAM=[
+  ["과학",[["soouppy.html","물리학"],["sooupch.html","화학"],["sooupbio.html","생명과학"],["sooupes.html","지구과학"]]],
+  ["수학",[["sooupalg.html","대수"],["sooupcalc1.html","미적분Ⅰ"],["sooupprobstat.html","확률과 통계"]]],
+  ["국어",[["sooupkor.html","화법과 언어"],["soouplit.html","문학"],["sooupdw.html","독서와 작문"]]],
+  ["영어",[["sooupeng1.html","영어Ⅰ"],["sooupeng2.html","영어Ⅱ"],["sooupengrw.html","영어 독해와 작문"]]],
+  ["사회",[["sooupgeo.html","세계시민과 지리"],["sooupsoc.html","사회와 문화"],["sooupwh.html","세계사"],["sooupeth.html","현대사회와 윤리"]]]
+];
+(function(){
+  var nav=document.querySelector(".nav");
+  var pdfBtn=nav ? nav.querySelector(".btn-pdf") : null;
+  if(!nav) return;
+  var wrap=document.createElement("div");
+  wrap.className="wb-switch";
+  var inner='<button type="button" class="wb-switch-btn" aria-haspopup="true" aria-expanded="false">과목 전환 ▾</button><div class="wb-switch-panel">';
+  FAM.forEach(function(g){
+    inner+='<div class="wb-sw-group"><b>'+g[0]+'</b>';
+    g[1].forEach(function(it){
+      var cur = it[0]===CONF.file ? ' class="wb-cur"' : '';
+      inner+='<a href="'+it[0]+'"'+cur+'>'+it[1]+'</a>';
+    });
+    inner+='</div>';
+  });
+  inner+='</div>';
+  wrap.innerHTML=inner;
+  if(pdfBtn) nav.insertBefore(wrap,pdfBtn); else nav.appendChild(wrap);
+  var btn=wrap.querySelector(".wb-switch-btn");
+  btn.addEventListener("click",function(e){
+    e.stopPropagation();
+    wrap.classList.toggle("wb-open");
+    btn.setAttribute("aria-expanded", wrap.classList.contains("wb-open") ? "true":"false");
+  });
+  document.addEventListener("click",function(){wrap.classList.remove("wb-open");btn.setAttribute("aria-expanded","false");});
+})();
+
+/* ───── 2. 홈 퀵스타트 ───── */
+(function(){
+  var stats=document.querySelector("#home .stats")||document.querySelector("#home .cover");
+  if(!stats) return;
+  var qs=document.createElement("div");
+  qs.className="wb-quickstart";
+  qs.innerHTML=
+    '<div class="wb-qs-head"><span>QUICK START</span>3분 활용 가이드 — 내일 수업까지 세 단계</div>'+
+    '<div class="wb-qs-grid">'+
+      '<div class="wb-qs-step"><b><i>①</i>성취기준 고르기</b><p>‘성취기준’ 탭에서 검색·영역·수업 유형으로 좁히고, 자주 쓰는 수업은 ★ 즐겨찾기로 고정하세요.</p></div>'+
+      '<div class="wb-qs-step"><b><i>②</i>설계 확인</b><p>개요→CBI→수업방법→활동지→평가→기록 순서의 6개 탭이 한 수업의 설계 전체입니다. 키보드 1~6으로 탭을 오갈 수 있습니다.</p></div>'+
+      '<div class="wb-qs-step"><b><i>③</i>바로 출력</b><p>‘수업안 인쇄’는 6개 탭을 합친 교사용 지도안을, ‘활동지 인쇄’는 학생 배부용 A4 활동지를 만듭니다.</p></div>'+
+    '</div>'+
+    '<div class="wb-qs-tip">지금 보고 있는 성취기준과 탭은 주소(URL)에 그대로 저장됩니다 — 주소를 복사해 동료 교사에게 보내면 같은 화면이 열립니다.</div>';
+  stats.insertAdjacentElement("afterend",qs);
+})();
+
+/* ───── 3. 즐겨찾기 ───── */
+var FAV_KEY="sooup_fav_"+(CONF.file||location.pathname);
+function getFavs(){
+  try{return new Set(JSON.parse(localStorage.getItem(FAV_KEY)||"[]"));}
+  catch(e){return new Set();}
+}
+function setFavs(s){
+  try{localStorage.setItem(FAV_KEY,JSON.stringify(Array.from(s)));}catch(e){}
+}
+var favs=getFavs();
+var favOnly=false;
+function toggleFav(code){
+  if(favs.has(code)) favs.delete(code); else favs.add(code);
+  setFavs(favs);
+  renderList();
+}
+
+/* filtered 래핑: 즐겨찾기 전용 필터 */
+var _filtered=filtered;
+filtered=function(){
+  var arr=_filtered();
+  return favOnly ? arr.filter(function(x){return favs.has(x.code);}) : arr;
+};
+
+/* renderList 래핑: 목록 별 마커 + 필터 칩 */
+var _renderList=renderList;
+renderList=function(){
+  _renderList();
+  var meta=document.getElementById("list-meta");
+  if(meta && !document.getElementById("wbFavChip")){
+    var chip=document.createElement("button");
+    chip.type="button"; chip.id="wbFavChip"; chip.className="wb-favfilter";
+    chip.addEventListener("click",function(){
+      favOnly=!favOnly;
+      chip.classList.toggle("wb-on",favOnly);
+      renderList();
+    });
+    meta.insertAdjacentElement("afterend",chip);
+  }
+  var c=document.getElementById("wbFavChip");
+  if(c) c.textContent="★ 즐겨찾기 "+favs.size+(favOnly?" · 해제":"");
+  document.querySelectorAll("#list .std-item").forEach(function(item){
+    var m=(item.getAttribute("onclick")||"").match(/select\((\d+)\)/);
+    if(!m) return;
+    var x=DATA[parseInt(m[1],10)];
+    if(x && favs.has(x.code)){
+      var codeEl=item.querySelector(".code");
+      if(codeEl && !item.querySelector(".wb-fav-mark")){
+        codeEl.insertAdjacentHTML("afterend",'<span class="wb-fav-mark">★</span>');
+      }
+    }
+  });
+};
+
+/* ───── 4. 해시 딥링크 ───── */
+var suppressHash=false;
+function activeViewId(){
+  var v=document.querySelector(".view.active");
+  return v ? v.id : "home";
+}
+function syncHash(){
+  if(suppressHash) return;
+  var h;
+  var v=activeViewId();
+  if(v==="standards" && DATA[current]){
+    h="#s="+encodeURIComponent(DATA[current].code)+"&t="+tab;
+  }else{
+    h="#v="+v;
+  }
+  try{history.replaceState(null,"",h);}catch(e){}
+}
+function applyHash(){
+  var raw=location.hash.replace(/^#/,"");
+  if(!raw) return;
+  var params={};
+  raw.split("&").forEach(function(p){
+    var i=p.indexOf("=");
+    if(i>0) params[p.slice(0,i)]=decodeURIComponent(p.slice(i+1));
+  });
+  suppressHash=true;
+  if(params.s){
+    var idx=-1;
+    for(var i=0;i<DATA.length;i++){if(DATA[i].code===params.s){idx=i;break;}}
+    if(idx>=0){
+      current=idx;
+      var valid=TABS.some(function(t){return t[0]===params.t;});
+      tab=valid?params.t:"overview";
+      openView("standards");
+      renderList();
+    }
+  }else if(params.v && document.getElementById(params.v)){
+    openView(params.v);
+  }
+  suppressHash=false;
+}
+var _select=select;
+select=function(i){_select(i);syncHash();};
+var _setTab=setTab;
+setTab=function(t){_setTab(t);syncHash();};
+var _openView=openView;
+openView=function(id){_openView(id);syncHash();};
+window.addEventListener("hashchange",applyHash);
+
+/* ───── 5. panel 래핑: UbD 스트립(개요) + 차시 배분(수업) ───── */
+function ubdStrip(x){
+  var qs=Array.isArray(x.questions)?x.questions:[];
+  var ev=Array.isArray(x.evidence)?x.evidence:[];
+  var prod=(Array.isArray(x.products)&&x.products.length)?x.products[0]:"탐구 산출물";
+  return block("설계 논리 — 백워드 설계(UbD)로 읽는 이 수업",
+    '<div class="wb-ubd">'+
+      '<div class="wb-ubd-card"><div class="wb-ubd-kicker">STAGE 1 · DESIRED RESULTS</div>'+
+        '<h4>기대하는 결과</h4>'+
+        '<p><b>일반화(영속적 이해) :</b> '+esc(x.general||"")+'</p>'+
+        '<p><b>핵심 질문 :</b> '+esc(qs[1]||qs[0]||"")+'</p>'+
+      '</div>'+
+      '<div class="wb-ubd-card"><div class="wb-ubd-kicker">STAGE 2 · EVIDENCE</div>'+
+        '<h4>수용 가능한 증거</h4>'+
+        '<p><b>중심 산출물 :</b> '+esc(prod)+'</p>'+
+        '<p><b>관찰 증거 '+ev.length+'건 :</b> '+esc(ev.join(" · "))+'</p>'+
+      '</div>'+
+      '<div class="wb-ubd-card"><div class="wb-ubd-kicker">STAGE 3 · LEARNING PLAN</div>'+
+        '<h4>학습 경험 계획</h4>'+
+        '<p><b>차시 :</b> '+esc(x.period||"")+'</p>'+
+        '<p><b>흐름 :</b> 개념기반탐구(CBI) 6단계 — 도입·초점화 → 탐구·근거 수집 → 조직화 → 일반화 → 전이 (‘수업방법’ 탭 참조)</p>'+
+      '</div>'+
+    '</div>'+
+    '<div class="wb-ubd-ref">— G. Wiggins &amp; J. McTighe, <em>Understanding by Design</em> (2005) : 목표 → 평가 증거 → 학습 활동 순서로 점검하면 ‘활동은 풍성한데 도달 확인이 없는 수업’을 예방할 수 있습니다.</div>',
+    "목표·증거·활동의 정렬(alignment) 점검용"
+  );
+}
+function periodPlanBlock(x){
+  var p=String(x.period||"");
+  var m=p.match(/(\d+)\s*(?:[~∼]\s*(\d+))?\s*차시/);
+  var n=m?parseInt(m[2]||m[1],10):2;
+  if(n<1)n=1; if(n>3)n=3;
+  var cards;
+  if(n===1){
+    cards=[["1차시 · 50분 압축 운영",
+      "도입·자료(현상) 만나기 10분 → 초점 질문·탐구 계획 10분 → 핵심 탐구·근거 수집 20분 → 일반화·전이 정리 10분",
+      "산출물 : 활동지 · 결론(주장-근거-추론)"]];
+  }else if(n===2){
+    cards=[
+      ["1차시 · 도입 → 탐구","자료(현상) 만나기·사전 생각 드러내기 10분 → 탐구 질문·계획 15분 → 핵심 탐구·근거 수집 25분","산출물 : 탐구 계획서 · 근거 자료"],
+      ["2차시 · 조직화 → 전이","결과 정리·표상 15분 → 일반화 진술·결론 작성 20분 → 전이 과제·심화 질문 15분","산출물 : 정리 자료 · 일반화 진술 · 최종 산출물"]
+    ];
+  }else{
+    cards=[
+      ["1차시 · 도입·초점","자료(현상) 만나기 15분 → 사전 생각·질문 생성 20분 → 탐구 계획 합의 15분","산출물 : 사전 예상지 · 탐구 계획서"],
+      ["2차시 · 탐구·조직화","핵심 탐구·근거 수집 30분 → 결과 정리·표상 20분","산출물 : 근거 자료 · 정리 자료"],
+      ["3차시 · 일반화·전이","해석·일반화 진술 20분 → 결론 작성 15분 → 전이·심화 과제 15분","산출물 : 결론문 · 최종 산출물"]
+    ];
+  }
+  var html='<div class="wb-period">'+cards.map(function(c){
+    return '<div class="wb-period-card"><b>'+esc(c[0])+'</b><p>'+esc(c[1])+'</p><p class="wb-out">'+esc(c[2])+'</p></div>';
+  }).join("")+'</div>';
+  var note='<div class="wb-period-note">권장 차시 : <b>'+esc(p)+'</b>';
+  if(m&&m[2]) note+=' — 학급 상황에 따라 '+m[1]+'차시로 압축할 때는 자료 수집을 교사 시연 또는 제공 데이터 해석으로 대체하세요.';
+  else if(n>=2) note+=' — 블록타임(90분)이면 1·2차시를 연속 운영하되, 조직화 단계 앞에서 5분 중간 정리를 권장합니다.';
+  note+='</div>';
+  return block("차시 배분 제안 — 분 단위 운영안", html+note, "학교 시정에 맞게 조정");
+}
+var _panel=panel;
+panel=function(x){
+  var h=_panel(x);
+  if(tab==="overview") h=ubdStrip(x)+h;
+  if(tab==="lesson") h=h+periodPlanBlock(x);
+  return h;
+};
+
+/* ───── 6. 인쇄 엔진 ───── */
+var pendingCleanup=null;
+function doPrint(docTitle, innerHtml){
+  if(pendingCleanup) pendingCleanup();
+  var doc=document.getElementById("wbPrintDoc");
+  doc.innerHTML=innerHtml;
+  var oldTitle=document.title;
+  document.body.classList.add("wb-printing");
+  document.title=docTitle;
+  var cleaned=false;
+  function cleanup(){
+    if(cleaned) return; cleaned=true;
+    if(pendingCleanup===cleanup) pendingCleanup=null;
+    document.body.classList.remove("wb-printing");
+    document.title=oldTitle;
+    window.removeEventListener("afterprint",cleanup);
+  }
+  pendingCleanup=cleanup;
+  window.addEventListener("afterprint",cleanup);
+  setTimeout(function(){
+    window.print();
+    setTimeout(cleanup,1500);
+  },60);
+}
+function prHead(docType,x){
+  return '<div class="wb-pr-head">'+
+    '<div class="wb-pr-doctype">'+esc(docType)+' · 2022 개정 교육과정 일반선택 '+esc(CONF.subject)+'</div>'+
+    '<h1>'+esc(x.title)+'</h1>'+
+    '<div class="wb-pr-meta">'+
+      '<span><b>성취기준</b> '+esc(x.code)+'</span>'+
+      '<span><b>영역</b> '+esc(x.domain)+'</span>'+
+      '<span><b>수업 유형</b> '+esc(x.type)+'</span>'+
+      '<span><b>차시</b> '+esc(x.period)+'</span>'+
+      '<span><b>개념 렌즈</b> '+esc(x.lens)+'</span>'+
+    '</div>'+
+    '<div class="wb-pr-std"><b>성취기준 원문</b>'+esc(x.standard)+'</div>'+
+  '</div>';
+}
+function prFoot(){
+  return '<div class="wb-pr-foot"><span>충청남도교육청진로융합교육원 · 일반선택 '+esc(CONF.subject)+' 수업설계 워크북</span><span>개념기반탐구(CBI) · Marschall &amp; French</span></div>';
+}
+function printLesson(){
+  var x=DATA[current];
+  if(!x) return;
+  var saved=tab, parts="";
+  TABS.forEach(function(t){
+    tab=t[0];
+    parts+='<section class="wb-pr-sec"><h2><span>'+esc(t[2])+'</span>'+esc(t[1])+'</h2>'+panel(x)+'</section>';
+  });
+  tab=saved;
+  doPrint(CONF.subject+"_수업안_"+x.code, prHead("교사용 수업설계안",x)+parts+prFoot());
+  toast("인쇄 대화상자에서 ‘PDF로 저장’을 선택하면 파일로 보관할 수 있습니다.");
+}
+function printWorksheet(){
+  var x=DATA[current];
+  if(!x) return;
+  var saved=tab; tab="worksheet";
+  var html=panel(x);
+  tab=saved;
+  var tpl=document.createElement("template");
+  tpl.innerHTML=html;
+  var items=[];
+  var blks=tpl.content.querySelectorAll(".blk");
+  for(var i=0;i<blks.length;i++){
+    var h=blks[i].querySelector(".blk-h");
+    if(h && /활동지/.test(h.textContent)){
+      blks[i].querySelectorAll("ol li, .step span").forEach(function(el){
+        var t=el.textContent.trim();
+        if(t) items.push(t);
+      });
+      if(items.length) break;
+    }
+  }
+  if(!items.length){
+    var q=Array.isArray(x.questions)?x.questions:[];
+    items=[
+      "오늘의 현상에서 가장 설명이 필요한 부분을 한 문장으로 쓰시오.",
+      q[1]||"", "탐구에서 수집할 자료와 비교 기준을 쓰시오.", x.data||"",
+      "자료에서 찾은 규칙성을 한 문장으로 진술하시오.",
+      "주장-증거-추론(CER) 구조로 결론을 작성하시오.",
+      "이 결론의 한계를 2가지 이상 쓰시오.", q[3]||""
+    ].filter(Boolean);
+  }
+  var body='<div class="wb-ws-info">'+
+    '<div><b>학교</b>&nbsp;</div><div><b>학년·반·번호</b>&nbsp;</div><div><b>이름</b>&nbsp;</div><div><b>날짜</b>&nbsp;</div>'+
+  '</div>';
+  items.forEach(function(it,idx){
+    var long=it.length>55||/표|그래프|모형|자료/.test(it);
+    var cer=/CER|주장/.test(it);
+    var cls=cer?"h5":(long?"h4":"h3");
+    body+='<div class="wb-ws-item"><div class="wb-ws-q"><b>'+(idx+1)+'.</b><span>'+esc(it)+'</span></div><div class="wb-ws-lines '+cls+'"></div></div>';
+  });
+  body+='<div class="wb-ws-self"><b>스스로 점검하기</b>'+
+    '<label>☐ 핵심 개념을 내 말로 설명했다</label>'+
+    '<label>☐ 주장에 근거를 제시했다</label>'+
+    '<label>☐ 새로운 상황에 적용해 보았다</label>'+
+  '</div>';
+  doPrint(CONF.subject+"_활동지_"+x.code, prHead("학생 활동지",x)+body+prFoot());
+}
+
+/* ───── 7. 상세 헤더 액션 버튼 + 세특 복사 ───── */
+function decorateDetail(){
+  var x=DATA[current];
+  var hd=document.querySelector("#detail .detail-hd");
+  if(hd && x && !hd.querySelector(".wb-actions")){
+    var isFav=favs.has(x.code);
+    var row=document.createElement("div");
+    row.className="wb-actions";
+    row.innerHTML=
+      '<button type="button" class="wb-btn'+(isFav?' wb-on':'')+'" data-wb="fav">'+(isFav?'★ 즐겨찾기 됨':'☆ 즐겨찾기')+'</button>'+
+      '<button type="button" class="wb-btn" data-wb="lesson"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6V2h8v4M4 12h8v3H4zM2 6h12v6H2z"/></svg>수업안 인쇄 (6탭 통합)</button>'+
+      '<button type="button" class="wb-btn" data-wb="ws"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1h7l3 3v11H3zM10 1v3h3M5 8h6M5 11h6"/></svg>학생 활동지 인쇄</button>'+
+      '<button type="button" class="wb-btn" data-wb="link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 10 10 6M7 4l1-1a3 3 0 014 4l-1 1M9 12l-1 1a3 3 0 01-4-4l1-1"/></svg>이 수업 링크 복사</button>';
+    row.addEventListener("click",function(e){
+      var b=e.target.closest("[data-wb]");
+      if(!b) return;
+      var k=b.getAttribute("data-wb");
+      if(k==="fav"){toggleFav(x.code);}
+      else if(k==="lesson"){printLesson();}
+      else if(k==="ws"){printWorksheet();}
+      else if(k==="link"){syncHash();copyText(location.href,"이 성취기준·탭으로 바로 열리는 링크를 복사했습니다.");}
+    });
+    hd.appendChild(row);
+  }
+  /* 세특 예시문 복사 버튼 */
+  document.querySelectorAll("#detail .sample-record").forEach(function(sr){
+    if(sr.nextElementSibling && sr.nextElementSibling.classList.contains("wb-copyrow")) return;
+    var rowEl=document.createElement("div");
+    rowEl.className="wb-copyrow";
+    var btn=document.createElement("button");
+    btn.type="button"; btn.className="wb-btn";
+    btn.textContent="예시문 복사 (개별 수행에 맞게 가공 필수)";
+    btn.addEventListener("click",function(){copyText(sr.textContent.trim());});
+    rowEl.appendChild(btn);
+    sr.insertAdjacentElement("afterend",rowEl);
+  });
+}
+var _renderDetail=renderDetail;
+renderDetail=function(){
+  _renderDetail();
+  decorateDetail();
+};
+
+/* ───── 8. 키보드 : 1~6 탭 전환, / 검색 ───── */
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT"||e.target.tagName==="TEXTAREA") return;
+  if(e.ctrlKey||e.metaKey||e.altKey) return;
+  var stdActive=document.getElementById("standards").classList.contains("active");
+  if(stdActive && e.key>="1" && e.key<="6"){
+    e.preventDefault();
+    setTab(TABS[parseInt(e.key,10)-1][0]);
+  }
+  if(e.key==="/"){
+    var s=document.getElementById("search");
+    if(s){
+      e.preventDefault();
+      if(!stdActive) openView("standards");
+      s.focus();
+    }
+  }
+});
+
+/* ───── 9. 푸터 버전 표기 ───── */
+document.querySelectorAll(".footer .meta").forEach(function(el){
+  el.textContent=el.textContent.replace(/v\d+\.\d+/i,"v3.0");
+});
+
+/* ───── 초기화 : 데코레이션 적용 + 해시 복원 ───── */
+renderList();
+if(location.hash) applyHash();
+})();
+</script>
+<!-- WB-UPGRADE-V3 END -->
 </body>
 </html>

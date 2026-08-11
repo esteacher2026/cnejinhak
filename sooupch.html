@@ -2859,6 +2859,9 @@ document.addEventListener("keydown",e=>{
 
 
 
+
+
+
 <script>window.WB_CONF={subject:"화학",file:"sooupch.html"};</script>
 <!-- WB-UPGRADE-V3 START -->
 <style id="wb-up-style">
@@ -3086,7 +3089,7 @@ var FAM=[
 
 /* ───── 2. 홈 퀵스타트 ───── */
 (function(){
-  var stats=document.querySelector("#home .stats");
+  var stats=document.querySelector("#home .stats")||document.querySelector("#home .cover");
   if(!stats) return;
   var qs=document.createElement("div");
   qs.className="wb-quickstart";
@@ -3224,7 +3227,7 @@ function ubdStrip(x){
       '<div class="wb-ubd-card"><div class="wb-ubd-kicker">STAGE 3 · LEARNING PLAN</div>'+
         '<h4>학습 경험 계획</h4>'+
         '<p><b>차시 :</b> '+esc(x.period||"")+'</p>'+
-        '<p><b>흐름 :</b> 참여 → 초점 → 조사 → 조직화 → 일반화 → 전이 (CBI 6단계, ‘수업방법’ 탭 참조)</p>'+
+        '<p><b>흐름 :</b> 개념기반탐구(CBI) 6단계 — 도입·초점화 → 탐구·근거 수집 → 조직화 → 일반화 → 전이 (‘수업방법’ 탭 참조)</p>'+
       '</div>'+
     '</div>'+
     '<div class="wb-ubd-ref">— G. Wiggins &amp; J. McTighe, <em>Understanding by Design</em> (2005) : 목표 → 평가 증거 → 학습 활동 순서로 점검하면 ‘활동은 풍성한데 도달 확인이 없는 수업’을 예방할 수 있습니다.</div>',
@@ -3239,18 +3242,18 @@ function periodPlanBlock(x){
   var cards;
   if(n===1){
     cards=[["1차시 · 50분 압축 운영",
-      "도입·현상 관찰 10분 → 초점 질문·탐구 설계 10분 → 핵심 탐구·자료 수집 20분 → 일반화·전이 정리 10분",
-      "산출물 : 활동지 · CER 결론문"]];
+      "도입·자료(현상) 만나기 10분 → 초점 질문·탐구 계획 10분 → 핵심 탐구·근거 수집 20분 → 일반화·전이 정리 10분",
+      "산출물 : 활동지 · 결론(주장-근거-추론)"]];
   }else if(n===2){
     cards=[
-      ["1차시 · 참여 → 조사","현상 관찰과 사전 개념 드러내기 10분 → 탐구 질문·설계 15분 → 자료 수집·탐구 수행 25분","산출물 : 탐구 계획서 · 자료표"],
-      ["2차시 · 조직화 → 전이","자료 표상·패턴 찾기 15분 → 일반화 진술·CER 결론 20분 → 전이 과제·심화 질문 15분","산출물 : 그래프·모형 · 일반화 진술 · 최종 산출물"]
+      ["1차시 · 도입 → 탐구","자료(현상) 만나기·사전 생각 드러내기 10분 → 탐구 질문·계획 15분 → 핵심 탐구·근거 수집 25분","산출물 : 탐구 계획서 · 근거 자료"],
+      ["2차시 · 조직화 → 전이","결과 정리·표상 15분 → 일반화 진술·결론 작성 20분 → 전이 과제·심화 질문 15분","산출물 : 정리 자료 · 일반화 진술 · 최종 산출물"]
     ];
   }else{
     cards=[
-      ["1차시 · 참여·초점","현상 관찰 15분 → 사전 개념·질문 생성 20분 → 탐구 설계 합의 15분","산출물 : 사전 예상지 · 탐구 계획서"],
-      ["2차시 · 조사·조직화","자료 수집 30분 → 표·그래프·모형 표상 20분","산출물 : 자료표 · 그래프·모형"],
-      ["3차시 · 일반화·전이","패턴 해석·일반화 진술 20분 → CER 결론 15분 → 전이·심화 과제 15분","산출물 : CER 결론문 · 최종 산출물"]
+      ["1차시 · 도입·초점","자료(현상) 만나기 15분 → 사전 생각·질문 생성 20분 → 탐구 계획 합의 15분","산출물 : 사전 예상지 · 탐구 계획서"],
+      ["2차시 · 탐구·조직화","핵심 탐구·근거 수집 30분 → 결과 정리·표상 20분","산출물 : 근거 자료 · 정리 자료"],
+      ["3차시 · 일반화·전이","해석·일반화 진술 20분 → 결론 작성 15분 → 전이·심화 과제 15분","산출물 : 결론문 · 최종 산출물"]
     ];
   }
   var html='<div class="wb-period">'+cards.map(function(c){
@@ -3364,7 +3367,7 @@ function printWorksheet(){
   });
   body+='<div class="wb-ws-self"><b>스스로 점검하기</b>'+
     '<label>☐ 핵심 개념을 내 말로 설명했다</label>'+
-    '<label>☐ 주장에 자료 증거를 제시했다</label>'+
+    '<label>☐ 주장에 근거를 제시했다</label>'+
     '<label>☐ 새로운 상황에 적용해 보았다</label>'+
   '</div>';
   doPrint(CONF.subject+"_활동지_"+x.code, prHead("학생 활동지",x)+body+prFoot());
