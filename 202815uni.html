@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2028 주요 15개 대학 입학전형 안내 — 시행계획 비교</title>
@@ -97,6 +105,18 @@ p.desc{color:var(--sub);font-size:.9rem;margin-bottom:16px}
 .check-item p{font-size:.85rem;color:#33435a;margin-top:2px}
 footer{margin-top:36px;background:var(--navy);color:#9fb2cc;padding:26px 0 30px;font-size:.78rem;line-height:1.75}
 footer b{color:#d7e2f2}
+
+/* home / credit */
+.hero .wrap{position:relative}
+.home-btn{position:absolute;top:0;right:18px;border:1px solid #ffffff44;background:#ffffff14;border-radius:9px;padding:7px 12px;color:#eef2f8;font-weight:800;font-size:.8rem;display:inline-flex;align-items:center;gap:6px;text-decoration:none;white-space:nowrap;transition:.12s}
+.home-btn:hover{background:#ffffff28}
+.home-btn .ic{font-size:1rem;line-height:1}
+@media(max-width:640px){.hero{padding-top:30px}.home-btn{top:-14px;right:14px;padding:6px 10px;font-size:.76rem}.hero .kicker{padding-right:88px}}
+.fab-home{position:fixed;right:22px;bottom:22px;height:46px;padding:0 16px 0 13px;background:#fff;color:var(--navy);border:1px solid var(--line);border-radius:99px;display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:.82rem;text-decoration:none;box-shadow:0 6px 18px rgba(15,23,42,.16),0 2px 4px rgba(15,23,42,.08);z-index:75;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s,transform .22s,visibility 0s linear .22s}
+.fab-home.show{opacity:1;visibility:visible;transform:none;transition:opacity .22s,transform .22s}
+.fab-home .ic{font-size:1.05rem;line-height:1}
+.foot-credit{margin-top:14px;padding-top:12px;border-top:1px solid #ffffff1f;display:flex;flex-direction:column;gap:3px}
+.foot-credit .label{display:inline-block;min-width:44px;color:#c9b585;font-weight:700;margin-right:6px}
 #selfcheck{display:inline-block;margin-top:8px;font-size:.74rem;border-radius:6px;padding:2px 10px;background:#ffffff14}
 </style>
 </head>
@@ -104,6 +124,7 @@ footer b{color:#d7e2f2}
 
 <div class="hero">
   <div class="wrap">
+    <a href="index.html" class="home-btn" aria-label="메인으로 이동"><span class="ic">⌂</span>메인</a>
     <div class="kicker">2028학년도 대학입학전형 시행계획</div>
     <h1>2028 주요 15개 대학 입학전형 안내</h1>
     <p class="lead">서울대·연세대·고려대·성균관대·한양대·경희대·중앙대·서강대·서울시립대·이화여대·한국외대·숙명여대·홍익대·건국대·동국대가 2026년 발표한 시행계획을 전형별로 정리하고 비교했습니다. 2022 개정 교육과정 첫 대입, 열다섯 대학의 선택을 한곳에서 확인하세요.</p>
@@ -182,12 +203,18 @@ footer b{color:#d7e2f2}
 
 </main>
 
+<a href="index.html" id="fab-home" class="fab-home" aria-label="메인으로 이동"><span class="ic">⌂</span>메인</a>
+
 <footer>
   <div class="wrap">
     <b>출처(공식 자료)</b> — 각 대학이 공개한 「2028학년도 입학전형 시행계획」(2026.3.~7. 발표): 서울대(4월)·연세대 서울(4월)·고려대 서울(4.30)·성균관대(4월)·한양대 서울(6.22)·경희대(안)·중앙대(7.10 안내추가본)·서강대(4.30)·서울시립대(3.31)·이화여대·한국외대(안)·숙명여대·홍익대(7.9 수정본)·건국대 서울(3월)·동국대 서울(3.30)<br><br>
     본 자료는 위 시행계획의 사실 정보를 재구성한 참고자료입니다. 시행계획은 <b>대교협 심의 및 각 대학 사정에 따라 변경될 수 있으므로</b>, 지원 전 반드시 각 대학 입학처의 최신 공지와 모집요강 확정본을 확인하세요. 원문에 병합 표기 등으로 해석이 갈리는 항목은 "확인 필요"로 표시했습니다.<br>
-    <span id="selfcheck">데이터 자체검증 실행 중…</span><br><br>
-    충청남도교육청진로융합교육원 진학지원 자료
+    <span id="selfcheck">데이터 자체검증 실행 중…</span>
+    <div class="foot-credit">
+      <span><span class="label">제작</span><b>충청남도교육청진로융합교육원</b> 교육연구사 정재연</span>
+      <span><span class="label">출처</span>15개 대학 2028학년도 입학전형 시행계획(각 대학 입학처 공개본)</span>
+      <span style="margin-top:4px;color:#ffffff66">최종 판단에는 대학별 모집요강 확정본 확인이 필요합니다.</span>
+    </div>
   </div>
 </footer>
 
@@ -456,6 +483,8 @@ document.querySelectorAll('.search-bar .chip').forEach(b=>b.addEventListener('cl
   b.classList.add('on');unitU=b.dataset.u;renderUnits();
 }));
 
+/* fab home: 스크롤 시 표시 */
+(function(){const f=document.getElementById('fab-home');const on=()=>f.classList.toggle('show',window.scrollY>360);window.addEventListener('scroll',on,{passive:true});on();})();
 /* 탭 */
 const tabs=document.querySelectorAll('.tab-btn');
 function showTab(id){
