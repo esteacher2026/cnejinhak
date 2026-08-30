@@ -125,7 +125,7 @@
     .back-btn svg{width:16px;height:16px}
     .detail h2{margin:0;font-size:23px;font-weight:850;letter-spacing:-.02em}
     .detail-sub{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
-    .detail-cmp{flex:0 0 auto}
+    .detail-actions{display:flex;gap:8px;flex-wrap:wrap;flex:0 0 auto;justify-content:flex-end}
 
     .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}
     .kpi{padding:13px 14px;border:1px solid #e6ecf3;border-radius:var(--r-sm);background:#f9fbfd}
@@ -154,6 +154,10 @@
     .ratio-legend .item{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--muted)}
     .ratio-legend .sw{width:11px;height:11px;border-radius:3px}
     .ratio-legend b{color:var(--text);font-weight:850}
+    .ratio-legend .cv{color:var(--faint);font-weight:700}
+    .mini-cap{font-size:11px;font-weight:800;color:var(--faint);margin:11px 0 5px}
+    .cmp-bar i+i{box-shadow:inset 1px 0 0 rgba(255,255,255,.4)}
+    .ratio-seg+.ratio-seg{box-shadow:inset 1px 0 0 rgba(255,255,255,.4)}
 
     .factor-cards{display:grid;gap:10px;padding:0 15px 15px}
     .block-q{padding:0 15px 15px}
@@ -244,6 +248,28 @@
     @media(max-width:520px){
       .meta-strip{display:grid;grid-template-columns:1fr 1fr}
       .meta-pill{justify-content:center}
+      .home span{display:none}
+      .modal-head{flex-wrap:wrap}
+      #cmpPrint{display:none}
+    }
+
+    /* ---------- print ---------- */
+    @media print{
+      body{background:#fff}
+      .topbar,.filters,.list-pane,.cmp-fab,.toast,.detail-actions,.back-btn,.meta-strip{display:none!important}
+      .app{width:100%;padding:0}
+      .workspace{display:block;margin-top:8px}
+      .panel{border:0;box-shadow:none}
+      header{background:none;color:var(--text);box-shadow:none;padding:0 0 10px;border-radius:0;border-bottom:2px solid var(--navy)}
+      .eyebrow{color:var(--muted)} .lead{color:var(--muted)}
+      .detail{padding:6px 2px;min-height:0}
+      .block,.fcard,.qlist li{break-inside:avoid}
+      .fold-body{max-height:none;overflow:visible}
+      body.modal-open .app{display:none}
+      body.modal-open .overlay{position:static;display:block;background:none;backdrop-filter:none}
+      body.modal-open .modal{max-height:none;width:100%;box-shadow:none;border-radius:0;animation:none}
+      body.modal-open .modal-head .x,body.modal-open .modal-head .btn{display:none}
+      body.modal-open .modal-body{overflow:visible}
     }
   </style>
 </head>
@@ -252,7 +278,11 @@
     <div class="topbar">
       <a class="home" href="index.html" aria-label="메인으로 이동">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>
-        메인
+        <span>메인</span>
+      </a>
+      <a class="home" style="background:var(--teal)" href="jonghap_eval.html" aria-label="서류평가 기준 비교로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M9 13h6M9 17h4"/></svg>
+        <span>서류평가 기준 비교</span>
       </a>
     </div>
 
@@ -280,6 +310,9 @@
           <option value="status">면접 상태순</option>
           <option value="region">지역순</option>
           <option value="recruitment">모집인원 많은순</option>
+          <option value="std:학업역량">학업역량 비중순</option>
+          <option value="std:진로·전공역량">진로·전공 비중순</option>
+          <option value="std:인성·공동체">인성·공동체 비중순</option>
         </select>
       </div>
       <div class="filter-row">
@@ -334,6 +367,8 @@
     <div class="modal" role="dialog" aria-modal="true" aria-label="대학 비교">
       <div class="modal-head">
         <h3>면접평가 비교</h3>
+        <button class="btn ghost" id="cmpCopy" type="button" style="height:36px">링크 복사</button>
+        <button class="btn ghost" id="cmpPrint" type="button" style="height:36px">인쇄</button>
         <button class="btn ghost" id="cmpClear" type="button" style="height:36px">비우기</button>
         <button class="x" id="cmpClose" type="button" aria-label="닫기">×</button>
       </div>
@@ -364,6 +399,41 @@
     const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const cut = (v,n=22) => { const t=String(v||"").trim(); return t.length>n ? t.slice(0,n-1)+"…" : t; };
     const catColor = s => CAT[s] || "var(--c-etc)";
+    const LS_COMPARE = "jonghapInterview.compare.v1";
+    function saveCompare(){ try{ localStorage.setItem(LS_COMPARE, JSON.stringify(state.compare)); }catch(e){} }
+    function copyText(t, msg){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(()=>toast(msg)).catch(()=>toast("복사하지 못했습니다."));
+      } else toast("복사를 지원하지 않는 브라우저입니다.");
+    }
+    // 비율(합계≈100)인지 배점·반영값(건국대 300점 등)인지 블록 합계로 판별
+    function pctInfo(factors){
+      const f = (factors||[]).filter(x => x.value != null && Number(x.value) > 0);
+      const total = f.reduce((s,x)=>s+Number(x.value), 0);
+      return { f, total, isPct: total >= 95 && total <= 105 };
+    }
+    const STD_ORDER = ["학업역량","진로·전공역량","인성·공동체","의사소통","적성·창의","기타"];
+    const STD_SHORT = {"학업역량":"학업","진로·전공역량":"진로·전공","인성·공동체":"인성","의사소통":"소통","적성·창의":"적성","기타":"기타"};
+    function stdMiniBar(factors, force){
+      const {f, total} = pctInfo(factors);
+      if(!f.length || !total) return "";
+      const m = {};
+      f.forEach(x=>{ const k = STD_ORDER.includes(x.standard) ? x.standard : "기타"; m[k]=(m[k]||0)+Number(x.value); });
+      const agg = STD_ORDER.filter(k=>m[k]).map(k=>({k, share:m[k]/total*100}));
+      if(!force && agg.length === f.length && f.every(x=>x.name === x.standard)) return ""; // 원자료가 이미 표준분류명
+      const segs = agg.map(a=>{
+        const label = a.share >= 20 ? `${STD_SHORT[a.k]} ${Math.round(a.share)}%` : (a.share >= 9 ? Math.round(a.share)+"%" : "");
+        return `<i style="flex:${a.share} 0 0;background:${CAT[a.k]||"var(--c-etc)"}" title="${esc(a.k)} ${Math.round(a.share)}%">${label}</i>`;
+      }).join("");
+      return `<div class="mini-cap">표준분류 환산</div><div class="cmp-bar">${segs}</div>`;
+    }
+    function stdShare(uni, std){
+      const b = (uni.blocks||[]).find(x=>!x.special) || (uni.blocks||[])[0];
+      if(!b) return -1;
+      const {f, total} = pctInfo(b.factors);
+      if(!f.length || !total) return -1;
+      return f.reduce((s,x)=>s+(x.standard===std ? Number(x.value) : 0), 0) / total * 100;
+    }
     function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast._); toast._=setTimeout(()=>t.classList.remove("show"),1700); }
     function uniByCode(code){ return DATA.universities.find(u => u.code === code); }
     function blocksOf(uni){ return state.hideSpecial ? (uni.blocks||[]).filter(b=>!b.special) : (uni.blocks||[]); }
@@ -387,6 +457,7 @@
         if(state.sort==="status") return (STATUS_RANK[a.status]||9)-(STATUS_RANK[b.status]||9) || byName(a,b);
         if(state.sort==="region") return (a.region||"").localeCompare(b.region||"","ko") || byName(a,b);
         if(state.sort==="recruitment") return (Number(b.recruitment)||0)-(Number(a.recruitment)||0) || byName(a,b);
+        if(state.sort.startsWith("std:")){ const std=state.sort.slice(4); return stdShare(b,std)-stdShare(a,std) || byName(a,b); }
         return byName(a,b);
       });
       return rows;
@@ -446,20 +517,26 @@
 
     /* ---------------- detail ---------------- */
     function ratioBar(factors){
-      const f = factors.filter(x => x.value != null && Number(x.value) > 0);
+      const {f, total, isPct} = pctInfo(factors);
       if(f.length < 1) return "";
-      const total = f.reduce((s,x)=>s+Number(x.value),0) || 100;
+      const t = total || 100;
       const segs = f.map(x=>{
-        const w = (Number(x.value)/total)*100;
-        return `<div class="ratio-seg" style="flex:${Number(x.value)} 0 0;background:${catColor(x.standard)}" title="${esc(x.name)} ${esc(x.value)}">${w>=11?esc(x.value):""}</div>`;
+        const w = (Number(x.value)/t)*100;
+        const label = isPct ? esc(x.value) : `${Math.round(w)}%`;
+        const tip = isPct ? `${esc(x.name)} ${esc(x.value)}%` : `${esc(x.name)} ${esc(x.value)} (환산 ${Math.round(w)}%)`;
+        return `<div class="ratio-seg" style="flex:${Number(x.value)} 0 0;background:${catColor(x.standard)}" title="${tip}">${w>=11?label:""}</div>`;
       }).join("");
-      const leg = f.map(x=>`<span class="item"><span class="sw" style="background:${catColor(x.standard)}"></span>${esc(x.name)} <b>${esc(x.value)}%</b></span>`).join("");
-      return `<div class="ratio-wrap"><div class="ratio-cap">평가요소 비율</div>
-        <div class="ratio-bar">${segs}</div><div class="ratio-legend">${leg}</div></div>`;
+      const leg = f.map(x=>{
+        const w = (Number(x.value)/t)*100;
+        return `<span class="item"><span class="sw" style="background:${catColor(x.standard)}"></span>${esc(x.name)} <b>${esc(x.value)}${isPct?"%":""}</b>${isPct?"":` <span class="cv">(${Math.round(w)}%)</span>`}</span>`;
+      }).join("");
+      const cap = isPct ? "평가요소 비율" : `평가요소 배점·반영값 <span style="color:var(--faint)">· 괄호는 면접 내 환산 비율</span>`;
+      return `<div class="ratio-wrap"><div class="ratio-cap">${cap}</div>
+        <div class="ratio-bar">${segs}</div><div class="ratio-legend">${leg}</div>${stdMiniBar(factors, false)}</div>`;
     }
-    function factorCard(f){
+    function factorCard(f, isPct){
       const color = catColor(f.standard);
-      const pct = f.value!=null ? `${esc(f.value)}%` : "";
+      const pct = f.value!=null ? `${esc(f.value)}${isPct?"%":""}` : "";
       const items = f.items ? `<p class="items"><b>평가항목</b>${esc(f.items)}</p>` : "";
       const qs = (f.questions||[]);
       const qhtml = qs.length ? `<p class="qcap">면접문항 예시</p><ul class="qlist">${qs.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>` : "";
@@ -479,7 +556,8 @@
         <div class="fact"><span>출제방식</span><b>${esc(b.source||"–")}</b></div>
       </div>`;
       const factors = b.factors||[];
-      const cards = factors.length ? `<div class="factor-cards">${factors.map(factorCard).join("")}</div>` : "";
+      const blockIsPct = pctInfo(factors).isPct;
+      const cards = factors.length ? `<div class="factor-cards">${factors.map(f=>factorCard(f, blockIsPct)).join("")}</div>` : "";
       const bq = (b.questions && b.questions.length)
         ? `<div class="block-q"><p class="qcap">면접문항 예시</p><ul class="qlist">${b.questions.map(q=>`<li>${esc(q)}</li>`).join("")}</ul></div>` : "";
       const qtext = (!factors.length && b.questionsText) ? `<div class="ratio-wrap"><p class="qcap">면접 관련 원문</p><div class="fold-body" style="max-height:200px">${esc(b.questionsText)}</div></div>` : "";
@@ -511,14 +589,26 @@
               ${(uni.methods||[]).map(m=>`<span class="badge line">${esc(m)}</span>`).join("")}
             </div>
           </div>
-          <button class="btn detail-cmp ${compared?"ghost":""}" id="detailCmp" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-            ${compared?"비교 담김":"비교 담기"}
-          </button>
+          <div class="detail-actions">
+            <button class="btn ghost" id="copyLinkBtn" type="button" title="이 화면 링크 복사">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+              링크
+            </button>
+            <button class="btn ghost" id="printBtn" type="button" title="이 대학 상세 인쇄">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
+              인쇄
+            </button>
+            <button class="btn ${compared?"ghost":""}" id="detailCmp" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+              ${compared?"비교 담김":"비교 담기"}
+            </button>
+          </div>
         </div>`;
       let body;
       if(!uni.hasSection || (!blocks.length && !(uni.blocks||[]).length)){
-        body = `<div class="empty"><b>면접평가 정보가 없습니다.</b><span>어디가 원문 기준 [면접평가] 구간이 없거나 비어 있는 대학입니다.</span></div>`;
+        body = uni.status === "면접 없음"
+          ? `<div class="empty"><b>학생부종합전형 면접이 없습니다.</b><span>어디가 원문 기준, 이 대학은 2027학년도 학종에서 면접을 실시하지 않는 것으로 안내되어 있습니다.</span></div>`
+          : `<div class="empty"><b>면접평가 정보가 없습니다.</b><span>어디가 원문 기준 [면접평가] 구간이 없거나 비어 있는 대학입니다.</span></div>`;
       } else {
         const kpis = `<div class="kpis">
           <div class="kpi"><span>면접 상태</span><b>${esc(uni.status)}</b></div>
@@ -532,9 +622,10 @@
           `<p class="note">평가요소 분류·비율 그래프는 비교 편의를 위한 보조 정보입니다. 최종 지원 전 반드시 각 대학 모집요강 원문을 확인하세요.</p>`;
       }
       d.innerHTML = head + body;
-      d.scrollIntoView ? null : null;
       const back = $("backBtn"); if(back) back.onclick = ()=>{ document.body.classList.remove("show-detail"); };
       $("detailCmp").onclick = ()=>toggleCompare(uni.code);
+      $("copyLinkBtn").onclick = ()=>copyText(location.href, "현재 화면 링크를 복사했습니다.");
+      $("printBtn").onclick = ()=>window.print();
     }
 
     /* ---------------- compare ---------------- */
@@ -542,6 +633,7 @@
       const i = state.compare.indexOf(code);
       if(i>=0) state.compare.splice(i,1);
       else { if(state.compare.length>=3){ toast("비교는 최대 3개 대학까지 가능합니다."); return; } state.compare.push(code); }
+      saveCompare();
       syncListState(); renderCompareFab(); renderDetail(); renderCompareModal(); updateHash();
     }
     function renderCompareFab(){
@@ -549,11 +641,19 @@
       fab.classList.toggle("show", state.compare.length>0);
     }
     function cmpMiniBar(uni){
-      const b = primaryBlock(uni); const f = (b&&b.factors||[]).filter(x=>x.value!=null&&x.value>0);
+      const b = primaryBlock(uni);
+      const {f, total, isPct} = pctInfo(b && b.factors);
       if(!f.length) return `<span class="cmp-leg">평가요소 비율 정보 없음</span>`;
-      const total = f.reduce((s,x)=>s+Number(x.value),0)||100;
-      const bar = f.map(x=>{const w=(x.value/total)*100;return `<i style="flex:${x.value} 0 0;background:${catColor(x.standard)}" title="${esc(x.name)}">${w>=14?esc(x.value):""}</i>`;}).join("");
-      const leg = f.map(x=>`${esc(x.name)} ${esc(x.value)}%`).join(" · ");
+      const t = total || 100;
+      const bar = f.map(x=>{
+        const w=(Number(x.value)/t)*100;
+        const label = isPct ? esc(x.value) : `${Math.round(w)}%`;
+        return `<i style="flex:${Number(x.value)} 0 0;background:${catColor(x.standard)}" title="${esc(x.name)}">${w>=14?label:""}</i>`;
+      }).join("");
+      const leg = f.map(x=>{
+        const w=(Number(x.value)/t)*100;
+        return `${esc(x.name)} ${esc(x.value)}${isPct?"%":` (${Math.round(w)}%)`}`;
+      }).join(" · ") + (isPct ? "" : " · 배점·반영값 기준");
       return `<div class="cmp-bar">${bar}</div><span class="cmp-leg">${esc(leg)}</span>`;
     }
     function renderCompareModal(){
@@ -568,13 +668,18 @@
         ["출제방식", u=>esc((primaryBlock(u)||{}).source||u.primarySource||"–")],
         ["면접 방식", u=>(u.methods||[]).map(m=>`<span class="badge line">${esc(m)}</span>`).join(" ")||"–"],
         ["평가요소 비율", u=>cmpMiniBar(u)],
+        ["표준분류 환산", u=>{
+          const b = primaryBlock(u);
+          const bar = b ? stdMiniBar(b.factors, true) : "";
+          return bar ? bar.replace('<div class="mini-cap">표준분류 환산</div>',"") : "–";
+        }],
       ];
       body.innerHTML = `<table class="cmp-table"><thead><tr><th>항목</th>${unis.map(u=>`<th>${esc(u.name)}<button class="cmp-rm" data-rm="${esc(u.code)}" title="제거">×</button></th>`).join("")}</tr></thead>
         <tbody>${rows.map(([label,fn])=>`<tr><th>${label}</th>${unis.map(u=>`<td>${fn(u)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
       body.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>toggleCompare(b.dataset.rm));
     }
-    function openCompare(){ renderCompareModal(); $("overlay").classList.add("show"); }
-    function closeCompare(){ $("overlay").classList.remove("show"); }
+    function openCompare(){ renderCompareModal(); $("overlay").classList.add("show"); document.body.classList.add("modal-open"); }
+    function closeCompare(){ $("overlay").classList.remove("show"); document.body.classList.remove("modal-open"); }
 
     /* ---------------- hash / deep-link ---------------- */
     function updateHash(){
@@ -623,12 +728,22 @@
       buildStatusChips();
 
       readHash();
+      const fromShareLink = state.compare.length > 0; // 해시 c=로 진입
+      if(!fromShareLink){
+        try{
+          const saved = JSON.parse(localStorage.getItem(LS_COMPARE) || "[]");
+          if(Array.isArray(saved)) state.compare = saved.filter(x=>uniByCode(x)).slice(0,3);
+        }catch(e){}
+      }
       if(!state.selected){
         const first = DATA.universities.find(u=>u.hasSection && u.status!=="구간 없음") || DATA.universities[0];
         state.selected = first ? first.code : null;
       }
+      const gen = String(DATA.meta.generatedAt||"").slice(0,10);
+      if(gen){ const src = document.querySelector(".credit-src"); if(src) src.insertAdjacentText("beforeend", ` · ${gen} 수집 원문 기준`); }
       bind();
       renderList(); renderDetail(); renderCompareFab();
+      if(fromShareLink) openCompare(); // 비교 공유 링크로 진입 시 비교 화면 바로 표시
     }
     function bind(){
       el.q.addEventListener("input", e=>{ state.q=e.target.value; renderList(); });
@@ -655,8 +770,21 @@
       $("cmpFab").addEventListener("click", openCompare);
       $("cmpClose").addEventListener("click", closeCompare);
       $("overlay").addEventListener("click", e=>{ if(e.target===$("overlay")) closeCompare(); });
-      $("cmpClear").addEventListener("click", ()=>{ state.compare=[]; syncListState(); renderCompareFab(); renderCompareModal(); renderDetail(); updateHash(); });
-      document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeCompare(); });
+      $("cmpClear").addEventListener("click", ()=>{ state.compare=[]; saveCompare(); syncListState(); renderCompareFab(); renderCompareModal(); renderDetail(); updateHash(); });
+      $("cmpCopy").addEventListener("click", ()=>copyText(location.href, "비교 링크를 복사했습니다. 이 링크를 열면 같은 비교 화면이 나옵니다."));
+      $("cmpPrint").addEventListener("click", ()=>window.print());
+      document.addEventListener("keydown", e=>{
+        if(e.key==="Escape"){ closeCompare(); return; }
+        if(e.key==="/" && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(input|select|textarea)$/i.test((document.activeElement||{}).tagName||"")){
+          e.preventDefault(); el.q.focus(); el.q.select();
+        }
+      });
+      window.addEventListener("hashchange", ()=>{
+        const prevSel = state.selected, prevCmp = state.compare.join(",");
+        readHash();
+        if(state.selected !== prevSel){ syncListState(); renderDetail(); }
+        if(state.compare.join(",") !== prevCmp){ saveCompare(); syncListState(); renderCompareFab(); renderCompareModal(); }
+      });
       mq.addEventListener("change", ()=>renderDetail());
     }
     document.addEventListener("DOMContentLoaded", init);
