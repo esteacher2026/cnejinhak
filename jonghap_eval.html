@@ -215,6 +215,11 @@
     .sum-note{margin-left:auto;color:var(--warn);font-size:11.5px;font-weight:700}
     .stack{display:flex;height:30px;overflow:hidden;border-radius:7px;background:#eef2f7;border:1px solid var(--line)}
     .seg{display:flex;align-items:center;justify-content:center;min-width:3px;color:#fff;font-size:11.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-shadow:0 1px 1px rgba(0,0,0,.12)}
+    .seg+.seg{box-shadow:inset 1px 0 0 rgba(255,255,255,.4)}
+    .stack.mini{height:21px;border-radius:6px}
+    .stack.mini .seg{font-size:10.5px}
+    .mini-row{margin-top:11px}
+    .mini-caption{display:block;color:var(--faint);font-size:11px;font-weight:700;margin-bottom:4px}
     .legend{display:flex;gap:7px 14px;flex-wrap:wrap;margin-top:10px}
     .legend-item{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-size:12px;font-weight:600}
     .legend-item b{font-weight:800}
@@ -271,6 +276,7 @@
     .compare-card .admission-label{margin-top:13px;color:var(--muted);font-size:11.5px;font-weight:700}
     .compare-card .stack{margin-top:6px;height:26px}
     .compare-card .legend{margin-top:9px}
+    .cmp-select{margin-top:13px;width:100%;height:34px;font-size:12.5px;padding:0 30px 0 10px;background-position:right 9px center}
 
     /* empty states */
     .empty{padding:40px 22px;text-align:center;color:var(--muted)}
@@ -316,6 +322,20 @@
       .detail-actions .btn{flex:1 1 0}
     }
     @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+    /* ---------- print ---------- */
+    @media print{
+      body{background:#fff}
+      .topbar,.toolbar,.list-pane,.tabs,.detail-actions,.hero-stats,.toast,details.source{display:none!important}
+      .app{width:100%;padding:0}
+      .layout{display:block;margin-top:8px}
+      .panel{border:0;box-shadow:none}
+      .detail,.compare{padding:6px 2px}
+      .hero{box-shadow:none;border:0;border-left:4px solid var(--brand);padding:8px 14px;border-radius:0}
+      .table-wrap,.text-box{max-height:none;overflow:visible}
+      .ratio-card,.ogroup,.table-wrap,.compare-card{break-inside:avoid}
+      .link-btn{display:none!important}
+    }
   </style>
 </head>
 <body>
@@ -351,6 +371,9 @@
         <option value="name">대학명순</option>
         <option value="region">지역순</option>
         <option value="recruitment">모집인원 많은순</option>
+        <option value="std:학업역량">학업역량 비중순</option>
+        <option value="std:진로·전공역량">진로·전공 비중순</option>
+        <option value="std:인성·공동체">인성·공동체 비중순</option>
       </select>
       <label class="switch"><input id="onlyData" type="checkbox" checked /> 자료 있는 대학만</label>
       <label class="switch"><input id="hideSpecial" type="checkbox" checked /> 특별전형 숨김</label>
@@ -401,7 +424,32 @@
 
   <script>
     const DATA = window.JONGHAP_DOC_EVAL_DATA;
-    const state = { q:"", region:"", factor:"", onlyData:true, hideSpecial:true, sort:"name", selected:null, compare:[], tab:"detail" };
+    const state = { q:"", region:"", factor:"", onlyData:true, hideSpecial:true, sort:"name", selected:null, compare:[], compareSel:{}, tab:"detail" };
+    const LS_COMPARE = "jonghapEval.compare.v1";
+
+    // 빌드 데이터 정정 패치 — data.js는 빌드 생성물이라 여기서 보정 (재빌드에도 유지)
+    // 각 패치는 이미 정정된 데이터에는 적용되지 않도록 가드함.
+    function applyDataPatches(){
+      // 성균관대(0000133): 원문 배점 200·200·200·200·100·100(총 1000점) 중 '미래성장성 100점(10%)'이
+      // 빌드 파싱에서 누락되어 합계 90%로 저장됨 → 보완해 100% 복원.
+      const skku = uniByCode("0000133");
+      if(skku) (skku.parsedRatios || []).forEach(r => {
+        const sum = r.factors.reduce((s,f)=>s+(Number(f.value)||0),0);
+        if(sum === 90 && !r.factors.some(f=>f.name==="미래성장성")){
+          const i = r.factors.findIndex(f=>f.name==="공동체의식");
+          r.factors.splice(i >= 0 ? i : r.factors.length, 0, {name:"미래성장성", standard:"기타", value:10});
+        }
+      });
+      // 한동대(0000196): 원문 표에서 8개 전형명이 한 셀 blob으로 뭉쳐 파싱됨.
+      // 일반전형(G-IMPACT인재 등)을 포함하므로 특별전형 분류도 해제.
+      const hd = uniByCode("0000196");
+      if(hd) (hd.parsedRatios || []).forEach(r => {
+        if(r.admission.startsWith("G-IMPACT인재SW인재")){
+          r.admission = "G-IMPACT인재·SW인재 등 8개 전형 공통";
+          r.special = false;
+        }
+      });
+    }
 
     const FACTOR_COLOR = {
       "학업역량":"var(--f-acad)","진로·전공역량":"var(--f-career)",
@@ -428,6 +476,43 @@
       clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove("show"), 1800);
     }
 
+    const STD_ORDER = ["학업역량","진로·전공역량","인성·공동체","의사소통","기타"];
+    const STD_SHORT = {"학업역량":"학업","진로·전공역량":"진로·전공","인성·공동체":"인성","의사소통":"소통","기타":"기타"};
+    function stdAgg(factors){
+      const m = {};
+      factors.forEach(f => {
+        const k = STD_ORDER.includes(f.standard) ? f.standard : "기타";
+        m[k] = (m[k]||0) + (Number(f.value)||0);
+      });
+      return STD_ORDER.filter(k=>m[k]).map(k=>({standard:k, value:Math.round(m[k]*10)/10}));
+    }
+    function miniStack(factors){
+      const agg = stdAgg(factors);
+      if(!agg.length) return "";
+      const total = agg.reduce((s,f)=>s+f.value,0) || 100;
+      const segs = agg.map(f=>{
+        const pct = (f.value/total)*100;
+        const label = pct >= 22 ? `${STD_SHORT[f.standard]} ${f.value}%` : (pct >= 9 ? `${f.value}%` : "");
+        return `<span class="seg" style="width:${pct.toFixed(3)}%;background:${FACTOR_COLOR[f.standard]||"var(--f-etc)"}" title="${esc(f.standard)} ${f.value}%">${label}</span>`;
+      }).join("");
+      return `<div class="mini-row"><span class="mini-caption">표준분류 환산</span><div class="stack mini" role="img" aria-label="표준분류 환산 비율">${segs}</div></div>`;
+    }
+    function stdWeight(uni, std){
+      const rs = uni.parsedRatios || [];
+      const r = rs.find(x=>!x.special) || rs[0];
+      if(!r) return -1;
+      return r.factors.reduce((s,f)=>s+(f.standard===std ? (Number(f.value)||0) : 0), 0);
+    }
+    function parseHash(){
+      const h = decodeURIComponent((location.hash || "").slice(1));
+      if(!h) return {};
+      if(!h.includes("=")) return { u: h }; // 구형 #코드 링크 호환
+      const p = new URLSearchParams(h);
+      return { u: p.get("u") || "", cmp: (p.get("cmp") || "").split(",").filter(Boolean) };
+    }
+    function saveCompare(){
+      try{ localStorage.setItem(LS_COMPARE, JSON.stringify(state.compare)); }catch(e){}
+    }
     function regularRatios(uni){
       const ratios = uni.parsedRatios || [];
       if(!state.hideSpecial) return ratios;
@@ -454,6 +539,10 @@
       rows.sort((a,b) => {
         if(state.sort === "region") return (a.region||"").localeCompare(b.region||"","ko") || a.name.localeCompare(b.name,"ko");
         if(state.sort === "recruitment") return (Number(b.recruitment)||0) - (Number(a.recruitment)||0) || a.name.localeCompare(b.name,"ko");
+        if(state.sort.startsWith("std:")){
+          const std = state.sort.slice(4);
+          return stdWeight(b,std) - stdWeight(a,std) || a.name.localeCompare(b.name,"ko");
+        }
         return a.name.localeCompare(b.name,"ko");
       });
       return rows;
@@ -464,6 +553,7 @@
     /* ---------- init ---------- */
     function init(){
       if(!DATA){ document.querySelector(".app").innerHTML = '<div class="panel empty"><b>데이터를 불러오지 못했습니다.</b><p>jonghapdoc_eval_data.js 파일을 확인해 주세요.</p></div>'; return; }
+      applyDataPatches();
       ["q","region","factor","onlyData","hideSpecial","sort"].forEach(id => els[id] = $(id));
 
       $("metaUniversities").textContent = `${DATA.meta.universities.toLocaleString()}개`;
@@ -473,11 +563,20 @@
       els.region.innerHTML = `<option value="">전체 지역</option>` + DATA.regions.map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join("");
       els.factor.innerHTML = `<option value="">전체 평가요소</option>` + DATA.factorFilters.map(f => `<option value="${esc(f)}">${esc(f)}</option>`).join("");
 
-      const hashed = decodeURIComponent((location.hash || "").slice(1));
-      state.selected = (hashed && uniByCode(hashed)) ? hashed : (DATA.universities.find(u => u.hasSection) || DATA.universities[0]).code;
+      const parsedHash = parseHash();
+      state.selected = (parsedHash.u && uniByCode(parsedHash.u)) ? parsedHash.u : (DATA.universities.find(u => u.hasSection) || DATA.universities[0]).code;
+      if(parsedHash.cmp && parsedHash.cmp.length){
+        state.compare = parsedHash.cmp.filter(uniByCode).slice(0,3);
+      } else {
+        try{
+          const saved = JSON.parse(localStorage.getItem(LS_COMPARE) || "[]");
+          if(Array.isArray(saved)) state.compare = saved.filter(uniByCode).slice(0,3);
+        }catch(e){}
+      }
 
+      const gen = String(DATA.meta.generatedAt || "").slice(0,10);
       $("foot").innerHTML = `
-        <p class="foot-note">표준분류와 그래프는 비교 편의를 위한 보조 정보입니다. 최종 확인은 각 대학 모집요강을 참고하세요.</p>
+        <p class="foot-note">표준분류와 그래프는 비교 편의를 위한 보조 정보입니다. 최종 확인은 각 대학 모집요강을 참고하세요.${gen ? ` (어디가 원문 ${gen} 수집 기준)` : ""}</p>
         <div class="foot-credit">
           <span><b>제작</b>충청남도교육청진로융합교육원 교육연구사 정재연</span>
           <span><b>출처</b>대입정보포털 어디가(adiga)</span>
@@ -488,6 +587,7 @@
       renderDetail();
       renderTray();
       renderCompare();
+      if(parsedHash.cmp && state.compare.length) setTab("compare"); // 비교 공유 링크로 진입
     }
 
     function bind(){
@@ -496,7 +596,7 @@
       els.factor.addEventListener("change", e => { state.factor = e.target.value; renderList(); });
       els.sort.addEventListener("change", e => { state.sort = e.target.value; renderList(); });
       els.onlyData.addEventListener("change", e => { state.onlyData = e.target.checked; renderList(); });
-      els.hideSpecial.addEventListener("change", e => { state.hideSpecial = e.target.checked; renderDetail(); renderCompare(); });
+      els.hideSpecial.addEventListener("change", e => { state.hideSpecial = e.target.checked; renderList(); renderDetail(); renderCompare(); });
 
       $("resetBtn").addEventListener("click", () => {
         Object.assign(state, { q:"", region:"", factor:"", onlyData:true, hideSpecial:true, sort:"name" });
@@ -532,15 +632,33 @@
       $("detailView").addEventListener("click", e => {
         const c = e.target.closest("[data-detailcompare]"); if(c){ toggleCompare(c.dataset.detailcompare); return; }
         if(e.target.closest("[data-copy]")){ copyLink(); return; }
+        if(e.target.closest("[data-print]")){ window.print(); return; }
         if(e.target.closest("[data-back]")){ document.querySelector('.list-pane').scrollIntoView({behavior:"smooth",block:"start"}); }
       });
       $("compareView").addEventListener("click", e => {
+        if(e.target.closest("[data-cmplink]")){ copyCompareLink(); return; }
+        if(e.target.closest("[data-printbtn]")){ window.print(); return; }
         const r = e.target.closest("[data-remove]"); if(r) toggleCompare(r.dataset.remove);
+      });
+      $("compareView").addEventListener("change", e => {
+        const s = e.target.closest("[data-cmpsel]"); if(!s) return;
+        state.compareSel[s.dataset.cmpsel] = Number(s.value);
+        renderCompare();
+      });
+
+      document.addEventListener("keydown", e => {
+        if(e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(input|select|textarea)$/i.test((document.activeElement||{}).tagName || "")){
+          e.preventDefault(); els.q.focus(); els.q.select();
+        }
       });
 
       window.addEventListener("hashchange", () => {
-        const h = decodeURIComponent((location.hash || "").slice(1));
-        if(h && uniByCode(h) && h !== state.selected){ state.selected = h; setTab("detail"); setActiveRow(); renderDetail(); }
+        const p = parseHash();
+        if(p.cmp && p.cmp.length){
+          state.compare = p.cmp.filter(uniByCode).slice(0,3);
+          afterCompareChange(); setTab("compare"); return;
+        }
+        if(p.u && uniByCode(p.u) && p.u !== state.selected){ state.selected = p.u; setTab("detail"); setActiveRow(); renderDetail(); }
       });
     }
 
@@ -645,6 +763,10 @@
               <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
               링크
             </button>
+            <button class="btn ghost" data-print type="button" title="이 대학 상세 인쇄">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
+              인쇄
+            </button>
             <button class="btn ${compared ? "warn" : ""}" data-detailcompare="${esc(uni.code)}" type="button">
               <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${compared ? '<path d="M5 12h14"/>' : '<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>'}</svg>
               ${compared ? "비교 해제" : "비교 담기"}
@@ -660,11 +782,17 @@
       const ratios = regularRatios(uni);
       const contentRows = uni.contentTables.reduce((s,t)=>s + visibleRows(t).length, 0);
       const ratioRows = uni.ratioTables.reduce((s,t)=>s + visibleRows(t).length, 0);
+      let contentKpi = `${contentRows.toLocaleString()}행`;
+      if(!uni.contentTables.length){
+        const outline = parseContentOutline(uni.sectionText);
+        contentKpi = (outline && outline.itemsTotal) ? `${outline.itemsTotal.toLocaleString()}개 항목` : ((uni.sectionText||"").trim() ? "원문 제공" : "—");
+      }
+      const ratioKpi = ratioRows ? `${ratioRows.toLocaleString()}행` : (ratios.length ? "그래프 대체" : "—");
       return `
         <div class="kpi-grid">
           <div class="kpi"><span>비율 그래프 전형</span><b>${ratios.length.toLocaleString()}개</b></div>
-          <div class="kpi"><span>서류평가 내용</span><b>${contentRows.toLocaleString()}행</b></div>
-          <div class="kpi"><span>평가요소 비율 원표</span><b>${ratioRows.toLocaleString()}행</b></div>
+          <div class="kpi"><span>서류평가 내용</span><b>${contentKpi}</b></div>
+          <div class="kpi"><span>평가요소 비율 원표</span><b>${ratioKpi}</b></div>
         </div>
         <div class="block">
           <div class="block-title"><h3>전형별 평가요소 비율</h3><span class="hint">${ratios.length ? "그래프" : "원문 표 기준"}</span></div>
@@ -697,10 +825,12 @@
     function ratioHtml(item){
       const total = item.factors.reduce((s,f)=>s + (Number(f.value)||0), 0);
       const sumNote = (total && total !== 100) ? `<span class="sum-note">합계 ${total}%</span>` : "";
+      const differs = item.factors.some(f => f.name !== f.standard);
       return `<article class="ratio-card${item.special ? " special" : ""}">
         <div class="ratio-title"><b>${esc(clean(item.admission))}</b>${item.special ? '<span class="pill warn">특별전형</span>' : ""}${sumNote}</div>
         ${stackHtml(item.factors)}
         ${legendHtml(item.factors)}
+        ${differs ? miniStack(item.factors) : ""}
       </article>`;
     }
 
@@ -842,7 +972,9 @@
         btn.classList.toggle("active", on);
         btn.querySelector("svg").innerHTML = on ? '<path d="M5 12h14"/>' : '<path d="M12 5v14M5 12h14"/>';
         btn.title = on ? "비교 해제" : "비교에 추가";
+        btn.setAttribute("aria-label", btn.title);
       });
+      saveCompare();
       renderTray();
       renderCompare();
       renderDetail();
@@ -869,15 +1001,29 @@
       }
       const cards = state.compare.map(uniByCode).filter(Boolean).map(compareCard).join("");
       body.innerHTML = `
-        <div class="block-title"><h3>대학 비교</h3><span class="hint">${state.compare.length}개 대학 · 첫 일반전형 기준</span></div>
+        <div class="block-title">
+          <h3>대학 비교</h3>
+          <span class="hint">${state.compare.length}개 대학</span>
+          <span class="spacer"></span>
+          <button class="link-btn" data-cmplink type="button">비교 링크 복사</button>
+          <button class="link-btn" data-printbtn type="button">인쇄</button>
+        </div>
         <div class="compare-grid">${cards}</div>
-        <p class="note">각 대학의 첫 번째 일반전형 비율을 기준으로 표시합니다. 전형별 상세 비율은 상세 보기에서 확인하세요.</p>`;
+        <p class="note">카드의 전형 선택으로 전형별 비율을 바꿔 볼 수 있습니다. '표준분류 환산' 막대는 대학마다 다른 지표명을 표준 4분류(학업역량·진로·전공역량·인성·공동체·기타)로 합산한 값이라 대학 간 비교가 쉽습니다.</p>`;
     }
     function compareCard(uni){
-      const ratio = regularRatios(uni)[0];
+      const list = regularRatios(uni);
+      const selAbs = state.compareSel[uni.code];
+      let ratio = list.find(r => uni.parsedRatios.indexOf(r) === selAbs) || list[0];
+      const selector = list.length > 1
+        ? `<select class="cmp-select" data-cmpsel="${esc(uni.code)}" aria-label="${esc(uni.name)} 전형 선택">${list.map(r => {
+            const abs = uni.parsedRatios.indexOf(r);
+            return `<option value="${abs}"${r === ratio ? " selected" : ""}>${esc(clean(r.admission))}${r.special ? " (특별)" : ""}</option>`;
+          }).join("")}</select>`
+        : (ratio ? `<div class="admission-label">${esc(clean(ratio.admission))}</div>` : "");
       const factors = ratio ? ratio.factors : (uni.topFactors || []);
       const chart = factors.length
-        ? `<div class="admission-label">${esc(clean(ratio ? ratio.admission : "대표 평가요소"))}</div>${stackHtml(factors)}${legendHtml(factors)}`
+        ? `${selector || '<div class="admission-label">대표 평가요소</div>'}${stackHtml(factors)}${legendHtml(factors)}${miniStack(factors)}`
         : `<p class="note inline" style="margin-top:12px">자동 그래프 없음 · 상세 보기에서 원표를 확인하세요.</p>`;
       return `<article class="compare-card">
         <div class="compare-card-head">
@@ -895,8 +1041,16 @@
 
     function copyLink(){
       const url = location.origin + location.pathname + "#" + encodeURIComponent(state.selected);
+      copyText(url, "대학 링크를 복사했습니다.");
+    }
+    function copyCompareLink(){
+      if(!state.compare.length) return;
+      const url = location.origin + location.pathname + "#cmp=" + state.compare.join(",");
+      copyText(url, "비교 링크를 복사했습니다. 이 링크를 열면 같은 비교 화면이 나옵니다.");
+    }
+    function copyText(text, okMsg){
       if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(url).then(()=>toast("대학 링크를 복사했습니다.")).catch(()=>toast("복사하지 못했습니다."));
+        navigator.clipboard.writeText(text).then(()=>toast(okMsg)).catch(()=>toast("복사하지 못했습니다."));
       } else { toast("복사를 지원하지 않는 브라우저입니다."); }
     }
 
