@@ -1,5 +1,5 @@
-// universities.json 의 로컬 files/ 링크를 4개 다운로드 도구의 구글드라이브 링크로 교체한다.
-// - admission/report/jonghap : update-doc-links.mjs 의 별칭/수동매칭 로직을 그대로 재사용(제목 기반)
+// universities.json 의 로컬 files/ 링크를 5개 다운로드 도구의 구글드라이브 링크로 교체한다.
+// - admission/jeongsi/report/jonghap : update-doc-links.mjs 의 별칭/수동매칭 로직을 그대로 재사용(제목 기반)
 // - campuses[].u(시행계획)    : 전용 매처(제목 스코어 + 캠퍼스 라우팅 + 강원대 번호매핑)
 // 드라이브 대응이 없는 필드는 링크를 제거(파일 전량 삭제 전제, 드라이브 전용 정책).
 //   사용:  node tools/relink-to-drive.mjs          (dry-run, 변경 미적용)
@@ -18,10 +18,11 @@ const driveView = (id) => `https://drive.google.com/file/d/${id}/view?usp=sharin
 
 // ---- 다운로드 도구 데이터 로드 (window.* 에 배열을 심는다) ----
 global.window = {};
-for (const f of ['2027susi-download-data.js', '2028admission-plan-data.js', '2026prelearning-report-data.js', '2027hakjong-guide-data.js']) {
+for (const f of ['2027susi-download-data.js', '2027jeongsi-download-data.js', '2028admission-plan-data.js', '2026prelearning-report-data.js', '2027hakjong-guide-data.js']) {
   await import(pathToFileURL(path.join(repoRoot, f)).href);
 }
 const SUSI = window.SUSI_GUIDES_2027;
+const JEONGSI = window.JEONGSI_GUIDES_2027;
 const PLAN = window.ADMISSION_PLANS_2028;
 const REPORT = window.PRELEARNING_REPORTS_2026;
 const HAKJONG = window.HAKJONG_GUIDES_2027;
@@ -111,7 +112,7 @@ function recordsByName(name, region = '') {
   if (!records.length) throw new Error(`대상 학교를 찾지 못했습니다: ${name}${region ? `/${region}` : ''}`);
   return records;
 }
-const fallbackLabels = { admission: '수시모집요강', report: '선행학습 보고서', jonghap: '학종 가이드북' };
+const fallbackLabels = { admission: '수시모집요강', jeongsi: '정시모집요강', report: '선행학습 보고서', jonghap: '학종 가이드북' };
 
 // name = 드라이브 항목의 title (원본 파일명)
 function manualTarget(category, name) {
@@ -126,6 +127,24 @@ function manualTarget(category, name) {
     if (/국립창원대.*거창/.test(name)) return target('국립창원대학교', '', '거창캠퍼스 수시모집요강');
     if (/국립창원대.*남해/.test(name)) return target('국립창원대학교', '', '남해캠퍼스 수시모집요강');
     if (/국립창원대.*창원/.test(name)) return target('국립창원대학교', '', '창원캠퍼스 수시모집요강');
+  }
+  if (category === 'jeongsi') {
+    // 파일명 규칙: 2027_{대학약칭}_정시요강 — 괄호 캠퍼스 약칭은 자동 별칭으로 못 잡아 수동 지정
+    if (/강원대\(강릉원주\)/.test(name)) return target('국립강릉원주대학교');
+    if (/강원대\(춘천삼척\)/.test(name)) return target('강원대학교');
+    if (/상명대\(서\)/.test(name)) return target('상명대학교', '서울');
+    if (/상명대\(천\)/.test(name)) return target('상명대학교', '충남');
+    if (/한양대\(서\)/.test(name)) return target('한양대학교');
+    if (/한양대\(에\)/.test(name)) return target('한양대학교(ERICA)');
+    if (/연세대\(미\)/.test(name)) return target('연세대학교(미래)');
+    if (/동국대\(W\)/.test(name)) return target('동국대학교(WISE)');
+    if (/건국대\(글\)/.test(name)) return target('건국대학교(글로컬)');
+    if (/고려대\(세\)/.test(name)) return target('고려대학교(세종)');
+    if (/_장로회신대_/.test(name)) return target('장로회신학대학교');
+    if (/_추계예대_/.test(name)) return target('추계예술대학교');
+    if (/_차의과대_/.test(name)) return target('차의과학대학교');
+    if (/_한국침례신대_/.test(name)) return target('한국침례신학대학교');
+    if (/_예원예대_/.test(name)) return target('예원예술대학교');
   }
   if (category === 'report') {
     if (/국립창원대학교.*남해/.test(name)) return target('국립창원대학교', '', '남해캠퍼스 선행학습 보고서');
@@ -186,8 +205,8 @@ function groupKey(category, records) {
   return `${category}|${records.map((r) => indexByRecord.get(r)).sort((a, b) => a - b).join(',')}`;
 }
 
-// ====== admission / report / jonghap 매칭 ======
-const docSources = { admission: SUSI, report: REPORT, jonghap: HAKJONG };
+// ====== admission / jeongsi / report / jonghap 매칭 ======
+const docSources = { admission: SUSI, jeongsi: JEONGSI, report: REPORT, jonghap: HAKJONG };
 const report = { dropped: [], assigned: {}, unmatchedDrive: {}, plan: {} };
 
 function assignDocCategory(category) {
@@ -228,6 +247,7 @@ function assignDocCategory(category) {
   report.unmatchedDrive[category] = unmatchedDrive;
 }
 assignDocCategory('admission');
+assignDocCategory('jeongsi');
 assignDocCategory('report');
 assignDocCategory('jonghap');
 

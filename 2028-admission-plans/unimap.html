@@ -220,7 +220,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);
 .ucard-reg{font-size:11.5px;color:var(--muted);font-weight:600;}
 .ucard-nm{font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.3;}
 .ucard-acts{display:flex;flex-wrap:wrap;gap:7px;}
-.ua-home,.ua-pdf,.ua-report,.ua-guide,.ua-jonghap{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;padding:8px 12px;border-radius:9px;text-decoration:none;transition:filter .12s,background .12s;}
+.ua-home,.ua-pdf,.ua-report,.ua-guide,.ua-jeongsi,.ua-jonghap{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;padding:8px 12px;border-radius:9px;text-decoration:none;transition:filter .12s,background .12s;}
 .ua-home{color:#fff;}
 .ua-home:hover{filter:brightness(1.08);}
 .ua-pdf{background:var(--line-2);color:var(--ink-2);}
@@ -229,6 +229,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);
 .ua-guide{background:#eef2fe;color:#2f49b8;}
 .ua-guide:hover{background:#e1e7fc;}
 .ua-guide svg{color:#3a57d6;}
+.ua-jeongsi{background:#fdf0e4;color:#a4520f;}
+.ua-jeongsi:hover{background:#fae3cf;}
+.ua-jeongsi svg{color:#d06a16;}
 .ua-report{background:#e8f5ee;color:#1b7a46;}
 .ua-report:hover{background:#d6ecdf;}
 .ua-report svg{color:#1b9c57;}
@@ -294,7 +297,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);
 
   <div class="notice">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>
-    <span>현재는 <b>2028학년도 대학입학전형 시행계획</b> 기준입니다. 추후 <b>수시모집요강</b>이 공개되면 자료를 업데이트할 예정입니다.</span>
+    <span><b>2028학년도 대학입학전형 시행계획</b>과 함께 <b>2027학년도 수시·정시모집요강</b> 원문을 대학별로 연결했습니다.</span>
     <span class="credit">제작: 충청남도교육청진로융합교육원 교육연구사 정재연</span>
   </div>
 
@@ -407,6 +410,7 @@ function popHTML(d){
        ${fileIcon(14)}
        ${esc(c.c)} 시행계획 PDF</a>`).join('');
   const admission=popupDocLinks(d.admission,'2027 수시모집요강');
+  const jeongsi=popupDocLinks(d.jeongsi,'2027 정시모집요강');
   const report=popupDocLinks(d.report,'선행학습 영향평가 보고서');
   const jonghap=popupDocLinks(d.jonghap,'학생부종합전형 가이드북');
   return `<div class="pop-in">
@@ -416,6 +420,7 @@ function popHTML(d){
       <a class="p-go" href="${esc(d.home)}" target="_blank" rel="noopener" style="background:var(--${cv})">입학처 홈페이지 바로가기
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       ${admission?`<div class="p-lbl">2027 수시모집요강</div><div class="p-pdfs">${admission}</div>`:''}
+      ${jeongsi?`<div class="p-lbl">2027 정시모집요강</div><div class="p-pdfs">${jeongsi}</div>`:''}
       ${pdfs?`<div class="p-lbl">대학입학전형 시행계획</div><div class="p-pdfs">${pdfs}</div>`:''}
       ${report?`<div class="p-lbl">2026 선행학습 영향평가</div><div class="p-pdfs">${report}</div>`:''}
       ${jonghap?`<div class="p-lbl">2027 학생부종합전형 가이드북</div><div class="p-pdfs">${jonghap}</div>`:''}
@@ -540,6 +545,7 @@ function cardHTML(d){
     `<a class="ua-pdf" href="${esc(c.u)}" target="_blank" rel="noopener">${fileIcon(13)}${multiC?esc(c.c)+' ':''}2028 시행계획</a>`).join('');
   const soon=d.campuses.some(c=>!c.u)?`<span class="ua-soon">시행계획 준비중</span>`:'';
   const admission=cardDocLinks(d.admission,'ua-guide','수시모집요강');
+  const jeongsi=cardDocLinks(d.jeongsi,'ua-jeongsi','정시모집요강');
   const report=cardDocLinks(d.report,'ua-report','선행학습 보고서');
   const jonghap=cardDocLinks(d.jonghap,'ua-jonghap','학종 가이드북');
   return `<div class="ucard ${d.added?'added':''}">
@@ -549,7 +555,7 @@ function cardHTML(d){
     </div></div>
     <div class="ucard-acts">
       <a class="ua-home" style="background:var(--${cv})" href="${esc(d.home)}" target="_blank" rel="noopener">입학처 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-      ${admission}${pdfs}${pdfs?'':soon}${report}${jonghap}
+      ${admission}${jeongsi}${pdfs}${pdfs?'':soon}${report}${jonghap}
     </div></div>`;
 }
 let lType='전체',lQ='';

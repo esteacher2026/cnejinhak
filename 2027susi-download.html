@@ -114,7 +114,7 @@
       margin: 16px 0 0; padding: 14px; background: var(--paper);
       border: 1px solid var(--line); border-radius: 14px;
       box-shadow: 0 1px 0 rgba(21, 31, 48, .03);
-      display: grid; gap: 12px;
+      display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px;
     }
     .filterbar.stuck { box-shadow: 0 14px 26px rgba(21, 31, 48, .12); }
     .search { position: relative; }
@@ -346,7 +346,7 @@
              .replace(/신입생|신입학/g, ' ').replace(/[「」]/g, ' ')
              .replace(/\s+/g, ' ').replace(/^[\s·,_\-]+|[\s·,_\-]+$/g, '').trim();
         var unbalanced = /[)\]」]/.test(t) && !/[([「]/.test(t);
-        if (!t || !/[가-힣A-Za-z0-9]/.test(t) || (uni && uni.indexOf(t) !== -1) || unbalanced) t = '수시모집요강';
+        if (!t || !/[가-힣A-Za-z0-9]/.test(t) || (uni && uni.indexOf(t) !== -1) || unbalanced || !/요강/.test(t)) t = '수시모집요강';
         return t;
       }
       function previewUrl(id) { return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view?usp=sharing'; }

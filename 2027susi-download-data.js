@@ -13,7 +13,6 @@ window.SUSI_GUIDES_2027 = [
   { region: "서울", schoolType: "일반대", university: "한성대", id: "1J_4htbcmNLLO26rgpf1kkFlk7-8ZKuuM", title: "한성대_2027.pdf", type: "PDF" },
   { region: "서울", schoolType: "일반대", university: "상명대(서울)", id: "1nNY8EqgBs_8Q4kZ21PqioIeAhQpJOrgi", title: "상명대 서울캠퍼스 「2027학년도 수시모집요강」(공지용).pdf", type: "PDF" },
   { region: "서울", schoolType: "일반대", university: "성공회대", id: "1eIcgKxwBM_nscw4vRUdoHBYMV1JPw2KV", title: "성공회대_2027.pdf", type: "PDF" },
-  { region: "서울", schoolType: "일반대", university: "삼육대", id: "1nQAeLoSktIDkFYwBh80q5VSADhvu0-Sh", title: "삼육대_2027.pdf", type: "PDF" },
   { region: "서울", schoolType: "일반대", university: "서울여대", id: "1J0i0dt3F8V9_iNsfqFQ_KnTgeuf9gqIx", title: "서울여대_2027.pdf", type: "PDF" },
   { region: "서울", schoolType: "일반대", university: "서울한영대", id: "16FhtMU-HyL-A0zPFzwbtbmA63TlVOC9w", title: "서울한영대_2027.pdf", type: "PDF" },
   { region: "서울", schoolType: "일반대", university: "서울기독대", id: "1FURW0TvTtd1mRRmo2M-gCRAM33WjFnZY", title: "서울기독대_2027.pdf", type: "PDF" },
