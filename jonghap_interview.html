@@ -271,6 +271,118 @@
       body.modal-open .modal-head .x,body.modal-open .modal-head .btn{display:none}
       body.modal-open .modal-body{overflow:visible}
     }
+    /* ---------- tabs & 2027 서울 면접자료 ---------- */
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+    .tab{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 17px;border-radius:999px;
+      border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:14px;font-weight:800;
+      box-shadow:var(--shadow-sm)}
+    .tab .n{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:20px;padding:0 6px;
+      border-radius:999px;background:var(--gray-soft);color:var(--muted);font-size:11.5px;font-weight:850}
+    .tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+    .tab[aria-selected="true"] .n{background:rgba(255,255,255,.18);color:#fff}
+    .pane[hidden]{display:none}
+    .pane-note{margin:12px 0 0;padding:11px 14px;border-radius:var(--r-sm);background:#fff;border:1px solid var(--line);
+      color:var(--muted);font-size:12.5px;line-height:1.65}
+    .pane-note b{color:var(--text)}
+
+    .sec-head{display:flex;align-items:baseline;gap:10px;margin:18px 0 10px}
+    .sec-head h2{margin:0;font-size:16px;font-weight:850}
+    .sec-head .count{color:var(--muted);font-size:12.5px}
+    .sec-head .count b{color:var(--teal);font-weight:850}
+
+    /* 면접지도 */
+    .map-grid{columns:340px 3;column-gap:12px}
+    .map-grid > *{break-inside:avoid;margin:0 0 12px;display:inline-block;width:100%}
+    .uni-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm);
+      padding:14px 15px}
+    .uni-card h3{margin:0 0 3px;font-size:15.5px;font-weight:850;display:flex;align-items:center;gap:8px}
+    .uni-card .badge{display:inline-flex;align-items:center;height:21px;padding:0 9px;border-radius:999px;
+      background:var(--teal);color:#fff;font-size:11px;font-weight:850}
+    .uni-card .sub{margin:0 0 9px;color:var(--faint);font-size:12px}
+    .adm{border-top:1px dashed var(--line);padding:9px 0 0;margin-top:9px}
+    .adm:first-of-type{border-top:0;margin-top:0;padding-top:0}
+    .adm .nm{font-size:13.5px;font-weight:800;line-height:1.45}
+    .adm .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+    .tg{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;font-size:11.5px;font-weight:800;
+      background:var(--gray-soft);color:var(--muted);border:1px solid var(--line)}
+    .tg.fmt{background:#eaf1fb;color:#1d4ed8;border-color:#d3e2f8}
+    .tg.qt{background:#e3f6e8;color:#15803d;border-color:#cdeed7}
+    .tg.qt.deep{background:#efe9fd;color:#6d28d9;border-color:#e0d6fb}
+    .tg.qt.mmi{background:#fdf0d9;color:#b45309;border-color:#f7e2bd}
+    .adm .note{margin-top:7px;padding:8px 10px;border-radius:8px;background:#fbfdfe;border:1px solid var(--line);
+      color:var(--muted);font-size:12px;white-space:pre-wrap;line-height:1.6}
+    .ov-list{margin-top:10px;border-top:1px dashed var(--line);padding-top:9px}
+    .ov-list > summary{cursor:pointer;font-size:12.5px;font-weight:800;color:var(--teal-deep);list-style:none}
+    .ov-list > summary::-webkit-details-marker{display:none}
+    .ov-list > summary::before{content:"▸ ";font-weight:900}
+    .ov-list[open] > summary::before{content:"▾ "}
+    .ov-list .ov-row{margin-top:8px}
+    .ov-row{font-size:12.5px;line-height:1.55}
+    .ov-row b{color:var(--teal-deep)}
+    .ov-row span{color:var(--muted)}
+    .uni-card .golink{margin-top:10px;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;
+      border-radius:999px;background:var(--navy);color:#fff;font-size:12.5px;font-weight:800;border:0}
+
+    /* 기출문항 */
+    .bank-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+    .qcard{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+      box-shadow:var(--shadow-sm);padding:14px 15px;display:flex;flex-direction:column;gap:8px;width:100%}
+    .qcard:hover{border-color:var(--teal);box-shadow:var(--shadow)}
+    .qcard .top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+    .qcard .uni{font-size:14.5px;font-weight:850}
+    .qcard .ttl{font-size:13.5px;font-weight:800;line-height:1.45;color:var(--text)}
+    .qcard .meta{color:var(--muted);font-size:12px;line-height:1.5}
+    .qcard .foot{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+    .tg.eq{background:#fde7e4;color:#b42318;border-color:#f8cfca}
+    .tg.cat{background:#e0f4f8;color:#0e7490;border-color:#c9e9f1}
+
+    /* 문항 상세 */
+    .item-modal{width:min(980px,96vw);max-height:92vh}
+    .imeta{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:14px}
+    .imeta .kpi{background:#f7fafc;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+    .imeta .kpi span{display:block;color:var(--faint);font-size:11px;font-weight:800;margin-bottom:2px}
+    .imeta .kpi b{font-size:13px;font-weight:800;line-height:1.45}
+    .viewtabs{display:flex;gap:7px;margin-bottom:12px;flex-wrap:wrap}
+    .viewtabs button{height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line);
+      background:var(--surface);font-size:12.5px;font-weight:800;color:var(--muted)}
+    .viewtabs button[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+    .blk{margin:0 0 13px}
+    .blk .lab{display:inline-flex;align-items:center;height:24px;padding:0 11px;border-radius:999px;
+      background:var(--navy);color:#fff;font-size:12px;font-weight:850;margin-bottom:6px}
+    .blk.q .lab{background:var(--teal)}
+    .blk.guide{color:var(--muted);font-size:12.5px;background:#f7fafc;border:1px solid var(--line);
+      border-radius:9px;padding:10px 12px;white-space:pre-wrap}
+    .blk p{margin:0 0 9px;font-size:14.5px;line-height:1.85;word-break:keep-all}
+    .blk p:last-child{margin-bottom:0}
+    .blk.q p{font-weight:700}
+    .eqwarn{margin:0 0 13px;padding:11px 13px;border-radius:9px;background:var(--red-soft);border:1px solid #f8cfca;
+      color:#7f1d1d;font-size:12.5px;line-height:1.6}
+    .pageimgs{display:grid;gap:14px}
+    .pageimgs figure{margin:0}
+    .pageimgs img{width:100%;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+    .pageimgs figcaption{margin-top:5px;color:var(--faint);font-size:11.5px;text-align:right}
+    .timerbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px;padding:10px 12px;
+      border-radius:10px;background:#f7fafc;border:1px solid var(--line)}
+    .timerbar .clock{font-variant-numeric:tabular-nums;font-size:22px;font-weight:850;letter-spacing:.02em;min-width:82px}
+    .timerbar .lbl{color:var(--faint);font-size:11.5px;font-weight:800}
+    .timerbar button{height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--line);
+      background:var(--surface);font-size:12.5px;font-weight:800}
+    .timerbar button.pri{background:var(--teal);border-color:var(--teal);color:#fff}
+    .timerbar.run .clock{color:var(--teal-deep)}
+    .timerbar.done .clock{color:var(--red)}
+    .empty-msg{padding:40px 20px;text-align:center;color:var(--faint);font-size:13.5px}
+
+    @media print{
+      body.modal-open .overlay:not(.show){display:none!important}
+      body.modal-open .viewtabs,body.modal-open .timerbar{display:none!important}
+      .pageimgs img{page-break-inside:avoid}
+      .blk{break-inside:avoid}
+    }
+    @media (max-width:640px){
+      .map-grid{columns:1}
+      .bank-grid{grid-template-columns:1fr}
+      .tab{height:38px;padding:0 13px;font-size:13px}
+    }
   </style>
 </head>
 <body>
@@ -297,6 +409,14 @@
         <span class="meta-pill">평가요소 <b id="mFactors">–</b></span>
       </div>
     </header>
+
+    <div class="tabs" role="tablist" aria-label="보기 전환">
+      <button class="tab" type="button" role="tab" data-tab="compare" aria-selected="true">전국 평가기준 비교 <span class="n">197개교</span></button>
+      <button class="tab" type="button" role="tab" data-tab="map" aria-selected="false">서울 면접지도 <span class="n">14개교</span></button>
+      <button class="tab" type="button" role="tab" data-tab="bank" aria-selected="false">서울 기출문항 <span class="n">60</span></button>
+    </div>
+
+    <div id="paneCompare" class="pane">
 
     <!-- filters -->
     <div class="filters">
@@ -348,13 +468,77 @@
         <div class="detail" id="detail"></div>
       </section>
     </div>
+    </div><!-- /paneCompare -->
+
+    <!-- 2027 서울 주요대학 면접자료 -->
+    <div id="paneMap" class="pane" hidden>
+      <p class="pane-note">
+        서울 주요 <b>14개교 32개 전형</b>의 면접형식·문항유형과, 대학이 공개한 <b>면접 개요(방법·시간·내용)</b>입니다.
+        문항 자료가 함께 실린 대학은 카드 아래 버튼으로 기출문항으로 넘어갑니다.
+      </p>
+      <div class="filters" style="margin-top:12px">
+        <div class="filter-row">
+          <label class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+            <input id="mq2" type="search" placeholder="대학명·전형명 검색 (예: 네오르네상스, 활동우수형)" autocomplete="off" />
+          </label>
+        </div>
+        <div class="filter-row">
+          <span class="seg-label">면접형식</span>
+          <div class="chips" id="mapFormatChips"></div>
+        </div>
+        <div class="filter-row">
+          <span class="seg-label">문항유형</span>
+          <div class="chips" id="mapQtypeChips"></div>
+          <span class="spacer"></span>
+          <button class="btn ghost" id="mapReset" type="button">필터 초기화</button>
+        </div>
+      </div>
+      <div class="sec-head">
+        <h2>서울 주요대학 면접 지도</h2>
+        <span class="count"><b id="mapCount">0</b>개 대학 · <span id="mapNote">–</span></span>
+      </div>
+      <div class="map-grid" id="mapGrid"></div>
+    </div>
+
+    <div id="paneBank" class="pane" hidden>
+      <p class="pane-note">
+        각 대학이 공개한 <b>제시문·문항과 면접 개요</b>만 담았습니다. 출제의도·문항해설·채점기준·예시답안은 수록하지 않았습니다.
+        수식·그래프가 있는 문항은 텍스트로 옮기면 깨지므로 <b>원문 이미지</b>를 함께 제공합니다.
+      </p>
+      <div class="filters" style="margin-top:12px">
+        <div class="filter-row">
+          <label class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+            <input id="bq" type="search" placeholder="제시문·문항 본문 검색 (예: 삼투, 화쟁, 인공지능, 공정성)" autocomplete="off" />
+          </label>
+          <select id="bCat" aria-label="계열"></select>
+          <select id="bType" aria-label="면접 유형"></select>
+        </div>
+        <div class="filter-row">
+          <span class="seg-label">대학</span>
+          <div class="chips" id="bUnivChips"></div>
+        </div>
+        <div class="filter-row">
+          <label class="toggle"><input id="bEq" type="checkbox" /> 수식·그림 포함 문항만</label>
+          <span class="spacer"></span>
+          <button class="btn ghost" id="bReset" type="button">필터 초기화</button>
+        </div>
+      </div>
+      <div class="sec-head">
+        <h2>기출문항</h2>
+        <span class="count"><b id="bCount">0</b>개 · <span id="bNote">–</span></span>
+      </div>
+      <div class="bank-grid" id="bankGrid"></div>
+    </div>
 
     <footer>
       <div>
         <span class="credit-label">제작</span>
         <p class="credit-main">충청남도교육청진로융합교육원 교육연구사 정재연</p>
       </div>
-      <p class="credit-src">출처: 대입정보포털 <a id="srcLink" href="https://www.adiga.kr" target="_blank" rel="noopener">어디가(adiga)</a> · 2027학년도</p>
+      <p class="credit-src">전국 평가기준 출처: 대입정보포털 <a id="srcLink" href="https://www.adiga.kr" target="_blank" rel="noopener">어디가(adiga)</a> · 2027학년도</p>
+      <p class="credit-src" style="margin-top:6px;font-weight:600;color:#cfe0e8">서울 면접지도·기출문항 출처: 각 대학 공개 자료(선행학습 영향평가 결과 보고서 · 모집요강) · 2027학년도</p>
     </footer>
   </div>
 
@@ -373,6 +557,18 @@
         <button class="x" id="cmpClose" type="button" aria-label="닫기">×</button>
       </div>
       <div class="modal-body" id="cmpBody"></div>
+    </div>
+  </div>
+
+  <!-- 기출문항 상세 -->
+  <div class="overlay" id="itemOverlay">
+    <div class="modal item-modal" role="dialog" aria-modal="true" aria-label="기출문항">
+      <div class="modal-head">
+        <h3 id="itemTitle">기출문항</h3>
+        <button class="btn ghost" id="itemPrint" type="button" style="height:36px">인쇄</button>
+        <button class="x" id="itemClose" type="button" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body" id="itemBody"></div>
     </div>
   </div>
 
@@ -788,6 +984,313 @@
       mq.addEventListener("change", ()=>renderDetail());
     }
     document.addEventListener("DOMContentLoaded", init);
+  </script>
+  <!-- 2027 서울 주요대학 면접자료 -->
+  <script>
+  (function () {
+    const $ = id => document.getElementById(id);
+    const esc = v => String(v ?? "").replace(/[&<>"']/g, c =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const IMG_DIR = "2027seoul-interview/";
+    const S = { data: null, loading: null, q: "", cat: "", type: "", univ: "", eq: false,
+                mq: "", fmt: "", qt: "", item: null, view: "text",
+                timer: { id: null, left: 0, total: 0, label: "" } };
+
+    /* ---------- 탭 ---------- */
+    const tabs = [...document.querySelectorAll(".tab")];
+    const panes = { compare: $("paneCompare"), map: $("paneMap"), bank: $("paneBank") };
+
+    function showTab(name, push) {
+      tabs.forEach(t => t.setAttribute("aria-selected", String(t.dataset.tab === name)));
+      Object.entries(panes).forEach(([k, p]) => { if (p) p.hidden = k !== name; });
+      if (name !== "compare") ensureData().then(() => { renderMap(); renderBank(); });
+      if (push) {
+        const h = name === "compare" ? " " : "#tab=" + name;
+        history.replaceState(null, "", h);
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    tabs.forEach(t => t.addEventListener("click", () => showTab(t.dataset.tab, true)));
+
+    /* ---------- 데이터 지연 로드 ---------- */
+    function ensureData() {
+      if (S.data) return Promise.resolve(S.data);
+      if (S.loading) return S.loading;
+      S.loading = new Promise((res, rej) => {
+        const s = document.createElement("script");
+        s.src = "2027seoul-interview_data.js?v=20260920-415471";
+        s.onload = () => { S.data = window.SEOUL_INTERVIEW_DATA; buildFilters(); res(S.data); };
+        s.onerror = rej;
+        document.head.appendChild(s);
+      });
+      return S.loading;
+    }
+
+    function qtClass(qt) {
+      if (/MMI|인·적성|인적성/.test(qt)) return "mmi";
+      if (/심층|제시문/.test(qt)) return "deep";
+      return "";
+    }
+
+    function buildFilters() {
+      const d = S.data;
+      const chips = (host, list, key) => {
+        host.innerHTML = ['<button class="chip" data-v="">전체</button>']
+          .concat(list.map(v => `<button class="chip" data-v="${esc(v)}">${esc(v)}</button>`)).join("");
+        host.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+          S[key] = b.dataset.v;
+          host.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b));
+          key === "univ" ? renderBank() : renderMap();
+        }));
+        host.querySelector(".chip").classList.add("on");
+      };
+      chips($("bUnivChips"), d.filters.univs, "univ");
+      chips($("mapFormatChips"), d.filters.formats, "fmt");
+      chips($("mapQtypeChips"), d.filters.rowQtypes, "qt");
+
+      const sel = (node, list, label) => {
+        node.innerHTML = `<option value="">${label}</option>` +
+          list.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
+      };
+      const badge = (name, txt) => {
+        const t = tabs.find(x => x.dataset.tab === name);
+        if (t && t.querySelector(".n")) t.querySelector(".n").textContent = txt;
+      };
+      badge("map", d.meta.univCount + "개교");
+      badge("bank", d.meta.itemCount);
+
+      sel($("bCat"), d.filters.categories, "계열 전체");
+      sel($("bType"), d.filters.qtypes, "유형 전체");
+
+      $("bCat").addEventListener("change", e => { S.cat = e.target.value; renderBank(); });
+      $("bType").addEventListener("change", e => { S.type = e.target.value; renderBank(); });
+      $("bEq").addEventListener("change", e => { S.eq = e.target.checked; renderBank(); });
+      $("bq").addEventListener("input", e => { S.q = e.target.value.trim(); renderBank(); });
+      $("mq2").addEventListener("input", e => { S.mq = e.target.value.trim(); renderMap(); });
+      $("bReset").addEventListener("click", () => {
+        S.q = S.cat = S.type = S.univ = ""; S.eq = false;
+        $("bq").value = ""; $("bCat").value = ""; $("bType").value = ""; $("bEq").checked = false;
+        $("bUnivChips").querySelectorAll(".chip").forEach((x, i) => x.classList.toggle("on", i === 0));
+        renderBank();
+      });
+      $("mapReset").addEventListener("click", () => {
+        S.mq = S.fmt = S.qt = ""; $("mq2").value = "";
+        [$("mapFormatChips"), $("mapQtypeChips")].forEach(h =>
+          h.querySelectorAll(".chip").forEach((x, i) => x.classList.toggle("on", i === 0)));
+        renderMap();
+      });
+    }
+
+    /* ---------- 면접지도 ---------- */
+    function renderMap() {
+      const d = S.data; if (!d || panes.map.hidden) return;
+      const q = S.mq.toLowerCase();
+      let shown = 0, rowN = 0;
+      const html = d.univs.map(u => {
+        let rows = u.rows;
+        if (S.fmt) rows = rows.filter(r => r.format === S.fmt);
+        if (S.qt) rows = rows.filter(r => r.qtype === S.qt);
+        if (q) {
+          const hit = u.short.toLowerCase().includes(q);
+          if (!hit) rows = rows.filter(r => (r.admission + r.qtype + r.format).toLowerCase().includes(q));
+        }
+        if (!rows.length && !(u.extra && !S.fmt && !S.qt && (!q || u.short.toLowerCase().includes(q)))) return "";
+        shown++; rowN += rows.length;
+        const ov = (d.overviews[u.short] || []);
+        return `<article class="uni-card">
+          <h3>${esc(u.short)}${u.itemCount ? `<span class="badge">기출 ${u.itemCount}</span>` : ""}</h3>
+          <p class="sub">${u.extra ? "면접 개요·기출문항 수록" : rows.length + "개 전형"}</p>
+          ${rows.map(r => `<div class="adm">
+            <div class="nm">${esc(r.admission)}</div>
+            <div class="tags"><span class="tg fmt">${esc(r.format)}</span>
+              <span class="tg qt ${qtClass(r.qtype)}">${esc(r.qtype)}</span></div>
+            ${r.note ? `<div class="note">${esc(r.note)}</div>` : ""}
+          </div>`).join("")}
+          ${ov.length ? `<details class="ov-list"><summary>대학이 공개한 면접 개요 ${ov.length}건</summary>${ov.map(o => `
+            <div class="ov-row"><b>${esc(o.admission)}</b><br>
+              <span>방법</span> ${esc((o.fields["면접방법"] || "–").replace(/\n/g, " "))}<br>
+              <span>시간</span> ${esc((o.fields["면접시간"] || "–").replace(/\n/g, " "))}<br>
+              <span>내용</span> ${esc((o.fields["면접내용"] || "–").replace(/\n/g, " "))}</div>`).join("")}</details>` : ""}
+          ${u.itemCount ? `<button class="golink" type="button" data-go="${esc(u.short)}">기출문항 ${u.itemCount}개 보기 →</button>` : ""}
+        </article>`;
+      }).join("");
+      $("mapGrid").innerHTML = html || `<p class="empty-msg">조건에 맞는 전형이 없습니다.</p>`;
+      $("mapCount").textContent = shown;
+      $("mapNote").textContent = rowN + "개 전형";
+      $("mapGrid").querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => {
+        S.univ = b.dataset.go;
+        $("bUnivChips").querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x.dataset.v === S.univ));
+        showTab("bank", true);
+      }));
+    }
+
+    /* ---------- 기출문항 목록 ---------- */
+    function filteredItems() {
+      const d = S.data; if (!d) return [];
+      const q = S.q.toLowerCase();
+      return d.items.filter(i =>
+        (!S.univ || i.short === S.univ) &&
+        (!S.cat || i.category === S.cat) &&
+        (!S.type || i.qtype === S.type) &&
+        (!S.eq || i.needsImage) &&
+        (!q || i.searchText.toLowerCase().includes(q)));
+    }
+
+    function itemTitle(i) {
+      return [i.section, i.track, i.subject].filter(Boolean).join(" · ");
+    }
+
+    function renderBank() {
+      const d = S.data; if (!d || panes.bank.hidden) return;
+      const list = filteredItems();
+      $("bCount").textContent = list.length;
+      $("bNote").textContent = new Set(list.map(i => i.short)).size + "개교";
+      $("bankGrid").innerHTML = list.length ? list.map(i => {
+        const qn = i.blocks.filter(b => b.type === "q").length;
+        const pn = i.blocks.filter(b => b.type === "p").length;
+        return `<button class="qcard" type="button" data-id="${esc(i.id)}">
+          <div class="top"><span class="uni">${esc(i.short)}</span>
+            <span class="tg cat">${esc(i.category)}</span>
+            <span class="tg qt ${qtClass(i.qtype)}">${esc(i.qtype)}</span>
+            ${i.needsImage ? `<span class="tg eq">수식·그림</span>` : ""}</div>
+          <div class="ttl">${esc(itemTitle(i))}</div>
+          <div class="meta">${i.timing ? esc(i.timing.replace(/\n/g, " ")) : "면접시간 정보 없음"}</div>
+          <div class="foot">
+            <span class="tg">제시문 ${pn}</span><span class="tg">문항 ${qn}</span>
+            <span class="tg">원문 ${i.pages.length}쪽</span></div>
+        </button>`;
+      }).join("") : `<p class="empty-msg">조건에 맞는 문항이 없습니다.</p>`;
+      $("bankGrid").querySelectorAll("[data-id]").forEach(b =>
+        b.addEventListener("click", () => openItem(b.dataset.id)));
+    }
+
+    /* ---------- 문항 상세 ---------- */
+    function parseTimes(t) {
+      if (!t) return [];
+      const out = [], seen = new Set();
+      // "답변 준비시간 21분, 면접시간 7분 (의학과: … 각 8분)" → 구분자로 끊어 조각마다 판정
+      t.split(/[,，·、\n]|\s+-\s+|\(|\)/).forEach(seg => {
+        const m = seg.match(/(\d+)\s*분/);
+        if (!m) return;
+        const min = +m[1];
+        if (!min || min > 180) return;
+        const label = /준비|구상/.test(seg) ? "준비" : "면접";
+        const k = label + min;
+        if (seen.has(k)) return;
+        seen.add(k);
+        out.push({ label, min });
+      });
+      return out.slice(0, 4);
+    }
+
+    function fmtClock(s) {
+      const m = Math.floor(Math.abs(s) / 60), r = Math.abs(s) % 60;
+      return (s < 0 ? "-" : "") + String(m).padStart(2, "0") + ":" + String(r).padStart(2, "0");
+    }
+
+    function stopTimer() {
+      if (S.timer.id) clearInterval(S.timer.id);
+      S.timer.id = null;
+    }
+
+    function tickRender() {
+      const bar = $("itemTimer"); if (!bar) return;
+      const c = bar.querySelector(".clock");
+      if (c) c.textContent = fmtClock(S.timer.left);
+      bar.classList.toggle("run", !!S.timer.id);
+      bar.classList.toggle("done", S.timer.left <= 0 && S.timer.total > 0);
+      const l = bar.querySelector(".lbl");
+      if (l) l.textContent = S.timer.label || "타이머";
+    }
+
+    function startTimer(min, label) {
+      stopTimer();
+      S.timer.total = min * 60; S.timer.left = min * 60; S.timer.label = label + " " + min + "분";
+      S.timer.id = setInterval(() => {
+        S.timer.left--;
+        if (S.timer.left <= -1) { stopTimer(); }
+        tickRender();
+      }, 1000);
+      tickRender();
+    }
+
+    function renderItemBody() {
+      const i = S.item; if (!i) return "";
+      if (S.view === "img") {
+        if (!i.pages.length) return `<p class="empty-msg">원문 이미지가 없습니다.</p>`;
+        return `<div class="pageimgs">${i.pages.map(p =>
+          `<figure><img loading="lazy" alt="원문 ${p}쪽" src="${IMG_DIR}p${String(p).padStart(3, "0")}.webp">
+           <figcaption>자료집 원문 ${p}쪽</figcaption></figure>`).join("")}</div>`;
+      }
+      const warn = i.needsImage
+        ? `<p class="eqwarn">이 문항에는 <b>수식·그래프·그림</b>이 있어 아래 본문에서 일부가 빠집니다.
+             정확한 내용은 <b>원문 이미지</b> 탭에서 확인하세요.</p>` : "";
+      return warn + i.blocks.map(b => {
+        if (b.type === "guide") return `<div class="blk guide">${esc(b.text)}</div>`;
+        const paras = b.text ? b.text.split("\n\n").filter(Boolean)
+          .map(t => `<p>${esc(t)}</p>`).join("") : "";
+        return `<div class="blk ${b.type === "q" ? "q" : ""}">
+          ${b.label ? `<div class="lab">${esc(b.label)}</div>` : ""}${paras}</div>`;
+      }).join("");
+    }
+
+    function renderItem() {
+      const i = S.item; if (!i) return;
+      $("itemTitle").textContent = i.short + " · " + itemTitle(i);
+      const times = parseTimes(i.timing);
+      $("itemBody").innerHTML = `
+        <div class="imeta">
+          <div class="kpi"><span>대학 · 전형</span><b>${esc(i.univ)} ${esc(i.section || "")}</b></div>
+          <div class="kpi"><span>계열 · 유형</span><b>${esc(i.category)} · ${esc(i.qtype)}</b></div>
+          <div class="kpi"><span>면접시간</span><b>${esc((i.timing || "–").replace(/\n/g, " "))}</b></div>
+          <div class="kpi"><span>면접방법</span><b>${esc((i.method || "–").replace(/\n/g, " "))}</b></div>
+        </div>
+        ${times.length ? `<div class="timerbar" id="itemTimer">
+          <span class="clock">00:00</span><span class="lbl">타이머</span>
+          ${times.map(t => `<button type="button" class="pri" data-min="${t.min}" data-lb="${esc(t.label)}">${esc(t.label)} ${t.min}분</button>`).join("")}
+          <button type="button" data-stop="1">정지</button></div>` : ""}
+        <div class="viewtabs">
+          <button type="button" data-view="text" aria-selected="${S.view === "text"}">문항 본문</button>
+          <button type="button" data-view="img" aria-selected="${S.view === "img"}">원문 이미지 ${i.pages.length}쪽</button>
+        </div>
+        <div id="itemContent">${renderItemBody()}</div>`;
+      $("itemBody").querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => {
+        S.view = b.dataset.view; renderItem();
+      }));
+      $("itemBody").querySelectorAll("[data-min]").forEach(b => b.addEventListener("click", () =>
+        startTimer(+b.dataset.min, b.dataset.lb)));
+      const sb = $("itemBody").querySelector("[data-stop]");
+      if (sb) sb.addEventListener("click", () => { stopTimer(); tickRender(); });
+      tickRender();
+    }
+
+    function openItem(id) {
+      S.item = S.data.items.find(x => x.id === id);
+      if (!S.item) return;
+      S.view = S.item.needsImage ? "img" : "text";
+      stopTimer(); S.timer = { id: null, left: 0, total: 0, label: "" };
+      renderItem();
+      $("itemOverlay").classList.add("show");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeItem() {
+      $("itemOverlay").classList.remove("show");
+      document.body.classList.remove("modal-open");
+      stopTimer();
+    }
+
+    $("itemClose").addEventListener("click", closeItem);
+    $("itemOverlay").addEventListener("click", e => { if (e.target === $("itemOverlay")) closeItem(); });
+    $("itemPrint").addEventListener("click", () => window.print());
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && $("itemOverlay").classList.contains("show")) closeItem();
+    });
+
+    /* ---------- 진입 ---------- */
+    const m = location.hash.match(/tab=(map|bank)/);
+    if (m) showTab(m[1], false);
+  })();
   </script>
 </body>
 </html>
