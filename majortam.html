@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VB6E0J6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VB6E0J6MB');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>학과별 전공 탐구활동 가이드 | 40개 학과 탐구 주제와 3년 로드맵</title>
+<meta name="description" content="주요 학과 40개의 전공 탐구 주제 4,360개와 학과별 3년 탐구 로드맵. 고교 과목에서 대학 전공과목으로 이어지는 수준 높은 탐구 설계 가이드" />
+<link rel="canonical" href="https://jinhak.esteacher.kr/majortam.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="학과별 전공 탐구활동 가이드" />
+<meta property="og:description" content="40개 학과 · 전공 탐구 주제 4,360개 · 학과별 3년 탐구 로드맵" />
+<meta property="og:url" content="https://jinhak.esteacher.kr/majortam.html" />
+<meta name="theme-color" content="#0b1324" />
+<script>
+(function(){ try{
+  var t = localStorage.getItem('majortam_theme');
+  if(t!=='dark' && t!=='light'){ t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+  document.documentElement.setAttribute('data-theme', t);
+}catch(e){ document.documentElement.setAttribute('data-theme','light'); } })();
+</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+:root{
+  --bg:#f3f6fb; --surface:#ffffff; --surface2:#f7f9fc; --ink:#0f172a; --ink2:#334155; --muted:#64748b; --line:#dfe6f0;
+  --brand:#1e3a8a; --brand2:#2563eb; --gold:#d4a017; --hero1:#0b1324; --hero2:#16244a;
+  --ok:#0f766e; --warn:#b45309;
+  --shadow:0 10px 30px rgba(15,23,42,.07); --shadow2:0 24px 54px rgba(15,23,42,.14);
+  --r:18px; --ease:cubic-bezier(.22,.61,.36,1);
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --s-1:clamp(.8rem,.78rem + .1vw,.87rem); --s0:clamp(.95rem,.93rem + .12vw,1.02rem); --s1:clamp(1.1rem,1.04rem + .26vw,1.26rem);
+  --s2:clamp(1.34rem,1.2rem + .6vw,1.75rem); --s3:clamp(1.7rem,1.38rem + 1.3vw,2.6rem);
+}
+:root[data-theme=dark]{
+  --bg:#0b1120; --surface:#121a2e; --surface2:#0f1728; --ink:#e5ecf6; --ink2:#c3cede; --muted:#8e9bb3; --line:#24304a;
+  --brand:#93b4ff; --brand2:#60a5fa; --shadow:0 10px 30px rgba(0,0,0,.35); --shadow2:0 24px 54px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);font-size:var(--s0);line-height:1.68;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+/* header */
+.hd{position:sticky;top:0;z-index:50;background:rgba(11,19,36,.86);backdrop-filter:blur(16px) saturate(140%);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.hd .wrap{display:flex;align-items:center;gap:14px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em;text-decoration:none;white-space:nowrap}
+.logo i{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--gold),#f5d27a);display:grid;place-items:center;color:#0b1324;font-style:normal;font-weight:900}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{white-space:nowrap;color:rgba(255,255,255,.76);text-decoration:none;padding:7px 12px;border-radius:999px;font-size:.92rem;font-weight:600}
+.nav a:hover,.nav a.on{background:rgba(255,255,255,.1);color:#fff}
+.iconbtn{border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;border-radius:999px;width:38px;height:38px;cursor:pointer;flex:none}
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(212,160,23,.18),transparent 60%),linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff;padding:54px 0 46px}
+.kicker{display:inline-block;font-size:var(--s-1);font-weight:700;color:#f5d27a;letter-spacing:.02em;border:1px solid rgba(245,210,122,.35);padding:5px 12px;border-radius:999px}
+.hero h1{font-size:var(--s3);line-height:1.22;letter-spacing:-.045em;margin:14px 0 12px;font-weight:800}
+.hero p.lead{max-width:62ch;color:#c9d5ea;margin:0}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:12px 18px;min-width:132px}
+.stat b{display:block;font-size:1.6rem;letter-spacing:-.03em;color:#fff}
+.stat span{font-size:var(--s-1);color:#b9c7df}
+.search{margin-top:26px;position:relative;max-width:640px}
+.search input{width:100%;height:54px;border-radius:16px;border:0;padding:0 18px 0 48px;font:inherit;font-size:1.02rem;background:#fff;color:#0f172a;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.search svg{position:absolute;left:16px;top:17px;color:#64748b}
+.suggest{position:absolute;left:0;right:0;top:60px;background:var(--surface);color:var(--ink);border-radius:14px;box-shadow:var(--shadow2);overflow:hidden;z-index:20;display:none}
+.suggest button{display:flex;width:100%;text-align:left;border:0;background:none;padding:11px 16px;cursor:pointer;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.suggest button:hover,.suggest button.act{background:var(--surface2)}
+.suggest small{color:var(--muted)}
+/* sections */
+section.sec{padding:40px 0}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:var(--s2);letter-spacing:-.04em;margin:0;line-height:1.3}
+.sec-h p{margin:4px 0 0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:var(--s-1);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;color:var(--ink2)}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--c,#94a3b8)}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip small{color:inherit;opacity:.65}
+/* dept grid */
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.dcard{position:relative;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:16px 16px 14px;cursor:pointer;box-shadow:var(--shadow);transition:transform .2s var(--ease),box-shadow .2s var(--ease);overflow:hidden}
+.dcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
+.dcard:hover{transform:translateY(-3px);box-shadow:var(--shadow2)}
+.dcard .cl{font-size:.76rem;font-weight:700;color:var(--c)}
+.dcard h3{margin:2px 0 4px;font-size:1.08rem;letter-spacing:-.03em}
+.dcard p{margin:0;color:var(--muted);font-size:var(--s-1);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.dcard .meta{margin-top:8px;font-size:.76rem;color:var(--muted);display:flex;gap:10px}
+/* dept page */
+.dhero{background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff;padding:36px 0 30px;border-bottom:4px solid var(--c)}
+.dhero .back{color:#b9c7df;text-decoration:none;font-size:var(--s-1)}
+.dhero h1{font-size:var(--s3);margin:8px 0 6px;letter-spacing:-.045em;line-height:1.2}
+.dhero .one{color:#dbe5f5;font-size:var(--s1);margin:0 0 6px}
+.dhero .al{color:#9fb0cc;font-size:var(--s-1)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 0}
+.tabs button{border:1px solid rgba(255,255,255,.2);background:transparent;color:#dbe5f5;border-radius:999px;padding:7px 15px;cursor:pointer;font-weight:600}
+.tabs button.on{background:#fff;color:#0b1324;border-color:#fff}
+.grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+.box h3{margin:0 0 10px;font-size:var(--s1);letter-spacing:-.03em}
+.box h4{margin:16px 0 6px;font-size:.95rem;color:var(--ink2)}
+.box p{margin:0 0 8px;color:var(--ink2)}
+.cq{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.cq li{background:var(--surface2);border-left:3px solid var(--c);padding:10px 12px;border-radius:0 10px 10px 0;font-weight:600}
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ladder > div{background:var(--surface2);border-radius:12px;padding:12px}
+.ladder b{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px}
+.tag{display:inline-block;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:2px 8px;margin:0 4px 5px 0;font-size:.82rem}
+.tag.core{border-color:var(--c);color:var(--c);font-weight:700}
+.freq{display:grid;gap:5px}
+.freq .row{display:grid;grid-template-columns:minmax(110px,180px) 1fr 44px;gap:8px;align-items:center;font-size:.86rem}
+.freq .bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden}
+.freq .bar i{display:block;height:100%;background:var(--c);border-radius:99px}
+.freq .n{color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.8rem;color:var(--muted);margin-top:8px}
+.nb{display:grid;gap:8px}
+.nb div{background:var(--surface2);border-radius:12px;padding:10px 12px}
+.nb b{display:block}
+.myth{display:grid;gap:8px}
+.myth div{border:1px dashed var(--line);border-radius:12px;padding:10px 12px}
+.myth s{color:var(--muted)}
+/* roadmap */
+.road{display:grid;grid-template-columns:120px repeat(3,1fr);gap:10px;align-items:stretch}
+.road .gh{font-weight:800;text-align:center;color:var(--muted);font-size:.85rem;align-self:end}
+.road .tr{background:var(--surface2);border-radius:12px;padding:10px;font-weight:700;font-size:.9rem;display:flex;flex-direction:column;justify-content:center}
+.road .tr small{font-weight:500;color:var(--muted);font-size:.76rem;line-height:1.4;margin-top:4px}
+.rcell{position:relative;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px;cursor:pointer;box-shadow:var(--shadow);font-size:.9rem;font-weight:700;line-height:1.45;transition:.18s var(--ease)}
+.rcell:hover{border-color:var(--c);transform:translateY(-2px)}
+.rcell span{display:block;font-weight:500;color:var(--muted);font-size:.78rem;margin-top:6px}
+.rcell:not(:last-child)::after{content:"";}
+/* topic list */
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;box-shadow:var(--shadow);margin-bottom:14px}
+.ctl input,.ctl select{height:40px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font:inherit;background:var(--surface2);color:var(--ink)}
+.ctl input{flex:1;min-width:200px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--surface2);padding:8px 12px;cursor:pointer;font-size:.88rem;font-weight:600;color:var(--ink2)}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.count{font-size:.86rem;color:var(--muted);margin:0 0 10px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.tcard{display:flex;flex-direction:column;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:16px;cursor:pointer;box-shadow:var(--shadow);transition:transform .2s var(--ease),box-shadow .2s var(--ease);border-top:3px solid var(--c)}
+.tcard:hover{transform:translateY(-3px);box-shadow:var(--shadow2)}
+.tcard .tm{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.pill{font-size:.72rem;font-weight:700;border-radius:999px;padding:2px 8px;background:var(--surface2);color:var(--ink2);border:1px solid var(--line)}
+.pill.g1{background:#e0f2fe;color:#075985;border-color:#bae6fd}.pill.g2{background:#ede9fe;color:#5b21b6;border-color:#ddd6fe}.pill.g3{background:#fef3c7;color:#92400e;border-color:#fde68a}
+:root[data-theme=dark] .pill.g1{background:#0c2a3d;color:#7dd3fc;border-color:#164e63}:root[data-theme=dark] .pill.g2{background:#241a45;color:#c4b5fd;border-color:#3b2a6b}:root[data-theme=dark] .pill.g3{background:#3a2a0a;color:#fcd34d;border-color:#5c430f}
+.pill.deep{background:var(--gold);color:#1f1300;border-color:var(--gold)}
+.tcard h4{margin:0 0 6px;font-size:1.02rem;letter-spacing:-.03em;line-height:1.42}
+.tcard .q{margin:0 0 10px;color:var(--ink2);font-size:.9rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tcard .an{margin-top:auto;font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tcard .an b{color:var(--ink2)}
+.more{display:flex;justify-content:center;margin:18px 0}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:10px 20px;cursor:pointer;font-weight:700}
+.btn.pri{background:var(--brand2);border-color:var(--brand2);color:#fff}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+/* modal */
+.mbg{position:fixed;inset:0;background:rgba(2,6,23,.6);backdrop-filter:blur(3px);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:4vh 14px;overflow:auto}
+.mbg.on{display:flex}
+.modal{background:var(--surface);color:var(--ink);border-radius:22px;max-width:860px;width:100%;box-shadow:var(--shadow2);overflow:hidden}
+.mh{padding:22px 24px 18px;border-top:5px solid var(--c);border-bottom:1px solid var(--line);position:relative}
+.mh h2{margin:8px 0 4px;font-size:var(--s2);letter-spacing:-.04em;line-height:1.3;padding-right:40px}
+.mh .x{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:1.1rem}
+.mb{padding:20px 24px 26px}
+.qbox{background:var(--surface2);border-left:4px solid var(--c);border-radius:0 12px 12px 0;padding:14px 16px;font-weight:700;margin:0 0 16px;line-height:1.55}
+.rig{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.rig div{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.rig b{display:block;font-size:.78rem;color:var(--c);letter-spacing:.02em;margin-bottom:4px}
+.rig p{margin:0;font-size:.92rem;color:var(--ink2)}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:.92rem;margin:0 0 14px}
+.kv dt{color:var(--muted);font-weight:700}
+.kv dd{margin:0}
+.mb h3{font-size:1rem;margin:18px 0 8px;letter-spacing:-.02em}
+.mb ol,.mb ul{margin:0;padding-left:20px}
+.mb li{margin:3px 0}
+.vt{width:100%;border-collapse:collapse;font-size:.9rem}
+.vt td,.vt th{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+.vt th{background:var(--surface2);width:34%}
+.chain{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chain button{border:1px solid var(--line);background:var(--surface2);border-radius:10px;padding:6px 10px;cursor:pointer;font-size:.84rem}
+.chain button.cur{border-color:var(--c);color:var(--c);font-weight:800}
+.macts{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.teacher{background:color-mix(in srgb,var(--gold) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--gold) 40%,var(--line));border-radius:12px;padding:12px 14px;margin-top:14px}
+.teacher b{color:var(--warn)}
+.stds{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.stds li{background:var(--surface2);border-radius:10px;padding:10px 12px;font-size:.9rem;line-height:1.55}
+.stds b{color:var(--c)}
+/* guide section */
+.six{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.six div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow)}
+.six b{display:block;font-size:1rem;margin-bottom:4px}
+.six em{display:block;font-style:normal;font-size:.84rem;color:var(--muted);margin-top:6px}
+.six i{font-style:normal;color:var(--gold);font-weight:900;margin-right:4px}
+.ftr{background:#0b1324;color:#b6c2d6;padding:30px 0;font-size:.86rem;margin-top:30px}
+.ftr b{color:#fff}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;z-index:200;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%)}
+[hidden]{display:none!important}
+@media (max-width:860px){
+  .grid2{grid-template-columns:1fr}.six{grid-template-columns:1fr}.rig{grid-template-columns:1fr}
+  .road{grid-template-columns:1fr}.road .gh{display:none}.road .tr{margin-top:8px}
+  .nav a{padding:6px 8px;font-size:.82rem}.ladder{grid-template-columns:1fr}.kv{grid-template-columns:1fr}
+  .tgrid{grid-template-columns:1fr}
+}
+@media (max-width:560px){.logo span{display:none}.nav{gap:0}.nav a{padding:6px 6px;font-size:.76rem}.ctl>select,.ctl>input{flex:1 1 100%}}
+@media print{
+  .hd,.hero,.ftr,.ctl,.more,.tabs,.macts,.mh .x,#home,#library,#guide,#deptView{display:none!important}
+  body{background:#fff}.mbg{position:static;display:block!important;padding:0;background:none}.modal{box-shadow:none;max-width:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="#"><i>탐</i><span>학과별 전공 탐구 가이드</span></a>
+  <nav class="nav">
+    <a href="#" data-nav="home">학과 찾기</a>
+    <a href="#library" data-nav="library">주제 라이브러리</a>
+    <a href="#guide" data-nav="guide">수준 높은 탐구</a>
+  </nav>
+  <button class="iconbtn" id="themeBtn" title="화면 밝기 전환" aria-label="화면 밝기 전환">◐</button>
+</div></header>
+
+<main>
+<!-- HOME -->
+<div id="home">
+  <section class="hero"><div class="wrap">
+    <span class="kicker">2022 개정 교육과정 · 학생부종합전형 대비</span>
+    <h1>학과에서 출발하는<br>전공 탐구활동 가이드</h1>
+    <p class="lead">주요 대학에 개설된 학과 40개를 골라, 학과마다 그 학문이 실제로 연구하는 방식으로 탐구 주제를 설계했습니다. 고교 과목에서 출발해 대학 전공과목으로 이어지는 탐구를 찾아보세요.</p>
+    <div class="stats">
+      <div class="stat"><b id="stDept">40</b><span>학과</span></div>
+      <div class="stat"><b id="stTopic">0</b><span>탐구 주제</span></div>
+      <div class="stat"><b id="stDeep">0</b><span>대표 탐구 로드맵 상세 설계</span></div>
+    </div>
+    <div class="search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="deptSearch" type="search" autocomplete="off" placeholder="희망 학과명을 입력하세요 (예: 화공생명공학과, 소프트웨어학과)" aria-label="학과 검색" />
+      <div class="suggest" id="suggest" role="listbox"></div>
+    </div>
+  </div></section>
+  <section class="sec"><div class="wrap">
+    <div class="sec-h"><div><h2>학과 찾기</h2><p>계열을 눌러 좁히거나 학과 카드를 눌러 학과 안내와 탐구 주제를 확인하세요.</p></div></div>
+    <div class="chips" id="clusterChips" style="margin-bottom:14px"></div>
+    <div class="dgrid" id="deptGrid"></div>
+  </div></section>
+</div>
+
+<!-- DEPT VIEW -->
+<div id="deptView" hidden></div>
+
+<!-- LIBRARY -->
+<div id="library" hidden>
+  <section class="sec"><div class="wrap">
+    <div class="sec-h"><div><h2>주제 라이브러리</h2><p>40개 학과의 탐구 주제 전체를 학과·학년·수행 환경으로 찾아봅니다.</p></div></div>
+    <div class="ctl">
+      <input id="libQ" type="search" placeholder="키워드 검색 (예: 배터리, 실록, 회귀, 설문)" />
+      <select id="libCluster"><option value="">전체 계열</option></select>
+      <select id="libDept"><option value="">전체 학과</option></select>
+      <div class="seg" id="libGrade"><button data-v="" class="on">전 학년</button><button data-v="1">1학년</button><button data-v="2">2학년</button><button data-v="3">3학년</button></div>
+      <select id="libSetting"><option value="">수행 환경 전체</option></select>
+      <label class="chip" style="cursor:pointer"><input type="checkbox" id="libDeep" style="margin:0;width:15px;height:15px;min-width:0;flex:none;accent-color:var(--brand2)"> 대표 탐구만</label>
+    </div>
+    <p class="count" id="libCount"></p>
+    <div class="tgrid" id="libGrid"></div>
+    <div class="more"><button class="btn" id="libMore">더 보기</button></div>
+  </div></section>
+</div>
+
+<!-- GUIDE -->
+<div id="guide" hidden>
+  <section class="sec"><div class="wrap">
+    <div class="sec-h"><div><h2>수준 높은 탐구란 무엇인가</h2><p>주제가 어렵다고 수준이 높은 것이 아닙니다. 설계가 엄밀해야 합니다. 이 가이드의 모든 주제는 아래 여섯 요소를 기준으로 설계했습니다.</p></div></div>
+    <div class="six">
+      <div><b><i>1</i>조작적 정의</b>추상적인 개념을 측정할 수 있는 변수나 코딩 기준으로 바꿉니다.<em>‘브랜드 이미지’ → 리뷰 문장의 감성 점수(-1~1)</em></div>
+      <div><b><i>2</i>비교·통제 설계</b>비교 조건, 통제변인, ‘그것이 없었다면’의 반사실을 둡니다.<em>촉매 유무 × 온도 3수준, 나머지 고정, 3반복</em></div>
+      <div><b><i>3</i>이름 있는 분석</b>그래프 비교에서 멈추지 않고 모형·통계·계산으로 추정합니다.<em>ln[A]-t 회귀로 속도상수 추정, 아레니우스 그림</em></div>
+      <div><b><i>4</i>경쟁 설명 배제</b>다른 설명을 하나 세우고, 그것을 가를 방법을 미리 설계합니다.<em>온도 효과인가, 증발로 인한 농도 변화인가?</em></div>
+      <div><b><i>5</i>타당도 위협과 대응</b>결론을 무너뜨릴 수 있는 요인을 먼저 찾고 대응합니다.<em>표본이 한 지역에 치우침 → 지역별 나눠 재분석</em></div>
+      <div><b><i>6</i>불확실성 정량화</b>오차와 산포를 숫자로 다루고 조건을 바꿔도 결론이 유지되는지 봅니다.<em>반복 측정 표준편차, 매개변수 ±10% 민감도</em></div>
+    </div>
+    <div class="box" style="margin-top:16px">
+      <h3>학년이 올라갈수록 이렇게 깊어집니다</h3>
+      <div class="ladder">
+        <div><b>1학년 · 공통·일반선택 과목</b>하나의 관계를 통제된 비교와 반복 측정으로 엄밀하게 확인합니다.</div>
+        <div><b>2학년 · 일반·진로선택 과목</b>이론 모형을 세워 자료에 맞추고, 모형이 틀리는 지점을 찾습니다.</div>
+        <div><b>3학년 · 진로·융합선택 과목</b>여러 변인과 메커니즘, 최적화와 시뮬레이션으로 확장하고 다른 조건에서도 성립하는지 검증합니다.</div>
+      </div>
+      <h4>학생부에 담기는 방식</h4>
+      <p>소논문·외부 대회·논문 게재는 학생부 기재 대상이 아닙니다. 이 가이드의 탐구는 모두 <b>교과 수업과 연계해 수행하고, 그 과정이 교과 세부능력 및 특기사항에서 관찰되는 형태</b>를 전제로 합니다. 기재 문장을 대신 써 주는 대신, 교사가 관찰할 수 있는 탐구 장면과 면접 확인 질문을 함께 제시합니다.</p>
+    </div>
+  </div></section>
+</div>
+</main>
+
+<div class="mbg" id="mbg" role="dialog" aria-modal="true"><div class="modal" id="modal"></div></div>
+<div class="toast" id="toast"></div>
+
+<footer class="ftr"><div class="wrap">
+  <div><b>학과별 전공 탐구활동 가이드</b> · 제작 충청남도교육청진로융합교육원 교육연구사 정재연</div>
+  <div style="margin-top:6px">출처: 주요 대학 학과별 개설 교과목 공개 정보(대학명 비표기, 개설 대학 수로만 표시) · 2028학년도 대학별 모집단위 권장과목 안내 자료 · 2022 개정 교육과정(교육부 고시 제2022-33호)</div>
+  <div style="margin-top:6px">탐구 주제는 예시입니다. 학교의 과목 개설 여부, 실험 안전 규정, 연구윤리 절차를 먼저 확인하고 지도교사와 함께 수행 범위를 정하세요. 빌드 2026-10-08</div>
+</div></footer>
+
+<script src="majortam_data.js?v=muysbdds"></script>
+<script>
+(function(){
+'use strict';
+const D = window.MT_DATA;
+if(!D){ document.body.innerHTML = '<p style="padding:40px">자료 파일(majortam_data.js)을 불러오지 못했습니다.</p>'; return; }
+const $ = (s, el=document) => el.querySelector(s), $$ = (s, el=document) => [...el.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hasJong = w => { const c = (w||'').trim().slice(-1).charCodeAt(0); return c >= 0xAC00 && c <= 0xD7A3 && (c - 0xAC00) % 28 !== 0; };
+const ro = w => { const c = (w||'').trim().slice(-1).charCodeAt(0); const j = c>=0xAC00&&c<=0xD7A3 ? (c-0xAC00)%28 : 0; return w + (j===0||j===8 ? '로' : '으로'); };
+const store = { get(k){ try{return localStorage.getItem(k);}catch(e){return null;} }, set(k,v){ try{localStorage.setItem(k,v);}catch(e){} } };
+function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('on'),1800); }
+
+const CL = Object.fromEntries(D.clusters.map(c => [c.name, c]));
+const DEPT = Object.fromEntries(D.depts.map(d => [d.id, d]));
+const colorOf = id => (CL[DEPT[id]?.cluster] || {}).color || '#64748b';
+const GRADE = g => `${g}학년`;
+// 전체 주제 = 요약 + 대표(상세)
+const ALL = [];
+D.depts.forEach(d => {
+  (d.deep || []).forEach(t => ALL.push(Object.assign({ kind:'deep', dept:d.id }, t)));
+  (d.topics || []).forEach(t => ALL.push(Object.assign({ kind:'sum', dept:d.id }, t)));
+});
+const TOPIC = Object.fromEntries(ALL.map(t => [t.id, t]));
+ALL.forEach(t => { t._s = [t.title, t.question, t.design, t.analysis, t.check, t.extend, (t.tags||[]).join(' '), (t.hs||t.hsLink?.courses||[]).join(' '), DEPT[t.dept].name].join(' ').toLowerCase(); });
+$('#stTopic').textContent = ALL.length.toLocaleString();
+$('#stDeep').textContent = ALL.filter(t=>t.kind==='deep').length.toLocaleString();
+$('#stDept').textContent = D.depts.length;
+
+/* theme */
+$('#themeBtn').onclick = () => { const n = document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', n); store.set('majortam_theme', n); };
+
+/* ---------- 학과 검색 ---------- */
+const NAMES = [];
+D.depts.forEach(d => { NAMES.push({ label:d.name, to:[d.id], main:true }); d.aliases.forEach(a => a!==d.name && NAMES.push({ label:a, to:[d.id], alias:d.name })); });
+D.redirects.forEach(r => { NAMES.push({ label:r.name, to:r.to, redirect:true }); r.aliases.forEach(a => a!==r.name && NAMES.push({ label:a, to:r.to, redirect:true, alias:r.name })); });
+const CHO = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
+const cho = s => [...s].map(ch => { const c = ch.charCodeAt(0)-0xAC00; return c>=0&&c<11172 ? CHO[Math.floor(c/588)] : ch; }).join('');
+const nrm = s => s.replace(/[\s·・()]/g,'').toLowerCase();
+function searchNames(q){
+  const n = nrm(q); if(!n) return [];
+  const isCho = /^[ㄱ-ㅎ]+$/.test(n);
+  const seen = new Set(), out = [];
+  for(const x of NAMES){
+    const key = nrm(x.label);
+    const hit = isCho ? cho(key).includes(n) : key.includes(n);
+    if(!hit) continue;
+    const k = x.label + x.to.join(); if(seen.has(k)) continue; seen.add(k);
+    out.push(Object.assign({ score:(key.startsWith(n)?0:1) + (x.main?0:x.redirect?2:1) }, x));
+  }
+  return out.sort((a,b)=>a.score-b.score).slice(0,8);
+}
+const inp = $('#deptSearch'), sug = $('#suggest'); let sugIdx = -1, sugList = [];
+function renderSug(){
+  sugList = searchNames(inp.value);
+  if(!sugList.length){ sug.style.display = inp.value.trim() ? 'block' : 'none'; sug.innerHTML = inp.value.trim() ? '<div class="empty" style="padding:14px">일치하는 학과가 없습니다. 비슷한 학문 이름으로 검색해 보세요.</div>' : ''; return; }
+  sug.style.display = 'block';
+  sug.innerHTML = sugList.map((x,i) => {
+    const names = x.to.map(id => DEPT[id].name).join(' · ');
+    const sub = x.redirect ? `가까운 학과 안내 → ${names}` : x.alias ? `${x.alias}(으)로 안내` : DEPT[x.to[0]].cluster;
+    return `<button role="option" data-i="${i}" class="${i===sugIdx?'act':''}"><span class="chip" style="--c:${colorOf(x.to[0])};padding:0;border:0;background:none"><span class="dot"></span></span><span><b>${esc(x.label)}</b><br><small>${esc(sub)}</small></span></button>`;
+  }).join('');
+}
+function pickSug(i){ const x = sugList[i]; if(!x) return; sug.style.display='none'; inp.value=''; if(x.redirect && x.to.length>1) toast(`${x.label}: 가까운 학과 ${x.to.map(id=>DEPT[id].name).join(', ')}를 안내합니다`); else if(x.redirect) toast(`${x.label}: ${DEPT[x.to[0]].name}를 안내합니다`); go('dept', x.to[0]); }
+inp.addEventListener('input', () => { sugIdx = -1; renderSug(); });
+inp.addEventListener('keydown', e => {
+  if(e.key==='ArrowDown'){ sugIdx = Math.min(sugIdx+1, sugList.length-1); renderSug(); e.preventDefault(); }
+  else if(e.key==='ArrowUp'){ sugIdx = Math.max(sugIdx-1, 0); renderSug(); e.preventDefault(); }
+  else if(e.key==='Enter'){ pickSug(sugIdx<0?0:sugIdx); }
+  else if(e.key==='Escape'){ sug.style.display='none'; }
+});
+sug.addEventListener('click', e => { const b = e.target.closest('button[data-i]'); if(b) pickSug(+b.dataset.i); });
+document.addEventListener('click', e => { if(!e.target.closest('.search')) sug.style.display='none'; });
+
+/* ---------- 홈: 계열 칩 + 학과 그리드 ---------- */
+let curCluster = '';
+function renderHome(){
+  const used = D.clusters.filter(c => D.depts.some(d => d.cluster===c.name));
+  $('#clusterChips').innerHTML = `<button class="chip ${curCluster?'':'on'}" data-c="">전체 <small>${D.depts.length}</small></button>` + used.map(c => `<button class="chip ${curCluster===c.name?'on':''}" data-c="${esc(c.name)}" style="--c:${c.color}"><span class="dot"></span>${esc(c.name)} <small>${D.depts.filter(d=>d.cluster===c.name).length}</small></button>`).join('');
+  const list = D.depts.filter(d => !curCluster || d.cluster===curCluster);
+  $('#deptGrid').innerHTML = list.map(d => `<button class="dcard" data-d="${d.id}" style="--c:${colorOf(d.id)}"><div class="cl">${esc(d.cluster)}</div><h3>${esc(d.name)}</h3><p>${esc(d.profile?.oneLine || d.aliases.slice(0,4).join(' · '))}</p><div class="meta"><span>탐구 주제 ${(d.topics||[]).length + (d.deep||[]).length}</span><span>개설 대학 ${d.nSchools}곳</span></div></button>`).join('');
+}
+$('#clusterChips').addEventListener('click', e => { const b = e.target.closest('[data-c]'); if(!b) return; curCluster = b.dataset.c; renderHome(); });
+$('#deptGrid').addEventListener('click', e => { const b = e.target.closest('[data-d]'); if(b) go('dept', b.dataset.d); });
+
+/* ---------- 학과 페이지 ---------- */
+const DST = { tab:'topics', field:'', grade:'', q:'', limit:60 };
+function freqBlock(d){
+  const N = d.nSchoolsWithCourses || d.nSchools;
+  const top = d.courses.slice(0, 14);
+  return `<div class="freq">${top.map(c => `<div class="row"><span>${esc(c.name)}</span><span class="bar"><i style="width:${Math.round(c.n/N*100)}%"></i></span><span class="n">${c.n}/${N}</span></div>`).join('')}</div><div class="note">교과목 정보가 공개된 주요 대학 ${N}곳 가운데 해당 과목(같은 이름 계열)을 개설한 대학 수입니다. 대학마다 과목명이 달라 실제 개설 비율은 이보다 높을 수 있습니다.</div>`;
+}
+function renderDept(id){
+  const d = DEPT[id]; if(!d) return go('home');
+  const p = d.profile, c = colorOf(id);
+  const el = $('#deptView'); el.style.setProperty('--c', c);
+  const fields = d.fields || [];
+  const nTopic = (d.topics||[]).length + (d.deep||[]).length;
+  el.innerHTML = `
+  <section class="dhero" style="--c:${c}"><div class="wrap">
+    <a href="#" class="back">← 학과 찾기</a>
+    <div style="margin-top:10px"><span class="pill" style="background:${c};color:#fff;border-color:${c}">${esc(d.cluster)}</span></div>
+    <h1>${esc(d.name)}</h1>
+    ${p ? `<p class="one">${esc(p.oneLine)}</p>` : ''}
+    <div class="al">같은 학문을 다루는 학과명: ${esc(d.aliases.filter(a=>a!==d.name).slice(0,10).join(', ') || '—')}</div>
+    <div class="tabs" id="dtabs">
+      <button data-t="topics" class="${DST.tab==='topics'?'on':''}">탐구 주제 ${nTopic}</button>
+      ${d.deep?.length ? `<button data-t="road" class="${DST.tab==='road'?'on':''}">3년 탐구 로드맵</button>` : ''}
+      <button data-t="about" class="${DST.tab==='about'?'on':''}">학과 이해</button>
+    </div>
+  </div></section>
+  <section class="sec"><div class="wrap" id="dbody"></div></section>`;
+  $('#dtabs').onclick = e => { const b = e.target.closest('[data-t]'); if(!b) return; DST.tab = b.dataset.t; $$('#dtabs button').forEach(x=>x.classList.toggle('on', x===b)); renderDeptBody(d); syncHash(); };
+  renderDeptBody(d);
+}
+function renderDeptBody(d){
+  const body = $('#dbody'), p = d.profile;
+  if(DST.tab==='about') {
+    const cur = p?.curriculum;
+    body.innerHTML = `<div class="grid2">
+      <div class="box"><h3>이 학문은 무엇을 연구하나</h3>${p ? `<p>${esc(p.intro)}</p><h4>이 학문이 던지는 질문</h4><ul class="cq">${p.coreQuestions.map(q=>`<li>${esc(q)}</li>`).join('')}</ul>
+        <h4>탐구 방법</h4>${p.methods.map(m=>`<p><b>${esc(m.name)}</b> — ${esc(m.desc)}</p>`).join('')}
+        <h4>수학·통계는 이렇게 쓰입니다</h4><p>${esc(p.math)}</p>` : `<p>${esc(d.name)}의 세부 분야는 다음과 같습니다.</p>${(d.fields||[]).map(f=>`<p><b>${esc(f.name)}</b> — ${esc(f.desc)}</p>`).join('')}`}
+      </div>
+      <div class="box"><h3>대학에서 배우는 과목</h3>
+        ${cur ? `<div class="ladder" style="margin-bottom:14px"><div><b>전공 기초</b>${cur.foundation.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div><div><b>전공 핵심</b>${cur.core.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div><div><b>심화·응용</b>${cur.advanced.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div></div>` : ''}
+        <h4>많이 개설된 과목</h4>${freqBlock(d)}
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="box"><h3>고등학교에서 이수하면 좋은 과목</h3>
+        ${p ? `<h4>핵심</h4>${p.hsCourses.core.map(x=>`<span class="tag core">${esc(x)}</span>`).join('')}<h4>권장</h4>${p.hsCourses.recommended.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}<p style="margin-top:10px">${esc(p.hsCourses.why)}</p>` : ''}
+        ${d.reco && (d.reco.core.length||d.reco.reco.length) ? `<h4>대학이 공개한 2028 권장과목에서 자주 나온 과목</h4>${d.reco.core.slice(0,8).map(x=>`<span class="tag core">${esc(x.name)}</span>`).join('')}${d.reco.reco.slice(0,8).map(x=>`<span class="tag">${esc(x.name)}</span>`).join('')}<div class="note">굵은 테두리는 ‘핵심’, 일반 테두리는 ‘권장’으로 안내된 과목입니다. 지원 대학의 모집단위별 안내를 반드시 따로 확인하세요.</div>` : ''}
+      </div>
+      <div class="box">
+        ${p?.neighbors?.length ? `<h3>헷갈리기 쉬운 학과</h3><div class="nb">${p.neighbors.map(n=>`<div><b>${esc(n.name)}</b>${esc(n.diff)}</div>`).join('')}</div>` : ''}
+        ${p?.misconceptions?.length ? `<h3 style="margin-top:16px">흔한 오해</h3><div class="myth">${p.misconceptions.map(m=>`<div><s>${esc(m.myth)}</s><br>→ ${esc(m.fact)}</div>`).join('')}</div>` : ''}
+        ${p?.evalFocus?.length ? `<h3 style="margin-top:16px">학생부에서 이렇게 드러납니다</h3>${p.evalFocus.map(e=>`<p><b>${esc(e.element)} · ${esc(e.item)}</b> — ${esc(e.point)}</p>`).join('')}` : ''}
+        <h3 style="margin-top:16px">진출 분야</h3>${(p?.careers || d.careers || []).map(x=>`<span class="tag">${esc(x)}</span>`).join('')}
+      </div>
+    </div>`;
+    return;
+  }
+  if(DST.tab==='road') {
+    const tr = p.tracks;
+    body.innerHTML = `<div class="sec-h"><div><h2>3년 탐구 로드맵</h2><p>세부 분야 세 갈래마다 1학년에서 3학년으로 이어지는 대표 탐구입니다. 다음 학년 탐구는 앞 탐구의 한계를 이어받아 해결합니다.</p></div></div>
+    <div class="road"><div></div><div class="gh">1학년</div><div class="gh">2학년</div><div class="gh">3학년</div>
+    ${tr.map(t => `<div class="tr">${esc(t.name)}<small>${esc(t.desc)}</small></div>` + [1,2,3].map(g => { const x = d.deep.find(y=>y.track===t.id&&y.grade===g); return x ? `<button class="rcell" data-tid="${x.id}">${esc(x.title)}<span>${esc(x.method)} · ${esc(x.setting)}</span></button>` : '<div></div>'; }).join('')).join('')}
+    </div>`;
+    body.onclick = e => { const b = e.target.closest('[data-tid]'); if(b) openTopic(b.dataset.tid); };
+    return;
+  }
+  // topics
+  const fields = d.fields || [];
+  body.innerHTML = `<div class="ctl">
+      <input id="dq" type="search" placeholder="${esc(d.name)} 주제 검색" value="${esc(DST.q)}" />
+      ${fields.length ? `<select id="dfield"><option value="">전체 세부 분야</option>${fields.map(f=>`<option value="${f.id}" ${DST.field===f.id?'selected':''}>${esc(f.name)}</option>`).join('')}</select>` : ''}
+      <div class="seg" id="dgrade">${['','1','2','3'].map(g=>`<button data-v="${g}" class="${DST.grade===g?'on':''}">${g?g+'학년':'전 학년'}</button>`).join('')}</div>
+    </div>
+    <p class="count" id="dcount"></p><div class="tgrid" id="dgrid"></div><div class="more"><button class="btn" id="dmore">더 보기</button></div>`;
+  const draw = () => {
+    const q = DST.q.trim().toLowerCase();
+    const list = ALL.filter(t => t.dept===d.id && (!DST.field || t.field===DST.field) && (!DST.grade || String(t.grade)===DST.grade) && (!q || t._s.includes(q)));
+    $('#dcount').textContent = `${list.length}개 주제` + (list.some(t=>t.kind==='deep') ? ' · 금색 표시는 상세 설계가 있는 대표 탐구' : '');
+    $('#dgrid').innerHTML = list.slice(0, DST.limit).map(cardHTML).join('') || '<div class="empty">조건에 맞는 주제가 없습니다.</div>';
+    $('#dmore').hidden = list.length <= DST.limit;
+  };
+  draw();
+  $('#dq').oninput = e => { DST.q = e.target.value; DST.limit = 60; draw(); };
+  if($('#dfield')) $('#dfield').onchange = e => { DST.field = e.target.value; DST.limit = 60; draw(); syncHash(); };
+  $('#dgrade').onclick = e => { const b = e.target.closest('[data-v]'); if(!b) return; DST.grade = b.dataset.v; $$('#dgrade button').forEach(x=>x.classList.toggle('on', x===b)); DST.limit = 60; draw(); syncHash(); };
+  $('#dmore').onclick = () => { DST.limit += 60; draw(); };
+  $('#dgrid').onclick = e => { const b = e.target.closest('[data-tid]'); if(b) openTopic(b.dataset.tid); };
+}
+function fieldName(t){ const d = DEPT[t.dept]; if(t.kind==='deep') return (d.profile?.tracks||[]).find(x=>x.id===t.track)?.name || ''; return (d.fields||[]).find(f=>f.id===t.field)?.name || ''; }
+function cardHTML(t){
+  const d = DEPT[t.dept];
+  return `<button class="tcard" data-tid="${t.id}" style="--c:${colorOf(t.dept)}">
+    <div class="tm">${t.kind==='deep'?'<span class="pill deep">대표 탐구</span>':''}<span class="pill g${t.grade}">${GRADE(t.grade)}</span><span class="pill">${esc(d.name)}</span><span class="pill">${esc(fieldName(t))}</span><span class="pill">${esc(t.setting)}</span></div>
+    <h4>${esc(t.title)}</h4><p class="q">${esc(t.question)}</p>
+    <div class="an"><b>분석</b> ${esc(t.analysis)}</div></button>`;
+}
+
+/* ---------- 라이브러리 ---------- */
+const LST = { q:'', cluster:'', dept:'', grade:'', setting:'', deep:false, limit:60 };
+function initLibrary(){
+  const used = D.clusters.filter(c => D.depts.some(d => d.cluster===c.name));
+  $('#libCluster').innerHTML += used.map(c=>`<option>${esc(c.name)}</option>`).join('');
+  const fillDept = () => { $('#libDept').innerHTML = '<option value="">전체 학과</option>' + D.depts.filter(d=>!LST.cluster||d.cluster===LST.cluster).map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join(''); $('#libDept').value = LST.dept; };
+  fillDept();
+  const settings = [...new Set(ALL.map(t=>t.setting))];
+  $('#libSetting').innerHTML += settings.map(s=>`<option>${esc(s)}</option>`).join('');
+  $('#libQ').oninput = e => { LST.q = e.target.value; LST.limit = 60; drawLib(); };
+  $('#libCluster').onchange = e => { LST.cluster = e.target.value; if(LST.dept && DEPT[LST.dept].cluster!==LST.cluster) LST.dept=''; fillDept(); LST.limit=60; drawLib(); };
+  $('#libDept').onchange = e => { LST.dept = e.target.value; LST.limit=60; drawLib(); };
+  $('#libSetting').onchange = e => { LST.setting = e.target.value; LST.limit=60; drawLib(); };
+  $('#libDeep').onchange = e => { LST.deep = e.target.checked; LST.limit=60; drawLib(); };
+  $('#libGrade').onclick = e => { const b = e.target.closest('[data-v]'); if(!b) return; LST.grade = b.dataset.v; $$('#libGrade button').forEach(x=>x.classList.toggle('on', x===b)); LST.limit=60; drawLib(); };
+  $('#libMore').onclick = () => { LST.limit += 60; drawLib(); };
+  $('#libGrid').onclick = e => { const b = e.target.closest('[data-tid]'); if(b) openTopic(b.dataset.tid); };
+}
+function drawLib(){
+  const qs = LST.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const list = ALL.filter(t => (!LST.cluster || DEPT[t.dept].cluster===LST.cluster) && (!LST.dept || t.dept===LST.dept) && (!LST.grade || String(t.grade)===LST.grade) && (!LST.setting || t.setting===LST.setting) && (!LST.deep || t.kind==='deep') && qs.every(q => t._s.includes(q)));
+  $('#libCount').textContent = `${list.length.toLocaleString()}개 주제`;
+  $('#libGrid').innerHTML = list.slice(0, LST.limit).map(cardHTML).join('') || '<div class="empty">조건에 맞는 주제가 없습니다. 검색어를 줄여 보세요.</div>';
+  $('#libMore').hidden = list.length <= LST.limit;
+}
+
+/* ---------- 주제 모달 ---------- */
+let teacher = store.get('majortam_teacher') === '1';
+const SAFETY = {
+  '실험실': '실험 전에 지도교사와 함께 시약·기구의 안전 정보(물질안전보건자료)를 확인하고, 학교 실험실 안전 규정 안에서 농도·온도·전압을 정한다. 보호 안경·장갑을 착용하고 폐액은 지정 용기에 모은다. 사람이 참여하는 측정은 신체 부담이 없는 과제만 쓰고 사전 동의와 익명 처리를 거친다.',
+  '현장': '사람에게 설문·실험·관찰을 할 때는 지도교사 승인, 참여자 사전 동의, 익명 처리, 원하면 언제든 그만둘 수 있다는 안내를 먼저 갖춘다. 민감한 개인정보(성적·건강·가정 형편 등)는 묻지 않는다. 야외 활동은 보호자·교사에게 일정과 장소를 알리고 안전 수칙을 지킨다.',
+  '데이터': '공개 자료라도 이용 약관과 출처 표기 조건을 확인하고, 개인을 식별할 수 있는 정보는 결합하거나 공개하지 않는다.',
+  '문헌': '원문을 인용할 때는 분석에 필요한 범위만 쓰고 출처를 밝힌다. 저작권이 남은 작품은 전문을 옮겨 싣지 않는다.',
+  '컴퓨팅': '공개 코드·자료를 쓰면 라이선스와 출처를 밝히고, 사이트에서 자료를 자동으로 모을 때는 이용 약관과 수집 허용 범위를 지킨다.',
+};
+function openTopic(id, push=true){
+  const t = TOPIC[id]; if(!t) return;
+  const d = DEPT[t.dept], c = colorOf(t.dept);
+  const m = $('#modal'); m.style.setProperty('--c', c);
+  const hs = t.kind==='deep' ? t.hsLink.courses : t.hs;
+  const univ = t.kind==='deep' ? t.univLink.courses : t.univ;
+  let html = `<div class="mh"><button class="x" aria-label="닫기" id="mx">✕</button>
+    <div class="tm" style="display:flex;gap:5px;flex-wrap:wrap">${t.kind==='deep'?'<span class="pill deep">대표 탐구 · 상세 설계</span>':''}<span class="pill g${t.grade}">${GRADE(t.grade)}</span><span class="pill">${esc(d.name)}</span><span class="pill">${esc(fieldName(t))}</span><span class="pill">${esc(t.setting)}</span>${t.weeks?`<span class="pill">약 ${t.weeks}주</span>`:''}</div>
+    <h2>${esc(t.title)}</h2>${t.hook?`<div style="color:var(--muted)">${esc(t.hook)}</div>`:''}</div><div class="mb">
+    <div class="qbox">${esc(t.question)}</div>`;
+  if(t.kind==='sum'){
+    html += `<div class="rig">
+      <div><b>탐구 설계</b><p>${esc(t.design)}</p></div>
+      <div><b>분석 방법</b><p>${esc(t.analysis)}</p></div>
+      <div><b>검증 포인트</b><p>${esc(t.check)}</p></div>
+      <div><b>심화 방향</b><p>${esc(t.extend)}</p></div></div>
+      <dl class="kv"><dt>고교 연계 과목</dt><dd>${hs.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</dd><dt>대학 전공과목</dt><dd>${univ.map(x=>`<span class="tag core">${esc(x)}</span>`).join('')}</dd>${(t.tags||[]).length?`<dt>키워드</dt><dd>${t.tags.map(esc).join(', ')}</dd>`:''}</dl>
+      <div class="teacher"><b>이 주제를 내 탐구로 만들려면</b><br>① 연구 질문의 변인을 내가 실제로 측정·수집할 수 있는 것으로 좁힌다 ② 비교 조건과 반복(표본) 수를 정한다 ③ 검증 포인트의 경쟁 설명을 어떻게 가를지 계획서에 먼저 적는다 ④ 결론은 ‘얼마나 확실한가’(오차·범위)와 함께 쓴다.</div>
+      ${SAFETY[t.setting] ? `<div class="teacher" style="margin-top:10px"><b>안전·연구윤리</b><br>${SAFETY[t.setting]}</div>` : ''}`;
+  } else {
+    html += `<p><b>가설</b> ${esc(t.hypothesis)}</p><p style="color:var(--ink2)">${esc(t.background)}</p>
+      <h3>탐구 설계</h3><table class="vt"><tr><th>변인·조작적 정의</th><td>${esc(t.design.variables)}</td></tr><tr><th>비교·통제</th><td>${esc(t.design.comparison)}</td></tr><tr><th>표본·반복</th><td>${esc(t.design.sample)}</td></tr><tr><th>분석</th><td>${esc(t.analysis)}</td></tr><tr><th>경쟁 설명과 가르는 법</th><td>${esc(t.rival.hypothesis)}<br>→ ${esc(t.rival.test)}</td></tr><tr><th>불확실성</th><td>${esc(t.uncertainty)}</td></tr></table>
+      <h3>타당도 위협과 대응</h3><ul>${t.validity.map(v=>`<li><b>${esc(v.threat)}</b> → ${esc(v.response)}</li>`).join('')}</ul>
+      <h3>수행 단계</h3><ol>${t.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>
+      <dl class="kv" style="margin-top:14px"><dt>도구</dt><dd>${esc(t.tools)}</dd>${(t.dataSources||[]).length?`<dt>자료</dt><dd>${t.dataSources.map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(' · ')}</dd>`:''}<dt>산출물</dt><dd>${esc(t.output)}</dd><dt>고교 연계</dt><dd>${hs.map(x=>`<span class="tag">${esc(x)}</span>`).join('')} <span style="color:var(--muted);font-size:.86rem">${esc((t.hsLink.concepts||[]).join(', '))}</span></dd><dt>대학 전공</dt><dd>${univ.map(x=>`<span class="tag core">${esc(x)}</span>`).join('')}<br><span style="font-size:.88rem;color:var(--ink2)">${esc(t.univLink.why)}</span></dd></dl>
+      ${(t.hsLink.standards||[]).length ? `<h3>관련 성취기준 (2022 개정 교육과정)</h3><ul class="stds">${t.hsLink.standards.map(c=>{const x=(D.standards||{})[c]; return `<li><b>${esc(c)}</b> <span class="pill">${esc(x?x.course:'')}</span><br>${esc(x?x.text:'')}</li>`;}).join('')}</ul>` : ''}
+      ${t.buildsOn?`<h3>앞 탐구에서 이어받은 한계</h3><p>${esc(t.buildsOn)}</p>`:''}
+      <h3>대학 전공에서는</h3><p>${esc(t.deeper)}</p>
+      <h3>흔한 실수</h3><ul>${t.pitfalls.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+      <h3>안전·연구윤리</h3><p>${esc(t.safetyEthics)}</p>`;
+    const chain = d.deep.filter(x=>x.track===t.track).sort((a,b)=>a.grade-b.grade);
+    html += `<h3>같은 트랙 로드맵</h3><div class="chain">${chain.map(x=>`<button data-tid="${x.id}" class="${x.id===t.id?'cur':''}">${x.grade}학년 · ${esc(x.title)}</button>`).join('')}</div>`;
+    html += `<div class="teacher" ${teacher?'':'hidden'} id="tbox"><b>교사용</b><br><b>관찰 장면</b> ${esc(t.scene)}<br>${t.interview.map(v=>`<b>면접 질문</b> ${esc(v.q)} <span style="color:var(--muted)">(확인: ${esc(v.key)})</span>`).join('<br>')}</div>`;
+  }
+  html += `<div class="macts"><button class="btn" id="mcopy">링크 복사</button><button class="btn" id="mprint">설계서 인쇄</button>${t.kind==='deep'?`<button class="btn" id="mteach">${teacher?'교사용 정보 숨기기':'교사용 정보 보기'}</button>`:''}<button class="btn" id="mdept">${esc(d.name)} 주제 더 보기</button></div></div>`;
+  m.innerHTML = html;
+  $('#mbg').classList.add('on'); document.body.style.overflow='hidden';
+  $('#mx').onclick = closeModal;
+  $('#mcopy').onclick = () => { const u = location.href.split('#')[0] + '#topic=' + id; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(()=>toast('링크를 복사했습니다'), ()=>prompt('링크', u)); };
+  $('#mprint').onclick = () => window.print();
+  $('#mdept').onclick = () => { closeModal(); go('dept', d.id); };
+  if($('#mteach')) $('#mteach').onclick = () => { teacher = !teacher; store.set('majortam_teacher', teacher?'1':'0'); openTopic(id, false); };
+  m.onclick = e => { const b = e.target.closest('.chain [data-tid]'); if(b) openTopic(b.dataset.tid); };
+  if(push) history.replaceState(null, '', '#topic=' + id);
+}
+function closeModal(){ $('#mbg').classList.remove('on'); document.body.style.overflow=''; if(location.hash.startsWith('#topic=')) syncHash(); }
+$('#mbg').addEventListener('click', e => { if(e.target.id==='mbg') closeModal(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape' && $('#mbg').classList.contains('on')) closeModal(); if(e.key==='/' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)){ e.preventDefault(); (VIEW==='library'?$('#libQ'):VIEW==='dept'?$('#dq'):inp)?.focus(); } });
+
+/* ---------- 라우팅 ---------- */
+let VIEW = 'home', CUR = '';
+function show(v){ ['home','deptView','library','guide'].forEach(x => $('#'+x).hidden = x !== v); $$('.nav a').forEach(a => a.classList.toggle('on', (a.dataset.nav==='home'&&v==='home') || a.dataset.nav===v)); }
+function go(v, id){
+  VIEW = v; CUR = id || '';
+  if(v==='dept'){ if(id !== DST._id){ Object.assign(DST, { tab:'topics', field:'', grade:'', q:'', limit:60, _id:id }); } renderDept(id); show('deptView'); }
+  else if(v==='library'){ show('library'); drawLib(); }
+  else if(v==='guide'){ show('guide'); }
+  else { show('home'); }
+  syncHash(); window.scrollTo(0,0);
+}
+function syncHash(){
+  let h = '';
+  if(VIEW==='dept') h = `#dept=${CUR}` + (DST.tab!=='topics' ? `&tab=${DST.tab}` : '') + (DST.field?`&f=${DST.field}`:'') + (DST.grade?`&g=${DST.grade}`:'');
+  else if(VIEW==='library') h = '#library';
+  else if(VIEW==='guide') h = '#guide';
+  if(location.hash !== h) history.replaceState(null, '', h || location.pathname + location.search);
+}
+function route(){
+  if(!location.hash.startsWith('#topic=') && $('#mbg').classList.contains('on')){ $('#mbg').classList.remove('on'); document.body.style.overflow=''; }
+  const h = decodeURIComponent(location.hash.slice(1));
+  const P = Object.fromEntries(h.split('&').map(x => x.split('=')));
+  if(P.topic && TOPIC[P.topic]){ const t = TOPIC[P.topic]; go('dept', t.dept); openTopic(P.topic); return; }
+  if(P.dept && DEPT[P.dept]){ Object.assign(DST, { tab:P.tab||'topics', field:P.f||'', grade:P.g||'', q:'', limit:60, _id:P.dept }); go('dept', P.dept); return; }
+  if('library' in P){ go('library'); return; }
+  if('guide' in P){ go('guide'); return; }
+  go('home');
+}
+document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if(!a) return; e.preventDefault(); const h = a.getAttribute('href'); if(h==='#') go('home'); else if(h==='#library') go('library'); else if(h==='#guide') go('guide'); });
+window.addEventListener('hashchange', route);
+renderHome(); initLibrary(); route();
+})();
+</script>
+</body>
+</html>
