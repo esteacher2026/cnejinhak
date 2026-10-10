@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>학교생활기록부 기반 면접 준비 안내</title>
+<meta name="description" content="면접관의 눈으로 내 학생부를 읽고, 질문을 만들고, 답변을 설계하고, 실전처럼 연습하는 학생부 기반 면접 준비 안내서. 충청남도교육청진로융합교육원.">
+<meta name="theme-color" content="#006a7f">
+<link rel="icon" type="image/svg+xml" href="assets/logo_symbol.svg">
+<link rel="stylesheet" href="assets/app.css?v=202610100940">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="app" id="app">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+    <a class="brand" href="#/home" aria-label="학교생활기록부 기반 면접 준비 안내 홈">
+      <img class="brand-logo" src="assets/logo_symbol.svg" alt="" width="77" height="20">
+      <span class="brand-text"><span class="brand-pre">학교생활기록부 기반</span> <b>면접 준비 안내</b></span>
+    </a>
+    <div class="topbar-right"><span class="org-name">충청남도교육청진로융합교육원</span>
+      <button class="reset-btn" type="button" data-reset title="입력한 내용을 모두 지우고 처음부터 다시 시작합니다">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.5v5h5"/><path d="M4.6 14.5a7.6 7.6 0 101.3-7.3L4 9.5"/></svg><span>초기화</span>
+      </button></div>
+  </header>
+  <nav class="stepbar" id="stepbar" aria-label="준비 단계 바로가기"></nav>
+
+  <nav class="side" id="side" aria-label="준비 단계">
+    <div class="side-inner" id="sideInner"></div>
+  </nav>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <main class="main" id="main" tabindex="-1">
+    <div class="view" id="view">
+      <noscript><p class="noscript">이 안내서는 자바스크립트가 켜져 있어야 동작합니다.</p></noscript>
+    </div>
+    <footer class="foot" id="foot">
+      <div class="foot-org">
+        <img src="assets/logo_cnecc.svg" alt="충청남도교육청진로융합교육원" width="165" height="50">
+        <div>
+          <p><b>제작</b> 충청남도교육청진로융합교육원</p>
+          <p><b>출처</b> 대입정보포털 어디가(학생부종합전형 면접평가 안내·수시 대학별고사 일정), 대학별 수시 모집요강, 대학별 학생부종합전형 가이드북, 대학별 선행학습 영향평가 보고서, 충남 지역 고교 면접 후기, 면접후기 자료집</p>
+          <p><b>참고</b> 시·도교육청 면접 자료집, 수험생 커뮤니티 공개 후기</p>
+        </div>
+      </div>
+      <p class="foot-note">이 안내서는 준비를 돕는 참고 자료입니다. 합격 가능성을 판정하지 않으며, 면접 일정·방식·평가 기준은 반드시 각 대학의 모집요강과 수험생 유의사항으로 확인하세요. 입력한 내용은 이 기기 안에서만 처리되고 어디로도 전송되지 않습니다(6단계 받아쓰기를 켠 경우 음성은 브라우저의 음성 인식 서버를 거칩니다).</p>
+    </footer>
+  </main>
+</div>
+<button class="totop" id="totop" aria-label="맨 위로" hidden>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-host" id="modalHost"></div>
+
+<script>window.MJ_API = "https://myeonjeop-data.cnejinhak2025.workers.dev";</script>
+<script src="assets/core.js?v=202610100940"></script>
+<script src="data/univ.js?v=202610100940"></script>
+<script src="content/know.js?v=202610100940"></script>
+<script src="content/common_q.js?v=202610100940"></script>
+<script src="content/qtemplates.js?v=202610100940"></script>
+<script src="content/coach.js?v=202610100940"></script>
+<script src="content/finish.js?v=202610100940"></script>
+<script src="content/lexicon.js?v=202610100940"></script>
+<script src="content/majors.js?v=202610100940"></script>
+<script src="content/areaguide.js?v=202610100940"></script>
+<script src="content/samples.js?v=202610100940"></script>
+<script src="assets/engine_q.js?v=202610100940"></script>
+<script src="assets/engine_a.js?v=202610100940"></script>
+<script src="assets/view_home.js?v=202610100940"></script>
+<script src="assets/view_know.js?v=202610100940"></script>
+<script src="assets/view_univ.js?v=202610100940"></script>
+<script src="assets/view_record.js?v=202610100940"></script>
+<script src="assets/view_questions.js?v=202610100940"></script>
+<script src="assets/view_answers.js?v=202610100940"></script>
+<script src="assets/view_practice.js?v=202610100940"></script>
+<script src="assets/view_finish.js?v=202610100940"></script>
+<script src="assets/view_notes.js?v=202610100940"></script>
+<script src="assets/view_hugi.js?v=202610100940"></script>
+<script>MJ.start();</script>
+</body>
+</html>
