@@ -158,7 +158,32 @@
      window.MJ_API 가 있으면(build.py --secure) 잠긴 자료는 파일이 아니라 자료 서버에서 이용권을 보여 주고 받는다. */
   var PROTECTED = /^(hugi_\d{3}|hugi_index|guide|guide_univ|stats|qbank_[a-z]+)$/;
   var TOK = "mj.tok";
-  MJ.secure = { api: String(window.MJ_API || "").replace(/\/$/, "") };
+  /* 자료 서버는 쉼표로 여러 개 적을 수 있다. 일부 통신망에서 서버 주소(IP) 하나가 막혀 있는 일이 있어,
+     한 곳이 답하지 않으면 다른 곳에도 함께 요청해 먼저 답한 쪽을 쓴다(답한 서버는 이 탭에서 기억).
+     요청을 중간에 끊지 않는다: 브라우저가 막힌 주소를 포기하고 다른 주소로 넘어가는 데 20초쯤 걸리기 때문이다. */
+  var APIS = String(window.MJ_API || "").split(",").map(function (a) { return a.trim().replace(/\/$/, ""); }).filter(Boolean);
+  var NET_MSG = "자료 서버에 연결하지 못했습니다. 이 통신망에서 자료 서버가 막혀 있을 수 있습니다. 잠시 뒤 다시 시도하거나, 휴대폰은 와이파이를 끄고 데이터로 열어 보세요.";
+  MJ.secure = { api: APIS[0] || "", apis: APIS };
+  function apiFetch(path, opt) {
+    var n = APIS.length, pref = parseInt(safeGet(window.sessionStorage, "mj.api"), 10);
+    if (!(pref >= 0 && pref < n)) pref = -1;
+    return new Promise(function (res, rej) {
+      var done = false, failed = 0, started = {};
+      function all() { for (var i = 0; i < n; i++) go(i); }
+      function go(i) {
+        if (done || started[i]) return;
+        started[i] = 1;
+        fetch(APIS[i] + path, opt).then(function (r) {
+          if (done) return;
+          done = true; safeSet(window.sessionStorage, "mj.api", String(i)); res(r);
+        }, function () {
+          failed++;
+          if (failed >= n) { if (!done) { done = true; rej(new Error(NET_MSG)); } } else all();
+        });
+      }
+      if (pref < 0) all(); else { go(pref); setTimeout(all, 4000); }
+    });
+  }
   function tokGet() {
     var raw = safeGet(window.sessionStorage, TOK) || safeGet(window.localStorage, TOK), t = null;
     try { t = raw ? JSON.parse(raw) : null; } catch (e) { t = null; }
@@ -185,9 +210,11 @@
         e.preventDefault();
         var code = inp.value.trim(); if (!code) { MJ.$("#lockMsg").textContent = "보안코드를 입력하세요."; return; }
         btn.disabled = true; btn.textContent = "확인하는 중";
-        fetch(MJ.secure.api + "/api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: code }) })
+        var slow = setTimeout(function () { if (btn.disabled) MJ.$("#lockMsg").textContent = "자료 서버에 연결하는 중입니다. 통신망에 따라 30초쯤 걸릴 수 있습니다."; }, 5000);
+        apiFetch("/api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: code }) })
           .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
           .then(function (x) {
+            clearTimeout(slow);
             if (!x.ok || !x.j.token) throw new Error(x.j.error || "보안코드가 맞지 않습니다.");
             var t = JSON.stringify({ t: x.j.token, e: Date.now() + (x.j.hours || 12) * 3600e3 - 120e3, l: x.j.label || "" });
             tokDrop();
@@ -196,7 +223,8 @@
             var w = lockWait; lockWait = []; w.forEach(function (f2) { f2(); });
           })
           .catch(function (err) {
-            MJ.$("#lockMsg").textContent = /fetch|network|Failed/i.test(err.message) ? "자료 서버에 연결하지 못했습니다. 인터넷 연결을 확인하세요." : err.message;
+            clearTimeout(slow);
+            MJ.$("#lockMsg").textContent = /fetch|network|Failed|JSON/i.test(err.message) ? NET_MSG : err.message;
             btn.disabled = false; btn.textContent = "들어가기"; inp.select();
           });
       });
@@ -206,11 +234,11 @@
   function secureLoad(name) {
     var t = tokGet();
     if (!t) return MJ.lock().then(function () { return secureLoad(name); });
-    return fetch(MJ.secure.api + "/api/d/" + name, { headers: { Authorization: "Bearer " + t.t } }).then(function (r) {
+    return apiFetch("/api/d/" + name, { headers: { Authorization: "Bearer " + t.t } }).then(function (r) {
       if (r.status === 401) { tokDrop(); return MJ.lock("보안코드를 다시 입력하세요.").then(function () { return secureLoad(name); }); }
       if (!r.ok) return r.json().catch(function () { return {}; }).then(function (j) { throw new Error(j.error || "자료를 불러오지 못했습니다. 잠시 뒤 다시 시도하세요."); });
       return r.json().then(function (j) { MJ.data[name] = j; return j; });
-    }, function () { throw new Error("자료 서버에 연결하지 못했습니다. 인터넷 연결을 확인하세요."); });
+    }, function () { throw new Error(NET_MSG); });
   }
 
   MJ.load = function (name) {
