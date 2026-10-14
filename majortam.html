@@ -11,12 +11,12 @@
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>학과별 전공 탐구활동 가이드 | 40개 학과 탐구 주제와 3년 로드맵</title>
-<meta name="description" content="주요 학과 40개의 전공 탐구 주제 4,360개와 학과별 3년 탐구 로드맵. 고교 과목에서 대학 전공과목으로 이어지는 수준 높은 탐구 설계 가이드" />
+<title>학과별 전공 탐구활동 가이드 | 60개 학과 탐구 주제와 3년 로드맵</title>
+<meta name="description" content="주요 학과 60개의 전공 탐구 주제 9,540개와 학과별 3년 탐구 로드맵. 고교 과목에서 대학 전공과목으로 이어지는 수준 높은 탐구 설계 가이드" />
 <link rel="canonical" href="https://jinhak.esteacher.kr/majortam.html" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="학과별 전공 탐구활동 가이드" />
-<meta property="og:description" content="40개 학과 · 전공 탐구 주제 4,360개 · 학과별 3년 탐구 로드맵" />
+<meta property="og:description" content="60개 학과 · 전공 탐구 주제 9,540개 · 학과별 3년 탐구 로드맵" />
 <meta property="og:url" content="https://jinhak.esteacher.kr/majortam.html" />
 <meta name="theme-color" content="#0b1324" />
 <script>
@@ -189,6 +189,31 @@ section.sec{padding:40px 0}
 .macts{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
 .teacher{background:color-mix(in srgb,var(--gold) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--gold) 40%,var(--line));border-radius:12px;padding:12px 14px;margin-top:14px}
 .teacher b{color:var(--warn)}
+.pill.star{background:var(--gold);color:#1f1300;border-color:var(--gold)}
+.herobtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.hbtn{border:1px solid rgba(245,210,122,.5);background:rgba(245,210,122,.14);color:#f5d27a;border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer}
+.hbtn.solid{background:#f5d27a;color:#0b1324;border-color:#f5d27a}
+.navn{display:inline-block;min-width:18px;padding:0 5px;margin-left:4px;border-radius:999px;background:var(--gold);color:#1f1300;font-size:.72rem;font-weight:800;text-align:center}
+.wz h3{margin:18px 0 8px;font-size:1rem}
+.wz .opts{display:flex;flex-wrap:wrap;gap:7px}
+.wz .opt{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:.88rem;font-weight:600;color:var(--ink2)}
+.wz .opt.on{background:var(--brand2);border-color:var(--brand2);color:#fff}
+.wz input[type=search]{width:100%;height:42px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font:inherit;background:var(--surface2);color:var(--ink)}
+.wz .hint{font-size:.82rem;color:var(--muted);margin:4px 0 0}
+.why{font-size:.78rem;color:var(--ok);margin:0 0 8px;font-weight:700}
+.cmpwrap{overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
+.cmp th,.cmp td{border:1px solid var(--line);padding:9px 10px;vertical-align:top;text-align:left}
+.cmp thead th{background:var(--surface2)}
+.cmp tbody th{background:var(--surface2);width:110px;white-space:nowrap}
+.mygrade{margin:18px 0 8px;font-size:1.02rem;font-weight:800}
+.myrow{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 14px;margin-bottom:8px;border-left:4px solid var(--c)}
+.myrow .t{flex:1;cursor:pointer}
+.myrow .t b{display:block}
+.myrow .t span{font-size:.84rem;color:var(--muted)}
+.myrow button{border:1px solid var(--line);background:var(--surface2);border-radius:8px;padding:4px 9px;cursor:pointer;font-size:.8rem;white-space:nowrap}
+.myrow input{margin-top:5px;width:16px;height:16px;accent-color:var(--brand2)}
+#printSheet{display:none}
 .stds{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 .stds li{background:var(--surface2);border-radius:10px;padding:10px 12px;font-size:.9rem;line-height:1.55}
 .stds b{color:var(--c)}
@@ -211,8 +236,22 @@ section.sec{padding:40px 0}
 }
 @media (max-width:560px){.homebtn span{display:none}.homebtn{padding:0 10px}.logo span{display:none}.nav{gap:0}.nav a{padding:6px 6px;font-size:.76rem}.ctl>select,.ctl>input{flex:1 1 100%}}
 @media print{
-  .hd,.hero,.ftr,.ctl,.more,.tabs,.macts,.mh .x,#home,#library,#guide,#deptView{display:none!important}
-  body{background:#fff}.mbg{position:static;display:block!important;padding:0;background:none}.modal{box-shadow:none;max-width:none}
+  .hd,.ftr,.toast,main,.mbg{display:none!important}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  #printSheet{display:block;padding:0}
+  #printSheet h1{font-size:16pt;margin:0 0 4px;letter-spacing:-.03em}
+  #printSheet .ph{border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:10px}
+  #printSheet .pm{font-size:9.5pt;color:#333}
+  #printSheet h2{font-size:11pt;margin:12px 0 4px;border-left:4px solid #000;padding-left:6px}
+  #printSheet p{margin:2px 0 4px}
+  #printSheet table{width:100%;border-collapse:collapse;margin:4px 0}
+  #printSheet td,#printSheet th{border:1px solid #555;padding:5px 7px;vertical-align:top;text-align:left;font-size:9.5pt}
+  #printSheet th{background:#eee;width:22%}
+  #printSheet .blank{height:46px}
+  #printSheet .blank.s{height:26px}
+  #printSheet .pf{margin-top:10px;font-size:8.5pt;color:#555}
+  #printSheet .pg{page-break-inside:avoid}
+  @page{size:A4;margin:14mm}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -224,6 +263,7 @@ section.sec{padding:40px 0}
     <a href="#" data-nav="home">학과 찾기</a>
     <a href="#library" data-nav="library">주제 라이브러리</a>
     <a href="#guide" data-nav="guide">수준 높은 탐구</a>
+    <a href="#my" data-nav="my">내 탐구함<span class="navn" id="navN" hidden>0</span></a>
   </nav>
   <a class="homebtn" href="https://jinhak.esteacher.kr/" title="EST진학정보실 메인으로" aria-label="EST진학정보실 메인으로">🏠<span>메인</span></a>
   <button class="iconbtn" id="themeBtn" title="화면 밝기 전환" aria-label="화면 밝기 전환">◐</button>
@@ -235,12 +275,13 @@ section.sec{padding:40px 0}
   <section class="hero"><div class="wrap">
     <span class="kicker">2022 개정 교육과정 · 학생부종합전형 대비</span>
     <h1>학과에서 출발하는<br>전공 탐구활동 가이드</h1>
-    <p class="lead">주요 대학에 개설된 학과 40개를 골라, 학과마다 그 학문이 실제로 연구하는 방식으로 탐구 주제를 설계했습니다. 고교 과목에서 출발해 대학 전공과목으로 이어지는 탐구를 찾아보세요.</p>
+    <p class="lead">주요 대학에 개설된 학과 60개를 골라, 학과마다 그 학문이 실제로 연구하는 방식으로 탐구 주제를 설계했습니다. 고교 과목에서 출발해 대학 전공과목으로 이어지는 탐구를 찾아보세요.</p>
     <div class="stats">
       <div class="stat"><b id="stDept">40</b><span>학과</span></div>
       <div class="stat"><b id="stTopic">0</b><span>탐구 주제</span></div>
       <div class="stat"><b id="stDeep">0</b><span>대표 탐구 로드맵 상세 설계</span></div>
     </div>
+    <div class="herobtns"><button class="hbtn solid" id="wizBtn">내게 맞는 주제 추천받기</button><button class="hbtn" id="heroLib">전체 주제 둘러보기</button></div>
     <div class="search">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="deptSearch" type="search" autocomplete="off" placeholder="희망 학과명을 입력하세요 (예: 화공생명공학과, 소프트웨어학과)" aria-label="학과 검색" />
@@ -260,18 +301,28 @@ section.sec{padding:40px 0}
 <!-- LIBRARY -->
 <div id="library" hidden>
   <section class="sec"><div class="wrap">
-    <div class="sec-h"><div><h2>주제 라이브러리</h2><p>40개 학과의 탐구 주제 전체를 학과·학년·수행 환경으로 찾아봅니다.</p></div></div>
+    <div class="sec-h"><div><h2>주제 라이브러리</h2><p>60개 학과의 탐구 주제 전체를 학과·학년·수행 환경으로 찾아봅니다.</p></div></div>
     <div class="ctl">
       <input id="libQ" type="search" placeholder="키워드 검색 (예: 배터리, 실록, 회귀, 설문)" />
       <select id="libCluster"><option value="">전체 계열</option></select>
       <select id="libDept"><option value="">전체 학과</option></select>
       <div class="seg" id="libGrade"><button data-v="" class="on">전 학년</button><button data-v="1">1학년</button><button data-v="2">2학년</button><button data-v="3">3학년</button></div>
       <select id="libSetting"><option value="">수행 환경 전체</option></select>
+      <select id="libCourse"><option value="">고교 과목 전체</option></select>
       <label class="chip" style="cursor:pointer"><input type="checkbox" id="libDeep" style="margin:0;width:15px;height:15px;min-width:0;flex:none;accent-color:var(--brand2)"> 대표 탐구만</label>
     </div>
     <p class="count" id="libCount"></p>
     <div class="tgrid" id="libGrid"></div>
     <div class="more"><button class="btn" id="libMore">더 보기</button></div>
+  </div></section>
+</div>
+
+<!-- MY -->
+<div id="my" hidden>
+  <section class="sec"><div class="wrap">
+    <div class="sec-h"><div><h2>내 탐구함</h2><p>담아 둔 주제를 학년별로 모아 3년 탐구 로드맵을 만들고, 주제를 나란히 비교합니다. 이 기기의 브라우저에만 저장됩니다.</p></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="myCmp">선택한 주제 비교</button><button class="btn pri" id="myPrint">3년 로드맵 인쇄</button></div></div>
+    <div id="myBody"></div>
   </div></section>
 </div>
 
@@ -303,14 +354,15 @@ section.sec{padding:40px 0}
 
 <div class="mbg" id="mbg" role="dialog" aria-modal="true"><div class="modal" id="modal"></div></div>
 <div class="toast" id="toast"></div>
+<div id="printSheet"></div>
 
 <footer class="ftr"><div class="wrap">
   <div><b>학과별 전공 탐구활동 가이드</b> · 제작 충청남도교육청진로융합교육원 교육연구사 정재연</div>
   <div style="margin-top:6px">출처: 주요 대학 학과별 개설 교과목 공개 정보(대학명 비표기, 개설 대학 수로만 표시) · 2028학년도 대학별 모집단위 권장과목 안내 자료 · 2022 개정 교육과정(교육부 고시 제2022-33호)</div>
-  <div style="margin-top:6px">탐구 주제는 예시입니다. 학교의 과목 개설 여부, 실험 안전 규정, 연구윤리 절차를 먼저 확인하고 지도교사와 함께 수행 범위를 정하세요. 빌드 2026-10-08</div>
+  <div style="margin-top:6px">탐구 주제는 예시입니다. 학교의 과목 개설 여부, 실험 안전 규정, 연구윤리 절차를 먼저 확인하고 지도교사와 함께 수행 범위를 정하세요. 빌드 2026-10-14</div>
 </div></footer>
 
-<script src="majortam_data.js?v=muyt2wbi"></script>
+<script src="majortam_data.js?v=mv7ctyb2"></script>
 <script>
 (function(){
 'use strict';
@@ -341,6 +393,19 @@ $('#stDept').textContent = D.depts.length;
 
 /* theme */
 $('#themeBtn').onclick = () => { const n = document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', n); store.set('majortam_theme', n); };
+
+/* ---------- 공통: 과목·성취기준·담기 ---------- */
+const hsOf = t => t.kind==='deep' ? (t.hsLink.courses||[]) : (t.hs||[]);
+const univOf = t => t.kind==='deep' ? (t.univLink.courses||[]) : (t.univ||[]);
+const stdOf = t => t.kind==='deep' ? (t.hsLink.standards||[]) : (t.std||[]);
+const stdHTML = codes => codes.length ? `<h3>관련 성취기준 (2022 개정 교육과정)</h3><ul class="stds">${codes.map(c=>{const x=(D.standards||{})[c]; return `<li><b>${esc(c)}</b> <span class="pill">${esc(x?x.course:'')}</span><br>${esc(x?x.text:'')}</li>`;}).join('')}</ul>` : '';
+const COURSE_ORDER = (D.courses||[]).map(c => c.name);
+const courseSort = (a,b) => { const i=COURSE_ORDER.indexOf(a), j=COURSE_ORDER.indexOf(b); return (i<0?999:i)-(j<0?999:j); };
+let SAVED = []; try { SAVED = JSON.parse(store.get('majortam_saved') || '[]').filter(id => TOPIC[id]); } catch(e) { SAVED = []; }
+const isSaved = id => SAVED.includes(id);
+function saveState(){ store.set('majortam_saved', JSON.stringify(SAVED)); const n=$('#navN'); n.textContent=SAVED.length; n.hidden=!SAVED.length; }
+function toggleSave(id){ if(isSaved(id)) SAVED = SAVED.filter(x=>x!==id); else { if(SAVED.length>=60){ toast('탐구함에는 60개까지 담을 수 있습니다'); return false; } SAVED.push(id); } saveState(); return true; }
+saveState();
 
 /* ---------- 학과 검색 ---------- */
 const NAMES = [];
@@ -396,7 +461,7 @@ $('#clusterChips').addEventListener('click', e => { const b = e.target.closest('
 $('#deptGrid').addEventListener('click', e => { const b = e.target.closest('[data-d]'); if(b) go('dept', b.dataset.d); });
 
 /* ---------- 학과 페이지 ---------- */
-const DST = { tab:'topics', field:'', grade:'', q:'', limit:60 };
+const DST = { tab:'topics', field:'', grade:'', course:'', q:'', limit:60, cmp:null };
 function freqBlock(d){
   const N = d.nSchoolsWithCourses || d.nSchools;
   const top = d.courses.slice(0, 14);
@@ -419,6 +484,7 @@ function renderDept(id){
       <button data-t="topics" class="${DST.tab==='topics'?'on':''}">탐구 주제 ${nTopic}</button>
       ${d.deep?.length ? `<button data-t="road" class="${DST.tab==='road'?'on':''}">3년 탐구 로드맵</button>` : ''}
       <button data-t="about" class="${DST.tab==='about'?'on':''}">학과 이해</button>
+      <button data-t="cmp" class="${DST.tab==='cmp'?'on':''}">학과 비교</button>
     </div>
   </div></section>
   <section class="sec"><div class="wrap" id="dbody"></div></section>`;
@@ -462,17 +528,20 @@ function renderDeptBody(d){
     body.onclick = e => { const b = e.target.closest('[data-tid]'); if(b) openTopic(b.dataset.tid); };
     return;
   }
+  if(DST.tab==='cmp') { renderDeptCompare(d, body); return; }
   // topics
   const fields = d.fields || [];
+  const dcourses = [...new Set(ALL.filter(t=>t.dept===d.id).flatMap(hsOf))].sort(courseSort);
   body.innerHTML = `<div class="ctl">
       <input id="dq" type="search" placeholder="${esc(d.name)} 주제 검색" value="${esc(DST.q)}" />
       ${fields.length ? `<select id="dfield"><option value="">전체 세부 분야</option>${fields.map(f=>`<option value="${f.id}" ${DST.field===f.id?'selected':''}>${esc(f.name)}</option>`).join('')}</select>` : ''}
       <div class="seg" id="dgrade">${['','1','2','3'].map(g=>`<button data-v="${g}" class="${DST.grade===g?'on':''}">${g?g+'학년':'전 학년'}</button>`).join('')}</div>
+      <select id="dcourse"><option value="">고교 과목 전체</option>${dcourses.map(c=>`<option ${DST.course===c?'selected':''}>${esc(c)}</option>`).join('')}</select>
     </div>
     <p class="count" id="dcount"></p><div class="tgrid" id="dgrid"></div><div class="more"><button class="btn" id="dmore">더 보기</button></div>`;
   const draw = () => {
     const q = DST.q.trim().toLowerCase();
-    const list = ALL.filter(t => t.dept===d.id && (!DST.field || t.field===DST.field) && (!DST.grade || String(t.grade)===DST.grade) && (!q || t._s.includes(q)));
+    const list = ALL.filter(t => t.dept===d.id && (!DST.field || t.field===DST.field) && (!DST.grade || String(t.grade)===DST.grade) && (!DST.course || hsOf(t).includes(DST.course)) && (!q || t._s.includes(q)));
     $('#dcount').textContent = `${list.length}개 주제` + (list.some(t=>t.kind==='deep') ? ' · 금색 표시는 상세 설계가 있는 대표 탐구' : '');
     $('#dgrid').innerHTML = list.slice(0, DST.limit).map(cardHTML).join('') || '<div class="empty">조건에 맞는 주제가 없습니다.</div>';
     $('#dmore').hidden = list.length <= DST.limit;
@@ -481,20 +550,54 @@ function renderDeptBody(d){
   $('#dq').oninput = e => { DST.q = e.target.value; DST.limit = 60; draw(); };
   if($('#dfield')) $('#dfield').onchange = e => { DST.field = e.target.value; DST.limit = 60; draw(); syncHash(); };
   $('#dgrade').onclick = e => { const b = e.target.closest('[data-v]'); if(!b) return; DST.grade = b.dataset.v; $$('#dgrade button').forEach(x=>x.classList.toggle('on', x===b)); DST.limit = 60; draw(); syncHash(); };
+  $('#dcourse').onchange = e => { DST.course = e.target.value; DST.limit = 60; draw(); };
   $('#dmore').onclick = () => { DST.limit += 60; draw(); };
   $('#dgrid').onclick = e => { const b = e.target.closest('[data-tid]'); if(b) openTopic(b.dataset.tid); };
+}
+function renderDeptCompare(d, body){
+  const cand = id => DEPT[id] && id !== d.id;
+  if(!DST.cmp || DST.cmp._for !== d.id){
+    const byName = Object.fromEntries(D.depts.map(x=>[x.name,x.id]));
+    let pick = (d.profile?.neighbors||[]).map(n=>byName[n.name]).filter(cand);
+    D.depts.filter(x=>x.cluster===d.cluster && x.id!==d.id).forEach(x=>{ if(pick.length<2 && !pick.includes(x.id)) pick.push(x.id); });
+    DST.cmp = { _for:d.id, ids:pick.slice(0,2) };
+  }
+  const ids = [d.id, ...DST.cmp.ids.filter(cand)];
+  const cols = ids.map(id=>DEPT[id]);
+  const cell = f => cols.map(x=>`<td>${f(x)||'<span style="color:var(--muted)">—</span>'}</td>`).join('');
+  const tags = (arr, cls='') => (arr||[]).map(x=>`<span class="tag ${cls}">${esc(x)}</span>`).join('');
+  const sel = i => `<select data-ci="${i}"><option value="">(비교 안 함)</option>${D.depts.filter(x=>x.id!==d.id).map(x=>`<option value="${x.id}" ${DST.cmp.ids[i]===x.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select>`;
+  const nb = (d.profile?.neighbors||[]);
+  body.innerHTML = `<div class="sec-h"><div><h2>학과 비교</h2><p>헷갈리기 쉬운 학과를 나란히 놓고 무엇을 배우고 어떻게 탐구하는지 비교합니다.</p></div></div>
+    <div class="ctl"><b style="padding:0 6px">${esc(d.name)}</b> 와(과) ${sel(0)} ${sel(1)}</div>
+    <div class="cmpwrap"><table class="cmp"><thead><tr><th></th>${cols.map(x=>`<th style="border-top:3px solid ${colorOf(x.id)}">${esc(x.name)}<br><span style="font-weight:500;color:var(--muted);font-size:.8rem">${esc(x.cluster)}</span></th>`).join('')}</tr></thead><tbody>
+      <tr><th>한 줄 정의</th>${cell(x=>esc(x.profile?.oneLine))}</tr>
+      <tr><th>학문의 질문</th>${cell(x=>(x.profile?.coreQuestions||[]).map(q=>'· '+esc(q)).join('<br>'))}</tr>
+      <tr><th>탐구 방법</th>${cell(x=>(x.profile?.methods||[]).map(m=>esc(m.name)).join(', '))}</tr>
+      <tr><th>전공 핵심 과목</th>${cell(x=>tags(x.profile?.curriculum?.core || x.courses.slice(0,6).map(c=>c.name)))}</tr>
+      <tr><th>심화·응용 과목</th>${cell(x=>tags(x.profile?.curriculum?.advanced))}</tr>
+      <tr><th>고교 핵심 과목</th>${cell(x=>tags(x.profile?.hsCourses?.core,'core'))}</tr>
+      <tr><th>고교 권장 과목</th>${cell(x=>tags(x.profile?.hsCourses?.recommended))}</tr>
+      <tr><th>수학·통계</th>${cell(x=>esc(x.profile?.math))}</tr>
+      <tr><th>탐구 세부 분야</th>${cell(x=>(x.fields||[]).map(f=>esc(f.name)).join('<br>'))}</tr>
+      <tr><th>진출 분야</th>${cell(x=>esc((x.profile?.careers||x.careers||[]).slice(0,7).join(', ')))}</tr>
+      <tr><th>주제 보기</th>${cols.map(x=>`<td><button class="btn" data-go="${x.id}">${esc(x.name)} 주제 ${(x.topics||[]).length+(x.deep||[]).length}개</button></td>`).join('')}</tr>
+    </tbody></table></div>
+    ${nb.length?`<div class="box" style="margin-top:16px"><h3>${esc(d.name)}와(과) 헷갈리기 쉬운 학과</h3><div class="nb">${nb.map(n=>`<div><b>${esc(n.name)}</b>${esc(n.diff)}</div>`).join('')}</div></div>`:''}`;
+  $$('select[data-ci]', body).forEach(el => el.onchange = () => { DST.cmp.ids[+el.dataset.ci] = el.value; DST.cmp.ids = DST.cmp.ids.filter((x,i,a)=>x && a.indexOf(x)===i); renderDeptCompare(d, body); });
+  body.onclick = e => { const b = e.target.closest('[data-go]'); if(b){ DST._id=null; go('dept', b.dataset.go); } };
 }
 function fieldName(t){ const d = DEPT[t.dept]; if(t.kind==='deep') return (d.profile?.tracks||[]).find(x=>x.id===t.track)?.name || ''; return (d.fields||[]).find(f=>f.id===t.field)?.name || ''; }
 function cardHTML(t){
   const d = DEPT[t.dept];
   return `<button class="tcard" data-tid="${t.id}" style="--c:${colorOf(t.dept)}">
-    <div class="tm">${t.kind==='deep'?'<span class="pill deep">대표 탐구</span>':''}<span class="pill g${t.grade}">${GRADE(t.grade)}</span><span class="pill">${esc(d.name)}</span><span class="pill">${esc(fieldName(t))}</span><span class="pill">${esc(t.setting)}</span></div>
+    <div class="tm">${isSaved(t.id)?'<span class="pill star">★ 담음</span>':''}${t.kind==='deep'?'<span class="pill deep">대표 탐구</span>':''}<span class="pill g${t.grade}">${GRADE(t.grade)}</span><span class="pill">${esc(d.name)}</span><span class="pill">${esc(fieldName(t))}</span><span class="pill">${esc(t.setting)}</span></div>
     <h4>${esc(t.title)}</h4><p class="q">${esc(t.question)}</p>
     <div class="an"><b>분석</b> ${esc(t.analysis)}</div></button>`;
 }
 
 /* ---------- 라이브러리 ---------- */
-const LST = { q:'', cluster:'', dept:'', grade:'', setting:'', deep:false, limit:60 };
+const LST = { q:'', cluster:'', dept:'', grade:'', setting:'', course:'', deep:false, limit:60 };
 function initLibrary(){
   const used = D.clusters.filter(c => D.depts.some(d => d.cluster===c.name));
   $('#libCluster').innerHTML += used.map(c=>`<option>${esc(c.name)}</option>`).join('');
@@ -502,6 +605,8 @@ function initLibrary(){
   fillDept();
   const settings = [...new Set(ALL.map(t=>t.setting))];
   $('#libSetting').innerHTML += settings.map(s=>`<option>${esc(s)}</option>`).join('');
+  $('#libCourse').innerHTML += [...new Set(ALL.flatMap(hsOf))].sort(courseSort).map(c=>`<option>${esc(c)}</option>`).join('');
+  $('#libCourse').onchange = e => { LST.course = e.target.value; LST.limit=60; drawLib(); };
   $('#libQ').oninput = e => { LST.q = e.target.value; LST.limit = 60; drawLib(); };
   $('#libCluster').onchange = e => { LST.cluster = e.target.value; if(LST.dept && DEPT[LST.dept].cluster!==LST.cluster) LST.dept=''; fillDept(); LST.limit=60; drawLib(); };
   $('#libDept').onchange = e => { LST.dept = e.target.value; LST.limit=60; drawLib(); };
@@ -513,7 +618,7 @@ function initLibrary(){
 }
 function drawLib(){
   const qs = LST.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  const list = ALL.filter(t => (!LST.cluster || DEPT[t.dept].cluster===LST.cluster) && (!LST.dept || t.dept===LST.dept) && (!LST.grade || String(t.grade)===LST.grade) && (!LST.setting || t.setting===LST.setting) && (!LST.deep || t.kind==='deep') && qs.every(q => t._s.includes(q)));
+  const list = ALL.filter(t => (!LST.cluster || DEPT[t.dept].cluster===LST.cluster) && (!LST.dept || t.dept===LST.dept) && (!LST.grade || String(t.grade)===LST.grade) && (!LST.setting || t.setting===LST.setting) && (!LST.course || hsOf(t).includes(LST.course)) && (!LST.deep || t.kind==='deep') && qs.every(q => t._s.includes(q)));
   $('#libCount').textContent = `${list.length.toLocaleString()}개 주제`;
   $('#libGrid').innerHTML = list.slice(0, LST.limit).map(cardHTML).join('') || '<div class="empty">조건에 맞는 주제가 없습니다. 검색어를 줄여 보세요.</div>';
   $('#libMore').hidden = list.length <= LST.limit;
@@ -532,8 +637,7 @@ function openTopic(id, push=true){
   const t = TOPIC[id]; if(!t) return;
   const d = DEPT[t.dept], c = colorOf(t.dept);
   const m = $('#modal'); m.style.setProperty('--c', c);
-  const hs = t.kind==='deep' ? t.hsLink.courses : t.hs;
-  const univ = t.kind==='deep' ? t.univLink.courses : t.univ;
+  const hs = hsOf(t), univ = univOf(t);
   let html = `<div class="mh"><button class="x" aria-label="닫기" id="mx">✕</button>
     <div class="tm" style="display:flex;gap:5px;flex-wrap:wrap">${t.kind==='deep'?'<span class="pill deep">대표 탐구 · 상세 설계</span>':''}<span class="pill g${t.grade}">${GRADE(t.grade)}</span><span class="pill">${esc(d.name)}</span><span class="pill">${esc(fieldName(t))}</span><span class="pill">${esc(t.setting)}</span>${t.weeks?`<span class="pill">약 ${t.weeks}주</span>`:''}</div>
     <h2>${esc(t.title)}</h2>${t.hook?`<div style="color:var(--muted)">${esc(t.hook)}</div>`:''}</div><div class="mb">
@@ -545,7 +649,8 @@ function openTopic(id, push=true){
       <div><b>검증 포인트</b><p>${esc(t.check)}</p></div>
       <div><b>심화 방향</b><p>${esc(t.extend)}</p></div></div>
       <dl class="kv"><dt>고교 연계 과목</dt><dd>${hs.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</dd><dt>대학 전공과목</dt><dd>${univ.map(x=>`<span class="tag core">${esc(x)}</span>`).join('')}</dd>${(t.tags||[]).length?`<dt>키워드</dt><dd>${t.tags.map(esc).join(', ')}</dd>`:''}</dl>
-      <div class="teacher"><b>이 주제를 내 탐구로 만들려면</b><br>① 연구 질문의 변인을 내가 실제로 측정·수집할 수 있는 것으로 좁힌다 ② 비교 조건과 반복(표본) 수를 정한다 ③ 검증 포인트의 경쟁 설명을 어떻게 가를지 계획서에 먼저 적는다 ④ 결론은 ‘얼마나 확실한가’(오차·범위)와 함께 쓴다.</div>
+      ${stdHTML(stdOf(t))}
+      <div class="teacher" style="margin-top:14px"><b>이 주제를 내 탐구로 만들려면</b><br>① 연구 질문의 변인을 내가 실제로 측정·수집할 수 있는 것으로 좁힌다 ② 비교 조건과 반복(표본) 수를 정한다 ③ 검증 포인트의 경쟁 설명을 어떻게 가를지 계획서에 먼저 적는다 ④ 결론은 ‘얼마나 확실한가’(오차·범위)와 함께 쓴다.</div>
       ${SAFETY[t.setting] ? `<div class="teacher" style="margin-top:10px"><b>안전·연구윤리</b><br>${SAFETY[t.setting]}</div>` : ''}`;
   } else {
     html += `<p><b>가설</b> ${esc(t.hypothesis)}</p><p style="color:var(--ink2)">${esc(t.background)}</p>
@@ -553,7 +658,7 @@ function openTopic(id, push=true){
       <h3>타당도 위협과 대응</h3><ul>${t.validity.map(v=>`<li><b>${esc(v.threat)}</b> → ${esc(v.response)}</li>`).join('')}</ul>
       <h3>수행 단계</h3><ol>${t.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>
       <dl class="kv" style="margin-top:14px"><dt>도구</dt><dd>${esc(t.tools)}</dd>${(t.dataSources||[]).length?`<dt>자료</dt><dd>${t.dataSources.map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(' · ')}</dd>`:''}<dt>산출물</dt><dd>${esc(t.output)}</dd><dt>고교 연계</dt><dd>${hs.map(x=>`<span class="tag">${esc(x)}</span>`).join('')} <span style="color:var(--muted);font-size:.86rem">${esc((t.hsLink.concepts||[]).join(', '))}</span></dd><dt>대학 전공</dt><dd>${univ.map(x=>`<span class="tag core">${esc(x)}</span>`).join('')}<br><span style="font-size:.88rem;color:var(--ink2)">${esc(t.univLink.why)}</span></dd></dl>
-      ${(t.hsLink.standards||[]).length ? `<h3>관련 성취기준 (2022 개정 교육과정)</h3><ul class="stds">${t.hsLink.standards.map(c=>{const x=(D.standards||{})[c]; return `<li><b>${esc(c)}</b> <span class="pill">${esc(x?x.course:'')}</span><br>${esc(x?x.text:'')}</li>`;}).join('')}</ul>` : ''}
+      ${stdHTML(stdOf(t))}
       ${t.buildsOn?`<h3>앞 탐구에서 이어받은 한계</h3><p>${esc(t.buildsOn)}</p>`:''}
       <h3>대학 전공에서는</h3><p>${esc(t.deeper)}</p>
       <h3>흔한 실수</h3><ul>${t.pitfalls.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
@@ -562,27 +667,141 @@ function openTopic(id, push=true){
     html += `<h3>같은 트랙 로드맵</h3><div class="chain">${chain.map(x=>`<button data-tid="${x.id}" class="${x.id===t.id?'cur':''}">${x.grade}학년 · ${esc(x.title)}</button>`).join('')}</div>`;
     html += `<div class="teacher" ${teacher?'':'hidden'} id="tbox"><b>교사용</b><br><b>관찰 장면</b> ${esc(t.scene)}<br>${t.interview.map(v=>`<b>면접 질문</b> ${esc(v.q)} <span style="color:var(--muted)">(확인: ${esc(v.key)})</span>`).join('<br>')}</div>`;
   }
-  html += `<div class="macts"><button class="btn" id="mcopy">링크 복사</button><button class="btn" id="mprint">설계서 인쇄</button>${t.kind==='deep'?`<button class="btn" id="mteach">${teacher?'교사용 정보 숨기기':'교사용 정보 보기'}</button>`:''}<button class="btn" id="mdept">${esc(d.name)} 주제 더 보기</button></div></div>`;
+  html += `<div class="macts"><button class="btn pri" id="msave">${isSaved(id)?'★ 탐구함에서 빼기':'☆ 탐구함에 담기'}</button><button class="btn" id="mprint">탐구 설계서 인쇄</button><button class="btn" id="mcopy">링크 복사</button>${t.kind==='deep'?`<button class="btn" id="mteach">${teacher?'교사용 정보 숨기기':'교사용 정보 보기'}</button>`:''}<button class="btn" id="mdept">${esc(d.name)} 주제 더 보기</button></div></div>`;
   m.innerHTML = html;
   $('#mbg').classList.add('on'); document.body.style.overflow='hidden';
   $('#mx').onclick = closeModal;
   $('#mcopy').onclick = () => { const u = location.href.split('#')[0] + '#topic=' + id; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(()=>toast('링크를 복사했습니다'), ()=>prompt('링크', u)); };
-  $('#mprint').onclick = () => window.print();
+  $('#mprint').onclick = () => printDesign(t);
+  $('#msave').onclick = () => { if(toggleSave(id)){ toast(isSaved(id)?'탐구함에 담았습니다':'탐구함에서 뺐습니다'); $('#msave').textContent = isSaved(id)?'★ 탐구함에서 빼기':'☆ 탐구함에 담기'; refreshLists(); } };
   $('#mdept').onclick = () => { closeModal(); go('dept', d.id); };
   if($('#mteach')) $('#mteach').onclick = () => { teacher = !teacher; store.set('majortam_teacher', teacher?'1':'0'); openTopic(id, false); };
   m.onclick = e => { const b = e.target.closest('.chain [data-tid]'); if(b) openTopic(b.dataset.tid); };
   if(push) history.replaceState(null, '', '#topic=' + id);
 }
-function closeModal(){ $('#mbg').classList.remove('on'); document.body.style.overflow=''; if(location.hash.startsWith('#topic=')) syncHash(); }
+function closeModal(){ $('#mbg').classList.remove('on'); document.body.style.overflow=''; $('#modal').onclick = null; if(location.hash.startsWith('#topic=')) syncHash(); }
 $('#mbg').addEventListener('click', e => { if(e.target.id==='mbg') closeModal(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape' && $('#mbg').classList.contains('on')) closeModal(); if(e.key==='/' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)){ e.preventDefault(); (VIEW==='library'?$('#libQ'):VIEW==='dept'?$('#dq'):inp)?.focus(); } });
 
+/* ---------- 인쇄: 탐구 설계서 · 3년 로드맵 ---------- */
+function doPrint(html){ $('#printSheet').innerHTML = html; setTimeout(() => window.print(), 60); }
+function printDesign(t){
+  const d = DEPT[t.dept];
+  const ref = t.kind==='deep'
+    ? `<tr><th>변인·조작적 정의</th><td>${esc(t.design.variables)}</td></tr><tr><th>비교·통제</th><td>${esc(t.design.comparison)}</td></tr><tr><th>표본·반복</th><td>${esc(t.design.sample)}</td></tr><tr><th>분석</th><td>${esc(t.analysis)}</td></tr><tr><th>경쟁 설명</th><td>${esc(t.rival.hypothesis)} → ${esc(t.rival.test)}</td></tr>`
+    : `<tr><th>탐구 설계</th><td>${esc(t.design)}</td></tr><tr><th>분석 방법</th><td>${esc(t.analysis)}</td></tr><tr><th>검증 포인트</th><td>${esc(t.check)}</td></tr><tr><th>심화 방향</th><td>${esc(t.extend)}</td></tr>`;
+  const blank = (label, cls='') => `<tr><th>${label}</th><td class="blank ${cls}"></td></tr>`;
+  doPrint(`<div class="ph"><h1>탐구 설계서 — ${esc(t.title)}</h1><div class="pm">${esc(d.name)} · ${esc(fieldName(t))} · ${t.grade}학년 권장 · ${esc(t.setting)} &nbsp;|&nbsp; 학번·이름: ____________________ &nbsp; 지도교사: ____________</div></div>
+    <h2>참고: 가이드가 제안하는 설계</h2>
+    <table><tr><th>연구 질문</th><td>${esc(t.question)}</td></tr>${ref}<tr><th>연계 과목</th><td>고교: ${esc(hsOf(t).join(', '))} / 대학: ${esc(univOf(t).join(', '))}</td></tr>${stdOf(t).length?`<tr><th>성취기준</th><td>${esc(stdOf(t).join(' '))}</td></tr>`:''}</table>
+    <div class="pg"><h2>나의 탐구 설계 (직접 작성)</h2>
+    <table>${blank('① 나의 연구 질문<br><span style="font-weight:400">(측정·검증 가능하게)</span>')}${blank('② 가설과 근거')}${blank('③ 변인의 조작적 정의<br><span style="font-weight:400">(무엇을 어떻게 잴 것인가)</span>')}${blank('④ 비교 조건·통제 변인')}${blank('⑤ 표본·반복 수와 근거','s')}${blank('⑥ 분석 방법','s')}${blank('⑦ 경쟁 설명과 가르는 방법')}${blank('⑧ 오차·불확실성을 다루는 방법','s')}${blank('⑨ 일정(주차별)')}${blank('⑩ 안전·연구윤리 확인<br><span style="font-weight:400">(동의·익명·승인·안전 조치)</span>','s')}</table></div>
+    <div class="pf">학과별 전공 탐구활동 가이드 · jinhak.esteacher.kr/majortam.html#topic=${esc(t.id)} · 제작 충청남도교육청진로융합교육원 교육연구사 정재연</div>`);
+}
+function printRoadmap(){
+  const list = SAVED.map(id=>TOPIC[id]).filter(Boolean);
+  if(!list.length){ toast('탐구함에 담은 주제가 없습니다'); return; }
+  const sec = g => { const xs = list.filter(t=>t.grade===g); return `<div class="pg"><h2>${g}학년 (${xs.length})</h2>${xs.length?`<table>${xs.map(t=>`<tr><th>${esc(DEPT[t.dept].name)}<br><span style="font-weight:400">${esc(fieldName(t))} · ${esc(t.setting)}</span></th><td><b>${esc(t.title)}</b><br>${esc(t.question)}<br><span style="color:#444">분석: ${esc(t.analysis)}</span><br><span style="color:#444">연계 과목: ${esc(hsOf(t).join(', '))}</span></td></tr>`).join('')}</table>`:'<p style="color:#666">담은 주제가 없습니다.</p>'}<table><tr><th>이 학년의 탐구 목표·메모</th><td class="blank s"></td></tr></table></div>`; };
+  doPrint(`<div class="ph"><h1>나의 3년 탐구 로드맵</h1><div class="pm">학번·이름: ____________________ &nbsp; 희망 학과: ____________________ &nbsp; 작성일: ____________</div></div>${[1,2,3].map(sec).join('')}
+    <div class="pf">학과별 전공 탐구활동 가이드 · jinhak.esteacher.kr/majortam.html · 주제는 예시이며 학교 교육과정과 지도교사 안내에 맞춰 조정합니다.</div>`);
+}
+
+/* ---------- 내 탐구함 · 주제 비교 ---------- */
+let CMPSEL = [];
+function renderMy(){
+  const list = SAVED.map(id=>TOPIC[id]).filter(Boolean);
+  CMPSEL = CMPSEL.filter(isSaved);
+  const body = $('#myBody');
+  if(!list.length){ body.innerHTML = '<div class="empty">아직 담은 주제가 없습니다. 주제를 열어 ‘탐구함에 담기’를 누르면 여기에 학년별로 모입니다.<br><br><button class="btn pri" id="myWiz">내게 맞는 주제 추천받기</button></div>'; $('#myWiz').onclick = openWizard; return; }
+  body.innerHTML = [1,2,3].map(g => { const xs = list.filter(t=>t.grade===g); return `<div class="mygrade">${g}학년 <span style="color:var(--muted);font-weight:600">${xs.length}개</span></div>` + (xs.map(t=>`<div class="myrow" style="--c:${colorOf(t.dept)}"><input type="checkbox" data-cmp="${t.id}" ${CMPSEL.includes(t.id)?'checked':''} aria-label="비교 선택"><div class="t" data-tid="${t.id}"><b>${esc(t.title)}</b><span>${esc(DEPT[t.dept].name)} · ${esc(fieldName(t))} · ${esc(t.setting)}${t.kind==='deep'?' · 대표 탐구':''}</span></div><button data-rm="${t.id}">빼기</button></div>`).join('') || '<div style="color:var(--muted);font-size:.9rem;padding:4px 2px 10px">이 학년에 담은 주제가 없습니다.</div>'); }).join('');
+  body.onclick = e => {
+    const rm = e.target.closest('[data-rm]'); if(rm){ toggleSave(rm.dataset.rm); renderMy(); return; }
+    const c = e.target.closest('[data-cmp]'); if(c){ if(c.checked){ if(CMPSEL.length>=3){ c.checked=false; toast('비교는 3개까지 선택할 수 있습니다'); } else CMPSEL.push(c.dataset.cmp); } else CMPSEL = CMPSEL.filter(x=>x!==c.dataset.cmp); return; }
+    const t = e.target.closest('[data-tid]'); if(t) openTopic(t.dataset.tid, false);
+  };
+}
+function openCompare(){
+  const xs = CMPSEL.map(id=>TOPIC[id]).filter(Boolean);
+  if(xs.length<2){ toast('비교할 주제를 2~3개 선택하세요'); return; }
+  const row = (label, f) => `<tr><th>${label}</th>${xs.map(t=>`<td>${f(t)}</td>`).join('')}</tr>`;
+  const m = $('#modal'); m.style.setProperty('--c', 'var(--brand2)');
+  m.innerHTML = `<div class="mh"><button class="x" aria-label="닫기" id="mx">✕</button><h2>주제 비교</h2></div><div class="mb"><div class="cmpwrap"><table class="cmp"><thead><tr><th></th>${xs.map(t=>`<th style="border-top:3px solid ${colorOf(t.dept)}">${esc(t.title)}</th>`).join('')}</tr></thead><tbody>
+    ${row('학과', t=>esc(DEPT[t.dept].name))}${row('학년', t=>t.grade+'학년')}${row('세부 분야', t=>esc(fieldName(t)))}${row('수행 환경', t=>esc(t.setting))}
+    ${row('연구 질문', t=>esc(t.question))}${row('설계', t=>esc(t.kind==='deep'?t.design.variables:t.design))}${row('분석', t=>esc(t.analysis))}${row('검증 포인트', t=>esc(t.kind==='deep'?t.rival.hypothesis+' → '+t.rival.test:t.check))}
+    ${row('고교 과목', t=>esc(hsOf(t).join(', ')))}${row('대학 과목', t=>esc(univOf(t).join(', ')))}
+  </tbody></table></div></div>`;
+  $('#mbg').classList.add('on'); document.body.style.overflow='hidden'; $('#mx').onclick = closeModal;
+}
+$('#myCmp').onclick = openCompare;
+$('#myPrint').onclick = printRoadmap;
+function refreshLists(){ if(VIEW==='my') renderMy(); else if(VIEW==='library') drawLib(); else if(VIEW==='dept' && DST.tab==='topics') renderDeptBody(DEPT[CUR]); }
+
+/* ---------- 추천 마법사 ---------- */
+const WZ = { depts:[], grade:0, courses:[], settings:[], q:'' };
+function openWizard(){
+  if(VIEW==='dept' && CUR && !WZ.depts.length) WZ.depts = [CUR];
+  const m = $('#modal'); m.style.setProperty('--c', 'var(--gold)');
+  m.innerHTML = `<div class="mh"><button class="x" aria-label="닫기" id="mx">✕</button><h2>내게 맞는 주제 추천받기</h2><div style="color:var(--muted)">네 가지를 고르면 조건에 가장 잘 맞는 탐구 주제를 골라 드립니다.</div></div><div class="mb wz" id="wzBody"></div>`;
+  $('#mbg').classList.add('on'); document.body.style.overflow='hidden'; $('#mx').onclick = closeModal;
+  drawWizard();
+}
+function drawWizard(){
+  const b = $('#wzBody'); if(!b) return;
+  const pool = WZ.depts.length ? ALL.filter(t=>WZ.depts.includes(t.dept) && (!WZ.grade || t.grade===WZ.grade)) : [];
+  const cf = {}; pool.forEach(t=>hsOf(t).forEach(c=>cf[c]=(cf[c]||0)+1));
+  const courseOpts = Object.keys(cf).sort(courseSort);
+  WZ.courses = WZ.courses.filter(c=>cf[c]);
+  const q = nrm(WZ.q), isCho = /^[ㄱ-ㅎ]+$/.test(q);
+  const dlist = D.depts.filter(d => !q || (isCho ? cho(nrm(d.name)).includes(q) : (nrm(d.name).includes(q) || d.aliases.some(a=>nrm(a).includes(q)))));
+  b.innerHTML = `<h3>① 희망 학과 <span class="hint" style="display:inline">(최대 3개)</span></h3>
+    <input type="search" id="wzQ" placeholder="학과 이름 검색" value="${esc(WZ.q)}">
+    <div class="opts" style="margin-top:8px;max-height:132px;overflow:auto">${dlist.map(d=>`<button class="opt ${WZ.depts.includes(d.id)?'on':''}" data-d="${d.id}">${esc(d.name)}</button>`).join('') || '<span class="hint">일치하는 학과가 없습니다.</span>'}</div>
+    <h3>② 학년</h3><div class="opts">${[1,2,3].map(g=>`<button class="opt ${WZ.grade===g?'on':''}" data-g="${g}">${g}학년</button>`).join('')}</div>
+    <h3>③ 이수했거나 이수할 과목 <span class="hint" style="display:inline">(선택, 여러 개)</span></h3>
+    <div class="opts">${courseOpts.length ? courseOpts.map(c=>`<button class="opt ${WZ.courses.includes(c)?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('') : '<span class="hint">학과와 학년을 고르면 관련 과목이 나옵니다.</span>'}</div>
+    <h3>④ 선호하는 탐구 방식 <span class="hint" style="display:inline">(선택)</span></h3>
+    <div class="opts">${[['실험실','실험·측정'],['데이터','공개 데이터 분석'],['컴퓨팅','코딩·시뮬레이션'],['현장','설문·관찰·현장 조사'],['문헌','문헌·텍스트 분석']].map(([k,l])=>`<button class="opt ${WZ.settings.includes(k)?'on':''}" data-s="${k}">${l}</button>`).join('')}</div>
+    <div class="macts"><button class="btn pri" id="wzGo">추천 받기</button><button class="btn" id="wzReset">처음부터</button></div><div id="wzOut"></div>`;
+  const qi = $('#wzQ'); qi.oninput = e => { WZ.q = e.target.value; const pos = qi.selectionStart; drawWizard(); const n = $('#wzQ'); n.focus(); n.setSelectionRange(pos,pos); };
+  b.onclick = e => {
+    const o = e.target.closest('.opt'); if(!o) return;
+    if(o.dataset.d){ const id=o.dataset.d; if(WZ.depts.includes(id)) WZ.depts=WZ.depts.filter(x=>x!==id); else if(WZ.depts.length>=3){ toast('학과는 3개까지 고를 수 있습니다'); return; } else WZ.depts.push(id); }
+    else if(o.dataset.g){ WZ.grade = WZ.grade===+o.dataset.g ? 0 : +o.dataset.g; }
+    else if(o.dataset.c){ const c=o.dataset.c; WZ.courses = WZ.courses.includes(c) ? WZ.courses.filter(x=>x!==c) : [...WZ.courses, c]; }
+    else if(o.dataset.s){ const k=o.dataset.s; WZ.settings = WZ.settings.includes(k) ? WZ.settings.filter(x=>x!==k) : [...WZ.settings, k]; }
+    drawWizard();
+  };
+  $('#wzReset').onclick = () => { Object.assign(WZ, { depts:[], grade:0, courses:[], settings:[], q:'' }); drawWizard(); };
+  $('#wzGo').onclick = runWizard;
+}
+function runWizard(){
+  if(!WZ.depts.length){ toast('희망 학과를 먼저 골라 주세요'); return; }
+  if(!WZ.grade){ toast('학년을 골라 주세요'); return; }
+  const pool = ALL.filter(t=>WZ.depts.includes(t.dept) && t.grade===WZ.grade);
+  const scored = pool.map(t => { const mc = hsOf(t).filter(c=>WZ.courses.includes(c)); const ms = WZ.settings.includes(t.setting);
+    let h = 0; for(const ch of t.id) h = (h*31 + ch.charCodeAt(0)) % 997;
+    return { t, mc, ms, s: mc.length*3 + (ms?3.5:0) + (t.kind==='deep'?1.2:0) + (isSaved(t.id)?-5:0) + h/5000 }; }).sort((a,b)=>b.s-a.s);
+  const out = [], per = {}, perD = {};
+  const capD = Math.ceil(8 / WZ.depts.length);
+  for(const x of scored){ const k = x.t.dept+'|'+(x.t.field||x.t.track); if((per[k]||0)>=2 || (perD[x.t.dept]||0)>=capD) continue; per[k]=(per[k]||0)+1; perD[x.t.dept]=(perD[x.t.dept]||0)+1; out.push(x); if(out.length>=8) break; }
+  const why = x => [x.mc.length?`이수 과목 ${x.mc.join('·')}${hasJong(x.mc[x.mc.length-1].replace(/[Ⅰ1]$/,'일').replace(/[Ⅱ2]$/,'이'))?'과':'와'} 연결`:'', x.ms?'선호하는 탐구 방식':'', x.t.kind==='deep'?'상세 설계 제공':''].filter(Boolean).join(' · ') || `${DEPT[x.t.dept].name} ${WZ.grade}학년 권장 주제`;
+  $('#wzOut').innerHTML = `<h3 style="margin-top:22px">추천 주제 ${out.length}개 <span class="hint" style="display:inline">(조건에 맞는 후보 ${pool.length}개 중)</span></h3><div class="tgrid">${out.map(x=>cardHTML(x.t).replace('<h4>', `<p class="why">✓ ${esc(why(x))}</p><h4>`)).join('')}</div>
+    <div class="macts"><button class="btn" id="wzAll">조건에 맞는 주제 모두 보기</button></div>`;
+  $('#wzOut').onclick = e => { const c = e.target.closest('[data-tid]'); if(c){ openTopic(c.dataset.tid, false); } };
+  $('#wzAll').onclick = () => { closeModal(); Object.assign(LST, { q:'', cluster:'', dept: WZ.depts.length===1?WZ.depts[0]:'', grade:String(WZ.grade), setting: WZ.settings.length===1?WZ.settings[0]:'', course: WZ.courses.length===1?WZ.courses[0]:'', deep:false, limit:60 }); go('library'); syncLibControls(); };
+  $('#wzOut').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+function syncLibControls(){ $('#libQ').value=LST.q; $('#libCluster').value=LST.cluster; $('#libDept').value=LST.dept; $('#libSetting').value=LST.setting; $('#libCourse').value=LST.course; $('#libDeep').checked=LST.deep; $$('#libGrade button').forEach(x=>x.classList.toggle('on', x.dataset.v===LST.grade)); drawLib(); }
+$('#wizBtn').onclick = openWizard;
+$('#heroLib').onclick = () => go('library');
+
 /* ---------- 라우팅 ---------- */
 let VIEW = 'home', CUR = '';
-function show(v){ ['home','deptView','library','guide'].forEach(x => $('#'+x).hidden = x !== v); $$('.nav a').forEach(a => a.classList.toggle('on', (a.dataset.nav==='home'&&v==='home') || a.dataset.nav===v)); }
+function show(v){ ['home','deptView','library','guide','my'].forEach(x => $('#'+x).hidden = x !== v); $$('.nav a').forEach(a => a.classList.toggle('on', (a.dataset.nav==='home'&&v==='home') || a.dataset.nav===v)); }
 function go(v, id){
   VIEW = v; CUR = id || '';
-  if(v==='dept'){ if(id !== DST._id){ Object.assign(DST, { tab:'topics', field:'', grade:'', q:'', limit:60, _id:id }); } renderDept(id); show('deptView'); }
+  if(v==='dept'){ if(id !== DST._id){ Object.assign(DST, { tab:'topics', field:'', grade:'', course:'', q:'', limit:60, _id:id }); } renderDept(id); show('deptView'); }
+  else if(v==='my'){ show('my'); renderMy(); }
   else if(v==='library'){ show('library'); drawLib(); }
   else if(v==='guide'){ show('guide'); }
   else { show('home'); }
@@ -593,6 +812,7 @@ function syncHash(){
   if(VIEW==='dept') h = `#dept=${CUR}` + (DST.tab!=='topics' ? `&tab=${DST.tab}` : '') + (DST.field?`&f=${DST.field}`:'') + (DST.grade?`&g=${DST.grade}`:'');
   else if(VIEW==='library') h = '#library';
   else if(VIEW==='guide') h = '#guide';
+  else if(VIEW==='my') h = '#my';
   if(location.hash !== h) history.replaceState(null, '', h || location.pathname + location.search);
 }
 function route(){
@@ -600,12 +820,13 @@ function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   const P = Object.fromEntries(h.split('&').map(x => x.split('=')));
   if(P.topic && TOPIC[P.topic]){ const t = TOPIC[P.topic]; go('dept', t.dept); openTopic(P.topic); return; }
-  if(P.dept && DEPT[P.dept]){ Object.assign(DST, { tab:P.tab||'topics', field:P.f||'', grade:P.g||'', q:'', limit:60, _id:P.dept }); go('dept', P.dept); return; }
+  if(P.dept && DEPT[P.dept]){ Object.assign(DST, { tab:P.tab||'topics', field:P.f||'', grade:P.g||'', course:'', q:'', limit:60, _id:P.dept }); go('dept', P.dept); return; }
+  if('my' in P){ go('my'); return; }
   if('library' in P){ go('library'); return; }
   if('guide' in P){ go('guide'); return; }
   go('home');
 }
-document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if(!a) return; e.preventDefault(); const h = a.getAttribute('href'); if(h==='#') go('home'); else if(h==='#library') go('library'); else if(h==='#guide') go('guide'); });
+document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if(!a) return; e.preventDefault(); const h = a.getAttribute('href'); if(h==='#') go('home'); else if(h==='#library') go('library'); else if(h==='#guide') go('guide'); else if(h==='#my') go('my'); });
 window.addEventListener('hashchange', route);
 renderHome(); initLibrary(); route();
 })();
