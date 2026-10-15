@@ -111,3 +111,4 @@ body.has-cmpbar .udm-toast{bottom:92px}
 .udm-rules{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.88rem;line-height:1.55}
 .udm-rules b{color:var(--navy)}
 .udm-errata-btn{margin-left:10px;padding:.4rem .8rem;font-size:.82rem;vertical-align:middle}
+.udm-badge.na{background:#f1f5f9;color:#475569;cursor:help}

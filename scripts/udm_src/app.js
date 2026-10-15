@@ -71,7 +71,8 @@
       e.preventDefault(); activateTab(tabs[j].dataset.tab, { focus: true });
     });
     window.addEventListener('hashchange', () => {
-      if (location.hash === '#univDB-matrix') activateTab('matrix', { hash: false });
+      // #univDB-matrix 는 실제 요소 id가 아니라 브라우저가 스크롤하지 않으므로 직접 섹션으로 이동한다
+      if (location.hash === '#univDB-matrix') activateTab('matrix', { hash: false, scroll: true });
       else if (location.hash === '#univDB') activateTab('search', { hash: false });
     });
     // 전공 카드·대학명 진입점은 검색 탭을 먼저 켠다 (기존 함수는 수정하지 않고 감싼다)
@@ -87,7 +88,7 @@
     if (st.region) rs = rs.filter(r => r.regionGroup === st.region);
     if (st.q) { const q = st.q.toLowerCase(); rs = rs.filter(r => r.university.toLowerCase().includes(q)); }
     const score = r => r.allSubjects ? 99 : r.marks.length + r.groups.length * 3;
-    const missN = r => { const e = UDM.evaluate(r, st.mySubs, SUBJ_BY_GROUP); return e.ok ? 0 : e.missing.length + e.groupsMissing.length + (r.allSubjects ? 1 : 0); };
+    const missN = r => { const e = UDM.evaluate(r, st.mySubs, SUBJ_BY_GROUP); return e.ok ? 0 : e.na ? 999 : e.missing.length + e.groupsMissing.length + (r.allSubjects ? 1 : 0); };
     if (st.sort === 'name') rs.sort((a, b) => COL.compare(a.university, b.university));
     else if (st.sort === 'count') rs.sort((a, b) => score(b) - score(a) || COL.compare(a.university, b.university));
     else if (st.sort === 'region') rs.sort((a, b) => REGIONS.indexOf(a.regionGroup) - REGIONS.indexOf(b.regionGroup) || COL.compare(a.region || '', b.region || '') || COL.compare(a.university, b.university));
@@ -148,6 +149,7 @@
   }
   function uniCell(r, ev) {
     const badge = !ev ? '' : ev.ok ? '<span class="udm-badge ok">충족</span>'
+      : ev.na ? '<span class="udm-badge na" title="국어~과학 15개 과목 중 안내된 과목이 없어(기타 열만) 판정하지 않습니다">판정 없음</span>'
       : `<span class="udm-badge miss" title="부족: ${esc(missingLabel(ev) || '선택한 과목 없음')}">부족 ${ev.missing.length + ev.groupsMissing.length + (r.allSubjects ? 1 : 0)}</span>`;
     return `<button type="button" class="udm-uni-btn" data-udm-link="${r.id}" title="권장과목 원문 보기">${esc(r.university)}</button>${r.warn ? `<span class="udm-warn" title="${esc(r.warn)}">⚠</span>` : ''}${badge}<span class="udm-reg">${esc(r.regionGroup || '권역 미상')}${r.region ? ' · ' + esc(r.region) : ''}</span>`;
   }
@@ -244,10 +246,11 @@
       M.subjects.filter(c => c.group === g.key).map(c => `<label class="udb-toggle ${st.mySubs.has(c.key) ? 'on' : ''}"><input type="checkbox" data-udm-sub="${c.key}" ${st.mySubs.has(c.key) ? 'checked' : ''}>${esc(c.label)}</label>`).join('')
     }</div>`).join('');
     const tally = {};
-    let ok = 0;
+    let ok = 0, na = 0;
     recs.forEach(r => {
       const ev = UDM.evaluate(r, st.mySubs, SUBJ_BY_GROUP);
       if (ev.ok) { ok++; return; }
+      if (ev.na) { na++; return; }
       ev.missing.forEach(k => { tally[k] = (tally[k] || 0) + 1; });
       ev.groupsMissing.forEach(g => { tally['g:' + g] = (tally['g:' + g] || 0) + 1; });
     });
@@ -255,7 +258,7 @@
       .map(([k, n]) => `${k.startsWith('g:') ? GROUP_LABEL[k.slice(2)] + ' 전체' : SUBJ_BY_KEY[k].label}(${n})`).join(', ');
     el.check.innerHTML = `<div class="udm-ck-head"><strong>내가 이수했거나 이수할 과목을 체크하세요</strong><span class="small">교과 전체로 안내된 대학은 그 교과에서 1과목 이상 체크하면 충족으로 봅니다(관대한 기준). 기타 열은 판정에 넣지 않습니다.</span></div>
       ${groupsHtml}
-      <div class="udm-ck-sum">선택 <b>${st.mySubs.size}</b>과목 → 충족 <b>${ok}</b> / ${recs.length}개 대학${top ? ` · 가장 많이 부족한 과목: ${esc(top)}` : ''}
+      <div class="udm-ck-sum">선택 <b>${st.mySubs.size}</b>과목 → 충족 <b>${ok}</b> / ${recs.length}개 대학${na ? ` (판정 없음 ${na})` : ''}${top ? ` · 가장 많이 부족한 과목: ${esc(top)}` : ''}
         <button type="button" class="btn btn-outline" id="udmCheckClear" style="margin-left:8px;padding:.3rem .6rem;font-size:.8rem">모두 해제</button></div>`;
   }
   function onSubjectToggle(input) {
@@ -345,7 +348,8 @@
     const h = location.hash;
     const initial = h === '#univDB-matrix' ? 'matrix' : h === '#univDB' ? 'search'
       : (read('udb2028.tab', 'search') === 'matrix' ? 'matrix' : 'search');
-    activateTab(initial, { hash: false });
+    // 딥링크(#univDB-matrix)로 들어온 경우 섹션까지 스크롤 (요소 id가 없어 브라우저가 대신 해 주지 않음)
+    activateTab(initial, { hash: false, scroll: h === '#univDB-matrix' });
   }
   init();
 })();

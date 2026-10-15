@@ -50,15 +50,15 @@ const SBG = { kor: ['kor'], math: ['alg', 'calc2'], eng: ['eng'], soc: ['soc'], 
 
 test('evaluate: all marks checked → ok', () => {
   const r = { marks: ['calc2', 'phy'], groups: [], allSubjects: false };
-  assert.deepEqual(UDM.evaluate(r, new Set(['calc2', 'phy', 'kor']), SBG), { ok: true, missing: [], groupsMissing: [] });
+  assert.deepEqual(UDM.evaluate(r, new Set(['calc2', 'phy', 'kor']), SBG), { ok: true, na: false, missing: [], groupsMissing: [] });
 });
 test('evaluate: missing marks listed in record order', () => {
   const r = { marks: ['alg', 'calc2', 'phy'], groups: [], allSubjects: false };
-  assert.deepEqual(UDM.evaluate(r, new Set(['calc2']), SBG), { ok: false, missing: ['alg', 'phy'], groupsMissing: [] });
+  assert.deepEqual(UDM.evaluate(r, new Set(['calc2']), SBG), { ok: false, na: false, missing: ['alg', 'phy'], groupsMissing: [] });
 });
 test('evaluate: whole group needs ≥1 subject of that group', () => {
   const r = { marks: ['kor'], groups: ['math', 'sci'], allSubjects: false };
-  assert.deepEqual(UDM.evaluate(r, new Set(['kor', 'alg']), SBG), { ok: false, missing: [], groupsMissing: ['sci'] });
+  assert.deepEqual(UDM.evaluate(r, new Set(['kor', 'alg']), SBG), { ok: false, na: false, missing: [], groupsMissing: ['sci'] });
   assert.equal(UDM.evaluate(r, new Set(['kor', 'alg', 'chem']), SBG).ok, true);
 });
 test('evaluate: empty selection fails everything incl. allSubjects', () => {
@@ -66,8 +66,11 @@ test('evaluate: empty selection fails everything incl. allSubjects', () => {
   assert.equal(UDM.evaluate({ marks: [], groups: ['kor', 'math', 'eng', 'soc', 'sci'], allSubjects: true }, new Set(['eng']), SBG).ok, true);
   assert.equal(UDM.evaluate({ marks: ['phy'], groups: [], allSubjects: false }, new Set(), SBG).ok, false);
 });
-test('evaluate: record with nothing marked (etc only) is ok', () => {
-  assert.equal(UDM.evaluate({ marks: [], groups: [], allSubjects: false }, new Set(), SBG).ok, true);
+test('evaluate: record with nothing judgeable (etc only) is na, never ok', () => {
+  const r = { marks: [], groups: [], allSubjects: false };
+  assert.deepEqual(UDM.evaluate(r, new Set(), SBG), { ok: false, na: true, missing: [], groupsMissing: [] });
+  assert.equal(UDM.evaluate(r, new Set(['kor', 'eng']), SBG).ok, false);
+  assert.equal(UDM.evaluate({ marks: ['kor'], groups: [], allSubjects: false }, new Set(['kor']), SBG).na, false);
 });
 
 test('subjectCoverage with and without whole-group bands', () => {

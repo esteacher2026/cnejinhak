@@ -23,7 +23,9 @@ const UDM = {
     // 전 교과 안내(allSubjects)는 교과군별이 아니라 "1과목 이상 체크"로 판정한다(스펙 3.3)
     const groupsMissing = rec.allSubjects ? [] : rec.groups.filter(g => !(subjectsByGroup[g] || []).some(k => mySubs.has(k)));
     const allMissing = !!rec.allSubjects && mySubs.size === 0;
-    return { ok: !missing.length && !groupsMissing.length && !allMissing, missing, groupsMissing };
+    // 판정할 과목이 전혀 없는 행(기타 열만 안내)은 충족도 부족도 아닌 '판정 없음'(na)
+    const na = !rec.marks.length && !rec.groups.length && !rec.allSubjects;
+    return { ok: !na && !missing.length && !groupsMissing.length && !allMissing, na, missing, groupsMissing };
   },
   subjectCoverage(records, subjectKey, groupKey, includeGroups) {
     return records.filter(r => r.marks.includes(subjectKey) || (includeGroups && (r.allSubjects || r.groups.includes(groupKey))));
