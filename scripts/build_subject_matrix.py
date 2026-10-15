@@ -149,3 +149,81 @@ def read_sheet(xlsx):
                 cells[(c.row, c.column)] = nfc(str(c.value))
     wb.close()
     return cells, read_merges(xlsx, _sheet_xml_path(xlsx, SHEET_NAME))
+
+
+def row_merge_map(merges):
+    """가로 병합만 행별로 모은다: {row: [(c1, c2), ...]}."""
+    out = {}
+    for r1, c1, r2, c2 in merges:
+        if r1 == r2 and c2 > c1:
+            out.setdefault(r1, []).append((c1, c2))
+    return out
+
+
+def interpret_row(rownum: int, row_cells: dict, row_merges: list) -> dict:
+    """스펙 2.2 규칙 R1–R7, R9 적용. 대학명이 둘 이상이거나 없으면 ValueError."""
+    marks, groups, stars, notes = [], [], [], {}
+    names = []          # (name, star)
+    all_subjects = False
+    etc = None
+    covered = set()
+
+    def take(raw):
+        name, star, note = parse_univ_cell(raw)
+        names.append((name, star))
+        return star, note
+
+    for c1, c2 in sorted(row_merges):
+        covered.update(range(c1, c2 + 1))
+        raw = row_cells.get(c1)
+        if not raw:
+            continue
+        star, note = take(raw)
+        if (c1, c2) == (COL_FIRST_SUBJECT, COL_ETC):                      # R4 전 교과
+            all_subjects = True
+            groups = [g for g, _ in GROUPS]
+            continue
+        group = next((g for g, span in GROUP_COLS.items() if span == (c1, c2)), None)
+        cols = [c for c in range(c1, c2 + 1) if c in KEY_BY_COL]
+        if group:                                                         # R2 교과 전체
+            groups.append(group)
+        else:                                                             # R3 부분 병합
+            marks.extend(KEY_BY_COL[c] for c in cols)
+        if star:
+            stars.extend(KEY_BY_COL[c] for c in cols)
+        if note and cols:
+            notes[KEY_BY_COL[cols[0]]] = note
+
+    for c in range(COL_FIRST_SUBJECT, COL_ETC + 1):
+        if c in covered:
+            continue
+        raw = row_cells.get(c)
+        if not raw:
+            continue
+        if c == COL_ETC:                                                  # R7 기타
+            name, star, note, text = parse_etc_cell(raw)
+            names.append((name, star))
+            etc = text
+            continue
+        star, note = take(raw)                                            # R1
+        marks.append(KEY_BY_COL[c])
+        if star:
+            stars.append(KEY_BY_COL[c])
+        if note:
+            notes[KEY_BY_COL[c]] = note
+
+    uniq = sorted({n for n, _ in names})
+    if len(uniq) != 1:
+        raise ValueError(f"row {rownum}: 대학명이 하나가 아님 {uniq}")
+    star_all = all(s for _, s in names)
+    order = {k: i for i, (k, *_rest) in enumerate(SUBJECTS)}
+    return {
+        "university": uniq[0],
+        "marks": sorted(set(marks), key=order.get),
+        "groups": groups,
+        "allSubjects": all_subjects,
+        "stars": [] if star_all else sorted(set(stars)),
+        "starAll": star_all,
+        "cellNotes": notes,
+        "etc": etc,
+    }
