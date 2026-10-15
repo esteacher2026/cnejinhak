@@ -12,11 +12,11 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="2022 개정 교육과정 전공별 선택과목 추천 지도. 166개 전공 카드, 관심사·과목 기반 전공 탐색, 전공 비교 장바구니, 2028학년도 대학별 권장과목 1,358건 검색까지 한 페이지에서 제공합니다.">
+<meta name="description" content="2022 개정 교육과정 전공별 선택과목 추천 지도. 166개 전공 카드, 관심사·과목 기반 전공 탐색, 전공 비교 장바구니, 2028학년도 대학별 권장과목 1,358건 검색과 16개 대표 모집단위 반영과목 매트릭스까지 한 페이지에서 제공합니다.">
 <meta name="theme-color" content="#0f2f5f">
 <meta property="og:type" content="website">
 <meta property="og:title" content="전공별 선택과목 추천 지도 | 2022 개정 교육과정">
-<meta property="og:description" content="166개 전공 카드와 2028학년도 대학별 권장과목 1,358건을 한눈에 비교하는 진로·학업 설계 도구.">
+<meta property="og:description" content="166개 전공 카드와 2028학년도 대학별 권장과목 1,358건·대표 모집단위 반영과목 매트릭스를 한눈에 비교하는 진로·학업 설계 도구.">
 <meta property="og:site_name" content="진학 길잡이 (esteacher.kr)">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
@@ -539,6 +539,10 @@ body.has-cmpbar .scroll-top{bottom:176px}
 .udm-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;z-index:90;background:var(--navy);color:#fff;font-weight:800;font-size:.86rem;padding:.65rem 1rem;border-radius:12px;box-shadow:0 16px 36px rgba(15,47,95,.3);transition:.2s all ease;max-width:calc(100% - 28px)}
 .udm-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 body.has-cmpbar .udm-toast{bottom:92px}
+/* 정오표 모달 */
+.udm-rules{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.88rem;line-height:1.55}
+.udm-rules b{color:var(--navy)}
+.udm-errata-btn{margin-left:10px;padding:.4rem .8rem;font-size:.82rem;vertical-align:middle}
 /* udm:css:end */
 </style>
 </head>
@@ -2222,6 +2226,32 @@ const UDM = {
     activateTab('search', { scroll: true });
     if (typeof window.udbFilterUniversity === 'function') window.udbFilterUniversity(r.universityKey, UDM.pickKeyword(hits, kws));
     if (!hits.length) toast(`${r.university}: 모집단위 단위 자료가 없어 대학 전체를 표시합니다.`);
+  }
+
+  /* ---------- 정오표·해석 규칙 ---------- */
+  function openModal(headHtml, bodyHtml) {
+    $('modalHead').innerHTML = headHtml; $('modalBody').innerHTML = bodyHtml;
+    $('modalBackdrop').classList.add('open');
+  }
+  function openErrata() {
+    const unitLabel = k => k.split('/').map(x => (UNIT_BY_KEY.get(x) || { label: x }).label).join('/');
+    const head = `<div class="badge-row"><span class="badge">전공별 반영과목 매트릭스</span><span class="badge purple">정오표 · 해석 규칙</span></div>
+      <h3 id="modalTitle">정오표와 셀 해석 규칙</h3>
+      <p class="small">출처: ${esc(M.meta.source)} · 정리 ${esc(M.meta.built)} · 원자료 ${M.meta.sourceRows}행 → ${M.meta.records}건. 정확한 반영 기준은 각 대학 입학처 모집요강을 확인하세요.</p>`;
+    const rules = `<div class="detail-box wide"><h4>셀 해석 규칙</h4><ul class="udm-rules">
+      <li><b>●</b> 세부과목 열에 대학명이 있으면 그 과목을 반영과목으로 안내한 것입니다.</li>
+      <li><b>교과 전체 띠</b> 원자료에서 수학(5열)·사회(4열)·과학(4열) 범위가 통째로 병합된 경우로, 세부 과목을 지정하지 않고 교과 전체를 안내한 것입니다.</li>
+      <li><b>부분 병합</b>(예: 물리학·화학·생명과학 3열)은 병합이 덮는 과목 각각을 반영한 것으로 봅니다.</li>
+      <li><b>전 교과</b> 한 행 전체가 병합된 대학(한라대)은 국어·수학·영어·사회·과학 교과 전체로 봅니다.</li>
+      <li><b>✱</b> 원자료의 별표. 안내문 기준 "학과 특성에 따라 일반 선택 과목 이수 후 진로와 적성에 맞게 과목 이수 권장" 대학이며, 별표가 특정 셀에만 있으면 그 셀에만 표시합니다.</li>
+      <li><b>※</b> 셀 메모(예: 역사/도덕 포함). 마우스를 올리면 내용이 보입니다.</li>
+      <li><b>기타</b> 열은 자유 서술(제2외/한문, 미술 등)이라 점검 판정에 넣지 않습니다.</li>
+      <li><b>내 이수과목 점검</b>은 ● 과목이 모두 체크되면 충족, 교과 전체 띠는 그 교과에서 1과목 이상 체크되면 충족으로 보는 관대한 기준입니다.</li></ul></div>`;
+    const table = `<div class="detail-box wide"><h4>정오표 (${M.errata.length}건)</h4>
+      <div class="udb-table-wrap" style="box-shadow:none"><div class="udb-table-scroll"><table class="udb-table" style="min-width:760px"><thead><tr><th>#</th><th>원자료 행</th><th>모집단위</th><th>문제</th><th>조치</th><th>근거</th></tr></thead>
+      <tbody>${M.errata.map(e => `<tr><td>${esc(e.id)}</td><td>${esc(e.rows.length > 4 ? `${e.rows[0]}–${e.rows[e.rows.length - 1]}` : e.rows.join(', '))}</td><td>${esc(unitLabel(e.unit))}</td><td>${esc(e.issue)}</td><td>${esc(e.action)}</td><td>${esc(e.basis)}</td></tr>`).join('')}</tbody></table></div></div>
+      <p class="small" style="margin-top:8px">제외된 행(E4)의 원문은 빌드 JSON의 <code>raw</code>에 보존되어 있습니다.</p></div>`;
+    openModal(head, `<div class="detail-grid">${rules}${table}</div>`);
   }
 
   /* ---------- 부트 ---------- */

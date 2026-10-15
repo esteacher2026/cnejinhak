@@ -307,6 +307,32 @@
     if (!hits.length) toast(`${r.university}: 모집단위 단위 자료가 없어 대학 전체를 표시합니다.`);
   }
 
+  /* ---------- 정오표·해석 규칙 ---------- */
+  function openModal(headHtml, bodyHtml) {
+    $('modalHead').innerHTML = headHtml; $('modalBody').innerHTML = bodyHtml;
+    $('modalBackdrop').classList.add('open');
+  }
+  function openErrata() {
+    const unitLabel = k => k.split('/').map(x => (UNIT_BY_KEY.get(x) || { label: x }).label).join('/');
+    const head = `<div class="badge-row"><span class="badge">전공별 반영과목 매트릭스</span><span class="badge purple">정오표 · 해석 규칙</span></div>
+      <h3 id="modalTitle">정오표와 셀 해석 규칙</h3>
+      <p class="small">출처: ${esc(M.meta.source)} · 정리 ${esc(M.meta.built)} · 원자료 ${M.meta.sourceRows}행 → ${M.meta.records}건. 정확한 반영 기준은 각 대학 입학처 모집요강을 확인하세요.</p>`;
+    const rules = `<div class="detail-box wide"><h4>셀 해석 규칙</h4><ul class="udm-rules">
+      <li><b>●</b> 세부과목 열에 대학명이 있으면 그 과목을 반영과목으로 안내한 것입니다.</li>
+      <li><b>교과 전체 띠</b> 원자료에서 수학(5열)·사회(4열)·과학(4열) 범위가 통째로 병합된 경우로, 세부 과목을 지정하지 않고 교과 전체를 안내한 것입니다.</li>
+      <li><b>부분 병합</b>(예: 물리학·화학·생명과학 3열)은 병합이 덮는 과목 각각을 반영한 것으로 봅니다.</li>
+      <li><b>전 교과</b> 한 행 전체가 병합된 대학(한라대)은 국어·수학·영어·사회·과학 교과 전체로 봅니다.</li>
+      <li><b>✱</b> 원자료의 별표. 안내문 기준 "학과 특성에 따라 일반 선택 과목 이수 후 진로와 적성에 맞게 과목 이수 권장" 대학이며, 별표가 특정 셀에만 있으면 그 셀에만 표시합니다.</li>
+      <li><b>※</b> 셀 메모(예: 역사/도덕 포함). 마우스를 올리면 내용이 보입니다.</li>
+      <li><b>기타</b> 열은 자유 서술(제2외/한문, 미술 등)이라 점검 판정에 넣지 않습니다.</li>
+      <li><b>내 이수과목 점검</b>은 ● 과목이 모두 체크되면 충족, 교과 전체 띠는 그 교과에서 1과목 이상 체크되면 충족으로 보는 관대한 기준입니다.</li></ul></div>`;
+    const table = `<div class="detail-box wide"><h4>정오표 (${M.errata.length}건)</h4>
+      <div class="udb-table-wrap" style="box-shadow:none"><div class="udb-table-scroll"><table class="udb-table" style="min-width:760px"><thead><tr><th>#</th><th>원자료 행</th><th>모집단위</th><th>문제</th><th>조치</th><th>근거</th></tr></thead>
+      <tbody>${M.errata.map(e => `<tr><td>${esc(e.id)}</td><td>${esc(e.rows.length > 4 ? `${e.rows[0]}–${e.rows[e.rows.length - 1]}` : e.rows.join(', '))}</td><td>${esc(unitLabel(e.unit))}</td><td>${esc(e.issue)}</td><td>${esc(e.action)}</td><td>${esc(e.basis)}</td></tr>`).join('')}</tbody></table></div></div>
+      <p class="small" style="margin-top:8px">제외된 행(E4)의 원문은 빌드 JSON의 <code>raw</code>에 보존되어 있습니다.</p></div>`;
+    openModal(head, `<div class="detail-grid">${rules}${table}</div>`);
+  }
+
   /* ---------- 부트 ---------- */
   function init() {
     bindTabs();

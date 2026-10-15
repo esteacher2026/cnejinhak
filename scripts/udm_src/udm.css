@@ -107,3 +107,7 @@
 .udm-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;z-index:90;background:var(--navy);color:#fff;font-weight:800;font-size:.86rem;padding:.65rem 1rem;border-radius:12px;box-shadow:0 16px 36px rgba(15,47,95,.3);transition:.2s all ease;max-width:calc(100% - 28px)}
 .udm-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 body.has-cmpbar .udm-toast{bottom:92px}
+/* 정오표 모달 */
+.udm-rules{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.88rem;line-height:1.55}
+.udm-rules b{color:var(--navy)}
+.udm-errata-btn{margin-left:10px;padding:.4rem .8rem;font-size:.82rem;vertical-align:middle}
