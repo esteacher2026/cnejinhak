@@ -124,3 +124,82 @@ def test_interpret_rejects_empty_row():
 def test_row_merge_map_filters_horizontal_in_data_cols():
     merges = [(32, 4, 33, 4), (7, 4, 7, 8), (1, 1, 1, 18), (54, 3, 54, 18)]
     assert bsm.row_merge_map(merges) == {7: [(4, 8)], 1: [(1, 18)], 54: [(3, 18)]}
+
+
+def _mini_cells():
+    """E1·E2·E6 검증용 최소 시트: 32–33행 경영 강원대 분리, 51행 충북대/충남대 혼재, 239행 조선대."""
+    cells = {(32, 1): "사회", (32, 2): "경영", (32, 3): "강원대", (32, 5): "강원대", (32, 9): "강원대",
+             (33, 1): "사회", (33, 2): "경영", (33, 3): "(춘천)", (33, 5): "(춘천)", (33, 9): "(춘천)",
+             (51, 1): "사회", (51, 2): "경영", (51, 9): "충북대", (51, 10): "충남대",
+             (55, 1): "사회", (55, 2): "경영", (55, 7): "한양대",
+             (78, 1): "교육", (78, 2): "국어교육", (78, 3): "충북대", (78, 10): "충남대(역사/도덕포함)",
+             (195, 1): "공학", (195, 2): "컴퓨터공학", (195, 4): "원광대",
+             (239, 1): "예체능", (239, 2): "시각디자인", (239, 3): "조선대", (239, 10): "조선대"}
+    merges = [(32, 4, 33, 4), (51, 10, 51, 13), (78, 10, 78, 13), (195, 4, 195, 8), (239, 10, 239, 14)]
+    return cells, merges
+
+
+def test_apply_errata_rules():
+    cells, merges, excluded, warns, out = bsm.apply_errata(*_mini_cells())
+    assert cells[(32, 3)] == "강원대(춘천)" and cells[(32, 5)] == "강원대(춘천)"
+    assert not any(r == 33 for r, _ in cells)
+    assert cells[(51, 10)] == "충북대"
+    assert cells[(78, 10)] == "충북대(역사/도덕 포함)"
+    assert excluded == {r: "E4" for r in range(195, 202)}
+    assert 55 in warns and "자연" in warns[55]
+    assert (239, 10, 239, 13) in merges and (239, 10, 239, 14) not in merges
+    assert [e["id"] for e in out] == ["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8"]
+    assert all({"id", "rows", "unit", "issue", "action", "basis"} <= set(e) for e in out)
+
+
+def test_build_minimal():
+    cells, merges = _mini_cells()
+    data = bsm.build(cells, merges, {"강원대(춘천)": ("중부권", "강원"), "충북대": ("중부권", "충북")}, built="2026-10-16")
+    recs = {r["srcRow"]: r for r in data["records"]}
+    assert set(recs) == {32, 51, 55, 78, 195, 239}
+    assert recs[32]["university"] == "강원대(춘천)" and recs[32]["regionGroup"] == "중부권" and recs[32]["marks"] == ["kor", "prob", "eng"]
+    assert recs[51]["groups"] == ["soc"] and recs[51]["universityKey"] == "충북대"
+    assert recs[55]["warn"] and recs[55]["excluded"] is False
+    assert recs[195]["excluded"] is True and recs[195]["excludedReason"] == "E4"
+    assert recs[239]["groups"] == ["soc"] and recs[239]["marks"] == ["kor"]
+    assert recs[32]["raw"]["C"] == "강원대" and recs[32]["raw"]["merges"] == []
+    assert recs[51]["universityKey"] == "충북대" and recs[55]["universityKey"] is None  # 한양대는 regions에 없음
+    assert data["meta"]["records"] == 5 and data["meta"]["sourceRows"] == 7  # 원자료 7행(33행 포함)
+    assert data["units"][10] == {"key": "computer-eng", "field": "공학", "label": "컴퓨터공학", "order": 11}
+    assert data["subjects"][2] == {"key": "prob", "label": "확률과 통계", "short": "확통", "group": "math"}
+    assert data["unitLinks"]["mech-eng"] == ["기계"]
+
+
+def test_inject_idempotent_and_escaped(tmp_path):
+    html = tmp_path / "sub2.html"
+    html.write_text('<p>x</p>\n<script id="options-data" type="application/json">{"a":1}</script>\n<p>y</p>\n', encoding="utf-8")
+    data = {"meta": {"note": "</script><b>"}, "records": []}
+    bsm.inject(html, data)
+    first = html.read_text(encoding="utf-8")
+    assert first.count('<script id="matrix-data" type="application/json">') == 1
+    assert "<\\/script><b>" in first and first.index("matrix-data") > first.index("options-data")
+    bsm.inject(html, data)
+    assert html.read_text(encoding="utf-8") == first
+
+
+@pytest.mark.skipif(not XLSX.exists(), reason="원자료 없음")
+def test_build_real_file_counts():
+    cells, merges = bsm.read_sheet(XLSX)
+    regions = bsm.load_file1_regions(HERE.parent / "sub2.html")
+    data = bsm.build(cells, merges, regions, built="2026-10-16")
+    active = [r for r in data["records"] if not r["excluded"]]
+    assert len(active) == 233 and data["meta"]["records"] == 233 and data["meta"]["sourceRows"] == 241
+    by_unit = {}
+    for r in active:
+        by_unit[r["unit"]] = by_unit.get(r["unit"], 0) + 1
+    assert by_unit == {"eng-lit": 14, "philosophy": 13, "business": 24, "psychology": 11, "korean-edu": 11, "math-edu": 14,
+                       "life-science": 16, "physics": 18, "chemistry": 21, "mech-eng": 24, "computer-eng": 28,
+                       "pharmacy": 11, "medicine": 18, "visual-design": 5, "music": 1, "phys-ed": 4}
+    recs = {r["srcRow"]: r for r in data["records"]}
+    assert recs[54]["allSubjects"] and recs[54]["university"] == "한라대"
+    assert recs[129]["marks"] == ["phy", "chem", "bio"]
+    assert recs[55]["warn"] and recs[7]["starAll"] and recs[7]["groups"] == ["math", "soc"]
+    assert recs[11]["etc"] == "제2외/한문" and recs[245]["university"] == "한국체대"
+    assert {r["university"] for r in data["records"] if r["universityKey"] is None} == {"동양대"}
+    assert recs[243]["regionGroup"] == "영남권"
+    assert len(data["errata"]) == 8
