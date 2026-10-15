@@ -1,0 +1,12 @@
+/* ===== univ-matrix (udm) ===== */
+.udb-tabs{display:flex;gap:6px;padding:5px;background:#eef2f8;border:1px solid var(--line);border-radius:16px;margin-bottom:16px}
+.udb-tab{flex:1;border:0;background:transparent;border-radius:12px;padding:.8rem .9rem;font-weight:850;font-size:.95rem;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;transition:.13s background ease,.13s color ease}
+.udb-tab .tct{font-size:.74rem;font-weight:800;background:rgba(15,47,95,.08);border-radius:999px;padding:.12rem .5rem;color:#475569}
+.udb-tab.on{background:#fff;color:var(--navy);box-shadow:0 2px 8px rgba(15,47,95,.14)}
+.udb-tab.on .tct{background:var(--sky);color:var(--navy)}
+.udb-tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#univDB[data-tab="matrix"] #udbResultCount{display:none}
+.udm-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 14px;margin:14px 0 10px}
+.udm-head strong{font-size:1.15rem;letter-spacing:-.03em}
+.udm-head span{color:var(--muted);font-size:.88rem}
+@media(max-width:680px){.udb-tab{font-size:.88rem;padding:.7rem .5rem}}

@@ -1,0 +1,28 @@
+<div id="udbPaneMatrix" class="udb-pane" role="tabpanel" aria-labelledby="udbTabMatrix" hidden>
+  <div class="notice" style="margin-bottom:16px">
+    <strong>안내:</strong> 2028학년도 「계열별 대표 모집단위별 반영과목」을 과목 축 15개로 정리한 매트릭스입니다. ●는 그 대학이 해당 과목을 반영과목으로 안내했다는 뜻이고, 띠는 교과 전체(세부 과목 지정 없음)를 뜻합니다. 정확한 반영 기준과 최신 변경 사항은 각 대학 입학처 모집요강을 반드시 확인하세요.
+    <button class="btn btn-outline udm-errata-btn" type="button" id="udmErrataBtn">정오표·해석 규칙 보기</button>
+  </div>
+  <div class="udm-legend" id="udmLegend"></div>
+  <div class="udm-units" id="udmUnits"></div>
+  <div class="udm-tools" id="udmTools">
+    <div class="udb-seg udm-viewseg" id="udmViewSeg">
+      <button type="button" data-view="unit" class="on">모집단위별 보기</button>
+      <button type="button" data-view="subject">과목별 보기</button>
+    </div>
+    <select class="udb-mini-select" id="udmRegion" aria-label="권역"></select>
+    <input class="udm-search" id="udmSearch" type="search" placeholder="대학명 검색" autocomplete="off" aria-label="대학명 검색">
+    <select class="udb-mini-select" id="udmSort" aria-label="정렬">
+      <option value="source">원자료 순</option>
+      <option value="name">대학명순</option>
+      <option value="count">반영 과목 많은 순</option>
+      <option value="region">권역·지역순</option>
+      <option value="missing">부족 과목 적은 순</option>
+    </select>
+    <button class="btn btn-dark udm-check-btn" type="button" id="udmCheckBtn" aria-pressed="false">내 이수과목 점검</button>
+  </div>
+  <div class="udm-check" id="udmCheck" hidden></div>
+  <div class="udm-head" id="udmHead"></div>
+  <div id="udmResult" aria-live="polite"></div>
+  <div class="udm-subject" id="udmSubject" hidden></div>
+</div>

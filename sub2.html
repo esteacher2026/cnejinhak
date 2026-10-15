@@ -429,6 +429,20 @@ body.has-cmpbar .scroll-top{bottom:176px}
 .empty-suggest button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.35rem .7rem;font-weight:800;font-size:.84rem;color:var(--navy);cursor:pointer}
 .empty-suggest button:hover{background:var(--sky)}
 
+/* udm:css:start */
+/* ===== univ-matrix (udm) ===== */
+.udb-tabs{display:flex;gap:6px;padding:5px;background:#eef2f8;border:1px solid var(--line);border-radius:16px;margin-bottom:16px}
+.udb-tab{flex:1;border:0;background:transparent;border-radius:12px;padding:.8rem .9rem;font-weight:850;font-size:.95rem;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;transition:.13s background ease,.13s color ease}
+.udb-tab .tct{font-size:.74rem;font-weight:800;background:rgba(15,47,95,.08);border-radius:999px;padding:.12rem .5rem;color:#475569}
+.udb-tab.on{background:#fff;color:var(--navy);box-shadow:0 2px 8px rgba(15,47,95,.14)}
+.udb-tab.on .tct{background:var(--sky);color:var(--navy)}
+.udb-tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#univDB[data-tab="matrix"] #udbResultCount{display:none}
+.udm-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 14px;margin:14px 0 10px}
+.udm-head strong{font-size:1.15rem;letter-spacing:-.03em}
+.udm-head span{color:var(--muted);font-size:.88rem}
+@media(max-width:680px){.udb-tab{font-size:.88rem;padding:.7rem .5rem}}
+/* udm:css:end */
 </style>
 </head>
 
@@ -512,11 +526,16 @@ body.has-cmpbar .scroll-top{bottom:176px}
 <div class="section-head">
   <div>
     <h2>대학별 권장과목 확인</h2>
-    <p>전공·과목 설계를 마쳤다면, 희망 대학이 실제로 안내하는 과목을 참고해 보세요. 2028학년도 권역별·대학별 자료 1,358건을 검색·비교할 수 있습니다.</p>
+    <p>전공·과목 설계를 마쳤다면, 희망 대학이 실제로 안내하는 과목을 참고해 보세요. 2028학년도 권역별·대학별 권장과목 1,358건 검색과, 16개 대표 모집단위의 대학별 반영과목 매트릭스를 제공합니다.</p>
   </div>
   <span class="small" id="udbResultCount">0건</span>
 </div>
 
+<div class="udb-tabs" role="tablist" aria-label="자료 선택">
+  <button type="button" role="tab" id="udbTabSearch" class="udb-tab on" data-tab="search" aria-selected="true" aria-controls="udbPaneSearch">대학별 권장과목 검색 <span class="tct">1,358건</span></button>
+  <button type="button" role="tab" id="udbTabMatrix" class="udb-tab" data-tab="matrix" aria-selected="false" aria-controls="udbPaneMatrix" tabindex="-1">전공별 반영과목 매트릭스 <span class="tct">16개 대표 모집단위</span></button>
+</div>
+<div id="udbPaneSearch" class="udb-pane" role="tabpanel" aria-labelledby="udbTabSearch">
 <div class="notice" style="margin-bottom:16px">
   <strong>안내:</strong> 아래 자료는 대학이 공개한 2028학년도 과목 안내를 정규화한 것입니다. 정확한 반영 기준과 최신 변경 사항은 각 대학 입학처의 모집요강을 반드시 확인해야 합니다.
 </div>
@@ -637,6 +656,37 @@ body.has-cmpbar .scroll-top{bottom:176px}
 
 <div id="udbResult" aria-live="polite"></div>
 <nav class="udb-pager" id="udbPager" aria-label="페이지 이동"></nav>
+</div><!-- /udbPaneSearch -->
+<!-- udm:pane:start -->
+<div id="udbPaneMatrix" class="udb-pane" role="tabpanel" aria-labelledby="udbTabMatrix" hidden>
+  <div class="notice" style="margin-bottom:16px">
+    <strong>안내:</strong> 2028학년도 「계열별 대표 모집단위별 반영과목」을 과목 축 15개로 정리한 매트릭스입니다. ●는 그 대학이 해당 과목을 반영과목으로 안내했다는 뜻이고, 띠는 교과 전체(세부 과목 지정 없음)를 뜻합니다. 정확한 반영 기준과 최신 변경 사항은 각 대학 입학처 모집요강을 반드시 확인하세요.
+    <button class="btn btn-outline udm-errata-btn" type="button" id="udmErrataBtn">정오표·해석 규칙 보기</button>
+  </div>
+  <div class="udm-legend" id="udmLegend"></div>
+  <div class="udm-units" id="udmUnits"></div>
+  <div class="udm-tools" id="udmTools">
+    <div class="udb-seg udm-viewseg" id="udmViewSeg">
+      <button type="button" data-view="unit" class="on">모집단위별 보기</button>
+      <button type="button" data-view="subject">과목별 보기</button>
+    </div>
+    <select class="udb-mini-select" id="udmRegion" aria-label="권역"></select>
+    <input class="udm-search" id="udmSearch" type="search" placeholder="대학명 검색" autocomplete="off" aria-label="대학명 검색">
+    <select class="udb-mini-select" id="udmSort" aria-label="정렬">
+      <option value="source">원자료 순</option>
+      <option value="name">대학명순</option>
+      <option value="count">반영 과목 많은 순</option>
+      <option value="region">권역·지역순</option>
+      <option value="missing">부족 과목 적은 순</option>
+    </select>
+    <button class="btn btn-dark udm-check-btn" type="button" id="udmCheckBtn" aria-pressed="false">내 이수과목 점검</button>
+  </div>
+  <div class="udm-check" id="udmCheck" hidden></div>
+  <div class="udm-head" id="udmHead"></div>
+  <div id="udmResult" aria-live="polite"></div>
+  <div class="udm-subject" id="udmSubject" hidden></div>
+</div>
+<!-- udm:pane:end -->
 </section>
 
 </main>
@@ -1705,6 +1755,9 @@ window.openDetail=openDetail;window.addCompare=addCompare;window.goUnivDB=goUniv
     applyFilters();
     document.getElementById('univDB').scrollIntoView({ block: 'start' });
   };
+  // 매트릭스 탭(udm)에서 쓰는 진입점: 상세 모달 열기 / 대학 필터 + 검색어 적용
+  window.udbOpenRecord = openDetail;
+  window.udbFilterUniversity = function (univ, q) { resetAll(); st.university = univ || ""; st.query = q || ""; refreshSelects(); syncControls(); applyFilters(); };
   // 대학명 직접 검색용 보조 진입점
   window.udbSearchUniversity = function (term) {
     resetAll();
@@ -1720,6 +1773,95 @@ window.openDetail=openDetail;window.addCompare=addCompare;window.goUnivDB=goUniv
 
 <a href="index.html" class="floating-home" aria-label="메인 화면으로 돌아가기">🏠 메인 화면으로 돌아가기</a>
 <button type="button" class="scroll-top" id="scrollTopBtn" aria-label="페이지 맨 위로" title="맨 위로">↑</button>
+<script>
+/* udm:js:start */
+/* ---------- udm 순수 함수 (DOM 없음, node:test 대상) ---------- */
+const UDM = {
+  tabFromHash(hash) { return hash === '#univDB-matrix' ? 'matrix' : 'search'; }
+};
+
+/* ---------- udm 앱: 탭·상태·렌더·이벤트 ---------- */
+(function () {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const section = $('univDB');
+  const paneSearch = $('udbPaneSearch'), paneMatrix = $('udbPaneMatrix');
+  if (!section || !paneSearch || !paneMatrix) return;
+  const tabs = [...section.querySelectorAll('.udb-tab')];
+
+  const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const read = (k, fb) => { try { const v = localStorage.getItem(k); return v === null ? fb : v; } catch { return fb; } };
+  const store = (k, v) => { try { localStorage.setItem(k, v); } catch { /* 사생활 모드 등 */ } };
+
+  let M = null, FILE1 = [];
+  try {
+    M = JSON.parse($('matrix-data').textContent);
+    FILE1 = JSON.parse($('records-data').textContent);
+  } catch (e) {
+    paneMatrix.innerHTML = '<div class="empty" style="padding:40px">매트릭스 자료를 불러오지 못했습니다.</div>';
+  }
+
+  const st = {
+    tab: 'search', unit: '', view: 'unit', region: '', q: '', sort: 'source',
+    check: false, mySubs: new Set(), subject: 'calc2', includeGroups: true
+  };
+  let rendered = false;
+
+  /* ---------- 탭 ---------- */
+  function activateTab(name, opts = {}) {
+    st.tab = name; section.dataset.tab = name;
+    tabs.forEach(b => {
+      const on = b.dataset.tab === name;
+      b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1;
+    });
+    paneSearch.hidden = name !== 'search'; paneMatrix.hidden = name !== 'matrix';
+    const hash = name === 'matrix' ? '#univDB-matrix' : '#univDB';
+    if (opts.hash !== false && location.hash !== hash) history.replaceState(null, '', hash);
+    store('udb2028.tab', name);
+    if (name === 'matrix' && M && !rendered) { rendered = true; renderAll(); }
+    if (opts.scroll) section.scrollIntoView({ block: 'start' });
+    if (opts.focus) { const b = tabs.find(x => x.dataset.tab === name); if (b) b.focus(); }
+  }
+  function bindTabs() {
+    tabs.forEach(b => b.addEventListener('click', () => activateTab(b.dataset.tab)));
+    section.querySelector('.udb-tabs').addEventListener('keydown', e => {
+      const i = tabs.indexOf(document.activeElement); if (i < 0) return;
+      let j = null;
+      if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = tabs.length - 1;
+      if (j === null) return;
+      e.preventDefault(); activateTab(tabs[j].dataset.tab, { focus: true });
+    });
+    window.addEventListener('hashchange', () => {
+      if (location.hash === '#univDB-matrix') activateTab('matrix', { hash: false });
+      else if (location.hash === '#univDB') activateTab('search', { hash: false });
+    });
+    // 전공 카드·대학명 진입점은 검색 탭을 먼저 켠다 (기존 함수는 수정하지 않고 감싼다)
+    ['udbSearchByMajor', 'udbSearchUniversity'].forEach(fn => {
+      const orig = window[fn]; if (typeof orig !== 'function') return;
+      window[fn] = function () { activateTab('search'); return orig.apply(this, arguments); };
+    });
+  }
+
+  /* ---------- 렌더(골격: 자료 요약 1줄) ---------- */
+  function renderAll() {
+    $('udmHead').innerHTML = `<strong>매트릭스 자료 ${M.meta.records}건</strong><span>대표 모집단위 ${M.units.length}개 · 정리 ${esc(M.meta.built)}</span>`;
+  }
+
+  /* ---------- 부트 ---------- */
+  function init() {
+    bindTabs();
+    const h = location.hash;
+    const initial = h === '#univDB-matrix' ? 'matrix' : h === '#univDB' ? 'search'
+      : (read('udb2028.tab', 'search') === 'matrix' ? 'matrix' : 'search');
+    activateTab(initial, { hash: false });
+  }
+  init();
+})();
+/* udm:js:end */
+</script>
 
 <script>
 /* =========================================================
