@@ -69,3 +69,11 @@ test('evaluate: empty selection fails everything incl. allSubjects', () => {
 test('evaluate: record with nothing marked (etc only) is ok', () => {
   assert.equal(UDM.evaluate({ marks: [], groups: [], allSubjects: false }, new Set(), SBG).ok, true);
 });
+
+test('subjectCoverage with and without whole-group bands', () => {
+  const recs = UDM.indexByUnit(R).get('mech-eng');     // b(kor + math 전체), a(calc2, phy), c(전 교과)
+  assert.deepEqual(UDM.subjectCoverage(recs, 'calc2', 'math', false).map(r => r.id), ['a']);
+  assert.deepEqual(UDM.subjectCoverage(recs, 'calc2', 'math', true).map(r => r.id), ['b', 'a', 'c']);
+  assert.deepEqual(UDM.subjectCoverage(recs, 'eng', 'eng', true).map(r => r.id), ['c']);
+  assert.deepEqual(UDM.subjectCoverage([], 'eng', 'eng', true), []);
+});

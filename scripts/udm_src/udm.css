@@ -89,3 +89,17 @@
 .udm-ck-group .udb-toggle{padding:.38rem .7rem;font-size:.82rem}
 .udm-ck-sum{border-top:1px solid var(--line);padding-top:10px;font-weight:800;color:#334155;font-size:.9rem}
 .udm-ck-sum b{color:#046c4e}
+/* 과목별 보기 */
+.udm-sv-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 10px}
+.udm-sv-tools label{font-weight:850;color:var(--navy);font-size:.86rem}
+.udm-sv-list{display:grid;gap:6px}
+.udm-sv-row{background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 12px}
+.udm-sv-row summary{display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;font-weight:850;list-style:none}
+.udm-sv-row summary::-webkit-details-marker{display:none}
+.udm-sv-row summary .u{min-width:150px;color:var(--navy)}
+.udm-sv-row summary .bar{flex:1;height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+.udm-sv-row summary .bar i{display:block;height:100%;background:var(--blue)}
+.udm-sv-row summary b{min-width:24px;text-align:right}
+.udm-sv-row summary .n{color:var(--muted);font-size:.82rem;min-width:36px}
+.udm-sv-unis{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px}
+@media(max-width:680px){.udm-sv-row summary{flex-wrap:wrap}.udm-sv-row summary .u{min-width:0;width:100%}}

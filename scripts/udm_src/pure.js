@@ -24,5 +24,8 @@ const UDM = {
     const groupsMissing = rec.allSubjects ? [] : rec.groups.filter(g => !(subjectsByGroup[g] || []).some(k => mySubs.has(k)));
     const allMissing = !!rec.allSubjects && mySubs.size === 0;
     return { ok: !missing.length && !groupsMissing.length && !allMissing, missing, groupsMissing };
+  },
+  subjectCoverage(records, subjectKey, groupKey, includeGroups) {
+    return records.filter(r => r.marks.includes(subjectKey) || (includeGroups && (r.allSubjects || r.groups.includes(groupKey))));
   }
 };

@@ -521,6 +521,20 @@ body.has-cmpbar .scroll-top{bottom:176px}
 .udm-ck-group .udb-toggle{padding:.38rem .7rem;font-size:.82rem}
 .udm-ck-sum{border-top:1px solid var(--line);padding-top:10px;font-weight:800;color:#334155;font-size:.9rem}
 .udm-ck-sum b{color:#046c4e}
+/* 과목별 보기 */
+.udm-sv-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 10px}
+.udm-sv-tools label{font-weight:850;color:var(--navy);font-size:.86rem}
+.udm-sv-list{display:grid;gap:6px}
+.udm-sv-row{background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 12px}
+.udm-sv-row summary{display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;font-weight:850;list-style:none}
+.udm-sv-row summary::-webkit-details-marker{display:none}
+.udm-sv-row summary .u{min-width:150px;color:var(--navy)}
+.udm-sv-row summary .bar{flex:1;height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+.udm-sv-row summary .bar i{display:block;height:100%;background:var(--blue)}
+.udm-sv-row summary b{min-width:24px;text-align:right}
+.udm-sv-row summary .n{color:var(--muted);font-size:.82rem;min-width:36px}
+.udm-sv-unis{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px}
+@media(max-width:680px){.udm-sv-row summary{flex-wrap:wrap}.udm-sv-row summary .u{min-width:0;width:100%}}
 /* udm:css:end */
 </style>
 </head>
@@ -1880,6 +1894,9 @@ const UDM = {
     const groupsMissing = rec.allSubjects ? [] : rec.groups.filter(g => !(subjectsByGroup[g] || []).some(k => mySubs.has(k)));
     const allMissing = !!rec.allSubjects && mySubs.size === 0;
     return { ok: !missing.length && !groupsMissing.length && !allMissing, missing, groupsMissing };
+  },
+  subjectCoverage(records, subjectKey, groupKey, includeGroups) {
+    return records.filter(r => r.marks.includes(subjectKey) || (includeGroups && (r.allSubjects || r.groups.includes(groupKey))));
   }
 };
 
@@ -2152,6 +2169,27 @@ const UDM = {
   paneMatrix.addEventListener('click', e => {
     if (e.target.closest('#udmCheckClear')) { st.mySubs.clear(); store('udb2028.mySubs', '[]'); renderView(); }
   });
+
+  /* ---------- 과목별 보기(역조회) ---------- */
+  function renderSubjectView() {
+    const s = SUBJ_BY_KEY[st.subject] || M.subjects[0];
+    const opts = M.groups.map(g => `<optgroup label="${esc(g.label)}">${M.subjects.filter(c => c.group === g.key).map(c => `<option value="${c.key}" ${c.key === s.key ? 'selected' : ''}>${esc(c.label)}</option>`).join('')}</optgroup>`).join('');
+    const rows = M.units.map(u => {
+      const recs = byUnit.get(u.key) || [];
+      const hit = UDM.subjectCoverage(recs, s.key, s.group, st.includeGroups);
+      return { u, recs, hit, pct: recs.length ? Math.round(hit.length / recs.length * 100) : 0 };
+    }).sort((a, b) => b.pct - a.pct || b.hit.length - a.hit.length);
+    el.subject.innerHTML = `<div class="udm-sv-tools"><label>과목 <select class="udb-mini-select" data-udm-subject aria-label="과목 선택">${opts}</select></label>
+        <label class="udb-toggle ${st.includeGroups ? 'on' : ''}"><input type="checkbox" data-udm-incgroups ${st.includeGroups ? 'checked' : ''}>교과 전체 지정 포함</label>
+        <span class="small">「${esc(s.label)}」을(를) 반영과목으로 안내한 대학 수 / 모집단위별 대학 수</span></div>
+      <div class="udm-sv-list">${rows.map(({ u, recs, hit, pct }) => `<details class="udm-sv-row"><summary><span class="u">${esc(u.field)} · ${esc(u.label)}</span><span class="bar"><i style="width:${pct}%"></i></span><b>${hit.length}</b><span class="n">/ ${recs.length}</span></summary>
+        <div class="udm-sv-unis">${hit.map(r => `<button type="button" class="udm-chip link" data-udm-goto="${r.id}">${esc(r.university)}${r.marks.includes(s.key) ? '' : ' <span class="gl">(교과 전체)</span>'}</button>`).join('') || '<span class="small">해당 대학 없음</span>'}</div></details>`).join('')}</div>`;
+  }
+  function onSubjectViewChange(target) {
+    if (target.matches('[data-udm-subject]')) st.subject = target.value;
+    else st.includeGroups = target.checked;
+    renderSubjectView();
+  }
 
   /* ---------- 부트 ---------- */
   function init() {

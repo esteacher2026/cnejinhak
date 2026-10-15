@@ -268,6 +268,27 @@
     if (e.target.closest('#udmCheckClear')) { st.mySubs.clear(); store('udb2028.mySubs', '[]'); renderView(); }
   });
 
+  /* ---------- 과목별 보기(역조회) ---------- */
+  function renderSubjectView() {
+    const s = SUBJ_BY_KEY[st.subject] || M.subjects[0];
+    const opts = M.groups.map(g => `<optgroup label="${esc(g.label)}">${M.subjects.filter(c => c.group === g.key).map(c => `<option value="${c.key}" ${c.key === s.key ? 'selected' : ''}>${esc(c.label)}</option>`).join('')}</optgroup>`).join('');
+    const rows = M.units.map(u => {
+      const recs = byUnit.get(u.key) || [];
+      const hit = UDM.subjectCoverage(recs, s.key, s.group, st.includeGroups);
+      return { u, recs, hit, pct: recs.length ? Math.round(hit.length / recs.length * 100) : 0 };
+    }).sort((a, b) => b.pct - a.pct || b.hit.length - a.hit.length);
+    el.subject.innerHTML = `<div class="udm-sv-tools"><label>과목 <select class="udb-mini-select" data-udm-subject aria-label="과목 선택">${opts}</select></label>
+        <label class="udb-toggle ${st.includeGroups ? 'on' : ''}"><input type="checkbox" data-udm-incgroups ${st.includeGroups ? 'checked' : ''}>교과 전체 지정 포함</label>
+        <span class="small">「${esc(s.label)}」을(를) 반영과목으로 안내한 대학 수 / 모집단위별 대학 수</span></div>
+      <div class="udm-sv-list">${rows.map(({ u, recs, hit, pct }) => `<details class="udm-sv-row"><summary><span class="u">${esc(u.field)} · ${esc(u.label)}</span><span class="bar"><i style="width:${pct}%"></i></span><b>${hit.length}</b><span class="n">/ ${recs.length}</span></summary>
+        <div class="udm-sv-unis">${hit.map(r => `<button type="button" class="udm-chip link" data-udm-goto="${r.id}">${esc(r.university)}${r.marks.includes(s.key) ? '' : ' <span class="gl">(교과 전체)</span>'}</button>`).join('') || '<span class="small">해당 대학 없음</span>'}</div></details>`).join('')}</div>`;
+  }
+  function onSubjectViewChange(target) {
+    if (target.matches('[data-udm-subject]')) st.subject = target.value;
+    else st.includeGroups = target.checked;
+    renderSubjectView();
+  }
+
   /* ---------- 부트 ---------- */
   function init() {
     bindTabs();
