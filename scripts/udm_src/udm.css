@@ -10,3 +10,74 @@
 .udm-head strong{font-size:1.15rem;letter-spacing:-.03em}
 .udm-head span{color:var(--muted);font-size:.88rem}
 @media(max-width:680px){.udb-tab{font-size:.88rem;padding:.7rem .5rem}}
+/* 범례 */
+.udm-legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-bottom:12px;color:var(--muted);font-size:.82rem;font-weight:800}
+.udm-legend .dot,.udm-cell .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--navy);vertical-align:middle}
+.udm-legend .band{display:inline-block;padding:.05rem .5rem;border-radius:6px;background:var(--sky);color:var(--navy);font-weight:850}
+/* 모집단위 칩 */
+.udm-units{display:grid;gap:8px;margin-bottom:14px}
+.udm-field{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.udm-field-l{min-width:52px;color:var(--muted);font-size:.8rem;font-weight:850}
+.udm-unit{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:#475569;border-radius:999px;padding:.42rem .75rem;font-weight:850;font-size:.86rem;cursor:pointer;transition:.13s all ease}
+.udm-unit:hover{border-color:rgba(37,99,235,.5)}
+.udm-unit .ct{color:var(--muted);font-size:.76rem;font-weight:800}
+.udm-unit.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.udm-unit.on .ct{color:rgba(255,255,255,.78)}
+/* 도구 행 */
+.udm-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;box-shadow:var(--shadow)}
+.udm-viewseg{max-width:300px;flex:1 1 220px}
+.udm-search{flex:1 1 160px;min-width:140px;padding:.6rem .8rem;border-radius:12px;border:1px solid var(--line);font-weight:700}
+.udm-check-btn[aria-pressed="true"]{background:var(--green)}
+/* 표 */
+.udm-table-wrap{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.udm-table-scroll{overflow:auto;max-height:75vh}
+.udm-table{border-collapse:separate;border-spacing:0;font-size:.82rem;min-width:900px;width:100%}
+.udm-table th,.udm-table td{border-bottom:1px solid var(--line);border-right:1px solid #eef2f8;padding:6px 6px;text-align:center;vertical-align:middle}
+.udm-table thead th{position:sticky;z-index:3;background:var(--sky);color:var(--navy);font-weight:850;white-space:nowrap}
+.udm-table thead tr:first-child th{top:0}
+.udm-table thead tr:last-child th{top:34px;font-size:.76rem}
+.udm-table thead th .short{display:none}
+.udm-table th.udm-uni-h,.udm-table th.udm-uni{position:sticky;left:0;z-index:2;text-align:left;background:#fff;min-width:150px;max-width:220px}
+.udm-table thead th.udm-uni-h{z-index:4;background:var(--sky)}
+.udm-table tfoot th{position:sticky;left:0;bottom:0;z-index:4;background:#f8fbff;text-align:left}
+.udm-table tfoot td{position:sticky;bottom:0;z-index:3;background:#f8fbff}
+.udm-uni-btn{border:0;background:transparent;padding:0;font:inherit;font-weight:850;color:var(--navy);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.udm-uni-btn:hover{color:var(--blue)}
+.udm-reg{display:block;color:var(--muted);font-size:.72rem;font-weight:800}
+.udm-warn{margin-left:4px;color:#b45309;cursor:help}
+.udm-cell.on{background:#f3f8ff}
+.udm-cell sup{color:#b45309;font-size:.7em;margin-left:1px}
+.udm-cell .nt{color:#92400e;font-style:normal;font-size:.7em;margin-left:2px}
+.udm-cell .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.udm-band{background:var(--sky);color:var(--navy);font-weight:850;font-size:.76rem;border-radius:6px}
+.udm-cell.ok,.udm-band.ok{background:var(--mint)}
+.udm-cell.ok .dot{background:var(--green)}
+.udm-cell.miss,.udm-band.miss{background:#fff3e0}
+.udm-cell.miss .dot{background:#d97706}
+.udm-band.miss{color:#92400e}
+.udm-etc{font-size:.76rem;color:#713f12;min-width:90px;max-width:160px;word-break:keep-all}
+.udm-cnt{white-space:nowrap;color:var(--muted);font-weight:800;font-size:.76rem}
+.udm-table tbody tr:hover td,.udm-table tbody tr:hover th{background:#f8fbff}
+.udm-table .hl{background:#fffbea}
+.udm-table tr.udm-hl th,.udm-table tr.udm-hl td{background:var(--yellow)}
+.udm-foot b{display:block;color:var(--navy)}
+.udm-foot small{color:#6d28d9;font-weight:800}
+.udm-foot .bar{display:block;height:4px;background:#e2e8f0;border-radius:2px;margin-top:3px;overflow:hidden}
+.udm-foot .bar i{display:block;height:100%;background:var(--blue)}
+.udm-badge{display:inline-block;margin-left:5px;border-radius:7px;padding:.12rem .45rem;font-size:.72rem;font-weight:850;vertical-align:middle}
+.udm-badge.ok{background:var(--mint);color:#046c4e}
+.udm-badge.miss{background:#fef3c7;color:#92400e;cursor:help}
+/* 카드(모바일) */
+.udm-cards{display:grid;gap:10px}
+.udm-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:0 8px 20px rgba(15,47,95,.06)}
+.udm-card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:8px}
+.udm-chips{display:flex;flex-wrap:wrap;gap:5px}
+.udm-chip{display:inline-flex;align-items:center;gap:3px;border-radius:999px;padding:.22rem .55rem;font-size:.78rem;font-weight:800;background:#f3f6fb;color:#334155}
+.udm-chip.band{background:var(--sky);color:var(--navy)}
+.udm-chip.ok{background:var(--mint);color:#046c4e}
+.udm-chip.miss{background:#fef3c7;color:#92400e}
+.udm-chip.link{cursor:pointer;border:1px solid var(--line);background:#fff}
+.udm-chip.link:hover{border-color:var(--blue);color:var(--blue)}
+.udm-chip .gl{color:var(--muted);font-weight:700}
+@media(max-width:1050px){.udm-table thead th .full{display:none}.udm-table thead th .short{display:inline}}
+@media print{.udm-tools,.udm-units,.udm-errata-btn,.udb-tabs{display:none!important}.udm-table-scroll{max-height:none;overflow:visible}.udm-table{min-width:0;font-size:.7rem}}

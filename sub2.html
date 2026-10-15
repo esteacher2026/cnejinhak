@@ -442,6 +442,77 @@ body.has-cmpbar .scroll-top{bottom:176px}
 .udm-head strong{font-size:1.15rem;letter-spacing:-.03em}
 .udm-head span{color:var(--muted);font-size:.88rem}
 @media(max-width:680px){.udb-tab{font-size:.88rem;padding:.7rem .5rem}}
+/* 범례 */
+.udm-legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-bottom:12px;color:var(--muted);font-size:.82rem;font-weight:800}
+.udm-legend .dot,.udm-cell .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--navy);vertical-align:middle}
+.udm-legend .band{display:inline-block;padding:.05rem .5rem;border-radius:6px;background:var(--sky);color:var(--navy);font-weight:850}
+/* 모집단위 칩 */
+.udm-units{display:grid;gap:8px;margin-bottom:14px}
+.udm-field{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.udm-field-l{min-width:52px;color:var(--muted);font-size:.8rem;font-weight:850}
+.udm-unit{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:#475569;border-radius:999px;padding:.42rem .75rem;font-weight:850;font-size:.86rem;cursor:pointer;transition:.13s all ease}
+.udm-unit:hover{border-color:rgba(37,99,235,.5)}
+.udm-unit .ct{color:var(--muted);font-size:.76rem;font-weight:800}
+.udm-unit.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.udm-unit.on .ct{color:rgba(255,255,255,.78)}
+/* 도구 행 */
+.udm-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;box-shadow:var(--shadow)}
+.udm-viewseg{max-width:300px;flex:1 1 220px}
+.udm-search{flex:1 1 160px;min-width:140px;padding:.6rem .8rem;border-radius:12px;border:1px solid var(--line);font-weight:700}
+.udm-check-btn[aria-pressed="true"]{background:var(--green)}
+/* 표 */
+.udm-table-wrap{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.udm-table-scroll{overflow:auto;max-height:75vh}
+.udm-table{border-collapse:separate;border-spacing:0;font-size:.82rem;min-width:900px;width:100%}
+.udm-table th,.udm-table td{border-bottom:1px solid var(--line);border-right:1px solid #eef2f8;padding:6px 6px;text-align:center;vertical-align:middle}
+.udm-table thead th{position:sticky;z-index:3;background:var(--sky);color:var(--navy);font-weight:850;white-space:nowrap}
+.udm-table thead tr:first-child th{top:0}
+.udm-table thead tr:last-child th{top:34px;font-size:.76rem}
+.udm-table thead th .short{display:none}
+.udm-table th.udm-uni-h,.udm-table th.udm-uni{position:sticky;left:0;z-index:2;text-align:left;background:#fff;min-width:150px;max-width:220px}
+.udm-table thead th.udm-uni-h{z-index:4;background:var(--sky)}
+.udm-table tfoot th{position:sticky;left:0;bottom:0;z-index:4;background:#f8fbff;text-align:left}
+.udm-table tfoot td{position:sticky;bottom:0;z-index:3;background:#f8fbff}
+.udm-uni-btn{border:0;background:transparent;padding:0;font:inherit;font-weight:850;color:var(--navy);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.udm-uni-btn:hover{color:var(--blue)}
+.udm-reg{display:block;color:var(--muted);font-size:.72rem;font-weight:800}
+.udm-warn{margin-left:4px;color:#b45309;cursor:help}
+.udm-cell.on{background:#f3f8ff}
+.udm-cell sup{color:#b45309;font-size:.7em;margin-left:1px}
+.udm-cell .nt{color:#92400e;font-style:normal;font-size:.7em;margin-left:2px}
+.udm-cell .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.udm-band{background:var(--sky);color:var(--navy);font-weight:850;font-size:.76rem;border-radius:6px}
+.udm-cell.ok,.udm-band.ok{background:var(--mint)}
+.udm-cell.ok .dot{background:var(--green)}
+.udm-cell.miss,.udm-band.miss{background:#fff3e0}
+.udm-cell.miss .dot{background:#d97706}
+.udm-band.miss{color:#92400e}
+.udm-etc{font-size:.76rem;color:#713f12;min-width:90px;max-width:160px;word-break:keep-all}
+.udm-cnt{white-space:nowrap;color:var(--muted);font-weight:800;font-size:.76rem}
+.udm-table tbody tr:hover td,.udm-table tbody tr:hover th{background:#f8fbff}
+.udm-table .hl{background:#fffbea}
+.udm-table tr.udm-hl th,.udm-table tr.udm-hl td{background:var(--yellow)}
+.udm-foot b{display:block;color:var(--navy)}
+.udm-foot small{color:#6d28d9;font-weight:800}
+.udm-foot .bar{display:block;height:4px;background:#e2e8f0;border-radius:2px;margin-top:3px;overflow:hidden}
+.udm-foot .bar i{display:block;height:100%;background:var(--blue)}
+.udm-badge{display:inline-block;margin-left:5px;border-radius:7px;padding:.12rem .45rem;font-size:.72rem;font-weight:850;vertical-align:middle}
+.udm-badge.ok{background:var(--mint);color:#046c4e}
+.udm-badge.miss{background:#fef3c7;color:#92400e;cursor:help}
+/* 카드(모바일) */
+.udm-cards{display:grid;gap:10px}
+.udm-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:0 8px 20px rgba(15,47,95,.06)}
+.udm-card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:8px}
+.udm-chips{display:flex;flex-wrap:wrap;gap:5px}
+.udm-chip{display:inline-flex;align-items:center;gap:3px;border-radius:999px;padding:.22rem .55rem;font-size:.78rem;font-weight:800;background:#f3f6fb;color:#334155}
+.udm-chip.band{background:var(--sky);color:var(--navy)}
+.udm-chip.ok{background:var(--mint);color:#046c4e}
+.udm-chip.miss{background:#fef3c7;color:#92400e}
+.udm-chip.link{cursor:pointer;border:1px solid var(--line);background:#fff}
+.udm-chip.link:hover{border-color:var(--blue);color:var(--blue)}
+.udm-chip .gl{color:var(--muted);font-weight:700}
+@media(max-width:1050px){.udm-table thead th .full{display:none}.udm-table thead th .short{display:inline}}
+@media print{.udm-tools,.udm-units,.udm-errata-btn,.udb-tabs{display:none!important}.udm-table-scroll{max-height:none;overflow:visible}.udm-table{min-width:0;font-size:.7rem}}
 /* udm:css:end */
 </style>
 </head>
@@ -1777,7 +1848,24 @@ window.openDetail=openDetail;window.addCompare=addCompare;window.goUnivDB=goUniv
 /* udm:js:start */
 /* ---------- udm 순수 함수 (DOM 없음, node:test 대상) ---------- */
 const UDM = {
-  tabFromHash(hash) { return hash === '#univDB-matrix' ? 'matrix' : 'search'; }
+  tabFromHash(hash) { return hash === '#univDB-matrix' ? 'matrix' : 'search'; },
+  indexByUnit(records) {
+    const m = new Map();
+    records.filter(r => !r.excluded).sort((a, b) => a.srcRow - b.srcRow)
+      .forEach(r => { if (!m.has(r.unit)) m.set(r.unit, []); m.get(r.unit).push(r); });
+    return m;
+  },
+  footerCounts(records, subjects, groups) {
+    const marks = {}, grp = {};
+    subjects.forEach(s => { marks[s.key] = 0; });
+    groups.forEach(g => { grp[g.key] = 0; });
+    records.forEach(r => {
+      r.marks.forEach(k => { if (k in marks) marks[k]++; });
+      const gs = r.allSubjects ? groups.map(g => g.key) : r.groups;
+      gs.forEach(g => { if (g in grp) grp[g]++; });
+    });
+    return { marks, groups: grp };
+  }
 };
 
 /* ---------- udm 앱: 탭·상태·렌더·이벤트 ---------- */
@@ -1792,6 +1880,11 @@ const UDM = {
   const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const read = (k, fb) => { try { const v = localStorage.getItem(k); return v === null ? fb : v; } catch { return fb; } };
   const store = (k, v) => { try { localStorage.setItem(k, v); } catch { /* 사생활 모드 등 */ } };
+  const NF = new Intl.NumberFormat('ko-KR');
+  const COL = new Intl.Collator('ko-KR', { numeric: true });
+  const REGIONS = ['수도권', '영남권', '중부권', '호남권'];
+  const DEFAULT_UNIT = 'computer-eng';
+  const mobile = window.matchMedia('(max-width: 680px)');
 
   let M = null, FILE1 = [];
   try {
@@ -1806,6 +1899,19 @@ const UDM = {
     check: false, mySubs: new Set(), subject: 'calc2', includeGroups: true
   };
   let rendered = false;
+  let byUnit = new Map(), byId = new Map(), UNIT_BY_KEY = new Map(), SUBJ_BY_GROUP = {}, SUBJ_BY_KEY = {}, GROUP_LABEL = {};
+  if (M) {
+    byUnit = UDM.indexByUnit(M.records);
+    byId = new Map(M.records.map(r => [r.id, r]));
+    UNIT_BY_KEY = new Map(M.units.map(u => [u.key, u]));
+    M.subjects.forEach(s => { (SUBJ_BY_GROUP[s.group] = SUBJ_BY_GROUP[s.group] || []).push(s.key); SUBJ_BY_KEY[s.key] = s; });
+    M.groups.forEach(g => { GROUP_LABEL[g.key] = g.label; });
+  }
+  const el = {
+    legend: $('udmLegend'), units: $('udmUnits'), tools: $('udmTools'), viewSeg: $('udmViewSeg'),
+    region: $('udmRegion'), search: $('udmSearch'), sort: $('udmSort'), checkBtn: $('udmCheckBtn'),
+    check: $('udmCheck'), head: $('udmHead'), result: $('udmResult'), subject: $('udmSubject'), errataBtn: $('udmErrataBtn')
+  };
 
   /* ---------- 탭 ---------- */
   function activateTab(name, opts = {}) {
@@ -1845,14 +1951,166 @@ const UDM = {
     });
   }
 
-  /* ---------- 렌더(골격: 자료 요약 1줄) ---------- */
-  function renderAll() {
-    $('udmHead').innerHTML = `<strong>매트릭스 자료 ${M.meta.records}건</strong><span>대표 모집단위 ${M.units.length}개 · 정리 ${esc(M.meta.built)}</span>`;
+  /* ---------- 데이터 선택 ---------- */
+  function visibleRecords() {
+    let rs = (byUnit.get(st.unit) || []).slice();
+    if (st.region) rs = rs.filter(r => r.regionGroup === st.region);
+    if (st.q) { const q = st.q.toLowerCase(); rs = rs.filter(r => r.university.toLowerCase().includes(q)); }
+    const score = r => r.allSubjects ? 99 : r.marks.length + r.groups.length * 3;
+    const missN = r => { const e = UDM.evaluate(r, st.mySubs, SUBJ_BY_GROUP); return e.ok ? 0 : e.missing.length + e.groupsMissing.length + (r.allSubjects ? 1 : 0); };
+    if (st.sort === 'name') rs.sort((a, b) => COL.compare(a.university, b.university));
+    else if (st.sort === 'count') rs.sort((a, b) => score(b) - score(a) || COL.compare(a.university, b.university));
+    else if (st.sort === 'region') rs.sort((a, b) => REGIONS.indexOf(a.regionGroup) - REGIONS.indexOf(b.regionGroup) || COL.compare(a.region || '', b.region || '') || COL.compare(a.university, b.university));
+    else if (st.sort === 'missing' && st.check && typeof UDM.evaluate === 'function') rs.sort((a, b) => missN(a) - missN(b) || COL.compare(a.university, b.university));
+    else rs.sort((a, b) => a.srcRow - b.srcRow);
+    return rs;
+  }
+  const evalOf = r => (st.check && typeof UDM.evaluate === 'function') ? UDM.evaluate(r, st.mySubs, SUBJ_BY_GROUP) : null;
+  function missingLabel(ev) {
+    return [...ev.missing.map(k => SUBJ_BY_KEY[k].label), ...ev.groupsMissing.map(g => GROUP_LABEL[g] + ' 전체')].join(', ');
+  }
+
+  /* ---------- 렌더 ---------- */
+  function renderLegend() {
+    el.legend.innerHTML = `<span><span class="dot"></span> 반영과목</span><span><span class="band">수학 전체</span> 교과 전체(세부 지정 없음)</span>
+      <span>✱ 원자료 별표(일반선택 이수 후 진로·적성에 맞게 이수 권장)</span><span>※ 셀 메모(예: 역사/도덕 포함)</span><span>⚠ 원자료 확인 필요</span>`;
+  }
+  function renderUnits() {
+    const fields = [...new Set(M.units.map(u => u.field))];
+    el.units.innerHTML = fields.map(f => `<div class="udm-field"><span class="udm-field-l">${esc(f)}</span>${
+      M.units.filter(u => u.field === f).map(u => `<button type="button" class="udm-unit ${u.key === st.unit ? 'on' : ''}" data-udm-unit="${u.key}" aria-pressed="${u.key === st.unit}">${esc(u.label)}<span class="ct">${(byUnit.get(u.key) || []).length}</span></button>`).join('')
+    }</div>`).join('');
+  }
+  function renderTools() {
+    el.region.innerHTML = `<option value="">전체 권역</option>` + REGIONS.map(r => `<option value="${r}">${r}</option>`).join('');
+    el.region.value = st.region; el.search.value = st.q; el.sort.value = st.sort;
+    el.viewSeg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.view === st.view));
+    el.checkBtn.setAttribute('aria-pressed', st.check ? 'true' : 'false');
+    el.sort.querySelector('[value="missing"]').disabled = !st.check;
+  }
+  function renderHead(recs) {
+    const u = UNIT_BY_KEY.get(st.unit);
+    let extra = '';
+    if (st.check) { const ok = recs.filter(r => evalOf(r).ok).length; extra = ` · 내 과목으로 충족 <b>${ok}</b> / ${recs.length}`; }
+    el.head.innerHTML = `<strong>${esc(u.field)} · ${esc(u.label)}</strong><span>${NF.format(recs.length)}개 대학 · 권역 ${esc(st.region || '전체')}${st.q ? ` · "${esc(st.q)}"` : ''}${extra}</span>`;
+  }
+  function cellsFor(r, ev) {
+    let out = '';
+    M.groups.forEach(g => {
+      const gcols = M.subjects.filter(c => c.group === g.key);
+      if (r.groups.includes(g.key)) {
+        const gOk = ev ? !ev.groupsMissing.includes(g.key) : null;
+        const star = r.starAll || gcols.some(c => r.stars.includes(c.key));
+        const note = gcols.map(c => r.cellNotes[c.key]).find(Boolean);
+        out += `<td colspan="${gcols.length}" class="udm-band ${gOk === null ? '' : gOk ? 'ok' : 'miss'}" title="${esc(g.label)} 교과 전체(세부 과목 지정 없음)${note ? ' · ' + esc(note) : ''}">${esc(g.label)} 전체${star ? '<sup>✱</sup>' : ''}${note ? '<i class="nt">※</i>' : ''}</td>`;
+        return;
+      }
+      gcols.forEach(c => {
+        const on = r.marks.includes(c.key);
+        const star = on && (r.starAll || r.stars.includes(c.key));
+        const note = on ? r.cellNotes[c.key] : null;
+        let cls = 'udm-cell' + (on ? ' on' : '');
+        if (on && ev) cls += st.mySubs.has(c.key) ? ' ok' : ' miss';
+        out += `<td class="${cls}" data-col="${c.key}"${note ? ` title="${esc(note)}"` : ''}>${on ? `<span class="dot"></span><span class="sr">${esc(c.label)} 반영</span>` : ''}${star ? '<sup>✱</sup>' : ''}${note ? '<i class="nt">※</i>' : ''}</td>`;
+      });
+    });
+    return out;
+  }
+  function uniCell(r, ev) {
+    const badge = !ev ? '' : ev.ok ? '<span class="udm-badge ok">충족</span>'
+      : `<span class="udm-badge miss" title="부족: ${esc(missingLabel(ev) || '선택한 과목 없음')}">부족 ${ev.missing.length + ev.groupsMissing.length + (r.allSubjects ? 1 : 0)}</span>`;
+    return `<button type="button" class="udm-uni-btn" data-udm-link="${r.id}" title="권장과목 원문 보기">${esc(r.university)}</button>${r.warn ? `<span class="udm-warn" title="${esc(r.warn)}">⚠</span>` : ''}${badge}<span class="udm-reg">${esc(r.regionGroup || '권역 미상')}${r.region ? ' · ' + esc(r.region) : ''}</span>`;
+  }
+  function countLabel(r) { return r.allSubjects ? '전 교과' : `${r.marks.length}과목${r.groups.length ? ` +교과 ${r.groups.length}` : ''}`; }
+
+  function renderTable(recs) {
+    const head1 = M.groups.map(g => `<th colspan="${M.subjects.filter(c => c.group === g.key).length}">${esc(g.label)}</th>`).join('');
+    const head2 = M.subjects.map(c => `<th data-col="${c.key}"><span class="full">${esc(c.label)}</span><span class="short">${esc(c.short)}</span></th>`).join('');
+    const rows = recs.map(r => {
+      const ev = evalOf(r);
+      return `<tr data-id="${r.id}"><th scope="row" class="udm-uni">${uniCell(r, ev)}</th>${cellsFor(r, ev)}<td class="udm-etc">${r.etc === null ? '' : esc(r.etc || '기타')}</td><td class="udm-cnt">${countLabel(r)}</td></tr>`;
+    }).join('');
+    const fc = UDM.footerCounts(recs, M.subjects, M.groups), N = recs.length;
+    const foot = M.subjects.map(c => {
+      const k = fc.marks[c.key], gk = fc.groups[c.group], pct = N ? Math.round(k / N * 100) : 0;
+      return `<td class="udm-foot" data-col="${c.key}"><b>${k}</b>${gk ? `<small>+${gk}</small>` : ''}<span class="bar"><i style="width:${pct}%"></i></span></td>`;
+    }).join('');
+    el.result.innerHTML = `<div class="udm-table-wrap"><div class="udm-table-scroll"><table class="udm-table">
+      <thead><tr><th rowspan="2" class="udm-uni-h">대학 <small>${N}개</small></th>${head1}<th rowspan="2">기타</th><th rowspan="2">반영 수</th></tr><tr>${head2}</tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr><th scope="row">반영 대학 수 / ${N}<br><small>+n = 교과 전체 지정</small></th>${foot}<td></td><td></td></tr></tfoot></table></div></div>`;
+  }
+  function renderCards(recs) {
+    el.result.innerHTML = `<div class="udm-cards">${recs.map(r => {
+      const ev = evalOf(r);
+      const chips = M.groups.map(g => {
+        if (r.groups.includes(g.key)) return `<span class="udm-chip band ${ev ? (ev.groupsMissing.includes(g.key) ? 'miss' : 'ok') : ''}">${esc(g.label)} 전체${r.starAll ? '✱' : ''}</span>`;
+        return M.subjects.filter(c => c.group === g.key && r.marks.includes(c.key)).map(c =>
+          `<span class="udm-chip ${ev ? (st.mySubs.has(c.key) ? 'ok' : 'miss') : ''}" ${r.cellNotes[c.key] ? `title="${esc(r.cellNotes[c.key])}"` : ''}><span class="gl">${esc(g.label)}</span>${esc(c.label)}${r.starAll || r.stars.includes(c.key) ? '✱' : ''}</span>`).join('');
+      }).join('');
+      return `<article class="udm-card"><div class="udm-card-top"><div>${uniCell(r, ev)}</div><span class="udm-cnt">${countLabel(r)}</span></div>
+        <div class="udm-chips">${chips || '<span class="small">세부 과목 표시 없음</span>'}${r.etc !== null ? `<span class="udm-chip"><span class="gl">기타</span>${esc(r.etc || '기타')}</span>` : ''}</div></article>`;
+    }).join('')}</div>`;
+  }
+  function renderView() {
+    const isUnit = st.view === 'unit';
+    el.subject.hidden = isUnit; el.head.hidden = !isUnit; el.result.hidden = !isUnit; el.check.hidden = !(isUnit && st.check);
+    if (!isUnit) { if (typeof renderSubjectView === 'function') renderSubjectView(); return; }
+    const recs = visibleRecords();
+    if (st.check && typeof renderCheck === 'function') renderCheck(recs);
+    renderHead(recs);
+    if (!recs.length) { el.result.innerHTML = '<div class="empty" style="padding:40px">조건에 맞는 대학이 없습니다.<br>권역을 전체로 바꾸거나 검색어를 지워 보세요.</div>'; return; }
+    if (mobile.matches) renderCards(recs); else renderTable(recs);
+  }
+  function renderAll() { renderLegend(); renderUnits(); renderTools(); renderView(); }
+
+  /* ---------- 이벤트 ---------- */
+  let debounceT;
+  function bind() {
+    paneMatrix.addEventListener('click', e => {
+      const u = e.target.closest('[data-udm-unit]');
+      if (u) { st.unit = u.dataset.udmUnit; store('udb2028.mUnit', st.unit); renderUnits(); renderView(); return; }
+      const v = e.target.closest('[data-view]');
+      if (v && el.viewSeg.contains(v)) { st.view = v.dataset.view; renderTools(); renderView(); return; }
+      if (e.target.closest('#udmCheckBtn')) { if (typeof toggleCheck === 'function') toggleCheck(); return; }
+      const link = e.target.closest('[data-udm-link]');
+      if (link) { if (typeof linkToSearch === 'function') linkToSearch(byId.get(link.dataset.udmLink)); return; }
+      const go = e.target.closest('[data-udm-goto]');
+      if (go) { gotoRecord(go.dataset.udmGoto); return; }
+      if (e.target.closest('#udmErrataBtn')) { if (typeof openErrata === 'function') openErrata(); }
+    });
+    paneMatrix.addEventListener('change', e => {
+      if (e.target === el.region) { st.region = el.region.value; renderView(); }
+      else if (e.target === el.sort) { st.sort = el.sort.value; renderView(); }
+      else if (e.target.matches('[data-udm-sub]') && typeof onSubjectToggle === 'function') onSubjectToggle(e.target);
+      else if (e.target.matches('[data-udm-subject], [data-udm-incgroups]') && typeof onSubjectViewChange === 'function') onSubjectViewChange(e.target);
+    });
+    el.search.addEventListener('input', () => { clearTimeout(debounceT); debounceT = setTimeout(() => { st.q = el.search.value.trim(); renderView(); }, 200); });
+    paneMatrix.addEventListener('mouseover', e => {
+      const c = e.target.closest('[data-col]'); if (!c) return;
+      paneMatrix.querySelectorAll('.hl').forEach(x => x.classList.remove('hl'));
+      paneMatrix.querySelectorAll(`[data-col="${c.dataset.col}"]`).forEach(x => x.classList.add('hl'));
+    });
+    paneMatrix.addEventListener('mouseleave', () => paneMatrix.querySelectorAll('.hl').forEach(x => x.classList.remove('hl')));
+    mobile.addEventListener('change', () => { if (st.tab === 'matrix' && st.view === 'unit') renderView(); });
+  }
+  function gotoRecord(id) {
+    const r = byId.get(id); if (!r) return;
+    st.unit = r.unit; st.view = 'unit'; st.region = ''; st.q = '';
+    store('udb2028.mUnit', st.unit); renderUnits(); renderTools(); renderView();
+    const row = el.result.querySelector(`[data-id="${id}"]`);
+    if (row) { row.classList.add('udm-hl'); row.scrollIntoView({ block: 'center' }); setTimeout(() => row.classList.remove('udm-hl'), 2500); }
   }
 
   /* ---------- 부트 ---------- */
   function init() {
     bindTabs();
+    if (M) {
+      const saved = read('udb2028.mUnit', DEFAULT_UNIT);
+      st.unit = UNIT_BY_KEY.has(saved) ? saved : DEFAULT_UNIT;
+      try { JSON.parse(read('udb2028.mySubs', '[]')).forEach(k => { if (SUBJ_BY_KEY[k]) st.mySubs.add(k); }); } catch { /* 무시 */ }
+      bind();
+    }
     const h = location.hash;
     const initial = h === '#univDB-matrix' ? 'matrix' : h === '#univDB' ? 'search'
       : (read('udb2028.tab', 'search') === 'matrix' ? 'matrix' : 'search');
