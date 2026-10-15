@@ -103,3 +103,7 @@
 .udm-sv-row summary .n{color:var(--muted);font-size:.82rem;min-width:36px}
 .udm-sv-unis{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px}
 @media(max-width:680px){.udm-sv-row summary{flex-wrap:wrap}.udm-sv-row summary .u{min-width:0;width:100%}}
+/* 토스트 */
+.udm-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;z-index:90;background:var(--navy);color:#fff;font-weight:800;font-size:.86rem;padding:.65rem 1rem;border-radius:12px;box-shadow:0 16px 36px rgba(15,47,95,.3);transition:.2s all ease;max-width:calc(100% - 28px)}
+.udm-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+body.has-cmpbar .udm-toast{bottom:92px}

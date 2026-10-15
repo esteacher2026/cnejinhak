@@ -289,6 +289,24 @@
     renderSubjectView();
   }
 
+  /* ---------- 파일 1 원문 연결 ---------- */
+  function toast(msg) {
+    let t = $('udmToast');
+    if (!t) { t = document.createElement('div'); t.id = 'udmToast'; t.className = 'udm-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), 2800);
+  }
+  function linkToSearch(r) {
+    if (!r) return;
+    if (!r.universityKey) { toast(`${r.university}: 권장과목 원문 자료에 없는 대학입니다.`); return; }
+    const kws = M.unitLinks[r.unit] || [];
+    const hits = UDM.matchUnitRecords(FILE1, r.universityKey, kws);
+    if (hits.length === 1 && typeof window.udbOpenRecord === 'function') { window.udbOpenRecord(hits[0].id); return; }
+    activateTab('search', { scroll: true });
+    if (typeof window.udbFilterUniversity === 'function') window.udbFilterUniversity(r.universityKey, UDM.pickKeyword(hits, kws));
+    if (!hits.length) toast(`${r.university}: 모집단위 단위 자료가 없어 대학 전체를 표시합니다.`);
+  }
+
   /* ---------- 부트 ---------- */
   function init() {
     bindTabs();

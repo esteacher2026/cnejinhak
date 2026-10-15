@@ -77,3 +77,22 @@ test('subjectCoverage with and without whole-group bands', () => {
   assert.deepEqual(UDM.subjectCoverage(recs, 'eng', 'eng', true).map(r => r.id), ['c']);
   assert.deepEqual(UDM.subjectCoverage([], 'eng', 'eng', true), []);
 });
+
+const F1 = [
+  { id: 'k1', university_display: '고려대', unit_name: '기계공학부', unit_parent: '공과대학' },
+  { id: 'k2', university_display: '고려대', unit_name: '화공생명공학과', unit_parent: '공과대학' },
+  { id: 'a1', university_display: '아주대', unit_name: '소프트웨어학과', unit_parent: '소프트웨어융합대학' },
+  { id: 'a2', university_display: '아주대', unit_name: '사이버보안학과', unit_parent: '소프트웨어융합대학' },
+  { id: 'd1', university_display: '단국대', unit_name: '공과대학', unit_parent: null }
+];
+test('matchUnitRecords: exact single hit, multi hit, none, null key', () => {
+  assert.deepEqual(UDM.matchUnitRecords(F1, '고려대', ['기계']).map(r => r.id), ['k1']);
+  assert.deepEqual(UDM.matchUnitRecords(F1, '아주대', ['컴퓨터', '소프트웨어']).map(r => r.id), ['a1', 'a2']);
+  assert.deepEqual(UDM.matchUnitRecords(F1, '단국대', ['기계']), []);
+  assert.deepEqual(UDM.matchUnitRecords(F1, null, ['기계']), []);
+});
+test('pickKeyword prefers the keyword matching most hits', () => {
+  const hits = UDM.matchUnitRecords(F1, '아주대', ['컴퓨터', '소프트웨어']);
+  assert.equal(UDM.pickKeyword(hits, ['컴퓨터', '소프트웨어']), '소프트웨어');
+  assert.equal(UDM.pickKeyword([], ['컴퓨터']), '');
+});

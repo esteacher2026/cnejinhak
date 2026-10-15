@@ -535,6 +535,10 @@ body.has-cmpbar .scroll-top{bottom:176px}
 .udm-sv-row summary .n{color:var(--muted);font-size:.82rem;min-width:36px}
 .udm-sv-unis{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px}
 @media(max-width:680px){.udm-sv-row summary{flex-wrap:wrap}.udm-sv-row summary .u{min-width:0;width:100%}}
+/* 토스트 */
+.udm-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;z-index:90;background:var(--navy);color:#fff;font-weight:800;font-size:.86rem;padding:.65rem 1rem;border-radius:12px;box-shadow:0 16px 36px rgba(15,47,95,.3);transition:.2s all ease;max-width:calc(100% - 28px)}
+.udm-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+body.has-cmpbar .udm-toast{bottom:92px}
 /* udm:css:end */
 </style>
 </head>
@@ -1897,6 +1901,17 @@ const UDM = {
   },
   subjectCoverage(records, subjectKey, groupKey, includeGroups) {
     return records.filter(r => r.marks.includes(subjectKey) || (includeGroups && (r.allSubjects || r.groups.includes(groupKey))));
+  },
+  matchUnitRecords(file1, universityKey, keywords) {
+    if (!universityKey) return [];
+    const text = r => (r.unit_name || '') + ' ' + (r.unit_parent || '');
+    return file1.filter(r => r.university_display === universityKey && keywords.some(k => text(r).includes(k)));
+  },
+  pickKeyword(hits, keywords) {
+    const text = r => (r.unit_name || '') + ' ' + (r.unit_parent || '');
+    let best = '', bestN = 0;
+    keywords.forEach(k => { const n = hits.filter(r => text(r).includes(k)).length; if (n > bestN) { best = k; bestN = n; } });
+    return best;
   }
 };
 
@@ -2189,6 +2204,24 @@ const UDM = {
     if (target.matches('[data-udm-subject]')) st.subject = target.value;
     else st.includeGroups = target.checked;
     renderSubjectView();
+  }
+
+  /* ---------- 파일 1 원문 연결 ---------- */
+  function toast(msg) {
+    let t = $('udmToast');
+    if (!t) { t = document.createElement('div'); t.id = 'udmToast'; t.className = 'udm-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), 2800);
+  }
+  function linkToSearch(r) {
+    if (!r) return;
+    if (!r.universityKey) { toast(`${r.university}: 권장과목 원문 자료에 없는 대학입니다.`); return; }
+    const kws = M.unitLinks[r.unit] || [];
+    const hits = UDM.matchUnitRecords(FILE1, r.universityKey, kws);
+    if (hits.length === 1 && typeof window.udbOpenRecord === 'function') { window.udbOpenRecord(hits[0].id); return; }
+    activateTab('search', { scroll: true });
+    if (typeof window.udbFilterUniversity === 'function') window.udbFilterUniversity(r.universityKey, UDM.pickKeyword(hits, kws));
+    if (!hits.length) toast(`${r.university}: 모집단위 단위 자료가 없어 대학 전체를 표시합니다.`);
   }
 
   /* ---------- 부트 ---------- */

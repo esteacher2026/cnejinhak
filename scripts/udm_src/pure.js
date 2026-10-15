@@ -27,5 +27,16 @@ const UDM = {
   },
   subjectCoverage(records, subjectKey, groupKey, includeGroups) {
     return records.filter(r => r.marks.includes(subjectKey) || (includeGroups && (r.allSubjects || r.groups.includes(groupKey))));
+  },
+  matchUnitRecords(file1, universityKey, keywords) {
+    if (!universityKey) return [];
+    const text = r => (r.unit_name || '') + ' ' + (r.unit_parent || '');
+    return file1.filter(r => r.university_display === universityKey && keywords.some(k => text(r).includes(k)));
+  },
+  pickKeyword(hits, keywords) {
+    const text = r => (r.unit_name || '') + ' ' + (r.unit_parent || '');
+    let best = '', bestN = 0;
+    keywords.forEach(k => { const n = hits.filter(r => text(r).includes(k)).length; if (n > bestN) { best = k; bestN = n; } });
+    return best;
   }
 };
