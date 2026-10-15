@@ -17,5 +17,12 @@ const UDM = {
       gs.forEach(g => { if (g in grp) grp[g]++; });
     });
     return { marks, groups: grp };
+  },
+  evaluate(rec, mySubs, subjectsByGroup) {
+    const missing = rec.marks.filter(k => !mySubs.has(k));
+    // 전 교과 안내(allSubjects)는 교과군별이 아니라 "1과목 이상 체크"로 판정한다(스펙 3.3)
+    const groupsMissing = rec.allSubjects ? [] : rec.groups.filter(g => !(subjectsByGroup[g] || []).some(k => mySubs.has(k)));
+    const allMissing = !!rec.allSubjects && mySubs.size === 0;
+    return { ok: !missing.length && !groupsMissing.length && !allMissing, missing, groupsMissing };
   }
 };

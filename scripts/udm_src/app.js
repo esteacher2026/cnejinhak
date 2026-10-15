@@ -129,7 +129,7 @@
     M.groups.forEach(g => {
       const gcols = M.subjects.filter(c => c.group === g.key);
       if (r.groups.includes(g.key)) {
-        const gOk = ev ? !ev.groupsMissing.includes(g.key) : null;
+        const gOk = ev ? (r.allSubjects ? ev.ok : !ev.groupsMissing.includes(g.key)) : null;
         const star = r.starAll || gcols.some(c => r.stars.includes(c.key));
         const note = gcols.map(c => r.cellNotes[c.key]).find(Boolean);
         out += `<td colspan="${gcols.length}" class="udm-band ${gOk === null ? '' : gOk ? 'ok' : 'miss'}" title="${esc(g.label)} 교과 전체(세부 과목 지정 없음)${note ? ' · ' + esc(note) : ''}">${esc(g.label)} 전체${star ? '<sup>✱</sup>' : ''}${note ? '<i class="nt">※</i>' : ''}</td>`;
@@ -174,7 +174,7 @@
     el.result.innerHTML = `<div class="udm-cards">${recs.map(r => {
       const ev = evalOf(r);
       const chips = M.groups.map(g => {
-        if (r.groups.includes(g.key)) return `<span class="udm-chip band ${ev ? (ev.groupsMissing.includes(g.key) ? 'miss' : 'ok') : ''}">${esc(g.label)} 전체${r.starAll ? '✱' : ''}</span>`;
+        if (r.groups.includes(g.key)) return `<span class="udm-chip band ${ev ? ((r.allSubjects ? !ev.ok : ev.groupsMissing.includes(g.key)) ? 'miss' : 'ok') : ''}">${esc(g.label)} 전체${r.starAll ? '✱' : ''}</span>`;
         return M.subjects.filter(c => c.group === g.key && r.marks.includes(c.key)).map(c =>
           `<span class="udm-chip ${ev ? (st.mySubs.has(c.key) ? 'ok' : 'miss') : ''}" ${r.cellNotes[c.key] ? `title="${esc(r.cellNotes[c.key])}"` : ''}><span class="gl">${esc(g.label)}</span>${esc(c.label)}${r.starAll || r.stars.includes(c.key) ? '✱' : ''}</span>`).join('');
       }).join('');
@@ -231,6 +231,42 @@
     const row = el.result.querySelector(`[data-id="${id}"]`);
     if (row) { row.classList.add('udm-hl'); row.scrollIntoView({ block: 'center' }); setTimeout(() => row.classList.remove('udm-hl'), 2500); }
   }
+
+  /* ---------- 내 이수과목 점검 ---------- */
+  function toggleCheck() {
+    st.check = !st.check;
+    if (st.check) st.sort = 'missing'; else if (st.sort === 'missing') st.sort = 'source';
+    renderTools(); renderView();
+    if (st.check) el.check.scrollIntoView({ block: 'nearest' });
+  }
+  function renderCheck(recs) {
+    const groupsHtml = M.groups.map(g => `<div class="udm-ck-group"><b>${esc(g.label)}</b>${
+      M.subjects.filter(c => c.group === g.key).map(c => `<label class="udb-toggle ${st.mySubs.has(c.key) ? 'on' : ''}"><input type="checkbox" data-udm-sub="${c.key}" ${st.mySubs.has(c.key) ? 'checked' : ''}>${esc(c.label)}</label>`).join('')
+    }</div>`).join('');
+    const tally = {};
+    let ok = 0;
+    recs.forEach(r => {
+      const ev = UDM.evaluate(r, st.mySubs, SUBJ_BY_GROUP);
+      if (ev.ok) { ok++; return; }
+      ev.missing.forEach(k => { tally[k] = (tally[k] || 0) + 1; });
+      ev.groupsMissing.forEach(g => { tally['g:' + g] = (tally['g:' + g] || 0) + 1; });
+    });
+    const top = Object.entries(tally).sort((a, b) => b[1] - a[1]).slice(0, 3)
+      .map(([k, n]) => `${k.startsWith('g:') ? GROUP_LABEL[k.slice(2)] + ' 전체' : SUBJ_BY_KEY[k].label}(${n})`).join(', ');
+    el.check.innerHTML = `<div class="udm-ck-head"><strong>내가 이수했거나 이수할 과목을 체크하세요</strong><span class="small">교과 전체로 안내된 대학은 그 교과에서 1과목 이상 체크하면 충족으로 봅니다(관대한 기준). 기타 열은 판정에 넣지 않습니다.</span></div>
+      ${groupsHtml}
+      <div class="udm-ck-sum">선택 <b>${st.mySubs.size}</b>과목 → 충족 <b>${ok}</b> / ${recs.length}개 대학${top ? ` · 가장 많이 부족한 과목: ${esc(top)}` : ''}
+        <button type="button" class="btn btn-outline" id="udmCheckClear" style="margin-left:8px;padding:.3rem .6rem;font-size:.8rem">모두 해제</button></div>`;
+  }
+  function onSubjectToggle(input) {
+    const k = input.dataset.udmSub;
+    if (input.checked) st.mySubs.add(k); else st.mySubs.delete(k);
+    store('udb2028.mySubs', JSON.stringify([...st.mySubs]));
+    renderView();
+  }
+  paneMatrix.addEventListener('click', e => {
+    if (e.target.closest('#udmCheckClear')) { st.mySubs.clear(); store('udb2028.mySubs', '[]'); renderView(); }
+  });
 
   /* ---------- 부트 ---------- */
   function init() {

@@ -81,3 +81,11 @@
 .udm-chip .gl{color:var(--muted);font-weight:700}
 @media(max-width:1050px){.udm-table thead th .full{display:none}.udm-table thead th .short{display:inline}}
 @media print{.udm-tools,.udm-units,.udm-errata-btn,.udb-tabs{display:none!important}.udm-table-scroll{max-height:none;overflow:visible}.udm-table{min-width:0;font-size:.7rem}}
+/* 점검 패널 */
+.udm-check{margin-top:12px;background:#fff;border:1px solid #b9e3d3;border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:10px}
+.udm-ck-head strong{display:block;color:#046c4e}
+.udm-ck-group{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.udm-ck-group b{min-width:44px;color:var(--navy);font-size:.84rem}
+.udm-ck-group .udb-toggle{padding:.38rem .7rem;font-size:.82rem}
+.udm-ck-sum{border-top:1px solid var(--line);padding-top:10px;font-weight:800;color:#334155;font-size:.9rem}
+.udm-ck-sum b{color:#046c4e}

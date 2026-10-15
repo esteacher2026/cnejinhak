@@ -45,3 +45,27 @@ test('footerCounts on empty input is all zeros', () => {
   assert.equal(Object.values(fc.marks).reduce((a, b) => a + b, 0), 0);
   assert.equal(Object.values(fc.groups).reduce((a, b) => a + b, 0), 0);
 });
+
+const SBG = { kor: ['kor'], math: ['alg', 'calc2'], eng: ['eng'], soc: ['soc'], sci: ['phy', 'chem'] };
+
+test('evaluate: all marks checked → ok', () => {
+  const r = { marks: ['calc2', 'phy'], groups: [], allSubjects: false };
+  assert.deepEqual(UDM.evaluate(r, new Set(['calc2', 'phy', 'kor']), SBG), { ok: true, missing: [], groupsMissing: [] });
+});
+test('evaluate: missing marks listed in record order', () => {
+  const r = { marks: ['alg', 'calc2', 'phy'], groups: [], allSubjects: false };
+  assert.deepEqual(UDM.evaluate(r, new Set(['calc2']), SBG), { ok: false, missing: ['alg', 'phy'], groupsMissing: [] });
+});
+test('evaluate: whole group needs ≥1 subject of that group', () => {
+  const r = { marks: ['kor'], groups: ['math', 'sci'], allSubjects: false };
+  assert.deepEqual(UDM.evaluate(r, new Set(['kor', 'alg']), SBG), { ok: false, missing: [], groupsMissing: ['sci'] });
+  assert.equal(UDM.evaluate(r, new Set(['kor', 'alg', 'chem']), SBG).ok, true);
+});
+test('evaluate: empty selection fails everything incl. allSubjects', () => {
+  assert.equal(UDM.evaluate({ marks: [], groups: ['kor', 'math', 'eng', 'soc', 'sci'], allSubjects: true }, new Set(), SBG).ok, false);
+  assert.equal(UDM.evaluate({ marks: [], groups: ['kor', 'math', 'eng', 'soc', 'sci'], allSubjects: true }, new Set(['eng']), SBG).ok, true);
+  assert.equal(UDM.evaluate({ marks: ['phy'], groups: [], allSubjects: false }, new Set(), SBG).ok, false);
+});
+test('evaluate: record with nothing marked (etc only) is ok', () => {
+  assert.equal(UDM.evaluate({ marks: [], groups: [], allSubjects: false }, new Set(), SBG).ok, true);
+});
