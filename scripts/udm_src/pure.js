@@ -1,6 +1,26 @@
 /* ---------- udm 순수 함수 (DOM 없음, node:test 대상) ---------- */
 const UDM = {
-  tabFromHash(hash) { return hash === '#univDB-matrix' ? 'matrix' : 'search'; },
+  // '#univDB' | '#univDB-matrix' | '#univDB-matrix:unit=<key>' | '#univDB-matrix:univ=<encoded name>'
+  parseHash(hash) {
+    const out = { tab: null, unit: null, univ: null };
+    if (hash === '#univDB') { out.tab = 'search'; return out; }
+    if (!hash || !hash.startsWith('#univDB-matrix')) return out;
+    out.tab = 'matrix';
+    const rest = hash.slice('#univDB-matrix'.length);
+    if (!rest.startsWith(':')) return out;
+    const eq = rest.indexOf('=');
+    if (eq < 0) return out;
+    const key = rest.slice(1, eq), val = rest.slice(eq + 1);
+    if (key === 'unit' && /^[a-z0-9-]+$/.test(val)) out.unit = val;
+    else if (key === 'univ') { try { out.univ = decodeURIComponent(val) || null; } catch { out.univ = null; } }
+    return out;
+  },
+  buildHash(tab, opts = {}) {
+    if (tab !== 'matrix') return '#univDB';
+    if (opts.unit) return '#univDB-matrix:unit=' + opts.unit;
+    if (opts.univ) return '#univDB-matrix:univ=' + encodeURIComponent(opts.univ);
+    return '#univDB-matrix';
+  },
   indexByUnit(records) {
     const m = new Map();
     records.filter(r => !r.excluded).sort((a, b) => a.srcRow - b.srcRow)
@@ -29,6 +49,21 @@ const UDM = {
   },
   subjectCoverage(records, subjectKey, groupKey, includeGroups) {
     return records.filter(r => r.marks.includes(subjectKey) || (includeGroups && (r.allSubjects || r.groups.includes(groupKey))));
+  },
+  coverageSplit(records, subjectKey, groupKey) {
+    let explicit = 0, viaGroup = 0;
+    records.forEach(r => {
+      if (r.marks.includes(subjectKey)) explicit++;
+      else if (r.allSubjects || r.groups.includes(groupKey)) viaGroup++;
+    });
+    return { explicit, viaGroup, total: explicit + viaGroup };
+  },
+  indexByUniversity(records, unitOrder) {
+    const m = new Map();
+    records.filter(r => !r.excluded)
+      .sort((a, b) => (unitOrder[a.unit] || 0) - (unitOrder[b.unit] || 0) || a.srcRow - b.srcRow)
+      .forEach(r => { if (!m.has(r.university)) m.set(r.university, []); m.get(r.university).push(r); });
+    return m;
   },
   matchUnitRecords(file1, universityKey, keywords) {
     if (!universityKey) return [];
