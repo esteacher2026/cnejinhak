@@ -362,7 +362,6 @@
        ============================================================ */
     .hero {
       position: relative;
-      overflow: hidden;
       color: #fff;
       background:
         radial-gradient(ellipse 60% 90% at 88% -12%, rgba(180, 137, 50, 0.30), transparent 60%),
@@ -405,11 +404,13 @@
       grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
       gap: clamp(26px, 4.5vw, 60px);
       align-items: center;
-      padding: clamp(40px, 6vw, 64px) 0 clamp(36px, 5.5vw, 58px);
+      padding: clamp(26px, 4vw, 42px) 0 clamp(26px, 4vw, 40px);
     }
 
     .hero-content,
     .hero-panel { position: relative; z-index: 1; }
+    /* 검색 제안 드롭다운이 아래 고정 탭바(z 20)보다 위에 오도록 */
+    .hero-content { z-index: 26; }
 
     .hero h1 em {
       font-style: normal;
@@ -431,7 +432,9 @@
       font-weight: 600;
     }
     .hero-meta strong { color: #f3d9a4; font-weight: 800; }
-    .hero-meta span + span::before {
+    .hero-meta .hero-meta-link { color: #f3d9a4; font-weight: 800; }
+    .hero-meta .hero-meta-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .hero-meta > * + *::before {
       content: "·";
       margin-right: 14px;
       color: rgba(255, 255, 255, 0.35);
@@ -464,7 +467,7 @@
     h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      margin: 16px 0 14px;
+      margin: 12px 0 10px;
       max-width: 720px;
       font-family: var(--font-display);
       font-size: var(--fs-2xl);
@@ -482,59 +485,51 @@
       line-height: 1.6;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      padding: 12px 22px;
-      border-radius: 12px;
-      font: inherit;
+    /* ---- 히어로 검색창 (사이트 전체 검색의 주 진입점) ---- */
+    .hero-search { position: relative; max-width: 640px; margin-top: 22px; }
+    .hero-search .search-input {
+      height: 54px;
+      padding: 0 56px 0 48px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.96);
+      color: #1e293b;
       font-size: var(--fs-md);
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
     }
-    .button svg { width: 17px; height: 17px; }
-
-    .button.primary {
-      color: #241a05;
-      background: linear-gradient(135deg, #f3d9a4 0%, #d9ae5f 100%);
-      border: 0;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    .hero-search .search-input::placeholder { color: #64748b; }
+    .hero-search .search-input:focus {
+      background: #fff;
+      border-color: #f3d9a4;
+      box-shadow: 0 0 0 3px rgba(243, 217, 164, 0.45), 0 14px 34px rgba(0, 0, 0, 0.28);
     }
-    .button.primary:hover { filter: brightness(1.06); }
-
-    .button.secondary {
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.30);
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .button.secondary:hover { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.5); }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-2px);
-    }
-
-    .button kbd {
-      padding: 1px 7px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+    .hero-search svg.search-icon { left: 17px; width: 19px; height: 19px; color: #2457a6; }
+    .hero-search .search-kbd {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 2px 8px;
+      border: 1px solid #d8e1ee;
       border-radius: 6px;
-      background: rgba(255, 255, 255, 0.1);
+      background: #f6f8fb;
+      color: #5b6b82;
       font-family: inherit;
       font-size: var(--fs-xs);
       font-weight: 700;
+      pointer-events: none;
     }
+    .hero-search .search-clear { right: 12px; }
+    .hero-search .search-wrap:has(.search-clear.visible) .search-kbd { display: none; }
+    [data-theme="dark"] .hero-search .search-input {
+      background: rgba(18, 32, 54, 0.94);
+      border-color: rgba(126, 180, 255, 0.3);
+      color: var(--ink);
+    }
+    [data-theme="dark"] .hero-search .search-input::placeholder { color: var(--muted); }
+    [data-theme="dark"] .hero-search .search-input:focus { background: var(--paper); border-color: var(--gold); }
+    [data-theme="dark"] .hero-search svg.search-icon { color: var(--blue); }
+    [data-theme="dark"] .hero-search .search-kbd { background: var(--paper-2); border-color: var(--line); color: var(--muted); }
 
     .hero-panel {
       display: grid;
@@ -561,7 +556,7 @@
     section + section { border-top: 1px solid var(--line); }
 
     /* 고정 헤더에 가려지지 않도록 앵커 착지 지점을 내림 */
-    section[id] { scroll-margin-top: calc(var(--topbar-h, 73px) + 14px); }
+    section[id] { scroll-margin-top: calc(var(--topbar-h, 73px) + var(--segbar-h, 0px) + 14px); }
 
     .section-head {
       display: flex;
@@ -894,81 +889,18 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .resource-card.is-hidden { display: none; }
-
-    /* ---- 카드 아이콘 타일 ---- */
-    .card-ico {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      margin-bottom: 12px;
-      border-radius: 12px;
-      color: var(--blue);
-      background: linear-gradient(140deg, var(--blue-soft) 0%, rgba(234, 242, 255, 0.45) 100%);
-      border: 1px solid rgba(36, 87, 166, 0.14);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-      transition: transform 0.18s ease;
-    }
-    [data-theme="dark"] .card-ico {
-      box-shadow: none;
-      background: var(--blue-soft);
-      border-color: rgba(126, 180, 255, 0.18);
-    }
-    .card-ico svg { width: 19px; height: 19px; }
-    .support-card .card-ico { color: #8a6420; background: linear-gradient(140deg, var(--gold-soft) 0%, rgba(247, 239, 217, 0.4) 100%); border-color: rgba(180, 137, 50, 0.22); }
-    .instructional-card .card-ico { color: #6d28d9; background: linear-gradient(140deg, #ede9fe 0%, rgba(237, 233, 254, 0.4) 100%); border-color: rgba(109, 40, 217, 0.16); }
-    .stats-card .card-ico { color: #0e7c66; background: linear-gradient(140deg, #d4f5ec 0%, rgba(212, 245, 236, 0.4) 100%); border-color: rgba(14, 124, 102, 0.18); }
-    [data-theme="dark"] .support-card .card-ico { color: var(--gold); background: var(--gold-soft); border-color: rgba(212, 169, 85, 0.25); }
-    [data-theme="dark"] .instructional-card .card-ico { color: #c4b5fd; background: #2a2347; border-color: rgba(196, 181, 253, 0.2); }
-    [data-theme="dark"] .stats-card .card-ico { color: #5eead4; background: #0f2a25; border-color: rgba(94, 234, 212, 0.2); }
-    .resource-card:hover .card-ico, .support-card:hover .card-ico,
-    .instructional-card:hover .card-ico, .stats-card:hover .card-ico {
-      transform: scale(1.08);
-    }
-
-    /* ---- 우하단 화살표 어포던스 (호버 시) ---- */
-    .resource-card::after,
-    .support-card::after,
-    .instructional-card::after,
-    .stats-card::after {
-      content: "→";
-      position: absolute;
-      right: 16px;
-      bottom: 12px;
-      color: var(--blue);
-      font-size: var(--fs-md);
-      font-weight: 800;
-      opacity: 0;
-      transform: translateX(-5px);
-      transition: opacity 0.18s ease, transform 0.18s ease;
-    }
-    .support-card::after { color: #8a6420; }
-    .instructional-card::after { color: #6d28d9; }
-    .stats-card::after { color: #0e7c66; }
-    [data-theme="dark"] .support-card::after { color: var(--gold); }
-    [data-theme="dark"] .instructional-card::after { color: #c4b5fd; }
-    [data-theme="dark"] .stats-card::after { color: #5eead4; }
-    .resource-card:hover::after, .resource-card:focus-visible::after,
-    .support-card:hover::after, .support-card:focus-visible::after,
-    .instructional-card:hover::after, .instructional-card:focus-visible::after,
-    .stats-card:hover::after, .stats-card:focus-visible::after {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .resource-card.is-hidden, .support-card.is-hidden,
+    .instructional-card.is-hidden, .stats-card.is-hidden { display: none; }
 
     .audience {
-      position: absolute;
-      top: 16px;
-      right: 14px;
       display: inline-flex;
       align-items: center;
-      max-width: 58%;
+      align-self: flex-start;
+      max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       padding: 4px 9px;
-      margin: 0;
+      margin: 0 0 10px;
       border-radius: 999px;
       color: var(--blue);
       background: var(--blue-soft);
@@ -1048,16 +980,14 @@
     .support-card .tag,
     .instructional-card .tag,
     .stats-card .tag {
-      position: absolute;
-      top: 16px;
-      right: 14px;
       display: inline-flex;
       align-items: center;
-      max-width: 58%;
+      align-self: flex-start;
+      max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       padding: 4px 9px;
-      margin: 0;
+      margin: 0 0 10px;
       border-radius: 999px;
       font-size: var(--fs-xs);
       font-weight: 800;
@@ -1327,12 +1257,12 @@
 
       section[id] { scroll-margin-top: calc(var(--topbar-h, 104px) + 10px); }
 
-      .hero-box { padding: 30px 0 28px; gap: 20px; }
-      .hero-actions { margin-top: 20px; }
-      .hero-actions .button { flex: 1 1 0; min-width: 0; padding: 12px 14px; font-size: var(--fs-sm); }
-      .button kbd { display: none; }
+      .hero-box { padding: 22px 0 22px; gap: 16px; }
+      .hero-search { margin-top: 16px; }
+      .hero-search .search-input { height: 50px; padding-right: 44px; }
+      .hero-search .search-kbd { display: none; }
       .hero-meta { font-size: var(--fs-xs); gap: 4px 10px; }
-      .hero-meta span + span::before { margin-right: 10px; }
+      .hero-meta > * + *::before { margin-right: 10px; }
 
       /* 모바일에서도 2열 유지 — 스크롤 길이 단축 */
       .admission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -1340,14 +1270,8 @@
         min-height: auto;
         padding: 14px 14px 16px;
       }
-      .card-ico { width: 32px; height: 32px; margin-bottom: 10px; border-radius: 9px; }
-      .card-ico svg { width: 16px; height: 16px; }
-      .resource-card h3, .support-card h3, .instructional-card h3, .stats-card h3 { font-size: var(--fs-md); }
       .resource-card p, .support-card p, .instructional-card p, .stats-card p { font-size: var(--fs-sm); }
-      .audience,
-      .support-card .tag, .instructional-card .tag, .stats-card .tag {
-        top: 12px; right: 11px; font-size: var(--fs-xs); padding: 3px 7px;
-      }
+      .card-meta .card-date { display: none; }
 
       .support-grid { grid-template-columns: 1fr; }
       .instructional-grid { grid-template-columns: 1fr; }
@@ -1371,31 +1295,8 @@
     }
 
     /* ============================================================
-       Global toolbar (site-wide search + scope filter + view toggle)
+       Segment bar — 섹션 탭 + 유형·정렬 팝오버 + 보기 전환 (스타일은 extra.css)
        ============================================================ */
-    /* 화면을 가리지 않도록 본문과 함께 스크롤되는 정적 배치 */
-    .global-tools-section {
-      padding: 10px 0 10px;
-      background: var(--bg);
-    }
-
-    .global-tools {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--paper);
-      box-shadow: 0 6px 18px rgba(16, 42, 76, 0.06);
-    }
-    [data-theme="dark"] .global-tools { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3); }
-
-    .global-tools-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-    .global-tools .search-wrap { flex: 1 1 320px; min-width: 0; }
-
     .view-toggle {
       display: inline-flex;
       gap: 2px;
@@ -1409,9 +1310,9 @@
       align-items: center;
       justify-content: center;
       gap: 5px;
-      min-width: 70px;
-      height: 36px;
-      padding: 0 12px;
+      min-width: 0;
+      height: 32px;
+      padding: 0 11px;
       border: 0;
       border-radius: 999px;
       background: transparent;
@@ -1433,15 +1334,6 @@
     }
     .view-toggle svg { width: 14px; height: 14px; }
 
-    .scope-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--line);
-    }
-
     .global-result {
       padding: 8px 4px 0;
       color: var(--muted);
@@ -1451,7 +1343,7 @@
     .global-result strong { color: var(--ink); font-weight: 800; }
 
     /* ============================================================
-       Compact list view
+       Compact list view — [배지][제목/설명][메타·★]
        ============================================================ */
     body[data-view="compact"] .admission-grid,
     body[data-view="compact"] .support-grid,
@@ -1466,30 +1358,23 @@
     body[data-view="compact"] .instructional-card,
     body[data-view="compact"] .stats-card {
       min-height: auto;
-      padding: 12px 14px 12px 18px;
+      padding: 10px 12px 10px 16px;
       display: grid;
-      grid-template-columns: 90px 1fr;
-      column-gap: 14px;
+      grid-template-columns: 92px minmax(0, 1fr) auto;
+      column-gap: 12px;
       row-gap: 2px;
       align-items: center;
     }
-    body[data-view="compact"] .card-ico { display: none; }
-    body[data-view="compact"] .resource-card::after,
-    body[data-view="compact"] .support-card::after,
-    body[data-view="compact"] .instructional-card::after,
-    body[data-view="compact"] .stats-card::after { display: none; }
     body[data-view="compact"] .audience,
     body[data-view="compact"] .support-card .tag,
     body[data-view="compact"] .instructional-card .tag,
     body[data-view="compact"] .stats-card .tag {
-      position: static;
       grid-column: 1; grid-row: 1 / span 2;
       margin: 0;
       max-width: none;
       align-self: center;
       justify-self: stretch;
       justify-content: center;
-      font-size: var(--fs-xs);
       padding: 5px 8px;
       border-radius: 7px;
     }
@@ -1499,15 +1384,24 @@
     body[data-view="compact"] .stats-card h3 {
       grid-column: 2; grid-row: 1;
       margin: 0;
-      font-size: var(--fs-md);
+      -webkit-line-clamp: 2;
     }
-    body[data-view="compact"] .resource-card p,
-    body[data-view="compact"] .support-card p,
-    body[data-view="compact"] .instructional-card p,
-    body[data-view="compact"] .stats-card p {
+    body[data-view="compact"] .resource-card > p,
+    body[data-view="compact"] .support-card > p,
+    body[data-view="compact"] .instructional-card > p,
+    body[data-view="compact"] .stats-card > p {
       grid-column: 2; grid-row: 2;
-      font-size: var(--fs-sm);
+      margin: 0;
+      -webkit-line-clamp: 1;
     }
+    body[data-view="compact"] .card-meta {
+      grid-column: 3; grid-row: 1 / span 2;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      align-self: center;
+    }
+    body[data-view="compact"] .card-meta .card-date { display: none; }
     body[data-view="compact"] .resource-card {
       transform: none !important;
       opacity: 1 !important;
@@ -1518,6 +1412,7 @@
     body[data-view="compact"] .stats-card:hover {
       transform: translateX(3px);
     }
+    body[data-view="compact"] .more-btn { align-self: flex-start; }
 
     /* ============================================================
        Nav scrollspy
@@ -1622,24 +1517,41 @@
     section.is-hidden { display: none; }
 
     @media (max-width: 700px) {
-      .scope-chips {
-        width: 100%;
+      .hero-panel { padding: 14px 16px 16px; }
+      .hero-picks {
+        display: flex;
+        gap: 8px;
+        margin: 10px -16px 0;
+        padding: 0 16px 4px;
         overflow-x: auto;
-        flex-wrap: nowrap;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
       }
-      .scope-chips::-webkit-scrollbar { display: none; }
-      .view-toggle { width: 100%; }
-      .view-toggle button { flex: 1; min-width: 0; }
-      .hero-panel { padding: 16px 16px 18px; }
+      .hero-picks::-webkit-scrollbar { display: none; }
+      .hero-pick { flex: 0 0 min(250px, 78%); scroll-snap-align: start; }
+      .hero-meta .hero-meta-link { flex-basis: 100%; }
+      .hero-meta .hero-meta-link::before { content: none; }
 
       body[data-view="compact"] .resource-card,
       body[data-view="compact"] .support-card,
       body[data-view="compact"] .instructional-card,
       body[data-view="compact"] .stats-card {
-        grid-template-columns: 78px 1fr;
-        padding: 10px 12px 10px 16px;
+        grid-template-columns: 72px minmax(0, 1fr) auto;
+        column-gap: 10px;
+        padding: 9px 8px 9px 14px;
       }
+      body[data-view="compact"] .audience,
+      body[data-view="compact"] .support-card .tag,
+      body[data-view="compact"] .instructional-card .tag,
+      body[data-view="compact"] .stats-card .tag {
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+        padding: 4px 6px;
+      }
+      body[data-view="compact"] .card-meta .card-type,
+      body[data-view="compact"] .card-meta .card-ico { display: none; }
     }
 
     /* ============================================================
@@ -1783,9 +1695,6 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--line);
     }
     .type-chips .type-label {
       color: var(--muted);
@@ -1909,13 +1818,7 @@
     /* ============================================================
        (신규) 즐겨찾기 별 버튼 — 카드 우하단 (기존 화살표 대체)
        ============================================================ */
-    .resource-card::after, .support-card::after,
-    .instructional-card::after, .stats-card::after { content: none; }
-
     .fav-btn {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1935,48 +1838,213 @@
     .fav-btn:hover { background: var(--gold-soft); color: var(--gold); transform: scale(1.12); }
     .fav-btn[aria-pressed="true"] { opacity: 1; color: var(--gold); }
     .fav-btn[aria-pressed="true"] svg { fill: currentColor; }
-    /* 별 버튼 자리 확보 — 설명 마지막 줄과 겹치지 않도록 */
-    .resource-card > p, .support-card > p,
-    .instructional-card > p, .stats-card > p { padding-right: 30px; }
-    body[data-view="compact"] .resource-card > p,
-    body[data-view="compact"] .support-card > p,
-    body[data-view="compact"] .instructional-card > p,
-    body[data-view="compact"] .stats-card > p { padding-right: 0; }
-    body[data-view="compact"] .fav-btn {
-      position: static;
-      grid-column: 3;
-      grid-row: 1 / span 2;
-      align-self: center;
-      opacity: 1;
+
+    /* ============================================================
+       (2단계) 세그먼트 탭 바 — 데스크톱 상단 고정
+       ============================================================ */
+    .segbar-section { padding: 0; border-top: 0; }
+    .segbar {
+      position: sticky;
+      top: var(--topbar-h, 73px);
+      z-index: 20;
+      background: rgba(246, 248, 251, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
-    body[data-view="compact"] .resource-card,
-    body[data-view="compact"] .support-card,
-    body[data-view="compact"] .instructional-card,
-    body[data-view="compact"] .stats-card {
-      grid-template-columns: 90px 1fr 34px;
+    [data-theme="dark"] .segbar { background: rgba(10, 22, 40, 0.88); }
+    .segbar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 8px 0;
     }
+    .seg-tabs {
+      display: flex;
+      flex: 1 1 auto;
+      min-width: 0;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .seg-tabs::-webkit-scrollbar { display: none; }
+    .seg-tabs.can-scroll {
+      -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent);
+              mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent);
+    }
+    .seg-tabs.can-scroll.at-end { -webkit-mask-image: none; mask-image: none; }
+    .seg-tabs .chip {
+      flex-shrink: 0;
+      padding: 8px 12px;
+      border-color: transparent;
+      border-radius: 10px;
+      background: transparent;
+      font-weight: 800;
+    }
+    .seg-tabs .chip:hover { transform: none; background: var(--blue-soft); color: var(--blue); border-color: transparent; }
+    .seg-tabs .chip[aria-pressed="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+    [data-theme="dark"] .seg-tabs .chip[aria-pressed="true"] { background: var(--blue); color: var(--bg); border-color: var(--blue); }
+    .segbar-tools { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+
+    .type-pop { position: relative; }
+    .segbar-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--text);
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.18s ease, color 0.18s ease;
+    }
+    .segbar-btn::-webkit-details-marker { display: none; }
+    .segbar-btn svg { width: 15px; height: 15px; }
+    .segbar-btn:hover, .type-pop[open] .segbar-btn { border-color: var(--blue); color: var(--blue); }
+    .segbar-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    .segbar-dot[hidden] { display: none; }
+    .type-pop-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      z-index: 30;
+      display: grid;
+      gap: 12px;
+      width: min(460px, calc(100vw - 32px));
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .type-pop-group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .type-pop-group + .type-pop-group,
+    .type-pop .type-chips + .type-pop-group { padding-top: 10px; border-top: 1px dashed var(--line); }
+    .global-result { padding: 10px 4px 0; }
+
+    /* ============================================================
+       (2단계) 카드 v2 — 배지 / 제목 / 설명 / 메타행(유형·갱신일·★), 좌측 섹션 색 레일
+       ============================================================ */
+    .resource-card, .support-card, .instructional-card, .stats-card {
+      min-height: 0;
+      padding: 16px 16px 12px 18px;
+    }
+    .resource-card::before, .support-card::before,
+    .instructional-card::before, .stats-card::before {
+      top: 14px;
+      bottom: 14px;
+      left: 0;
+      right: auto;
+      width: 3px;
+      height: auto;
+      border-radius: 0 3px 3px 0;
+      opacity: 0.75;
+      background: var(--blue);
+    }
+    .support-card::before { background: var(--gold); }
+    .instructional-card::before { background: #6d28d9; }
+    .stats-card::before { background: #0e7c66; }
+    [data-theme="dark"] .instructional-card::before { background: #c4b5fd; }
+    [data-theme="dark"] .stats-card::before { background: #5eead4; }
+    .resource-card h3, .support-card h3, .instructional-card h3, .stats-card h3 {
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    .resource-card > p, .support-card > p, .instructional-card > p, .stats-card > p {
+      flex: 1;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .card-meta .card-ico {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      color: var(--blue);
+    }
+    .card-meta .card-ico svg { width: 15px; height: 15px; }
+    .support-card .card-meta .card-ico { color: #8a6420; }
+    .instructional-card .card-meta .card-ico { color: #6d28d9; }
+    .stats-card .card-meta .card-ico { color: #0e7c66; }
+    [data-theme="dark"] .support-card .card-meta .card-ico { color: var(--gold); }
+    [data-theme="dark"] .instructional-card .card-meta .card-ico { color: #c4b5fd; }
+    [data-theme="dark"] .stats-card .card-meta .card-ico { color: #5eead4; }
+    .card-type { color: var(--text); }
+    .card-date { font-variant-numeric: tabular-nums; }
+    .card-date::before { content: "·"; margin: 0 6px 0 2px; opacity: 0.6; }
+    .card-meta .fav-btn { margin-left: auto; width: 28px; height: 28px; opacity: 0.55; }
+    .resource-card:hover .card-meta .fav-btn, .support-card:hover .card-meta .fav-btn,
+    .instructional-card:hover .card-meta .fav-btn, .stats-card:hover .card-meta .fav-btn,
+    .card-meta .fav-btn[aria-pressed="true"], .card-meta .fav-btn:focus-visible { opacity: 1; }
+
+    /* ============================================================
+       (2단계) 하위 그룹 접기 — 그룹당 6장 초과분은 '더보기'로
+       ============================================================ */
+    .is-collapsed { display: none !important; }
+    .more-btn {
+      grid-column: 1 / -1;
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 0 4px;
+      padding: 8px 14px;
+      border: 1px dashed var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--blue);
+      font-size: var(--fs-sm);
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .more-btn:hover { background: var(--blue-soft); border-style: solid; border-color: var(--blue); }
+    .more-btn.is-hidden { display: none; }
+    .more-btn svg { width: 14px; height: 14px; }
 
     /* 모바일 보정 */
     @media (max-width: 700px) {
       .strip-card b { max-width: 170px; }
-      .sort-toggle { width: 100%; }
-      .sort-toggle button { flex: 1; min-width: 0; }
-      .type-chips {
-        width: 100%;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      .type-chips::-webkit-scrollbar { display: none; }
-      .type-chips .chip { flex-shrink: 0; }
       .suggest { max-height: 300px; }
       .fav-btn { opacity: 1; width: 28px; height: 28px; }
-      body[data-view="compact"] .resource-card,
-      body[data-view="compact"] .support-card,
-      body[data-view="compact"] .instructional-card,
-      body[data-view="compact"] .stats-card {
-        grid-template-columns: 78px 1fr 30px;
-      }
+      .segbar { position: relative; top: auto; }
+      .segbar-row { min-height: 0; padding: 8px 0; gap: 6px; }
+      .segbar-btn { height: 34px; padding: 0 10px; }
+      .segbar-btn-label, .vt-label { display: none; }
+      .view-toggle button { height: 28px; padding: 0 9px; }
+      /* 팝오버는 탭바 전체 폭 기준으로 펼침 */
+      .type-pop { position: static; }
+      .type-pop-panel { left: 13px; right: 13px; width: auto; top: calc(100% - 2px); }
+      .more-btn { width: 100%; justify-content: center; }
     }
 
 
@@ -2042,21 +2110,34 @@
               대입 전형·학생부·과목 선택·수업·통계 자료를 모았습니다.
               학생 지도 목적으로만 활용해 주시기 바랍니다.
             </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#admission">
-                진학 자료 바로 보기
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-              </a>
-              <button class="button secondary" type="button" id="heroSearchBtn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
-                자료 검색
-                <kbd aria-hidden="true">/</kbd>
-              </button>
+            <div class="hero-search" role="search" aria-label="자료 검색">
+              <div class="search-wrap">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg>
+                <input
+                  type="search"
+                  class="search-input"
+                  id="searchInput"
+                  placeholder="전체 자료 검색 — 제목, 설명, 키워드 (예: 물리, 탐구, 수능)"
+                  aria-label="전체 자료 검색"
+                  autocomplete="off"
+                />
+                <kbd class="search-kbd" aria-hidden="true">/</kbd>
+                <button class="search-clear" type="button" id="searchClear" aria-label="검색어 지우기">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 6 6 18M6 6l12 12"></path>
+                  </svg>
+                </button>
+                <div class="suggest" id="suggest" role="listbox" aria-label="검색 제안"></div>
+              </div>
             </div>
             <p class="hero-meta">
               <span><strong id="statTotal">—</strong>개 자료 수록</span>
               <span>모든 자료 무료 공개</span>
               <span>수시 업데이트</span>
+              <a class="hero-meta-link" href="#admission">진학 자료 바로 보기 →</a>
             </p>
           </div>
 
@@ -2093,69 +2174,25 @@
     </div>
 
 
-    <!-- 전역 도구: 사이트 전체 검색 + 섹션 스코프 + 뷰 토글 -->
-    <section class="global-tools-section" aria-label="자료 검색 및 필터">
-      <div class="wrap">
-        <div class="global-tools">
-          <div class="global-tools-row">
-            <div class="search-wrap">
-              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-              </svg>
-              <input
-                type="search"
-                class="search-input"
-                id="searchInput"
-                placeholder="전체 자료 검색 — 제목, 설명, 키워드 (예: 물리, 탐구, 수능)"
-                aria-label="전체 자료 검색"
-                autocomplete="off"
-              />
-              <button class="search-clear" type="button" id="searchClear" aria-label="검색어 지우기">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 6 6 18M6 6l12 12"></path>
-                </svg>
-              </button>
-              <div class="suggest" id="suggest" role="listbox" aria-label="검색 제안"></div>
-            </div>
-
-            <div class="view-toggle" role="group" aria-label="보기 방식 전환">
-              <button type="button" data-view="grid" aria-pressed="true" aria-label="그리드 보기" title="그리드 보기">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="3" width="7" height="7"></rect>
-                  <rect x="3" y="14" width="7" height="7"></rect>
-                  <rect x="14" y="14" width="7" height="7"></rect>
-                </svg>
-                그리드
-              </button>
-              <button type="button" data-view="compact" aria-pressed="false" aria-label="리스트 보기" title="리스트 보기">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="8" y1="6" x2="21" y2="6"></line>
-                  <line x1="8" y1="12" x2="21" y2="12"></line>
-                  <line x1="8" y1="18" x2="21" y2="18"></line>
-                  <circle cx="4" cy="6" r="1"></circle>
-                  <circle cx="4" cy="12" r="1"></circle>
-                  <circle cx="4" cy="18" r="1"></circle>
-                </svg>
-                리스트
-              </button>
-            </div>
-
-            <div class="sort-toggle" role="group" aria-label="정렬 방식">
-              <button type="button" data-sort="default" aria-pressed="true" title="큐레이션 순서">기본</button>
-              <button type="button" data-sort="updated" aria-pressed="false" title="최근 갱신된 자료부터">최신순</button>
-              <button type="button" data-sort="name" aria-pressed="false" title="제목 가나다순">가나다</button>
-            </div>
-          </div>
-
-          <div class="scope-chips" role="group" aria-label="섹션 범위 필터">
+    <!-- 전역 도구 바: 섹션 탭 + 유형·정렬 팝오버 + 보기 전환 (데스크톱에서 상단 고정) -->
+    <!-- sticky는 부모 범위 안에서만 유지되므로 탭바는 main 직계 자식으로 둔다 -->
+    <div class="segbar" id="segbar" role="region" aria-label="자료 범위·유형·정렬·보기 방식">
+        <div class="wrap segbar-row">
+          <div class="scope-chips seg-tabs" id="segTabs" role="group" aria-label="섹션 범위 필터">
             <button class="chip" type="button" data-scope="all" aria-pressed="true">전체 <span class="count" data-scope-count="all">—</span></button>
             <button class="chip" type="button" data-scope="admission" aria-pressed="false">진학 자료 <span class="count" data-scope-count="admission">—</span></button>
             <button class="chip" type="button" data-scope="support" aria-pressed="false">보조 자료 <span class="count" data-scope-count="support">—</span></button>
             <button class="chip" type="button" data-scope="instructional" aria-pressed="false">수업 자료 <span class="count" data-scope-count="instructional">—</span></button>
             <button class="chip" type="button" data-scope="statistics" aria-pressed="false">통계 자료 <span class="count" data-scope-count="statistics">—</span></button>
           </div>
+          <div class="segbar-tools">
+            <details class="type-pop" id="typePop">
+              <summary class="segbar-btn" aria-label="유형·정렬 필터 열기" title="유형·정렬">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>
+                <span class="segbar-btn-label" id="typePopLabel">유형·정렬</span>
+                <span class="segbar-dot" id="typePopDot" hidden></span>
+              </summary>
+              <div class="type-pop-panel">
 
           <div class="type-chips" role="group" aria-label="도구 유형 필터">
             <span class="type-label">유형</span>
@@ -2167,8 +2204,44 @@
             <button class="chip" type="button" data-type-filter="map" aria-pressed="false">지도·캘린더 <span class="count">4</span></button>
             <button class="chip" type="button" data-type-filter="video" aria-pressed="false">영상 <span class="count">3</span></button>
           </div>
-        </div>
+                <div class="type-pop-group">
+                  <span class="type-label">정렬</span>
 
+            <div class="sort-toggle" role="group" aria-label="정렬 방식">
+              <button type="button" data-sort="default" aria-pressed="true" title="큐레이션 순서">기본</button>
+              <button type="button" data-sort="updated" aria-pressed="false" title="최근 갱신된 자료부터">최신순</button>
+              <button type="button" data-sort="name" aria-pressed="false" title="제목 가나다순">가나다</button>
+            </div>
+                </div>
+              </div>
+            </details>
+            <div class="view-toggle" role="group" aria-label="보기 방식 전환">
+              <button type="button" data-view="grid" aria-pressed="true" aria-label="그리드 보기" title="그리드 보기">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                </svg>
+                <span class="vt-label">그리드</span>
+              </button>
+              <button type="button" data-view="compact" aria-pressed="false" aria-label="리스트 보기" title="리스트 보기">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <circle cx="4" cy="6" r="1"></circle>
+                  <circle cx="4" cy="12" r="1"></circle>
+                  <circle cx="4" cy="18" r="1"></circle>
+                </svg>
+                <span class="vt-label">리스트</span>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <section class="segbar-section" aria-label="검색·필터 결과 건수">
+      <div class="wrap">
         <div class="global-result" id="globalResult" aria-live="polite"></div>
       </div>
     </section>
@@ -2203,38 +2276,58 @@
           </div>
 
           <a class="resource-card" href="adiga/" data-id="adiga" data-category="result" data-type="explore" data-added="2026-06-08" data-updated="2026-07-08" data-keywords="2026 입시결과 어디가 대학발표 70컷 50컷 3개년 수시 모집단위 조회 경쟁률 충원">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026대학발표 입시결과 조회</h3>
             <p>어디가 24·25·26 수시 70%·50%컷 3개년 비교 조회</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-07-08">갱신 2026.07.08</time>
+            </span>
           </a>
 
           <a class="resource-card" href="jeongsi/" data-id="jeongsi" data-category="result" data-type="explore" data-added="2026-06-28" data-updated="2026-07-08" data-keywords="2026 정시 입시결과 수능위주 대학발표 백분위 70컷 50컷 평균백분위 경쟁률 충원 모집단위 모집군 영어 등급 환산점수 내 백분위 매칭">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026 정시(수능위주) 입시결과(백분위) 조회</h3>
             <p>대학발표 2026 정시 수능 백분위 70%컷·경쟁률을 대학·모집단위별 조회 + 내 백분위 매칭</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-07-08">갱신 2026.07.08</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2026results-download.html" data-id="2026results-download" data-category="result" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2026 입시결과 대학별 원문 다운로드 PDF 엑셀 한글 수시 정시 대학발표">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>2026대학발표 입시결과 다운로드</h3>
             <p>대학 발표 자료를 대학별로 검색하고 내려받기</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
+              <span class="card-type">다운로드</span>
+              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
+            </span>
           </a>
 
           <a class="resource-card" href="procollege6.html" data-id="procollege6" data-category="result" data-type="explore" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="전문대학 전문대 간호 보건 물리치료 치위생 방사선 응급구조 임상병리 입시결과 경쟁률 합격자 등급 3개년 전문대학포털 수시 정시">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-result">2026 입시결과</span>
             <h3>전문대학 간호·보건 6개 학과 입시결과</h3>
             <p>간호·물리치료·방사선·응급구조·임상병리·치위생 24~26 경쟁률·합격자 성적</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2026prelearning-report.html" data-id="2026prelearning-report" data-category="result" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2026 선행학습영향평가 결과보고서 대학별고사 문항카드 논술 면접 원문 다운로드 PDF HWP">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-result">2026 선행학습</span>
             <h3>2026 선행학습영향평가 결과보고서</h3>
             <p>대학별 결과보고서·문항카드·부속자료 원문 검색 및 다운로드</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">다운로드</span>
+              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="2027" role="presentation">
@@ -2242,129 +2335,201 @@
           </div>
 
           <a class="resource-card" href="2027admissions2.html" data-id="2027admissions2" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-05" data-keywords="2027 대입전형 이해 초급자 웹 안내서 대입정보119 대교협">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027학년도 대입전형의 이해(초급자용)</h3>
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027susi-summary.html" data-id="2027susi-summary" data-category="2027" data-type="explore" data-added="2026-08-05" data-updated="2026-08-05" data-keywords="2027 수시 대학별 요약 대교협 전형일정 변경사항 모집인원 지원자격 수능최저 학생부 교과 반영 학종 평가요소 대학별고사 복수지원 동점자 202개교">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시 대학별 요약 조회</h3>
             <p>대교협 202개교 요약자료 통합 — 대학별 15개 항목 조회, 변경사항·수능최저 모아보기, 대학별고사 캘린더</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-08-05">갱신 2026.08.05</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027gyogwa.html" data-id="2027gyogwa" data-category="2027" data-type="explore" data-added="2026-06-02" data-updated="2026-06-23" data-keywords="학생부교과전형 교과 반영방법 수능최저">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부교과전형</h3>
             <p>2027학생부교과전형, 한 화면에서 검색하고 비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027chuchon.html" data-id="2027chuchon" data-category="2027" data-type="explore" data-added="2026-06-23" data-updated="2026-06-29" data-keywords="2027 학교장추천전형 학교장추천 지역균형 고교추천 추천형 교과 종합 학종 사관학교 경찰대 국군간호사관 수능최저 면접 모집인원 비교 SEN진학 장진호">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학교장추천전형</h3>
             <p>교과·종합·사관/경찰 학교장추천 60개 전형을 검색·비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-29">갱신 2026.06.29</time>
+            </span>
           </a>
 
           <a class="resource-card" href="jonghap_eval.html" data-id="jonghap_eval" data-category="2027" data-type="explore" data-added="2026-06-06" data-updated="2026-06-07" data-keywords="2027 어디가 학생부종합전형 서류평가 평가요소 비율 대학별 비교">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 서류평가 비교</h3>
             <p>대학별 서류평가 내용과 전형별 평가요소 비율 확인</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-07">갱신 2026.06.07</time>
+            </span>
           </a>
 
           <a class="resource-card" href="jonghap_interview.html" data-id="jonghap_interview" data-category="2027" data-type="explore" data-added="2026-06-06" data-updated="2026-06-07" data-keywords="2027 어디가 학생부종합전형 면접평가 면접시간 평가요소 비율 대학별 비교">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 면접평가 비교</h3>
             <p>대학별 면접 방식, 면접시간, 문항유형과 평가요소 비율 확인</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-07">갱신 2026.06.07</time>
+            </span>
           </a>
 
           <a class="resource-card" href="student_record_interview.html" data-id="student_record_interview" data-category="2027" data-type="calc" data-added="2026-06-16" data-updated="2026-07-08" data-keywords="2027 학생부종합전형 면접 학생부 활동 탐구 예상문항 모의면접 충청남도교육청 진로융합교육원">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>학생부 활동·탐구 면접 질문 생성</h3>
             <p>학생부 활동명과 지원 분야를 입력해 활동·탐구 과정 중심 예상문항 30개 생성</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
+              <span class="card-type">계산·생성</span>
+              <time class="card-date" datetime="2026-07-08">갱신 2026.07.08</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027hakjong-guide.html" data-id="2027hakjong-guide" data-category="2027" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2027 학생부종합전형 가이드북 학생부위주전형 학생부전형 학종 대학별 원문 다운로드 PDF">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 학생부종합전형 가이드북</h3>
             <p>대학별 학생부종합·학생부위주전형 가이드북 PDF 원문 검색 및 다운로드</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">다운로드</span>
+              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027uichihan.html" data-id="2027uichihan" data-category="2027" data-type="explore" data-added="2026-07-04" data-updated="2026-07-06" data-keywords="2027 의치한약수 의예 치의예 한의예 약학 수의예 수시 전형 수능최저 면접 경쟁률 70%컷 입시결과 어디가">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 의·치·한·약·수 수시 전형 탐색기</h3>
             <p>의약학계열 수시 전형·수능최저·면접·3개년 입결을 한눈에</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-07-06">갱신 2026.07.06</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027medi.html" data-id="2027medi" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-07-02" data-keywords="2027 지역의사선발전형 안내서">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 지역의사선발전형</h3>
             <p>지역의사 선발전형 안내</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-07-02">갱신 2026.07.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="localmedi.html" data-id="localmedi" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-23" data-keywords="2027 지역인재 특별전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 지역인재 특별전형</h3>
             <p>의예, 치의예, 한의예, 약학, 수의예, 간호</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027special.html" data-id="2027special" data-category="2027" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2027 농어촌학생 특별전형 웹 안내서">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 농어촌학생 특별전형</h3>
             <p>농어촌학생 특별전형,자격부터 대학별 전형까지</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027cheomdan.html" data-id="2027cheomdan" data-category="2027" data-type="explore" data-added="2026-06-11" data-updated="2026-06-23" data-keywords="2027 계약학과 첨단학과 기업체취업형 조기취업형 군의무복무형 채용조건형 반도체 삼성전자 SK하이닉스 분야 모집단위 검색 비교 대입정보119">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 계약학과·첨단학과</h3>
             <p>기업체취업형·조기취업형·군의무복무형 계약학과와 첨단학과 검색·비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027yeche.html" data-id="2027yeche" data-category="2027" data-type="explore" data-added="2026-06-10" data-updated="2026-06-11" data-keywords="2027 예체능 비실기전형 음악 미술 체육 연기연출 응용예술 전공자율선택제 수능최저 모집단위 정시 반영영역 대입정보119">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 예체능계열 비실기전형</h3>
             <p>음악·미술·체육·연기/연출·응용예술 비실기 모집단위 검색·비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-11">갱신 2026.06.11</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027-specialized-highschool-standards/" data-id="2027-specialized-highschool-standards" data-category="2027" data-type="explore" data-added="2026-06-24" data-updated="2026-06-24" data-keywords="2027 특성화고 기준학과 특성화고교졸업자 특별전형 동일계열 시도교육청 한국대학교육협의회 대교협 기준학과 학교 학과 검색">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 특성화고 기준학과</h3>
             <p>시도교육청별 특성화고 학과와 기준학과를 원본 행 기준으로 검색</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-24">갱신 2026.06.24</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027gosa.html" data-id="2027gosa" data-category="2027" data-type="map" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="2027 수시 대학별고사 일정 캘린더 논술 면접 실기 고사일 충돌 상담 어디가">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-cal"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시 대학별고사 일정 캘린더</h3>
             <p>논술·면접·실기 일정을 달력·대학별로 보고, 상담 모드로 겹침 확인</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-cal"></use></svg></span>
+              <span class="card-type">지도·캘린더</span>
+              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027susi-download.html" data-id="2027susi-download" data-category="2027" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2027 수시모집요강 대학별 모집요강 원문 다운로드 PDF HWP 수시 대학 입학처">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시모집요강 원문 다운로드</h3>
             <p>대학별 수시모집요강 PDF·HWP 원문을 지역과 대학명으로 검색</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
+              <span class="card-type">다운로드</span>
+              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2027jeongsi-download.html" data-id="2027jeongsi-download" data-category="2027" data-type="download" data-added="2026-09-14" data-updated="2026-09-14" data-keywords="2027 정시모집요강 대학별 모집요강 원문 다운로드 PDF HWP 정시 가군 나군 다군 대학 입학처">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 정시모집요강 원문 다운로드</h3>
             <p>대학별 정시모집요강 PDF·HWP 원문을 지역과 대학명으로 검색</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
+              <span class="card-type">다운로드</span>
+              <time class="card-date" datetime="2026-09-14">갱신 2026.09.14</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="2028" role="presentation">
@@ -2372,108 +2537,168 @@
           </div>
 
           <a class="resource-card" href="2028guide.html" data-id="2028guide" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 대입전형 이해 초급자 웹 안내서">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028학년도 대입전형의 이해(초급자용)</h3>
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="jinhak2028.html" data-id="jinhak2028" data-category="2028" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 대입 변화 전년도 비교 정태영">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대입 변화 비교</h3>
             <p>2028학년도 대입 전형의 핵심 변경사항과 이전 연도와의 차이점을 상세히 비교 분석합니다.</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028susi-preview.html" data-id="2028susi-preview" data-category="2028" data-type="explore" data-added="2026-10-02" data-updated="2026-10-02" data-keywords="2028 대입정보 미리보기 수시 책자 웹판 수능최저 없는 전형 있는 전형 지역균형 지역인재 농어촌 논술 교대 거점국립대 특성화대학 의약학 의학 치의학 약학 한의학 수의학 첨단학과 계약학과 기회균형 대학별 보기 전형 비교 초성 검색">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대입정보 미리보기(수시) 웹판</h3>
             <p>진로융합교육원 발간 책자(110개 대학, 36쪽)를 그대로 옮긴 웹 자료 — 장별·대학별 보기, 검색, 비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-10-02">갱신 2026.10.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="202815uni.html" data-id="202815uni" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-08-16" data-keywords="2028 15개 대학 입학전형 시행계획 서울대 연세대 고려대 성균관대 한양대 경희대 중앙대 서강대 시립대 이화여대 한국외대 숙명여대 홍익대 건국대 동국대 수능최저 학생부교과 학생부종합 논술 정시 비교">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 주요 15개 대학 입학전형 안내</h3>
             <p>서울대·연세대·고려대·성균관대·한양대·경희대·중앙대·서강대·시립대·이화여대·외대·숙명·홍익·건국·동국 2028 시행계획 비교 — 대학별 안내·전형 비교·수능최저 매트릭스·모집단위 검색</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-08-16">갱신 2026.08.16</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028gyogwa-change.html" data-id="2028gyogwa-change" data-category="2028" data-type="explore" data-added="2026-06-11" data-updated="2026-06-11" data-keywords="학생부교과전형 5등급제 성취도 환산점수 지역균형 학교장추천 수능최저 반영교과 내신산출 모집인원 유홍규">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 학생부교과전형의 변화</h3>
             <p>5등급제·환산점수·지역균형·수능최저·내신산출방식까지 교과전형 변화 총정리</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-11">갱신 2026.06.11</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028gyogwa.html" data-id="2028gyogwa" data-category="2028" data-type="explore" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="2028 교과반영방법 반영과목 반영지표 등급환산 성취도환산 반영범위">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 교과반영방법</h3>
             <p>대학별 반영과목·반영지표·환산방식을 빠르게 검색·비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <a class="resource-card" href="gyogwa70cut.html" data-id="gyogwa70cut" data-category="2028" data-type="calc" data-added="2026-06-06" data-updated="2026-06-12" data-keywords="2026 어디가 교과전형 70%컷 성적 변환 대학 발표자료">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028대입 5등급-9등급 성적 변환(교과전형)</h3>
             <p>2026 교과전형 발표자료의 70%컷 살펴보기</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
+              <span class="card-type">계산·생성</span>
+              <time class="card-date" datetime="2026-06-12">갱신 2026.06.12</time>
+            </span>
           </a>
 
           <a class="resource-card" href="hakjong2028.html" data-id="hakjong2028" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="2028 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 학생부종합전형</h3>
             <p>주요 13개 대학의 학생부종합전형 정리</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="jonghap70cut.html" data-id="jonghap70cut" data-category="2028" data-type="calc" data-added="2026-06-02" data-updated="2026-06-12" data-keywords="2026 어디가 종합전형 학생부종합전형 70%컷 성적 변환 대학 발표자료">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028대입 5등급-9등급 성적 변환(종합전형)</h3>
             <p>2026 종합전형 발표자료의 70%컷 살펴보기</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
+              <span class="card-type">계산·생성</span>
+              <time class="card-date" datetime="2026-06-12">갱신 2026.06.12</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028nonsul.html" data-id="2028nonsul" data-category="2028" data-type="explore" data-added="2026-06-15" data-updated="2026-06-15" data-keywords="2028 논술전형 논술 모집인원 수능최저학력기준 전형방법 환산점수 논술고사 유형 인문 자연 수리논술 언어논술 약술형 의약학 대학별 비교 검색">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 논술전형</h3>
             <p>12,727명·46개 대학 — 모집인원·수능최저·전형방법·논술유형을 검색·비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-15">갱신 2026.06.15</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028suneung.html" data-id="2028suneung" data-category="2028" data-type="explore" data-added="2026-06-23" data-updated="2026-06-23" data-keywords="2028 수능 정시 수능위주전형 반영비율 모집인원 모집군 영어 등급별 점수 탐구 통합사회 통합과학 국가거점국립대 대학별 조회 표준점수 백분위 등급 서울 15개 대학">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 수능·정시 안내</h3>
             <p>수능 체제 변화와 서울 15개 대학·국가거점국립대 정시(수능위주전형)를 대학별로 조회</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028castrow.html" data-id="2028castrow" data-category="2028" data-type="explore" data-added="2026-06-04" data-updated="2026-06-13" data-keywords="2028 수능최저 빠른보기">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 수능최저 빠른보기</h3>
             <p>수능최저가 있는 교과·종합·논술 전형만 빠르게 비교</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028ist.html" data-id="2028ist" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="KAIST GIST DGIST UNIST KENTECH POSTECH 과학기술원 이공계">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>과학기술원 시행계획</h3>
             <p>KAIST, GIST, DGIST, UNIST, KENTECH, POSTECH</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028edu.html" data-id="2028edu" data-category="2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="교육대학교 교대 시행계획">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>교육대학교 시행계획</h3>
             <p>교육대학교 시행계획 안내</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2028admission-plan-download.html" data-id="2028admission-plan-download" data-category="2028" data-type="download" data-added="2026-06-13" data-updated="2026-06-16" data-keywords="2028 대학입학전형시행계획 대학별 시행계획 기본계획 주요사항 모집인원 원문 다운로드 PDF HWP XLSX">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
             <span class="audience cat-2028">2028대입</span>
             <h3>2028 대학입학전형시행계획 원문 다운로드</h3>
             <p>대학별 시행계획·기본계획·주요사항·모집인원 원문 검색 및 다운로드</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
+              <span class="card-type">다운로드</span>
+              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="info" role="presentation">
@@ -2481,45 +2706,69 @@
           </div>
 
           <a class="resource-card" href="hakjongguide.html" data-id="hakjongguide" data-category="info" data-type="guide" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="학생부종합전형에 대한 이해">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>학생부종합전형에 대한 이해(초급자용)</h3>
             <p>대학의 평가기준을 바탕으로한 학생부종합전형</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2026_2028py.html" data-id="2026_2028py" data-category="info" data-type="guide" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="체육 대학 요강 노동기">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>체육 대학</h3>
             <p>2026~2028 체육대학 요강 정리</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
+            </span>
           </a>
 
           <a class="resource-card" href="./2028-admission-plans/unimap.html" data-id="2028-admission-plans_unimap" data-category="info" data-type="map" data-added="2026-06-02" data-updated="2026-06-15" data-keywords="대학교 입학안내 지도 목록 입학처 수시모집요강 시행계획 선행학습 영향평가 보고서 학생부종합 가이드북">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>대학교 입학안내 지도</h3>
             <p>지도·목록으로 — 입학처·모집요강·시행계획·선행학습 보고서·가이드북을 한눈에</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
+              <span class="card-type">지도·캘린더</span>
+              <time class="card-date" datetime="2026-06-15">갱신 2026.06.15</time>
+            </span>
           </a>
 
           <a class="resource-card" href="2unimap.html" data-id="2unimap" data-category="info" data-type="map" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="전국 전문대학 입학 안내 지도 목록 입학처 전문대">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>전국 전문대학 입학 안내 지도</h3>
             <p>전국 전문대학을 지도·목록으로 한눈에, 입학처·홈페이지 링크까지</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
+              <span class="card-type">지도·캘린더</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <a class="resource-card" href="dong.html" data-id="dong" data-category="info" data-type="video" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="입시 동영상 유튜브 김태진 대학어디가 쎈진학">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>입시동영상 모음</h3>
             <p>대입전형 이해를 위한 유튜브 영상 자료 모음집</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
+              <span class="card-type">영상</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="resource-card" href="jinhakdong2.html" data-id="jinhakdong2" data-category="info" data-type="video" data-added="2026-06-02" data-updated="2026-06-28" data-keywords="대입 영상 충청남도교육청 진로융합교육원 진학해유">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="audience cat-info">대입 정보</span>
             <h3>대입 관련 영상</h3>
             <p>충청남도교육청진로융합교육원 진학해유</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
+              <span class="card-type">영상</span>
+              <time class="card-date" datetime="2026-06-28">갱신 2026.06.28</time>
+            </span>
           </a>
 
           <!-- Empty state -->
@@ -2549,31 +2798,47 @@
           </div>
 
           <a class="support-card" href="jinrodesign.html" data-id="jinrodesign" data-type="guide" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="진로 진학 학업설계 고1 고2 2022개정 교육과정 고교학점제 과목선택 자기이해 대입 전형 로드맵">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
             <span class="tag">진로</span>
             <h3>고1·고2를 위한 진로·학업 설계</h3>
             <p>자기 이해부터 과목 선택, 월별 로드맵, 셀프 체크까지 한눈에</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <a class="support-card" href="sub2.html" data-id="sub2" data-type="guide" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="진로 선택과목 설계 2022개정 교육과정 전공">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
             <span class="tag">진로</span>
             <h3>선택과목설계</h3>
             <p>2022개정교육과정 전공별 선택과목 설계 방법과, 2028학년도 대학별 권장과목·대표 모집단위별 반영과목 매트릭스를 제공합니다.</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
+            </span>
           </a>
 
           <a class="support-card" href="toon1.html" data-id="toon1" data-type="video" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="진로 웹툰 학업설계 고1 2022개정 교육과정">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="tag">진로</span>
             <h3>진로학업설계 웹툰</h3>
             <p>2022 개정 교육과정 고1 학생을 위한 웹툰</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
+              <span class="card-type">영상</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="support-card" href="2027uni.html" data-id="2027uni" data-type="explore" data-added="2026-06-12" data-updated="2026-06-13" data-keywords="2027 진로 전국대학 학과 검색 모집인원 수업주제 관심사">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             <span class="tag">진로</span>
             <h3>2027 대학 개설학과·모집인원 검색</h3>
             <p>학과, 모집인원, 교과·직업·상담 주제를 함께 탐색합니다.</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="탐구활동" role="presentation">
@@ -2581,45 +2846,69 @@
           </div>
 
           <a class="support-card" href="majortam.html" data-id="majortam" data-type="guide" data-added="2026-10-08" data-updated="2026-10-23" data-keywords="탐구 학과 전공 학생부종합전형 세특 로드맵 성취기준 전공과목 경영 화학공학 컴퓨터 의예 심리 국어국문 주제">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>학과별 전공 탐구활동 가이드</h3>
             <p>주요 학과 80개 · 탐구 주제 12,720 — 고교 과목에서 대학 전공과목으로 이어지는 3년 탐구 로드맵</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-10-23">갱신 2026.10.23</time>
+            </span>
           </a>
 
           <a class="support-card" href="career-tamgu.html" data-id="career-tamgu" data-type="guide" data-added="2026-10-24" data-updated="2026-10-24" data-keywords="진로검사 커리어넷 고용24 워크넷 직업흥미검사 청소년직업흥미검사 홀랜드 흥미유형 흥미코드 실재형 현실형 탐구형 예술형 사회형 기업형 진취형 관습형 선호직업군 기초흥미분야 학과 추천 탐구 진로수업 상담">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>진로검사로 찾는 나의 탐구</h3>
             <p>커리어넷·고용24 직업흥미검사 결과(흥미유형)로 어울리는 학과와 학년에 맞는 탐구 주제 찾기 — 진로 수업 한 차시 활용안 포함</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-10-24">갱신 2026.10.24</time>
+            </span>
           </a>
 
           <a class="support-card" href="sciencetam.html" data-id="sciencetam" data-type="guide" data-added="2026-06-10" data-updated="2026-07-07" data-keywords="탐구 학생부종합전형 과학교과 심화탐구 가이드">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>학생부종합전형 대비 과학교과 탐구 방법</h3>
             <p>과학 교과에서 출발해 탐구력으로 확장하는 심화 탐구활동 가이드</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-07-07">갱신 2026.07.07</time>
+            </span>
           </a>
 
           <a class="support-card" href="socialtam.html" data-id="socialtam" data-type="guide" data-added="2026-06-02" data-updated="2026-07-07" data-keywords="탐구 학생부종합전형 사회교과 사회현상 대안 탐구">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>학생부종합전형 대비 사회교과 탐구 방법</h3>
             <p>사회현상을 근거로 읽고, 대안으로 확장하는 탐구</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-07-07">갱신 2026.07.07</time>
+            </span>
           </a>
 
           <a class="support-card" href="ai_prompt.html" data-id="ai_prompt" data-type="guide" data-added="2026-06-02" data-updated="2026-09-06" data-keywords="탐구 학생부종합전형 데이터분석 AI 프롬프트 사례 세특 면접 설계서 통계 코드">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>학생부종합전형 대비 AI 데이터 탐구 방법</h3>
             <p>AI 데이터 분석에서 출발하는 탐구활동 가이드 — 질문에서 기록까지, 분석법 120·완주 사례 10·세특·면접 전략</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-09-06">갱신 2026.09.06</time>
+            </span>
           </a>
 
           <a class="support-card" href="aisc.html" data-id="aisc" data-type="explore" data-added="2026-06-05" data-updated="2026-06-05" data-keywords="탐구 데이터분석 지구과학 고등학생 주제 344">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
             <span class="tag">탐구</span>
             <h3>데이터 분석 탐구 주제</h3>
             <p>고등학생 지구과학 데이터 분석형 탐구 주제 344</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="학습 방법" role="presentation">
@@ -2627,17 +2916,25 @@
           </div>
 
           <a class="support-card" href="preview.html" data-id="preview" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="학습 내신 공부방법 고등학생 2022개정 교육과정">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">학습</span>
             <h3>고등학생을 위한 내신 공부 방법</h3>
             <p>2022 개정 교육과정 기반 고등학생 내신 학습 방법</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <a class="support-card" href="csat2028.html" data-id="csat2028" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="학습 2028수능 국어 수학 영어 통합사회 통합과학 대비전략">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">학습</span>
             <h3>2028수능 대비 방법</h3>
             <p>국어·수학·영어·통합사회·통합과학의 2028 수능 대비 전략</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="학교 업무 지침" role="presentation">
@@ -2645,38 +2942,58 @@
           </div>
 
           <a class="support-card" href="studentguide.html" data-id="studentguide" data-type="guide" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="학교생활기록부 학생부 기재요령 2026">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">학교생활기록부</span>
             <h3>2026학교생활기록부 기재요령</h3>
             <p>학교생활기록부 기재요령 도우미</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <a class="support-card" href="saenggibu_check.html" data-id="saenggibu_check" data-type="calc" data-added="2026-06-22" data-updated="2026-06-29" data-keywords="학교생활기록부 생기부 글자수 바이트 맞춤법 띄어쓰기 기재금지 세특 행특 진로활동 NEIS 점검 500자 900자">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
             <span class="tag">학교생활기록부</span>
             <h3>생기부 글자수·점검 도우미</h3>
             <p>NEIS 바이트 글자수와 맞춤법·기재금지 항목을 한 번에 점검합니다.</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
+              <span class="card-type">계산·생성</span>
+              <time class="card-date" datetime="2026-06-29">갱신 2026.06.29</time>
+            </span>
           </a>
 
           <a class="support-card" href="seongjeok2026.html" data-id="seongjeok2026" data-type="guide" data-added="2026-06-04" data-updated="2026-06-05" data-keywords="성적관리 학업성적관리 시행지침 2026 평가 정기시험 수행평가 성적처리 인정점 충청남도교육청 고등학교 NEIS 나이스 조문 별표 부록 검색">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">성적관리</span>
             <h3>2026 고등학교 학업성적관리 시행지침</h3>
             <p>조문·별표·부록을 검색하고 바로 찾아보는 시행지침 도우미</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
+            </span>
           </a>
 
           <a class="support-card" href="transfer2026.html" data-id="transfer2026" data-type="guide" data-added="2026-06-02" data-updated="2026-06-05" data-keywords="전입학 편입학 재입학 전·편입학 업무처리 지침 2026 충청남도교육청 귀국학생 가거주 체육특기자 교육감전형 학교장전형 배정 신청서 양식 원문">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">전·편입학</span>
             <h3>2026 고등학교 전·편입학 및 재입학 업무처리 지침</h3>
             <p>유형별 처리·제출서류·양식·원문을 한 번에 찾는 업무 도우미</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
+            </span>
           </a>
 
           <a class="support-card" href="chungnam_admission.html" data-id="chungnam_admission" data-type="guide" data-added="2026-06-02" data-updated="2026-06-04" data-keywords="고입 고등학교 입학전형 2027 충남 충청남도">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
             <span class="tag">고입</span>
             <h3>2027학년도 고등학교 입학전형 기본계획</h3>
             <p>충청남도 고등학교 입학전형 종합 안내서</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <div class="section-empty" id="supportEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -2701,24 +3018,36 @@
           </div>
 
           <a class="instructional-card" href="sooupkor.html" data-id="sooupkor" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="국어 화법과 언어 화법 언어 말하기 듣기 문법 담화 표준발음 어휘 발표 토의 토론 협상 국어생활 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">화법과 언어</span>
             <h3>2022개정교육과정에서 화법과 언어 수업</h3>
             <p>담화·언어 자료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupdw.html" data-id="sooupdw" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="국어 독서와 작문 독서 작문 읽기 쓰기 문어 의사소통 자료 탐색 자료 선별 사실적 독해 추론적 독해 비판적 독해 주제 통합 읽기 정보 전달 논증 고쳐쓰기 매체 글쓰기 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">독서와 작문</span>
             <h3>2022개정교육과정에서 독서와 작문 수업</h3>
             <p>읽기·쓰기 전이 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="soouplit.html" data-id="soouplit" data-type="guide" data-added="2026-06-05" data-updated="2026-06-06" data-keywords="국어 문학 일반선택 문학 작품 근거 해석 갈래 맥락 한국문학사 비교문학 보편성 특수성 내용 형식 비평 창작 매체 문학 자아 성찰 타자 이해 공동체 문학 생활화 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">문학</span>
             <h3>2022개정교육과정에서 문학 수업</h3>
             <p>작품 근거 해석과 비평·창작 전이 기반 개념기반탐구학습</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="수학" role="presentation">
@@ -2726,24 +3055,36 @@
           </div>
 
           <a class="instructional-card" href="sooupalg.html" data-id="sooupalg" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 대수 일반선택 지수 로그 상용로그 지수함수 로그함수 삼각함수 사인법칙 코사인법칙 수열 등차수열 등비수열 시그마 수학적 귀납법 증명 모델링 그래프 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">대수</span>
             <h3>2022개정교육과정에서 대수 수업</h3>
             <p>함수·수열·증명 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupcalc1.html" data-id="sooupcalc1" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 미적분Ⅰ 미적분1 미적분 1 일반선택 함수의 극한 연속 미분 미분계수 도함수 평균값 정리 그래프 개형 방정식 부등식 부정적분 정적분 넓이 속도 가속도 이동거리 누적량 모델링 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">미적분Ⅰ</span>
             <h3>2022개정교육과정에서 미적분Ⅰ 수업</h3>
             <p>극한·변화율·누적량 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupprobstat.html" data-id="sooupprobstat" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="수학 확률과 통계 확통 일반선택 경우의 수 중복순열 중복조합 이항정리 확률 조건부확률 독립 종속 곱셈정리 확률변수 확률분포 기댓값 표준편차 이항분포 정규분포 표본추출 모평균 모비율 신뢰구간 통계적 추정 공학도구 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">확률과 통계</span>
             <h3>2022개정교육과정에서 확률과 통계 수업</h3>
             <p>조건·자료·추정 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="영어" role="presentation">
@@ -2751,24 +3092,36 @@
           </div>
 
           <a class="instructional-card" href="sooupeng1.html" data-id="sooupeng1" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어Ⅰ 영어I 영어1 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 요지 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 감수성 사실정보 설명 요약 서식 작성 고쳐쓰기 쓰기윤리 협력적 의사소통 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">영어Ⅰ</span>
             <h3>2022개정교육과정에서 영어Ⅰ 수업</h3>
             <p>근거·맥락·표현 전략 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupeng2.html" data-id="sooupeng2" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어Ⅱ 영어II 영어2 일반선택 이해 표현 듣기 말하기 읽기 쓰기 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 담화구조 매체 리터러시 문화 관점 감수성 사실정보 설명 감상 설득 요약 서식 자기소개서 이력서 보고서 고쳐쓰기 쓰기윤리 정보윤리 협력적 의사소통 프로젝트 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">영어Ⅱ</span>
             <h3>2022개정교육과정에서 영어Ⅱ 수업</h3>
             <p>비판적 이해·학업 표현·매체 윤리 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupengrw.html" data-id="sooupengrw" data-type="guide" data-added="2026-06-06" data-updated="2026-06-06" data-keywords="영어 영어 독해와 작문 영어독해와작문 일반선택 독해 작문 읽기 쓰기 읽기전략 쓰기전략 세부정보 주제 요지 심정 의도 추론 논리관계 함축의미 글구조 전개방식 매체 정보 문화 관점 포용 사실정보 설명 경험 계획 사건 의견 감정 요약 자기소개서 이력서 이메일 서식 고쳐쓰기 쓰기윤리 정보윤리 Greenwashing 그린워싱 공정여행 리플릿 계획서 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">영어 독해와 작문</span>
             <h3>2022개정교육과정에서 영어 독해와 작문 수업</h3>
             <p>읽기 전략·작문 전이·윤리적 고쳐쓰기 기반 개념기반탐구학습</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="사회" role="presentation">
@@ -2776,31 +3129,47 @@
           </div>
 
           <a class="instructional-card" href="sooupgeo.html" data-id="sooupgeo" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="세계시민과 지리 사회 지리 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">세계시민과 지리</span>
             <h3>2022개정교육과정에서 세계시민과 지리 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupsoc.html" data-id="sooupsoc" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="사회와 문화 사회문화 사문 사회 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사회조사 미디어 불평등 복지">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">사회와 문화</span>
             <h3>2022개정교육과정에서 사회와 문화 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupwh.html" data-id="sooupwh" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="세계사 역사 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형 사료 비판 역사 글쓰기 현대 세계 과제">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">세계사</span>
             <h3>2022개정교육과정에서 세계사 수업</h3>
             <p>사료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupeth.html" data-id="sooupeth" data-type="guide" data-added="2026-06-04" data-updated="2026-06-06" data-keywords="현대사회와 윤리 현대사회 윤리 도덕 실천윤리 생명윤리 생태윤리 AI윤리 인공지능윤리 민주시민 평화 공존 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">현대사회와 윤리</span>
             <h3>2022개정교육과정에서 현대사회와 윤리 수업</h3>
             <p>윤리 쟁점 기반 개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="과학" role="presentation">
@@ -2808,31 +3177,47 @@
           </div>
 
           <a class="instructional-card" href="soouppy.html" data-id="soouppy" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="물리 물리학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">물리</span>
             <h3>2022개정교육과정에서 물리학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupch.html" data-id="sooupch" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="화학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">화학</span>
             <h3>2022개정교육과정에서 화학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupbio.html" data-id="sooupbio" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="생명과학 생물 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">생명과학</span>
             <h3>2022개정교육과정에서 생명과학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <a class="instructional-card" href="sooupes.html" data-id="sooupes" data-type="guide" data-added="2026-06-02" data-updated="2026-06-06" data-keywords="지구과학 수업 2022개정 교육과정 개념기반탐구학습 학생부종합전형">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
             <span class="tag">지구과학</span>
             <h3>2022개정교육과정에서 지구과학 수업</h3>
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
+              <span class="card-type">안내서</span>
+              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
+            </span>
           </a>
 
           <div class="section-empty" id="instructionalEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -2857,24 +3242,36 @@
           </div>
 
           <a class="stats-card" href="2026cast.html" data-id="2026cast" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="수능 2026 수학능력시험 등급컷 인원 비율 대시보드">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2026수학능력시험</h3>
             <p>등급컷 · 인원 · 비율 종합 대시보드</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="stats-card" href="2027mock.html" data-id="20276cast" data-type="explore" data-added="2026-07-01" data-updated="2026-09-28" data-keywords="수능 모의평가 2027학년도 6월 9월 채점결과 비교 분석 평가원 등급컷 등급구분 표준점수 최고점 도수분포 백분위 원점수 변환 계산기 난이도 수능 전망 응시원서 졸업생 상담 국어 수학 영어 탐구 절대평가">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2027학년도 6월·9월 모의평가 비교 분석</h3>
             <p>난이도 진단 · 등급컷 비교 · 수능 전망 · 원점수 변환</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-09-28">갱신 2026.09.28</time>
+            </span>
           </a>
 
           <a class="stats-card" href="2027-june-mock-analysis/" data-id="2027-june-mock-analysis" data-type="explore" data-added="2026-06-22" data-updated="2026-06-29" data-keywords="수능 모의평가 2027 6월 대수능 국어 수학 영어 탐구 분석 원문 충남">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2027학년도 6월 대수능 모의평가</h3>
             <p>국수영 · 탐구 통합 분석자료</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-29">갱신 2026.06.29</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="전국연합학력평가" role="presentation">
@@ -2882,24 +3279,36 @@
           </div>
 
           <a class="stats-card" href="20265cast.html" data-id="20265cast" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="수능 2026 5월 고3 전국연합학력평가 모의고사 과목별 분석">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">수능</span>
             <h3>2026학년도 5월 고3 전국연합학력평가</h3>
             <p>과목별 분석자료</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <a class="stats-card" href="20266cast1.html" data-id="20266cast1" data-type="explore" data-added="2026-06-22" data-updated="2026-06-22" data-keywords="학평 모의고사 2026 6월 고1 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">학평</span>
             <h3>2026학년도 6월 고1 전국연합학력평가</h3>
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-22">갱신 2026.06.22</time>
+            </span>
           </a>
 
           <a class="stats-card" href="20266cast2.html" data-id="20266cast2" data-type="explore" data-added="2026-06-22" data-updated="2026-06-22" data-keywords="학평 모의고사 2026 6월 고2 전국연합학력평가 등급컷 표준점수 누적 백분위 상담 계산기 시도별 충남 응시현황">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">학평</span>
             <h3>2026학년도 6월 고2 전국연합학력평가</h3>
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-22">갱신 2026.06.22</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="대학·신입생" role="presentation">
@@ -2907,31 +3316,47 @@
           </div>
 
           <a class="stats-card" href="admission-type-results.html" data-id="admission-type-results" data-type="explore" data-added="2026-07-15" data-updated="2026-07-15" data-keywords="대학 입학전형 유형별 선발 결과 2024 2025 2026 학생부종합 학생부교과 논술 수능위주 기타 모집인원 등록인원 등록률 정원내 정원외 대학알리미 통계">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">대학</span>
             <h3>대학 입학전형 유형별 선발 결과</h3>
             <p>2024–2026 · 학종·교과·논술·수능위주별 모집·등록 현황</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-07-15">갱신 2026.07.15</time>
+            </span>
           </a>
 
           <a class="stats-card" href="highschool-type.html" data-id="highschool-type" data-type="explore" data-added="2026-07-15" data-updated="2026-08-18" data-keywords="신입생 출신 고교유형 지역 현황 전형유형별 고교유형 선발 비율 출신고교 2023 2024 2025 2026 학생부종합 학생부교과 논술 실기 수능위주 정시 정원내 정원외 일반전형 지역인재 사회통합 기회균형 일반고 자사고 자공고 특목고 특성화고 영재학교 외고 국제고 과학고 검정고시 읍면 중소도시 대학알리미 통계 전국">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">대학</span>
             <h3>신입생 출신 고교유형·지역 현황</h3>
             <p>2023–2026 · 전국 245개교 · 전형유형·전형명별 합격생의 출신 고교유형·소재지 분포</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-08-18">갱신 2026.08.18</time>
+            </span>
           </a>
 
           <a class="stats-card" href="highschool-type-college.html" data-id="highschool-type-college" data-type="explore" data-added="2026-08-18" data-updated="2026-08-18" data-keywords="전문대학 전문대 신입생 출신 고교유형 지역 현황 선발 비율 출신고교 2023 2024 2025 2026 학생부위주 서류위주 면접위주 실기위주 수능위주 정원내 정원외 일반전형 대학자체 특성화고 일반고 만학도 성인재직자 검정고시 읍면 중소도시 대학알리미 통계 전국">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
             <span class="tag">대학</span>
             <h3>신입생 출신 고교유형·지역 현황 (전문대학)</h3>
             <p>2023–2026 · 전국 전문대학 164개교 · 전형유형·전형명별 합격생의 출신 고교유형·소재지 분포</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-08-18">갱신 2026.08.18</time>
+            </span>
           </a>
 
           <a class="stats-card" href="unimo.html" data-id="unimo" data-type="explore" data-added="2026-06-02" data-updated="2026-06-02" data-keywords="대학 등록금 연간 평균 진학상담 공공데이터포털">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
             <span class="tag">대학</span>
             <h3>대학별 연간 평균등록금</h3>
             <p>교사용 진학상담 자료 · 공공데이터포털 기반</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
+              <span class="card-type">조회·비교</span>
+              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
+            </span>
           </a>
 
           <div class="group-divider" data-group="고등학교" role="presentation">
@@ -2939,10 +3364,14 @@
           </div>
 
           <a class="stats-card" href="highschoolmap.html" data-id="highschoolmap" data-type="map" data-added="2026-06-04" data-updated="2026-06-04" data-keywords="고등학교 지도 전국 학교 위치 학생수 학급 교원 학교알리미 지역 진학 map">
-            <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
             <span class="tag">학교</span>
             <h3>전국 고등학교 지도</h3>
             <p>전국 2,440개 고교 위치 · 학생수 · 학급 · 교원 인터랙티브 지도</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
+              <span class="card-type">지도·캘린더</span>
+              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
+            </span>
           </a>
 
           <div class="section-empty" id="statsEmpty" role="status">검색어와 일치하는 자료가 없습니다.</div>
@@ -3164,7 +3593,8 @@
               toggleFav(entry);
             }
           });
-          card.appendChild(favBtn);
+          var metaEl = card.querySelector('.card-meta');
+          (metaEl || card).appendChild(favBtn);
           entry.favBtn = favBtn;
 
           // 최근 본 자료 기록 (이동은 그대로 진행)
@@ -3180,6 +3610,49 @@
             return n !== emptyEl && !n.classList.contains('empty-state');
           })
         };
+      });
+
+      // ---- 하위 그룹 접기: 그룹(구분선 단위)당 COLLAPSE_LIMIT장 초과분은 '더보기' 뒤로 ----
+      var COLLAPSE_LIMIT = 6;
+      var expandedGroups = {};
+      var moreButtons = [];
+      var CHEVRON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+      SECTIONS.forEach(function (sec) {
+        var ctx = bySection[sec.key];
+        if (!ctx) return;
+        var groups = [], cur = null;
+        Array.prototype.forEach.call(ctx.grid.children, function (node) {
+          if (node.classList.contains('group-divider')) {
+            cur = { key: sec.key + ':' + (node.dataset.group || groups.length), section: sec.key, cards: [] };
+            groups.push(cur);
+          } else if (cur && node.dataset && node.dataset.id && entryById[node.dataset.id]) {
+            cur.cards.push(entryById[node.dataset.id]);
+          }
+        });
+        groups.forEach(function (g) {
+          if (g.cards.length <= COLLAPSE_LIMIT) return;
+          g.cards.forEach(function (e, i) {
+            if (i >= COLLAPSE_LIMIT) { e.extra = true; e.groupKey = g.key; }
+          });
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'more-btn';
+          btn.innerHTML = '나머지 ' + (g.cards.length - COLLAPSE_LIMIT) + '개 보기 ' + CHEVRON_SVG;
+          btn.addEventListener('click', function () {
+            expandedGroups[g.key] = true;
+            applyFilters();
+            // 펼쳐진 첫 카드로 포커스 이동 (키보드 사용자)
+            var first = g.cards[COLLAPSE_LIMIT];
+            if (first && first.card.focus) first.card.focus({ preventScroll: true });
+          });
+          var last = g.cards[g.cards.length - 1].card;
+          last.parentNode.insertBefore(btn, last.nextSibling);
+          moreButtons.push({ el: btn, key: g.key, section: g.section });
+        });
+        // 기본 정렬 복원용 순서를 더보기 버튼 포함으로 갱신
+        ctx.originalNodes = Array.prototype.filter.call(ctx.grid.children, function (n) {
+          return n !== ctx.empty && !n.classList.contains('empty-state');
+        });
       });
 
       // Reveal admission cards on page load with a gentle, capped stagger.
@@ -3295,6 +3768,8 @@
             return group.some(function (v) { return haystack.indexOf(v) !== -1; });
           });
           var visible = inScope && inCategory && inType && matchQuery;
+          var canCollapse = baseGroups && (e.section !== 'admission' || activeCategory === 'all');
+          e.card.classList.toggle('is-collapsed', visible && canCollapse && !!e.extra && !expandedGroups[e.groupKey]);
 
           if (visible) {
             e.card.classList.remove('is-hidden');
@@ -3307,6 +3782,11 @@
             if (e.h3) e.h3.innerHTML = e.badgeHTML + escapeHTML(e.h3Text);
             if (e.p) e.p.textContent = e.pText;
           }
+        });
+
+        moreButtons.forEach(function (m) {
+          var show = baseGroups && (m.section !== 'admission' || activeCategory === 'all') && !expandedGroups[m.key];
+          m.el.classList.toggle('is-hidden', !show);
         });
 
         SECTIONS.forEach(function (s) {
@@ -3350,7 +3830,21 @@
           }
         }
 
+        updatePopLabel();
         updateURL();
+      }
+
+      // 유형·정렬 팝오버 버튼 라벨 — 기본값이 아닐 때만 현재 상태 표시
+      var SORT_LABELS = { 'default': '기본', updated: '최신순', name: '가나다' };
+      var typePopLabel = document.getElementById('typePopLabel');
+      var typePopDot = document.getElementById('typePopDot');
+      function updatePopLabel() {
+        if (!typePopLabel) return;
+        var parts = [];
+        if (activeType !== 'all') parts.push(TYPE_LABELS[activeType] || activeType);
+        if (activeSort !== 'default') parts.push(SORT_LABELS[activeSort] || activeSort);
+        typePopLabel.textContent = parts.length ? parts.join(' · ') : '유형·정렬';
+        if (typePopDot) typePopDot.hidden = parts.length === 0;
       }
 
       // 검색어·필터 상태를 주소창에 보존
@@ -3523,12 +4017,14 @@
         searchInput.focus();
       });
 
-      // Hero "자료 검색" 버튼 → 검색창으로 스크롤 후 포커스
-      var heroSearchBtn = document.getElementById('heroSearchBtn');
-      if (heroSearchBtn) {
-        heroSearchBtn.addEventListener('click', function () {
-          searchInput.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
-          setTimeout(function () { searchInput.focus({ preventScroll: true }); }, prefersReducedMotion ? 0 : 350);
+      // 유형·정렬 팝오버: 바깥 클릭 / Esc로 닫기
+      var typePop = document.getElementById('typePop');
+      if (typePop) {
+        document.addEventListener('click', function (ev) {
+          if (typePop.open && !typePop.contains(ev.target)) typePop.open = false;
+        });
+        document.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Escape' && typePop.open) { typePop.open = false; typePop.querySelector('summary').focus(); }
         });
       }
 
@@ -3742,20 +4238,35 @@
       // 8) View toggle (grid / compact list) — persisted
       // ============================================================
       var viewButtons = document.querySelectorAll('.view-toggle button');
-      function applyView(view) {
+      function applyView(view, persist) {
         document.body.dataset.view = view;
         viewButtons.forEach(function (b) {
           b.setAttribute('aria-pressed', b.dataset.view === view ? 'true' : 'false');
         });
-        try { localStorage.setItem('est-view', view); } catch (e) {}
+        if (persist) { try { localStorage.setItem('est-view', view); } catch (e) {} }
       }
       viewButtons.forEach(function (b) {
-        b.addEventListener('click', function () { applyView(b.dataset.view); });
+        b.addEventListener('click', function () { applyView(b.dataset.view, true); });
       });
+      // 사용자가 직접 고른 적이 없으면: 모바일은 리스트(밀도), 데스크톱은 그리드
+      var isNarrow = false;
+      try { isNarrow = window.matchMedia('(max-width: 700px)').matches; } catch (e) {}
       try {
         var savedView = localStorage.getItem('est-view');
-        applyView(savedView === 'compact' ? 'compact' : 'grid');
-      } catch (e) { applyView('grid'); }
+        if (savedView === 'compact' || savedView === 'grid') applyView(savedView, false);
+        else applyView(isNarrow ? 'compact' : 'grid', false);
+      } catch (e) { applyView(isNarrow ? 'compact' : 'grid', false); }
+
+      // 상단 고정 요소(상단바 + 데스크톱 탭바) 높이 합
+      var segbarEl = document.getElementById('segbar');
+      function segbarStickyHeight() {
+        if (!segbarEl) return 0;
+        return getComputedStyle(segbarEl).position === 'sticky' ? segbarEl.offsetHeight : 0;
+      }
+      function stickyOffset() {
+        var tb = document.querySelector('.topbar');
+        return (tb ? tb.offsetHeight : 73) + segbarStickyHeight();
+      }
 
       // ============================================================
       // 9) Scrollspy — highlight active nav link
@@ -3782,7 +4293,7 @@
             var id = best.target.id;
             if (navLinkMap[id]) setActiveNav(id);
           }
-        }, { rootMargin: '-72px 0px -55% 0px', threshold: 0 });
+        }, { rootMargin: '-' + (stickyOffset() + 8) + 'px 0px -55% 0px', threshold: 0 });
         ['admission','support','instructional','statistics'].forEach(function (id) {
           var el = document.getElementById(id);
           if (el) spy.observe(el);
@@ -3796,20 +4307,27 @@
       var topbarEl = document.querySelector('.topbar');
       var ticking = false;
 
-      var navLinksEl = document.getElementById('navLinks');
-      function updateNavFade() {
-        if (!navLinksEl) return;
-        var canScroll = navLinksEl.scrollWidth > navLinksEl.clientWidth + 2;
-        var atEnd = !canScroll || navLinksEl.scrollLeft + navLinksEl.clientWidth >= navLinksEl.scrollWidth - 2;
-        navLinksEl.classList.toggle('can-scroll', canScroll);
-        navLinksEl.classList.toggle('at-end', atEnd);
+      // 가로 스크롤 영역의 우측 페이드(.can-scroll/.at-end) — 상단 내비·세그먼트 탭 공용
+      function bindFade(el) {
+        if (!el) return function () {};
+        function update() {
+          var canScroll = el.scrollWidth > el.clientWidth + 2;
+          var atEnd = !canScroll || el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+          el.classList.toggle('can-scroll', canScroll);
+          el.classList.toggle('at-end', atEnd);
+        }
+        el.addEventListener('scroll', update, { passive: true });
+        return update;
       }
-      if (navLinksEl) navLinksEl.addEventListener('scroll', updateNavFade, { passive: true });
+      var updateNavFade = bindFade(document.getElementById('navLinks'));
+      var updateSegFade = bindFade(document.getElementById('segTabs'));
 
       function measureSticky() {
         var th = topbarEl ? topbarEl.offsetHeight : 73;
         document.documentElement.style.setProperty('--topbar-h', th + 'px');
+        document.documentElement.style.setProperty('--segbar-h', segbarStickyHeight() + 'px');
         updateNavFade();
+        updateSegFade();
       }
       measureSticky();
       window.addEventListener('load', measureSticky);
