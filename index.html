@@ -1271,7 +1271,6 @@
         padding: 14px 14px 16px;
       }
       .resource-card p, .support-card p, .instructional-card p, .stats-card p { font-size: var(--fs-sm); }
-      .card-meta .card-date { display: none; }
 
       .support-grid { grid-template-columns: 1fr; }
       .instructional-grid { grid-template-columns: 1fr; }
@@ -1395,13 +1394,10 @@
       -webkit-line-clamp: 1;
     }
     body[data-view="compact"] .card-meta {
+      position: static;
       grid-column: 3; grid-row: 1 / span 2;
-      margin: 0;
-      padding: 0;
-      border: 0;
       align-self: center;
     }
-    body[data-view="compact"] .card-meta .card-date { display: none; }
     body[data-view="compact"] .resource-card {
       transform: none !important;
       opacity: 1 !important;
@@ -1550,8 +1546,7 @@
         line-height: 1.25;
         padding: 4px 6px;
       }
-      body[data-view="compact"] .card-meta .card-type,
-      body[data-view="compact"] .card-meta .card-ico { display: none; }
+
     }
 
     /* ============================================================
@@ -1937,7 +1932,7 @@
        ============================================================ */
     .resource-card, .support-card, .instructional-card, .stats-card {
       min-height: 0;
-      padding: 16px 16px 12px 18px;
+      padding: 16px 16px 16px 18px;
     }
     .resource-card::before, .support-card::before,
     .instructional-card::before, .stats-card::before {
@@ -1964,44 +1959,21 @@
       overflow: hidden;
     }
     .resource-card > p, .support-card > p, .instructional-card > p, .stats-card > p {
-      flex: 1;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
       overflow: hidden;
     }
+    /* 메타행은 즐겨찾기 별 자리(우상단, 배지 맞은편)만 담당 — 아이콘은 검색 제안·시즌 추천 참조용으로 DOM에만 둔다 */
     .card-meta {
+      position: absolute;
+      top: 12px;
+      right: 10px;
       display: flex;
       align-items: center;
-      gap: 6px;
-      min-height: 30px;
-      margin-top: 12px;
-      padding-top: 8px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: var(--fs-xs);
-      font-weight: 700;
-      white-space: nowrap;
     }
-    .card-meta .card-ico {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 16px;
-      height: 16px;
-      color: var(--blue);
-    }
-    .card-meta .card-ico svg { width: 15px; height: 15px; }
-    .support-card .card-meta .card-ico { color: #8a6420; }
-    .instructional-card .card-meta .card-ico { color: #6d28d9; }
-    .stats-card .card-meta .card-ico { color: #0e7c66; }
-    [data-theme="dark"] .support-card .card-meta .card-ico { color: var(--gold); }
-    [data-theme="dark"] .instructional-card .card-meta .card-ico { color: #c4b5fd; }
-    [data-theme="dark"] .stats-card .card-meta .card-ico { color: #5eead4; }
-    .card-type { color: var(--text); }
-    .card-date { font-variant-numeric: tabular-nums; }
-    .card-date::before { content: "·"; margin: 0 6px 0 2px; opacity: 0.6; }
-    .card-meta .fav-btn { margin-left: auto; width: 28px; height: 28px; opacity: 0.55; }
+    .card-meta .card-ico { display: none; }
+    .card-meta .fav-btn { width: 28px; height: 28px; opacity: 0.55; }
     .resource-card:hover .card-meta .fav-btn, .support-card:hover .card-meta .fav-btn,
     .instructional-card:hover .card-meta .fav-btn, .stats-card:hover .card-meta .fav-btn,
     .card-meta .fav-btn[aria-pressed="true"], .card-meta .fav-btn:focus-visible { opacity: 1; }
@@ -2281,8 +2253,6 @@
             <p>어디가 24·25·26 수시 70%·50%컷 3개년 비교 조회</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-07-08">갱신 2026.07.08</time>
             </span>
           </a>
 
@@ -2292,8 +2262,6 @@
             <p>대학발표 2026 정시 수능 백분위 70%컷·경쟁률을 대학·모집단위별 조회 + 내 백분위 매칭</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-07-08">갱신 2026.07.08</time>
             </span>
           </a>
 
@@ -2303,8 +2271,6 @@
             <p>대학 발표 자료를 대학별로 검색하고 내려받기</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
-              <span class="card-type">다운로드</span>
-              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
             </span>
           </a>
 
@@ -2314,8 +2280,6 @@
             <p>간호·물리치료·방사선·응급구조·임상병리·치위생 24~26 경쟁률·합격자 성적</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
             </span>
           </a>
 
@@ -2325,8 +2289,6 @@
             <p>대학별 결과보고서·문항카드·부속자료 원문 검색 및 다운로드</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">다운로드</span>
-              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
             </span>
           </a>
 
@@ -2340,8 +2302,6 @@
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
             </span>
           </a>
 
@@ -2351,8 +2311,6 @@
             <p>대교협 202개교 요약자료 통합 — 대학별 15개 항목 조회, 변경사항·수능최저 모아보기, 대학별고사 캘린더</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-08-05">갱신 2026.08.05</time>
             </span>
           </a>
 
@@ -2362,8 +2320,6 @@
             <p>2027학생부교과전형, 한 화면에서 검색하고 비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
             </span>
           </a>
 
@@ -2373,8 +2329,6 @@
             <p>교과·종합·사관/경찰 학교장추천 60개 전형을 검색·비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-29">갱신 2026.06.29</time>
             </span>
           </a>
 
@@ -2384,8 +2338,6 @@
             <p>대학별 서류평가 내용과 전형별 평가요소 비율 확인</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-07">갱신 2026.06.07</time>
             </span>
           </a>
 
@@ -2395,8 +2347,6 @@
             <p>대학별 면접 방식, 면접시간, 문항유형과 평가요소 비율 확인</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-07">갱신 2026.06.07</time>
             </span>
           </a>
 
@@ -2406,8 +2356,6 @@
             <p>학생부 활동명과 지원 분야를 입력해 활동·탐구 과정 중심 예상문항 30개 생성</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
-              <span class="card-type">계산·생성</span>
-              <time class="card-date" datetime="2026-07-08">갱신 2026.07.08</time>
             </span>
           </a>
 
@@ -2417,8 +2365,6 @@
             <p>대학별 학생부종합·학생부위주전형 가이드북 PDF 원문 검색 및 다운로드</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">다운로드</span>
-              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
             </span>
           </a>
 
@@ -2428,8 +2374,6 @@
             <p>의약학계열 수시 전형·수능최저·면접·3개년 입결을 한눈에</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-07-06">갱신 2026.07.06</time>
             </span>
           </a>
 
@@ -2439,8 +2383,6 @@
             <p>지역의사 선발전형 안내</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-07-02">갱신 2026.07.02</time>
             </span>
           </a>
 
@@ -2450,8 +2392,6 @@
             <p>의예, 치의예, 한의예, 약학, 수의예, 간호</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
             </span>
           </a>
 
@@ -2461,8 +2401,6 @@
             <p>농어촌학생 특별전형,자격부터 대학별 전형까지</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2472,8 +2410,6 @@
             <p>기업체취업형·조기취업형·군의무복무형 계약학과와 첨단학과 검색·비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
             </span>
           </a>
 
@@ -2483,8 +2419,6 @@
             <p>음악·미술·체육·연기/연출·응용예술 비실기 모집단위 검색·비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-11">갱신 2026.06.11</time>
             </span>
           </a>
 
@@ -2494,8 +2428,6 @@
             <p>시도교육청별 특성화고 학과와 기준학과를 원본 행 기준으로 검색</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-24">갱신 2026.06.24</time>
             </span>
           </a>
 
@@ -2505,8 +2437,6 @@
             <p>논술·면접·실기 일정을 달력·대학별로 보고, 상담 모드로 겹침 확인</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-cal"></use></svg></span>
-              <span class="card-type">지도·캘린더</span>
-              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
             </span>
           </a>
 
@@ -2516,8 +2446,6 @@
             <p>대학별 수시모집요강 PDF·HWP 원문을 지역과 대학명으로 검색</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
-              <span class="card-type">다운로드</span>
-              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
             </span>
           </a>
 
@@ -2527,8 +2455,6 @@
             <p>대학별 정시모집요강 PDF·HWP 원문을 지역과 대학명으로 검색</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
-              <span class="card-type">다운로드</span>
-              <time class="card-date" datetime="2026-09-14">갱신 2026.09.14</time>
             </span>
           </a>
 
@@ -2542,8 +2468,6 @@
             <p>상담·설명회·자율학습용으로 바로 활용할 수 있도록 만든 웹 안내서</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2553,8 +2477,6 @@
             <p>2028학년도 대입 전형의 핵심 변경사항과 이전 연도와의 차이점을 상세히 비교 분석합니다.</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2564,8 +2486,6 @@
             <p>진로융합교육원 발간 책자(110개 대학, 36쪽)를 그대로 옮긴 웹 자료 — 장별·대학별 보기, 검색, 비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-10-02">갱신 2026.10.02</time>
             </span>
           </a>
 
@@ -2575,8 +2495,6 @@
             <p>서울대·연세대·고려대·성균관대·한양대·경희대·중앙대·서강대·시립대·이화여대·외대·숙명·홍익·건국·동국 2028 시행계획 비교 — 대학별 안내·전형 비교·수능최저 매트릭스·모집단위 검색</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-08-16">갱신 2026.08.16</time>
             </span>
           </a>
 
@@ -2586,8 +2504,6 @@
             <p>5등급제·환산점수·지역균형·수능최저·내신산출방식까지 교과전형 변화 총정리</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-compare"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-11">갱신 2026.06.11</time>
             </span>
           </a>
 
@@ -2597,8 +2513,6 @@
             <p>대학별 반영과목·반영지표·환산방식을 빠르게 검색·비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
@@ -2608,8 +2522,6 @@
             <p>2026 교과전형 발표자료의 70%컷 살펴보기</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
-              <span class="card-type">계산·생성</span>
-              <time class="card-date" datetime="2026-06-12">갱신 2026.06.12</time>
             </span>
           </a>
 
@@ -2619,8 +2531,6 @@
             <p>주요 13개 대학의 학생부종합전형 정리</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2630,8 +2540,6 @@
             <p>2026 종합전형 발표자료의 70%컷 살펴보기</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
-              <span class="card-type">계산·생성</span>
-              <time class="card-date" datetime="2026-06-12">갱신 2026.06.12</time>
             </span>
           </a>
 
@@ -2641,8 +2549,6 @@
             <p>12,727명·46개 대학 — 모집인원·수능최저·전형방법·논술유형을 검색·비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-15">갱신 2026.06.15</time>
             </span>
           </a>
 
@@ -2652,8 +2558,6 @@
             <p>수능 체제 변화와 서울 15개 대학·국가거점국립대 정시(수능위주전형)를 대학별로 조회</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-23">갱신 2026.06.23</time>
             </span>
           </a>
 
@@ -2663,8 +2567,6 @@
             <p>수능최저가 있는 교과·종합·논술 전형만 빠르게 비교</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
             </span>
           </a>
 
@@ -2674,8 +2576,6 @@
             <p>KAIST, GIST, DGIST, UNIST, KENTECH, POSTECH</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2685,8 +2585,6 @@
             <p>교육대학교 시행계획 안내</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2696,8 +2594,6 @@
             <p>대학별 시행계획·기본계획·주요사항·모집인원 원문 검색 및 다운로드</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-download"></use></svg></span>
-              <span class="card-type">다운로드</span>
-              <time class="card-date" datetime="2026-06-16">갱신 2026.06.16</time>
             </span>
           </a>
 
@@ -2711,8 +2607,6 @@
             <p>대학의 평가기준을 바탕으로한 학생부종합전형</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2722,8 +2616,6 @@
             <p>2026~2028 체육대학 요강 정리</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
             </span>
           </a>
 
@@ -2733,8 +2625,6 @@
             <p>지도·목록으로 — 입학처·모집요강·시행계획·선행학습 보고서·가이드북을 한눈에</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
-              <span class="card-type">지도·캘린더</span>
-              <time class="card-date" datetime="2026-06-15">갱신 2026.06.15</time>
             </span>
           </a>
 
@@ -2744,8 +2634,6 @@
             <p>전국 전문대학을 지도·목록으로 한눈에, 입학처·홈페이지 링크까지</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
-              <span class="card-type">지도·캘린더</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
@@ -2755,8 +2643,6 @@
             <p>대입전형 이해를 위한 유튜브 영상 자료 모음집</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
-              <span class="card-type">영상</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2766,8 +2652,6 @@
             <p>충청남도교육청진로융합교육원 진학해유</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
-              <span class="card-type">영상</span>
-              <time class="card-date" datetime="2026-06-28">갱신 2026.06.28</time>
             </span>
           </a>
 
@@ -2803,8 +2687,6 @@
             <p>자기 이해부터 과목 선택, 월별 로드맵, 셀프 체크까지 한눈에</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
@@ -2814,8 +2696,6 @@
             <p>2022개정교육과정 전공별 선택과목 설계 방법과, 2028학년도 대학별 권장과목·대표 모집단위별 반영과목 매트릭스를 제공합니다.</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
             </span>
           </a>
 
@@ -2825,8 +2705,6 @@
             <p>2022 개정 교육과정 고1 학생을 위한 웹툰</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
-              <span class="card-type">영상</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -2836,8 +2714,6 @@
             <p>학과, 모집인원, 교과·직업·상담 주제를 함께 탐색합니다.</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-13">갱신 2026.06.13</time>
             </span>
           </a>
 
@@ -2851,8 +2727,6 @@
             <p>주요 학과 80개 · 탐구 주제 12,720 — 고교 과목에서 대학 전공과목으로 이어지는 3년 탐구 로드맵</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-10-23">갱신 2026.10.23</time>
             </span>
           </a>
 
@@ -2862,8 +2736,6 @@
             <p>커리어넷·고용24 직업흥미검사 결과(흥미유형)로 어울리는 학과와 학년에 맞는 탐구 주제 찾기 — 진로 수업 한 차시 활용안 포함</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-compass"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-10-24">갱신 2026.10.24</time>
             </span>
           </a>
 
@@ -2873,8 +2745,6 @@
             <p>과학 교과에서 출발해 탐구력으로 확장하는 심화 탐구활동 가이드</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-07-07">갱신 2026.07.07</time>
             </span>
           </a>
 
@@ -2884,8 +2754,6 @@
             <p>사회현상을 근거로 읽고, 대안으로 확장하는 탐구</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-07-07">갱신 2026.07.07</time>
             </span>
           </a>
 
@@ -2895,8 +2763,6 @@
             <p>AI 데이터 분석에서 출발하는 탐구활동 가이드 — 질문에서 기록까지, 분석법 120·완주 사례 10·세특·면접 전략</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-09-06">갱신 2026.09.06</time>
             </span>
           </a>
 
@@ -2906,8 +2772,6 @@
             <p>고등학생 지구과학 데이터 분석형 탐구 주제 344</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-flask"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
             </span>
           </a>
 
@@ -2921,8 +2785,6 @@
             <p>2022 개정 교육과정 기반 고등학생 내신 학습 방법</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
@@ -2932,8 +2794,6 @@
             <p>국어·수학·영어·통합사회·통합과학의 2028 수능 대비 전략</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
@@ -2947,8 +2807,6 @@
             <p>학교생활기록부 기재요령 도우미</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
@@ -2958,8 +2816,6 @@
             <p>NEIS 바이트 글자수와 맞춤법·기재금지 항목을 한 번에 점검합니다.</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-tool"></use></svg></span>
-              <span class="card-type">계산·생성</span>
-              <time class="card-date" datetime="2026-06-29">갱신 2026.06.29</time>
             </span>
           </a>
 
@@ -2969,8 +2825,6 @@
             <p>조문·별표·부록을 검색하고 바로 찾아보는 시행지침 도우미</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
             </span>
           </a>
 
@@ -2980,8 +2834,6 @@
             <p>유형별 처리·제출서류·양식·원문을 한 번에 찾는 업무 도우미</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-05">갱신 2026.06.05</time>
             </span>
           </a>
 
@@ -2991,8 +2843,6 @@
             <p>충청남도 고등학교 입학전형 종합 안내서</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-book"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
@@ -3023,8 +2873,6 @@
             <p>담화·언어 자료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3034,8 +2882,6 @@
             <p>읽기·쓰기 전이 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3045,8 +2891,6 @@
             <p>작품 근거 해석과 비평·창작 전이 기반 개념기반탐구학습</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3060,8 +2904,6 @@
             <p>함수·수열·증명 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3071,8 +2913,6 @@
             <p>극한·변화율·누적량 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3082,8 +2922,6 @@
             <p>조건·자료·추정 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3097,8 +2935,6 @@
             <p>근거·맥락·표현 전략 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3108,8 +2944,6 @@
             <p>비판적 이해·학업 표현·매체 윤리 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3119,8 +2953,6 @@
             <p>읽기 전략·작문 전이·윤리적 고쳐쓰기 기반 개념기반탐구학습</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3134,8 +2966,6 @@
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3145,8 +2975,6 @@
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3156,8 +2984,6 @@
             <p>사료 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3167,8 +2993,6 @@
             <p>윤리 쟁점 기반 개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3182,8 +3006,6 @@
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3193,8 +3015,6 @@
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3204,8 +3024,6 @@
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3215,8 +3033,6 @@
             <p>개념기반탐구학습과 학생부종합전형 대비</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-class"></use></svg></span>
-              <span class="card-type">안내서</span>
-              <time class="card-date" datetime="2026-06-06">갱신 2026.06.06</time>
             </span>
           </a>
 
@@ -3247,8 +3063,6 @@
             <p>등급컷 · 인원 · 비율 종합 대시보드</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -3258,8 +3072,6 @@
             <p>난이도 진단 · 등급컷 비교 · 수능 전망 · 원점수 변환</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-09-28">갱신 2026.09.28</time>
             </span>
           </a>
 
@@ -3269,8 +3081,6 @@
             <p>국수영 · 탐구 통합 분석자료</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-29">갱신 2026.06.29</time>
             </span>
           </a>
 
@@ -3284,8 +3094,6 @@
             <p>과목별 분석자료</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -3295,8 +3103,6 @@
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-22">갱신 2026.06.22</time>
             </span>
           </a>
 
@@ -3306,8 +3112,6 @@
             <p>과목별 등급컷 · 표준점수 누적 · 상담 계산기</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-22">갱신 2026.06.22</time>
             </span>
           </a>
 
@@ -3321,8 +3125,6 @@
             <p>2024–2026 · 학종·교과·논술·수능위주별 모집·등록 현황</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-07-15">갱신 2026.07.15</time>
             </span>
           </a>
 
@@ -3332,8 +3134,6 @@
             <p>2023–2026 · 전국 245개교 · 전형유형·전형명별 합격생의 출신 고교유형·소재지 분포</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-08-18">갱신 2026.08.18</time>
             </span>
           </a>
 
@@ -3343,8 +3143,6 @@
             <p>2023–2026 · 전국 전문대학 164개교 · 전형유형·전형명별 합격생의 출신 고교유형·소재지 분포</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-08-18">갱신 2026.08.18</time>
             </span>
           </a>
 
@@ -3354,8 +3152,6 @@
             <p>교사용 진학상담 자료 · 공공데이터포털 기반</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-video"></use></svg></span>
-              <span class="card-type">조회·비교</span>
-              <time class="card-date" datetime="2026-06-02">갱신 2026.06.02</time>
             </span>
           </a>
 
@@ -3369,8 +3165,6 @@
             <p>전국 2,440개 고교 위치 · 학생수 · 학급 · 교원 인터랙티브 지도</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-map"></use></svg></span>
-              <span class="card-type">지도·캘린더</span>
-              <time class="card-date" datetime="2026-06-04">갱신 2026.06.04</time>
             </span>
           </a>
 
