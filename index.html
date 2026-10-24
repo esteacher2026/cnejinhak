@@ -78,7 +78,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap" />
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" />
 
   <style>
     /* ============================================================
@@ -93,7 +93,7 @@
       --gold-soft: #f7efd9;
       --ink: #1e293b;
       --text: #334155;
-      --muted: #64748b;
+      --muted: #5b6b82;
       --line: #d8e1ee;
       --bg: #f6f8fb;
       --paper: #ffffff;
@@ -112,6 +112,13 @@
       --focus-ring: 0 0 0 3px rgba(36, 87, 166, 0.35);
       --font-display: "Noto Serif KR", "Pretendard Variable", Pretendard, serif;
       --gold-line: rgba(212, 169, 85, 0.45);
+      /* 타입 스케일 — 6단계, 최소 12px */
+      --fs-xs: 0.75rem;    /* 12px 배지·캡션·눈썹 라벨 */
+      --fs-sm: 0.875rem;   /* 14px 설명·칩·보조 텍스트 */
+      --fs-md: 1rem;       /* 16px 본문·카드 제목·버튼 */
+      --fs-lg: 1.125rem;   /* 18px 리드·강조 제목 */
+      --fs-xl: clamp(1.35rem, 2.4vw, 1.5rem);   /* 22~24px 섹션 제목 */
+      --fs-2xl: clamp(1.7rem, 3.6vw, 2.4rem);   /* 27~38px 히어로 제목 */
     }
 
     [data-theme="dark"] {
@@ -190,6 +197,7 @@
     }
 
     a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
 
     /* ============================================================
        Skip link & global focus
@@ -265,7 +273,7 @@
       place-items: center;
       border-radius: 15px;
       color: #fff;
-      font-size: 0.98rem;
+      font-size: var(--fs-md);
       font-weight: 900;
       letter-spacing: -0.05em;
       background:
@@ -282,7 +290,7 @@
 
     .brand-title {
       display: block;
-      font-size: 1.06rem;
+      font-size: var(--fs-md);
       font-weight: 900;
       letter-spacing: -0.035em;
       color: var(--navy);
@@ -293,7 +301,7 @@
     .brand-sub {
       display: block;
       margin-top: 3px;
-      font-size: 0.78rem;
+      font-size: var(--fs-xs);
       font-weight: 700;
       color: var(--muted);
       letter-spacing: 0.02em;
@@ -316,7 +324,7 @@
     .nav-links a {
       padding: 9px 13px;
       border-radius: 999px;
-      font-size: 0.94rem;
+      font-size: var(--fs-sm);
       font-weight: 800;
       color: var(--text);
       transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
@@ -419,7 +427,7 @@
       gap: 6px 14px;
       margin: 18px 0 0;
       color: rgba(255, 255, 255, 0.66);
-      font-size: 0.85rem;
+      font-size: var(--fs-sm);
       font-weight: 600;
     }
     .hero-meta strong { color: #f3d9a4; font-weight: 800; }
@@ -439,7 +447,7 @@
       border-radius: 999px;
       background: linear-gradient(135deg, rgba(212, 169, 85, 0.14), rgba(212, 169, 85, 0.05));
       color: #f3d9a4;
-      font-size: 0.82rem;
+      font-size: var(--fs-sm);
       font-weight: 800;
       letter-spacing: 0.06em;
     }
@@ -459,19 +467,19 @@
       margin: 16px 0 14px;
       max-width: 720px;
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3.6vw, 2.7rem);
-      line-height: 1.26;
-      letter-spacing: -0.015em;
-      font-weight: 900;
+      font-size: var(--fs-2xl);
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      font-weight: 700;
     }
 
     .lead {
       max-width: 690px;
       margin-bottom: 0;
       color: rgba(255, 255, 255, 0.86);
-      font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+      font-size: var(--fs-lg);
       font-weight: 500;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .hero-actions {
@@ -490,7 +498,7 @@
       padding: 12px 22px;
       border-radius: 12px;
       font: inherit;
-      font-size: 0.96rem;
+      font-size: var(--fs-md);
       font-weight: 800;
       letter-spacing: -0.01em;
       cursor: pointer;
@@ -524,7 +532,7 @@
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.1);
       font-family: inherit;
-      font-size: 0.78rem;
+      font-size: var(--fs-xs);
       font-weight: 700;
     }
 
@@ -543,27 +551,10 @@
 
     .focus-label {
       color: #f7efd9;
-      font-size: 0.78rem;
+      font-size: var(--fs-xs);
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-
-    .focus-main { display: grid; gap: 6px; margin-top: 8px; }
-
-    .focus-number {
-      font-size: clamp(1.3rem, 2.4vw, 1.6rem);
-      line-height: 1.3;
-      font-weight: 900;
-      letter-spacing: -0.035em;
-    }
-
-    .focus-text {
-      color: rgba(255, 255, 255, 0.88);
-      margin-top: 4px;
-      font-weight: 500;
-      font-size: 0.88rem;
-      line-height: 1.5;
     }
 
     section { padding: 52px 0 46px; }
@@ -586,7 +577,7 @@
       gap: 10px;
       margin-bottom: 8px;
       color: var(--blue);
-      font-size: 0.82rem;
+      font-size: var(--fs-xs);
       font-weight: 900;
       letter-spacing: 0.12em;
     }
@@ -600,7 +591,7 @@
       border: 1px solid currentColor;
       border-radius: 9px;
       background: color-mix(in srgb, currentColor 8%, transparent);
-      font-size: 0.78rem;
+      font-size: var(--fs-xs);
       font-weight: 900;
       letter-spacing: 0;
       font-variant-numeric: tabular-nums;
@@ -623,17 +614,17 @@
       margin-bottom: 0;
       color: var(--navy);
       font-family: var(--font-display);
-      font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+      font-size: var(--fs-xl);
       line-height: 1.3;
-      letter-spacing: -0.015em;
-      font-weight: 900;
+      letter-spacing: -0.01em;
+      font-weight: 700;
     }
     [data-theme="dark"] h2 { color: var(--ink); }
 
     .section-desc {
       margin: 0;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: var(--fs-md);
       font-weight: 500;
     }
     @media (max-width: 920px) {
@@ -683,7 +674,7 @@
       background: var(--paper-2);
       color: var(--ink);
       font: inherit;
-      font-size: 0.95rem;
+      font-size: var(--fs-md);
       transition: border-color 0.18s ease, background 0.18s ease;
     }
 
@@ -727,7 +718,7 @@
       background: var(--chip-bg);
       color: var(--chip-text);
       font: inherit;
-      font-size: 0.86rem;
+      font-size: var(--fs-sm);
       font-weight: 700;
       cursor: pointer;
       transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
@@ -742,7 +733,7 @@
       padding: 1px 6px;
       border-radius: 4px;
       background: rgba(0, 0, 0, 0.05);
-      font-size: 0.74rem;
+      font-size: var(--fs-xs);
       font-weight: 700;
       font-variant-numeric: tabular-nums;
     }
@@ -752,7 +743,7 @@
     .result-count {
       padding: 14px 4px 6px;
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: var(--fs-sm);
       font-weight: 600;
     }
     .result-count strong { color: var(--ink); font-weight: 800; }
@@ -772,7 +763,7 @@
       text-align: center;
     }
     .empty-state.visible { display: flex; }
-    .empty-state strong { color: var(--ink); font-size: 1.05rem; }
+    .empty-state strong { color: var(--ink); font-size: var(--fs-lg); }
     .empty-state .reset-btn {
       margin-top: 6px;
       padding: 8px 14px;
@@ -781,7 +772,7 @@
       background: var(--paper);
       color: var(--blue);
       font-weight: 800;
-      font-size: 0.88rem;
+      font-size: var(--fs-sm);
       cursor: pointer;
     }
     .empty-state .reset-btn:hover { background: var(--blue-soft); }
@@ -813,7 +804,7 @@
     .group-divider-label {
       display: inline-flex;
       align-items: center;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       font-weight: 900;
       letter-spacing: -0.02em;
       color: var(--ink);
@@ -947,7 +938,7 @@
       right: 16px;
       bottom: 12px;
       color: var(--blue);
-      font-size: 1rem;
+      font-size: var(--fs-md);
       font-weight: 800;
       opacity: 0;
       transform: translateX(-5px);
@@ -981,7 +972,7 @@
       border-radius: 999px;
       color: var(--blue);
       background: var(--blue-soft);
-      font-size: 0.7rem;
+      font-size: var(--fs-xs);
       font-weight: 800;
       letter-spacing: 0.01em;
       white-space: nowrap;
@@ -1002,7 +993,7 @@
     .stats-card h3 {
       margin-bottom: 7px;
       color: var(--navy);
-      font-size: 1.05rem;
+      font-size: var(--fs-md);
       line-height: 1.4;
       letter-spacing: -0.03em;
       font-weight: 800;
@@ -1028,7 +1019,7 @@
     .stats-card p {
       margin-bottom: 0;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: var(--fs-sm);
       font-weight: 500;
       line-height: 1.55;
     }
@@ -1068,7 +1059,7 @@
       padding: 4px 9px;
       margin: 0;
       border-radius: 999px;
-      font-size: 0.7rem;
+      font-size: var(--fs-xs);
       font-weight: 800;
       letter-spacing: 0.01em;
       white-space: nowrap;
@@ -1097,7 +1088,7 @@
       gap: 16px;
     }
 
-    .stats-card .tag { color: #0e7c66; background: #d4f5ec; }
+    .stats-card .tag { color: #0a6a56; background: #d4f5ec; }
     [data-theme="dark"] .stats-card .tag { color: #5eead4; background: #0f2a25; }
 
     /* ============================================================
@@ -1138,16 +1129,16 @@
     .footer-col { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
     .footer-col > strong {
       margin-bottom: 8px;
-      font-size: 0.86rem;
+      font-size: var(--fs-sm);
       font-weight: 800;
       letter-spacing: 0.06em;
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(255, 255, 255, 0.64);
       text-transform: uppercase;
     }
     .footer-col a {
       padding: 4px 0;
       color: #cbd5e1;
-      font-size: 0.94rem;
+      font-size: var(--fs-sm);
       font-weight: 600;
       transition: color 0.15s ease;
     }
@@ -1162,11 +1153,11 @@
       border-radius: 11px;
       color: #0c223d;
       background: linear-gradient(135deg, #f3d9a4, #d4a955);
-      font-size: 0.82rem;
+      font-size: var(--fs-sm);
       font-weight: 900;
       letter-spacing: -0.04em;
     }
-    .footer-brand strong { font-size: 1.08rem; }
+    .footer-brand strong { font-size: var(--fs-lg); }
     .footer-col-brand p { line-height: 1.65; }
 
     .footer-inner {
@@ -1176,10 +1167,10 @@
       gap: 18px;
       flex-wrap: wrap;
     }
-    .footer-note { color: #8ba0bb; font-size: 0.86rem; }
+    .footer-note { color: #8ba0bb; font-size: var(--fs-sm); }
 
     .footer strong { color: #fff; letter-spacing: -0.03em; }
-    .footer p { margin: 4px 0 0; color: #b6c3d6; font-size: 0.92rem; font-weight: 500; }
+    .footer p { margin: 4px 0 0; color: #b6c3d6; font-size: var(--fs-sm); font-weight: 500; }
 
     .footer-badge {
       display: inline-flex;
@@ -1190,7 +1181,7 @@
       color: #f7efd9;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 0.86rem;
+      font-size: var(--fs-sm);
       font-weight: 800;
     }
 
@@ -1223,14 +1214,14 @@
     .footer-contact-text strong {
       display: block;
       color: #fff;
-      font-size: 1.04rem;
+      font-size: var(--fs-lg);
       font-weight: 800;
       letter-spacing: -0.03em;
     }
     .footer-contact-text p {
       margin: 5px 0 0;
       color: #b6c3d6;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       font-weight: 500;
       line-height: 1.5;
     }
@@ -1246,7 +1237,7 @@
       color: #2a1d06;
       background: var(--gold);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      font-size: 0.95rem;
+      font-size: var(--fs-md);
       font-weight: 800;
       letter-spacing: -0.01em;
       box-shadow: 0 10px 22px rgba(180, 137, 50, 0.3);
@@ -1306,11 +1297,14 @@
       .wrap { width: min(100% - 26px, var(--max)); }
 
       .nav {
+        min-height: 0;
         align-items: flex-start;
         flex-direction: column;
-        padding: 12px 0 10px;
-        gap: 8px;
+        padding: 10px 0 8px;
+        gap: 6px;
       }
+      .brand { gap: 10px; }
+      .brand-sub { display: none; }
       .nav-actions { width: 100%; justify-content: space-between; flex-wrap: nowrap; }
       /* 링크 줄바꿈 대신 가로 스크롤 — 헤더 높이를 두 줄로 고정 */
       .nav-links {
@@ -1321,17 +1315,23 @@
         -webkit-overflow-scrolling: touch;
       }
       .nav-links::-webkit-scrollbar { display: none; }
-      .nav-links a { padding: 7px 10px; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; }
-      .theme-toggle { flex-shrink: 0; }
-      .brand-mark { width: 40px; height: 40px; border-radius: 12px; }
+      .nav-links a { padding: 7px 10px; font-size: var(--fs-sm); white-space: nowrap; flex-shrink: 0; }
+      /* 더 있음을 알리는 우측 페이드 — 끝까지 스크롤하면 해제(JS가 클래스 관리) */
+      .nav-links.can-scroll {
+        -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent);
+                mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent);
+      }
+      .nav-links.can-scroll.at-end { -webkit-mask-image: none; mask-image: none; }
+      .theme-toggle { flex-shrink: 0; width: 36px; height: 36px; }
+      .brand-mark { width: 36px; height: 36px; border-radius: 11px; font-size: var(--fs-sm); }
 
-      section[id] { scroll-margin-top: 128px; }
+      section[id] { scroll-margin-top: calc(var(--topbar-h, 104px) + 10px); }
 
       .hero-box { padding: 30px 0 28px; gap: 20px; }
       .hero-actions { margin-top: 20px; }
-      .hero-actions .button { flex: 1 1 0; min-width: 0; padding: 12px 14px; font-size: 0.9rem; }
+      .hero-actions .button { flex: 1 1 0; min-width: 0; padding: 12px 14px; font-size: var(--fs-sm); }
       .button kbd { display: none; }
-      .hero-meta { font-size: 0.78rem; gap: 4px 10px; }
+      .hero-meta { font-size: var(--fs-xs); gap: 4px 10px; }
       .hero-meta span + span::before { margin-right: 10px; }
 
       /* 모바일에서도 2열 유지 — 스크롤 길이 단축 */
@@ -1342,11 +1342,11 @@
       }
       .card-ico { width: 32px; height: 32px; margin-bottom: 10px; border-radius: 9px; }
       .card-ico svg { width: 16px; height: 16px; }
-      .resource-card h3, .support-card h3, .instructional-card h3, .stats-card h3 { font-size: 0.98rem; }
-      .resource-card p, .support-card p, .instructional-card p, .stats-card p { font-size: 0.85rem; }
+      .resource-card h3, .support-card h3, .instructional-card h3, .stats-card h3 { font-size: var(--fs-md); }
+      .resource-card p, .support-card p, .instructional-card p, .stats-card p { font-size: var(--fs-sm); }
       .audience,
       .support-card .tag, .instructional-card .tag, .stats-card .tag {
-        top: 12px; right: 11px; font-size: 0.64rem; padding: 3px 7px;
+        top: 12px; right: 11px; font-size: var(--fs-xs); padding: 3px 7px;
       }
 
       .support-grid { grid-template-columns: 1fr; }
@@ -1417,7 +1417,7 @@
       background: transparent;
       color: var(--muted);
       font: inherit;
-      font-size: 0.84rem;
+      font-size: var(--fs-sm);
       font-weight: 700;
       cursor: pointer;
       transition: background 0.18s ease, color 0.18s ease;
@@ -1445,7 +1445,7 @@
     .global-result {
       padding: 8px 4px 0;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: var(--fs-sm);
       font-weight: 600;
     }
     .global-result strong { color: var(--ink); font-weight: 800; }
@@ -1489,7 +1489,7 @@
       align-self: center;
       justify-self: stretch;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: var(--fs-xs);
       padding: 5px 8px;
       border-radius: 7px;
     }
@@ -1499,14 +1499,14 @@
     body[data-view="compact"] .stats-card h3 {
       grid-column: 2; grid-row: 1;
       margin: 0;
-      font-size: 0.98rem;
+      font-size: var(--fs-md);
     }
     body[data-view="compact"] .resource-card p,
     body[data-view="compact"] .support-card p,
     body[data-view="compact"] .instructional-card p,
     body[data-view="compact"] .stats-card p {
       grid-column: 2; grid-row: 2;
-      font-size: 0.82rem;
+      font-size: var(--fs-sm);
     }
     body[data-view="compact"] .resource-card {
       transform: none !important;
@@ -1528,43 +1528,81 @@
     }
 
     /* ============================================================
-       Hero stats panel (replaces static focus message)
+       Hero season panel — 이달의 추천 자료 (현황 숫자 상자 대체)
        ============================================================ */
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 14px;
+    .hero-panel-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
     }
-    .hero-stat {
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      transition: background 0.18s ease, transform 0.18s ease;
-      text-align: left;
-      color: inherit;
-      cursor: pointer;
-    }
-    .hero-stat:hover, .hero-stat:focus-visible {
-      background: rgba(255, 255, 255, 0.18);
-      transform: translateY(-2px);
-    }
-    .hero-stat-num {
-      display: block;
-      font-size: 1.55rem;
-      font-weight: 900;
-      letter-spacing: -0.035em;
-      line-height: 1.05;
-    }
-    .hero-stat-label {
-      display: block;
-      margin-top: 4px;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 0.78rem;
+    .hero-panel-season {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: var(--fs-xs);
       font-weight: 700;
-      letter-spacing: 0.03em;
+      white-space: nowrap;
     }
+    .hero-picks { display: grid; gap: 6px; margin-top: 10px; }
+    .hero-pick {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px 9px 10px;
+      border-radius: 12px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .hero-pick:hover, .hero-pick:focus-visible {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(243, 217, 164, 0.55);
+      transform: translateX(3px);
+    }
+    .hero-pick .strip-ico {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      color: #f3d9a4;
+      background: rgba(212, 169, 85, 0.2);
+    }
+    .hero-pick .strip-ico svg { width: 15px; height: 15px; }
+    .hero-pick b {
+      flex: 1;
+      min-width: 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      font-size: var(--fs-sm);
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+    .hero-pick small {
+      flex-shrink: 0;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+    }
+    .hero-panel-foot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      margin-top: 6px;
+      color: #f3d9a4;
+      font-size: var(--fs-xs);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .hero-panel-foot svg { width: 13px; height: 13px; }
+    .hero-panel-foot:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .hero-panel.is-empty { display: none; }
 
     /* ============================================================
        Section empty / hidden when search filters everything out
@@ -1577,7 +1615,7 @@
       border-radius: var(--radius-md);
       background: var(--paper-2);
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: var(--fs-sm);
       text-align: center;
     }
     .section-empty.visible { display: block; }
@@ -1593,10 +1631,7 @@
       .scope-chips::-webkit-scrollbar { display: none; }
       .view-toggle { width: 100%; }
       .view-toggle button { flex: 1; min-width: 0; }
-      .hero-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-      .hero-stat { padding: 8px 6px; text-align: center; }
-      .hero-stat-num { font-size: 1.05rem; }
-      .hero-stat-label { font-size: 0.66rem; letter-spacing: 0; }
+      .hero-panel { padding: 16px 16px 18px; }
 
       body[data-view="compact"] .resource-card,
       body[data-view="compact"] .support-card,
@@ -1610,8 +1645,9 @@
     /* ============================================================
        (신규) 스트립 — 시즌 추천 · 즐겨찾기 · 최근 본 자료
        ============================================================ */
-    .strips { padding: 18px 0 0; }
-    .strip { margin-bottom: 10px; }
+    .strips { padding: 0; }
+    .strip { margin: 18px 0 0; }
+    .strip.visible + .strip.visible { margin-top: 10px; }
     .strip-head {
       display: flex;
       align-items: center;
@@ -1623,13 +1659,13 @@
       align-items: center;
       gap: 7px;
       color: var(--navy);
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       font-weight: 900;
       letter-spacing: -0.02em;
     }
     [data-theme="dark"] .strip-title { color: var(--ink); }
     .strip-title svg { width: 15px; height: 15px; color: var(--gold); }
-    .strip-hint { color: var(--muted); font-size: 0.78rem; font-weight: 600; }
+    .strip-hint { color: var(--muted); font-size: var(--fs-xs); font-weight: 600; }
 
     .strip-row {
       display: flex;
@@ -1673,7 +1709,7 @@
     }
     .strip-card .strip-ico svg { width: 15px; height: 15px; }
     .strip-card b {
-      font-size: 0.86rem;
+      font-size: var(--fs-sm);
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--ink);
@@ -1684,15 +1720,9 @@
     .strip-card small {
       flex-shrink: 0;
       color: var(--muted);
-      font-size: 0.7rem;
+      font-size: var(--fs-xs);
       font-weight: 700;
     }
-    /* 시즌 스트립 강조 톤 */
-    .strip-season .strip-card { border-color: rgba(180, 137, 50, 0.35); }
-    .strip-season .strip-card:hover { border-color: var(--gold); }
-    .strip-season .strip-card .strip-ico { color: #8a6420; background: var(--gold-soft); }
-    [data-theme="dark"] .strip-season .strip-card .strip-ico { color: var(--gold); }
-
     .strip { display: none; }
     .strip.visible { display: block; }
     .strip-remove {
@@ -1736,7 +1766,7 @@
       background: transparent;
       color: var(--muted);
       font: inherit;
-      font-size: 0.84rem;
+      font-size: var(--fs-sm);
       font-weight: 700;
       cursor: pointer;
       transition: background 0.18s ease, color 0.18s ease;
@@ -1759,7 +1789,7 @@
     }
     .type-chips .type-label {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: var(--fs-xs);
       font-weight: 800;
       margin-right: 2px;
     }
@@ -1786,7 +1816,7 @@
     .suggest-group {
       padding: 8px 12px 2px;
       color: var(--muted);
-      font-size: 0.7rem;
+      font-size: var(--fs-xs);
       font-weight: 900;
       letter-spacing: 0.06em;
     }
@@ -1815,7 +1845,7 @@
     .suggest-item .s-title {
       display: block;
       color: var(--ink);
-      font-size: 0.88rem;
+      font-size: var(--fs-sm);
       font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
@@ -1824,7 +1854,7 @@
     .suggest-item .s-desc {
       display: block;
       color: var(--muted);
-      font-size: 0.76rem;
+      font-size: var(--fs-xs);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1836,7 +1866,7 @@
       background: var(--paper-2);
       border: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.68rem;
+      font-size: var(--fs-xs);
       font-weight: 800;
       white-space: nowrap;
     }
@@ -1844,7 +1874,7 @@
       padding: 7px 12px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.72rem;
+      font-size: var(--fs-xs);
       font-weight: 600;
     }
     .suggest-foot kbd {
@@ -1853,7 +1883,7 @@
       border-radius: 4px;
       background: var(--paper-2);
       font-family: inherit;
-      font-size: 0.68rem;
+      font-size: var(--fs-xs);
     }
 
     /* ============================================================
@@ -1863,11 +1893,12 @@
       display: inline-flex;
       align-items: center;
       margin-right: 6px;
-      padding: 1px 7px;
+      padding: 0 6px;
       border-radius: 999px;
-      font-size: 0.62rem;
+      font-size: var(--fs-xs);
+      line-height: 1.5;
       font-weight: 900;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       vertical-align: 2px;
     }
     .badge-new { color: #fff; background: #d13b53; }
@@ -1904,6 +1935,13 @@
     .fav-btn:hover { background: var(--gold-soft); color: var(--gold); transform: scale(1.12); }
     .fav-btn[aria-pressed="true"] { opacity: 1; color: var(--gold); }
     .fav-btn[aria-pressed="true"] svg { fill: currentColor; }
+    /* 별 버튼 자리 확보 — 설명 마지막 줄과 겹치지 않도록 */
+    .resource-card > p, .support-card > p,
+    .instructional-card > p, .stats-card > p { padding-right: 30px; }
+    body[data-view="compact"] .resource-card > p,
+    body[data-view="compact"] .support-card > p,
+    body[data-view="compact"] .instructional-card > p,
+    body[data-view="compact"] .stats-card > p { padding-right: 0; }
     body[data-view="compact"] .fav-btn {
       position: static;
       grid-column: 3;
@@ -1920,7 +1958,6 @@
 
     /* 모바일 보정 */
     @media (max-width: 700px) {
-      .strips { padding-top: 14px; }
       .strip-card b { max-width: 170px; }
       .sort-toggle { width: 100%; }
       .sort-toggle button { flex: 1; min-width: 0; }
@@ -2023,40 +2060,23 @@
             </p>
           </div>
 
-          <aside class="hero-panel" aria-label="자료실 현황 한눈에 보기">
-            <span class="focus-label">자료실 현황</span>
-            <div class="hero-stats">
-              <a class="hero-stat" href="#admission" data-stat="admission">
-                <span class="hero-stat-num" id="statAdmission">—</span>
-                <span class="hero-stat-label">진학 자료</span>
-              </a>
-              <a class="hero-stat" href="#support" data-stat="support">
-                <span class="hero-stat-num" id="statSupport">—</span>
-                <span class="hero-stat-label">보조 자료</span>
-              </a>
-              <a class="hero-stat" href="#instructional" data-stat="instructional">
-                <span class="hero-stat-num" id="statInstructional">—</span>
-                <span class="hero-stat-label">수업 자료</span>
-              </a>
-              <a class="hero-stat" href="#statistics" data-stat="statistics">
-                <span class="hero-stat-num" id="statStatistics">—</span>
-                <span class="hero-stat-label">통계 자료</span>
-              </a>
+          <aside class="hero-panel" id="heroSeason" aria-label="이달의 추천 자료">
+            <div class="hero-panel-head">
+              <span class="focus-label">지금 시즌 추천</span>
+              <span class="hero-panel-season" id="seasonLabel"></span>
             </div>
+            <div class="hero-picks" id="seasonRow"></div>
+            <a class="hero-panel-foot" href="#admission">
+              전체 자료 둘러보기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- (신규) 시즌 추천 · 즐겨찾기 · 최근 본 자료 스트립 -->
+    <!-- (신규) 즐겨찾기 · 최근 본 자료 스트립 (시즌 추천은 히어로 패널에 표시) -->
     <div class="wrap strips">
-      <div class="strip strip-season" id="seasonStrip">
-        <div class="strip-head">
-          <span class="strip-title"><svg aria-hidden="true"><use href="#i-cal"></use></svg><span id="seasonLabel"></span></span>
-          <span class="strip-hint">시기에 맞춰 추천하는 자료</span>
-        </div>
-        <div class="strip-row" id="seasonRow"></div>
-      </div>
       <div class="strip strip-fav" id="favStrip">
         <div class="strip-head">
           <span class="strip-title"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="m12 2.5 3.09 6.26 6.91 1.01-5 4.87 1.18 6.88L12 18.27l-6.18 3.25L7 14.64 2 9.77l6.91-1.01z"/></svg>즐겨찾기</span>
@@ -3634,7 +3654,7 @@
                '<small>' + (TYPE_LABELS[e.type] || '') + '</small>';
       }
 
-      function renderRow(rowEl, ids, removable, onRemove) {
+      function renderRow(rowEl, ids, removable, onRemove, cls) {
         rowEl.innerHTML = '';
         var count = 0;
         ids.forEach(function (id) {
@@ -3642,7 +3662,7 @@
           if (!e) return;
           count += 1;
           var a = document.createElement('a');
-          a.className = 'strip-card';
+          a.className = cls || 'strip-card';
           a.href = e.href;
           a.innerHTML = stripCardHTML(e);
           a.addEventListener('click', function () { recordRecent(e.id); });
@@ -3668,22 +3688,23 @@
         return count;
       }
 
-      var seasonStrip = document.getElementById('seasonStrip');
+      var seasonPanel = document.getElementById('heroSeason');
       var favStrip = document.getElementById('favStrip');
       var recentStrip = document.getElementById('recentStrip');
 
       function renderStrips() {
-        // 시즌 추천
-        if (seasonStrip) {
+        // 시즌 추천 — 히어로 우측 패널
+        if (seasonPanel) {
           var month = String(new Date().getMonth() + 1);
           var season = SEASONS[month];
           var seasonRow = document.getElementById('seasonRow');
           var seasonLabel = document.getElementById('seasonLabel');
+          var n = 0;
           if (season && seasonRow) {
             if (seasonLabel) seasonLabel.textContent = season.label;
-            var n = renderRow(seasonRow, season.ids, false);
-            seasonStrip.classList.toggle('visible', n > 0);
+            n = renderRow(seasonRow, season.ids, false, null, 'hero-pick');
           }
+          seasonPanel.classList.toggle('is-empty', n === 0);
         }
         // 즐겨찾기
         if (favStrip) {
@@ -3775,9 +3796,20 @@
       var topbarEl = document.querySelector('.topbar');
       var ticking = false;
 
+      var navLinksEl = document.getElementById('navLinks');
+      function updateNavFade() {
+        if (!navLinksEl) return;
+        var canScroll = navLinksEl.scrollWidth > navLinksEl.clientWidth + 2;
+        var atEnd = !canScroll || navLinksEl.scrollLeft + navLinksEl.clientWidth >= navLinksEl.scrollWidth - 2;
+        navLinksEl.classList.toggle('can-scroll', canScroll);
+        navLinksEl.classList.toggle('at-end', atEnd);
+      }
+      if (navLinksEl) navLinksEl.addEventListener('scroll', updateNavFade, { passive: true });
+
       function measureSticky() {
         var th = topbarEl ? topbarEl.offsetHeight : 73;
         document.documentElement.style.setProperty('--topbar-h', th + 'px');
+        updateNavFade();
       }
       measureSticky();
       window.addEventListener('load', measureSticky);
