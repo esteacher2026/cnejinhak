@@ -169,6 +169,10 @@
     .badge.zero{background:var(--red-weak);border-color:#ffc9c2;color:var(--red)}
     .preview{margin:10px 0 0;color:#344054;font-size:13px}
     .preview b{color:#111827}
+    .preview.sample{color:#667085}
+    .preview.sample span{color:#8a94a6}
+    .pill.sample{border-style:dashed;color:#667085;background:#fff}
+    .sample-caption{font-size:12px;font-weight:700;color:#a15c07;margin-left:6px}
     .capacity-box{
       border:1px solid var(--line2);border-radius:8px;background:#fbfcfe;padding:12px;
       display:grid;gap:7px;min-width:0;
@@ -391,7 +395,7 @@
 
     <footer>
       <p><b>제작자:</b> 충청남도교육청진로융합교육원 교육연구사 정재연</p>
-      <p><b>기준:</b> 2027학년도 대학별 개설학과·모집인원 CSV, 전국대학별학과정보 메타데이터 재매칭</p>
+      <p><b>기준:</b> 2027학년도 대학별 개설학과·모집인원 CSV, 전국대학별학과정보 메타데이터 재매칭 (2026.10. 학과 오매칭·상담주제 교정)</p>
       <p><b>주의:</b> 본 도구는 진로진학 상담을 위한 탐색 자료이며, 전형별 최종 모집인원과 지원 가능 여부는 대학별 모집요강 및 대입정보포털에서 확인해야 합니다.</p>
     </footer>
   </main>
@@ -441,7 +445,9 @@
       '사회복지':['복지','상담','청소년','노인','아동'],
       '게임':['게임콘텐츠','게임그래픽','프로그래밍','콘텐츠'],
       '스마트팜':['농업','원예','식물','식품','데이터'],
-      '초등교육':['교육','교사','교육대학','교직']
+      '초등교육':['교육','교사','교육대학','교직'],
+      '충남':['충청남도'], '충북':['충청북도'], '전남':['전라남도'], '경북':['경상북도'], '경남':['경상남도'],
+      '전라북도':['전북특별자치도'], '강원도':['강원특별자치도'], '제주도':['제주특별자치도']
     };
     const state = {
       query:'',
@@ -497,12 +503,14 @@
       r.topics = Array.isArray(r.topics) ? r.topics : [];
       r.flags = Array.isArray(r.flags) ? r.flags : [];
       r.questions = Array.isArray(r.questions) ? r.questions : [];
+      r.sampleCourses = Array.isArray(r.sampleCourses) ? r.sampleCourses : [];
+      r.sampleCareers = Array.isArray(r.sampleCareers) ? r.sampleCareers : [];
       r._courses = r.courses.join(' ');
       r._careers = r.careers.join(' ');
       r._topics = r.topics.join(' ');
       r._flags = r.flags.join(' ');
       r._n = {
-        dept:norm(r.dept), school:norm(r.schoolDisplay || r.school), courses:norm(r._courses),
+        dept:norm(r.dept), school:norm(r.schoolDisplay || r.school), schoolBase:norm(r.school), courses:norm(r._courses),
         careers:norm(r._careers), topics:norm(r._topics),
         meta:norm([r.region,r.district,r.field,r.originalMajor,r.college,r.capacityBand,r.matchLabel].join(' '))
       };
@@ -544,45 +552,61 @@
       $('topDepartments').innerHTML = (AUDIT.topDepartments || []).slice(0, 8).map(x => `
         <div class="top-item"><b title="${esc(x.dept)}">${esc(x.dept)}</b><span>${nf.format(x.capacity)}명 · ${nf.format(x.count)}개교</span></div>`).join('');
     }
-    function expandedTerms(query){
+    // 검색어 단어마다 하나의 그룹(단어 + 유의어)을 만들고, 모든 그룹이 맞아야 결과에 포함(AND)
+    function termGroups(query){
       const raw = norm(query);
-      const base = raw.split(' ').filter(Boolean);
-      const map = new Map();
-      base.forEach(t => map.set(t, {term:t, weight:1, base:true}));
-      base.concat(raw ? [raw] : []).forEach(t => {
+      const base = [...new Set(raw.split(' ').filter(Boolean))];
+      return base.map(t => {
+        const group = [{term:t, weight:1, base:true}];
         (SYNONYMS[t] || []).forEach(s => {
           const ns = norm(s);
-          if(ns && !map.has(ns)) map.set(ns, {term:ns, weight:.52, base:false});
+          if(ns && !group.some(g => g.term === ns)) group.push({term:ns, weight:.52, base:false});
         });
+        return group;
       });
-      return [...map.values()];
     }
-    function scoreRecord(r, terms){
-      if(!terms.length) return 1 + Math.min(7, r.capacity / 80);
+    function termScore(r, t){
+      let local = 0;
+      if(r._n.dept === t) local += 130;
+      if(r._n.dept.includes(t)) local += 88;
+      if(r._n.school.includes(t)) local += 58;
+      if(r._n.careers.includes(t)) local += 54;
+      if(r._n.topics.includes(t)) local += 48;
+      if(r._n.courses.includes(t)) local += 34;
+      if(r._n.meta.includes(t)) local += 18;
+      if(r._search.includes(t)) local += 8;
+      return local;
+    }
+    function scoreRecord(r, groups){
+      if(!groups.length) return 1 + Math.min(7, r.capacity / 80);
       let score = 0;
-      let matched = 0;
-      for(const item of terms){
-        const t = item.term;
-        const w = item.weight;
-        let local = 0;
-        if(r._n.dept === t) local += 130;
-        if(r._n.dept.includes(t)) local += 88;
-        if(r._n.school.includes(t)) local += 58;
-        if(r._n.careers.includes(t)) local += 54;
-        if(r._n.topics.includes(t)) local += 48;
-        if(r._n.courses.includes(t)) local += 34;
-        if(r._n.meta.includes(t)) local += 18;
-        if(r._search.includes(t)) local += 8;
-        if(local > 0){ matched += item.base ? 1 : .35; score += local * w; }
+      for(const group of groups){
+        let best = 0;
+        for(const item of group) best = Math.max(best, termScore(r, item.term) * item.weight);
+        if(best <= 0) return -9999;
+        score += best;
       }
-      if(score <= 0) return -9999;
       score += Math.min(8, r.capacity / 70);
       score += (qualityRank[r.matchLevel] || 1) * .9;
-      return score + matched;
+      return score + groups.length;
+    }
+    // 대학명: 정확히 일치하는 학교가 있으면 그 학교만, 아니면 앞부분 일치, 그래도 없으면 부분 일치
+    const schoolNames = new Set(DATA.flatMap(r => [r._n.schoolBase, r._n.school]));
+    let schoolMatcher = {key:null, fn:() => true};
+    function schoolPass(r){
+      const q = norm(state.school);
+      if(schoolMatcher.key !== q){
+        let fn;
+        if(schoolNames.has(q)) fn = x => x._n.schoolBase === q || x._n.school === q;
+        else if(DATA.some(x => x._n.schoolBase.startsWith(q))) fn = x => x._n.schoolBase.startsWith(q);
+        else fn = x => x._n.school.includes(q);
+        schoolMatcher = {key:q, fn};
+      }
+      return schoolMatcher.fn(r);
     }
     function passFilters(r){
       const f = state.filters;
-      if(state.school && !norm(r.schoolDisplay).includes(norm(state.school)) && !norm(r.school).includes(norm(state.school))) return false;
+      if(state.school && !schoolPass(r)) return false;
       if(f.region && r.region !== f.region) return false;
       if(f.field && r.field !== f.field) return false;
       if(f.topic && !r.topics.includes(f.topic)) return false;
@@ -606,9 +630,9 @@
       return items;
     }
     function computeResults(){
-      const terms = expandedTerms(state.query);
-      const hasQuery = terms.length > 0;
-      let items = DATA.filter(passFilters).map(r => ({r, score: scoreRecord(r, terms)}));
+      const groups = termGroups(state.query);
+      const hasQuery = groups.length > 0;
+      let items = DATA.filter(passFilters).map(r => ({r, score: scoreRecord(r, groups)}));
       if(hasQuery) items = items.filter(x => x.score > 0);
       state.current = sortResults(items, hasQuery);
     }
@@ -636,7 +660,7 @@
     }
     function highlight(text){
       let out = esc(text || '');
-      const terms = expandedTerms(state.query).filter(x => x.base).map(x => x.term).filter(t => t.length >= 2);
+      const terms = termGroups(state.query).map(g => g[0].term).filter(t => t.length >= 2);
       terms.slice(0,4).forEach(t => {
         const safe = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         if(safe) out = out.replace(new RegExp(safe, 'gi'), m => '<mark>' + m + '</mark>');
@@ -666,8 +690,11 @@
       return badges.join('');
     }
     function cardHTML(r){
-      const courses = r.courses.slice(0, 7).join(' · ') || '교과·탐색 키워드 정보 없음';
-      const careers = r.careers.slice(0, 5).join(' · ') || '관련 직업 정보 없음';
+      const courses = r.courses.slice(0, 7).join(' · ');
+      const careers = r.careers.slice(0, 5).join(' · ');
+      const sampleLine = (label, list) => `<p class="preview sample"><b>${label}</b> · 학과별 정보 없음${list.length ? ` <span>(계열 공통 예시: ${esc(list.slice(0, 4).join(' · '))})</span>` : ''}</p>`;
+      const courseLine = courses ? `<p class="preview"><b>교과·탐색 키워드</b> · ${highlight(courses)}</p>` : sampleLine('교과·탐색 키워드', r.sampleCourses);
+      const careerLine = careers ? `<p class="preview"><b>관련 직업</b> · ${highlight(careers)}</p>` : sampleLine('관련 직업', r.sampleCareers);
       const topics = r.topics.slice(0, 5).map(t => '<span class="badge">' + esc(t) + '</span>').join('');
       const compared = state.compare.includes(r.id);
       const district = r.district ? ' ' + r.district : '';
@@ -688,8 +715,8 @@
               ${flagBadges(r)}
             </div>
             <div class="tag-list">${topics}</div>
-            <p class="preview"><b>교과·탐색 키워드</b> · ${highlight(courses)}</p>
-            <p class="preview"><b>관련 직업</b> · ${highlight(careers)}</p>
+            ${courseLine}
+            ${careerLine}
           </div>
           <aside class="capacity-box" aria-label="모집인원">
             <span>대표 모집인원</span>
@@ -727,6 +754,9 @@
         <div class="pill-wrap">${pill(r.courses)}</div>
         <h3 class="section-title">관련 직업</h3>
         <div class="pill-wrap">${pill(r.careers)}</div>
+        ${(!r.courses.length && r.sampleCourses.length) ? `
+        <h3 class="section-title">계열 공통 예시 <small class="sample-caption">이 학과의 실제 교육과정이 아닙니다. 대학 홈페이지 교육과정으로 확인하세요.</small></h3>
+        <div class="pill-wrap">${r.sampleCourses.concat(r.sampleCareers).map(c => '<span class="pill sample">' + esc(c) + '</span>').join('')}</div>` : ''}
         <h3 class="section-title">학생 상담 질문</h3>
         <div class="copy-box">${esc(questions)}</div>
         <h3 class="section-title">자료 검토 메모</h3>
@@ -757,8 +787,8 @@
     }
     function buildStudentSummary(r){
       const district = r.district ? ' ' + r.district : '';
-      const courses = r.courses.slice(0, 8).join(', ') || '정보 없음';
-      const careers = r.careers.slice(0, 6).join(', ') || '정보 없음';
+      const courses = r.courses.slice(0, 8).join(', ') || '학과별 정보 없음(대학 교육과정 확인 필요)';
+      const careers = r.careers.slice(0, 6).join(', ') || '학과별 정보 없음';
       const notes = r.flags.length ? r.flags.join('; ') : '특이사항 없음';
       return `${r.dept}
 - 학교/지역: ${r.schoolDisplay} · ${r.region || '지역 정보 없음'}${district}
@@ -807,8 +837,8 @@
       renderResults();
     }
     function rowsToCsv(rows){
-      const headers = ['학교','캠퍼스','학과','대표모집인원','원자료모집인원값','원자료행수','지역','시군구','계열분야','상담주제','교과탐색키워드','관련직업','자료보강상태','검토메모'];
-      const body = rows.map(r => [r.school,r.campus,r.dept,r.capacity,r.capacityValues.join('|'),r.rawRowCount,r.region,r.district,r.field,r.topics.join('|'),r.courses.join('|'),r.careers.join('|'),r.matchLabel,r.flags.join('|')]);
+      const headers = ['학교','캠퍼스','학과','대표모집인원','원자료모집인원값','원자료행수','지역','시군구','계열분야','상담주제','교과탐색키워드','관련직업','계열공통예시(실제교육과정아님)','자료보강상태','검토메모'];
+      const body = rows.map(r => [r.school,r.campus,r.dept,r.capacity,r.capacityValues.join('|'),r.rawRowCount,r.region,r.district,r.field,r.topics.join('|'),r.courses.join('|'),r.careers.join('|'),r.sampleCourses.concat(r.sampleCareers).join('|'),r.matchLabel,r.flags.join('|')]);
       return [headers, ...body].map(row => row.map(cell => '"' + String(cell ?? '').replace(/"/g,'""') + '"').join(',')).join('\n');
     }
     function downloadCsv(rows, filename){
