@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>2028 권장과목 아틀라스</title>
-<meta name="description" content="2028학년도 47개 대학 1,358개 모집단위의 핵심·권장과목을 과목 지도, 대학 지문, 모집단위 비교로 탐색합니다.">
+<meta name="description" content="2028학년도 47개 대학 1,358개 모집단위의 핵심·권장과목을 학과별·대학별로 찾고 모집단위끼리 비교합니다.">
 <meta name="theme-color" content="#0b0f1a">
 <link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,6 +73,29 @@ svg.i{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 .btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-weight:700;font-size:14px;transition:.2s;text-decoration:none}
 .btn.pri{background:#fff;color:#0b0f1a}.btn.pri:hover{transform:translateY(-1px);box-shadow:0 10px 30px -8px rgba(159,176,255,.6)}
 .btn.ghost{color:#dfe4ee;border:1px solid rgba(255,255,255,.18)}.btn.ghost:hover{background:rgba(255,255,255,.06)}
+.hsearch{display:flex;align-items:center;gap:10px;margin-top:34px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:6px 6px 6px 18px;max-width:560px;color:#aeb6c7;transition:.2s}
+.hsearch:focus-within{border-color:#9fb0ff;box-shadow:0 0 0 4px rgba(159,176,255,.18);background:rgba(255,255,255,.1)}
+.hsearch input{flex:1;min-width:0;height:50px;border:0;background:none;color:#fff;font-size:17px;outline:none}
+.hsearch input::placeholder{color:#8590a6}
+.hsearch button{height:46px;padding:0 22px;border-radius:12px;background:#fff;color:#0b0f1a;font-weight:800;font-size:15px}
+.hsearch button:hover{box-shadow:0 10px 30px -8px rgba(159,176,255,.7)}
+.hchips{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;max-width:560px}
+.hchips button{font-size:12.5px;font-weight:600;color:#cfd6e4;border:1px solid rgba(255,255,255,.15);padding:6px 12px;border-radius:999px;transition:.15s}
+.hchips button:hover{background:rgba(255,255,255,.1);color:#fff}
+.msearch{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px 10px 8px 18px;margin-bottom:18px;box-shadow:var(--shadow);color:var(--ink3)}
+.msearch:focus-within{border-color:var(--accent)}
+.msearch input{flex:1 1 260px;min-width:0;height:44px;border:0;background:none;font-size:16px;outline:none;color:var(--ink)}
+.mchips{display:flex;gap:5px;flex-wrap:wrap}
+.mchips button{font-size:12.5px;font-weight:650;padding:6px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink2);background:var(--surface2)}
+.mchips button:hover,.mchips button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.msum{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;padding:22px 26px;border-bottom:1px solid var(--line2);background:linear-gradient(180deg,var(--surface2),var(--surface))}
+.msum h3{margin:0;font:900 30px/1.2 var(--serif);letter-spacing:-.04em}
+.msum .meta{color:var(--ink3);font-size:13px;margin-top:6px}
+.msum .kpis{margin:16px 0 0}
+.mx .uname{font-weight:800;font-size:13.5px}
+.mx .uname em{font-style:normal;font-weight:500;color:var(--ink3);font-size:11.5px;margin-left:6px}
+.mx .rh .add{width:auto;margin-top:6px;padding:3px 8px;font-size:11px}
+.mx tr.zrow th{position:sticky;left:0;background:var(--surface2);text-align:left;padding:7px 22px;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--ink3)}
 .orbit{position:relative;aspect-ratio:1.18;width:100%}
 .orbit svg{width:100%;height:100%;overflow:visible}
 .node{cursor:pointer}
@@ -311,7 +334,7 @@ button.sj:hover{filter:brightness(1.05);transform:translateY(-1px)}
   .bar{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--hero)}
   .bar .wrap{gap:8px}.brand small,.home span,.kbtn kbd{display:none}.kbtn{padding:0 10px}
   .tabs{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));margin:0;justify-content:space-around;background:color-mix(in srgb,var(--hero) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:6px;z-index:44;box-shadow:0 12px 40px -10px rgba(0,0,0,.5)}
-  .tabs a{flex:1;text-align:center;padding:9px 4px;font-size:13px}
+  .tabs a{flex:1;text-align:center;padding:9px 2px;font-size:12.5px;white-space:nowrap}
   .tray{bottom:84px}
   .hero .wrap{padding-top:26px;padding-bottom:34px}
   .hero h1{font-size:40px}.lede{font-size:15px}
@@ -327,6 +350,7 @@ button.sj:hover{filter:brightness(1.05);transform:translateY(-1px)}
   .kpis{grid-template-columns:repeat(3,1fr)}.kpi b{font-size:23px}
   .barrow{grid-template-columns:84px 1fr 34px}
   .zbars{grid-template-columns:repeat(2,1fr)}
+  .msum{grid-template-columns:1fr;padding:18px;gap:18px}.msum h3{font-size:25px}.hsearch{margin-top:26px}.hsearch input{font-size:15px}.hsearch button{padding:0 16px}
   .fphead{padding:18px}.fphead .top{align-items:flex-start}.fphead h3{font-size:25px}
   .mx .rh{min-width:170px;max-width:190px;padding-left:14px}
   .mx td.txt{min-width:240px}
@@ -355,9 +379,10 @@ button.sj:hover{filter:brightness(1.05);transform:translateY(-1px)}
   <div class="wrap">
     <a class="brand" href="#top"><i></i>권장과목 아틀라스<small>2028</small></a>
     <nav class="tabs" aria-label="보기 전환">
-      <a href="#map" data-tab="map">과목 지도</a>
-      <a href="#univ" data-tab="univ">대학 지문</a>
+      <a href="#major" data-tab="major">학과로 찾기</a>
+      <a href="#univ" data-tab="univ">대학별</a>
       <a href="#compare" data-tab="compare">비교</a>
+      <a href="#map" data-tab="map">과목 통계</a>
     </nav>
     <div class="sp"></div>
     <button class="kbtn" id="openPal" aria-label="검색 열기"><svg class="i"><use href="#i-search"/></svg><span>대학·학과·과목 검색</span><kbd>Ctrl K</kbd></button>
@@ -370,16 +395,14 @@ button.sj:hover{filter:brightness(1.05);transform:translateY(-1px)}
   <div class="wrap">
     <div>
       <span class="eyebrow">2028학년도 · 대학별 권장과목</span>
-      <h1>과목을 고르면,<br><em>대학이 보인다.</em></h1>
-      <p class="lede">47개 대학이 밝힌 1,358개 모집단위의 핵심과목과 권장과목을 한 장의 지도로 펼쳤습니다. 과목에서 출발해 대학을 찾고, 대학의 과목 지문을 읽고, 모집단위끼리 나란히 비교해 보세요.</p>
+      <h1>가고 싶은 학과,<br><em>무엇을 들어야 할까.</em></h1>
+      <p class="lede">희망 학과나 대학을 입력하면 47개 대학 1,358개 모집단위가 밝힌 핵심과목·권장과목을 대학별로 나란히 펼쳐 보여 줍니다.</p>
+      <form class="hsearch" id="heroForm" role="search"><svg class="i"><use href="#i-search"/></svg><input id="heroIn" placeholder="희망 학과 또는 대학 (예: 기계, 간호, 서울대)" autocomplete="off" aria-label="희망 학과 또는 대학"><button type="submit">찾기</button></form>
+      <div class="hchips" id="heroChips"></div>
       <div class="stats">
         <div class="stat"><b data-count="47">47</b><span>수록 대학</span></div>
         <div class="stat"><b data-count="1,358">1,358</b><span>모집단위</span></div>
         <div class="stat"><b data-count="80">80</b><span>언급된 과목</span></div>
-      </div>
-      <div class="cta">
-        <a class="btn pri" href="#map">과목 지도 열기 <svg class="i"><use href="#i-arrow"/></svg></a>
-        <button class="btn ghost" id="heroSearch"><svg class="i"><use href="#i-search"/></svg> 학과로 바로 찾기</button>
       </div>
     </div>
     <div class="orbit" id="orbit" aria-label="과목 별자리: 원의 크기는 그 과목을 제시한 모집단위 수"><svg id="orbitSvg" viewBox="0 0 640 540" role="img"></svg><div class="legend" id="legend"></div></div>
@@ -387,20 +410,15 @@ button.sj:hover{filter:brightness(1.05);transform:translateY(-1px)}
 </section>
 
 <main>
-  <section class="sec" id="map">
+  <section class="sec" id="major">
     <div class="wrap">
       <div class="shead">
         <div class="idx">01</div>
-        <div><h2>과목 지도</h2><p>타일은 그 과목을 제시한 모집단위 수입니다. 색이 짙을수록 많이 제시됐고, 아래 막대는 핵심·권장·반영의 비율입니다. 여러 과목을 고르면 모두 제시한 모집단위만 남습니다.</p></div>
-        <div class="ctrl">
-          <div class="seg" id="zoneSeg" role="group" aria-label="권역"></div>
-          <div class="seg" id="roleSeg" role="group" aria-label="구분"></div>
-        </div>
+        <div><h2>학과로 찾기</h2><p>희망 학과 이름을 넣으면 그 학과를 모집하는 대학들이 어떤 과목을 핵심·권장으로 제시했는지 한 표에 겹쳐 보여 줍니다. 위쪽 요약은 대학들이 공통으로 많이 요구한 과목입니다.</p></div>
+        <div class="ctrl"><div class="seg" id="mzoneSeg" role="group" aria-label="권역"></div></div>
       </div>
-      <div class="map">
-        <div class="table" id="tiles"></div>
-        <aside class="panel" id="insight" aria-live="polite"></aside>
-      </div>
+      <div class="msearch"><svg class="i"><use href="#i-search"/></svg><input id="mq" type="search" placeholder="학과 이름 (예: 기계, 컴퓨터, 간호, 경영, 화학, 의예)" autocomplete="off" aria-label="학과 이름"><div class="mchips" id="mchips"></div></div>
+      <div class="fpcard" id="mcard"></div>
     </div>
   </section>
 
@@ -408,7 +426,7 @@ button.sj:hover{filter:brightness(1.05);transform:translateY(-1px)}
     <div class="wrap">
       <div class="shead">
         <div class="idx">02</div>
-        <div><h2>대학 지문</h2><p>한 대학의 모든 모집단위를 과목 축 위에 찍었습니다. 같은 무늬가 이어지면 그 대학이 계열 단위로 같은 과목을 요구한다는 뜻입니다. 행을 누르면 원문이 열립니다.</p></div>
+        <div><h2>대학별 보기</h2><p>한 대학의 모든 모집단위를 과목 축 위에 찍었습니다. 같은 무늬가 이어지면 그 대학이 계열 단위로 같은 과목을 요구한다는 뜻입니다. 행을 누르면 원문이 열립니다.</p></div>
         <div></div>
       </div>
       <div class="fp">
@@ -426,6 +444,23 @@ button.sj:hover{filter:brightness(1.05);transform:translateY(-1px)}
         <div></div>
       </div>
       <div class="cmpwrap" id="cmp"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="map">
+    <div class="wrap">
+      <div class="shead">
+        <div class="idx">04</div>
+        <div><h2>과목별 통계</h2><p>참고용 통계입니다. 타일은 그 과목을 제시한 모집단위 수이고, 아래 막대는 핵심·권장·반영의 비율입니다. 과목을 누르면 그 과목을 제시한 대학과 모집단위를 볼 수 있습니다.</p></div>
+        <div class="ctrl">
+          <div class="seg" id="zoneSeg" role="group" aria-label="권역"></div>
+          <div class="seg" id="roleSeg" role="group" aria-label="구분"></div>
+        </div>
+      </div>
+      <div class="map">
+        <div class="table" id="tiles"></div>
+        <aside class="panel" id="insight" aria-live="polite"></aside>
+      </div>
     </div>
   </section>
 </main>
@@ -489,7 +524,7 @@ const UNIVS = [...new Set(R.map(r => r.u))].sort(ko.compare);
 const UZ = {}; R.forEach(r => UZ[r.u] = UZ[r.u] || { z: r.z, rg: r.rg, n: 0 }); R.forEach(r => UZ[r.u].n++);
 
 // ── 상태
-const state = { zone: '', role: 'all', sel: [], univ: '서울대', cmp: [], limit: 40 };
+const state = { zone: '', role: 'all', sel: [], univ: '서울대', cmp: [], limit: 40, major: '', mzone: '' };
 try { const c = JSON.parse(localStorage.getItem('atlas-cmp') || '[]'); if (Array.isArray(c)) state.cmp = c.filter(id => byId.has(id)).slice(0, 4); } catch (e) {}
 const ROLE = { all: '전체', c: '핵심', r: '권장', i: '반영' };
 const has = (r, i, role = state.role) => role === 'all' ? r.all.has(i) : role === 'c' ? r.C.has(i) : role === 'r' ? r.Rr.has(i) : r.I.has(i);
@@ -568,7 +603,7 @@ function renderInsight(pool, base) {
     <div class="kpis"><div class="kpi"><b>${fmt(pool.length)}</b><span>모집단위</span></div><div class="kpi"><b>${ut.length}</b><span>대학</span></div><div class="kpi"><b>${pool.length ? Math.round(coreN / pool.length * 100) : 0}<small style="font-size:15px">%</small></b><span>핵심으로 제시</span></div></div>
     ${pool.length ? `
     ${!state.zone ? `<div class="blk"><h4>권역 분포</h4><div class="zbars">${zc.map(([z, n]) => `<div class="zb">${z}<b>${fmt(n)}</b><i style="width:${n / zm * 100}%"></i></div>`).join('')}</div></div>` : ''}
-    <div class="blk"><h4>많이 제시한 대학 <small>누르면 대학 지문</small></h4>${barRows(ut.slice(0, 8).map(([u, n]) => ({ l: u, a: n, u })), ut[0][1], x => `data-univ="${esc(x.u)}"`)}</div>
+    <div class="blk"><h4>많이 제시한 대학 <small>누르면 대학별 보기</small></h4>${barRows(ut.slice(0, 8).map(([u, n]) => ({ l: u, a: n, u })), ut[0][1], x => `data-univ="${esc(x.u)}"`)}</div>
     ${co.length ? `<div class="blk"><h4>함께 제시된 과목 <small>누르면 조건에 추가</small></h4><div class="chips">${co.map(x => `<button class="sj" style="--c:${gc(x.v.g)}" data-pick="${x.v.i}">${esc(x.v.n)} <b style="font:600 11px var(--num);opacity:.8">${x.n}</b></button>`).join('')}</div></div>` : ''}
     <div class="blk"><h4>모집단위 <small>${fmt(list.length)}개 · 핵심 우선</small></h4><div class="units">${list.slice(0, state.limit).map(ucard).join('')}</div>${list.length > state.limit ? `<button class="more" data-more>더 보기 (${fmt(list.length - state.limit)}개 남음)</button>` : ''}</div>`
     : `<div class="guide">조건을 모두 만족하는 모집단위가 없습니다. 과목을 하나 빼거나 구분을 ‘전체’로 넓혀 보세요.</div>`}
@@ -653,10 +688,65 @@ function renderFp() {
   const z = UZ[state.univ];
   $('fpcard').innerHTML = `<div class="fphead"><div><h3>${esc(state.univ)}</h3><div class="meta">${esc(z.z)} · ${esc(z.rg)} · 모집단위 ${rows.length}개 · ${split ? `핵심·권장 구분 ${split}개` : '핵심·권장 구분 없이 제시'}${split && split < rows.length ? ` · 구분 없이 ${rows.length - split}개` : ''}</div></div>
     <div class="top"><small>가장 자주 등장한 과목</small><div class="chips">${freq.length ? freq.map(([i, n]) => sj(i, '', ` <b style="font:600 11px var(--num);opacity:.75">${n}</b>`)).join('') : '<span class="sj" style="--c:var(--g7)">과목명 없이 안내</span>'}</div></div></div>
-  <div class="mx"><table><thead><tr><th class="rh">모집단위</th>${used.map(i => `<th class="sub" style="--c:${gc(V[i].g)}" title="${esc(V[i].n)}"><span>${esc(V[i].n)}</span></th>`).join('')}${anyGen ? '<th style="text-align:left;padding-left:12px;font-size:11.5px;color:var(--ink3)">교과 단위</th>' : ''}${anyTxt || !used.length ? '<th style="text-align:left;padding-left:16px;font-size:11.5px;color:var(--ink3)">안내 문구</th>' : ''}</tr></thead>
-  <tbody>${rows.map(r => `<tr><th class="rh" scope="row"><button data-open="${r.id}">${r.p ? `<small>${esc(r.p)}</small>` : ''}${esc(r.n)}</button></th>${used.map(i => { const k = roleOf(r, i); return `<td class="cell">${k ? `<span class="dot ${k}" style="--c:${gc(V[i].g)}" title="${esc(V[i].n)} · ${k === 'c' ? '핵심' : k === 'r' ? '권장' : '반영'}"></span>` : ''}</td>`; }).join('')}${anyGen ? `<td class="gen">${r.gen.map(genChip).join(' ')}</td>` : ''}${anyTxt || !used.length ? `<td class="txt">${!r.all.size && !r.gen.length ? esc(r.c || r.r || r.i || '—') : ''}</td>` : ''}</tr>`).join('')}</tbody></table></div>
-  <div class="fpleg"><span><i class="dot c"></i>핵심과목</span><span><i class="dot r"></i>권장과목</span><span><i class="dot g"></i>반영(구분 없이 제시)</span><span>행을 누르면 원문과 비슷한 다른 대학 모집단위를 볼 수 있습니다</span></div>`;
+  ${matrixHtml(rows, false)}`;
 }
+// 모집단위 × 과목 매트릭스 (대학별 보기·학과로 찾기 공용)
+function matrixHtml(rows, multi) {
+  const used = [...new Set(rows.flatMap(r => [...r.all]))].sort((a, b) => V[a].g - V[b].g || a - b);
+  const anyGen = rows.some(r => r.gen.length), anyTxt = rows.some(r => !r.all.size && !r.gen.length) || !used.length;
+  const span = 1 + used.length + (anyGen ? 1 : 0) + (anyTxt ? 1 : 0);
+  let zone = '';
+  const body = rows.map(r => {
+    const head = multi && r.z !== zone ? (zone = r.z, `<tr class="zrow"><th colspan="${span}">${esc(r.z)}</th></tr>`) : '';
+    const on = state.cmp.includes(r.id);
+    const name = multi ? `<span class="uname">${esc(r.u)}<em>${esc(r.rg)}</em></span><small>${esc(r.label)}</small>` : `${r.p ? `<small>${esc(r.p)}</small>` : ''}${esc(r.n)}`;
+    return head + `<tr><th class="rh" scope="row"><button data-open="${r.id}">${name}</button>${multi ? `<button class="add${on ? ' on' : ''}" data-cmp="${r.id}" aria-pressed="${on}">${on ? '✓ 담김' : '+ 비교'}</button>` : ''}</th>${used.map(i => { const k = roleOf(r, i); return `<td class="cell">${k ? `<span class="dot ${k}" style="--c:${gc(V[i].g)}" title="${esc(V[i].n)} · ${k === 'c' ? '핵심' : k === 'r' ? '권장' : '반영'}"></span>` : ''}</td>`; }).join('')}${anyGen ? `<td class="gen">${r.gen.map(genChip).join(' ')}</td>` : ''}${anyTxt ? `<td class="txt">${!r.all.size && !r.gen.length ? esc(r.c || r.r || r.i || '—') : ''}</td>` : ''}</tr>`;
+  }).join('');
+  return `<div class="mx"><table><thead><tr><th class="rh">${multi ? '대학 · 모집단위' : '모집단위'}</th>${used.map(i => `<th class="sub" style="--c:${gc(V[i].g)}" title="${esc(V[i].n)}"><span>${esc(V[i].n)}</span></th>`).join('')}${anyGen ? '<th style="text-align:left;padding-left:12px;font-size:11.5px;color:var(--ink3)">교과 단위</th>' : ''}${anyTxt ? '<th style="text-align:left;padding-left:16px;font-size:11.5px;color:var(--ink3)">안내 문구</th>' : ''}</tr></thead><tbody>${body}</tbody></table></div>
+  <div class="fpleg"><span><i class="dot c"></i>핵심과목</span><span><i class="dot r"></i>권장과목</span><span><i class="dot g"></i>반영(구분 없이 제시)</span><span>행을 누르면 대학 원문과 비슷한 다른 대학 모집단위를 볼 수 있습니다</span></div>`;
+}
+
+// ── 01 학과로 찾기
+const MAJOR_ALIAS = [[/컴공/g, '컴퓨터'], [/전전/g, '전자'], [/의대/g, '의예'], [/치대/g, '치의'], [/한의대/g, '한의'], [/약대/g, '약학'], [/수의대/g, '수의'], [/간호대/g, '간호'], [/교대/g, '교육']];
+const MAJOR_PICKS = ['기계', '컴퓨터', '전자', '화학', '생명', '간호', '의예', '약학', '경영', '경제', '국어국문', '영어영문', '교육', '심리', '건축'];
+function majorTokens(q) { let s = String(q || ''); MAJOR_ALIAS.forEach(([re, to]) => s = s.replace(re, to)); return norm(s).trim().split(/\s+/).filter(Boolean); }
+function majorRows() {
+  const toks = majorTokens(state.major); if (!toks.length) return [];
+  const zi = z => ZONES.indexOf(z);
+  return R.filter(r => (!state.mzone || r.z === state.mzone) && toks.every(t => norm(r.p + ' ' + r.n + ' ' + r.u).includes(t)) && toks.some(t => norm(r.p + ' ' + r.n).includes(t)))
+    .sort((a, b) => zi(a.z) - zi(b.z) || ko.compare(a.u, b.u) || a.id - b.id);
+}
+function renderMajor() {
+  seg($('mzoneSeg'), [['', '전국'], ...ZONES.map(z => [z, z])], state.mzone, v => { state.mzone = v; renderMajor(); sync(); });
+  if (document.activeElement !== $('mq')) $('mq').value = state.major;
+  $('mchips').innerHTML = MAJOR_PICKS.map(m => `<button data-major="${esc(m)}" aria-pressed="${norm(state.major) === norm(m)}">${esc(m)}</button>`).join('');
+  const el = $('mcard');
+  if (!state.major.trim()) { el.innerHTML = `<div class="cmpempty"><b>희망 학과 이름을 입력해 보세요</b>‘기계’처럼 학과 이름의 일부만 넣어도 됩니다. 대학 이름을 함께 넣으면(예: 서울대 화학) 그 대학으로 좁혀집니다.</div>`; return; }
+  const rows = majorRows();
+  if (!rows.length) { el.innerHTML = `<div class="cmpempty"><b>‘${esc(state.major)}’에 해당하는 모집단위가 없습니다</b>학과 이름을 짧게 줄여 보세요(예: ‘기계공학과’ → ‘기계’). 이 자료는 47개 대학이 공개한 안내만 담고 있어 없는 대학도 있습니다.</div>`; return; }
+  const univs = new Set(rows.map(r => r.u)).size, withSubj = rows.filter(r => r.all.size).length;
+  const st = V.map(v => ({ v, c: rows.filter(r => r.C.has(v.i)).length, r: rows.filter(r => r.Rr.has(v.i) && !r.C.has(v.i)).length, g: rows.filter(r => r.I.has(v.i) && !r.C.has(v.i) && !r.Rr.has(v.i)).length }))
+    .map(x => ({ ...x, n: x.c + x.r + x.g })).filter(x => x.n).sort((a, b) => b.n - a.n || b.c - a.c).slice(0, 10);
+  const top = st[0] ? st[0].n : 1;
+  el.innerHTML = `<div class="msum"><div><div class="pkick">학과로 찾기${state.mzone ? ' · ' + esc(state.mzone) : ''}</div><h3 style="margin-top:6px">‘${esc(state.major)}’</h3><div class="meta">이름에 ‘${esc(majorTokens(state.major).join(' '))}’가 들어간 모집단위</div>
+      <div class="kpis"><div class="kpi"><b>${univs}</b><span>대학</span></div><div class="kpi"><b>${rows.length}</b><span>모집단위</span></div><div class="kpi"><b>${withSubj}</b><span>과목명 제시</span></div></div></div>
+    <div class="blk" style="margin:0"><h4>대학들이 많이 요구한 과목 <small>■ 핵심 ▧ 권장 ▫ 반영 · 숫자 = 모집단위 수</small></h4>${st.length ? `<div class="bars">${st.map(x => `<div class="barrow" style="--c:${gc(x.v.g)}"><span class="lb">${esc(x.v.n)}</span><span class="tr"><i style="width:${(x.c / top * 100).toFixed(1)}%"></i><i class="r" style="width:${(x.r / top * 100).toFixed(1)}%"></i><i class="r" style="width:${(x.g / top * 100).toFixed(1)}%;opacity:.5"></i></span><span class="v">${x.n}</span></div>`).join('')}</div>` : '<div class="guide">이 학과를 모집하는 대학들은 과목명 대신 교과 단위나 안내 문구로 제시했습니다. 아래 표의 원문을 확인해 주세요.</div>'}</div></div>
+  ${matrixHtml(rows, true)}`;
+}
+let mTimer;
+$('mq').addEventListener('input', () => { clearTimeout(mTimer); mTimer = setTimeout(() => { state.major = $('mq').value; renderMajor(); sync(); }, 150); });
+$('mchips').addEventListener('click', e => { const b = e.target.closest('[data-major]'); if (b) setMajor(b.dataset.major); });
+function setMajor(m, scroll) { state.major = m; $('mq').value = m; renderMajor(); sync(); if (scroll) $('major').scrollIntoView(); }
+$('heroChips').innerHTML = ['기계', '컴퓨터', '간호', '의예', '경영', '화학', '서울대', '충남대'].map(m => `<button type="button" data-hero="${esc(m)}">${esc(m)}</button>`).join('');
+function heroGo(q) {
+  q = q.trim(); if (!q) { $('major').scrollIntoView(); return; }
+  if (UZ[q] || UNIVS.includes(q)) { showUniv(q, true); return; }
+  const u = UNIVS.find(x => norm(x) === norm(q) || norm(x).replace(/\(.*\)/, '') === norm(q));
+  if (u) { showUniv(u, true); return; }
+  setMajor(q, true);
+}
+$('heroForm').addEventListener('submit', e => { e.preventDefault(); heroGo($('heroIn').value); });
+$('heroChips').addEventListener('click', e => { const b = e.target.closest('[data-hero]'); if (b) { $('heroIn').value = b.dataset.hero; heroGo(b.dataset.hero); } });
 
 // ── 03 비교
 function saveCmp() { try { localStorage.setItem('atlas-cmp', JSON.stringify(state.cmp)); } catch (e) {} }
@@ -675,7 +765,7 @@ function inView(el) { const b = el.getBoundingClientRect(); return b.top < inner
 function renderCmp() {
   const rs = state.cmp.map(id => byId.get(id)).filter(Boolean);
   if (!rs.length) {
-    $('cmp').innerHTML = `<div class="cmpempty"><b>아직 담긴 모집단위가 없습니다</b>과목 지도나 대학 지문에서 ‘+ 비교’를 눌러 담아 보세요. 예시로 시작할 수도 있습니다.<div class="cta">${SAMPLES.map((s, k) => `<button class="btn" data-sample="${k}">${esc(s[0])}</button>`).join('')}</div></div>`;
+    $('cmp').innerHTML = `<div class="cmpempty"><b>아직 담긴 모집단위가 없습니다</b>학과로 찾기나 대학별 보기에서 ‘+ 비교’를 눌러 담아 보세요. 예시로 시작할 수도 있습니다.<div class="cta">${SAMPLES.map((s, k) => `<button class="btn" data-sample="${k}">${esc(s[0])}</button>`).join('')}</div></div>`;
     return;
   }
   const subs = [...new Set(rs.flatMap(r => [...r.all]))].sort((a, b) => V[a].g - V[b].g || a - b);
@@ -729,7 +819,7 @@ function openSheet(id) {
   const onC = state.cmp.includes(r.id), sims = similar(r);
   const role = (cls, title, sub, set, raw) => `<div class="role ${cls}"><h5>${title}<small>${sub}</small></h5><div class="rc">${set.length ? `<div class="chips">${set.join('')}</div>` : ''}<p class="raw">${esc(raw || '—')}</p></div></div>`;
   $('sheet').innerHTML = `<div class="shd"><div class="crumb">${esc(r.z)} · ${esc(r.rg)} · ${esc(r.u)}${r.p ? ' · ' + esc(r.p) : ''}</div><h3 id="shTitle">${esc(r.n)}</h3><button class="x" data-close aria-label="닫기"><svg class="i"><use href="#i-x"/></svg></button>
-    <div class="acts"><button class="sbtn${onC ? ' on' : ''}" data-cmp="${r.id}">${onC ? '✓ 비교에 담김' : '+ 비교에 담기'}</button><button class="sbtn" data-gouniv="${esc(r.u)}">${esc(r.u)} 지문 보기</button><button class="sbtn" data-link="${r.id}">링크 복사</button></div></div>
+    <div class="acts"><button class="sbtn${onC ? ' on' : ''}" data-cmp="${r.id}">${onC ? '✓ 비교에 담김' : '+ 비교에 담기'}</button><button class="sbtn" data-gouniv="${esc(r.u)}">${esc(r.u)} 전체 보기</button><button class="sbtn" data-link="${r.id}">링크 복사</button></div></div>
   <div class="sbody">
     ${r.m === 's' ? role('core', '핵심과목', '필수적 이수를 권장', [...r.cs.map(i => sj(i, 'c')), ...r.cg.map(genChip)], r.c) + role('rec', '권장과목', '가급적 이수를 권장', [...r.rs.map(i => sj(i, 'r')), ...r.rgn.map(genChip)], r.r)
       : role('int', '반영과목', '핵심·권장 구분 없이 제시', [...r.is.map(i => sj(i, 'g')), ...r.ig.map(genChip)], r.i)}
@@ -767,8 +857,10 @@ function palSearch() {
   const toks = norm(raw).trim().split(/\s+/).filter(Boolean);
   const out = [];
   if (!toks.length) {
-    out.push(['바로가기', [{ k: 'go', l: '과목 지도', s: '01', a: () => $('map').scrollIntoView() }, { k: 'go', l: '대학 지문', s: '02', a: () => $('univ').scrollIntoView() }, { k: 'go', l: '나란히 비교', s: '03', a: () => $('compare').scrollIntoView() }]]);
+    out.push(['바로가기', [{ k: 'go', l: '학과로 찾기', s: '01', a: () => $('major').scrollIntoView() }, { k: 'go', l: '대학별 보기', s: '02', a: () => $('univ').scrollIntoView() }, { k: 'go', l: '나란히 비교', s: '03', a: () => $('compare').scrollIntoView() }, { k: 'go', l: '과목별 통계', s: '04', a: () => $('map').scrollIntoView() }]]);
   } else {
+    const majorN = majorTokens(raw).length ? R.filter(r => majorTokens(raw).every(t => norm(r.p + ' ' + r.n + ' ' + r.u).includes(t)) && majorTokens(raw).some(t => norm(r.p + ' ' + r.n).includes(t))) : [];
+    if (majorN.length) out.push(['학과로 찾기', [{ k: 'go', l: `‘${raw.trim()}’ 대학별로 비교`, s: `${new Set(majorN.map(r => r.u)).size}개 대학 · ${majorN.length}개 모집단위`, a: () => setMajor(raw.trim(), true) }]]);
     const subs = V.filter(v => toks.every(t => norm(v.n + ' ' + v.a).includes(t))).slice(0, 5).map(v => ({ k: 'sub', l: v.n, s: GLABEL[v.g], c: v.g, a: () => { toggleSubject(v.i, true); $('map').scrollIntoView(); } }));
     const us = UNIVS.filter(u => toks.every(t => norm(u + ' ' + UZ[u].rg + ' ' + UZ[u].z).includes(t))).slice(0, 5).map(u => ({ k: 'uni', l: u, s: `${UZ[u].rg} · ${UZ[u].n}개 모집단위`, a: () => showUniv(u, true) }));
     const units = R.filter(r => toks.every(t => r.q.includes(t) || r.qx.includes(t))).sort((a, b) => (toks.every(t => b.q.includes(t)) - toks.every(t => a.q.includes(t))) || ko.compare(a.u, b.u)).slice(0, 30).map(r => ({ k: 'unit', l: `${r.u} · ${r.n}`, s: r.p || r.rg, a: () => openSheet(r.id) }));
@@ -788,7 +880,7 @@ $('palIn').addEventListener('keydown', e => {
 });
 $('palRes').addEventListener('click', e => { const b = e.target.closest('[data-pi]'); if (b) palGo(+b.dataset.pi); });
 $('pal').addEventListener('click', e => { if (e.target === $('pal')) closePal(); });
-$('openPal').onclick = openPal; $('heroSearch').onclick = openPal;
+$('openPal').onclick = openPal;
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); $('pal').classList.contains('on') ? closePal() : openPal(); }
   else if (e.key === '/' && !e.target.closest('input,textarea')) { e.preventDefault(); openPal(); }
@@ -807,6 +899,8 @@ $('theme').onclick = () => {
 // ── 주소 동기화
 function sync() {
   const p = new URLSearchParams();
+  if (state.major.trim()) p.set('m', state.major.trim());
+  if (state.mzone) p.set('mz', state.mzone);
   if (state.sel.length) p.set('s', state.sel.map(i => V[i].n).join(','));
   if (state.zone) p.set('z', state.zone);
   if (state.role !== 'all') p.set('role', state.role);
@@ -818,6 +912,8 @@ function sync() {
 function loadHash() {
   const p = new URLSearchParams(location.hash.slice(1)); if (![...p.keys()].length) return null;
   const s = (p.get('s') || '').split(',').map(n => V.findIndex(v => v.n === n)).filter(i => i >= 0); if (s.length) state.sel = s;
+  if (p.get('m')) state.major = p.get('m').slice(0, 40);
+  if (ZONES.includes(p.get('mz'))) state.mzone = p.get('mz');
   if (ZONES.includes(p.get('z'))) state.zone = p.get('z');
   if (ROLE[p.get('role')]) state.role = p.get('role');
   if (UZ[p.get('u')]) state.univ = p.get('u');
@@ -827,7 +923,7 @@ function loadHash() {
 async function share() { sync(); try { await navigator.clipboard.writeText(location.href); toast('현재 화면 링크를 복사했습니다'); } catch (e) { prompt('아래 주소를 복사해 주세요', location.href); } }
 
 // ── 탭 하이라이트 · 숫자 애니메이션
-const secs = ['map', 'univ', 'compare'];
+const secs = ['major', 'univ', 'compare', 'map'];
 function onScroll() {
   let cur = ''; secs.forEach(id => { if ($(id).getBoundingClientRect().top < innerHeight * .45) cur = id; });
   document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('on', a.dataset.tab === cur));
@@ -845,7 +941,7 @@ function countUp() {
 
 // ── 시작
 const openId = loadHash();
-buildOrbit(); renderMap(); renderUlist(); renderFp(); renderCmp(); renderTray(); countUp(); onScroll();
+buildOrbit(); renderMajor(); renderMap(); renderUlist(); renderFp(); renderCmp(); renderTray(); countUp(); onScroll();
 if (openId) openSheet(openId);
 </script>
 </body>
