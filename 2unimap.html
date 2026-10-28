@@ -164,6 +164,25 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
   .panel-toggle .grip{width:40px;height:4px;border-radius:4px;background:#cfd6e0;position:absolute;top:9px;left:50%;transform:translateX(-50%);}
   .list{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 18px);}
 }
+
+.bm-switch{display:flex;gap:2px;padding:3px;background:rgba(255,255,255,.95);border:1px solid rgba(15,23,42,.15);border-radius:10px;box-shadow:0 2px 10px rgba(15,23,42,.15);font-family:inherit}
+.bm-switch button{border:0;background:transparent;border-radius:7px;padding:5px 10px;font-size:12.5px;font-weight:700;color:#475569;cursor:pointer;font-family:inherit}
+.bm-switch button.on{background:#0f2747;color:#fff}
+[data-theme=dark] .bm-switch{background:rgba(22,28,39,.95);border-color:#2a3342}[data-theme=dark] .bm-switch button{color:#97a3b6}[data-theme=dark] .bm-switch button.on{background:#2dd4bf;color:#0d1117}
+.leaflet-control-attribution{font-size:10.5px}
+
+.flt2{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.flt2 .seg2{display:inline-flex;gap:2px;padding:2px;background:#f1f5f9;border-radius:9px}
+.flt2 .seg2 button{border:0;background:transparent;border-radius:7px;padding:4px 10px;font-size:12.5px;font-weight:700;color:#64748b;cursor:pointer;font-family:inherit}
+.flt2 .seg2 button.on{background:#fff;color:#0f172a;box-shadow:0 1px 3px rgba(15,23,42,.15)}
+.flt2 label{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:#475569;cursor:pointer}
+.flt2 label input{accent-color:#ea580c}
+.item .km{margin-left:auto;font-size:11.5px;font-weight:800;color:#ea580c;white-space:nowrap;font-variant-numeric:tabular-nums}
+.item .km+.ips{margin-left:6px}
+.near-hd{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;font-size:12px;font-weight:800;color:#9a3412;background:#fff7ed;border-bottom:1px solid #fed7aa}
+.near-hd button{border:0;background:none;color:#9a3412;font-weight:800;cursor:pointer;font-size:12px;font-family:inherit;text-decoration:underline}
+.p-route{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:6px;font-size:12.5px;font-weight:700;color:#475569;text-decoration:none;border:1px solid #e2e8f0;border-radius:9px;padding:7px}
+.p-route:hover{border-color:#94a3b8;color:#0f172a}
 </style>
 </head>
 <body>
@@ -206,8 +225,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
           <button class="chip" data-r="호남">호남</button>
           <button class="chip" data-r="제주">제주</button>
         </div>
+        <div class="flt2" id="flt2"><div class="seg2" id="typeSeg"><button type="button" class="on" data-t="">설립 전체</button><button type="button" data-t="사립">사립</button><button type="button" data-t="공립">공립(도립)</button></div><label><input type="checkbox" id="ipsiOnly"> 전문대학포털 입시정보 있는 곳</label></div>
       </div>
-      <div class="count"><b id="cnt">0</b><span>개교 표시 중</span></div>
+      <div class="count"><b id="cnt">0</b><span id="cntTail">개교 표시 중</span></div>
       <div class="list" id="list"></div>
       <div class="panel-foot">
         <div><span class="k">제작</span> 충청남도교육청진로융합교육원 교육연구사 정재연</div>
@@ -245,7 +265,43 @@ function getLogo(d){const m=window.EMBLEMS||{};return m[d.name]?('2unimap-emblem
 
 const KOREA_BOUNDS = L.latLngBounds([32.9,124.4],[38.8,131.3]);
 const map = L.map('map',{zoomControl:true,scrollWheelZoom:true,minZoom:7,maxBounds:KOREA_BOUNDS,maxBoundsViscosity:1.0}).setView([36.3,127.8],7);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19,bounds:KOREA_BOUNDS,noWrap:true}).addTo(map);
+/* ---------- 배경지도 (2026-10-29: CARTO 무료 타일이 API 키를 요구해 교체) ---------- */
+const BASEMAPS = {
+  osm:   { label: "기본", url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png", opt: { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> 기여자' } },
+  light: { label: "밝게", url: "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", opt: { maxZoom: 19, maxNativeZoom: 16, attribution: "Tiles &copy; Esri" } },
+  dark:  { label: "어둡게", url: "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", opt: { maxZoom: 19, maxNativeZoom: 16, attribution: "Tiles &copy; Esri" } },
+  sat:   { label: "위성", url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", opt: { maxZoom: 19, maxNativeZoom: 18, attribution: "Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics" } },
+};
+function makeBaseSwitch(map, opts) {
+  const key = opts.storeKey, choices = opts.choices, layers = {};
+  let cur = null, style = choices[0];
+  try { const s = localStorage.getItem(key); if (choices.includes(s)) style = s; } catch (e) {}
+  const resolve = () => (style === "osm" && opts.isDark && opts.isDark() ? "dark" : style);
+  function sync() {
+    const k = resolve();
+    if (!layers[k]) layers[k] = L.tileLayer(BASEMAPS[k].url, Object.assign({ bounds: opts.bounds, noWrap: true }, BASEMAPS[k].opt));
+    if (cur && cur !== layers[k]) map.removeLayer(cur);
+    if (!map.hasLayer(layers[k])) layers[k].addTo(map).bringToBack();
+    cur = layers[k];
+    if (box) box.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.bm === style));
+  }
+  let box = null;
+  const Ctl = L.Control.extend({
+    onAdd() {
+      box = L.DomUtil.create("div", "bm-switch");
+      box.setAttribute("role", "group"); box.setAttribute("aria-label", "배경지도 선택");
+      box.innerHTML = choices.map((c) => `<button type="button" data-bm="${c}">${c === "osm" && opts.isDark ? "지도" : BASEMAPS[c].label}</button>`).join("");
+      L.DomEvent.disableClickPropagation(box);
+      box.addEventListener("click", (e) => { const b = e.target.closest("[data-bm]"); if (!b) return; style = b.dataset.bm; try { localStorage.setItem(key, style); } catch (er) {} sync(); });
+      return box;
+    },
+  });
+  new Ctl({ position: opts.position || "bottomright" }).addTo(map);
+  sync();
+  return { sync };
+}
+
+makeBaseSwitch(map,{storeKey:'unimap2.bm',choices:['osm','light','sat'],bounds:KOREA_BOUNDS,position:'bottomright'});
 
 const cluster=L.markerClusterGroup({maxClusterRadius:40,showCoverageOnHover:false,disableClusteringAtZoom:11});
 map.addLayer(cluster);
@@ -260,6 +316,7 @@ function popHTML(d){
     <div class="pop-bd">
       <a class="p-btn p-home${pub?' pub':''}" href="${esc(d.home)}" target="_blank" rel="noopener">학교 홈페이지 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       ${ipsi}
+      <a class="p-route" href="https://map.kakao.com/link/to/${encodeURIComponent(d.name)},${d.lat},${d.lng}" target="_blank" rel="noopener">카카오맵 길찾기 ↗</a>
     </div>`;
 }
 
@@ -278,29 +335,36 @@ const records=DATA.map((d)=>{
 function act(rec){document.querySelectorAll('.item.active').forEach(x=>x.classList.remove('active'));if(rec.el){rec.el.classList.add('active');rec.el.scrollIntoView({block:'nearest'});}}
 
 const listEl=document.getElementById('list'),cntEl=document.getElementById('cnt');
-let fR='전체',fQ='';
-function visible(d){if(fR!=='전체'&&d.region!==fR)return false;if(fQ&&!(d.name.toLowerCase().includes(fQ)||d.sido.includes(fQ)))return false;return true;}
+let fR='전체',fQ='',fT='',fI=false,ME=null;
+function visible(d){if(fR!=='전체'&&d.region!==fR)return false;if(fT&&d.type!==fT)return false;if(fI&&!d.ipsi)return false;if(fQ&&!(d.name.toLowerCase().includes(fQ)||d.sido.includes(fQ)))return false;return true;}
+function itemEl(r,km){const d=r.d,el=document.createElement('div');el.className='item';
+      const plogoSrc=getLogo(d);
+      const left=plogoSrc?`<img class="plogo" src="${esc(plogoSrc)}" alt="" loading="lazy" onerror="this.outerHTML='<span class=&quot;pin${d.type==='공립'?' pub':''}&quot;></span>'">`:`<span class="pin${d.type==='공립'?' pub':''}"></span>`;
+      el.innerHTML=`${left}<span class="nm">${esc(d.name)}<small>${esc(d.home.replace('https://www.',''))}</small></span>${km!=null?`<span class="km">${km.toFixed(1)}km</span>`:''}${d.ipsi?'<span class="ips">입시</span>':''}`;
+      el.addEventListener('click',()=>{map.flyTo([d.lat,d.lng],Math.max(map.getZoom(),12),{duration:.6});setTimeout(()=>r.mk.openPopup(),650);if(window.innerWidth<=860)document.getElementById('panel').classList.remove('open');});
+  r.el=el;return el;}
 function render(){
   cluster.clearLayers();listEl.innerHTML='';records.forEach(r=>r.el=null);
   const shown=records.filter(r=>visible(r.d));
   shown.forEach(r=>cluster.addLayer(r.mk));cntEl.textContent=shown.length;
   if(!shown.length){listEl.innerHTML='<div class="empty">조건에 맞는 대학이 없습니다.</div>';return;}
-  const groups={};shown.forEach(r=>{(groups[r.d.sido]=groups[r.d.sido]||[]).push(r);});
+  document.getElementById('cntTail').textContent=shown.length===records.length?'개교 표시 중':`개교 표시 중 · 전체 ${records.length}개교`;
   const frag=document.createDocumentFragment();
+  if(ME){const hd=document.createElement('div');hd.className='near-hd';hd.innerHTML='내 위치에서 가까운 순 <button type="button" id="nearOff">지역별로 보기</button>';frag.appendChild(hd);
+    shown.map(r=>[r,_haversine(ME[0],ME[1],r.d.lat,r.d.lng)]).sort((a,b)=>a[1]-b[1]).forEach(([r,km])=>frag.appendChild(itemEl(r,km)));listEl.appendChild(frag);
+    document.getElementById('nearOff').onclick=()=>{ME=null;render();};return;}
+  const groups={};shown.forEach(r=>{(groups[r.d.sido]=groups[r.d.sido]||[]).push(r);});
   SIDO_ORDER.filter(sd=>groups[sd]).forEach(sd=>{
     const arr=groups[sd].sort((a,b)=>a.d.name.localeCompare(b.d.name,'ko'));
     const hd=document.createElement('div');hd.className='grp-hd';
     hd.innerHTML=`${esc(sd)} <span class="gc">${arr.length}</span> <span class="gr">${esc(SIDO_REGION[sd]||'')}</span>`;frag.appendChild(hd);
-    arr.forEach(r=>{const d=r.d,el=document.createElement('div');el.className='item';
-      const plogoSrc=getLogo(d);
-      const left=plogoSrc?`<img class="plogo" src="${esc(plogoSrc)}" alt="" loading="lazy" onerror="this.outerHTML='<span class=&quot;pin${d.type==='공립'?' pub':''}&quot;></span>'">`:`<span class="pin${d.type==='공립'?' pub':''}"></span>`;
-      el.innerHTML=`${left}<span class="nm">${esc(d.name)}<small>${esc(d.home.replace('https://www.',''))}</small></span>${d.ipsi?'<span class="ips">입시</span>':''}`;
-      el.addEventListener('click',()=>{map.flyTo([d.lat,d.lng],Math.max(map.getZoom(),12),{duration:.6});setTimeout(()=>r.mk.openPopup(),650);if(window.innerWidth<=860)document.getElementById('panel').classList.remove('open');});
-      r.el=el;frag.appendChild(el);});
+    arr.forEach(r=>frag.appendChild(itemEl(r)));
   });
   listEl.appendChild(frag);
 }
 document.getElementById('regionFilter').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('#regionFilter .chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');fR=b.dataset.r;render();});
+document.getElementById('typeSeg').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;fT=b.dataset.t;document.querySelectorAll('#typeSeg button').forEach(x=>x.classList.toggle('on',x===b));render();});
+document.getElementById('ipsiOnly').addEventListener('change',e=>{fI=e.target.checked;render();});
 let qt;document.getElementById('q').addEventListener('input',e=>{clearTimeout(qt);const v=e.target.value.trim().toLowerCase();qt=setTimeout(()=>{fQ=v;render();},140);});
 document.getElementById('ptoggle').addEventListener('click',()=>{const p=document.getElementById('panel');const willOpen=!p.classList.contains('open');p.classList.toggle('open');if(willOpen){const a=document.querySelector('.item.active');if(a)setTimeout(()=>a.scrollIntoView({block:'center'}),90);}});
 render();
@@ -334,6 +398,7 @@ document.getElementById('locBtn').addEventListener('click',function(){
     if(_me)map.removeLayer(_me);
     _me=L.marker([la,ln],{icon:L.divIcon({className:'',html:'<div class="me-mk"><span class="pulse"></span><span class="dot"></span></div>',iconSize:[16,16],iconAnchor:[8,8]}),zIndexOffset:2000,interactive:false}).addTo(map);
     let best=null,bd=1e9;records.forEach(r=>{const dd=_haversine(la,ln,r.d.lat,r.d.lng);if(dd<bd){bd=dd;best=r;}});
+    ME=[la,ln];render();
     map.flyTo([la,ln],11,{duration:.8});
     if(best)setTimeout(()=>showToast('가장 가까운 전문대: '+best.d.name+' · 약 '+bd.toFixed(1)+'km',4800),300);
   },function(){
