@@ -276,6 +276,77 @@
       .tabpanel{display:block!important}
       .seg{color:#000}
     }
+
+    /* ===== v3 (2026-10-28): 대학별 보기 · 환산 유불리 시뮬레이터 · 사용성 정돈 ===== */
+    body.subview .hero{display:none}
+    body.subview #main>.section:first-of-type{padding-top:28px}
+    .tool-main{display:none!important}
+    .vtab .new{font-size:10px;font-weight:900;color:#0B8FA6;margin-left:4px;vertical-align:2px}
+    .vtab.active .new{color:#9ff0e2}
+    .uv-pick{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+    .uv-pick input{flex:1;min-width:220px;border:1px solid var(--line);border-radius:11px;padding:11px 14px;font:inherit;font-size:15px}
+    .uv-pick input:focus{outline:3px solid rgba(11,143,166,.18);border-color:var(--teal)}
+    .uv-quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+    .uv-quick button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;font-weight:700;color:#33475F;cursor:pointer}
+    .uv-quick button:hover{border-color:var(--navy);color:var(--navy)}
+    .uv-quick button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+    .uv-quick .gl{font-size:12px;font-weight:800;color:var(--muted);margin:0 2px 0 8px;align-self:center}
+    .uv-quick .gl:first-child{margin-left:0}
+    .uv-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+    .uv-head{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;justify-content:space-between;padding:22px 24px;background:linear-gradient(135deg,#06172F,#0A2F5C 60%,#0B6E80);color:#d7e3f2}
+    .uv-head h3{margin:0;color:#fff;font-size:30px;letter-spacing:-.04em}
+    .uv-head .grp{font-size:12.5px;font-weight:800;color:#9ff0e2;letter-spacing:.04em}
+    .uv-kpi{display:flex;gap:22px;flex-wrap:wrap}
+    .uv-kpi div{min-width:92px}
+    .uv-kpi b{display:block;color:#fff;font-size:22px;font-variant-numeric:tabular-nums}
+    .uv-kpi span{font-size:12px;color:#a9bad1}
+    .uv-sec{padding:20px 24px;border-top:1px solid var(--line)}
+    .uv-sec:first-of-type{border-top:0}
+    .uv-sec h4{margin:0 0 12px;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:8px}
+    .uv-sec h4 small{font-weight:600;color:var(--muted);font-size:12px}
+    .uv-row{display:grid;grid-template-columns:minmax(150px,1.1fr) minmax(200px,1.2fr) minmax(200px,1.6fr);gap:14px;padding:12px 0;border-top:1px dashed var(--line);align-items:start}
+    .uv-row:first-of-type{border-top:0;padding-top:0}
+    .uv-row .jn{font-weight:900;color:#20314A}
+    .uv-row .src{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-top:2px}
+    .uv-kv{display:grid;grid-template-columns:120px 1fr;gap:6px 14px;font-size:14px}
+    .uv-kv dt{color:var(--muted);font-weight:800;font-size:12.5px}
+    .uv-kv dd{margin:0}
+    .uv-hw{border-collapse:collapse;font-size:13.5px}
+    .uv-hw th,.uv-hw td{border:1px solid var(--line);padding:6px 10px;text-align:center;font-variant-numeric:tabular-nums}
+    .uv-hw th{background:#F6F9FD;color:var(--muted);font-size:12px}
+    .uv-hw td.l{text-align:left;font-weight:800;color:#20314A}
+    .uv-empty{color:var(--muted);font-size:14px}
+    .uv-links{display:flex;flex-wrap:wrap;gap:8px}
+    .uv-links a{font-size:13px;font-weight:800;color:var(--navy);border:1px solid var(--line);border-radius:10px;padding:7px 12px;text-decoration:none;background:#fff}
+    .uv-links a:hover{border-color:var(--navy)}
+    @media(max-width:820px){.uv-row{grid-template-columns:1fr;gap:8px}.uv-kv{grid-template-columns:1fr}.uv-head h3{font-size:24px}.uv-sec,.uv-head{padding:16px}}
+
+    /* 시뮬레이터 */
+    .sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:820px){.sim-grid{grid-template-columns:1fr}}
+    .sim-st{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+    .sim-st h4{margin:0 0 4px;display:flex;justify-content:space-between;align-items:center;font-size:16px;color:var(--navy)}
+    .sim-st h4 .av{font-size:13px;color:var(--muted);font-weight:700}
+    .sim-st h4 .av b{color:var(--navy);font-size:18px}
+    .sim-in{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+    .sim-in label{display:grid;gap:4px;text-align:center;font-size:12px;font-weight:800;color:var(--muted)}
+    .sim-in input{width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 4px;text-align:center;font:inherit;font-size:16px;font-weight:800;color:var(--navy)}
+    .sim-in input:focus{outline:3px solid rgba(11,143,166,.18);border-color:var(--teal)}
+    .sim-pre{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 16px}
+    .sim-pre button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font:inherit;font-size:13px;font-weight:800;color:#33475F;cursor:pointer}
+    .sim-pre button:hover{border-color:var(--navy)}
+    .sim-res{margin-top:16px}
+    .sim-res table{min-width:640px}
+    .sim-res td{vertical-align:middle}
+    .sbar{position:relative;height:9px;border-radius:5px;background:#EEF3F9;min-width:120px;overflow:hidden}
+    .sbar i{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
+    .sbar i.a{background:var(--navy)}.sbar i.b{background:var(--teal);opacity:.85;top:auto;height:4px}
+    .win{font-size:12px;font-weight:900;border-radius:999px;padding:2px 9px;white-space:nowrap}
+    .win.a{background:var(--sky);color:var(--navy)}.win.b{background:#E2F6F8;color:#0A6E7F}.win.t{background:#F1F4F8;color:var(--muted)}
+    .sim-sum{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+    .sim-sum div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px}
+    .sim-sum b{font-size:18px;color:var(--navy);margin-right:4px}
+    .table-wrap td.uni{cursor:pointer}.table-wrap td.uni:hover{text-decoration:underline;text-underline-offset:3px}
   </style>
 </head>
 <body>
@@ -291,6 +362,7 @@
     <nav class="viewbar" aria-label="보기 전환">
       <div class="viewbar-inner">
         <button class="vtab active" type="button" data-view="overview">한눈에</button>
+        <button class="vtab" type="button" data-view="univ">대학별<span class="new">NEW</span></button>
         <button class="vtab" type="button" data-view="finder">전형 찾기</button>
         <button class="vtab" type="button" data-view="jiyeok">지역균형·일반</button>
         <button class="vtab" type="button" data-view="mojip">모집인원</button>
@@ -309,6 +381,8 @@
           <p class="lead">5등급제 전환, 성취도(A~E) 반영, 정성평가 확대, 대학별 환산점수.<br>바뀐 교과전형, <strong>위의 메뉴에서 필요한 것만 골라서 보세요.</strong></p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#types">전형 찾기 시작 →</a>
+            <a class="btn btn-outline" href="#univ">대학별 보기</a>
+            <a class="btn btn-outline" href="#sim">환산 유불리 시뮬레이터</a>
             <a class="btn btn-outline" href="#hwansan">환산점수의 함정</a>
             <a class="btn btn-outline" href="#jiyeok">지역균형 비교</a>
             <a class="btn btn-outline" href="#checklist">지도 체크리스트</a>
@@ -424,17 +498,17 @@
         <div class="grid-3" style="margin-bottom:22px">
           <div class="card compact sum-card">
             <span class="head">전체</span>
-            <span class="v">157,991명 <span class="up" style="font-size:15px">▲ 1,588</span></span>
+            <span class="v">157,991명 <span class="up" style="font-size:15px">+1,588</span></span>
             <span class="sub">2027: 156,403명 · 비중 45.2% → <b>45.3%</b></span>
           </div>
           <div class="card compact sum-card">
             <span class="head">수도권</span>
-            <span class="v">27,886명 <span class="down" style="font-size:15px">▼ 333</span></span>
+            <span class="v">27,886명 <span class="down" style="font-size:15px">-333</span></span>
             <span class="sub">2027: 28,219명 · 비중 8.2% → <b>8.0%</b></span>
           </div>
           <div class="card compact sum-card">
             <span class="head">비수도권</span>
-            <span class="v">130,105명 <span class="up" style="font-size:15px">▲ 1,921</span></span>
+            <span class="v">130,105명 <span class="up" style="font-size:15px">+1,921</span></span>
             <span class="sub">2027: 128,184명 · 비중 37.0% → <b>37.3%</b></span>
           </div>
         </div>
@@ -582,6 +656,25 @@
       </div>
     </section>
 
+    <section class="section" id="univ" data-view="univ">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">대학별 보기</span>
+            <h2>대학 하나, 교과전형 정보를 한 장에</h2>
+            <p class="desc">모집인원·전형방법·수능최저·2027 대비 변경·환산 배점·과목군별 내신 산출·반영 범위와 지원자격까지, 이 페이지의 여러 표에 흩어진 정보를 <b>대학 단위로 모아</b> 보여 줍니다.</p>
+          </div>
+        </div>
+        <div class="uv-pick">
+          <input type="search" id="uvInput" list="uvList" placeholder="대학명 입력 (예: 고려대, 가천대, 충남대)" aria-label="대학 선택" autocomplete="off">
+          <datalist id="uvList"></datalist>
+          <span class="count" id="uvCount"></span>
+        </div>
+        <div class="uv-quick" id="uvQuick"></div>
+        <div id="uvOut"></div>
+      </div>
+    </section>
+
     <section class="section" id="grade" data-view="grade">
       <div class="container">
         <div class="section-head">
@@ -600,6 +693,7 @@
           <button class="tab active" data-tab="g-hw">① 환산점수 배점표</button>
           <button class="tab" data-tab="g-naesin">② 과목군별 내신 산출</button>
           <button class="tab" data-tab="g-ban">③ 반영 범위·가산점·지원자격</button>
+          <button class="tab" data-tab="g-sim" id="simTab">④ 환산 유불리 시뮬레이터</button>
         </div>
         <div class="tabpanel active" id="g-hw">
         <h3 style="margin:0 0 6px;color:var(--navy);font-size:24px;letter-spacing:-.04em">대학별 환산점수 배점 (등급 1~5 · 성취도 A~E)</h3>
@@ -639,7 +733,7 @@
             </table>
           </div>
           <p class="scroll-hint">← 표를 좌우로 밀어서 보세요</p>
-          <p class="small muted" style="margin-top:10px">출처: 2028학년도 대입전형시행계획(2026.5.12) · 자료 정리: 서산여고 유홍규<br>※ 시행계획 기준 자료로, 위 표(연구정보원 자료 기준)와 세부 표기가 다를 수 있습니다. 최종 확인은 각 대학 2028 모집요강 기준.</p>
+          <p class="small muted" style="margin-top:10px">출처: 2028학년도 대입전형시행계획(2026.5.12)<br>※ 시행계획 기준 자료로, 위 표(연구정보원 자료 기준)와 세부 표기가 다를 수 있습니다. 최종 확인은 각 대학 2028 모집요강 기준.</p>
         </div>
 
         </div>
@@ -660,6 +754,22 @@
             <p class="scroll-hint">← 표를 좌우로 밀어서 보세요</p>
             <p class="small muted" style="margin-top:10px">※ 5등급제 산출 등급 대상자(현 고2 이후) 기준 요약. 지원자격의 연도는 졸업연도 하한(예: 2026년~ = 2026년 2월 이후 졸업자부터 지원 가능). 세부 기준은 2027년 5월 발표되는 2028 수시모집요강으로 확정하세요. 출처: 대입정보119 『2028 PREVIEW 학생부 교과 전형』</p>
           </div>
+        </div>
+
+        <div class="tabpanel" id="g-sim">
+          <h3 style="margin:0 0 6px;color:var(--navy);font-size:24px;letter-spacing:-.04em">환산 유불리 시뮬레이터 — 같은 평균등급, 다른 환산점수</h3>
+          <p class="desc" style="margin:0 0 6px">두 학생의 <b>등급별 과목 수</b>를 넣으면, 위 배점표에서 등급별 배점이 공개된 대학마다 <b>만점 대비 환산 비율</b>을 계산해 누가 유리한지 보여 줍니다. 평균등급이 같아도 등급 분포에 따라 대학별 유불리가 갈리는 것을 확인하는 상담용 도구입니다.</p>
+          <div class="sim-pre" id="simPre">
+            <button type="button" data-p="even">예시① 평균 1.8 — 고른 2등급 vs 1·3등급 혼합</button>
+            <button type="button" data-p="mid">예시② 평균 2.6 — 2·3등급 vs 1·3·4등급 혼합</button>
+            <button type="button" data-p="clear">비우기</button>
+          </div>
+          <div class="sim-grid">
+            <div class="sim-st"><h4>학생 A <span class="av">평균등급 <b id="avgA">–</b></span></h4><div class="sim-in" id="inA"></div></div>
+            <div class="sim-st"><h4>학생 B <span class="av">평균등급 <b id="avgB">–</b></span></h4><div class="sim-in" id="inB"></div></div>
+          </div>
+          <div class="sim-res" id="simRes"></div>
+          <p class="small muted" style="margin-top:10px">※ 계산 방식: Σ(등급별 과목 수 × 해당 등급 배점) ÷ (과목 수 × 1등급 배점). 단위수(학점) 가중치, 교과별 반영 비율, 성취도 반영, 정성평가, 결측 과목 처리 등은 반영하지 않은 <b>단순화 모형</b>입니다. 대학 간 점수의 절대 비교가 아니라, 같은 대학 안에서 두 학생의 상대적 유불리를 보는 용도로만 쓰세요. 배점이 산식·영역·매트릭스형인 대학과 미발표 대학은 제외됩니다.</p>
         </div>
 
         <div class="warning" style="margin-top:18px"><b>지도 포인트</b> — 등급 간 배점 격차가 완만한 대학(삼육대 1~5등급 100→70, 가톨릭대 100→70)과 가파른 대학(서울여대 100→0, 상명대 100→0)을 구분하세요. 내신 3~4등급대 학생은 <b>배점이 완만한 대학에서 환산점수 경쟁력</b>이 생깁니다.</div>
@@ -689,7 +799,8 @@
 
   <footer class="footer">
     <div class="container">
-      <p><b>출처</b>: 대입정보119, 대학별 시행계획 &nbsp; <b>제작</b>: 충청남도교육청진로융합교육원 교육연구사 정재연</p>
+      <p><b>제작</b> 충청남도교육청진로융합교육원 교육연구사 정재연</p>
+      <p><b>출처</b> 대입정보119 『2028 PREVIEW 학생부 교과 전형』, 서울특별시교육청교육연구정보원 『2028·2029 대입 전형의 이해 및 전략』, 2028학년도 대학입학전형시행계획(2026.5.12)</p>
       <p class="small">이 페이지는 발간 자료를 표로 재정리한 것으로, 모집인원·전형방법·수능최저·환산점수는 대학 사정에 따라 변경될 수 있습니다. 최종 확인은 각 대학 2028학년도 수시 모집요강과 대입정보포털 ‘어디가(adiga.kr)’를 기준으로 하세요.</p>
     </div>
   </footer>
@@ -706,8 +817,8 @@ const mojipData = {
 };
 function diffBadge(n28,n27){
   const d = n28-n27;
-  if(d>0) return `<span class="diff-badge up">▲ ${d.toLocaleString()}</span>`;
-  if(d<0) return `<span class="diff-badge down">▼ ${Math.abs(d).toLocaleString()}</span>`;
+  if(d>0) return `<span class="diff-badge up">+${d.toLocaleString()}</span>`;
+  if(d<0) return `<span class="diff-badge down">-${Math.abs(d).toLocaleString()}</span>`;
   return `<span class="diff-badge same">—</span>`;
 }
 function renderMojip(){
@@ -928,7 +1039,7 @@ function renderHw(){
   byId('hwBody').innerHTML = html;
 }
 
-/* ── 반영교과·과목군별 내신 산출 (2028 대입전형시행계획 2026.5.12 기준, 자료 정리: 서산여고 유홍규)
+/* ── 반영교과·과목군별 내신 산출 (2028 대입전형시행계획 2026.5.12 기준)
    [권역, 대학, 전형명, 반영교과, 공통·일반, 진로, 융합, 서류평가, 재수생] ── */
 const NAESIN_GROUPS = ['서울','경기 · 인천','충청권'];
 const naesinData = [
@@ -1307,14 +1418,15 @@ function updateChecklist(){
 }
 
 /* ── 뷰(보기) 전환 ── */
-const VIEW_OF_SECTION = {change:'overview',hwansan:'overview',mojip:'mojip',ilban:'jiyeok',jiyeok:'jiyeok',types:'finder',grade:'grade',checklist:'check'};
-const VIEWS = ['overview','finder','jiyeok','mojip','grade','check'];
+const VIEW_OF_SECTION = {univ:'univ',sim:'grade',change:'overview',hwansan:'overview',mojip:'mojip',ilban:'jiyeok',jiyeok:'jiyeok',types:'finder',grade:'grade',checklist:'check'};
+const VIEWS = ['overview','univ','finder','jiyeok','mojip','grade','check'];
 function showView(v, scrollTop){
   document.querySelectorAll('[data-view]').forEach(el=>{
     if(el.classList.contains('vtab')) return;
     el.style.display = el.dataset.view===v ? '' : 'none';
   });
   document.querySelectorAll('.vtab').forEach(b=>b.classList.toggle('active', b.dataset.view===v));
+  document.body.classList.toggle('subview', v!=='overview');
   if(scrollTop) window.scrollTo({top:0,behavior:'smooth'});
 }
 function setupViews(){
@@ -1327,6 +1439,7 @@ function setupViews(){
     const a = e.target.closest('a[href^="#"]');
     if(!a) return;
     const id = a.getAttribute('href').slice(1);
+    if(id==='sim'){ e.preventDefault(); showView('grade',false); byId('simTab').click(); history.replaceState(null,'','#sim'); byId('grade').scrollIntoView(); return; }
     const target = document.getElementById(id);
     if(!target) return;
     const holder = target.closest('[data-view]');
@@ -1342,6 +1455,7 @@ function setupViews(){
     const h = location.hash.replace('#','');
     const view = VIEW_OF_SECTION[h] || (VIEWS.includes(h) ? h : 'overview');
     showView(view, false);
+    if(h==='sim'){ byId('simTab').click(); setTimeout(()=>byId('grade').scrollIntoView(),0); return; }
     if(VIEW_OF_SECTION[h]){
       const t = document.getElementById(h);
       if(t) setTimeout(()=>t.scrollIntoView(), 0);
@@ -1360,9 +1474,111 @@ function setupFloatingTools(){
   window.addEventListener('scroll', toggle, {passive:true});
 }
 
+
+/* ===== v3: 대학별 보기 ===== */
+const UV_SRC = {jy:'지역균형', ilban:'일반 교과', types:'전형 유형 분류'};
+function uvAll(){
+  const names = new Set();
+  Object.values(mojipData).forEach(g=>g.forEach(r=>names.add(r[0])));
+  [ilbanData,jyData,hwData,typesData].forEach(d=>d.forEach(r=>names.add(r.u)));
+  [chgData,banData].forEach(d=>d.forEach(r=>names.add(r[0])));
+  naesinData.forEach(r=>names.add(r[1]));
+  return [...names].sort((a,b)=>a.localeCompare(b,'ko'));
+}
+function uvMojip(u){
+  const lab = {s15:'서울 주요 15개대',setc:'서울 소재',sudo:'수도권'};
+  for(const k in mojipData){const r=mojipData[k].find(x=>x[0]===u); if(r) return {grp:lab[k],n28:r[1],ratio:r[2],n27:r[3]};}
+  return null;
+}
+function uvHwTable(rows){
+  return `<div class="table-wrap" style="box-shadow:none"><table class="uv-hw" style="min-width:560px"><thead><tr><th>전형</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr></thead><tbody>${rows.map(r=>{
+    const g = Array.isArray(r.gr)? r.gr.map(v=>`<td>${v}</td>`).join('') : `<td colspan="5" class="undisclosed">${r.gr}</td>`;
+    const a = r.ac===''? `<td colspan="5" class="undisclosed">–</td>` : Array.isArray(r.ac)? r.ac.map(v=>`<td>${v}</td>`).join('') : `<td colspan="5" class="undisclosed">${r.ac}</td>`;
+    return `<tr><td class="l">${r.j}</td>${g}${a}</tr>`;}).join('')}</tbody></table></div>`;
+}
+function renderUniv(u){
+  const out = byId('uvOut');
+  if(!u){ out.innerHTML=''; return; }
+  const mj = uvMojip(u);
+  const jy = jyData.filter(r=>r.u===u), il = ilbanData.filter(r=>r.u===u), ty = typesData.filter(r=>r.u===u);
+  const chg = chgData.filter(r=>r[0]===u), hw = hwData.filter(r=>r.u===u), ns = naesinData.filter(r=>r[1]===u), bn = banData.filter(r=>r[0]===u);
+  const n = jy.length+il.length+ty.length+chg.length+hw.length+ns.length+bn.length+(mj?1:0);
+  if(!n){ out.innerHTML=`<div class="uv-card"><div class="uv-sec"><p class="uv-empty">‘${u}’에 해당하는 자료가 없습니다. 목록에서 대학명을 골라 주세요.</p></div></div>`; return; }
+  const kpi = mj ? `<div class="uv-kpi"><div><b>${mj.n28.toLocaleString()}</b><span>2028 교과 모집인원</span></div><div><b>${mj.ratio}%</b><span>대학 전체 중 교과 비중</span></div><div><b>${mj.n27.toLocaleString()}</b><span>2027 인원</span></div><div><b>${diffBadge(mj.n28,mj.n27)}</b><span>증감</span></div></div>` : '';
+  const rows = [
+    ...jy.map(r=>`<div class="uv-row"><div><span class="jn">${r.j}</span><span class="src">지역균형·학교장추천</span><div class="tagline" style="margin-top:6px">${recTag(r.rec)}${qualTag(r.q)}</div><div class="small muted" style="margin-top:6px">모집 ${r.n28.toLocaleString()}명 (2027 ${r.n27.toLocaleString()}) ${diffBadge(r.n28,r.n27)}</div></div><div>${methodCell(r.m,r.mt,r.mnote)}</div><div>${lowCell(r.l28,r.l27)}</div></div>`),
+    ...il.map(r=>`<div class="uv-row"><div><span class="jn">${r.j}</span><span class="src">일반 교과(추천 불필요)</span><div class="small muted" style="margin-top:6px">${typeof r.n28==='number'?`모집 ${r.n28.toLocaleString()}명 (2027 ${r.n27.toLocaleString()}) ${diffBadge(r.n28,r.n27)}`:`<span class="tag red">폐지</span> (2027 ${r.n27.toLocaleString()}명)`}</div></div><div>${methodCell(r.m||[],r.mt)}</div><div>${lowCell(r.l28,r.l27)}</div></div>`),
+    ...ty.filter(t=>!jy.some(j=>t.j.includes(j.j))&&!il.some(i=>t.j.includes(i.j))).map(r=>`<div class="uv-row"><div><span class="jn">${r.j}</span><span class="src">${TYPE_GROUPS[r.k]||'전형 유형 분류'}</span>${r.no?`<div class="tagline" style="margin-top:6px">${r.no}</div>`:''}</div><div><div class="mtext">${r.m}</div></div><div><div class="l28">${r.low===null?'<span class="none-low">미적용</span>':r.low}</div></div></div>`)
+  ];
+  out.innerHTML = `<article class="uv-card">
+    <div class="uv-head"><div><span class="grp">${mj?mj.grp:'학생부교과전형'}</span><h3>${u}</h3></div>${kpi}</div>
+    <div class="uv-sec"><h4>교과전형 · 전형방법 · 수능최저 <small>최저는 위 2028 / 아래 2027</small></h4>${rows.length?rows.join(''):'<p class="uv-empty">이 페이지 자료에 전형별 상세가 없습니다.</p>'}</div>
+    ${chg.length?`<div class="uv-sec"><h4>2027 → 2028 주요 변경</h4><dl class="uv-kv">${chg.map(r=>`<dt>2028</dt><dd><b>${r[1]}</b></dd><dt>2027</dt><dd class="muted">${r[2]}</dd>`).join('')}</dl></div>`:''}
+    ${hw.length?`<div class="uv-sec"><h4>환산 배점 <small>석차등급 1~5 · 성취도 A~E</small></h4>${uvHwTable(hw)}</div>`:''}
+    ${ns.length?`<div class="uv-sec"><h4>과목군별 내신 산출</h4>${ns.map(r=>`<dl class="uv-kv" style="margin-bottom:10px"><dt>전형</dt><dd><b>${r[2]}</b></dd><dt>반영교과</dt><dd>${r[3]}</dd><dt>공통·일반선택</dt><dd>${naesinCell(r[4])}</dd>${r[5]===''&&r[6]===''?'':`<dt>진로선택</dt><dd>${naesinCell(r[5])}</dd><dt>융합선택</dt><dd>${naesinCell(r[6])}</dd>`}<dt>서류평가 영역</dt><dd>${r[7]==='X'?'–':r[7]}</dd><dt>재수생</dt><dd>${r[8]==='O'?'<span class="tag green">가능</span>':'<span class="tag red">불가</span>'}</dd></dl>`).join('')}</div>`:''}
+    ${bn.length?`<div class="uv-sec"><h4>반영 범위 · 가산점·감점 · 지원자격</h4>${bn.map(r=>`<dl class="uv-kv" style="margin-bottom:10px"><dt>전형</dt><dd><b>${r[1]}</b></dd><dt>반영 범위</dt><dd>${r[2]}</dd><dt>산출 특이사항</dt><dd>${r[3]}</dd><dt>지원자격</dt><dd>${banQual(r[4])}</dd></dl>`).join('')}</div>`:''}
+    <div class="uv-sec"><h4>이어서 확인하기</h4><div class="uv-links"><a href="2027gyogwa.html" target="_blank" rel="noopener">2027 교과전형 입결 대시보드 ↗</a><a href="jinhak2028.html#u=${encodeURIComponent(u)}" target="_blank" rel="noopener">2028 대입 변화 비교(전 전형) ↗</a><a href="2028admission-plan-download.html" target="_blank" rel="noopener">2028 시행계획 원문 ↗</a><a href="https://www.adiga.kr" target="_blank" rel="noopener">대입정보포털 어디가 ↗</a></div><p class="small muted" style="margin:10px 0 0">이 카드는 페이지 내 표를 대학 단위로 모은 것입니다. 표마다 출처·기준 시점이 달라 세부 표기가 다를 수 있으니, 최종 확인은 2028학년도 수시 모집요강으로 하세요.</p></div>
+  </article>`;
+}
+function setupUniv(){
+  const all = uvAll(), inp = byId('uvInput');
+  byId('uvList').innerHTML = all.map(u=>`<option value="${u}">`).join('');
+  byId('uvCount').textContent = `${all.length}개 대학`;
+  const q = [['서울 주요',mojipData.s15.map(r=>r[0]).slice(0,8)],['충청권',naesinData.filter(r=>r[0]===2).map(r=>r[1]).filter((v,i,a)=>a.indexOf(v)===i)]];
+  byId('uvQuick').innerHTML = q.map(([g,arr])=>`<span class="gl">${g}</span>`+arr.map(u=>`<button type="button" data-u="${u}">${u}</button>`).join('')).join('');
+  const pick = u => { inp.value=u; renderUniv(u); byId('uvQuick').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.u===u)); try{localStorage.setItem('gyogwa2028.univ',u)}catch(e){} };
+  byId('uvQuick').addEventListener('click',e=>{const b=e.target.closest('[data-u]'); if(b) pick(b.dataset.u);});
+  inp.addEventListener('change',()=>{const v=inp.value.trim(); const hit=all.find(u=>u===v)||all.find(u=>u.startsWith(v))||all.find(u=>u.includes(v)); if(hit) pick(hit); else renderUniv(v);});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter') inp.dispatchEvent(new Event('change'));});
+  let saved=''; try{saved=localStorage.getItem('gyogwa2028.univ')||''}catch(e){}
+  pick(all.includes(saved)?saved:'고려대');
+  // 다른 표의 대학명 클릭 → 대학별 보기
+  document.addEventListener('click',e=>{
+    const td = e.target.closest('td.uni'); if(!td) return;
+    const u = td.textContent.trim(); if(!all.includes(u)) return;
+    pick(u); showView('univ', true); history.replaceState(null,'','#univ');
+  });
+}
+
+/* ===== v3: 환산 유불리 시뮬레이터 ===== */
+const SIM_PRE = {even:[[2,8,0,0,0],[6,0,4,0,0]], mid:[[0,4,6,0,0],[4,0,2,4,0]], clear:[[0,0,0,0,0],[0,0,0,0,0]]};
+const num = v => typeof v==='number' ? v : parseFloat(String(v).replace(/,/g,''));
+function simRows(){ return hwData.filter(r=>Array.isArray(r.gr) && r.gr.every(v=>!isNaN(num(v)))); }
+function simGet(id){ return [...byId(id).querySelectorAll('input')].map(i=>Math.max(0,parseInt(i.value)||0)); }
+function simAvg(c){ const n=c.reduce((a,b)=>a+b,0); return n? c.reduce((s,v,i)=>s+v*(i+1),0)/n : null; }
+function simScore(c,gr){ const n=c.reduce((a,b)=>a+b,0); if(!n) return null; const g=gr.map(num); return c.reduce((s,v,i)=>s+v*g[i],0)/(n*g[0])*100; }
+function renderSim(){
+  const A=simGet('inA'), B=simGet('inB'), aA=simAvg(A), aB=simAvg(B);
+  byId('avgA').textContent = aA==null?'–':aA.toFixed(2);
+  byId('avgB').textContent = aB==null?'–':aB.toFixed(2);
+  try{localStorage.setItem('gyogwa2028.sim',JSON.stringify([A,B]))}catch(e){}
+  if(aA==null && aB==null){ byId('simRes').innerHTML='<p class="uv-empty">과목 수를 입력하거나 예시를 눌러 보세요.</p>'; return; }
+  const rows = simRows().map(r=>{const sa=simScore(A,r.gr), sb=simScore(B,r.gr); return {r,sa,sb,d:(sa!=null&&sb!=null)?sa-sb:null};});
+  const both = aA!=null && aB!=null;
+  const winA = rows.filter(x=>x.d>0.005).length, winB = rows.filter(x=>x.d<-0.005).length, tie = rows.length-winA-winB;
+  const sorted = both ? [...rows].sort((x,y)=>(y.d??0)-(x.d??0)) : rows;
+  const cell = v => v==null?'–':v.toFixed(1);
+  byId('simRes').innerHTML = (both?`<div class="sim-sum"><div><b>${winA}</b>개 전형에서 학생 A 유리</div><div><b>${winB}</b>개 전형에서 학생 B 유리</div><div><b>${tie}</b>개 동일</div>${Math.abs(aA-aB)<0.005?'<div style="border-color:#FFD1DA;background:var(--rose)">평균등급이 같아도 대학에 따라 유불리가 갈립니다</div>':''}</div>`:'')+
+  `<div class="table-wrap tall"><table><thead><tr><th>대학</th><th>전형</th><th class="ctr">등급 배점 1→5</th><th class="ctr">A (만점 대비 %)</th><th class="ctr">B (만점 대비 %)</th><th style="min-width:150px">비교</th><th class="ctr">유리</th></tr></thead><tbody>${sorted.map(({r,sa,sb,d})=>`<tr><td class="uni">${r.u}</td><td class="jeon" style="white-space:normal">${r.j}</td><td class="num-cell small">${r.gr.join(' · ')}</td><td class="num-cell"><b>${cell(sa)}</b></td><td class="num-cell"><b>${cell(sb)}</b></td><td><div class="sbar">${sa!=null?`<i class="a" style="width:${Math.max(0,sa)}%"></i>`:''}${sb!=null?`<i class="b" style="width:${Math.max(0,sb)}%"></i>`:''}</div></td><td class="ctr">${d==null?'':d>0.005?`<span class="win a">A +${d.toFixed(1)}</span>`:d<-0.005?`<span class="win b">B +${(-d).toFixed(1)}</span>`:'<span class="win t">동일</span>'}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function setupSim(){
+  ['inA','inB'].forEach(id=>{ byId(id).innerHTML=[1,2,3,4,5].map(g=>`<label>${g}등급<input type="number" min="0" max="60" inputmode="numeric" value="0" aria-label="${id==='inA'?'학생 A':'학생 B'} ${g}등급 과목 수"></label>`).join(''); byId(id).addEventListener('input',renderSim); });
+  const set = p => { [['inA',p[0]],['inB',p[1]]].forEach(([id,v])=>byId(id).querySelectorAll('input').forEach((inp,i)=>inp.value=v[i])); renderSim(); };
+  byId('simPre').addEventListener('click',e=>{const b=e.target.closest('[data-p]'); if(b) set(SIM_PRE[b.dataset.p]);});
+  let saved=null; try{saved=JSON.parse(localStorage.getItem('gyogwa2028.sim')||'null')}catch(e){}
+  set(saved&&saved.length===2?saved:SIM_PRE.even);
+}
+
+/* ===== v3: 체크리스트 저장 ===== */
+function persistChecklist(){
+  let s=[]; try{s=JSON.parse(localStorage.getItem('gyogwa2028.check')||'[]')}catch(e){}
+  document.querySelectorAll('.checkitem-input').forEach(inp=>{ if(s.includes(+inp.dataset.index)) inp.checked=true; inp.addEventListener('change',()=>{ const on=[...document.querySelectorAll('.checkitem-input:checked')].map(x=>+x.dataset.index); try{localStorage.setItem('gyogwa2028.check',JSON.stringify(on))}catch(e){} }); });
+  updateChecklist();
+}
+
 document.addEventListener('DOMContentLoaded', ()=>{
   renderMojip(); renderIlban(); renderJy(); renderChg(); renderHw(); renderNaesin(); renderTypes(); renderBan();
-  setupSearch(); setupNaesinSearch(); setupTypesFilter(); setupBanSearch(); setupTabs(); renderChecklist(); setupFloatingTools(); setupViews();
+  setupSearch(); setupNaesinSearch(); setupTypesFilter(); setupBanSearch(); setupTabs(); renderChecklist(); persistChecklist(); setupUniv(); setupSim(); setupFloatingTools(); setupViews();
 });
 </script>
 </body>
