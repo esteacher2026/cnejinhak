@@ -11,13 +11,15 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>2028 수능·정시 안내</title>
+<title>2028 수능·정시 안내 | 서울 15개 대학 정시 비교</title>
 <meta name="description" content="2028 대입 수능 체제 변화와 정시(수능위주전형) 분석 — 서울 15개 대학·국가거점국립대 모집인원·전형방법·반영비율·영어 등급별 점수 한눈에. 대학별 빠른 조회 제공.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
   --ink:#0b1929;--ink2:#142339;--text:#1f2937;--muted:#64748b;--muted2:#94a3b8;
   --line:#e2e8f0;--line2:#cbd5e1;--line3:#f1f5f9;--bg:#f5f7fb;--surface:#fff;--soft:#f8fafc;
-  --brand:#0a4d8c;--brand2:#073a6b;--brand3:#052848;--brandSoft:#e8f0f9;--brandTint:#f4f8fc;
+  --brand:#0f2747;--brand2:#173a66;--brand3:#0f2747;--brandSoft:#ebf1fd;--brandTint:#f6f8fc;--accent:#0d9488;--accentSoft:#e6f6f4;
+  --seg-k:#0f2747;--seg-m:#2458c6;--seg-km:#3b5b8f;--seg-e:#8a98ad;--seg-t:#0d9488;--seg-h:#b86e00;
   --red:#b91c1c;--redSoft:#fef2f2;--green:#166534;--greenSoft:#ecfdf5;--amber:#b45309;--amberSoft:#fff7ed;
   --purple:#6b21a8;--purpleSoft:#faf5ff;--teal:#0f766e;--tealSoft:#f0fdfa;--violet:#7c3aed;--violetSoft:#f5f3ff;
   --shadow:0 8px 24px rgba(15,23,42,.08),0 2px 8px rgba(15,23,42,.05);
@@ -26,7 +28,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:14px;line-height:1.6}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Pretendard Variable","Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:14px;line-height:1.65;letter-spacing:-.012em;word-break:keep-all;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
@@ -62,7 +64,7 @@ mark{background:#fef08a;color:#92400e;border-radius:3px;padding:0 1px}
 /* ===== TABS ===== */
 .tabs{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:55px;z-index:55}
 .tabs .wrap{display:flex;gap:4px;overflow-x:auto}
-.tab{padding:12px 16px;border:0;background:none;color:var(--muted);font-weight:700;font-size:14px;border-bottom:3px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:7px}
+.tab{padding:11px 14px;border:0;background:none;color:var(--muted);font-weight:700;font-size:14px;border-bottom:3px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:7px}
 .tab .ic{font-size:15px}
 .tab:hover{color:var(--brand)}
 .tab.on{color:var(--brand);border-bottom-color:var(--brand)}
@@ -91,8 +93,8 @@ section.blk{background:var(--surface);border:1px solid var(--line);border-radius
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--rs);-webkit-overflow-scrolling:touch}
 table{border-collapse:collapse;width:100%;font-size:13px;background:#fff;min-width:max-content}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:center;vertical-align:middle}
-thead th{background:var(--brand);color:#fff;font-weight:700;position:sticky;top:0;white-space:nowrap;font-size:12.5px}
-thead tr.sub th{background:var(--brand2);top:0}
+thead th{background:#f3f6fa;color:#3b4a60;font-weight:700;position:sticky;top:0;white-space:nowrap;font-size:12.5px}
+thead tr.sub th{background:#f8fafc;top:0}
 tbody th{background:var(--brandTint);font-weight:700;color:var(--ink2)}
 tbody tr:hover td{background:var(--brandTint)}
 td.l,th.l{text-align:left}
@@ -177,6 +179,53 @@ td.dim{color:var(--muted2)}
 .toTop{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;border:0;box-shadow:var(--shadow-lg);font-size:18px;z-index:70;opacity:0;pointer-events:none;transition:.2s}
 .toTop.show{opacity:1;pointer-events:auto}
 
+
+/* ===== 대학별 조회 v2 ===== */
+.lk{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:start}
+.ul{position:sticky;top:112px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;box-shadow:var(--shadow)}
+.ul-t{font-size:12px;font-weight:800;color:var(--muted);padding:6px 10px 8px}.ul-t small{font-weight:500;color:var(--muted2);margin-left:4px}
+.ul-i{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:none;border-radius:9px;padding:8px 10px;text-align:left}
+.ul-i:hover{background:var(--soft)}.ul-i.on{background:var(--brand);color:#fff}
+.ul-n{font-weight:700;font-size:14.5px}.ul-s{font-size:11.5px;color:var(--muted2);font-variant-numeric:tabular-nums}.ul-i.on .ul-s{color:#9fb0c8}
+.cmpbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--accentSoft);border:1px solid #bfe6e1;border-radius:12px;padding:9px 12px;margin-bottom:12px;font-size:13px}
+.cmpbar b{color:var(--accent)}.cc{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid #bfe6e1;border-radius:7px;padding:2px 4px 2px 9px;font-weight:700}
+.cc button{border:0;background:none;color:var(--muted);font-size:15px;line-height:1;padding:0 4px}.ch{color:var(--muted);font-size:12.5px}
+.uc2{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.uc2-h{padding:20px 22px 16px;border-bottom:1px solid var(--line)}
+.uc2-t{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}.uc2-t h2{margin:0;font-size:26px;color:var(--ink);letter-spacing:-.04em}
+.uc2-nav{margin-left:auto;display:flex;gap:6px}
+.nb{border:1px solid var(--line2);background:#fff;border-radius:8px;padding:5px 11px;font-size:13px;font-weight:700;color:var(--ink2)}
+.nb:hover{border-color:var(--brand)}.nb.on{background:var(--accentSoft);border-color:#bfe6e1;color:var(--accent)}.nb.pr{background:var(--brand);border-color:var(--brand);color:#fff;margin-left:auto}
+.kq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.6fr);gap:10px;margin-top:14px}
+.kq>div{background:var(--soft);border:1px solid var(--line3);border-radius:10px;padding:9px 12px}
+.kq span{display:block;font-size:11.5px;color:var(--muted);font-weight:600}.kq b{font-size:21px;color:var(--ink);font-variant-numeric:tabular-nums}.kq b small{font-size:12px;color:var(--muted);font-weight:600;margin-left:1px}
+.kq em{font-style:normal;font-size:11.5px;color:var(--muted);margin-left:6px}
+.gv{display:grid;gap:4px;margin-top:4px}.gvr{display:grid;grid-template-columns:30px 1fr auto;gap:8px;align-items:center;font-size:12.5px}
+.gk{font-weight:800;color:var(--ink2)}.gb{height:8px;background:var(--line3);border-radius:4px;overflow:hidden}.gb i{display:block;height:100%;background:var(--accent)}
+.gn{font-variant-numeric:tabular-nums;color:var(--ink2);font-weight:600;white-space:nowrap}.gvr.off{opacity:.45}
+.sec{padding:16px 22px;border-top:1px solid var(--line3)}.sec-h{font-weight:800;color:var(--ink);font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec-h .tablabel{font-size:11px;font-weight:700;color:var(--brand2);background:var(--brandSoft);padding:2px 8px;border-radius:999px}
+.rvwrap{display:grid;gap:8px}
+.rv{display:grid;grid-template-columns:minmax(120px,240px) minmax(0,1fr);gap:12px;align-items:center}
+.rv-l{font-size:13px;font-weight:700;color:var(--ink2)}
+.rbar{display:flex;height:24px;border-radius:6px;overflow:hidden;font-size:11.5px;font-weight:700;color:#fff}
+.rbar span{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;border-right:1px solid rgba(255,255,255,.35)}
+.rv-adj{font-size:11.5px;color:var(--muted);margin-top:3px}.rv-na{font-size:12.5px;color:var(--muted2)}
+.rv-lg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:var(--muted);margin-top:4px}.rv-lg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+details.raw{margin-top:10px}details.raw summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--brand2)}details.raw .tw{margin-top:8px}
+.ev{margin-bottom:12px}.ev-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:13px;margin-bottom:6px}.ev-s{color:var(--muted);font-size:12.5px}.ev-s b{color:var(--ink)}
+.egrid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px}
+.ec{display:grid;justify-items:center;gap:2px;font-size:12px}.ec b{font-variant-numeric:tabular-nums;color:var(--ink2);font-size:12px}
+.eg{font-size:10.5px;color:var(--muted2);font-weight:700}
+.ebar{width:100%;height:46px;background:var(--line3);border-radius:4px;display:flex;align-items:flex-end;overflow:hidden}.ebar i{display:block;width:100%;background:var(--brand);border-radius:4px 4px 0 0}
+.ec.an .ebar i{background:var(--red)}.ec.an b{color:var(--red)}
+.uc2-f{padding:12px 22px;background:var(--soft);border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}.uc2-f a{color:var(--brand2);font-weight:700;margin-left:8px}
+dialog#cmpdlg{border:0;border-radius:16px;padding:0;width:min(1000px,calc(100% - 24px));max-height:88vh;box-shadow:var(--shadow-lg)}
+dialog#cmpdlg::backdrop{background:rgba(9,20,38,.55)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2}.dh b{font-size:17px;color:var(--ink)}
+#cmpBody{padding:14px 18px 18px}.cmpt td,.cmpt th{vertical-align:top}.cmpt td.l{min-width:220px}
+@media(max-width:900px){.lk{grid-template-columns:minmax(0,1fr)}.ul{position:sticky;top:104px;z-index:30;display:flex;overflow-x:auto;gap:4px;padding:6px;scrollbar-width:none}.ul-t{display:none}.ul-i{width:auto;flex:none;padding:6px 11px}.ul-s{display:none}.kq{grid-template-columns:1fr 1fr 1fr}.kq-g{grid-column:1/-1}.rv{grid-template-columns:1fr;gap:4px}.sec,.uc2-h{padding:14px 16px}.egrid{gap:2px}.ec b{font-size:11px}}
+@media(max-width:480px){.kq{grid-template-columns:1fr 1fr}.uc2-nav{margin-left:0}}
 @media(max-width:860px){
   .layout{grid-template-columns:1fr}
   .toc{display:none}
@@ -193,21 +242,21 @@ td.dim{color:var(--muted2)}
   .tw{overflow:visible}
   body{background:#fff}
 }
+.layout{grid-template-columns:210px minmax(0,1fr)}
+@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}}
+.header{position:static}.tabs{top:0}.toc{top:62px}.ul{top:62px}section.blk{scroll-margin-top:70px}
+@media(max-width:900px){.ul{top:50px}}
 </style>
 </head>
 <body>
 <a href="#main" class="sr">본문 바로가기</a>
 
-<div class="topbar"><div class="wrap">
-  <span>충청남도교육청진로융합교육원 · 진학정보실</span>
-  <span>출처: 한국대학교육협의회 「2028학년도 대학입학전형시행계획 주요사항」(2026.4.30) · 쎈(SEN)진학</span>
-</div></div>
 
 <header class="header"><div class="wrap">
-  <a href="index.html" class="home-btn" aria-label="진학정보실 메인으로 이동"><span class="ic">⌂</span>메인</a>
+  <a href="index.html" class="home-btn" aria-label="진학정보실 메인으로 이동">메인</a>
   <div class="brand">
     <span class="yr"><b>2028 수능·정시 안내</b> <span class="badge2028">수능위주전형</span></span>
-    <span class="sub">수능 체제 변화부터 서울 15개 대학·국가거점국립대 정시 전형까지</span>
+    <span class="sub">2028 대입전형시행계획 기준 · 서울 15개 대학 정시 비교</span>
   </div>
   <div class="search">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
@@ -217,10 +266,10 @@ td.dim{color:var(--muted2)}
 </div></header>
 
 <nav class="tabs"><div class="wrap" id="tabbar">
-  <button class="tab on" data-v="lookup"><span class="ic">🎯</span>대학별 조회</button>
-  <button class="tab" data-v="jeongsi"><span class="ic">📊</span>정시 전형 분석</button>
-  <button class="tab" data-v="csat"><span class="ic">📐</span>수능 체제·지표</button>
-  <button class="tab" data-v="notes"><span class="ic">⚠️</span>원문 이상치</button>
+  <button class="tab on" data-v="lookup">대학별 조회</button>
+  <button class="tab" data-v="jeongsi">정시 전형 분석</button>
+  <button class="tab" data-v="csat">수능 체제·지표</button>
+  <button class="tab" data-v="notes">원문 이상치</button>
 </div></nav>
 
 <main id="main"><div class="wrap">
@@ -243,6 +292,7 @@ td.dim{color:var(--muted2)}
 </div></footer>
 
 <button class="toTop" id="toTop" aria-label="맨 위로">↑</button>
+<dialog id="cmpdlg"><div class="dh"><b>대학 비교</b><button type="button" class="nb" id="cmpClose">닫기</button></div><div id="cmpBody"></div></dialog>
 
 <script>
 /* === data.js 인라인 (빌드 자동 생성) === */
@@ -1005,56 +1055,87 @@ function renderScoreReport(){
   return h;
 }
 
-/* ============ VIEW: 대학별 조회 ============ */
-function renderLookupShell(){
-  const chips=D.meta.seoul15.map(u=>`<button class="uchip" data-u="${esc(u)}">${esc(u)}</button>`).join('');
-  $('#view-lookup').innerHTML=`
-    <div class="notice"><span class="ic">ℹ️</span><div>${esc(D.meta.notice)}</div></div>
-    <div class="lk-pick">
-      <div class="t"><span class="ic">🎯</span>대학별 종합 조회</div>
-      <div class="hint">대학을 선택하면 흩어져 있는 <b>정시 규모 · 모집군 · 전형방법 · 수능 반영비율 · 탐구 반영 · 영어 등급별 점수</b>를 한 화면에 모아 보여줍니다. (서울 소재 15개 대학)</div>
-      <div class="uchips">${chips}</div>
-    </div>
-    <div id="ucard"><div class="lk-empty"><div class="big">👆</div>위에서 대학을 선택하세요.<br><span style="font-size:12px">상단 검색창에 대학명을 입력해도 됩니다.</span></div></div>`;
+/* ============ VIEW: 대학별 조회 (v2, 2026-10-29) ============ */
+const LK={u:null,cmp:[]};
+try{LK.cmp=JSON.parse(localStorage.getItem('sn28.cmp')||'[]').filter(u=>D.meta.seoul15.includes(u)).slice(0,3)}catch(e){}
+const pnum=v=>{if(v==null||v==='')return null;const s=String(v);if(/\(/.test(s))return null;const n=parseFloat(s.replace(/[^\d.\-]/g,''));return isNaN(n)?null:n};
+function ratioSegs(sb){
+  const raw=[sb.kor,sb.math,sb.korMath,sb.eng,sb.sa,sb.gwa,sb.tamgu,sb.hansa].filter(v=>v!=null&&v!=='');
+  if(raw.some(v=>/\(/.test(String(v))))return null;
+  const seg=[];
+  if(sb.korMath){const ns=(String(sb.korMath).match(/\d+(\.\d+)?/g)||[]).map(Number);if(ns.length)seg.push(['국·수 우수',ns.reduce((a,b)=>a+b,0),'var(--seg-km)',sb.korMath])}
+  else{const k=pnum(sb.kor),m=pnum(sb.math);if(k)seg.push(['국어',k,'var(--seg-k)']);if(m)seg.push(['수학',m,'var(--seg-m)'])}
+  const e=pnum(sb.eng);if(e)seg.push(['영어',e,'var(--seg-e)']);
+  const t=sb.tamgu!=null?pnum(sb.tamgu):((pnum(sb.sa)||0)+(pnum(sb.gwa)||0))||null;if(t)seg.push(['탐구',t,'var(--seg-t)']);
+  const h=pnum(sb.hansa);if(h)seg.push(['한국사',h,'var(--seg-h)']);
+  return seg.length?seg:null;
 }
-function selectUniv(u){
-  document.querySelectorAll('.uchip').forEach(c=>c.classList.toggle('on',c.dataset.u===u));
-  const s15=B.seoul15.rows.find(r=>r.u===u);
-  const gun=B.byGun.rows.find(r=>r.u===u);
-  const types=deriveTypes(u);
-  let h=`<section class="blk">
-    <div class="ucard-head">
-      <h2>${esc(u)}</h2>
-      <div class="ucard-tags">${types.map(t=>`<span class="typetag t-${t.c}">${esc(t.t)}</span>`).join('')}</div>
-    </div>
-    <p class="lead" style="margin-bottom:10px">정시 유형은 전형방법을 바탕으로 자동 분류한 참고 표시입니다.</p>`;
-  // quick boxes
-  h+='<div class="ucard-quick">';
-  if(s15){
-    h+=`<div class="qbox"><div class="k">2028 정시 인원</div><div class="v">${s15.i28}<small>명</small></div></div>`;
-    h+=`<div class="qbox"><div class="k">정시 비율</div><div class="v">${s15.r28}<small>%</small></div></div>`;
-    h+=`<div class="qbox"><div class="k">전년 대비</div><div class="v ${numCls(s15.di)}" style="color:${parseFloat(s15.di)<0?'var(--red)':'var(--green)'}">${s15.di}<small>명</small></div><div class="d">비율 ${s15.dr}%p</div></div>`;
-  }
-  h+='</div>';
-  // 모집군
-  if(gun){
-    const pill=(g,v)=>`<span class="gunpill${v?'':' off'}"><span class="g">${g}</span>${v?('<span class="mono">'+v+'명</span>'):'미모집'}</span>`;
-    h+=`<div class="subh">모집군별 인원 ${tablabel('13')}</div><div class="gunrow">${pill('가',gun.ga)}${pill('나',gun.na)}${pill('다',gun.da)}</div>`;
-  }
-  // 전형방법
-  h+=`<div class="subh">전형방법 ${tablabel('15')}</div>`+renderMethodsTable(u);
-  // 반영비율
-  h+=`<div class="subh">수능 영역별 반영비율 ${tablabel('16')}</div>`+renderRatioTable(u)+`<div class="tfoot">※ 영어·한국사의 ‘감점/가산점’은 비율이 아닌 점수 조정 방식입니다. ‘( )’는 1과목 반영/대체 비율, ‘우수한 영역순 a,b’는 국어·수학 중 높은 영역에 a%·낮은 영역에 b%를 반영함을 의미합니다.</div>`;
-  // 탐구반영 (if present)
+function ratioViz(u){
+  const g=B.ratios.groups.find(x=>x.u===u);if(!g)return '';
+  const rows=g.subs.map(sb=>{
+    const label=[sb.gyeyeol||g.gyeyeol,sb.unit].filter(x=>x).join(' · ')||'전체';
+    const seg=ratioSegs(sb);const tot=seg?seg.reduce((a,s)=>a+s[1],0):0;
+    const adj=[['영어',sb.eng],['한국사',sb.hansa]].filter(([,v])=>v&&/감점|가산점|가점/.test(v)).map(([k,v])=>`${k} ${v}`).join(' · ');
+    return `<div class="rv"><div class="rv-l">${esc(label)}</div><div class="rv-b">${seg?`<div class="rbar">${seg.map(s=>`<span style="flex:${s[1]};background:${s[2]}" title="${s[0]} ${s[3]||s[1]}">${s[1]/tot>=.09?`${s[0]==='국·수 우수'?'국·수':s[0]} ${s[3]?esc(s[3].replace('우수한 영역순 ','')):s[1]}`:''}</span>`).join('')}</div>`:'<div class="rv-na">( ) 대체·선택 비율 포함 — 아래 표 참조</div>'}${adj?`<div class="rv-adj">${esc(adj)}</div>`:''}</div></div>`;
+  }).join('');
+  return `<div class="rvwrap">${rows}<div class="rv-lg"><span><i style="background:var(--seg-k)"></i>국어</span><span><i style="background:var(--seg-m)"></i>수학</span><span><i style="background:var(--seg-km)"></i>국·수 중 우수 영역순</span><span><i style="background:var(--seg-e)"></i>영어(비율)</span><span><i style="background:var(--seg-t)"></i>탐구</span><span><i style="background:var(--seg-h)"></i>한국사(비율)</span></div></div>`;
+}
+function engViz(u){
+  return B.english.rows.filter(r=>r.u===u).map(r=>{
+    if(r.special)return `<div class="ev"><div class="ev-h"><b>${esc(r.label||r.u)}</b><span class="typetag t-blue">${esc(r.method)}</span></div><div class="rv-na">${esc(r.special)}</div></div>`;
+    const v=r.s.map(Number);const loss=v.map(x=>r.method==='감점'?-x:v[0]-x);const mx=Math.max(...loss.slice(0,9))||1;
+    return `<div class="ev"><div class="ev-h"><b>${esc(r.label||r.u)}</b><span class="typetag t-blue">${esc(r.method)}</span><span class="ev-s">1등급 대비 2등급 <b>${fmtLoss(loss[1])}</b> · 3등급 <b>${fmtLoss(loss[2])}</b> · 4등급 <b>${fmtLoss(loss[3])}</b>점</span></div>
+    <div class="egrid">${r.s.map((s,i)=>{const an=r.anomaly&&(i===6||i===7);return `<div class="ec${an?' an':''}"><span class="eg">${i+1}</span><span class="ebar"><i style="height:${Math.max(3,r.method==='감점'?100-loss[i]/mx*100:v[i]/v[0]*100)}%"></i></span><b>${esc(s)}</b></div>`}).join('')}</div></div>`;
+  }).join('');
+}
+const fmtLoss=x=>x===0?'0':('-'+(Math.round(x*10)/10));
+function gunViz(gun){
+  const vals=[['가',gun.ga],['나',gun.na],['다',gun.da]];
+  const tot=v=>(String(v||'').match(/[\d,]+/g)||[]).reduce((a,b)=>a+Number(b.replace(/,/g,'')),0);
+  const mx=Math.max(...vals.map(x=>tot(x[1])))||1;
+  return `<div class="gv">${vals.map(([g,v])=>`<div class="gvr${v?'':' off'}"><span class="gk">${g}군</span><span class="gb"><i style="width:${v?Math.max(4,tot(v)/mx*100):0}%"></i></span><span class="gn">${v?esc(v)+'명':'미모집'}</span></div>`).join('')}</div>`;
+}
+function renderLookupShell(){
+  const list=D.meta.seoul15.map(u=>{const s=B.seoul15.rows.find(r=>r.u===u);return `<button type="button" class="ul-i" data-pick="${esc(u)}"><span class="ul-n">${esc(u)}</span><span class="ul-s">${s?`${s.i28}명 · ${s.r28}%`:''}</span></button>`}).join('');
+  $('#view-lookup').innerHTML=`<div class="lk"><nav class="ul" id="ulist" aria-label="대학 선택"><div class="ul-t">서울 소재 15개 대학 <small>정시 인원 · 비율</small></div>${list}</nav><div><div class="cmpbar" id="cmpbar"></div><div id="ucard"></div></div></div>`;
+}
+function selectUniv(u,scroll){
+  LK.u=u;
+  document.querySelectorAll('.ul-i').forEach(c=>c.classList.toggle('on',c.dataset.pick===u));
+  const on=document.querySelector('.ul-i.on');if(on&&matchMedia('(max-width:900px)').matches)on.scrollIntoView({block:'nearest',inline:'center'});
+  const s15=B.seoul15.rows.find(r=>r.u===u),gun=B.byGun.rows.find(r=>r.u===u),types=deriveTypes(u);
+  const i=D.meta.seoul15.indexOf(u),inC=LK.cmp.includes(u);
   const hasInq=B.inquiry.groups.some(g=>g.rows.some(r=>r.u===u));
-  if(hasInq) h+=`<div class="subh">탐구영역 반영 방법 ${tablabel('17')}</div>`+renderInquiryTable(u);
-  // 영어
-  h+=`<div class="subh">영어 등급별 점수 ${tablabel('18')}</div>`+renderEnglishTable(u);
-  if(u==='서강대') h+=`<div class="tfoot warn">※ 서강대 영어 가산점 7등급 49.5·8등급 46은 원문 표기 그대로(비단조)입니다.</div>`;
-  if(u==='중앙대') h+=`<div class="tfoot">※ ${esc(B.english.note18)}</div>`;
-  h+='</section>';
-  $('#ucard').innerHTML=h;
-  $('#ucard').scrollIntoView({behavior:'smooth',block:'start'});
+  let h=`<article class="uc2"><div class="uc2-h"><div class="uc2-t"><h2>${esc(u)}</h2><div class="ucard-tags">${types.map(t=>`<span class="typetag t-${t.c}">${esc(t.t)}</span>`).join('')}</div>
+    <div class="uc2-nav"><button type="button" class="nb${inC?' on':''}" data-cmp="${esc(u)}">${inC?'비교함에서 빼기':'+ 비교함에 담기'}</button><button type="button" class="nb" data-step="-1" aria-label="이전 대학">‹</button><button type="button" class="nb" data-step="1" aria-label="다음 대학">›</button></div></div>
+    <div class="kq">${s15?`<div><span>2028 정시 인원</span><b>${s15.i28}<small>명</small></b></div><div><span>전체 대비 정시 비율</span><b>${s15.r28}<small>%</small></b></div><div><span>2027 대비</span><b class="${numCls(s15.di)}">${parseFloat(s15.di)>0?'+':''}${s15.di}<small>명</small></b><em>비율 ${s15.dr}%p</em></div>`:''}${gun?`<div class="kq-g"><span>모집군별 인원(일반전형)</span>${gunViz(gun)}</div>`:''}</div></div>
+    <section class="sec"><div class="sec-h">수능 영역별 반영비율 ${tablabel('16')}</div>${ratioViz(u)}<details class="raw"><summary>원문 표로 보기</summary>${renderRatioTable(u)}<div class="tfoot">※ 영어·한국사의 ‘감점/가산점’은 비율이 아닌 점수 조정 방식입니다. ‘( )’는 1과목 반영 또는 대체 비율입니다.</div></details></section>
+    <section class="sec"><div class="sec-h">전형방법 ${tablabel('15')}</div>${renderMethodsTable(u)}</section>
+    ${hasInq?`<section class="sec"><div class="sec-h">탐구영역 반영 방법 ${tablabel('17')}</div>${renderInquiryTable(u)}</section>`:''}
+    <section class="sec"><div class="sec-h">영어 등급별 점수 ${tablabel('18')}</div>${engViz(u)}
+    ${u==='서강대'?'<div class="tfoot warn">※ 서강대 영어 가산점 7등급 49.5·8등급 46은 원문 표기 그대로(비단조)입니다.</div>':''}${u==='중앙대'?`<div class="tfoot">※ ${esc(B.english.note18)}</div>`:''}</section>
+    <div class="uc2-f">시행계획 단계 자료입니다. 최종 반영비율·영어 점수는 ${esc(u)} 2028학년도 정시모집요강으로 확인하세요. <a href="2028admission-plan-download.html" target="_blank" rel="noopener">시행계획 원문 ↗</a> <a href="jeongsi/" target="_blank" rel="noopener">2026 정시 입시결과 ↗</a></div></article>`;
+  $('#ucard').innerHTML=h;renderCmpBar();
+  if(location.hash!=='#lookup/'+encodeURIComponent(u))history.replaceState(null,'','#lookup/'+encodeURIComponent(u));
+  try{localStorage.setItem('sn28.u',u)}catch(e){}
+  if(scroll){const t=$('#ucard').getBoundingClientRect().top+scrollY-120;if(scrollY>t)window.scrollTo({top:t})}
+}
+function renderCmpBar(){
+  const el=$('#cmpbar');if(!el)return;
+  if(!LK.cmp.length){el.innerHTML='';el.hidden=true;return}
+  el.hidden=false;
+  el.innerHTML=`<b>비교함</b>${LK.cmp.map(u=>`<span class="cc">${esc(u)}<button type="button" data-cmp="${esc(u)}" aria-label="${esc(u)} 빼기">×</button></span>`).join('')}<span class="ch">${LK.cmp.length<2?'대학을 하나 더 담으면 비교표가 열립니다':''}</span>${LK.cmp.length>=2?'<button type="button" class="nb pr" id="openCmp">비교표 보기</button>':''}`;
+}
+function toggleCmp(u){const i=LK.cmp.indexOf(u);if(i>=0)LK.cmp.splice(i,1);else{if(LK.cmp.length>=3)LK.cmp.shift();LK.cmp.push(u)}try{localStorage.setItem('sn28.cmp',JSON.stringify(LK.cmp))}catch(e){}if(LK.u)selectUniv(LK.u);else renderCmpBar();if($('#cmpdlg')&&$('#cmpdlg').open){LK.cmp.length>=2?openCmp():$('#cmpdlg').close()}}
+function openCmp(){
+  const us=LK.cmp;if(us.length<2)return;
+  const row=(k,f)=>`<tr><th class="l">${k}</th>${us.map(u=>`<td class="l">${f(u)}</td>`).join('')}</tr>`;
+  const s=u=>B.seoul15.rows.find(r=>r.u===u)||{};const gn=u=>B.byGun.rows.find(r=>r.u===u)||{};
+  const eng=(u,i)=>{const r=B.english.rows.find(x=>x.u===u);if(!r)return '–';if(r.special)return esc(r.special);return `${esc(r.method)} · ${i.map(j=>`${j+1}등급 ${esc(r.s[j])}`).join(' / ')}`};
+  const rat=u=>{const g=B.ratios.groups.find(x=>x.u===u);if(!g)return '–';return g.subs.map(sb=>{const label=[sb.gyeyeol||g.gyeyeol,sb.unit].filter(x=>x).join(' · ')||'전체';const p=[['국',sb.kor],['수',sb.math],['국수',sb.korMath],['영',sb.eng],['통사',sb.sa],['통과',sb.gwa],['탐',sb.tamgu],['한',sb.hansa]].filter(([,v])=>v!=null&&v!=='').map(([k,v])=>`${k} ${v}`).join(' · ');return `<div style="margin-bottom:6px"><b>${esc(label)}</b><br><span style="color:var(--muted)">${esc(p)}</span></div>`}).join('')+(g.note?`<span class="typetag t-amber">${esc(g.note)}</span>`:'')};
+  $('#cmpBody').innerHTML=`<div class="tw"><table class="cmpt"><thead><tr><th class="l"></th>${us.map(u=>`<th class="l">${esc(u)}</th>`).join('')}</tr></thead><tbody>
+  ${row('정시 인원',u=>`<b>${s(u).i28||'–'}명</b> (${s(u).r28||'–'}%)`)}${row('2027 대비',u=>`<span class="${numCls(s(u).di)}">${s(u).di||'–'}명</span> · ${s(u).dr||'–'}%p`)}${row('모집군',u=>['ga','na','da'].map((k,i)=>gn(u)[k]?`${'가나다'[i]}군 ${esc(gn(u)[k])}`:'').filter(Boolean).join('<br>')||'–')}${row('정시 유형',u=>deriveTypes(u).map(t=>`<span class="typetag t-${t.c}">${esc(t.t)}</span>`).join(' '))}${row('영역별 반영비율',rat)}${row('영어 1~4등급',u=>eng(u,[0,1,2,3]))}${row('영어 5~9등급',u=>eng(u,[4,5,6,7,8]))}</tbody></table></div><p class="tfoot">※ 영어 점수는 대학마다 만점·반영 방식(비율·감점·가산점)이 달라 숫자를 직접 비교하면 안 됩니다. 같은 대학 안에서 등급 간 차이를 보세요.</p>`;
+  if(!$('#cmpdlg').open)$('#cmpdlg').showModal();
 }
 
 /* ============ VIEW: 원문 이상치 ============ */
@@ -1068,7 +1149,7 @@ function renderNotes(){
 function show(v){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===v));
   ['lookup','jeongsi','csat','notes'].forEach(x=>$('#view-'+x).hidden=(x!==v));
-  if(location.hash.replace('#','')!==('v-'+v)) history.replaceState(null,'','#'+v);
+  if(v!=='lookup') history.replaceState(null,'','#'+v); else if(LK.u) history.replaceState(null,'','#lookup/'+encodeURIComponent(LK.u));
   window.scrollTo({top:0,behavior:'auto'});
 }
 document.getElementById('tabbar').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)show(b.dataset.v);});
@@ -1076,7 +1157,12 @@ document.getElementById('tabbar').addEventListener('click',e=>{const b=e.target.
 // delegate university links
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-u]');
-  if(b){ show('lookup'); selectUniv(b.dataset.u); }
+  if(b){ show('lookup'); selectUniv(b.dataset.u,true); return; }
+  const pk=e.target.closest('[data-pick]'); if(pk){ selectUniv(pk.dataset.pick,true); return; }
+  const cm=e.target.closest('[data-cmp]'); if(cm){ toggleCmp(cm.dataset.cmp); return; }
+  const st=e.target.closest('[data-step]'); if(st){ const L=D.meta.seoul15; selectUniv(L[(L.indexOf(LK.u)+(+st.dataset.step)+L.length)%L.length]); return; }
+  if(e.target.id==='openCmp'){ openCmp(); return; }
+  if(e.target.id==='cmpClose'){ $('#cmpdlg').close(); return; }
   const an=e.target.closest('[data-anchor]');
   if(an){ document.querySelectorAll('.toc a').forEach(x=>x.classList.remove('on')); an.classList.add('on'); }
 });
@@ -1098,10 +1184,10 @@ q.addEventListener('keydown',e=>{
   if(ac.hidden)return;
   if(e.key==='ArrowDown'){acIdx=Math.min(acIdx+1,acList.length-1);renderAc();e.preventDefault();}
   else if(e.key==='ArrowUp'){acIdx=Math.max(acIdx-1,0);renderAc();e.preventDefault();}
-  else if(e.key==='Enter'){const u=acList[acIdx]||acList[0];if(u){q.value='';ac.hidden=true;show('lookup');selectUniv(u);}}
+  else if(e.key==='Enter'){const u=acList[acIdx]||acList[0];if(u){q.value='';ac.hidden=true;show('lookup');selectUniv(u,true);}}
   else if(e.key==='Escape'){ac.hidden=true;}
 });
-ac.addEventListener('click',e=>{const b=e.target.closest('[data-u]');if(b){q.value='';ac.hidden=true;show('lookup');selectUniv(b.dataset.u);}});
+ac.addEventListener('click',e=>{const b=e.target.closest('[data-u]');if(b){q.value='';ac.hidden=true;show('lookup');selectUniv(b.dataset.u,true);}});
 document.addEventListener('click',e=>{if(!e.target.closest('.search'))ac.hidden=true;});
 
 // scrollspy for TOC
@@ -1120,8 +1206,13 @@ $('#toTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth
 
 // init
 renderLookupShell(); renderJeongsi(); renderCsat(); renderNotes();
-const h=location.hash.replace('#','');
-if(['jeongsi','csat','notes','lookup'].includes(h)) show(h); else show('lookup');
+const h=decodeURIComponent(location.hash.replace('#',''));
+let first=null; try{first=localStorage.getItem('sn28.u')}catch(e){}
+const hu=h.startsWith('lookup/')?h.slice(7):null;
+selectUniv(D.meta.seoul15.includes(hu)?hu:(D.meta.seoul15.includes(first)?first:D.meta.seoul15[0]));
+if(['jeongsi','csat','notes'].includes(h)) show(h); else show('lookup');
+document.getElementById('cmpdlg').addEventListener('click',e=>{if(e.target.id==='cmpdlg')e.target.close()});
+document.addEventListener('keydown',e=>{if(document.querySelector('#view-lookup:not([hidden])')&&!/input|textarea|select/i.test(document.activeElement.tagName)&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){const L=D.meta.seoul15;selectUniv(L[(L.indexOf(LK.u)+(e.key==='ArrowRight'?1:-1)+L.length)%L.length])}});
 </script>
 </body>
 </html>
