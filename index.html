@@ -2168,8 +2168,8 @@
 
           <div class="type-chips" role="group" aria-label="도구 유형 필터">
             <span class="type-label">유형</span>
-            <button class="chip" type="button" data-type-filter="all" aria-pressed="true">모든 유형 <span class="count">90</span></button>
-            <button class="chip" type="button" data-type-filter="explore" aria-pressed="false">조회·비교 <span class="count">32</span></button>
+            <button class="chip" type="button" data-type-filter="all" aria-pressed="true">모든 유형 <span class="count">91</span></button>
+            <button class="chip" type="button" data-type-filter="explore" aria-pressed="false">조회·비교 <span class="count">33</span></button>
             <button class="chip" type="button" data-type-filter="guide" aria-pressed="false">안내서 <span class="count">41</span></button>
             <button class="chip" type="button" data-type-filter="download" aria-pressed="false">다운로드 <span class="count">6</span></button>
             <button class="chip" type="button" data-type-filter="calc" aria-pressed="false">계산·생성 <span class="count">4</span></button>
@@ -2309,6 +2309,15 @@
             <span class="audience cat-2027">2027대입</span>
             <h3>2027 수시 대학별 요약 조회</h3>
             <p>대교협 202개교 요약자료 통합 — 대학별 15개 항목 조회, 변경사항·수능최저 모아보기, 대학별고사 캘린더</p>
+            <span class="card-meta">
+              <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+            </span>
+          </a>
+
+          <a class="resource-card" href="2027jeongsi-summary.html" data-id="2027jeongsi-summary" data-category="2027" data-type="explore" data-added="2026-11-01" data-updated="2026-11-01" data-keywords="2027 정시 대학별 요약 대교협 정시모집요강 수능 반영비율 활용지표 표준점수 백분위 변환표준점수 영어 등급 점수 한국사 감점 가산 미적분 기하 확통 사탐 과탐 가군 나군 다군 군별 모집인원 전형일정 면접 실기 합격자 발표 변경사항 모집군 이동 전공자율선택제 계약학과 학교폭력 동점자 197개교">
+            <span class="audience cat-2027">2027대입</span>
+            <h3>2027 정시 대학별 요약 조회</h3>
+            <p>197개교 정시 요약 — 수능 반영비율 비교(강점·선택과목 필터), 가·나·다 군별 보드·지원 조합, 전형일정 캘린더, 변경사항</p>
             <span class="card-meta">
               <span class="card-ico" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
             </span>
@@ -3246,7 +3255,7 @@
       var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       // 빌드 시 주입되는 월별 시즌 추천 데이터
-      var SEASONS = {"1":{"label":"1월 · 정시 상담 시즌","ids":["jeongsi","adiga","2026results-download","unimo"]},"2":{"label":"2월 · 새 학년 준비","ids":["jinrodesign","sub2","chungnam_admission","studentguide"]},"3":{"label":"3월 · 학년 초 진로·학업 설계","ids":["jinrodesign","sub2","2027admissions2","studentguide"]},"4":{"label":"4월 · 시행계획 발표 시즌","ids":["2028admission-plan-download","202815uni","jinhak2028","2028ist"]},"5":{"label":"5월 · 중간고사·학평 상담","ids":["20265cast","saenggibu_check","sciencetam","socialtam"]},"6":{"label":"6월 · 모의평가·학력평가","ids":["20276cast","20266cast1","20266cast2","2027-june-mock-analysis"]},"7":{"label":"7월 · 수시 준비 시작","ids":["2027gosa","2027susi-download","20276cast","jonghap_eval","2027uichihan","adiga"]},"8":{"label":"8월 · 수시 원서 직전 점검","ids":["2027gosa","2027chuchon","jonghap_eval","2027uichihan","student_record_interview"]},"9":{"label":"9월 · 수시 원서·면접 준비","ids":["jonghap_interview","student_record_interview","2027gosa","2026prelearning-report"]},"10":{"label":"10월 · 대학별고사 시즌","ids":["2027gosa","2026prelearning-report","jonghap_interview","student_record_interview"]},"11":{"label":"11월 · 수능·정시 준비","ids":["2026cast","jeongsi","2027jeongsi-download","adiga","2028suneung"]},"12":{"label":"12월 · 정시 상담 시즌","ids":["jeongsi","2027jeongsi-download","adiga","2026results-download","unimo"]}};
+      var SEASONS = {"1":{"label":"1월 · 정시 상담 시즌","ids":["2027jeongsi-summary","jeongsi","adiga","2026results-download","unimo"]},"2":{"label":"2월 · 새 학년 준비","ids":["jinrodesign","sub2","chungnam_admission","studentguide"]},"3":{"label":"3월 · 학년 초 진로·학업 설계","ids":["jinrodesign","sub2","2027admissions2","studentguide"]},"4":{"label":"4월 · 시행계획 발표 시즌","ids":["2028admission-plan-download","202815uni","jinhak2028","2028ist"]},"5":{"label":"5월 · 중간고사·학평 상담","ids":["20265cast","saenggibu_check","sciencetam","socialtam"]},"6":{"label":"6월 · 모의평가·학력평가","ids":["20276cast","20266cast1","20266cast2","2027-june-mock-analysis"]},"7":{"label":"7월 · 수시 준비 시작","ids":["2027gosa","2027susi-download","20276cast","jonghap_eval","2027uichihan","adiga"]},"8":{"label":"8월 · 수시 원서 직전 점검","ids":["2027gosa","2027chuchon","jonghap_eval","2027uichihan","student_record_interview"]},"9":{"label":"9월 · 수시 원서·면접 준비","ids":["jonghap_interview","student_record_interview","2027gosa","2026prelearning-report"]},"10":{"label":"10월 · 대학별고사 시즌","ids":["2027gosa","2026prelearning-report","jonghap_interview","student_record_interview"]},"11":{"label":"11월 · 수능·정시 준비","ids":["2026cast","2027jeongsi-summary","jeongsi","2027jeongsi-download","adiga","2028suneung"]},"12":{"label":"12월 · 정시 상담 시즌","ids":["jeongsi","2027jeongsi-summary","2027jeongsi-download","adiga","2026results-download","unimo"]}};
 
       var TYPE_LABELS = {
         explore: '조회·비교', guide: '안내서', download: '다운로드',
