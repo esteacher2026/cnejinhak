@@ -36,6 +36,8 @@
     var f = MJ.a.frame(ans.kind), qs = ordered(st), idx = qs.map(function (x) { return x.id; }).indexOf(q.id);
     f.slots.forEach(function (sl, i) { sl._no = i + 1; });
     var rec = MJ.store.record(), srcItem = q.src && q.src.type === "item" ? rec.filter(function (x) { return x.id === q.src.ref; })[0] : null;
+    var cardBits = srcItem && srcItem.card ? [["why", "계기"], ["how", "과정"], ["res", "결과"], ["learn", "배운 점"], ["out", "기록에 없는 장면"]].filter(function (x) { return String(srcItem.card[x[0]] || "").trim(); }) : [];
+    var cardNote = cardBits.length ? '<details class="acc" style="margin-bottom:10px"><summary><b>내 활동 카드</b></summary><div class="acc-body small">' + cardBits.map(function (x) { return "<p style=\"margin:0 0 6px\"><b>" + x[1] + "</b> " + MJ.esc(srcItem.card[x[0]]) + "</p>"; }).join("") + "</div></details>" : "";
     var ex = (MJ.content.coach.examples || []).filter(function (e) { return e.kind === ans.kind; })[0];
     var draft = "";
     BUILDER_OF.forEach(function (b) { if (b[0].test(q.tpl || "") && st.builders && st.builders[b[1]]) { var arr = st.builders[b[1]], steps = ((MJ.content.coach.builders || {})[b[1]] || {}).steps || [], last = arr[steps.length ? steps.length - 1 : arr.length - 1]; if (last) draft = last; } });
@@ -46,7 +48,7 @@
       (srcItem ? '<div class="srcbox"><b>학생부 문장' + (srcItem.subject ? " · " + esc(srcItem.subject) : "") + "</b>" + esc(srcItem.text) + "</div>" : "") +
       (q.guide ? '<details class="acc" style="margin-top:10px"><summary>이 질문은 이렇게 준비하세요</summary><div class="acc-body"><ul>' + q.guide.map(function (g) { return "<li>" + esc(g) + "</li>"; }).join("") + "</ul>" + (q.avoid ? '<h3 style="font-size:14px;margin-top:8px">피할 것</h3><ul>' + q.avoid.map(function (g) { return "<li>" + esc(g) + "</li>"; }).join("") + "</ul>" : "") + "</div></details>" : "") + "</div>";
 
-    h += '<div class="split"><div><div class="card flat"><div class="row between"><div><b>답변 구조: ' + esc(f.name) + '</b><div class="small mute">' + esc(f.when) + '</div></div><select class="in" id="kindSel" style="width:auto">' + Object.keys(MJ.KINDS).map(function (k) { return '<option value="' + k + '"' + (k === ans.kind ? " selected" : "") + ">" + MJ.KINDS[k] + " 질문</option>"; }).join("") + "</select></div></div>";
+    h += cardNote + '<div class="split"><div><div class="card flat"><div class="row between"><div><b>답변 구조: ' + esc(f.name) + '</b><div class="small mute">' + esc(f.when) + '</div></div><select class="in" id="kindSel" style="width:auto" aria-label="답변 구조 고르기">' + Object.keys(MJ.KINDS).map(function (k) { return '<option value="' + k + '"' + (k === ans.kind ? " selected" : "") + ">" + MJ.KINDS[k] + " 질문</option>"; }).join("") + "</select></div></div>";
     if (draft) h += '<div class="callout small"><b class="t">만들기 도구에서 쓴 초안</b>' + esc(draft) + "</div>";
     h += f.slots.map(function (s) { return slotHtml(s, ans); }).join("");
     h += '<p class="hint">' + esc(f.shorten || "") + "</p>";
@@ -84,7 +86,7 @@
       if (!st.answers[q.id]) st.answers[q.id] = ans;
       ans.updated = Date.now(); clearTimeout(saveT);
       if (ss) { ss.textContent = "저장하는 중"; ss.classList.remove("on"); }
-      saveT = setTimeout(function () { saveT = null; MJ.store.save(); if (ss) { ss.textContent = "✓ 이 기기에 저장됨"; ss.classList.add("on"); } }, 400);
+      saveT = setTimeout(function () { saveT = null; var ok = MJ.store.save(); if (ss) { ss.textContent = ok ? "✓ 이 기기에 저장됨" : "저장하지 못함"; ss.classList.toggle("on", !!ok); } }, 400);
     }
     /* 새로 고침·탭 닫기·앱 전환 직전에 남은 저장을 바로 한다 */
     flushNow = function () { if (saveT) { clearTimeout(saveT); saveT = null; MJ.store.save(); } };

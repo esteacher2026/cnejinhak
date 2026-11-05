@@ -76,11 +76,16 @@
   /* ───────── 저장 ───────── */
   var KEY = "mj.v1", KEY_REC = "mj.v1.record";
   var DEFAULT = {
-    v: 1, targets: [], recordPolicy: "session", questions: [], answers: {}, practice: [], checks: {},
+    v: 1, targets: [], recordPolicy: "session", questions: [], answers: {}, practice: [], checks: {}, afters: [],
     progress: { know: 0, univ: 0, record: 0, questions: 0, answers: 0, practice: 0 },
     quiz: null, settings: { rate: 5.2, ttsOn: true, sttOn: false, recOn: false, answerSec: 60, thinkSec: 5, tails: true }
   };
   var state = null, record = null, listeners = [];
+  /* 저장소가 막힌 브라우저에서는 메모리에 둔다(창을 닫으면 사라지지만 앱은 동작한다) */
+  var memData = {};
+  var MEM = { getItem: function (k) { return k in memData ? memData[k] : null; }, setItem: function (k, v) { memData[k] = String(v); }, removeItem: function (k) { delete memData[k]; } };
+  function LS() { try { return window["local" + "Storage"] || MEM; } catch (e) { return MEM; } }
+  function SS() { try { return window["session" + "Storage"] || MEM; } catch (e) { return MEM; } }
   function safeGet(st, k) { try { return st.getItem(k); } catch (e) { return null; } }
   function safeSet(st, k, v) { try { st.setItem(k, v); return true; } catch (e) { return false; } }
   function safeDel(st, k) { try { st.removeItem(k); } catch (e) { /* 무시 */ } }
@@ -91,7 +96,7 @@
   function normalize(s) {
     s = isObj(s) ? s : {};
     var out = Object.assign(MJ.clone(DEFAULT), s);
-    ["targets", "questions", "practice"].forEach(function (k) { out[k] = arr(s[k]); });
+    ["targets", "questions", "practice", "afters"].forEach(function (k) { out[k] = arr(s[k]); });
     ["answers", "checks"].forEach(function (k) { out[k] = isObj(s[k]) ? s[k] : {}; });
     out.settings = Object.assign(MJ.clone(DEFAULT.settings), isObj(s.settings) ? s.settings : {});
     out.progress = Object.assign(MJ.clone(DEFAULT.progress), isObj(s.progress) ? s.progress : {});
@@ -114,26 +119,33 @@
     return arr(r).filter(function (it) { return typeof it.text === "string"; }).map(function (it) {
       if (!ID_OK.test(String(it.id))) it.id = MJ.uid("r");
       if (keys.length && keys.indexOf(it.area) < 0) it.area = keys[0];
-      it.subject = String(it.subject || ""); it.tags = Array.isArray(it.tags) ? it.tags : []; it.chips = isObj(it.chips) ? it.chips : {};
+      it.subject = String(it.subject || ""); it.tags = Array.isArray(it.tags) ? it.tags : []; it.chips = isObj(it.chips) ? it.chips : {}; it.card = isObj(it.card) ? it.card : {};
       return it;
     });
   }
   function loadState() {
-    var raw = safeGet(window.localStorage, KEY), s = null;
-    try { s = raw ? JSON.parse(raw) : null; } catch (e) { s = null; }
+    var raw = safeGet(LS(), KEY), s = null;
+    try { s = raw ? JSON.parse(raw) : null; } catch (e) { s = null; safeSet(LS(), KEY + ".broken", raw); }   // 깨진 저장값은 덮어쓰기 전에 남겨 둔다
     try { state = normalize(s); } catch (e) { state = MJ.clone(DEFAULT); }
-    var st = state.recordPolicy === "local" ? window.localStorage : window.sessionStorage;
+    var st = state.recordPolicy === "local" ? LS() : SS();
     var rr = safeGet(st, KEY_REC);
     try { record = normRecord(rr ? JSON.parse(rr) : []); } catch (e) { record = []; }
   }
-  function saveState() { safeSet(window.localStorage, KEY, JSON.stringify(state)); }
+  var lastWarn = 0;
+  function noteSave(ok) {
+    if (MJ.store) MJ.store.lastOk = ok;
+    if (!ok && Date.now() - lastWarn > 30000 && MJ.toast) { lastWarn = Date.now(); MJ.toast("저장하지 못했습니다. 기기 저장 공간이 부족하거나 저장이 막혀 있습니다. 내 자료에서 백업을 받아 두세요."); }
+    return ok;
+  }
+  function saveState() { return noteSave(safeSet(LS(), KEY, JSON.stringify(state))); }
   function saveRecord() {
-    if (state.recordPolicy === "local") { safeSet(window.localStorage, KEY_REC, JSON.stringify(record)); safeDel(window.sessionStorage, KEY_REC); }
-    else { safeSet(window.sessionStorage, KEY_REC, JSON.stringify(record)); safeDel(window.localStorage, KEY_REC); }
+    if (state.recordPolicy === "local") { noteSave(safeSet(LS(), KEY_REC, JSON.stringify(record))); safeDel(SS(), KEY_REC); }
+    else { noteSave(safeSet(SS(), KEY_REC, JSON.stringify(record))); safeDel(LS(), KEY_REC); }
   }
   MJ.store = {
     get: function () { return state; },
-    save: function () { saveState(); listeners.forEach(function (f) { try { f(state); } catch (e) { /* 무시 */ } }); },
+    lastOk: true,
+    save: function () { var ok = saveState(); listeners.forEach(function (f) { try { f(state); } catch (e) { /* 무시 */ } }); return ok; },
     on: function (f) { listeners.push(f); },
     record: function () { return record; },
     saveRecord: function () { saveRecord(); },
@@ -146,7 +158,7 @@
       saveState(); saveRecord();
     },
     resetAll: function () {
-      safeDel(window.localStorage, KEY); safeDel(window.localStorage, KEY_REC); safeDel(window.sessionStorage, KEY_REC);
+      safeDel(LS(), KEY); safeDel(LS(), KEY_REC); safeDel(SS(), KEY_REC);
       loadState();
     },
     mark: function (step, val) { if ((state.progress[step] || 0) < val) { state.progress[step] = val; MJ.store.save(); } }
@@ -165,7 +177,7 @@
   var NET_MSG = "자료 서버에 연결하지 못했습니다. 이 통신망에서 자료 서버가 막혀 있을 수 있습니다. 잠시 뒤 다시 시도하거나, 휴대폰은 와이파이를 끄고 데이터로 열어 보세요.";
   MJ.secure = { api: APIS[0] || "", apis: APIS };
   function apiFetch(path, opt) {
-    var n = APIS.length, pref = parseInt(safeGet(window.sessionStorage, "mj.api"), 10);
+    var n = APIS.length, pref = parseInt(safeGet(SS(), "mj.api"), 10);
     if (!(pref >= 0 && pref < n)) pref = -1;
     return new Promise(function (res, rej) {
       var done = false, failed = 0, started = {};
@@ -173,27 +185,33 @@
       function go(i) {
         if (done || started[i]) return;
         started[i] = 1;
-        fetch(APIS[i] + path, opt).then(function (r) {
-          if (done) return;
-          done = true; safeSet(window.sessionStorage, "mj.api", String(i)); res(r);
-        }, function () {
+        function fail() {
           failed++;
           if (failed >= n) { if (!done) { done = true; rej(new Error(NET_MSG)); } } else all();
-        });
+        }
+        fetch(APIS[i] + path, opt).then(function (r) {
+          if (done) return;
+          /* 통신망의 차단 안내 쪽(HTML)이나 서버 오류가 정상 서버를 이기지 않게, 우리 서버의 JSON 답만 받는다 */
+          var ct = (r.headers && r.headers.get("content-type")) || "";
+          if (!/json/i.test(ct) || !(r.ok || r.status === 401 || r.status === 404 || r.status === 429)) { fail(); return; }
+          done = true; safeSet(SS(), "mj.api", String(i)); res(r);
+        }, fail);
       }
       if (pref < 0) all(); else { go(pref); setTimeout(all, 4000); }
     });
   }
+  var memTok = null;
   function tokGet() {
-    var raw = safeGet(window.sessionStorage, TOK) || safeGet(window.localStorage, TOK), t = null;
+    var raw = safeGet(SS(), TOK) || safeGet(LS(), TOK) || memTok, t = null;
     try { t = raw ? JSON.parse(raw) : null; } catch (e) { t = null; }
     return t && t.t && t.e > Date.now() + 60e3 ? t : null;
   }
-  function tokDrop() { safeDel(window.sessionStorage, TOK); safeDel(window.localStorage, TOK); }
+  function tokDrop() { memTok = null; safeDel(SS(), TOK); safeDel(LS(), TOK); }
+  function hasMine() { return !!state && (state.questions.length || state.targets.length || Object.keys(state.answers).length || state.afters.length); }
   var lockWait = [];
   MJ.lock = function (msg) {
-    return new Promise(function (res) {
-      lockWait.push(res);
+    return new Promise(function (res, rej) {
+      lockWait.push([res, rej]);
       if (MJ.$("#lock")) { if (msg) MJ.$("#lockMsg").textContent = msg; return; }
       var d = document.createElement("div");
       d.id = "lock"; d.className = "lock";
@@ -202,29 +220,36 @@
         '<label class="f" for="lockCode">보안코드</label><input class="in" id="lockCode" inputmode="text" autocapitalize="characters" spellcheck="false" placeholder="예: CNE-XXXX-XXXX">' +
         '<label class="ckline small"><input type="checkbox" id="lockKeep" style="width:18px;height:18px;flex:none"> <span>이 기기에서 12시간 동안 기억하기 <span class="mute">(함께 쓰는 컴퓨터에서는 켜지 마세요)</span></span></label>' +
         '<p class="lock-msg" id="lockMsg" role="alert">' + MJ.esc(msg || "") + '</p><button class="btn primary lg" type="submit" id="lockGo">들어가기</button>' +
+        (hasMine() ? '<button class="btn" type="button" id="lockMine" style="width:100%;margin-top:8px">코드 없이 내가 만든 자료만 보기</button><p class="small mute" style="margin:6px 0 0">연결이 안 될 때도 이 기기에 저장한 질문·답변·키워드는 볼 수 있습니다.</p>' : "") +
         '<p class="small mute" style="margin-top:14px">입력한 학생부와 답변은 이 기기 안에서만 처리됩니다. 보안코드는 자료를 여는 데에만 씁니다.</p></form>';
       document.body.appendChild(d); document.body.classList.add("locked");
       var f = d.querySelector("form"), inp = d.querySelector("#lockCode"), btn = d.querySelector("#lockGo");
       setTimeout(function () { inp.focus(); }, 50);
+      var mine = d.querySelector("#lockMine");
+      if (mine) mine.addEventListener("click", function () {
+        d.remove(); document.body.classList.remove("locked");
+        var w = lockWait; lockWait = []; w.forEach(function (f2) { f2[1](new Error("보안코드를 넣으면 볼 수 있는 자료입니다.")); });
+      });
       f.addEventListener("submit", function (e) {
         e.preventDefault();
         var code = inp.value.trim(); if (!code) { MJ.$("#lockMsg").textContent = "보안코드를 입력하세요."; return; }
         btn.disabled = true; btn.textContent = "확인하는 중";
         var slow = setTimeout(function () { if (btn.disabled) MJ.$("#lockMsg").textContent = "자료 서버에 연결하는 중입니다. 통신망에 따라 30초쯤 걸릴 수 있습니다."; }, 5000);
         apiFetch("/api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: code }) })
-          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }, function () { throw new Error(NET_MSG); }); })
           .then(function (x) {
             clearTimeout(slow);
             if (!x.ok || !x.j.token) throw new Error(x.j.error || "보안코드가 맞지 않습니다.");
             var t = JSON.stringify({ t: x.j.token, e: Date.now() + (x.j.hours || 12) * 3600e3 - 120e3, l: x.j.label || "" });
             tokDrop();
-            safeSet(d.querySelector("#lockKeep").checked ? window.localStorage : window.sessionStorage, TOK, t);
+            memTok = t;
+            safeSet(d.querySelector("#lockKeep").checked ? LS() : SS(), TOK, t);
             d.remove(); document.body.classList.remove("locked");
-            var w = lockWait; lockWait = []; w.forEach(function (f2) { f2(); });
+            var w = lockWait; lockWait = []; w.forEach(function (f2) { f2[0](); });
           })
           .catch(function (err) {
             clearTimeout(slow);
-            MJ.$("#lockMsg").textContent = /fetch|network|Failed|JSON/i.test(err.message) ? NET_MSG : err.message;
+            MJ.$("#lockMsg").textContent = err instanceof TypeError ? NET_MSG : err.message;
             btn.disabled = false; btn.textContent = "들어가기"; inp.select();
           });
       });
@@ -237,7 +262,7 @@
     return apiFetch("/api/d/" + name, { headers: { Authorization: "Bearer " + t.t } }).then(function (r) {
       if (r.status === 401) { tokDrop(); return MJ.lock("보안코드를 다시 입력하세요.").then(function () { return secureLoad(name); }); }
       if (!r.ok) return r.json().catch(function () { return {}; }).then(function (j) { throw new Error(j.error || "자료를 불러오지 못했습니다. 잠시 뒤 다시 시도하세요."); });
-      return r.json().then(function (j) { MJ.data[name] = j; return j; });
+      return r.json().then(function (j) { MJ.data[name] = j; return j; }, function () { throw new Error(NET_MSG); });
     }, function () { throw new Error(NET_MSG); });
   }
 
@@ -410,12 +435,44 @@
     for (var i = 0; i < TRACK_RULES.length; i++) if (TRACK_RULES[i][1].test(m)) return TRACK_RULES[i][0];
     return "인문사회";
   };
+  /* 자료를 받지 못했을 때: 멈춘 듯 보이지 않게 까닭과 다시 시도 단추를 보여 준다 */
+  MJ.failBox = function (box, err, retry) {
+    if (!box) return;
+    box.innerHTML = '<div class="callout warn small" style="margin:0"><b class="t">자료를 불러오지 못했습니다</b>' + MJ.esc((err && err.message) || "") + '<div style="margin-top:8px"><button class="btn sm" type="button" data-retry>다시 시도</button></div></div>';
+    box.querySelector("[data-retry]").addEventListener("click", retry || function () { MJ.rerender(); });
+  };
+  MJ.copyText = function (text, okMsg) {
+    function fallback() {
+      var ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      ta.remove();
+      MJ.toast(ok ? (okMsg || "복사했습니다.") : "복사하지 못했습니다. 글을 길게 눌러 직접 복사하세요.");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { MJ.toast(okMsg || "복사했습니다."); }, fallback);
+    else fallback();
+  };
+  /* 면접 일정 도우미: 오늘 이후의 가장 가까운 면접을 앞세운다 */
+  MJ.nextTarget = function (targets) {
+    var t = MJ.iso(MJ.today()), up = targets.filter(function (x) { return x.date && x.date >= t; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    if (up.length) return up[0];
+    var none = targets.filter(function (x) { return !x.date; });
+    if (none.length) return none[0];
+    return targets.slice().sort(function (a, b) { return a.date > b.date ? -1 : 1; })[0];
+  };
+  /* 전형의 면접 기간 [[시작, 끝], ...] 에서 기본 날짜: 오늘이 기간 안이면 오늘, 아니면 다음 시작일, 다 지났으면 첫날 */
+  MJ.nextAdmDate = function (a) {
+    var t = MJ.iso(MJ.today()), rs = (a && a.d) || [];
+    for (var i = 0; i < rs.length; i++) { if (rs[i][1] >= t) return rs[i][0] > t ? rs[i][0] : t; }
+    return rs.length ? rs[0][0] : "";
+  };
+  MJ.admPast = function (a) { var t = MJ.iso(MJ.today()), rs = (a && a.d) || []; return rs.length > 0 && rs.every(function (r) { return r[1] < t; }); };
   MJ.download = function (filename, text, mime) {
     var blob = new Blob([text], { type: mime || "application/json" });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = filename;
     document.body.appendChild(a); a.click();
-    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 60000);   // iOS 는 내려받기 확인 뒤에야 파일을 읽는다
   };
 
   /* ───────── 단계·라우터 ───────── */
@@ -430,7 +487,9 @@
   var EXTRA = [
     { id: "hugi", name: "선배 후기", sub: "대학별 실제 면접에서 받은 질문" },
     { id: "finish", name: "점검·마무리", sub: "체크리스트와 흔한 실수" },
-    { id: "notes", name: "내 자료", sub: "면접 노트 인쇄, 백업" }
+    { id: "after", name: "면접 후 기록", sub: "받은 질문을 잊기 전에" },
+    { id: "notes", name: "내 자료", sub: "면접 노트 인쇄, 백업" },
+    { id: "teacher", name: "선생님께", sub: "수업·모의면접 운영, 평가지" }
   ];
   MJ.register = function (id, view) { MJ.views[id] = view; };
   function parseHash() {
@@ -443,12 +502,18 @@
     return { id: seg[0] || "home", sub: seg.slice(1), q: q };
   }
   MJ.go = function (hash) { if (location.hash === hash) render(); else location.hash = hash; };
-  var current = null;
+  var current = null, staleOther = false;
   function render() {
     var r = parseHash();
     var view = MJ.views[r.id] || MJ.views.home;
+    if (!view) {   // 프로그램 파일 일부를 받지 못했다
+      var v0 = MJ.$("#view");
+      if (v0) v0.innerHTML = '<div class="card warn"><h2>프로그램을 다 불러오지 못했습니다</h2><p>인터넷 연결을 확인한 뒤 새로 고침을 눌러 주세요. 저장한 내용은 지워지지 않습니다.</p><button class="btn primary" type="button" onclick="location.reload()">새로 고침</button></div>';
+      return;
+    }
     if (!MJ.views[r.id]) r.id = "home";
     if (current && current.view && current.view.leave) { try { current.view.leave(); } catch (e) { /* 무시 */ } }
+    if (staleOther) { staleOther = false; loadState(); }   // 입력 중이라 미뤄 둔 다른 창의 변경을 이제 읽는다
     MJ.closeModals();   // 앞 화면의 확인 창이 다음 화면에 남지 않게
     /* 화면마다 새 그릇을 쓴다. 같은 요소를 다시 쓰면 앞 화면의 이벤트 처리기가 남아 겹쳐 실행된다. */
     var old = MJ.$("#view"), el = document.createElement("div");
@@ -545,7 +610,7 @@
 
   MJ.start = function () {
     loadState();
-    if (MJ.secure.api && !tokGet()) MJ.lock();   // 배포판: 보안코드를 넣기 전에는 화면을 가린다
+    if (MJ.secure.api && !tokGet()) MJ.lock().catch(function () { /* 내 자료만 보기 */ });   // 배포판: 보안코드를 넣기 전에는 화면을 가린다
     var stamp = document.querySelector('script[src*="core.js"]');
     var m = stamp && /[?&]v=([^&]+)/.exec(stamp.src);
     MJ.BUILD = m && m[1] !== "__V__" ? m[1] : MJ.VERSION;
@@ -553,6 +618,13 @@
     MJ.$("#scrim").addEventListener("click", closeSide);
     document.addEventListener("click", function (e) { if (e.target.closest("[data-reset]")) { closeSide(); MJ.resetAsk(); } });
     window.addEventListener("hashchange", render);
+    /* 하루를 넘겨 다시 열면 홈의 남은 날짜를 고친다 */
+    var dayNow = MJ.iso(MJ.today());
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden || MJ.iso(MJ.today()) === dayNow) return;
+      dayNow = MJ.iso(MJ.today());
+      if (parseHash().id === "home") MJ.rerender();
+    });
     var top = MJ.$("#totop");
     if (top) {
       top.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
@@ -563,7 +635,7 @@
     window.addEventListener("storage", function (e) {
       if (e.key !== KEY && e.key !== KEY_REC) return;
       var id = parseHash().id;
-      if (id === "answers" || id === "practice") { MJ.toast("다른 창에서 이 안내서의 내용이 바뀌었습니다. 한 창에서만 쓰세요. 여기서 저장하면 다른 창의 변경을 덮어쓸 수 있습니다."); return; }
+      if (id === "answers" || id === "practice") { staleOther = true; MJ.toast("다른 창에서 이 안내서의 내용이 바뀌었습니다. 한 창에서만 쓰세요. 여기서 저장하면 다른 창의 변경을 덮어쓸 수 있습니다."); return; }
       loadState(); MJ.rerender();
     });
     render();

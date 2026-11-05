@@ -9,11 +9,11 @@
 
   var SPECIAL = /기회균형|농어촌|특성화|특수교육|저소득|기초생활|차상위|재외|북한|장애|보훈|국가유공|만학|서해|정원외|계약학과|위탁|성인|재직|고른기회|사회배려|사회통합|다문화|군인|선취업/;
   function schedule(u, st) {
-    if (!u || !u.adms.length) return '<p class="mute">2027학년도 수시 면접 일정 자료에 이 대학의 학생부 위주 면접 전형이 없습니다. 모집요강을 확인하세요.</p>';
+    if (!u || !u.adms.length) return '<p class="mute">가지고 있는 2027학년도 수시 일정 자료에는 이 대학의 면접 전형이 보이지 않습니다. 올해는 서류만으로 뽑을 수도 있으니 모집요강에서 확인하세요.</p>';
     function row(a, i) {
       var gap = a.s1 ? MJ.dayDiff(MJ.parseDate(a.d[0][0]), MJ.parseDate(a.s1)) : null;
       var saved = st.targets.some(function (t) { return t.univ === u.k && t.adm === a.n; });
-      return ["<b>" + esc(a.s || a.n) + '</b> <span class="tag teal">' + esc(a.t) + "</span>",
+      return ["<b>" + esc(a.s || a.n) + '</b> <span class="tag teal">' + esc(a.t) + "</span>" + (MJ.admPast(a) ? ' <span class="tag">지난 일정</span>' : ""),
         rangeText(a.d) + (a.d.length > 1 ? ' <span class="mute small">(모집단위에 따라 다름)</span>' : ""),
         a.s1 ? '<span style="white-space:nowrap">' + MJ.fmtDate(a.s1) + '</span> <span class="' + (gap <= 4 ? "tag warn" : "mute small") + '" style="white-space:nowrap">면접까지 ' + gap + "일</span>" : '<span class="mute small" style="white-space:nowrap">모집요강 확인</span>',
         saved ? '<span class="tag ok">담김</span>' : '<button class="btn sm" data-act="keep" data-i="' + i + '">내 면접에 담기</button>'];
@@ -206,7 +206,7 @@
       MJ.on(el, "click", {
         keep: function (t) {
           var u = findU(name), i = +t.getAttribute("data-i"), a = u && i >= 0 ? u.adms[i] : (u && u.adms[0]);
-          MJ.targetForm(null, { univ: name, adm: a ? a.n : "", type: a ? a.t : "종합", date: a ? a.d[0][0] : "", s1: a ? a.s1 || "" : "" }, function () { MJ.rerender(); });
+          MJ.targetForm(null, { univ: name, adm: a ? a.n : "", type: a ? a.t : "종합", date: a ? MJ.nextAdmDate(a) : "", s1: a ? a.s1 || "" : "" }, function () { MJ.rerender(); });
         },
         addq: function (t) {
           if (!offData) return;
@@ -236,13 +236,13 @@
               box.insertAdjacentHTML("beforeend", '<div class="callout tip small" style="margin:12px 0 0"><b class="t">선배 후기 ' + x[1].toLocaleString() + '건</b>선배들이 이 대학 면접에서 실제로 받은 질문과 진행 방식, 후배에게 남긴 말을 볼 수 있습니다.<div class="row" style="margin-top:8px"><a class="btn sm primary" href="#/hugi?u=' + encodeURIComponent(name) + (type ? "&t=" + (type === "종합" ? 0 : 1) : "") + '">선배 후기 보기</a></div></div>');
             }).catch(function () { });
           })
-          .catch(function (e) { var x = el.querySelector("#sts"); if (x) x.innerHTML = '<p class="mute small">자료를 불러오지 못했습니다. ' + esc(e.message) + "</p>"; });
+          .catch(function (e) { MJ.failBox(el.querySelector("#sts"), e); var mg = el.querySelector("#mgCard"); if (mg) mg.innerHTML = ""; var of = el.querySelector("#off"); if (of && /불러오는/.test(of.textContent)) of.innerHTML = ""; });
       } else {
         MJ.load("stats").then(function (S) {
           var g = el.querySelector("#gstat"); if (!g) return;
           g.innerHTML = "<h2>전체 평균 먼저 보기</h2><div class=\"grid g2\"><div><h3>면접 시간</h3>" + MJ.stat.block("global.time", S) + "<h3>면접관 수</h3>" + MJ.stat.block("global.panel", S) + "</div><div><h3>자주 나온 질문 유형</h3>" + MJ.stat.block("global.qtypes", S) + "</div></div>";
           drawMajor(S);
-        }).catch(function () { });
+        }).catch(function (e) { MJ.failBox(el.querySelector("#gstat"), e); var mg = el.querySelector("#mgCard"); if (mg) mg.innerHTML = ""; });
       }
     }
   });

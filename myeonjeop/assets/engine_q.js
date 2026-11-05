@@ -271,6 +271,11 @@
     var chips = item.chips || {};
     var vals = { subject: item.subject || "", topic: (chips.topic || [])[0] || "", concept: (chips.concept || [])[0] || "", book: (chips.book || [])[0] || "", role: (chips.role || [])[0] || "", result: (chips.result || [])[0] || "" };
     var all = templatesFor(item.area).filter(function (t) { return condOk(t, item.text); });
+    /* generate 와 같은 거르기: 활동 영역이 아니면 사실 조건 틀은 쓰지 않고, 듣지 않은 과목은 보완을 묻는 틀만 */
+    if (!ACTIVITY[item.area]) {
+      all = all.filter(function (t) { return !t.cond; });
+      if (item.area === "gwamok" && COND.nottaken.test(item.text)) all = all.filter(function (t) { return /보완|대신|개설|이수|듣지|못한|않은/.test(t.text); });
+    }
     var cands = all.filter(function (t) { return t.intent === q.intent && t.depth === q.depth && excludeIds.indexOf(t.id) < 0 && usable(t, vals); });
     if (!cands.length) cands = all.filter(function (t) { return t.intent === q.intent && excludeIds.indexOf(t.id) < 0 && usable(t, vals); });
     if (!cands.length) return null;

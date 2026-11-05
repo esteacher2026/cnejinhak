@@ -131,7 +131,7 @@
           h += '<h3 style="margin:16px 0 8px;font-size:16px">' + esc(cat) + "</h3>";
           MJ.content.weakQ.filter(function (w) { return w.cat === cat; }).forEach(function (w) {
             h += '<div class="qcard" data-wid="' + w.id + '"><div class="qt">' + esc(fillAny(w.text, {})) + '</div><div class="qp"><b>면접관의 의도</b> ' + esc(w.intent) + "</div>";
-            if (w.slots && w.slots.length) h += '<div class="row" style="margin-top:10px">' + w.slots.map(function (s) { return '<input class="in" style="width:auto;flex:1;min-width:120px" data-slot="' + s.key + '" placeholder="' + esc(s.label) + (s.ex ? " (예: " + esc(s.ex) + ")" : "") + '">'; }).join("") + "</div>";
+            if (w.slots && w.slots.length) h += '<div class="row" style="margin-top:10px">' + w.slots.map(function (s) { return '<input class="in" style="width:auto;flex:1;min-width:120px" data-slot="' + s.key + '" aria-label="' + esc(s.label) + '" placeholder="' + esc(s.label) + (s.ex ? " (예: " + esc(s.ex) + ")" : "") + '">'; }).join("") + "</div>";
             h += '<div class="qtools"><button class="btn sm primary" data-act="addw">질문함에 담기</button></div></div>';
           });
         });
@@ -192,8 +192,8 @@
           if (!it) { MJ.toast("원래 문장이 지워져 바꿀 수 없습니다."); return; }
           var used = qs.filter(function (x) { return x.src && x.src.ref === it.id; }).map(function (x) { return x.tpl; });
           var n = MJ.q.swap(q, it, used); if (!n) { MJ.toast("바꿀 수 있는 다른 질문이 없습니다."); return; }
-          var doSwap = function () { qs[qs.indexOf(q)] = n; MJ.store.save(); MJ.rerender(); };
-          if (q.edited || st.answers[q.id]) MJ.confirm("직접 고쳤거나 답변을 쓴 질문입니다. 다른 질문으로 바꾸면 고친 문장이 사라집니다. 바꿀까요?", doSwap, "바꾸기");
+          var doSwap = function () { delete st.answers[q.id]; qs[qs.indexOf(q)] = n; MJ.store.save(); MJ.rerender(); };
+          if (q.edited || st.answers[q.id]) MJ.confirm("직접 고쳤거나 답변을 쓴 질문입니다. 다른 질문으로 바꾸면 고친 문장과 써 둔 답변이 사라집니다. 바꿀까요?", doSwap, "바꾸기");
           else doSwap();
         },
         edit: function (t) {
@@ -230,7 +230,12 @@
           var g = MJ.content.gajang, ad = g.adjs.filter(function (x) { return x.key === t.getAttribute("data-a"); })[0], ar = g.areas.filter(function (x) { return x.key === t.getAttribute("data-r"); })[0];
           var id = "gj-" + ad.key + "-" + ar.key, i = -1;
           qs.forEach(function (q, k) { if (q.tpl === id) i = k; });
-          if (i >= 0) { delete st.answers[qs[i].id]; qs.splice(i, 1); }
+          if (i >= 0) {
+            var has = st.answers[qs[i].id] && Object.keys(st.answers[qs[i].id].slots || {}).some(function (k) { return String(st.answers[qs[i].id].slots[k] || "").trim(); });
+            var rm = function () { delete st.answers[qs[i].id]; qs.splice(i, 1); MJ.store.save(); MJ.rerender(); };
+            if (has) { MJ.confirm("이 질문에 써 둔 답변이 있습니다. 질문을 빼면 답변도 지워집니다. 뺄까요?", rm, "빼기"); return; }
+            rm(); return;
+          }
           else { var q = MJ.q.fromGajang(ad, { key: ar.key, label: ar.q || ar.label }); if (g.tails) q.tails = g.tails.slice(0, 3); q.guide = g.guide; qs.push(q); }
           MJ.store.save(); MJ.rerender();
         },
@@ -262,7 +267,7 @@
       });
       /* 대학 평가요소와 비교 */
       if (tab === "box" && qs.length && st.targets.length) {
-        var tg = st.targets.slice().sort(function (a, b) { return (a.date || "9") < (b.date || "9") ? -1 : 1; })[0];
+        var tg = MJ.nextTarget(st.targets);
         MJ.load("official").then(function (O) {
           var us = univShare(O, tg), box = el.querySelector("#umix"); if (!us || !box) return;
           box.innerHTML = ratioHtml(us.share, tg.univ + " 평가요소");
@@ -334,7 +339,7 @@
           ["#gU", "#gA", "#gM", "#gK", "#gS"].forEach(function (s) { el.querySelector(s).addEventListener("change", gsearch); });
           el.querySelector("#gW").addEventListener("input", function () { clearTimeout(gsearch.t); gsearch.t = setTimeout(gsearch, 250); });
           gsearch();
-        }).catch(function (e) { el.querySelector("#gR").innerHTML = '<p class="mute small">' + esc(e.message) + "</p>"; });
+        }).catch(function (e) { MJ.failBox(el.querySelector("#gR"), e); });
       }
       /* 기출 찾기 */
       var bank = null, firstMg = true;
@@ -359,7 +364,7 @@
           [].forEach.call(ms.options, function (o) { if (want && o.text.indexOf(want + " (") === 0) ms.value = o.value; });
           firstMg = false;
           search();
-        }).catch(function (e) { el.querySelector("#bR").innerHTML = '<p class="mute small">' + esc(e.message) + "</p>"; });
+        }).catch(function (e) { MJ.failBox(el.querySelector("#bR"), e); });
       }
       if (tab === "bank") {
         el.querySelector("#bT").addEventListener("change", loadBank);

@@ -49,7 +49,7 @@
         tab: function (t) { MJ.go("#/finish?tab=" + t.getAttribute("data-t")); },
         reset: function () { MJ.confirm("체크한 항목을 모두 지울까요?", function () { st.checks = {}; MJ.store.save(); MJ.rerender(); }, "지우기"); }
       });
-      if (tab === "advice") MJ.load("stats").then(function (S) { var b = el.querySelector("#adv"); if (b) b.innerHTML = MJ.stat.block("advice", S); }).catch(function () { });
+      if (tab === "advice") MJ.load("stats").then(function (S) { var b = el.querySelector("#adv"); if (b) b.innerHTML = MJ.stat.block("advice", S); }).catch(function (e) { MJ.failBox(el.querySelector("#adv"), e); });
     }
   });
 })();

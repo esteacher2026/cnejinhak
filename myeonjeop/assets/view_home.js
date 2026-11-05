@@ -27,7 +27,7 @@
   var TODO = {
     know: ["3분 OX 진단을 풀어 흔한 오해부터 바로잡으세요.", "‘면접관이 보는 것’과 ‘내 면접 유형 찾기’를 읽으세요.", "블라인드 규정에서 내가 조심할 표현을 확인하세요."],
     univ: ["지원 대학의 평가요소와 반영 비율을 확인하세요.", "선배들이 겪은 면접 시간·질문 유형을 살펴보세요.", "면접 일정과 1단계 발표일을 ‘내 면접’에 담으세요."],
-    record: ["학생부를 처음부터 끝까지 소리 내어 한 번 읽으세요.", "면접관의 눈에 띌 문장을 영역별로 5개 이상 옮겨 적으세요.", "‘확인 필요’로 표시할 문장(출결, 성적 변화, 미이수 과목)을 찾으세요."],
+    record: ["학생부를 처음부터 끝까지 소리 내어 한 번 읽으세요.", "면접관의 눈에 띌 문장을 다섯 개 이상, 영역마다 하나 이상 옮겨 적으세요.", "‘확인 필요’로 표시할 문장(출결, 성적 변화, 미이수 과목)을 찾으세요."],
     questions: ["옮겨 적은 문장마다 질문을 만들고 꼬리질문까지 읽어 보세요.", "학생부 밖 공통 질문 " + MJ.content.commonQ.length + "개를 내 질문함에 담으세요.", "답하기 어려운 질문에 별표를 붙이세요."],
     answers: ["별표 질문부터 구조에 맞춰 답변을 쓰세요.", "문장 점검에서 지적된 곳을 고치세요.", "답변마다 키워드 서너 개만 남기세요."],
     practice: ["키워드 카드만 보고 소리 내어 답해 보세요.", "꼬리질문 연습을 켜고 한 세트를 끝까지 해 보세요.", "녹음을 듣고 자기점검 항목을 체크하세요."]
@@ -65,6 +65,7 @@
       '<div class="meta">' + esc(adm) + (t.major ? " · " + esc(t.major) : "") + (t.track ? " · " + esc(t.track) + " 계열" : "") + "</div>" +
       (t.s1 ? '<div class="meta">1단계 발표 ' + MJ.fmtDate(t.s1) + (t.date ? " → 면접까지 " + MJ.dayDiff(MJ.parseDate(t.date), MJ.parseDate(t.s1)) + "일" : "") + "</div>" : "") + "</div>" +
       '<div class="acts row">' + (!isMain && many && n != null && n >= 0 ? '<button class="btn sm" data-act="main" data-i="' + i + '">일정표 기준으로</button>' : "") +
+      (n != null && n < 0 ? '<a class="btn sm primary" href="#/after?t=' + esc(t.id) + '">받은 질문 적기</a>' : "") +
       '<a class="btn sm" href="#/univ?u=' + encodeURIComponent(t.univ) + '">면접 정보</a><button class="btn sm" data-act="edit" data-i="' + i + '">수정</button></div></div>';
   }
 
@@ -82,7 +83,7 @@
       '<div class="field"><label class="f" for="tfS1">1단계 합격자 발표일 <span class="mute">(선택)</span></label><input class="in" type="date" id="tfS1" value="' + esc(cur.s1 || "") + '"></div></div>' +
       '<div class="grid g2"><div class="field"><label class="f" for="tfM">지원 학과(모집단위)</label><input class="in" id="tfM" list="tfML" placeholder="예: 화학공학과" value="' + esc(cur.major) + '"><datalist id="tfML"></datalist></div>' +
       '<div class="field"><label class="f" for="tfT">계열</label><select class="in" id="tfT"><option value="">선택</option>' + MJ.TRACKS.map(function (t) { return "<option" + (cur.track === t ? " selected" : "") + ">" + t + "</option>"; }).join("") + "</select></div></div>" +
-      '<div class="callout warn small">날짜는 2026년 6월 기준 자료입니다. 모집단위·고사장에 따라 달라질 수 있으니 대학 입학처 공지로 꼭 확인하고 고쳐 주세요.</div>';
+      '<div class="callout warn small">날짜는 2026년 6월에 모은 자료라 그 뒤 바뀌었을 수 있습니다. 모집단위·고사장에 따라 달라질 수 있으니 대학 입학처 공지로 꼭 확인하고 고쳐 주세요.</div>';
     var $ = function (s) { return body.querySelector(s); };
     var uIn = $("#tfU"), sg = $("#tfS"), aSel = $("#tfA"), a2 = $("#tfA2");
     function findU(name) { return list.filter(function (u) { return u.k === name; })[0]; }
@@ -109,9 +110,9 @@
       a2.hidden = true;
       var a = u && u.adms[+aSel.value]; if (!a) return;
       var dIn = $("#tfD"), sIn = $("#tfS1");
-      if (!keep || !dIn.value) dIn.value = a.d[0][0];
+      if (!keep || !dIn.value) dIn.value = MJ.nextAdmDate(a);
       if (!keep || !sIn.value) sIn.value = a.s1 || "";
-      $("#tfDh").textContent = "자료상 면접 기간: " + a.d.map(function (r) { return MJ.fmtDate(r[0]) + (r[1] !== r[0] ? "~" + MJ.fmtDate(r[1]) : ""); }).join(", ");
+      $("#tfDh").textContent = "자료상 면접 기간: " + a.d.map(function (r) { return MJ.fmtDate(r[0]) + (r[1] !== r[0] ? "~" + MJ.fmtDate(r[1]) : ""); }).join(", ") + (MJ.admPast(a) ? " · 이미 지난 일정입니다" : "");
       if (MJ.data.units) fillUnits(MJ.data.units);
     }
     function pickUnitDate() {
@@ -133,7 +134,7 @@
     $("#tfM").addEventListener("change", function () { var t = MJ.guessTrack($("#tfM").value); if (t) $("#tfT").value = t; pickUnitDate(); });
     fillAdm();
     var actions = [{ label: "취소" }];
-    if (idx != null) actions.push({ label: "삭제", kind: "danger", run: function () { st.targets.splice(idx, 1); MJ.store.save(); if (done) done(); } });
+    if (idx != null) actions.push({ label: "삭제", kind: "danger", run: function () { MJ.confirm("이 면접을 내 면접에서 지울까요? 만든 질문과 답변은 그대로 남습니다.", function () { st.targets.splice(idx, 1); MJ.store.save(); if (done) done(); }, "지우기"); } });
     actions.push({
       label: "저장", kind: "primary", run: function () {
         var name = uIn.value.trim(); if (!name) { MJ.toast("대학 이름을 입력하세요."); return false; }
@@ -171,7 +172,7 @@
           '<div><span class="num">1</span><b>면접일을 등록합니다</b><p>대학과 전형을 고르면 면접일과 1단계 발표일이 채워지고, 남은 날짜에 맞춰 준비 일정이 짜입니다.</p></div>' +
           '<div><span class="num">2</span><b>여섯 단계를 차례로 따라갑니다</b><p>면접 이해, 대학 정보, 학생부 읽기, 질문 만들기, 답변 설계, 실전 연습 순서입니다. 앞 단계에서 만든 것을 다음 단계에서 그대로 씁니다.</p></div>' +
           '<div><span class="num">3</span><b>소리 내어 연습합니다</b><p>키워드만 보고 말하고, 꼬리질문까지 받아 봅니다. 질문지를 인쇄해 선생님이나 친구에게 면접관을 부탁할 수 있습니다.</p></div></div>' +
-          '<div class="callout" style="margin-bottom:0">처음이라면 <a href="#/record?sample=1"><b>가상 학생부로 먼저 둘러보기</b></a>를 권합니다. 실제 내 학생부를 넣기 전에 질문이 어떻게 만들어지는지 볼 수 있습니다. 입력한 내용은 이 기기 밖으로 나가지 않습니다.</div></section>';
+          '<div class="callout" style="margin-bottom:0">처음이라면 <a href="#/record?sample=1"><b>가상 학생부로 먼저 둘러보기</b></a>를 권합니다. 실제 내 학생부를 넣기 전에 질문이 어떻게 만들어지는지 볼 수 있습니다. 입력한 학생부와 답변은 서버로 보내지 않습니다.</div></section>';
       }
 
       h += '<section class="card"><div class="card-head"><h2>내 면접</h2><button class="btn sm" data-act="add">' + MJ.icon("plus", 15) + " 추가</button></div>";
@@ -183,7 +184,18 @@
       }
       h += "</section>";
 
+      var pastNew = st.targets.filter(function (t) { return t.date && MJ.dayDiff(MJ.parseDate(t.date), MJ.today()) < 0 && !st.afters.some(function (a) { return a.univ === t.univ; }); });
+      if (pastNew.length) h += '<div class="callout tip"><b class="t">' + esc(pastNew[0].univ) + ' 면접을 다녀왔나요?</b>받은 질문은 하루만 지나도 흐려집니다. 잊기 전에 적어 두면 다음 면접 준비에 쓸 수 있고, 후배에게도 큰 도움이 됩니다. <a href="#/after?t=' + esc(pastNew[0].id) + '"><b>받은 질문 적기</b></a></div>';
+
       if (main) {
+        var nLeft = MJ.dayDiff(MJ.parseDate(main.date), MJ.today());
+        if (nLeft <= 7) {
+          var RUSH = nLeft <= 1
+            ? [["지원동기와 마지막 말의 첫 문장만 소리 내어 말해 보세요.", "#/answers"], ["키워드 노트를 한두 장으로 인쇄하세요.", "#/notes"], ["전날·당일 체크리스트를 확인하세요. 새로 외우지 않습니다.", "#/finish"]]
+            : [["지원동기, 마지막 말, 자기소개 답을 키워드로 정리하세요.", "#/questions?tab=common"], ["세특에 나온 개념어를 뜻, 원리, 사례 순서로 말해 보세요.", "#/record"], ["답하기 어려운 질문 다섯 개에 별표를 붙이고 답을 줄이세요.", "#/questions"], ["꼬리질문을 켜고 한 세트를 끝까지 소리 내어 연습하세요.", "#/practice"]];
+          h += '<section class="card"><div class="card-head"><h2>시간이 없다면 이것부터</h2><span class="sub">' + esc(main.univ) + " 면접까지 " + (nLeft === 0 ? "오늘" : nLeft + "일") + '</span></div><div class="stack">' +
+            RUSH.map(function (x, i) { return '<a class="todo" href="' + x[1] + '" style="color:inherit"><span class="n">' + (i + 1) + "</span><span>" + x[0] + "</span></a>"; }).join("") + "</div></section>";
+        }
         var plan = buildPlan(main, prog);
         h += '<section class="card"><div class="card-head"><h2>준비 일정표</h2><span class="sub">' + esc(main.univ) + " 면접 " + MJ.dday(main.date) + " 기준</span></div>";
         if (plan.tight) h += '<div class="callout warn"><b class="t">1단계 발표에서 면접까지 ' + plan.gap + "일뿐입니다</b>발표를 보고 시작하면 늦을 수 있습니다. 5단계(답변 설계)까지는 발표 전에 마치고, 남은 기간에는 연습만 하도록 일정을 당겼습니다.</div>";
@@ -222,14 +234,15 @@
   });
 
   function conflict(targets) {
-    var by = {}, out = [];
+    var by = {}, out = [], todayS = MJ.iso(MJ.today());
+    targets = targets.filter(function (t) { return !t.date || t.date >= todayS; });
     targets.forEach(function (t) { if (t.date) (by[t.date] = by[t.date] || []).push(t.univ); });
     Object.keys(by).forEach(function (d) { if (by[d].length > 1) out.push(MJ.fmtDate(d) + ": " + by[d].join(", ")); });
     var csat = (MJ.data.univ.meta || {}).csat, pre = 0;
     targets.forEach(function (t) { if (t.date && csat && t.date < csat) pre++; });
     var h = "";
     if (out.length) h += '<div class="callout red small"><b class="t">같은 날 면접이 겹칩니다</b>' + esc(out.join(" / ")) + ". 시간대가 다른지, 조정이 가능한지 입학처에 확인하세요.</div>";
-    if (pre) h += '<p class="hint">수능(' + MJ.fmtDate(csat) + ") 전에 치르는 면접이 " + pre + "건 있습니다. 수능 준비와 겹치지 않게 면접 준비를 미리 시작해 수능 공부와 겹치지 않게 하세요.</p>";
+    if (pre) h += '<p class="hint">수능(' + MJ.fmtDate(csat) + ") 전에 치르는 면접이 " + pre + "건 있습니다. 수능까지 며칠 남지 않았으니 새 질문을 늘리지 말고, 별표 질문과 지원동기·마지막 말 연습에 쓸 시간을 정해 두세요.</p>";
     return h;
   }
 })();

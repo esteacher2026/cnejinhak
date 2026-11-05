@@ -188,16 +188,32 @@
         try {
           var sr = new SR(); sr.lang = "ko-KR"; sr.continuous = true; sr.interimResults = false;
           run.text = "";
-          sr.onresult = function (e) { for (var i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) run.text += e.results[i][0].transcript + " "; };
-          sr.onend = function () { if (run && run.sr === sr && (run.phase === "ans" || run.phase === "ansTail")) { try { sr.start(); } catch (e) { /* 무시 */ } } };
-          sr.onerror = function () { /* 무시 */ };
+          var srRun = run;
+          sr.onresult = function (e) { for (var i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) srRun.text += e.results[i][0].transcript + " "; };
+          sr.onend = function () { if (run && run.sr === sr && !run.srDead && (run.phase === "ans" || run.phase === "ansTail")) { try { sr.start(); } catch (e) { /* 무시 */ } } };
+          sr.onerror = function (e) { if (e && /not-allowed|service-not-allowed|audio-capture/.test(e.error || "") && run) { run.srDead = true; MJ.toast("받아쓰기를 쓸 수 없어 받아쓰기 없이 진행합니다."); } };
           sr.start(); run.sr = sr;
         } catch (e) { run.sr = null; }
       }
     }
     function stopCapture(it, tail, used, next) {
       run.phase = "stop";
-      if (run.sr) { var sr = run.sr; run.sr = null; try { sr.onend = null; sr.stop(); } catch (e) { /* 무시 */ } if (!tail) { it.text = run.text || ""; it.stt = MJ.a.speech(it.text, used); } }
+      if (run.sr) {
+        /* 마지막 말은 stop 뒤에 결과로 도착한다. 끝 신호를 기다린 뒤 집계한다 */
+        var sr = run.sr, srRun2 = run, srDone = false; run.sr = null;
+        var afterSr = function () {
+          if (srDone) return; srDone = true;
+          if (!tail) { it.text = srRun2.text || ""; it.stt = MJ.a.speech(it.text, used); }
+          if (run === srRun2) stopRec(next);
+        };
+        sr.onend = afterSr;
+        try { sr.stop(); } catch (e) { afterSr(); }
+        setTimeout(afterSr, 1200);
+        return;
+      }
+      stopRec(next);
+    }
+    function stopRec(next) {
       if (run.rec && run.rec.state !== "inactive") { run.afterRec = next; try { run.rec.stop(); } catch (e) { run.afterRec = null; next(); } setTimeout(function () { if (run && run.afterRec) { var f = run.afterRec; run.afterRec = null; f(); } }, 1200); }
       else next();
     }
@@ -230,7 +246,7 @@
         }));
       var texts = items.filter(function (i) { return i.text && i.text.trim().length > 10; });
       if (texts.length) h += '<details class="acc" style="margin-top:12px"><summary>받아쓴 내 답변 보기</summary><div class="acc-body">' + texts.map(function (i) { return "<p><b>" + esc(i.q.text) + "</b><br>" + esc(i.text) + "</p>"; }).join("") + '<p class="src">받아쓰기는 틀릴 수 있습니다. 이 글은 저장되지 않으며 화면을 떠나면 사라집니다.</p></div></details>';
-      h += '<h3 style="margin-top:16px">녹음을 들으며 한 번 더 점검하세요</h3><p class="small mute">' + (items.some(function (i) { return i.url; }) ? "아래 항목은 내 답변을 다시 들어야 판단할 수 있습니다." : "녹음을 켜고 연습하면 아래 항목을 스스로 확인하기 쉽습니다.") + "</p>";
+      h += '<h3 style="margin-top:16px">돌아보며 한 번 더 점검하세요</h3><p class="small mute">녹음은 질문마다 돌아보기 화면에서 들을 수 있고, 이 화면을 떠나면 사라집니다. 녹음을 켜고 연습하면 아래 항목을 스스로 확인하기 쉽습니다.</p>';
       MJ.content.finish.selfcheck.forEach(function (g) {
         h += '<h3 style="font-size:14.5px">' + esc(g.area) + '</h3><div class="sc-grid">' + g.items.map(function (x) { return '<label class="sc-item"><input type="checkbox"> ' + esc(x.text) + "</label>"; }).join("") + "</div>";
       });
@@ -267,7 +283,7 @@
       el.innerHTML = setupHtml(st, r);
       var modeBox = el.querySelector("#pMode"); if (!modeBox) return;
       var mode = r.q.q && modeBox.querySelector('[data-m="one"]') ? "one" : "real";
-      var tg0 = st.targets.slice().sort(function (a, b) { return (a.date || "9") < (b.date || "9") ? -1 : 1; })[0];
+      var tg0 = MJ.nextTarget(st.targets);
       var selU = tg0 ? tg0.univ : "";
       if (tg0 && !r.q.q) MJ.load("guide_univ").then(function (GU) {
         if (!modeBox.isConnected) return;
@@ -278,7 +294,10 @@
           modeBox.insertBefore(b, anchor); made++;
         });
         if (made && !st.questions.filter(function (q) { return !q.hidden; }).length) { var f = modeBox.querySelector('[data-m="univ"]'); if (f) f.click(); }
-      }).catch(function () { });
+      }).catch(function (e) {
+        var hint = el.querySelector("#pModeHint"); if (!hint) return;
+        hint.textContent = "대학 공개 질문을 불러오지 못해 대학 맞춤 연습은 지금 고를 수 없습니다. " + (e && e.message ? e.message : "");
+      });
       var HINT = { univ: "지원 대학이 공개한 면접 질문과 내 질문함의 별표·학생부 질문을 섞어 그 대학 면접처럼 연습합니다. 공개 질문의 ○○ 자리는 내 활동으로 바꿔 답하세요.", real: "자기소개나 지원동기로 시작해 학생부 질문을 거쳐 마지막 말로 끝나는 순서입니다.", star: "별표를 붙인 질문만 무작위로 냅니다.", written: "답변을 써 둔 질문만 무작위로 냅니다. 글을 덮고 말해 보세요.", all: "질문함 전체에서 무작위로 냅니다." };
       modeBox.addEventListener("click", function (e) {
         var b = e.target.closest("[data-m]"); if (!b || b.disabled) return;
@@ -286,7 +305,7 @@
         var hint = el.querySelector("#pModeHint"); if (hint && HINT[mode]) hint.textContent = HINT[mode];
       });
       /* 내 대학의 실제 형식 안내 */
-      var tg = st.targets.slice().sort(function (a, b) { return (a.date || "9") < (b.date || "9") ? -1 : 1; })[0];
+      var tg = MJ.nextTarget(st.targets);
       MJ.load("stats").then(function (S) {
         var box = el.querySelector("#pStat"); if (!box) return;
         var U = tg && S.byUniv[tg.univ], G = (U && (U[tg.type] || U.all)) || S.global, who = U ? tg.univ : "전체 평균";
@@ -302,11 +321,18 @@
           s.ttsOn = el.querySelector("#pTts").checked; s.recOn = el.querySelector("#pRec").checked; s.sttOn = el.querySelector("#pStt").checked;
           MJ.store.save();
           var nSel = +el.querySelector("#pN").value;
-          if (mode === "univ") { MJ.load("guide").then(function (G) { if (el.isConnected) go(univSet(st, G, selU, nSel)); }).catch(function (e) { MJ.toast(e.message); }); return; }
+          if (mode === "univ") {
+            if (loadingSet) return;
+            loadingSet = true; MJ.toast("대학 공개 질문을 불러오는 중입니다.");
+            MJ.load("guide").then(function (G) { loadingSet = false; if (el.isConnected) go(univSet(st, G, selU, nSel)); }).catch(function (e) { loadingSet = false; MJ.toast(e.message); });
+            return;
+          }
           go(buildSet(st, mode, nSel, r.q.q));
         }
       });
+      var loadingSet = false;
       function go(set) {
+          if (run) return;   // 이미 시작했다(두 번 누르면 처리기가 겹쳐 문항을 건너뛴다)
           var s = st.settings;
           if (!set.length) { MJ.toast("이 묶음에 해당하는 질문이 없습니다."); return; }
           run = { mode: mode, i: 0, tails: s.tails, recOn: false, sttOn: s.sttOn && !!SR, urls: [], items: set.map(function (q) { return { q: q, tail: q.tails && q.tails.length ? q.tails[Math.floor(Math.random() * q.tails.length)] : "" }; }) };

@@ -105,7 +105,7 @@
       st.quiz = { score: score, total: items.length, at: MJ.iso(MJ.today()) };
       MJ.store.mark("know", 2); MJ.store.save();
       box.innerHTML = '<div class="kpis"><div class="kpi"><b>' + score + " / " + items.length + "</b><span>맞힌 문항</span></div></div>" +
-        (wrong.length ? '<h3>다시 볼 내용</h3><ul>' + wrong.map(function (q) { return "<li><b>" + esc(q.q) + "</b> → 정답 " + (q.a ? "O" : "X") + ". " + esc(q.why) + "</li>"; }).join("") + "</ul>" : '<p style="margin-top:10px">모두 맞혔습니다. 모두 맞혔습니다. 2단계에서 지원 대학의 면접 방식을 확인하세요.</p>') +
+        (wrong.length ? '<h3>다시 볼 내용</h3><ul>' + wrong.map(function (q) { return "<li><b>" + esc(q.q) + "</b> → 정답 " + (q.a ? "O" : "X") + ". " + esc(q.why) + "</li>"; }).join("") + "</ul>" : '<p style="margin-top:10px">모두 맞혔습니다. 2단계에서 지원 대학의 면접 방식을 확인하세요.</p>') +
         '<div class="row" style="margin-top:14px"><button class="btn" id="quizAgain">다시 풀기</button><a class="btn primary" href="#/univ">2단계로 가기 ' + MJ.icon("arrow") + "</a></div>";
       box.querySelector("#quizAgain").addEventListener("click", function () { i = 0; score = 0; wrong = []; ask(); });
     }

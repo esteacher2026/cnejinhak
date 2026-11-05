@@ -1326,7 +1326,7 @@ MJ.content.qt = [
     purpose:"단체 교육처럼 내용만 나열된 기록은 본인이 실제로 무엇을 얻었는지 다시 확인합니다.",
     tails:["그 뒤 생활에서 바뀐 점이 있나요?","그 내용을 친구에게 설명한다면 어떻게 말하겠습니까?"] },
   { id:"jy-g2-91", area:["jayul"], intent:"growth", depth:2, kind:"experience", factor:"공동체", needs:[],
-    text:"꾸준히 이어 온 봉사활동이 본인에게 어떤 영향을 주었나요?",
+    text:"학교에서 꾸준히 이어 온 봉사활동이 본인에게 어떤 영향을 주었나요?",
     purpose:"봉사는 시간보다 왜 계속했는지, 본인에게 어떤 의미였는지를 확인합니다.",
     tails:["봉사하면서 가장 어려웠던 순간은 언제였나요?","그 경험이 지원 학과 공부와 이어지는 부분이 있나요?"] },
   { id:"jr-p1-91", area:["jinro"], intent:"process", depth:1, kind:"experience", factor:"진로", needs:[],

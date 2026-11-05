@@ -364,3 +364,10 @@ input[type=checkbox]{accent-color:var(--teal)}
 /* ── 덧붙임 ── */
 .ckline{display:flex;gap:9px;align-items:flex-start;cursor:pointer;flex:1;min-width:220px;font-size:13.6px;line-height:1.55} .ckline input{margin-top:2px}
 details.qsub[data-key^="i:"] .srcline{display:none}
+
+/* 2026-11 점검: 휴대폰 터치 영역, 숨김 적용, 활동 카드 */
+.chip{min-height:36px} .toc .chip{min-height:36px}
+.qgroup[hidden]{display:none}
+.rec-card{margin:10px 0 2px} .rec-card summary{font-size:14.5px}
+a.todo{text-decoration:none} a.todo:hover{text-decoration:none;border-color:var(--teal)}
+@media (max-width:760px){.btn.sm{min-height:38px}}

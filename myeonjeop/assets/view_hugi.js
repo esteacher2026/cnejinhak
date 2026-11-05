@@ -112,7 +112,7 @@
           });
           draw();
         });
-      }).catch(function (e) { var b = el.querySelector("#hBody"); if (b) b.innerHTML = '<p class="mute small">' + esc(e.message) + "</p>"; });
+      }).catch(function (e) { MJ.failBox(el.querySelector("#hBody"), e); });
     }
   });
 })();

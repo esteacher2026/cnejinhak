@@ -16,11 +16,20 @@
     marks.forEach(function (m) { if (m[0] < pos) return; out += esc(text.slice(pos, m[0])) + '<mark class="' + m[2] + '">' + esc(text.slice(m[0], m[1])) + "</mark>"; pos = m[1]; });
     return out + esc(text.slice(pos));
   }
+  var CARD = [["why", "계기", "왜 시작했나요? 수업의 어느 장면, 어떤 궁금증에서?"], ["how", "과정", "내가 직접 한 일과 그렇게 판단한 이유"], ["res", "결과", "무엇이 나왔나요? 숫자나 사실로 한 문장"],
+    ["learn", "배운 점", "생각이나 행동이 어떻게 달라졌나요?"], ["out", "기록에 없는 장면", "(선택) 적히지 않은 실제 장면, 지금도 이어 가는 일"]];
+  var openCard = {};
+  function cardHtml(item) {
+    var c = item.card || {}, n = CARD.slice(0, 4).filter(function (x) { return String(c[x[0]] || "").trim(); }).length;
+    return '<details class="acc rec-card"' + (openCard[item.id] ? " open" : "") + ' data-card-box><summary><b>활동 카드</b> <span class="small mute">' + (n ? n + " / 4칸 채움" : "네 칸으로 정리해 보기") + "</span></summary><div class=\"acc-body\">" +
+      '<p class="small mute" style="margin:0 0 8px">빈칸이 남는 곳이 면접에서 막히는 곳입니다. 짧은 말로 적어 두면 5단계에서 답변을 쓸 때 옆에 보입니다.</p>' +
+      CARD.map(function (x) { var id = "c_" + item.id + "_" + x[0]; return '<div class="field" style="margin-bottom:8px"><label class="f" for="' + id + '">' + x[1] + '</label><textarea class="in" rows="2" id="' + id + '" data-card="' + x[0] + '" placeholder="' + esc(x[2]) + '">' + esc(c[x[0]] || "") + "</textarea></div>"; }).join("") + "</div></details>";
+  }
   function itemHtml(item, nq) {
     var first = item.tags[0] || "";
     var h = '<div class="rec-item t-' + esc(first) + (justAdded.indexOf(item.id) >= 0 ? " flash" : "") + '" data-id="' + esc(item.id) + '"><div class="rec-meta"><span class="tag navy">' + esc(MJ.areaName(item.area)) + "</span>" + (item.subject ? '<span class="tag">' + esc(item.subject) + "</span>" : "") +
       '<span class="grow"></span>' + (nq ? '<span class="tag ok">질문 ' + nq + "개</span>" : "") + "</div>" +
-      '<div class="rec-text">' + markup(item) + "</div>" +
+      '<div class="rec-text">' + markup(item) + "</div>" + cardHtml(item) +
       '<dl class="chipset"><dt>표시</dt><dd><div class="tagpick">' + TAGS.map(function (t) { return '<button class="chip ' + t + (item.tags.indexOf(t) >= 0 ? " on" : "") + '" data-act="tag" data-t="' + t + '" aria-pressed="' + (item.tags.indexOf(t) >= 0) + '">' + TAGNAME[t] + "</button>"; }).join("") + "</div></dd>";
     CHIPS.forEach(function (c) {
       var arr = item.chips[c[0]] || [];
@@ -50,7 +59,12 @@
   function headArea(line) {
     var l = line.replace(/[\s\[\]<>()■□▶·\d.]/g, "");
     if (l.length > 16 || /[다함음임요]$/.test(l)) return null;   // 문장이면 제목이 아니다
-    for (var i = 0; i < AREA_HEAD.length; i++) if (AREA_HEAD[i][0].test(l)) return AREA_HEAD[i][1];
+    for (var i = 0; i < AREA_HEAD.length; i++) {
+      if (!AREA_HEAD[i][0].test(l)) continue;
+      /* 제목 말만으로 된 줄만 제목이다. '동아리 부장', '2학년 1학기 성적 하락' 같은 짧은 사실 문장은 본문이다 */
+      var rest = l.replace(AREA_HEAD[i][0], "").replace(/및|사항|특기|상황|활동|영역|의견|능력|학년|학기|내용|기록|교과|과목|창의적|체험|사항/g, "");
+      return rest.length <= 1 ? AREA_HEAD[i][1] : null;
+    }
     return null;
   }
   function splitParas(text, area, subject) {
@@ -139,6 +153,17 @@
       h += MJ.stepNav("record");
       el.innerHTML = h;
 
+      el.addEventListener("input", function (e) {
+        var k = e.target.getAttribute && e.target.getAttribute("data-card"); if (!k) return;
+        var it = itemOf(e.target); if (!it) return;
+        it.card = it.card || {}; it.card[k] = e.target.value;
+        clearTimeout(cardT); cardT = setTimeout(function () { MJ.store.saveRecord(); }, 400);
+      });
+      el.addEventListener("toggle", function (e) {
+        if (!e.target.hasAttribute || !e.target.hasAttribute("data-card-box")) return;
+        var box = e.target.closest(".rec-item"); if (box) openCard[box.getAttribute("data-id")] = e.target.open;
+      }, true);
+      var cardT = null;
       function itemOf(t) { var id = t.closest(".rec-item").getAttribute("data-id"); return rec.filter(function (x) { return x.id === id; })[0]; }
       function makeQ(item) {
         var have = st.questions.filter(function (q) { return q.src && q.src.ref === item.id; }).map(function (q) { return q.tpl; });

@@ -59,9 +59,9 @@
         "<tr><th>학생부 문장</th><td>" + rec.length + "개 · " + (st.recordPolicy === "local" ? "이 기기에 저장 중" : "창을 닫으면 지워짐") + '</td><td><button class="btn sm" data-act="policy">' + (st.recordPolicy === "local" ? "저장 끄기" : "이 기기에 저장") + "</button></td></tr>" +
         "<tr><th>질문함·답변·연습 기록</th><td>질문 " + st.questions.length + "개 · 답변 " + na + "개 · 연습 " + st.practice.length + "회 · 이 기기에 저장</td><td></td></tr>" +
         "<tr><th>녹음·받아쓴 글</th><td>저장하지 않음. 연습 화면을 떠나면 사라집니다.</td><td></td></tr></tbody></table></div>" +
-        '<p class="small" style="margin-top:10px">이 안내서에는 서버가 없습니다. 입력한 내용은 지금 쓰는 브라우저 안에만 있고 어디로도 전송되지 않습니다. 그래서 다른 기기나 다른 브라우저에서는 보이지 않으며, 브라우저의 사이트 데이터(쿠키 등)를 지우면 함께 사라집니다. 함께 쓰는 컴퓨터에서는 끝나고 아래의 ‘모두 지우기’나 화면 위쪽의 ‘초기화’를 눌러 주세요.</p></div>';
+        '<p class="small" style="margin-top:10px">입력한 학생부 문장과 답변은 서버로 보내지 않고 지금 쓰는 브라우저 안에만 둡니다. 받아쓰기를 켜면 음성은 브라우저 제조사 서버로 보내집니다. 그래서 다른 기기나 다른 브라우저에서는 보이지 않으며, 브라우저의 사이트 데이터(쿠키 등)를 지우면 함께 사라집니다. 함께 쓰는 컴퓨터에서는 끝나고 아래의 ‘모두 지우기’나 화면 위쪽의 ‘초기화’를 눌러 주세요.</p></div>';
 
-      h += '<div class="card"><h2>백업과 옮기기</h2><p class="small">백업 파일을 내려받아 두면 다른 기기에서 이어서 쓸 수 있습니다. 파일에는 질문, 답변, 학생부 문장이 들어 있으니 다른 사람에게 보내지 마세요.</p><div class="row"><button class="btn" data-act="export">백업 파일 내려받기</button><label class="btn" style="cursor:pointer">백업 파일 불러오기<input type="file" id="imp" accept=".json,application/json" hidden></label><button class="btn danger" data-act="wipe">모두 지우기</button></div></div>';
+      h += '<div class="card"><h2>백업과 옮기기</h2><p class="small">백업 파일을 내려받아 두면 다른 기기에서 이어서 쓸 수 있습니다. 파일에는 질문, 답변, 학생부 문장이 들어 있으니 다른 사람에게 보내지 마세요.</p><div class="row"><button class="btn" data-act="export">백업 파일 내려받기</button><button class="btn" data-act="exportcopy">백업 글 복사</button><label class="btn" style="cursor:pointer">백업 파일 불러오기<input type="file" id="imp" accept=".json,application/json" hidden></label><button class="btn danger" data-act="wipe">모두 지우기</button></div></div>';
 
       h += '<div class="card"><h2>말하기 속도 맞추기</h2><p class="small">5단계의 “말하면 몇 초” 계산에 쓰는 속도입니다. 실제로 재 보니 계산보다 길거나 짧다면 바꾸세요.</p><div class="chips" id="rate">' + [[4.4, "천천히"], [5.2, "보통"], [6.0, "빠르게"]].map(function (x) { return '<button class="chip ' + (Math.abs(st.settings.rate - x[0]) < 0.05 ? "on" : "") + '" data-act="rate" data-r="' + x[0] + '">' + x[1] + " (1분에 약 " + Math.round(x[0] * 60) + "음절)</button>"; }).join("") + "</div></div>";
       h += '<div id="printArea" class="print-area print-only"></div>';
@@ -75,7 +75,7 @@
           try { obj = JSON.parse(rd.result); } catch (err) { MJ.toast("백업 파일을 읽지 못했습니다. 이 안내서에서 내려받은 .json 파일인지 확인하세요."); return; }
           if (!obj || obj.app !== "mj" || !obj.state) { MJ.toast("이 안내서의 백업 파일이 아닙니다."); return; }
           var cur = MJ.store.get(), nq = (obj.state.questions || []).length;
-          var go = function () { try { MJ.store.importAll(obj); MJ.toast("백업을 불러왔습니다."); MJ.rerender(); } catch (err) { MJ.toast("백업 파일을 불러오지 못했습니다."); } };
+          var go = function () { try { MJ.store.importAll(obj); MJ.toast(MJ.store.lastOk ? "백업을 불러왔습니다." : "백업을 읽었지만 이 기기에 저장하지 못했습니다. 저장 공간을 확인하세요."); MJ.rerender(); } catch (err) { MJ.toast("백업 파일을 불러오지 못했습니다."); } };
           if (cur.questions.length || MJ.store.record().length || cur.targets.length)
             MJ.confirm("지금 이 기기에 있는 질문 " + cur.questions.length + "개와 학생부 문장, 답변이 백업 파일의 내용(질문 " + nq + "개)으로 바뀝니다. 불러올까요?", go, "불러오기");
           else go();
@@ -94,7 +94,8 @@
           setTimeout(function () { window.print(); }, 50);
         },
         policy: function () { MJ.store.setRecordPolicy(st.recordPolicy === "local" ? "session" : "local"); MJ.rerender(); },
-        export: function () { MJ.download("면접준비_백업_" + MJ.iso(MJ.today()) + ".json", JSON.stringify(MJ.store.exportAll())); },
+        export: function () { MJ.download("면접준비_백업_" + MJ.iso(MJ.today()) + ".json", JSON.stringify(MJ.store.exportAll())); MJ.toast("백업 파일을 내려받았습니다. 받지 못했다면 ‘백업 글 복사’를 쓰세요."); },
+        exportcopy: function () { MJ.copyText(JSON.stringify(MJ.store.exportAll()), "백업 내용을 복사했습니다. 메모 앱 등에 붙여 넣어 두세요. 다른 사람에게 보내지 마세요."); },
         wipe: function () { MJ.resetAsk(); },
         rate: function (t) { st.settings.rate = +t.getAttribute("data-r"); MJ.store.save(); MJ.rerender(); }
       });
