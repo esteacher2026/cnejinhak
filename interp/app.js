@@ -378,16 +378,29 @@ function endScreen(byPeer) {
   $("#endTitle").textContent = T(S.myLang, "ended"); $("#endSub").textContent = T(S.myLang, "thanks");
   const acts = $("#endActions"); acts.innerHTML = "";
   if (S.role === "counselor") {
-    const b = document.createElement("button"); b.className = "btn"; b.textContent = "상담 내용 텍스트로 저장 (이름 없음)"; b.onclick = exportTxt; acts.appendChild(b);
+    if (LIVE) { const sb = document.createElement("button"); sb.className = "btn"; sb.textContent = "상담 요약 만들기 (AI, 5항목)"; sb.onclick = () => makeSummary(sb); acts.appendChild(sb);
+      const box = document.createElement("div"); box.id = "summaryBox"; box.className = "card"; box.style.display = "none"; box.style.whiteSpace = "pre-wrap"; box.style.fontSize = "17px"; box.style.lineHeight = "1.55"; acts.appendChild(box); }
+    const b = document.createElement("button"); b.className = "btn secondary"; b.textContent = "상담 내용 텍스트로 저장 (이름 없음)"; b.onclick = exportTxt; acts.appendChild(b);
     const n = document.createElement("div"); n.className = "notice"; n.textContent = "저장하지 않으면 이 화면을 떠날 때 대화 내용은 사라집니다. 방 데이터는 삭제되었습니다."; acts.appendChild(n);
   }
   const back = document.createElement("button"); back.className = "btn secondary"; back.textContent = S.role === "counselor" ? "처음으로" : "Close · 닫기"; back.onclick = () => location.href = location.pathname; acts.appendChild(back);
   show("#s-end"); try { S.wake?.release(); } catch {}
 }
+async function makeSummary(btn) {
+  const lines = S.order.map(id => S.msgs.get(id)).filter(m => m && !m.partial && !m.deleted && m.src)
+    .map(m => ({ role: m.role, text: m.srcLang === "ko" ? m.src : (m.tgtRefined || m.tgt || m.src) }));   // 한국어 쪽 텍스트만
+  if (!lines.length) return toast("요약할 대화가 없습니다");
+  btn.disabled = true; btn.textContent = "요약 작성 중…";
+  try { const r = await api("/summary", { lines, theirLang: S.theirLang }); const d = await r.json();
+    S.summary = d.summary || ""; const box = $("#summaryBox"); box.style.display = ""; box.textContent = S.summary || (d.refused ? "요약을 만들 수 없는 내용입니다." : "요약 결과가 비어 있습니다.");
+    btn.textContent = "요약 다시 만들기"; btn.disabled = false; toast("요약을 텍스트 저장에 함께 넣습니다");
+  } catch (e) { console.warn(e); btn.disabled = false; btn.textContent = "상담 요약 만들기 (AI, 5항목)"; toast("요약 실패: " + String(e.message || e), 4000); }
+}
 function exportTxt() {
   const lines = [`${CFG.CENTER_NAME} 상담 통역 기록`, `일시: ${new Date().toLocaleString("ko-KR")}`, `언어: 한국어 ⇄ ${L[S.theirLang]?.ko || ""}`, `※ AI 자동 통역 기록이며 오역이 있을 수 있습니다. 개인 식별 정보는 포함하지 않습니다.`, ""];
   for (const id of S.order) { const m = S.msgs.get(id); if (!m || m.partial || !m.src || m.deleted) continue; const who = m.role === "counselor" ? "상담사" : "내담자"; const t = new Date(m.ts).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
     lines.push(`[${t}] ${who}: ${m.src}`); if (m.tgtLang !== m.srcLang && (m.tgtRefined || m.tgt)) lines.push(`        → ${m.tgtRefined || m.tgt}`); }
+  if (S.summary) { lines.push("", "■ 상담 요약 (AI 자동 작성, 확인 후 사용)", S.summary); }
   const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/plain;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `상담통역_${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-")}.txt`; a.click();
 }
 
