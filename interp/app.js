@@ -265,19 +265,19 @@ function render(id) {
   const list = $("#list"); let el = document.getElementById("m-" + id);
   if (m.deleted) { el?.remove(); return; }
   const atBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 120;
-  if (!el) { el = document.createElement("div"); el.id = "m-" + id; el.innerHTML = `<span class="tag">정밀</span><div class="big"></div><div class="orig"></div><div class="meta"><span class="who"></span><span class="time"></span></div>`;
+  if (!el) { el = document.createElement("div"); el.id = "m-" + id; el.innerHTML = `<div class="hd"><span class="who"></span><span class="stage"></span><span class="time"></span></div><div class="big"></div><div class="orig"></div><span class="tag"></span>`;
     // seq 순서에 맞는 위치에 삽입
     const idx = S.order.indexOf(id); const next = S.order[idx + 1]; const nextEl = next && document.getElementById("m-" + next); list.insertBefore(el, nextEl || null); }
   const mine = m.role === S.role;
   el.className = "msg " + (mine ? "mine" : "theirs") + (m.partial ? " partial" : "") + (m.tgtRefined ? " refined" : "") + (m.edited ? " edited" : "");
-  el.querySelector(".tag").textContent = m.edited ? "수정됨" : "정밀";
+  el.querySelector(".stage").textContent = m.partial ? (S.myLang === "ko" ? "듣는 중" : "…") : m.edited ? "수정됨" : m.tgtRefined ? (S.myLang === "ko" ? "정밀 번역" : "✓") : "";
   const big = el.querySelector(".big"), orig = el.querySelector(".orig");
   // 내 화면 언어로 보여줄 글: 원문이 내 언어면 원문, 아니면 번역
   const showText = m.srcLang === S.myLang ? m.src : (m.tgtRefined || m.tgt || (m.partial ? "…" : m.src));
   const showLang = m.srcLang === S.myLang ? m.srcLang : (m.tgt || m.tgtRefined ? m.tgtLang : m.srcLang);
   big.innerHTML = underline(esc(showText), showLang); big.dir = L[showLang]?.rtl ? "rtl" : "ltr"; big.lang = L[showLang]?.azure || showLang;
   if (!mine && m.srcLang !== S.myLang) { orig.textContent = m.src || ""; orig.style.display = ""; orig.dir = L[m.srcLang]?.rtl ? "rtl" : "ltr"; } else orig.style.display = "none";
-  el.querySelector(".who").textContent = mine ? (S.role === "counselor" ? "나(상담사)" : "") : (S.role === "counselor" ? L[m.srcLang]?.ko || "내담자" : "");
+  el.querySelector(".who").textContent = mine ? (S.role === "counselor" ? "상담사" : L[S.myLang]?.name || "") : (S.role === "counselor" ? `내담자 · ${L[m.srcLang]?.name || ""}` : (L[m.srcLang]?.name || ""));
   el.querySelector(".time").textContent = new Date(m.ts || Date.now()).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
   if (atBottom) list.scrollTop = list.scrollHeight;
 }
