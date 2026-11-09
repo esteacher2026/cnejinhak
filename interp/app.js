@@ -51,6 +51,10 @@ const UI = {
   ja: { speak: "読み上げ", connected: "接続中", waiting: "相談員を待っています", lost: "接続が切れました。再接続中", ended: "相談は終了しました", thanks: "ありがとうございました。", notice: "この相談はAI通訳を使用します。音声は保存されません。", micOn: "聞き取り中", micOff: "マイクオフ", tapMic: "🎤 開始", stopMic: "⏸ 一時停止", type: "文字で入力…", send: "送信" },
   th: { speak: "อ่านออกเสียง", connected: "เชื่อมต่อแล้ว", waiting: "รอที่ปรึกษา", lost: "การเชื่อมต่อหลุด กำลังเชื่อมต่อใหม่", ended: "การให้คำปรึกษาสิ้นสุดแล้ว", thanks: "ขอบคุณค่ะ/ครับ", notice: "การให้คำปรึกษานี้ใช้ AI แปลภาษา ไม่มีการบันทึกเสียงของคุณ", micOn: "กำลังฟัง", micOff: "ปิดไมค์", tapMic: "🎤 เริ่ม", stopMic: "⏸ หยุดชั่วคราว", type: "พิมพ์ข้อความ…", send: "ส่ง" },
   id: { speak: "Bacakan", connected: "Terhubung", waiting: "Menunggu konselor", lost: "Koneksi terputus, menyambung ulang", ended: "Sesi telah berakhir", thanks: "Terima kasih.", notice: "Sesi ini menggunakan penerjemah AI. Suara Anda tidak direkam.", micOn: "Mendengarkan", micOff: "Mik mati", tapMic: "🎤 Mulai", stopMic: "⏸ Jeda", type: "Ketik di sini…", send: "Kirim" },
+  uz: { speak: "Ovoz chiqarib o'qish", connected: "Ulandi", waiting: "Maslahatchi kutilmoqda", lost: "Aloqa uzildi, qayta ulanmoqda", ended: "Maslahat yakunlandi", thanks: "Rahmat.", notice: "Bu maslahatda sun'iy intellekt tarjimasi ishlatiladi. Ovozingiz saqlanmaydi.", micOn: "Tinglanmoqda", micOff: "Mikrofon o'chiq", tapMic: "🎤 Boshlash", stopMic: "⏸ To'xtatish", type: "Matn kiriting…", send: "Yuborish" },
+  mn: { speak: "Уншиж өгөх", connected: "Холбогдсон", waiting: "Зөвлөхийг хүлээж байна", lost: "Холболт тасарсан, дахин холбогдож байна", ended: "Зөвлөгөө дууслаа", thanks: "Баярлалаа.", notice: "Энэ зөвлөгөөнд хиймэл оюуны орчуулга ашиглана. Таны дуу хоолой хадгалагдахгүй.", micOn: "Сонсож байна", micOff: "Микрофон унтраалттай", tapMic: "🎤 Эхлэх", stopMic: "⏸ Түр зогсоох", type: "Бичиж оруулах…", send: "Илгээх" },
+  ne: { speak: "पढेर सुनाउनुहोस्", connected: "जोडियो", waiting: "परामर्शदाताको प्रतीक्षा", lost: "जडान टुट्यो, पुनः जोड्दै", ended: "परामर्श समाप्त भयो", thanks: "धन्यवाद।", notice: "यो परामर्शमा AI अनुवाद प्रयोग हुन्छ। तपाईंको आवाज सुरक्षित गरिँदैन।", micOn: "सुन्दै", micOff: "माइक बन्द", tapMic: "🎤 सुरु", stopMic: "⏸ रोक्नुहोस्", type: "यहाँ लेख्नुहोस्…", send: "पठाउनुहोस्" },
+  km: { speak: "អានឮៗ", connected: "បានភ្ជាប់", waiting: "កំពុងរង់ចាំអ្នកប្រឹក្សា", lost: "ការតភ្ជាប់ដាច់ កំពុងភ្ជាប់ឡើងវិញ", ended: "ការប្រឹក្សាបានបញ្ចប់", thanks: "សូមអរគុណ។", notice: "ការប្រឹក្សានេះប្រើការបកប្រែដោយ AI។ សំឡេងរបស់អ្នកមិនត្រូវបានរក្សាទុកទេ។", micOn: "កំពុងស្តាប់", micOff: "មីក្រូបិទ", tapMic: "🎤 ចាប់ផ្តើម", stopMic: "⏸ ផ្អាក", type: "វាយអក្សរនៅទីនេះ…", send: "ផ្ញើ" },
   fil: { speak: "Basahin nang malakas", connected: "Nakakonekta", waiting: "Hinihintay ang counselor", lost: "Nawala ang koneksyon, kumokonekta muli", ended: "Tapos na ang sesyon", thanks: "Salamat.", notice: "Gumagamit ng AI interpretation ang sesyong ito. Hindi nire-record ang boses mo.", micOn: "Nakikinig", micOff: "Naka-off ang mic", tapMic: "🎤 Simulan", stopMic: "⏸ I-pause", type: "Mag-type dito…", send: "Ipadala" },
 };
 const T = (lang, k) => (UI[lang] || UI.en)[k] || UI.en[k];
@@ -97,12 +101,12 @@ async function refine(msg, onChunk) {
   const ctx = S.order.slice(-9, -1).map(id => S.msgs.get(id)).filter(m => m && !m.partial && m.src)
     .map(m => ({ role: m.role, lang: m.srcLang, text: m.src }));
   if (!LIVE) { await sleep(1100); const t = msg.tgt + " ✓"; onChunk(t); return t; }
-  const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 4000);
+  const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 6000);   // 6초 넘으면 초벌 자막 유지
   try {
     const r = await api("/refine", { text: msg.src, from: msg.srcLang, to: msg.tgtLang, quick: msg.tgt, context: ctx, role: msg.role }, { signal: ctrl.signal });
-    const reader = r.body.getReader(); const dec = new TextDecoder(); let acc = "";
-    while (true) { const { value, done } = await reader.read(); if (done) break; acc += dec.decode(value, { stream: true }); onChunk(acc); }
-    return acc.trim();
+    const acc = (await r.text()).trim();   // Worker가 정리된 완성본을 한 번에 돌려줌
+    if (acc) onChunk(acc);
+    return acc;
   } finally { clearTimeout(timer); }
 }
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -128,7 +132,11 @@ class FirestoreSync {
     const expireAt = new Date(Date.now() + 24 * 3600e3);
     await fs.setDoc(this.roomRef, { [this.role + "At"]: fs.serverTimestamp(), expireAt, status: "open" }, { merge: true });
     this.unsubRoom = fs.onSnapshot(this.roomRef, (d) => { const v = d.data() || {}; const other = this.role === "counselor" ? "client" : "counselor"; const ts = v[other + "At"]; if (ts) this.onPeer(other, v[other + "Lang"] || null, v.status === "ended"); });
-    this.unsubMsgs = fs.onSnapshot(fs.query(fs.collection(this.roomRef, "msgs"), fs.orderBy("seq")), (snap) => { snap.docChanges().forEach(c => { const m = c.doc.data(); if (m.role !== this.role || (m.editedBy && m.editedBy !== this.role)) this.onMsg(m); }); });
+    let initial = true;
+    this.unsubMsgs = fs.onSnapshot(fs.query(fs.collection(this.roomRef, "msgs"), fs.orderBy("seq")), (snap) => {
+      snap.docChanges().forEach(c => { const m = c.doc.data(); if (initial || m.role !== this.role || (m.editedBy && m.editedBy !== this.role)) this.onMsg(m, initial); });
+      initial = false;
+    });
     this.hb = setInterval(() => this.beat(), 8000);
   }
   async setLang(l) { this.lang = l; await this.fs.setDoc(this.roomRef, { [this.role + "Lang"]: l }, { merge: true }); }
@@ -185,7 +193,11 @@ class AzureReco {
     const langOf = (res) => { try { const d = SDK.AutoDetectSourceLanguageResult.fromResult(res).language; return d || this.langs[0]; } catch { return this.langs[0]; } };
     reco.recognizing = (_, e) => { if (e.result.text) this.onPartial(e.result.text, langOf(e.result)); };
     reco.recognized = (_, e) => { if (e.result.reason === SDK.ResultReason.RecognizedSpeech && e.result.text.trim()) this.onFinal(e.result.text.trim(), langOf(e.result)); };
-    reco.canceled = (_, e) => { console.warn("azure canceled", e.errorDetails); this.onState(e.errorDetails?.includes("1006") || e.errorDetails?.includes("401") ? "retry" : "off"); };
+    reco.canceled = (_, e) => {   // 네트워크 끊김·토큰 만료는 자동 재시도(최대 5회), 권한 거부 등은 중단
+      console.warn("azure canceled", e.errorDetails); const d = String(e.errorDetails || "");
+      const transient = /1006|1001|1007|401|websocket|connection|timeout|network/i.test(d);
+      if (transient && (this.retries = (this.retries || 0) + 1) <= 5) { this.onState("retry"); } else this.onState("off");
+    };
     reco.sessionStopped = () => this.onState("off");
     this.reco = reco; this.renew = setInterval(() => api("/token").then(r => r.json()).then(t => { reco.authorizationToken = t.token; }).catch(() => {}), 8 * 60e3);
     await new Promise((ok, no) => reco.startContinuousRecognitionAsync(ok, no)); this.onState("on");
@@ -334,7 +346,7 @@ function micState(st) {
   if (st === "on") { S.micOn = true; box.classList.remove("off"); $("#micText").textContent = T(S.myLang, "micOn"); btn.textContent = T(S.myLang, "stopMic"); vu(true); }
   else { S.micOn = false; box.classList.add("off"); $("#micText").textContent = st === "denied" ? "마이크 권한이 거부되었습니다 · Microphone blocked" : T(S.myLang, "micOff"); btn.textContent = T(S.myLang, "tapMic"); vu(false);
     if (st === "denied") $("#textIn").classList.add("on");
-    if (st === "retry") setTimeout(() => startMic(), 1500); }
+    if (st === "retry") { S.reco = null; toast(T(S.myLang, "lost"), 2000); setTimeout(() => startMic(), 2000); } }
 }
 let vuTimer = null;
 function vu(on) { clearInterval(vuTimer); const bars = document.querySelectorAll("#micBox .vu i"); if (!on) { bars.forEach(b => b.style.height = "6px"); return; } vuTimer = setInterval(() => bars.forEach(b => b.style.height = (6 + Math.random() * 18) + "px"), 120); }
@@ -362,9 +374,13 @@ function stopMic() { S.reco?.stop(); S.reco = null; micState("off"); }
 
 /* ───────────── 방 시작/종료 ───────────── */
 async function openRoom(room, role, myLang, theirLang) {
-  S.room = room; S.role = role; S.myLang = myLang; S.theirLang = theirLang; S.msgs.clear(); S.order = []; $("#list").innerHTML = "";
+  S.room = room; S.role = role; S.myLang = myLang; S.theirLang = theirLang; S.msgs.clear(); S.order = []; S.summary = ""; S.ended = false; S.seq = 0; $("#list").innerHTML = "";
   S.fs = +localStorage.getItem("interp_fs_" + role) || (role === "client" ? 26 : 22); document.documentElement.style.setProperty("--fs", S.fs + "px");
-  const onMsg = (m) => { if (m.role === S.role && !(m.editedBy && m.editedBy !== S.role)) return; upsert(m, true); };   // 내 발화는 상대가 고친 경우에만 받음
+  const onMsg = (m, restoring) => {   // 내 발화는 상대가 고친 경우 또는 새로고침 복원 때만 받음
+    if (!restoring && m.role === S.role && !(m.editedBy && m.editedBy !== S.role)) return;
+    if (restoring && m.seq) S.seq = Math.max(S.seq, Math.floor(m.seq / 1000) + 1);
+    upsert(m, !restoring);
+  };
   const onPeer = (otherRole, lang, ended) => { S.peerSeen = Date.now(); if (lang && otherRole === "client" && S.role === "counselor") { S.theirLang = lang; } if (ended) return endScreen(true); setConn("ok"); };
   S.sync = CFG.FIREBASE ? new FirestoreSync(room, role, onMsg, onPeer) : new LocalSync(room, role, onMsg, onPeer);
   if (S.sync.init) { try { await S.sync.init(); } catch (e) { console.error(e); toast("동기화 연결 실패: " + e.message, 5000); } }
@@ -382,7 +398,7 @@ async function openRoom(room, role, myLang, theirLang) {
   else { const n = document.createElement("div"); n.className = "notice"; n.textContent = `내담자 패드에서 코드 ${room} 로 접속하면 연결됩니다. 🎤 시작을 누르고 말씀하세요. 상대 발화는 한국어로, 내 발화는 ${L[theirLang]?.ko || ""}로 번역되어 상대 화면에 표시됩니다.`; $("#list").appendChild(n); }
   try { S.wake = await navigator.wakeLock?.request("screen"); } catch {}
   document.addEventListener("visibilitychange", async () => { if (document.visibilityState === "visible" && !S.wake?.released) return; try { S.wake = await navigator.wakeLock?.request("screen"); } catch {} });
-  scheduleAutoEnd(CFG.AUTO_END_MIN);
+  scheduleAutoEnd(role === "counselor" ? CFG.AUTO_END_MIN : (CFG.AUTO_END_MIN ? CFG.AUTO_END_MIN + 40 : 0));   // 내담자 패드는 상담사 종료를 따르고, 예비로 40분 더 뒤에 자체 종료
   startMic();
 }
 /* 자동 종료: 시작 N분 뒤 종료, 5분 전 안내 + 연장 */
@@ -407,7 +423,9 @@ async function endRoom() {
   clearInterval(autoTimer);
   stopMic(); await S.sync?.end(); endScreen(false);
 }
+/* 새로고침·재접속 시 내 발화도 복원(초기 스냅샷은 전부 받음) */
 function endScreen(byPeer) {
+  if (S.ended) return; S.ended = true;
   clearInterval(autoTimer); stopMic(); if (byPeer) S.sync?.end?.();
   $("#endTitle").textContent = T(S.myLang, "ended"); $("#endSub").textContent = T(S.myLang, "thanks");
   const acts = $("#endActions"); acts.innerHTML = "";
@@ -435,7 +453,7 @@ function exportTxt() {
   for (const id of S.order) { const m = S.msgs.get(id); if (!m || m.partial || !m.src || m.deleted) continue; const who = m.role === "counselor" ? "상담사" : "내담자"; const t = new Date(m.ts).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
     lines.push(`[${t}] ${who}: ${m.src}`); if (m.tgtLang !== m.srcLang && (m.tgtRefined || m.tgt)) lines.push(`        → ${m.tgtRefined || m.tgt}`); }
   if (S.summary) { lines.push("", "■ 상담 요약 (AI 자동 작성, 확인 후 사용)", S.summary); }
-  const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/plain;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `상담통역_${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-")}.txt`; a.click();
+  const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/plain;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); const d = new Date(), p2 = (n) => String(n).padStart(2, "0"); a.download = `상담통역_${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}_${p2(d.getHours())}${p2(d.getMinutes())}.txt`; a.click();
 }
 
 /* ───────────── 설정·문장 시트 ───────────── */
@@ -504,10 +522,10 @@ async function boot() {
   $("#btnFontUp").onclick = () => setFont(2); $("#btnFontDown").onclick = () => setFont(-2);
   $("#btnKeyboard").onclick = () => { $("#textIn").classList.toggle("on"); if ($("#textIn").classList.contains("on")) $("#textInput").focus(); };
   $("#btnTextSend").onclick = () => { const v = $("#textInput").value; $("#textInput").value = ""; sendTyped(v); };
-  $("#textInput").onkeydown = (e) => { if (e.key === "Enter") $("#btnTextSend").click(); };
+  $("#textInput").onkeydown = (e) => { if (e.key === "Enter" && !e.isComposing && e.keyCode !== 229) $("#btnTextSend").click(); };   // 한글 조합 중 Enter는 무시
   $("#scrim").onclick = $("#btnGlClose").onclick = closeAll;
   $("#list").addEventListener("click", (e) => { const g = e.target.closest(".gl"); if (g) return showGl(g.dataset.ko); const b = e.target.closest(".msg"); if (b && S.role === "counselor") msgActions(b.id.slice(2)); });
-  window.addEventListener("beforeunload", () => { if (S.role === "counselor" && S.sync && S.msgs.size) return "상담이 진행 중입니다."; });
+  window.addEventListener("beforeunload", (e) => { if (S.role === "counselor" && S.sync && S.msgs.size && !S.ended) { e.preventDefault(); e.returnValue = ""; } });
   // URL로 바로 참여(QR·센터 고정 방) — 버튼 바인딩 뒤에 처리
   const q = new URLSearchParams(location.search);
   if (q.get("pin")) { localStorage.setItem("interp_pin", q.get("pin")); history.replaceState(null, "", location.pathname + "?" + (() => { q.delete("pin"); return q.toString(); })()); }
