@@ -477,18 +477,17 @@ async function renderPhrases() {
 }
 
 /* ───────────── 시작 화면 ───────────── */
-function renderLangGrid(all) {
+function renderLangGrid() {   // 전체 언어를 처음부터 표시(자주 쓰는 언어 먼저)
   const g = $("#langGrid"); g.innerHTML = "";
-  LANGS.filter(l => l.code !== "ko" && (all || l.top)).sort((a, b) => (a.top || 99) - (b.top || 99)).forEach(l => {
+  LANGS.filter(l => l.code !== "ko").sort((a, b) => (a.top || 99) - (b.top || 99)).forEach(l => {
     const e = document.createElement("button"); e.className = "lang" + (l.azure ? "" : " textonly"); e.innerHTML = `<b>${esc(l.name)}</b><span>${esc(l.ko)}</span>`;
     e.onclick = () => { document.querySelectorAll(".lang").forEach(x => x.classList.remove("sel")); e.classList.add("sel"); S.theirLang = l.code; prepareRoom(); }; g.appendChild(e); });
 }
-function renderJoinLangs(all) {   // 내담자 참여 화면 언어 버튼(모국어 표기 크게)
+function renderJoinLangs() {   // 내담자 참여 화면 언어 버튼(모국어 표기 크게) — 전체 언어 표시
   const g = $("#joinLangGrid"); g.innerHTML = "";
-  LANGS.filter(l => l.code !== "ko" && (all || l.top)).sort((a, b) => (a.top || 99) - (b.top || 99)).forEach(l => {
+  LANGS.filter(l => l.code !== "ko").sort((a, b) => (a.top || 99) - (b.top || 99)).forEach(l => {
     const e = document.createElement("button"); e.className = "lang" + (l.code === S.joinLang ? " sel" : ""); e.innerHTML = `<b>${esc(l.name)}</b><span>${esc(l.ko)}</span>`;
     e.onclick = () => { S.joinLang = l.code; document.querySelectorAll("#joinLangGrid .lang").forEach(x => x.classList.remove("sel")); e.classList.add("sel"); $("#joinCode").focus(); }; g.appendChild(e); });
-  $("#btnMoreJoinLangs").style.display = all ? "none" : "";
 }
 function prepareRoom() {
   S.room = String(Math.floor(1000 + Math.random() * 9000));
@@ -505,12 +504,10 @@ async function boot() {
   try { S.glossary = await (await fetch("glossary.json")).json(); buildGlIndex(); } catch (e) { console.warn("glossary", e); }
   try { S.phrases = await (await fetch("phrases.json")).json(); } catch {}
   // 버튼
-  $("#btnCounselor").onclick = () => { renderLangGrid(false); $("#roomCard").style.display = "none"; show("#s-setup"); };
-  $("#btnMoreLangs").onclick = () => renderLangGrid(true);
+  $("#btnCounselor").onclick = () => { renderLangGrid(); $("#roomCard").style.display = "none"; show("#s-setup"); };
   $("#btnStartTalk").onclick = () => openRoom(S.room, "counselor", "ko", S.theirLang);
-  $("#btnClient").onclick = () => { S.joinLang = null; renderJoinLangs(false); show("#s-join"); };
+  $("#btnClient").onclick = () => { S.joinLang = null; renderJoinLangs(); show("#s-join"); };
   $("#btnJoin").onclick = () => { const c = $("#joinCode").value.trim(); if (c.length !== 4) return toast("4자리 코드를 입력하세요 · Enter the 4-digit code"); if (!S.joinLang) return toast("언어를 선택하세요 · Select your language"); openRoom(c, "client", S.joinLang, "ko"); };
-  $("#btnMoreJoinLangs").onclick = () => renderJoinLangs(true);
   $("#btnBackStart").onclick = $("#btnBackStart2").onclick = () => show("#s-start");
   $("#btnPin").onclick = () => { $("#pinCard").style.display = $("#pinCard").style.display === "none" ? "" : "none"; $("#pinInput").value = pin(); };
   $("#btnPinSave").onclick = () => { localStorage.setItem("interp_pin", $("#pinInput").value.trim()); $("#pinCard").style.display = "none"; toast("PIN 저장됨"); };
