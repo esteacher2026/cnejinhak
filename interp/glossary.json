@@ -21,9 +21,19 @@
      "def": "9月に出願し、内申成績や校内活動の記録を中心に評価される入試で、修能より前に出願します。",
      "source": "llm"
     },
+    "km": {
+     "term": "ការជ្រើសរើសដំណាក់កាលដំបូង (Susi)",
+     "def": "ការដាក់ពាក្យចូលសាកលវិទ្យាល័យនៅខែកញ្ញា មុនការប្រឡងចូលសាកលវិទ្យាល័យជាតិ ដោយផ្អែកលើពិន្ទុសិក្សា និងសកម្មភាពក្នុងកំណត់ត្រាសាលា។",
+     "source": "llm"
+    },
     "ru": {
      "term": "Ранний приём (Susi)",
      "def": "Набор в вузы с подачей документов в сентябре, до экзамена Сунын; главное — школьные оценки и активности.",
+     "source": "llm"
+    },
+    "vi": {
+     "term": "Tuyển sinh sớm (Susi)",
+     "def": "Đợt tuyển sinh đại học nộp hồ sơ vào tháng 9, trước kỳ thi CSAT, xét chủ yếu dựa trên học bạ và hoạt động ở trường.",
      "source": "llm"
     },
     "zh": {
@@ -59,16 +69,6 @@
     "id": {
      "term": "Penerimaan awal (Susi)",
      "def": "Jalur masuk universitas yang mendaftar bulan September, sebelum ujian CSAT, terutama berdasarkan rapor dan kegiatan sekolah.",
-     "source": "llm"
-    },
-    "vi": {
-     "term": "Tuyển sinh sớm (Susi)",
-     "def": "Đợt tuyển sinh đại học nộp hồ sơ vào tháng 9, trước kỳ thi CSAT, xét chủ yếu dựa trên học bạ và hoạt động ở trường.",
-     "source": "llm"
-    },
-    "km": {
-     "term": "ការជ្រើសរើសដំណាក់កាលដំបូង (Susi)",
-     "def": "ការដាក់ពាក្យចូលសាកលវិទ្យាល័យនៅខែកញ្ញា មុនការប្រឡងចូលសាកលវិទ្យាល័យជាតិ ដោយផ្អែកលើពិន្ទុសិក្សា និងសកម្មភាពក្នុងកំណត់ត្រាសាលា។",
      "source": "llm"
     }
    }
@@ -916,62 +916,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Interview (Myeonjeop)",
+     "term": "Interview",
      "def": "A step where the university evaluates the applicant by talking with them in person.",
      "source": "llm"
     },
     "ja": {
-     "term": "面接(Myeonjeop)",
+     "term": "面接",
      "def": "大学が志願者と対話しながら評価する選考手続きです。",
      "source": "llm"
     },
     "km": {
-     "term": "សម្ភាសន៍ (Myeonjeop)",
+     "term": "សម្ភាសន៍",
      "def": "ដំណើរការដែលសាកលវិទ្យាល័យវាយតម្លៃបេក្ខជន តាមរយៈការសួរសំណួរ និងសន្ទនាផ្ទាល់។",
      "source": "llm"
     },
     "ru": {
-     "term": "Собеседование (Myeonjeop)",
+     "term": "Собеседование",
      "def": "Этап отбора, на котором представители вуза беседуют с абитуриентом и оценивают его.",
      "source": "llm"
     },
     "vi": {
-     "term": "Phỏng vấn (Myeonjeop)",
+     "term": "Phỏng vấn",
      "def": "Bước trường đại học trò chuyện trực tiếp với thí sinh để đánh giá.",
      "source": "llm"
     },
     "zh": {
-     "term": "面试（Myeonjeop）",
+     "term": "面试",
      "def": "大学通过与申请人交谈来进行评估的环节。",
      "source": "llm"
     },
     "uz": {
-     "term": "Suhbat (Myeonjeop)",
+     "term": "Suhbat",
      "def": "Universitet abituriyent bilan gaplashib, uni baholaydigan qabul bosqichi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Ярилцлага (Myeonjeop)",
+     "term": "Ярилцлага",
      "def": "Их сургууль өргөдөл гаргагчтай ярилцаж үнэлдэг шат.",
      "source": "llm"
     },
     "th": {
-     "term": "การสอบสัมภาษณ์ (Myeonjeop)",
+     "term": "การสอบสัมภาษณ์",
      "def": "ขั้นตอนที่มหาวิทยาลัยพูดคุยกับผู้สมัครโดยตรงเพื่อประเมิน",
      "source": "llm"
     },
     "ne": {
-     "term": "अन्तर्वार्ता (Myeonjeop)",
+     "term": "अन्तर्वार्ता",
      "def": "विश्वविद्यालयले आवेदकसँग कुराकानी गरेर मूल्याङ्कन गर्ने प्रक्रिया।",
      "source": "llm"
     },
     "fil": {
-     "term": "Interbyu (Myeonjeop)",
+     "term": "Interbyu",
      "def": "Bahagi ng admisyon kung saan kinakausap at sinusuri ng unibersidad ang aplikante nang harapan.",
      "source": "llm"
     },
     "id": {
-     "term": "Wawancara (Myeonjeop)",
+     "term": "Wawancara",
      "def": "Tahap seleksi di mana universitas menilai pelamar melalui tanya jawab langsung.",
      "source": "llm"
     }
@@ -985,62 +985,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Document review (Seoryu pyeongga)",
+     "term": "Document review",
      "def": "The stage where evaluators read submitted documents, such as the school record, and score them.",
      "source": "llm"
     },
     "ja": {
-     "term": "書類審査(Seoryu Pyeongga)",
+     "term": "書類審査",
      "def": "学校生活記録簿などの提出書類を評価委員が読み、点数化する段階です。",
      "source": "llm"
     },
     "km": {
-     "term": "ការវាយតម្លៃឯកសារ (Seoryu Pyeongga)",
+     "term": "ការវាយតម្លៃឯកសារ",
      "def": "ដំណាក់កាលដែលគណៈវាយតម្លៃអានឯកសារដាក់ពាក្យ ដូចជាកំណត់ត្រាសិក្សា ហើយដាក់ពិន្ទុ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Оценка документов (Seoryu pyeongga)",
+     "term": "Оценка документов",
      "def": "Этап, на котором экзаменаторы читают школьное досье и другие документы и выставляют баллы.",
      "source": "llm"
     },
     "vi": {
-     "term": "Đánh giá hồ sơ (Seoryu pyeongga)",
+     "term": "Đánh giá hồ sơ",
      "def": "Bước hội đồng đọc học bạ và các giấy tờ đã nộp rồi chấm điểm.",
      "source": "llm"
     },
     "zh": {
-     "term": "材料评审（Seoryu pyeongga）",
+     "term": "材料评审",
      "def": "评审委员阅读学生档案等提交材料并打分的阶段。",
      "source": "llm"
     },
     "uz": {
-     "term": "Hujjatlarni baholash (Seoryu pyeongga)",
+     "term": "Hujjatlarni baholash",
      "def": "Maktab yozuvi kabi topshirilgan hujjatlarni komissiya a'zolari o'qib, ball qo'yadigan bosqich.",
      "source": "llm"
     },
     "mn": {
-     "term": "Баримт бичгийн үнэлгээ (Seoryu pyeongga)",
+     "term": "Баримт бичгийн үнэлгээ",
      "def": "Сургуулийн бүртгэл зэрэг илгээсэн баримтыг үнэлгээчид уншиж оноо өгдөг шат.",
      "source": "llm"
     },
     "th": {
-     "term": "การประเมินเอกสาร (Seoryu Pyeongga)",
+     "term": "การประเมินเอกสาร",
      "def": "ขั้นตอนที่กรรมการอ่านเอกสารที่ส่ง เช่น สมุดบันทึกนักเรียน แล้วให้คะแนน",
      "source": "llm"
     },
     "ne": {
-     "term": "कागजात मूल्याङ्कन (Seoryu Pyeongga)",
+     "term": "कागजात मूल्याङ्कन",
      "def": "मूल्याङ्कनकर्ताहरूले विद्यालय अभिलेख जस्ता पेस गरिएका कागजात पढेर अंक दिने चरण।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pagsusuri ng dokumento (Seoryu pyeongga)",
+     "term": "Pagsusuri ng dokumento",
      "def": "Yugto kung saan binabasa at binibigyan ng iskor ng mga tagasuri ang school record at iba pang isinumite.",
      "source": "llm"
     },
     "id": {
-     "term": "Penilaian dokumen (Seoryu pyeongga)",
+     "term": "Penilaian dokumen",
      "def": "Tahap di mana penilai membaca dokumen seperti buku catatan sekolah lalu memberi nilai.",
      "source": "llm"
     }
@@ -1545,62 +1545,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Extra-quota admission (Jeongwon-oe)",
+     "term": "Extra-quota admission",
      "def": "Tracks that admit students beyond the regular quota, such as rural, vocational school or overseas applicants.",
      "source": "llm"
     },
     "ja": {
-     "term": "定員外選考(Jeongwon-oe Jeonhyeong)",
+     "term": "定員外選考",
      "def": "大学の通常定員とは別枠で追加募集する選考で、農漁村・専門高校・在外国民などが対象です。",
      "source": "llm"
     },
     "km": {
-     "term": "វគ្គក្រៅចំនួនកំណត់ (Jeongwon Oe)",
+     "term": "វគ្គក្រៅចំនួនកំណត់",
      "def": "វគ្គជ្រើសរើសបន្ថែមក្រៅចំនួនសិស្សកំណត់ ដូចជាវគ្គជនបទ វិទ្យាល័យវិជ្ជាជីវៈ ឬពលរដ្ឋនៅបរទេស។",
      "source": "llm"
     },
     "ru": {
-     "term": "Приём сверх квоты (Jeongwon oe)",
+     "term": "Приём сверх квоты",
      "def": "Дополнительный набор сверх основного числа мест, например для сельских школьников, выпускников профшкол, зарубежных корейцев.",
      "source": "llm"
     },
     "vi": {
-     "term": "Tuyển ngoài chỉ tiêu (Jeongwon oe)",
+     "term": "Tuyển ngoài chỉ tiêu",
      "def": "Hình thức tuyển thêm ngoài chỉ tiêu chính thức, như diện nông thôn, trường nghề, kiều bào.",
      "source": "llm"
     },
     "zh": {
-     "term": "名额外招生（Jeongwon oe）",
+     "term": "名额外招生",
      "def": "在大学正式名额之外另行录取的招生，如农渔村、职高、海外侨民等。",
      "source": "llm"
     },
     "uz": {
-     "term": "Kvotadan tashqari qabul (Jeongwon oe)",
+     "term": "Kvotadan tashqari qabul",
      "def": "Qishloq, kasb maktabi, chet eldagilar kabi guruhlar uchun asosiy o'rinlardan alohida qo'shimcha qabul.",
      "source": "llm"
     },
     "mn": {
-     "term": "Квотоос гадуурх элсэлт (Jeongwon oe)",
+     "term": "Квотоос гадуурх элсэлт",
      "def": "Их сургуулийн үндсэн квотоос тусдаа нэмж сонгодог элсэлт, жишээ нь хөдөө, мэргэжлийн сургууль, гадаадад амьдарсан иргэд.",
      "source": "llm"
     },
     "th": {
-     "term": "รอบรับนอกโควตาปกติ (Jeongwon Oe Jeonhyeong)",
+     "term": "รอบรับนอกโควตาปกติ",
      "def": "รอบที่รับนักศึกษาเพิ่มแยกจากจำนวนปกติ เช่น นักเรียนชนบท อาชีวะ หรือชาวเกาหลีโพ้นทะเล",
      "source": "llm"
     },
     "ne": {
-     "term": "कोटाबाहिरको भर्ना (Jeongwon Oe)",
+     "term": "कोटाबाहिरको भर्ना",
      "def": "विश्वविद्यालयको नियमित सिट संख्याभन्दा अलग थप विद्यार्थी छान्ने भर्ना, जस्तै ग्रामीण, व्यावसायिक हाइस्कुल र विदेशवासी भर्ना।",
      "source": "llm"
     },
     "fil": {
-     "term": "Admisyon labas sa quota (Jeongwon oe)",
+     "term": "Admisyon labas sa quota",
      "def": "Admisyon na pumipili ng dagdag na estudyante bukod sa regular na bilang, gaya ng probinsya, vocational, at overseas.",
      "source": "llm"
     },
     "id": {
-     "term": "Jalur di luar kuota (Jeongwon oe)",
+     "term": "Jalur di luar kuota",
      "def": "Jalur penerimaan tambahan di luar kuota resmi universitas, misalnya untuk siswa pedesaan, SMK, atau luar negeri.",
      "source": "llm"
     }
@@ -1615,22 +1615,22 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Admission unit (Mojip danwi)",
+     "term": "Admission unit",
      "def": "The department, school or field to which a university admits students.",
      "source": "llm"
     },
     "ja": {
-     "term": "募集単位(Mojip Danwi)",
+     "term": "募集単位",
      "def": "大学が学生を募集する単位で、学科・学部・系列などを指します。",
      "source": "llm"
     },
     "km": {
-     "term": "ឯកតាជ្រើសរើស (Mojip Danwi)",
+     "term": "ឯកតាជ្រើសរើស",
      "def": "ផ្នែកដែលសាកលវិទ្យាល័យជ្រើសរើសសិស្ស ដូចជាដេប៉ាតឺម៉ង់ មហាវិទ្យាល័យ ឬក្រុមជំនាញ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Единица набора (Mojip danwi)",
+     "term": "Единица набора",
      "def": "То, куда вуз набирает студентов: отдельная специальность, факультет или направление.",
      "source": "llm"
     },
@@ -1645,32 +1645,32 @@
      "source": "llm"
     },
     "uz": {
-     "term": "Qabul bo'linmasi (Mojip danwi)",
+     "term": "Qabul bo'linmasi",
      "def": "Universitet talaba qabul qiladigan birlik: kafedra, fakultet yoki yo'nalish.",
      "source": "llm"
     },
     "mn": {
-     "term": "Элсүүлэх нэгж (Mojip danwi)",
+     "term": "Элсүүлэх нэгж",
      "def": "Их сургууль оюутан элсүүлдэг нэгж буюу тэнхим, факультет, чиглэл.",
      "source": "llm"
     },
     "th": {
-     "term": "หน่วยรับสมัคร (Mojip Danwi)",
+     "term": "หน่วยรับสมัคร",
      "def": "หน่วยที่มหาวิทยาลัยใช้รับนักศึกษา เช่น ภาควิชา คณะ หรือกลุ่มสาขา",
      "source": "llm"
     },
     "ne": {
-     "term": "भर्ना इकाइ (Mojip Danwi)",
+     "term": "भर्ना इकाइ",
      "def": "विश्वविद्यालयले विद्यार्थी छान्ने इकाइ, जस्तै विभाग, संकाय वा अध्ययन क्षेत्र।",
      "source": "llm"
     },
     "fil": {
-     "term": "Departamento o programa (Mojip danwi)",
+     "term": "Departamento o programa",
      "def": "Ang yunit na pinag-a-applyan sa unibersidad, gaya ng departamento, kolehiyo, o grupo ng kurso.",
      "source": "llm"
     },
     "id": {
-     "term": "Unit penerimaan (Mojip danwi)",
+     "term": "Unit penerimaan",
      "def": "Satuan tempat universitas menerima mahasiswa, seperti jurusan, fakultas, atau rumpun bidang studi.",
      "source": "llm"
     }
@@ -1685,22 +1685,22 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Number of places (Mojip inwon)",
+     "term": "Number of places",
      "def": "How many students a given track or department will admit.",
      "source": "llm"
     },
     "ja": {
-     "term": "募集人数(Mojip Inwon)",
+     "term": "募集人数",
      "def": "その選考や学科で合格させる予定の人数です。",
      "source": "llm"
     },
     "km": {
-     "term": "ចំនួនជ្រើសរើស (Mojip Inwon)",
+     "term": "ចំនួនជ្រើសរើស",
      "def": "ចំនួនសិស្សដែលត្រូវជ្រើសរើស ក្នុងវគ្គ ឬដេប៉ាតឺម៉ង់នោះ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Число мест (Mojip inwon)",
+     "term": "Число мест",
      "def": "Сколько студентов принимают по данному виду приёма на данную специальность.",
      "source": "llm"
     },
@@ -1715,27 +1715,27 @@
      "source": "llm"
     },
     "uz": {
-     "term": "Qabul o'rinlari soni (Mojip inwon)",
+     "term": "Qabul o'rinlari soni",
      "def": "Shu qabul turi yoki yo'nalish bo'yicha qabul qilinadigan talabalar soni.",
      "source": "llm"
     },
     "mn": {
-     "term": "Элсүүлэх тоо (Mojip inwon)",
+     "term": "Элсүүлэх тоо",
      "def": "Тухайн элсэлтийн төрөл болон тэнхимд авах оюутны тоо.",
      "source": "llm"
     },
     "th": {
-     "term": "จำนวนที่รับ (Mojip Inwon)",
+     "term": "จำนวนที่รับ",
      "def": "จำนวนนักศึกษาที่รับในรอบหรือสาขานั้น",
      "source": "llm"
     },
     "ne": {
-     "term": "भर्ना सिट संख्या (Mojip Inwon)",
+     "term": "भर्ना सिट संख्या",
      "def": "सम्बन्धित भर्ना प्रकार र विभागमा छानिने विद्यार्थीको संख्या।",
      "source": "llm"
     },
     "fil": {
-     "term": "Bilang ng tatanggapin (Mojip inwon)",
+     "term": "Bilang ng tatanggapin",
      "def": "Ilang estudyante ang tatanggapin sa isang partikular na admisyon o departamento.",
      "source": "llm"
     },
@@ -1752,22 +1752,22 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Competition ratio (Gyeongjaengnyul)",
+     "term": "Competition ratio",
      "def": "The number of applicants divided by the number of places available.",
      "source": "llm"
     },
     "ja": {
-     "term": "競争率(Gyeongjaengnyul)",
+     "term": "競争率",
      "def": "志願者数を募集人数で割った倍率です。",
      "source": "llm"
     },
     "km": {
-     "term": "អត្រាប្រកួតប្រជែង (Gyeongjaengnyul)",
+     "term": "អត្រាប្រកួតប្រជែង",
      "def": "ចំនួនបេក្ខជនចែកនឹងចំនួនជ្រើសរើស ឧទាហរណ៍ ១០ទល់១ មានន័យថាដប់នាក់ដណ្តើមកន្លែងមួយ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Конкурс (Gyeongjaengnyul)",
+     "term": "Конкурс",
      "def": "Число поданных заявлений, делённое на число мест, например пять человек на место.",
      "source": "llm"
     },
@@ -1782,27 +1782,27 @@
      "source": "llm"
     },
     "uz": {
-     "term": "Tanlov nisbati (Gyeongjaengnyul)",
+     "term": "Tanlov nisbati",
      "def": "Arizachilar sonini qabul o'rinlari soniga bo'lganda chiqadigan nisbat, ya'ni bir o'ringa necha kishi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Өрсөлдөөний харьцаа (Gyeongjaengnyul)",
+     "term": "Өрсөлдөөний харьцаа",
      "def": "Өргөдөл гаргагчдын тоог элсүүлэх тоонд хуваасан харьцаа.",
      "source": "llm"
     },
     "th": {
-     "term": "อัตราการแข่งขัน (Gyeongjaengnyul)",
+     "term": "อัตราการแข่งขัน",
      "def": "จำนวนผู้สมัครหารด้วยจำนวนที่รับ บอกว่ามีผู้แข่งขันกี่คนต่อหนึ่งที่นั่ง",
      "source": "llm"
     },
     "ne": {
-     "term": "प्रतिस्पर्धा दर (Gyeongjaengnyul)",
+     "term": "प्रतिस्पर्धा दर",
      "def": "आवेदक संख्यालाई भर्ना सिट संख्याले भाग गर्दा आउने अनुपात।",
      "source": "llm"
     },
     "fil": {
-     "term": "Ratio ng kompetisyon (Gyeongjaengnyul)",
+     "term": "Ratio ng kompetisyon",
      "def": "Bilang ng aplikante na hinati sa bilang ng tatanggapin; ipinapakita kung gaano kahigpit ang labanan.",
      "source": "llm"
     },
@@ -2030,62 +2030,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Admission guidelines (Mojip yogang)",
+     "term": "Admission guidelines",
      "def": "The university's detailed official guide to each admission track.",
      "source": "llm"
     },
     "ja": {
-     "term": "募集要項(Mojip Yogang)",
+     "term": "募集要項",
      "def": "大学が発表する、選考方式ごとの詳しい入試案内書です。",
      "source": "llm"
     },
     "km": {
-     "term": "សេចក្តីណែនាំការជ្រើសរើស (Mojip Yogang)",
+     "term": "សេចក្តីណែនាំការជ្រើសរើស",
      "def": "ឯកសារណែនាំលម្អិតតាមវគ្គនីមួយៗ ដែលសាកលវិទ្យាល័យប្រកាសសម្រាប់ការដាក់ពាក្យ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Правила приёма (Mojip yogang)",
+     "term": "Правила приёма",
      "def": "Подробная инструкция вуза по каждому виду приёма: сроки, требования и документы.",
      "source": "llm"
     },
     "vi": {
-     "term": "Thông báo tuyển sinh (Mojip yogang)",
+     "term": "Thông báo tuyển sinh",
      "def": "Tài liệu hướng dẫn chi tiết từng hình thức tuyển sinh do trường đại học công bố.",
      "source": "llm"
     },
     "zh": {
-     "term": "招生简章（Mojip yogang）",
+     "term": "招生简章",
      "def": "大学公布的各招生方式详细说明。",
      "source": "llm"
     },
     "uz": {
-     "term": "Qabul qo'llanmasi (Mojip yogang)",
+     "term": "Qabul qo'llanmasi",
      "def": "Universitet har bir qabul turi bo'yicha e'lon qiladigan batafsil yo'riqnoma.",
      "source": "llm"
     },
     "mn": {
-     "term": "Элсэлтийн журам (Mojip yogang)",
+     "term": "Элсэлтийн журам",
      "def": "Их сургуулиас гаргадаг, элсэлтийн төрөл тус бүрийн дэлгэрэнгүй заавар.",
      "source": "llm"
     },
     "th": {
-     "term": "ประกาศรับสมัครฉบับละเอียด (Mojip Yogang)",
+     "term": "ประกาศรับสมัครฉบับละเอียด",
      "def": "คู่มือที่มหาวิทยาลัยประกาศ อธิบายรายละเอียดของแต่ละรอบการรับสมัคร",
      "source": "llm"
     },
     "ne": {
-     "term": "भर्ना निर्देशिका (Mojip Yogang)",
+     "term": "भर्ना निर्देशिका",
      "def": "विश्वविद्यालयले प्रकाशित गर्ने प्रत्येक भर्ना प्रकारको विस्तृत मार्गदर्शन पुस्तिका।",
      "source": "llm"
     },
     "fil": {
-     "term": "Gabay sa admisyon (Mojip yogang)",
+     "term": "Gabay sa admisyon",
      "def": "Detalyadong gabay mula sa unibersidad tungkol sa bawat uri ng admisyon, mga kailangan, at iskedyul.",
      "source": "llm"
     },
     "id": {
-     "term": "Panduan penerimaan (Mojip yogang)",
+     "term": "Panduan penerimaan",
      "def": "Buku panduan rinci dari universitas tentang setiap jalur seleksi masuk.",
      "source": "llm"
     }
@@ -2130,32 +2130,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Hujjat topshirish (Wonseo jeopsu)",
+     "term": "Hujjat topshirish",
      "def": "Universitetga ariza va hujjatlarni topshirish jarayoni, odatda onlayn amalga oshiriladi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Өргөдөл гаргах (Wonseo jeopsu)",
+     "term": "Өргөдөл гаргах",
      "def": "Сургууль, их сургуульд элсэх өргөдөл, бичиг баримтаа ихэвчлэн онлайнаар илгээх үйл явц.",
      "source": "llm"
     },
     "th": {
-     "term": "การยื่นใบสมัคร (Wonseo jeopsu)",
+     "term": "การยื่นใบสมัคร",
      "def": "ขั้นตอนการส่งเอกสารสมัครเข้าเรียน ซึ่งปกติทำทางออนไลน์",
      "source": "llm"
     },
     "ne": {
-     "term": "आवेदन दर्ता (Wonseo jeopsu)",
+     "term": "आवेदन दर्ता",
      "def": "विश्वविद्यालयमा आवेदनका कागजात बुझाउने प्रक्रिया, जुन प्रायः अनलाइन गरिन्छ।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pagsumite ng aplikasyon (Wonseo jeopsu)",
+     "term": "Pagsumite ng aplikasyon",
      "def": "Ang proseso ng pagsusumite ng mga dokumento ng aplikasyon, na kadalasang ginagawa online.",
      "source": "llm"
     },
     "id": {
-     "term": "Pendaftaran (Wonseo jeopsu)",
+     "term": "Pendaftaran",
      "def": "Proses menyerahkan dokumen pendaftaran ke universitas atau sekolah, biasanya dilakukan secara online.",
      "source": "llm"
     }
@@ -2197,32 +2197,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Ariza to'lovi (Jeonhyeongnyo)",
+     "term": "Ariza to'lovi",
      "def": "Universitetga ariza topshirishda to'lanadigan yig'im.",
      "source": "llm"
     },
     "mn": {
-     "term": "Өргөдлийн хураамж (Jeonhyeongnyo)",
+     "term": "Өргөдлийн хураамж",
      "def": "Өргөдөл гаргахдаа их сургуульд төлдөг бүртгэл, шалгалтын хураамж.",
      "source": "llm"
     },
     "th": {
-     "term": "ค่าสมัครสอบ (Jeonhyeongnyo)",
+     "term": "ค่าสมัครสอบ",
      "def": "ค่าธรรมเนียมที่ต้องจ่ายตอนยื่นใบสมัครเข้าเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "आवेदन शुल्क (Jeonhyeongnyo)",
+     "term": "आवेदन शुल्क",
      "def": "विश्वविद्यालयमा आवेदन बुझाउँदा तिर्नुपर्ने शुल्क।",
      "source": "llm"
     },
     "fil": {
-     "term": "Bayad sa aplikasyon (Jeonhyeongnyo)",
+     "term": "Bayad sa aplikasyon",
      "def": "Ang bayad na sinisingil kapag nagsusumite ng aplikasyon sa unibersidad.",
      "source": "llm"
     },
     "id": {
-     "term": "Biaya pendaftaran (Jeonhyeongnyo)",
+     "term": "Biaya pendaftaran",
      "def": "Biaya yang dibayar saat mengirimkan formulir pendaftaran.",
      "source": "llm"
     }
@@ -2266,32 +2266,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Natijalar e'loni (Hapgyeokja balpyo)",
+     "term": "Natijalar e'loni",
      "def": "Universitet qabul qilinganlar ro'yxatini e'lon qiladigan kun.",
      "source": "llm"
     },
     "mn": {
-     "term": "Тэнцсэн хүмүүсийн зарлал (Hapgyeokja balpyo)",
+     "term": "Тэнцсэн хүмүүсийн зарлал",
      "def": "Их сургууль элсэлтэд тэнцсэн сурагчдыг зарладаг өдөр.",
      "source": "llm"
     },
     "th": {
-     "term": "ประกาศผลการคัดเลือก (Hapgyeokja balpyo)",
+     "term": "ประกาศผลการคัดเลือก",
      "def": "วันที่มหาวิทยาลัยประกาศรายชื่อผู้ที่ผ่านการคัดเลือก",
      "source": "llm"
     },
     "ne": {
-     "term": "नतिजा घोषणा (Hapgyeokja balpyo)",
+     "term": "नतिजा घोषणा",
      "def": "विश्वविद्यालयले छनोट भएका विद्यार्थीहरूको नाम सार्वजनिक गर्ने दिन।",
      "source": "llm"
     },
     "fil": {
-     "term": "Anunsyo ng mga pumasa (Hapgyeokja balpyo)",
+     "term": "Anunsyo ng mga pumasa",
      "def": "Ang araw kung kailan inaanunsyo ng unibersidad ang mga aplikanteng tinanggap.",
      "source": "llm"
     },
     "id": {
-     "term": "Pengumuman kelulusan (Hapgyeokja balpyo)",
+     "term": "Pengumuman kelulusan",
      "def": "Hari ketika universitas mengumumkan daftar calon mahasiswa yang diterima.",
      "source": "llm"
     }
@@ -2305,62 +2305,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Enrollment (Deungnok)",
+     "term": "Enrollment",
      "def": "After acceptance, paying tuition to confirm that the student will attend that university.",
      "source": "llm"
     },
     "ja": {
-     "term": "入学手続き (Deungnok)",
+     "term": "入学手続き",
      "def": "合格後に登録金（学費）を納め、入学の意思を確定させる手続きです。",
      "source": "llm"
     },
     "km": {
-     "term": "ចុះឈ្មោះចូលរៀន (Deungnok)",
+     "term": "ចុះឈ្មោះចូលរៀន",
      "def": "បន្ទាប់ពីជាប់ ត្រូវបង់ថ្លៃសិក្សា ដើម្បីបញ្ជាក់ថានឹងចូលរៀននៅសាកលវិទ្យាល័យនោះ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Оплата и подтверждение зачисления (Deungnok)",
+     "term": "Оплата и подтверждение зачисления",
      "def": "После поступления нужно оплатить обучение, чтобы подтвердить намерение учиться в этом вузе.",
      "source": "llm"
     },
     "vi": {
-     "term": "Xác nhận nhập học (Deungnok)",
+     "term": "Xác nhận nhập học",
      "def": "Sau khi trúng tuyển, nộp học phí để xác nhận chắc chắn sẽ vào học trường đó.",
      "source": "llm"
     },
     "zh": {
-     "term": "入学注册 (Deungnok)",
+     "term": "入学注册",
      "def": "被录取后缴纳学费，正式确认入学意愿的手续。",
      "source": "llm"
     },
     "uz": {
-     "term": "Ro'yxatdan o'tish (Deungnok)",
+     "term": "Ro'yxatdan o'tish",
      "def": "Qabul qilingandan so'ng o'qish to'lovini to'lab, universitetga kirishni tasdiqlash.",
      "source": "llm"
     },
     "mn": {
-     "term": "Элсэлтээ баталгаажуулах (Deungnok)",
+     "term": "Элсэлтээ баталгаажуулах",
      "def": "Тэнцсэний дараа сургалтын төлбөрөө төлж, тухайн сургуульд орохоо баталгаажуулах.",
      "source": "llm"
     },
     "th": {
-     "term": "การยืนยันสิทธิ์เข้าเรียน (Deungnok)",
+     "term": "การยืนยันสิทธิ์เข้าเรียน",
      "def": "หลังผ่านการคัดเลือก ต้องจ่ายค่าเล่าเรียนเพื่อยืนยันว่าจะเข้าเรียนที่มหาวิทยาลัยนั้น",
      "source": "llm"
     },
     "ne": {
-     "term": "भर्ना पक्का (Deungnok)",
+     "term": "भर्ना पक्का",
      "def": "छनोट भएपछि भर्ना शुल्क तिरेर त्यो विश्वविद्यालयमा पढ्ने निर्णय पक्का गर्नु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pag-enroll (Deungnok)",
+     "term": "Pag-enroll",
      "def": "Pagbabayad ng matrikula pagkatapos matanggap upang kumpirmahin ang pagpasok sa unibersidad.",
      "source": "llm"
     },
     "id": {
-     "term": "Daftar ulang (Deungnok)",
+     "term": "Daftar ulang",
      "def": "Membayar uang kuliah setelah diterima untuk memastikan anak benar-benar akan masuk universitas tersebut.",
      "source": "llm"
     }
@@ -2380,12 +2380,12 @@
      "source": "llm"
     },
     "ja": {
-     "term": "併願 (Boksu jiwon)",
+     "term": "併願",
      "def": "複数の大学や選考に同時に出願することで、早期選考（スシ）は最大6回までです。",
      "source": "llm"
     },
     "km": {
-     "term": "ដាក់ពាក្យច្រើនកន្លែង (Boksu jiwon)",
+     "term": "ដាក់ពាក្យច្រើនកន្លែង",
      "def": "ការដាក់ពាក្យទៅសាកលវិទ្យាល័យ ឬប្រភេទជ្រើសរើសច្រើនក្នុងពេលតែមួយ។ វគ្គ Susi ដាក់បានច្រើនបំផុត ៦ដង។",
      "source": "llm"
     },
@@ -2395,42 +2395,42 @@
      "source": "llm"
     },
     "vi": {
-     "term": "Đăng ký nhiều nguyện vọng (Boksu jiwon)",
+     "term": "Đăng ký nhiều nguyện vọng",
      "def": "Nộp hồ sơ cùng lúc vào nhiều trường hoặc hình thức xét tuyển; vòng tuyển sớm (Susi) được tối đa 6 lần.",
      "source": "llm"
     },
     "zh": {
-     "term": "多校同时报考 (Boksu Jiwon)",
+     "term": "多校同时报考",
      "def": "同时报考多所大学或多种招生方式，提前招生（Susi）最多可报6次。",
      "source": "llm"
     },
     "uz": {
-     "term": "Bir nechta joyga ariza (Boksu jiwon)",
+     "term": "Bir nechta joyga ariza",
      "def": "Bir vaqtda bir nechta universitet yoki qabul turiga ariza berish; erta qabulda (Susi) ko'pi bilan 6 ta.",
      "source": "llm"
     },
     "mn": {
-     "term": "Олон сургуульд зэрэг өргөдөл (Boksu jiwon)",
+     "term": "Олон сургуульд зэрэг өргөдөл",
      "def": "Хэд хэдэн их сургууль, элсэлтийн төрөлд зэрэг өргөдөл гаргах; эрт элсэлтэд дээд тал нь 6 удаа.",
      "source": "llm"
     },
     "th": {
-     "term": "การสมัครหลายแห่ง (Boksu jiwon)",
+     "term": "การสมัครหลายแห่ง",
      "def": "การสมัครหลายมหาวิทยาลัยหรือหลายรูปแบบพร้อมกัน โดยรอบรับล่วงหน้า (Susi) สมัครได้สูงสุด 6 ครั้ง",
      "source": "llm"
     },
     "ne": {
-     "term": "धेरै ठाउँमा आवेदन (Boksu jiwon)",
+     "term": "धेरै ठाउँमा आवेदन",
      "def": "एकै पटक धेरै विश्वविद्यालय वा भर्ना प्रकारमा आवेदन दिनु; प्रारम्भिक भर्ना (सुसी) मा बढीमा ६ वटा मात्र।",
      "source": "llm"
     },
     "fil": {
-     "term": "Maramihang aplikasyon (Boksu jiwon)",
+     "term": "Maramihang aplikasyon",
      "def": "Sabay na pag-apply sa ilang unibersidad o uri ng admission; hanggang anim lang sa Early admission (Susi).",
      "source": "llm"
     },
     "id": {
-     "term": "Pendaftaran ganda (Boksu jiwon)",
+     "term": "Pendaftaran ganda",
      "def": "Mendaftar ke beberapa universitas atau jalur sekaligus; untuk jalur awal (Susi) maksimal enam kali.",
      "source": "llm"
     }
@@ -2791,62 +2791,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Raw score (Wonjeomsu)",
+     "term": "Raw score",
      "def": "The actual score a student received on a test.",
      "source": "llm"
     },
     "ja": {
-     "term": "素点 (Wonjeomsu)",
+     "term": "素点",
      "def": "試験で実際に取った点数です。",
      "source": "llm"
     },
     "km": {
-     "term": "ពិន្ទុដើម (Wonjeomsu)",
+     "term": "ពិន្ទុដើម",
      "def": "ពិន្ទុពិតប្រាកដដែលសិស្សទទួលបានក្នុងការប្រឡង។",
      "source": "llm"
     },
     "ru": {
-     "term": "Первичный балл (Wonjeomsu)",
+     "term": "Первичный балл",
      "def": "Фактическое количество баллов, полученное на экзамене.",
      "source": "llm"
     },
     "vi": {
-     "term": "Điểm thô (Wonjeomsu)",
+     "term": "Điểm thô",
      "def": "Số điểm thực tế học sinh đạt được trong bài thi.",
      "source": "llm"
     },
     "zh": {
-     "term": "原始分 (Wonjeomsu)",
+     "term": "原始分",
      "def": "考试中实际得到的分数。",
      "source": "llm"
     },
     "uz": {
-     "term": "Xom ball (Wonjeomsu)",
+     "term": "Xom ball",
      "def": "Imtihonda haqiqatda olingan ball.",
      "source": "llm"
     },
     "mn": {
-     "term": "Анхны оноо (Wonjeomsu)",
+     "term": "Анхны оноо",
      "def": "Шалгалтад бодитоор авсан, хөрвүүлээгүй оноо.",
      "source": "llm"
     },
     "th": {
-     "term": "คะแนนดิบ (Wonjeomsu)",
+     "term": "คะแนนดิบ",
      "def": "คะแนนจริงที่นักเรียนทำได้ในการสอบ",
      "source": "llm"
     },
     "ne": {
-     "term": "वास्तविक अंक (Wonjeomsu)",
+     "term": "वास्तविक अंक",
      "def": "परीक्षामा वास्तवमा प्राप्त गरेको अंक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Aktwal na iskor (Wonjeomsu)",
+     "term": "Aktwal na iskor",
      "def": "Ang tunay na puntos na nakuha ng estudyante sa pagsusulit.",
      "source": "llm"
     },
     "id": {
-     "term": "Nilai mentah (Wonjeomsu)",
+     "term": "Nilai mentah",
      "def": "Nilai asli yang diperoleh langsung dari ujian sebelum diolah.",
      "source": "llm"
     }
@@ -2860,62 +2860,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Standard score (Pyojeom)",
+     "term": "Standard score",
      "def": "A CSAT score adjusted using the average and spread of all test-takers' scores.",
      "source": "llm"
     },
     "ja": {
-     "term": "標準得点 (Pyojun jeomsu)",
+     "term": "標準得点",
      "def": "修能（大学入試の共通試験）で、平均と標準偏差をもとに換算した点数です。",
      "source": "llm"
     },
     "km": {
-     "term": "ពិន្ទុស្តង់ដារ (Pyojun jeomsu)",
+     "term": "ពិន្ទុស្តង់ដារ",
      "def": "ពិន្ទុ Suneung ដែលបម្លែងដោយគិតពីមធ្យមភាគ និងគម្លាតស្តង់ដារ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Стандартизированный балл (Pyojun jeomsu)",
+     "term": "Стандартизированный балл",
      "def": "Балл CSAT, пересчитанный с учётом среднего результата и разброса баллов всех участников.",
      "source": "llm"
     },
     "vi": {
-     "term": "Điểm chuẩn hóa (Pyojun jeomsu)",
+     "term": "Điểm chuẩn hóa",
      "def": "Điểm Suneung được quy đổi dựa trên điểm trung bình và độ lệch chuẩn của toàn bộ thí sinh.",
      "source": "llm"
     },
     "zh": {
-     "term": "标准分 (Pyojun Jeomsu)",
+     "term": "标准分",
      "def": "高考中根据平均分和标准差换算出来的分数。",
      "source": "llm"
     },
     "uz": {
-     "term": "Standart ball (Pyojun jeomsu)",
+     "term": "Standart ball",
      "def": "Suneung imtihonida o'rtacha ball va standart og'ishni hisobga olib qayta hisoblangan ball.",
      "source": "llm"
     },
     "mn": {
-     "term": "Стандарт оноо (Pyojun jeomsu)",
+     "term": "Стандарт оноо",
      "def": "Сүнэн шалгалтын дундаж ба стандарт хазайлтыг харгалзан хөрвүүлсэн оноо.",
      "source": "llm"
     },
     "th": {
-     "term": "คะแนนมาตรฐาน (Pyojun jeomsu)",
+     "term": "คะแนนมาตรฐาน",
      "def": "คะแนนสอบเข้ามหาวิทยาลัย (Suneung) ที่ปรับตามค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของผู้สอบ",
      "source": "llm"
     },
     "ne": {
-     "term": "मानक अंक (Pyojun jeomsu)",
+     "term": "मानक अंक",
      "def": "सुनुङ (CSAT) मा सबैको औसत र अंकको फैलावट हेरेर रूपान्तरण गरिएको अंक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Standard score (Pyojun jeomsu)",
+     "term": "Standard score",
      "def": "Iskor sa CSAT na inayos batay sa average at standard deviation ng lahat ng kumuha ng pagsusulit.",
      "source": "llm"
     },
     "id": {
-     "term": "Nilai standar (Pyojun jeomsu)",
+     "term": "Nilai standar",
      "def": "Nilai ujian masuk universitas (Suneung) yang dihitung ulang berdasarkan rata-rata dan simpangan baku seluruh peserta.",
      "source": "llm"
     }
@@ -2927,62 +2927,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Percentile (Baekbunwi)",
+     "term": "Percentile",
      "def": "The percentage of all test-takers who scored lower than your child.",
      "source": "llm"
     },
     "ja": {
-     "term": "パーセンタイル (Baekbunwi)",
+     "term": "パーセンタイル",
      "def": "全受験者のうち、自分より点数が低い人の割合を示す数値です。",
      "source": "llm"
     },
     "km": {
-     "term": "ភាគរយចំណាត់ថ្នាក់ (Baekbunwi)",
+     "term": "ភាគរយចំណាត់ថ្នាក់",
      "def": "ភាគរយនៃបេក្ខជនទាំងអស់ ដែលទទួលបានពិន្ទុទាបជាងកូនរបស់អ្នក។",
      "source": "llm"
     },
     "ru": {
-     "term": "Процентиль (Baekbunwi)",
+     "term": "Процентиль",
      "def": "Доля участников экзамена, которые получили балл ниже, чем ваш ребёнок.",
      "source": "llm"
     },
     "vi": {
-     "term": "Bách phân vị (Baekbunwi)",
+     "term": "Bách phân vị",
      "def": "Tỷ lệ phần trăm thí sinh có điểm thấp hơn con mình trong tổng số người dự thi.",
      "source": "llm"
     },
     "zh": {
-     "term": "百分位 (Baekbunwi)",
+     "term": "百分位",
      "def": "全体考生中分数低于自己的人所占的比例。",
      "source": "llm"
     },
     "uz": {
-     "term": "Persentil (Baekbunwi)",
+     "term": "Persentil",
      "def": "Barcha imtihon topshiruvchilar orasida farzandingizdan past ball olganlarning foizi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Перцентиль (Baekbunwi)",
+     "term": "Перцентиль",
      "def": "Нийт шалгуулагчдын хэдэн хувь нь танаас бага оноо авсныг харуулах үзүүлэлт.",
      "source": "llm"
     },
     "th": {
-     "term": "เปอร์เซ็นไทล์ (Baekbunwi)",
+     "term": "เปอร์เซ็นไทล์",
      "def": "สัดส่วนของผู้สอบทั้งหมดที่ได้คะแนนต่ำกว่าตัวเรา",
      "source": "llm"
     },
     "ne": {
-     "term": "पर्सेन्टाइल (Baekbunwi)",
+     "term": "पर्सेन्टाइल",
      "def": "सबै परीक्षार्थीमध्ये आफूभन्दा कम अंक ल्याउनेहरू कति प्रतिशत छन् भन्ने संख्या।",
      "source": "llm"
     },
     "fil": {
-     "term": "Percentile (Baekbunwi)",
+     "term": "Percentile",
      "def": "Porsiyento ng lahat ng kumuha ng pagsusulit na mas mababa ang iskor kaysa sa estudyante.",
      "source": "llm"
     },
     "id": {
-     "term": "Persentil (Baekbunwi)",
+     "term": "Persentil",
      "def": "Persentase peserta ujian yang nilainya lebih rendah daripada nilai anak Anda.",
      "source": "llm"
     }
@@ -2997,62 +2997,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Grade cutoff (Deunggeup keot)",
+     "term": "Grade cutoff",
      "def": "The boundary score needed to reach each grade level.",
      "source": "llm"
     },
     "ja": {
-     "term": "等級の境界点 (Deunggeup keot)",
+     "term": "等級の境界点",
      "def": "各等級を分ける境目となる点数です。",
      "source": "llm"
     },
     "km": {
-     "term": "ពិន្ទុកាត់កម្រិត (Deunggeupkeot)",
+     "term": "ពិន្ទុកាត់កម្រិត",
      "def": "ពិន្ទុព្រំដែនដែលកំណត់កម្រិតនិទ្ទេសនីមួយៗ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Граница уровня (Deunggeup keot)",
+     "term": "Граница уровня",
      "def": "Минимальный балл, необходимый для получения определённого уровня.",
      "source": "llm"
     },
     "vi": {
-     "term": "Điểm cắt bậc (Deunggeup keot)",
+     "term": "Điểm cắt bậc",
      "def": "Mức điểm ranh giới để được xếp vào mỗi bậc.",
      "source": "llm"
     },
     "zh": {
-     "term": "等级分数线 (Deunggeup Keot)",
+     "term": "等级分数线",
      "def": "划分各个等级的分界分数。",
      "source": "llm"
     },
     "uz": {
-     "term": "Daraja chegarasi (Deunggeupkeot)",
+     "term": "Daraja chegarasi",
      "def": "Har bir darajani olish uchun zarur bo'lgan chegaraviy ball.",
      "source": "llm"
     },
     "mn": {
-     "term": "Зэрэглэлийн босго оноо (Deunggeupkeot)",
+     "term": "Зэрэглэлийн босго оноо",
      "def": "Зэрэг тус бүрийг хооронд нь ялгах хилийн оноо.",
      "source": "llm"
     },
     "th": {
-     "term": "คะแนนตัดเกรด (Deunggeupkeot)",
+     "term": "คะแนนตัดเกรด",
      "def": "คะแนนขั้นต่ำที่เป็นเส้นแบ่งของแต่ละระดับเกรด",
      "source": "llm"
     },
     "ne": {
-     "term": "ग्रेड कटअफ (Deunggeup keot)",
+     "term": "ग्रेड कटअफ",
      "def": "प्रत्येक ग्रेड छुट्याउने सीमा अंक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Cutoff ng grado (Deunggeup keot)",
+     "term": "Cutoff ng grado",
      "def": "Ang hangganang iskor na kailangan para makuha ang bawat antas ng grado.",
      "source": "llm"
     },
     "id": {
-     "term": "Batas nilai tingkat (Deunggeupkeot)",
+     "term": "Batas nilai tingkat",
      "def": "Nilai minimum yang menjadi batas untuk masuk ke setiap tingkat nilai.",
      "source": "llm"
     }
@@ -3096,32 +3096,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Qayta hisoblangan ball (Hwansan jeomsu)",
+     "term": "Qayta hisoblangan ball",
      "def": "Har bir universitet o'z ulushlariga ko'ra qayta hisoblagan ball.",
      "source": "llm"
     },
     "mn": {
-     "term": "Хөрвүүлсэн оноо (Hwansan jeomsu)",
+     "term": "Хөрвүүлсэн оноо",
      "def": "Их сургууль бүр өөрийн тооцох харьцаагаар дахин тооцоолсон оноо.",
      "source": "llm"
     },
     "th": {
-     "term": "คะแนนแปลงของมหาวิทยาลัย (Hwansan jeomsu)",
+     "term": "คะแนนแปลงของมหาวิทยาลัย",
      "def": "คะแนนที่คำนวณใหม่ตามสัดส่วนที่แต่ละมหาวิทยาลัยกำหนด",
      "source": "llm"
     },
     "ne": {
-     "term": "रूपान्तरित अंक (Hwansan jeomsu)",
+     "term": "रूपान्तरित अंक",
      "def": "प्रत्येक विश्वविद्यालयले आफ्नै भार अनुपात लगाएर फेरि हिसाब गरेको अंक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Na-convert na iskor (Hwansan jeomsu)",
+     "term": "Na-convert na iskor",
      "def": "Iskor na muling kinalkula ayon sa sariling porsiyento ng pagtimbang ng bawat unibersidad.",
      "source": "llm"
     },
     "id": {
-     "term": "Nilai konversi (Hwansan jeomsu)",
+     "term": "Nilai konversi",
      "def": "Nilai yang dihitung ulang sesuai bobot penilaian masing-masing universitas.",
      "source": "llm"
     }
@@ -3165,32 +3165,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Hisobga olish ulushi (Banyeong biyul)",
+     "term": "Hisobga olish ulushi",
      "def": "Qabulda maktab baholari, Suneung, suhbat kabi har bir omilning umumiy baldagi ulushi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Тооцох харьцаа (Banyeong biyul)",
+     "term": "Тооцох харьцаа",
      "def": "Элсэлтэд сургуулийн дүн, Сүнэн шалгалт, ярилцлага зэрэг хүчин зүйл тус бүр хэдэн хувь эзлэхийг заана.",
      "source": "llm"
     },
     "th": {
-     "term": "สัดส่วนการคิดคะแนน (Banyeong biyul)",
+     "term": "สัดส่วนการคิดคะแนน",
      "def": "สัดส่วนที่แต่ละองค์ประกอบ เช่น ผลการเรียน คะแนนสอบ หรือสัมภาษณ์ มีผลต่อการคัดเลือก",
      "source": "llm"
     },
     "ne": {
-     "term": "अंकभार अनुपात (Banyeong biyul)",
+     "term": "अंकभार अनुपात",
      "def": "भर्नामा विद्यालय ग्रेड, सुनुङ, अन्तर्वार्ता आदि प्रत्येकको कति प्रतिशत भार हुन्छ भन्ने अनुपात।",
      "source": "llm"
     },
     "fil": {
-     "term": "Porsiyento ng pagtimbang (Banyeong biyul)",
+     "term": "Porsiyento ng pagtimbang",
      "def": "Kung ilang porsiyento ang bigat ng grado sa paaralan, CSAT, interview at iba pa sa admission.",
      "source": "llm"
     },
     "id": {
-     "term": "Bobot penilaian (Banyeong biyul)",
+     "term": "Bobot penilaian",
      "def": "Persentase porsi setiap unsur, seperti rapor, Suneung, dan wawancara, dalam penilaian seleksi.",
      "source": "llm"
     }
@@ -3202,62 +3202,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Bonus points (Gasanjeom)",
+     "term": "Bonus points",
      "def": "Extra points given for certain subjects or qualifications.",
      "source": "llm"
     },
     "ja": {
-     "term": "加算点 (Gasanjeom)",
+     "term": "加算点",
      "def": "特定の科目や資格に対して追加で与えられる点数です。",
      "source": "llm"
     },
     "km": {
-     "term": "ពិន្ទុបន្ថែម (Gasanjeom)",
+     "term": "ពិន្ទុបន្ថែម",
      "def": "ពិន្ទុដែលផ្តល់បន្ថែម សម្រាប់មុខវិជ្ជា ឬវិញ្ញាបនបត្រជាក់លាក់។",
      "source": "llm"
     },
     "ru": {
-     "term": "Дополнительные баллы (Gasanjeom)",
+     "term": "Дополнительные баллы",
      "def": "Баллы, которые добавляют за определённые предметы или квалификации.",
      "source": "llm"
     },
     "vi": {
-     "term": "Điểm cộng (Gasanjeom)",
+     "term": "Điểm cộng",
      "def": "Điểm được cộng thêm cho một số môn học hoặc chứng chỉ nhất định.",
      "source": "llm"
     },
     "zh": {
-     "term": "加分 (Gasanjeom)",
+     "term": "加分",
      "def": "对特定科目或资格证书额外给予的分数。",
      "source": "llm"
     },
     "uz": {
-     "term": "Qo'shimcha ball (Gasanjeom)",
+     "term": "Qo'shimcha ball",
      "def": "Muayyan fan yoki sertifikat uchun qo'shib beriladigan ball.",
      "source": "llm"
     },
     "mn": {
-     "term": "Нэмэлт оноо (Gasanjeom)",
+     "term": "Нэмэлт оноо",
      "def": "Тодорхой хичээл сонгосон эсвэл гэрчилгээтэй бол нэмж өгдөг оноо.",
      "source": "llm"
     },
     "th": {
-     "term": "คะแนนพิเศษ (Gasanjeom)",
+     "term": "คะแนนพิเศษ",
      "def": "คะแนนที่บวกเพิ่มให้สำหรับวิชาหรือคุณสมบัติบางอย่าง",
      "source": "llm"
     },
     "ne": {
-     "term": "थप अंक (Gasanjeom)",
+     "term": "थप अंक",
      "def": "कुनै विशेष विषय वा योग्यताका लागि थपिने बोनस अंक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Dagdag na puntos (Gasanjeom)",
+     "term": "Dagdag na puntos",
      "def": "Karagdagang puntos na ibinibigay para sa partikular na subject o kwalipikasyon.",
      "source": "llm"
     },
     "id": {
-     "term": "Nilai tambahan (Gasanjeom)",
+     "term": "Nilai tambahan",
      "def": "Poin ekstra yang diberikan untuk mata pelajaran atau sertifikat tertentu.",
      "source": "llm"
     }
@@ -3414,62 +3414,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Attendance record (Chulgyeol)",
+     "term": "Attendance record",
      "def": "The record of a student's attendance, absences, and late arrivals.",
      "source": "llm"
     },
     "ja": {
-     "term": "出欠記録 (Chulgyeol)",
+     "term": "出欠記録",
      "def": "出席・欠席・遅刻の記録です。",
      "source": "llm"
     },
     "km": {
-     "term": "វត្តមាន និងអវត្តមាន (Chulgyeol)",
+     "term": "វត្តមាន និងអវត្តមាន",
      "def": "កំណត់ត្រាការមករៀន ការអវត្តមាន និងការមកយឺតរបស់សិស្ស។",
      "source": "llm"
     },
     "ru": {
-     "term": "Посещаемость (Chulgyeol)",
+     "term": "Посещаемость",
      "def": "Записи о присутствии, пропусках и опозданиях ученика.",
      "source": "llm"
     },
     "vi": {
-     "term": "Chuyên cần (Chulgyeol)",
+     "term": "Chuyên cần",
      "def": "Hồ sơ ghi lại việc đi học, nghỉ học và đi muộn của học sinh.",
      "source": "llm"
     },
     "zh": {
-     "term": "出勤记录 (Chulgyeol)",
+     "term": "出勤记录",
      "def": "学生出勤、缺勤和迟到的记录。",
      "source": "llm"
     },
     "uz": {
-     "term": "Davomat (Chulgyeol)",
+     "term": "Davomat",
      "def": "Darsga kelish, dars qoldirish va kechikish haqidagi yozuvlar.",
      "source": "llm"
     },
     "mn": {
-     "term": "Ирцийн бүртгэл (Chulgyeol)",
+     "term": "Ирцийн бүртгэл",
      "def": "Сурагчийн ирсэн, тасалсан, хоцорсон тухай бүртгэл.",
      "source": "llm"
     },
     "th": {
-     "term": "บันทึกการมาเรียน (Chulgyeol)",
+     "term": "บันทึกการมาเรียน",
      "def": "บันทึกการมาเรียน การขาดเรียน และการมาสาย",
      "source": "llm"
     },
     "ne": {
-     "term": "हाजिरी रेकर्ड (Chulgyeol)",
+     "term": "हाजिरी रेकर्ड",
      "def": "विद्यालयमा उपस्थिति, अनुपस्थिति र ढिलो आएको रेकर्ड।",
      "source": "llm"
     },
     "fil": {
-     "term": "Rekord ng pagdalo (Chulgyeol)",
+     "term": "Rekord ng pagdalo",
      "def": "Talaan ng pagpasok, pagliban, at pagkahuli ng estudyante sa paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Catatan kehadiran (Chulgyeol)",
+     "term": "Catatan kehadiran",
      "def": "Catatan kehadiran, ketidakhadiran, dan keterlambatan siswa di sekolah.",
      "source": "llm"
     }
@@ -3483,62 +3483,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Volunteer service (Bongsa)",
+     "term": "Volunteer service",
      "def": "Volunteer hours that are recorded in the student's official school record.",
      "source": "llm"
     },
     "ja": {
-     "term": "ボランティア活動 (Bongsa hwaldong)",
+     "term": "ボランティア活動",
      "def": "学校生活記録簿に記録されるボランティア活動の時間です。",
      "source": "llm"
     },
     "km": {
-     "term": "សកម្មភាពស្ម័គ្រចិត្ត (Bongsa hwaldong)",
+     "term": "សកម្មភាពស្ម័គ្រចិត្ត",
      "def": "ម៉ោងធ្វើការងារស្ម័គ្រចិត្ត ដែលត្រូវកត់ត្រាក្នុងកំណត់ត្រាសិក្សារបស់សិស្ស។",
      "source": "llm"
     },
     "ru": {
-     "term": "Волонтёрская деятельность (Bongsa hwaldong)",
+     "term": "Волонтёрская деятельность",
      "def": "Часы добровольной работы, которые записываются в школьное личное дело ученика.",
      "source": "llm"
     },
     "vi": {
-     "term": "Hoạt động tình nguyện (Bongsa hwaldong)",
+     "term": "Hoạt động tình nguyện",
      "def": "Số giờ làm tình nguyện được ghi vào học bạ tổng hợp của học sinh.",
      "source": "llm"
     },
     "zh": {
-     "term": "志愿服务 (Bongsa Hwaldong)",
+     "term": "志愿服务",
      "def": "记录在学生生活记录簿中的志愿服务时间。",
      "source": "llm"
     },
     "uz": {
-     "term": "Ko'ngillilik faoliyati (Bongsa hwaldong)",
+     "term": "Ko'ngillilik faoliyati",
      "def": "O'quvchining maktab tavsifnomasiga yoziladigan ko'ngillilik soatlari.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сайн дурын ажил (Bongsa hwaldong)",
+     "term": "Сайн дурын ажил",
      "def": "Сурагчийн хувийн хэрэгт бүртгэгддэг сайн дурын ажлын цаг.",
      "source": "llm"
     },
     "th": {
-     "term": "กิจกรรมจิตอาสา (Bongsa hwaldong)",
+     "term": "กิจกรรมจิตอาสา",
      "def": "ชั่วโมงการทำงานอาสาสมัครที่บันทึกไว้ในสมุดประวัตินักเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "स्वयंसेवा (Bongsa hwaldong)",
+     "term": "स्वयंसेवा",
      "def": "विद्यार्थी अभिलेखमा लेखिने स्वयंसेवी काम गरेको समय।",
      "source": "llm"
     },
     "fil": {
-     "term": "Boluntaryong serbisyo (Bongsa hwaldong)",
+     "term": "Boluntaryong serbisyo",
      "def": "Mga oras ng boluntaryong gawain na itinatala sa school record ng estudyante.",
      "source": "llm"
     },
     "id": {
-     "term": "Kegiatan sukarela (Bongsa hwaldong)",
+     "term": "Kegiatan sukarela",
      "def": "Jam kegiatan sukarela siswa yang dicatat dalam buku catatan siswa (Hakssaengbu).",
      "source": "llm"
     }
@@ -3628,57 +3628,57 @@
      "source": "llm"
     },
     "ja": {
-     "term": "選択科目 (Seontaek gwamok)",
+     "term": "選択科目",
      "def": "生徒が自分で選ぶ科目で、一般選択・進路選択・融合選択があります。",
      "source": "llm"
     },
     "km": {
-     "term": "មុខវិជ្ជាជ្រើសរើស (Seontaek gwamok)",
+     "term": "មុខវិជ្ជាជ្រើសរើស",
      "def": "មុខវិជ្ជាដែលសិស្សជ្រើសខ្លួនឯង មានប្រភេទទូទៅ អាជីព និងសមាហរណកម្ម។",
      "source": "llm"
     },
     "ru": {
-     "term": "Предметы по выбору (Seontaek gwamok)",
+     "term": "Предметы по выбору",
      "def": "Предметы, которые ученик выбирает сам: общие, профильные и интегрированные.",
      "source": "llm"
     },
     "vi": {
-     "term": "Môn tự chọn (Seontaek gwamok)",
+     "term": "Môn tự chọn",
      "def": "Các môn học sinh tự chọn, gồm tự chọn chung, tự chọn định hướng nghề nghiệp và tự chọn liên ngành.",
      "source": "llm"
     },
     "zh": {
-     "term": "选修科目 (Seontaek Gwamok)",
+     "term": "选修科目",
      "def": "学生自己选择的科目，分为一般选修、职业方向选修和融合选修。",
      "source": "llm"
     },
     "uz": {
-     "term": "Tanlov fanlari (Seontaek gwamok)",
+     "term": "Tanlov fanlari",
      "def": "O'quvchi o'zi tanlaydigan fanlar: umumiy, kasbga yo'naltirilgan va integratsiyalashgan tanlov fanlari.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сонгон хичээл (Seontaek gwamok)",
+     "term": "Сонгон хичээл",
      "def": "Сурагч өөрөө сонгодог хичээл: ерөнхий, мэргэжлийн чиг баримжаа, нэгдмэл сонгон хичээл гэж хуваагдана.",
      "source": "llm"
     },
     "th": {
-     "term": "วิชาเลือก (Seontaek gwamok)",
+     "term": "วิชาเลือก",
      "def": "วิชาที่นักเรียนเลือกเรียนเอง ได้แก่ วิชาเลือกทั่วไป วิชาเลือกตามเส้นทางอาชีพ และวิชาเลือกบูรณาการ",
      "source": "llm"
     },
     "ne": {
-     "term": "ऐच्छिक विषय (Seontaek gwamok)",
+     "term": "ऐच्छिक विषय",
      "def": "विद्यार्थी आफैंले छान्ने विषयहरू: सामान्य, करियर र एकीकृत ऐच्छिक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Elective na subject (Seontaek gwamok)",
+     "term": "Elective na subject",
      "def": "Mga subject na pinipili ng estudyante: pangkalahatan, pang-karera, at pinagsamang elective.",
      "source": "llm"
     },
     "id": {
-     "term": "Mata pelajaran pilihan (Seontaek gwamok)",
+     "term": "Mata pelajaran pilihan",
      "def": "Mata pelajaran yang dipilih siswa sendiri, terdiri dari pilihan umum, pilihan karier, dan pilihan terpadu.",
      "source": "llm"
     }
@@ -3698,57 +3698,57 @@
      "source": "llm"
     },
     "ja": {
-     "term": "共通科目 (Gongtong gwamok)",
+     "term": "共通科目",
      "def": "高校1年生が全員学ぶ国語・数学・英語・統合社会・統合科学などの科目です。",
      "source": "llm"
     },
     "km": {
-     "term": "មុខវិជ្ជារួម (Gongtong gwamok)",
+     "term": "មុខវិជ្ជារួម",
      "def": "មុខវិជ្ជាដែលសិស្សឆ្នាំទី១ ទាំងអស់ត្រូវរៀន ដូចជាភាសាកូរ៉េ គណិត អង់គ្លេស សង្គមរួម និងវិទ្យាសាស្ត្ររួម។",
      "source": "llm"
     },
     "ru": {
-     "term": "Общие обязательные предметы (Gongtong gwamok)",
+     "term": "Общие обязательные предметы",
      "def": "Предметы для всех в первом классе старшей школы: корейский, математика, английский, обществознание, естествознание.",
      "source": "llm"
     },
     "vi": {
-     "term": "Môn chung (Gongtong gwamok)",
+     "term": "Môn chung",
      "def": "Các môn mọi học sinh lớp 10 đều học như Ngữ văn, Toán, Tiếng Anh, Xã hội và Khoa học tích hợp.",
      "source": "llm"
     },
     "zh": {
-     "term": "共同必修科目 (Gongtong Gwamok)",
+     "term": "共同必修科目",
      "def": "高一全体学生都要学的科目，如国语、数学、英语、综合社会、综合科学。",
      "source": "llm"
     },
     "uz": {
-     "term": "Umumiy fanlar (Gongtong gwamok)",
+     "term": "Umumiy fanlar",
      "def": "Yuqori maktab 1-sinfida hamma o'qiydigan fanlar: koreys tili, matematika, ingliz tili, integratsiyalashgan ijtimoiy va tabiiy fanlar.",
      "source": "llm"
     },
     "mn": {
-     "term": "Нийтлэг хичээл (Gongtong gwamok)",
+     "term": "Нийтлэг хичээл",
      "def": "Ахлах сургуулийн 1-р ангид бүх сурагч үздэг солонгос хэл, математик, англи хэл, нийгэм, байгалийн ухаан зэрэг хичээл.",
      "source": "llm"
     },
     "th": {
-     "term": "วิชาพื้นฐานร่วม (Gongtong gwamok)",
+     "term": "วิชาพื้นฐานร่วม",
      "def": "วิชาที่นักเรียนมัธยมปลายปี 1 ทุกคนต้องเรียน เช่น ภาษาเกาหลี คณิตศาสตร์ อังกฤษ สังคมและวิทยาศาสตร์บูรณาการ",
      "source": "llm"
     },
     "ne": {
-     "term": "साझा अनिवार्य विषय (Gongtong gwamok)",
+     "term": "साझा अनिवार्य विषय",
      "def": "हाई स्कूल पहिलो वर्षमा सबैले पढ्ने विषय, जस्तै कोरियाली, गणित, अङ्ग्रेजी, एकीकृत समाज र एकीकृत विज्ञान।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pangkalahatang subject (Gongtong gwamok)",
+     "term": "Pangkalahatang subject",
      "def": "Mga subject na pinag-aaralan ng lahat sa unang taon, gaya ng Korean, Math, English, Integrated Social Studies at Science.",
      "source": "llm"
     },
     "id": {
-     "term": "Mata pelajaran wajib (Gongtong gwamok)",
+     "term": "Mata pelajaran wajib",
      "def": "Mata pelajaran yang dipelajari semua siswa kelas 10, seperti bahasa Korea, matematika, bahasa Inggris, IPS dan IPA terpadu.",
      "source": "llm"
     }
@@ -4320,62 +4320,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Alternative school (Daean hakgyo)",
+     "term": "Alternative school",
      "def": "A school teaching differently from the standard curriculum; some are officially accredited and others are not.",
      "source": "llm"
     },
     "ja": {
-     "term": "オルタナティブスクール（Daean hakgyo）",
+     "term": "オルタナティブスクール",
      "def": "一般の教育課程とは異なる教育を行う学校で、国の認可校と無認可校があります。",
      "source": "llm"
     },
     "km": {
-     "term": "សាលាជម្រើស (Daean hakgyo)",
+     "term": "សាលាជម្រើស",
      "def": "សាលាដែលបង្រៀនខុសពីកម្មវិធីសិក្សាធម្មតា ខ្លះទទួលស្គាល់ដោយរដ្ឋ ខ្លះមិនទទួលស្គាល់។",
      "source": "llm"
     },
     "ru": {
-     "term": "Альтернативная школа (Daean hakgyo)",
+     "term": "Альтернативная школа",
      "def": "Школа с программой, отличной от обычной; бывает официально признанной государством или непризнанной.",
      "source": "llm"
     },
     "vi": {
-     "term": "Trường học thay thế (Daean hakgyo)",
+     "term": "Trường học thay thế",
      "def": "Trường dạy theo cách khác chương trình phổ thông thông thường, có trường được nhà nước công nhận và trường chưa được công nhận.",
      "source": "llm"
     },
     "zh": {
-     "term": "替代学校 (Daean hakgyo)",
+     "term": "替代学校",
      "def": "采用不同于普通课程的教育方式的学校，分为政府认可和未认可两类。",
      "source": "llm"
     },
     "uz": {
-     "term": "Muqobil maktab (Daeanhakgyo)",
+     "term": "Muqobil maktab",
      "def": "Oddiy o‘quv dasturidan farqli ta'lim beradigan maktab; davlat tomonidan tan olingan va tan olinmagan turlari bor.",
      "source": "llm"
     },
     "mn": {
-     "term": "Альтернатив сургууль (Daean hakgyo)",
+     "term": "Альтернатив сургууль",
      "def": "Ердийн хөтөлбөрөөс өөр аргаар сургадаг сургууль бөгөөд албан ёсны зөвшөөрөлтэй, зөвшөөрөлгүй гэж ангилагдана.",
      "source": "llm"
     },
     "th": {
-     "term": "โรงเรียนทางเลือก (Daean hakgyo)",
+     "term": "โรงเรียนทางเลือก",
      "def": "โรงเรียนที่สอนต่างจากหลักสูตรปกติ มีทั้งแบบที่รัฐรับรองและไม่ได้รับรอง",
      "source": "llm"
     },
     "ne": {
-     "term": "वैकल्पिक विद्यालय (Daean hakgyo)",
+     "term": "वैकल्पिक विद्यालय",
      "def": "सामान्य पाठ्यक्रमभन्दा फरक शिक्षा दिने विद्यालय, जसमा सरकारी मान्यता पाएका र नपाएका दुवै हुन्छन्।",
      "source": "llm"
     },
     "fil": {
-     "term": "Alternatibong paaralan (Daean hakgyo)",
+     "term": "Alternatibong paaralan",
      "def": "Paaralang iba ang paraan ng pagtuturo sa karaniwang kurikulum; may kinikilala at hindi kinikilala ng gobyerno.",
      "source": "llm"
     },
     "id": {
-     "term": "Sekolah alternatif (Daean hakgyo)",
+     "term": "Sekolah alternatif",
      "def": "Sekolah dengan pendidikan berbeda dari kurikulum umum; ada yang diakui pemerintah dan ada yang tidak diakui.",
      "source": "llm"
     }
@@ -4389,62 +4389,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Junior college (Jeonmundae)",
+     "term": "Junior college",
      "def": "A two- or three-year college focused on job-oriented vocational training.",
      "source": "llm"
     },
     "ja": {
-     "term": "専門大学（Jeonmundae）",
+     "term": "専門大学",
      "def": "職業教育を中心とする2〜3年制の大学で、日本の短期大学に近いです。",
      "source": "llm"
     },
     "km": {
-     "term": "មហាវិទ្យាល័យវិជ្ជាជីវៈ (Jeonmundae)",
+     "term": "មហាវិទ្យាល័យវិជ្ជាជីវៈ",
      "def": "សាកលវិទ្យាល័យរយៈពេល ២ ទៅ ៣ ឆ្នាំ ដែលផ្តោតលើការបណ្តុះបណ្តាលជំនាញវិជ្ជាជីវៈ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Колледж (Jeonmundae)",
+     "term": "Колледж",
      "def": "Вуз с обучением 2–3 года, ориентированный на профессиональную подготовку.",
      "source": "llm"
     },
     "vi": {
-     "term": "Cao đẳng (Jeonmundae)",
+     "term": "Cao đẳng",
      "def": "Trường đào tạo 2–3 năm, tập trung vào giáo dục nghề nghiệp thực tế.",
      "source": "llm"
     },
     "zh": {
-     "term": "专科大学 (Jeonmundae)",
+     "term": "专科大学",
      "def": "学制两到三年、以职业技能教育为主的大学，类似中国的大专。",
      "source": "llm"
     },
     "uz": {
-     "term": "Kasb-hunar kolleji (Jeonmundae)",
+     "term": "Kasb-hunar kolleji",
      "def": "Kasbga yo‘naltirilgan, 2–3 yillik o‘qishga mo‘ljallangan oliy o‘quv yurti.",
      "source": "llm"
     },
     "mn": {
-     "term": "Мэргэжлийн коллеж (Jeonmundae)",
+     "term": "Мэргэжлийн коллеж",
      "def": "Мэргэжлийн боловсролд төвлөрсөн, 2–3 жил суралцдаг дээд сургууль.",
      "source": "llm"
     },
     "th": {
-     "term": "วิทยาลัยวิชาชีพ (Jeonmundae)",
+     "term": "วิทยาลัยวิชาชีพ",
      "def": "สถาบันอุดมศึกษาหลักสูตร 2–3 ปี ที่เน้นการเรียนเพื่อประกอบอาชีพ",
      "source": "llm"
     },
     "ne": {
-     "term": "व्यावसायिक कलेज (Jeonmundae)",
+     "term": "व्यावसायिक कलेज",
      "def": "२ देखि ३ वर्षसम्म रोजगारमुखी व्यावसायिक शिक्षा दिने कलेज।",
      "source": "llm"
     },
     "fil": {
-     "term": "Kolehiyong bokasyonal (Jeonmundae)",
+     "term": "Kolehiyong bokasyonal",
      "def": "Kolehiyong may dalawa hanggang tatlong taong kurso na nakatuon sa pagsasanay para sa trabaho.",
      "source": "llm"
     },
     "id": {
-     "term": "Politeknik/akademi (Jeonmundae)",
+     "term": "Politeknik/akademi",
      "def": "Perguruan tinggi 2–3 tahun yang berfokus pada pendidikan keterampilan kerja.",
      "source": "llm"
     }
@@ -4463,37 +4463,37 @@
      "source": "llm"
     },
     "ja": {
-     "term": "4年制大学（Sanyeonje）",
+     "term": "4年制大学",
      "def": "学士課程が4年間の一般的な大学です。",
      "source": "llm"
     },
     "km": {
-     "term": "សាកលវិទ្យាល័យ ៤ ឆ្នាំ (Sanyeonje daehak)",
+     "term": "សាកលវិទ្យាល័យ ៤ ឆ្នាំ",
      "def": "សាកលវិទ្យាល័យធម្មតាដែលមានកម្មវិធីបរិញ្ញាបត្ររយៈពេល ៤ ឆ្នាំ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Четырёхлетний университет (Sanyeonje)",
+     "term": "Четырёхлетний университет",
      "def": "Обычный университет с четырёхлетней программой бакалавриата.",
      "source": "llm"
     },
     "vi": {
-     "term": "Đại học hệ 4 năm (Sanyeonje)",
+     "term": "Đại học hệ 4 năm",
      "def": "Trường đại học thông thường, học 4 năm để lấy bằng cử nhân.",
      "source": "llm"
     },
     "zh": {
-     "term": "四年制大学 (Sanyeonje daehak)",
+     "term": "四年制大学",
      "def": "学制四年、毕业可获得学士学位的普通本科大学。",
      "source": "llm"
     },
     "uz": {
-     "term": "To‘rt yillik universitet (Sanyeonje)",
+     "term": "To‘rt yillik universitet",
      "def": "To‘rt yillik bakalavriat dasturiga ega oddiy universitet.",
      "source": "llm"
     },
     "mn": {
-     "term": "4 жилийн их сургууль (Sanyeonje)",
+     "term": "4 жилийн их сургууль",
      "def": "Бакалаврын зэрэг олгодог, 4 жил суралцдаг ердийн их сургууль.",
      "source": "llm"
     },
@@ -4503,12 +4503,12 @@
      "source": "llm"
     },
     "ne": {
-     "term": "४ वर्षे विश्वविद्यालय (Sanyeonje)",
+     "term": "४ वर्षे विश्वविद्यालय",
      "def": "चार वर्षमा स्नातक (ब्याचलर) डिग्री दिने सामान्य विश्वविद्यालय।",
      "source": "llm"
     },
     "fil": {
-     "term": "Apat-na-taong unibersidad (Sanyeonje daehak)",
+     "term": "Apat-na-taong unibersidad",
      "def": "Karaniwang unibersidad na may apat na taong kurso para sa bachelor's degree.",
      "source": "llm"
     },
@@ -4598,62 +4598,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Transfer admission (Pyeonip)",
+     "term": "Transfer admission",
      "def": "Entering a different school directly into a middle grade rather than starting from the first year.",
      "source": "llm"
     },
     "ja": {
-     "term": "編入学・転校（Pyeonip）",
+     "term": "編入学・転校",
      "def": "別の学校の途中の学年に入ることです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការផ្ទេរចូលរៀន (Pyeonip)",
+     "term": "ការផ្ទេរចូលរៀន",
      "def": "ការចូលរៀននៅថ្នាក់កណ្តាលនៃសាលាផ្សេងមួយទៀត។",
      "source": "llm"
     },
     "ru": {
-     "term": "Перевод в другую школу (Pyeonip)",
+     "term": "Перевод в другую школу",
      "def": "Поступление в другую школу сразу в промежуточный класс, а не в первый.",
      "source": "llm"
     },
     "vi": {
-     "term": "Chuyển trường giữa chừng (Pyeonip)",
+     "term": "Chuyển trường giữa chừng",
      "def": "Việc vào học ở một lớp giữa chừng của trường khác, không bắt đầu từ năm thứ nhất.",
      "source": "llm"
     },
     "zh": {
-     "term": "插班转学 (Pyeonip)",
+     "term": "插班转学",
      "def": "从其他学校转入，进入新学校的中间年级就读。",
      "source": "llm"
     },
     "uz": {
-     "term": "Boshqa maktabga o‘tish (Pyeonip)",
+     "term": "Boshqa maktabga o‘tish",
      "def": "Boshqa maktabning o‘rta sinf yoki kursiga o‘tib o‘qishni davom ettirish.",
      "source": "llm"
     },
     "mn": {
-     "term": "Шилжин элсэлт (Pyeonip)",
+     "term": "Шилжин элсэлт",
      "def": "Өөр сургуулийн дунд ангид шилжин орж суралцах явдал.",
      "source": "llm"
     },
     "th": {
-     "term": "การย้ายเข้าเรียน (Pyeonip)",
+     "term": "การย้ายเข้าเรียน",
      "def": "การเข้าเรียนในชั้นปีกลางของโรงเรียนอื่น เช่น การย้ายโรงเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "बीचको कक्षामा भर्ना (Pyeonip)",
+     "term": "बीचको कक्षामा भर्ना",
      "def": "अर्को विद्यालयको बीचको कक्षा वा वर्षमा सरेर भर्ना हुनु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Paglipat sa ibang paaralan (Pyeonip)",
+     "term": "Paglipat sa ibang paaralan",
      "def": "Pagpasok sa ibang paaralan sa gitnang baitang, hindi sa simula ng pag-aaral.",
      "source": "llm"
     },
     "id": {
-     "term": "Pindah/masuk tingkat lanjut (Pyeonip)",
+     "term": "Pindah/masuk tingkat lanjut",
      "def": "Masuk ke sekolah lain langsung di tingkat atau kelas pertengahan, bukan dari kelas awal.",
      "source": "llm"
     }
@@ -4665,62 +4665,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Leave of absence (Hyuhak)",
+     "term": "Leave of absence",
      "def": "Taking a break from studies for a set period while keeping student status.",
      "source": "llm"
     },
     "ja": {
-     "term": "休学（Hyuhak）",
+     "term": "休学",
      "def": "一定期間、学業を休むことです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការផ្អាកការសិក្សា (Hyuhak)",
+     "term": "ការផ្អាកការសិក្សា",
      "def": "ការឈប់សម្រាកពីការសិក្សាមួយរយៈពេលកំណត់ ហើយអាចត្រឡប់មករៀនវិញបាន។",
      "source": "llm"
     },
     "ru": {
-     "term": "Академический отпуск (Hyuhak)",
+     "term": "Академический отпуск",
      "def": "Временный перерыв в учёбе на определённый срок.",
      "source": "llm"
     },
     "vi": {
-     "term": "Tạm nghỉ học (Hyuhak)",
+     "term": "Tạm nghỉ học",
      "def": "Việc tạm dừng học trong một khoảng thời gian nhất định nhưng vẫn giữ tư cách học sinh.",
      "source": "llm"
     },
     "zh": {
-     "term": "休学 (Hyuhak)",
+     "term": "休学",
      "def": "暂时停止学业一段时间，之后可以回校继续学习。",
      "source": "llm"
     },
     "uz": {
-     "term": "Akademik ta'til (Hyuhak)",
+     "term": "Akademik ta'til",
      "def": "O‘qishni ma'lum muddatga to‘xtatib turish.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сургалтын чөлөө (Hyuhak)",
+     "term": "Сургалтын чөлөө",
      "def": "Сурлагаа тодорхой хугацаагаар түр завсарлах явдал.",
      "source": "llm"
     },
     "th": {
-     "term": "การพักการเรียน (Hyuhak)",
+     "term": "การพักการเรียน",
      "def": "การหยุดเรียนชั่วคราวตามระยะเวลาที่กำหนด แล้วกลับมาเรียนต่อได้",
      "source": "llm"
     },
     "ne": {
-     "term": "अध्ययन बिदा (Hyuhak)",
+     "term": "अध्ययन बिदा",
      "def": "निश्चित अवधिका लागि पढाइ अस्थायी रूपमा रोक्नु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pansamantalang pagtigil sa pag-aaral (Hyuhak)",
+     "term": "Pansamantalang pagtigil sa pag-aaral",
      "def": "Paghinto muna sa pag-aaral sa loob ng isang takdang panahon.",
      "source": "llm"
     },
     "id": {
-     "term": "Cuti sekolah (Huhak)",
+     "term": "Cuti sekolah",
      "def": "Berhenti sementara dari kegiatan belajar selama jangka waktu tertentu, lalu kembali lagi.",
      "source": "llm"
     }
@@ -4734,62 +4734,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Voluntary withdrawal (Jatoe)",
+     "term": "Voluntary withdrawal",
      "def": "Choosing to leave school permanently on one's own decision.",
      "source": "llm"
     },
     "ja": {
-     "term": "自主退学（Jatoe）",
+     "term": "自主退学",
      "def": "本人の意思で学校を辞めることです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការឈប់រៀនដោយស្ម័គ្រចិត្ត (Jatoe)",
+     "term": "ការឈប់រៀនដោយស្ម័គ្រចិត្ត",
      "def": "ការសម្រេចចិត្តឈប់រៀនពីសាលាដោយខ្លួនឯង។",
      "source": "llm"
     },
     "ru": {
-     "term": "Уход из школы (Jatoe)",
+     "term": "Уход из школы",
      "def": "Прекращение учёбы в школе по собственному желанию.",
      "source": "llm"
     },
     "vi": {
-     "term": "Tự thôi học (Jatoe)",
+     "term": "Tự thôi học",
      "def": "Việc học sinh tự nguyện rời bỏ trường, chấm dứt việc học tại trường đó.",
      "source": "llm"
     },
     "zh": {
-     "term": "自愿退学 (Jatoe)",
+     "term": "自愿退学",
      "def": "学生本人主动申请离开学校、不再就读。",
      "source": "llm"
     },
     "uz": {
-     "term": "O‘z xohishi bilan o‘qishni tashlash (Jatoe)",
+     "term": "O‘z xohishi bilan o‘qishni tashlash",
      "def": "O‘quvchining o‘z xohishi bilan maktabni tark etishi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сайн дураар сургуулиас гарах (Jatoe)",
+     "term": "Сайн дураар сургуулиас гарах",
      "def": "Сурагч өөрийн хүсэлтээр сургуулиа орхих явдал.",
      "source": "llm"
     },
     "th": {
-     "term": "การลาออกจากโรงเรียน (Jatoe)",
+     "term": "การลาออกจากโรงเรียน",
      "def": "การที่นักเรียนตัดสินใจออกจากโรงเรียนด้วยตนเอง",
      "source": "llm"
     },
     "ne": {
-     "term": "स्वेच्छाले विद्यालय छोड्नु (Jatoe)",
+     "term": "स्वेच्छाले विद्यालय छोड्नु",
      "def": "विद्यार्थी आफैँले निर्णय गरेर विद्यालय छाड्नु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Kusang pag-alis sa paaralan (Jatoe)",
+     "term": "Kusang pag-alis sa paaralan",
      "def": "Kapag ang estudyante mismo ang nagpasyang tumigil at umalis sa paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Keluar sekolah (Jatoe)",
+     "term": "Keluar sekolah",
      "def": "Berhenti sekolah atas kemauan sendiri, bukan dikeluarkan oleh sekolah.",
      "source": "llm"
     }
@@ -5418,62 +5418,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "School district (Hakgun)",
+     "term": "School district",
      "def": "The area, based on where you live, that determines which schools your child can be assigned to.",
      "source": "llm"
     },
     "ja": {
-     "term": "学区（Hakgun）",
+     "term": "学区",
      "def": "住んでいる場所によって、割り当てられる学校が決まる区域です。",
      "source": "llm"
     },
     "km": {
-     "term": "តំបន់សាលា (Hakgun)",
+     "term": "តំបន់សាលា",
      "def": "តំបន់ដែលកំណត់សាលាដែលកូនអាចត្រូវបានបែងចែកទៅ ដោយផ្អែកលើទីលំនៅ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Школьный округ (Hakgun)",
+     "term": "Школьный округ",
      "def": "Зона, в которой по месту жительства определяется, в какие школы может быть распределён ребёнок.",
      "source": "llm"
     },
     "vi": {
-     "term": "Khu vực tuyển sinh (Hakgun)",
+     "term": "Khu vực tuyển sinh",
      "def": "Khu vực xác định các trường con có thể được phân vào, dựa theo nơi gia đình cư trú.",
      "source": "llm"
     },
     "zh": {
-     "term": "学区 (Hakgun)",
+     "term": "学区",
      "def": "根据居住地址划定的区域，决定孩子可以被分配到哪些学校。",
      "source": "llm"
     },
     "uz": {
-     "term": "Maktab hududi (Hakgun)",
+     "term": "Maktab hududi",
      "def": "Yashash manziliga qarab bola qaysi maktablarga taqsimlanishi mumkinligini belgilaydigan hudud.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сургуулийн тойрог (Hakgun)",
+     "term": "Сургуулийн тойрог",
      "def": "Оршин суугаа хаягаас хамааран хуваарилагдах сургуулиуд тогтоогддог бүс.",
      "source": "llm"
     },
     "th": {
-     "term": "เขตพื้นที่การศึกษา (Hakgun)",
+     "term": "เขตพื้นที่การศึกษา",
      "def": "พื้นที่ที่กำหนดว่านักเรียนจะถูกจัดสรรเข้าโรงเรียนใดตามที่อยู่อาศัย",
      "source": "llm"
     },
     "ne": {
-     "term": "विद्यालय क्षेत्र (Hakgun)",
+     "term": "विद्यालय क्षेत्र",
      "def": "बसोबास गरेको ठाउँअनुसार कुन विद्यालयहरूमा पठाइन सकिन्छ भनेर तोकिएको क्षेत्र।",
      "source": "llm"
     },
     "fil": {
-     "term": "Distrito ng paaralan (Hakgun)",
+     "term": "Distrito ng paaralan",
      "def": "Lugar batay sa tirahan na nagtatakda kung aling mga paaralan maaaring italaga ang inyong anak.",
      "source": "llm"
     },
     "id": {
-     "term": "Zona sekolah (Hakgun)",
+     "term": "Zona sekolah",
      "def": "Wilayah berdasarkan alamat tempat tinggal yang menentukan sekolah mana saja yang bisa ditempati anak.",
      "source": "llm"
     }
@@ -5517,32 +5517,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Maktabga taqsimlash (Baejeong)",
+     "term": "Maktabga taqsimlash",
      "def": "Ta'lim boshqarmasining o‘quvchilarni maktablarga taqsimlab belgilashi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сургууль хуваарилалт (Baejeong)",
+     "term": "Сургууль хуваарилалт",
      "def": "Боловсролын газар сурагч бүрийг аль сургуульд суралцахыг тогтоож хуваарилах явдал.",
      "source": "llm"
     },
     "th": {
-     "term": "การจัดสรรโรงเรียน (Baejeong)",
+     "term": "การจัดสรรโรงเรียน",
      "def": "การที่สำนักงานการศึกษากำหนดว่านักเรียนแต่ละคนจะได้เข้าเรียนโรงเรียนใด",
      "source": "llm"
     },
     "ne": {
-     "term": "विद्यालय तोकिनु (Baejeong)",
+     "term": "विद्यालय तोकिनु",
      "def": "शिक्षा कार्यालयले विद्यार्थीलाई कुन विद्यालयमा पढ्ने भनेर बाँडफाँड गरी निर्णय गर्नु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pagtatalaga sa paaralan (Baejeong)",
+     "term": "Pagtatalaga sa paaralan",
      "def": "Pagpapasya ng tanggapan ng edukasyon kung saang paaralan papasok ang bawat estudyante.",
      "source": "llm"
     },
     "id": {
-     "term": "Penempatan sekolah (Baejeong)",
+     "term": "Penempatan sekolah",
      "def": "Proses dinas pendidikan membagi dan menentukan sekolah untuk setiap siswa.",
      "source": "llm"
     }
@@ -5554,62 +5554,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Lottery (Chucheom)",
+     "term": "Lottery",
      "def": "A random draw, usually done by computer, to decide placements.",
      "source": "llm"
     },
     "ja": {
-     "term": "抽選（Chucheom）",
+     "term": "抽選",
      "def": "コンピューターによる無作為のくじ引きで決めることです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការចាប់ឆ្នោត (Chucheom)",
+     "term": "ការចាប់ឆ្នោត",
      "def": "ការសម្រេចដោយចាប់ឆ្នោត ដែលកុំព្យូទ័រជ្រើសរើសដោយចៃដន្យ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Жеребьёвка (Chucheom)",
+     "term": "Жеребьёвка",
      "def": "Выбор случайным образом, обычно с помощью компьютерной лотереи.",
      "source": "llm"
     },
     "vi": {
-     "term": "Bốc thăm (Chucheom)",
+     "term": "Bốc thăm",
      "def": "Cách quyết định bằng bốc thăm, thường do máy tính chọn ngẫu nhiên.",
      "source": "llm"
     },
     "zh": {
-     "term": "抽签 (Chucheom)",
+     "term": "抽签",
      "def": "通过电脑随机抽选的方式来决定结果。",
      "source": "llm"
     },
     "uz": {
-     "term": "Qur'a tashlash (Chucheom)",
+     "term": "Qur'a tashlash",
      "def": "Kompyuter orqali tasodifiy tanlov bilan aniqlash.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сугалаа (Chucheom)",
+     "term": "Сугалаа",
      "def": "Компьютерийн санамсаргүй сонголтоор шийдвэрлэх арга.",
      "source": "llm"
     },
     "th": {
-     "term": "การจับสลาก (Chucheom)",
+     "term": "การจับสลาก",
      "def": "การตัดสินผลด้วยการสุ่มโดยคอมพิวเตอร์",
      "source": "llm"
     },
     "ne": {
-     "term": "चिट्ठा (Chucheom)",
+     "term": "चिट्ठा",
      "def": "कम्प्युटरले अनियमित रूपमा छानेर नतिजा निर्णय गर्ने तरिका।",
      "source": "llm"
     },
     "fil": {
-     "term": "Bunutan (Chucheom)",
+     "term": "Bunutan",
      "def": "Pagpapasya sa pamamagitan ng random na bunutan gamit ang kompyuter.",
      "source": "llm"
     },
     "id": {
-     "term": "Undian (Chucheom)",
+     "term": "Undian",
      "def": "Penentuan secara acak, biasanya menggunakan komputer.",
      "source": "llm"
     }
@@ -5653,12 +5653,12 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Ariza berish shartlari (Jiwon jagyeok)",
+     "term": "Ariza berish shartlari",
      "def": "Ushbu qabul turiga ariza topshirish uchun talab qilinadigan shartlar.",
      "source": "llm"
     },
     "mn": {
-     "term": "Элсэх шаардлага (Jiwon jagyeok)",
+     "term": "Элсэх шаардлага",
      "def": "Тухайн элсэлтэд бүртгүүлэхийн тулд хангах ёстой нөхцөл.",
      "source": "llm"
     },
@@ -5668,12 +5668,12 @@
      "source": "llm"
     },
     "ne": {
-     "term": "आवेदन योग्यता (Jiwon jagyeok)",
+     "term": "आवेदन योग्यता",
      "def": "कुनै भर्ना प्रक्रियामा आवेदन दिन पूरा गर्नुपर्ने सर्तहरू।",
      "source": "llm"
     },
     "fil": {
-     "term": "Kwalipikasyon sa pag-aplay (Jiwon jagyeok)",
+     "term": "Kwalipikasyon sa pag-aplay",
      "def": "Mga kondisyong kailangang matugunan para makapag-aplay sa isang admission.",
      "source": "llm"
     },
@@ -5723,12 +5723,12 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Topshiriladigan hujjatlar (Jechul seoryu)",
+     "term": "Topshiriladigan hujjatlar",
      "def": "Ariza bilan birga topshirilishi kerak bo‘lgan hujjatlar.",
      "source": "llm"
     },
     "mn": {
-     "term": "Бүрдүүлэх бичиг баримт (Jechul seoryu)",
+     "term": "Бүрдүүлэх бичиг баримт",
      "def": "Элсэлтийн өргөдөлтэй хамт өгөх шаардлагатай бичиг баримтууд.",
      "source": "llm"
     },
@@ -5738,12 +5738,12 @@
      "source": "llm"
     },
     "ne": {
-     "term": "पेस गर्नुपर्ने कागजात (Jechul seoryu)",
+     "term": "पेस गर्नुपर्ने कागजात",
      "def": "आवेदन फारमसँगै बुझाउनुपर्ने आवश्यक कागजातहरू।",
      "source": "llm"
     },
     "fil": {
-     "term": "Mga dokumentong isusumite (Jechul seoryu)",
+     "term": "Mga dokumentong isusumite",
      "def": "Mga papeles na kailangang ipasa kasama ng application form.",
      "source": "llm"
     },
@@ -5792,32 +5792,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Qabul arizasi (Wonseo)",
+     "term": "Qabul arizasi",
      "def": "O‘qishga kirish uchun to‘ldiriladigan ariza.",
      "source": "llm"
     },
     "mn": {
-     "term": "Элсэлтийн өргөдөл (Wonseo)",
+     "term": "Элсэлтийн өргөдөл",
      "def": "Сургуульд элсэхээр бөглөж өгдөг өргөдлийн маягт.",
      "source": "llm"
     },
     "th": {
-     "term": "ใบสมัครเข้าเรียน (Wonseo)",
+     "term": "ใบสมัครเข้าเรียน",
      "def": "แบบฟอร์มที่ใช้สมัครเข้าเรียนในโรงเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "भर्ना आवेदन फारम (Wonseo)",
+     "term": "भर्ना आवेदन फारम",
      "def": "विद्यालय वा विश्वविद्यालयमा भर्ना हुन भरेर बुझाउने आवेदन फारम।",
      "source": "llm"
     },
     "fil": {
-     "term": "Application form sa pagpasok (Iphak wonseo)",
+     "term": "Application form sa pagpasok",
      "def": "Pormularyong pinupunan para mag-aplay na makapasok sa paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Formulir pendaftaran (Wonseo)",
+     "term": "Formulir pendaftaran",
      "def": "Formulir resmi untuk mendaftar masuk ke sekolah.",
      "source": "llm"
     }
@@ -5861,32 +5861,32 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Maktab baholari varaqasi (Naesin seongjeokpyo)",
+     "term": "Maktab baholari varaqasi",
      "def": "Litseyga kirish uchun o‘rta maktabdagi baholar yozilgan hujjat.",
      "source": "llm"
     },
     "mn": {
-     "term": "Дунд сургуулийн дүнгийн хуудас (Naesin)",
+     "term": "Дунд сургуулийн дүнгийн хуудас",
      "def": "Ахлах сургуульд элсэхэд өгдөг, дунд сургуулийн сурлагын дүнг тусгасан баримт.",
      "source": "llm"
     },
     "th": {
-     "term": "ใบแสดงผลการเรียน (Naesin)",
+     "term": "ใบแสดงผลการเรียน",
      "def": "เอกสารแสดงผลการเรียนชั้นมัธยมต้น ใช้สมัครเข้ามัธยมปลาย",
      "source": "llm"
     },
     "ne": {
-     "term": "मिडल स्कूलको अंकपत्र (Naesin seongjeokpyo)",
+     "term": "मिडल स्कूलको अंकपत्र",
      "def": "हाई स्कूल भर्नाका लागि मिडल स्कूलका नतिजा लेखिएको कागजात।",
      "source": "llm"
     },
     "fil": {
-     "term": "Report ng grado sa middle school (Naesin seongjeokpyo)",
+     "term": "Report ng grado sa middle school",
      "def": "Dokumentong naglalaman ng mga grado sa middle school na ginagamit sa pag-aplay sa hayskul.",
      "source": "llm"
     },
     "id": {
-     "term": "Rapor nilai SMP (Naesin)",
+     "term": "Rapor nilai SMP",
      "def": "Dokumen berisi nilai-nilai anak selama SMP yang digunakan untuk mendaftar SMA.",
      "source": "llm"
     }
@@ -5928,12 +5928,12 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Bu yil bitiruvchi (Joreop yejeongja)",
+     "term": "Bu yil bitiruvchi",
      "def": "Hozir o‘qiyotgan va shu yili maktabni bitiradigan o‘quvchi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Төгсөх гэж буй сурагч (Joreop yejeongja)",
+     "term": "Төгсөх гэж буй сурагч",
      "def": "Энэ жил сургуулиа төгсөх гэж байгаа одоо суралцаж буй сурагч.",
      "source": "llm"
     },
@@ -5943,12 +5943,12 @@
      "source": "llm"
     },
     "ne": {
-     "term": "यस वर्ष विद्यालय सक्ने विद्यार्थी (Joreop yejeongja)",
+     "term": "यस वर्ष विद्यालय सक्ने विद्यार्थी",
      "def": "हाल पढिरहेको र यसै वर्ष विद्यालय उत्तीर्ण गरी सक्ने विद्यार्थी।",
      "source": "llm"
     },
     "fil": {
-     "term": "Magtatapos ngayong taon (Joreop yejeongja)",
+     "term": "Magtatapos ngayong taon",
      "def": "Kasalukuyang estudyanteng inaasahang magtatapos sa taong ito.",
      "source": "llm"
     },
@@ -5995,12 +5995,12 @@
      "source": "seed"
     },
     "uz": {
-     "term": "Bitirgan shaxs (Joreopja)",
+     "term": "Bitirgan shaxs",
      "def": "Maktabni allaqachon tugatgan shaxs.",
      "source": "llm"
     },
     "mn": {
-     "term": "Төгсөгч (Joreopja)",
+     "term": "Төгсөгч",
      "def": "Сургуулиа аль хэдийн төгссөн хүн.",
      "source": "llm"
     },
@@ -6010,12 +6010,12 @@
      "source": "llm"
     },
     "ne": {
-     "term": "विद्यालय सकिसकेका व्यक्ति (Joreopja)",
+     "term": "विद्यालय सकिसकेका व्यक्ति",
      "def": "विद्यालय पहिले नै उत्तीर्ण गरी सकेका व्यक्ति।",
      "source": "llm"
     },
     "fil": {
-     "term": "Nagtapos na (Joreopja)",
+     "term": "Nagtapos na",
      "def": "Taong nakatapos na ng pag-aaral sa paaralan.",
      "source": "llm"
     },
@@ -6069,7 +6069,7 @@
      "source": "llm"
     },
     "mn": {
-     "term": "Хойд Солонгосоос ирсэн сурагч (Talbuk haksaeng)",
+     "term": "Хойд Солонгосоос ирсэн сурагч",
      "def": "Хойд Солонгосоос ирж Өмнөд Солонгост суралцаж буй сурагч.",
      "source": "llm"
     },
@@ -6079,12 +6079,12 @@
      "source": "llm"
     },
     "ne": {
-     "term": "उत्तर कोरियाबाट आएका विद्यार्थी (Talbuk haksaeng)",
+     "term": "उत्तर कोरियाबाट आएका विद्यार्थी",
      "def": "उत्तर कोरिया छोडेर दक्षिण कोरियामा आएका विद्यार्थी।",
      "source": "llm"
     },
     "fil": {
-     "term": "Estudyanteng mula North Korea (Bukhan ital haksaeng)",
+     "term": "Estudyanteng mula North Korea",
      "def": "Estudyanteng umalis sa North Korea at ngayon ay nag-aaral sa South Korea.",
      "source": "llm"
     },
@@ -6104,62 +6104,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Multicultural student (Damunhwa)",
+     "term": "Multicultural student",
      "def": "A student with at least one parent originally from another country.",
      "source": "llm"
     },
     "ja": {
-     "term": "多文化家庭の生徒（Damunhwa haksaeng）",
+     "term": "多文化家庭の生徒",
      "def": "両親の少なくとも一方が外国出身の生徒です。",
      "source": "llm"
     },
     "km": {
-     "term": "សិស្សពហុវប្បធម៌ (Damunhwa haksaeng)",
+     "term": "សិស្សពហុវប្បធម៌",
      "def": "សិស្សដែលមានឪពុក ឬម្តាយយ៉ាងហោចណាស់ម្នាក់មកពីបរទេស។",
      "source": "llm"
     },
     "ru": {
-     "term": "Ученик из многокультурной семьи (Damunhwa)",
+     "term": "Ученик из многокультурной семьи",
      "def": "Ученик, у которого хотя бы один из родителей иностранного происхождения.",
      "source": "llm"
     },
     "vi": {
-     "term": "Học sinh đa văn hóa (Damunhwa haksaeng)",
+     "term": "Học sinh đa văn hóa",
      "def": "Học sinh có ít nhất một người cha hoặc mẹ có gốc nước ngoài.",
      "source": "llm"
     },
     "zh": {
-     "term": "多文化家庭学生 (Damunhwa haksaeng)",
+     "term": "多文化家庭学生",
      "def": "父母中至少一方来自外国的学生。",
      "source": "llm"
     },
     "uz": {
-     "term": "Ko‘p madaniyatli oila farzandi (Damunhwa haksaeng)",
+     "term": "Ko‘p madaniyatli oila farzandi",
      "def": "Ota-onasidan kamida biri chet ellik bo‘lgan o‘quvchi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Олон соёлт гэр бүлийн сурагч (Damunhwa haksaeng)",
+     "term": "Олон соёлт гэр бүлийн сурагч",
      "def": "Эцэг эхийн ядаж нэг нь гадаад гаралтай сурагч.",
      "source": "llm"
     },
     "th": {
-     "term": "นักเรียนพหุวัฒนธรรม (Damunhwa)",
+     "term": "นักเรียนพหุวัฒนธรรม",
      "def": "นักเรียนที่มีพ่อหรือแม่อย่างน้อยหนึ่งคนมาจากต่างประเทศ",
      "source": "llm"
     },
     "ne": {
-     "term": "बहुसांस्कृतिक परिवारका विद्यार्थी (Damunhwa haksaeng)",
+     "term": "बहुसांस्कृतिक परिवारका विद्यार्थी",
      "def": "आमा वा बुबामध्ये कम्तीमा एक जना विदेशी मूलका भएका विद्यार्थी।",
      "source": "llm"
     },
     "fil": {
-     "term": "Estudyanteng multikultural (Damunhwa haksaeng)",
+     "term": "Estudyanteng multikultural",
      "def": "Estudyanteng may kahit isang magulang na nagmula sa ibang bansa.",
      "source": "llm"
     },
     "id": {
-     "term": "Siswa multikultural (Damunhwa)",
+     "term": "Siswa multikultural",
      "def": "Siswa yang setidaknya salah satu orang tuanya berasal dari luar negeri.",
      "source": "llm"
     }
@@ -6171,62 +6171,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Mid-entry immigrant student (Jungdo ipguk)",
+     "term": "Mid-entry immigrant student",
      "def": "A student who grew up abroad and later moved to Korea to attend school here.",
      "source": "llm"
     },
     "ja": {
-     "term": "中途入国の生徒（Jungdo ipguk haksaeng）",
+     "term": "中途入国の生徒",
      "def": "外国で育った後に韓国へ来て、学校に通っている生徒です。",
      "source": "llm"
     },
     "km": {
-     "term": "សិស្សមកពីបរទេសតាមក្រោយ (Jungdo ipguk haksaeng)",
+     "term": "សិស្សមកពីបរទេសតាមក្រោយ",
      "def": "សិស្សដែលធំធាត់នៅបរទេស រួចមករស់នៅ និងចូលរៀននៅកូរ៉េ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Ученик, приехавший из-за рубежа (Jungdo ipguk)",
+     "term": "Ученик, приехавший из-за рубежа",
      "def": "Ребёнок, выросший за границей, который переехал в Корею и пошёл здесь в школу.",
      "source": "llm"
     },
     "vi": {
-     "term": "Học sinh nhập cư giữa chừng (Jungdo ipguk haksaeng)",
+     "term": "Học sinh nhập cư giữa chừng",
      "def": "Học sinh lớn lên ở nước ngoài, sau đó sang Hàn Quốc và đi học tại đây.",
      "source": "llm"
     },
     "zh": {
-     "term": "中途入境学生 (Jungdo ipguk haksaeng)",
+     "term": "中途入境学生",
      "def": "在国外长大、后来才来到韩国上学的学生。",
      "source": "llm"
     },
     "uz": {
-     "term": "Chet eldan keyin kelgan o‘quvchi (Jungdo ipguk haksaeng)",
+     "term": "Chet eldan keyin kelgan o‘quvchi",
      "def": "Chet elda o‘sib, keyinroq Koreyaga kelib maktabda o‘qiyotgan o‘quvchi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Гадаадаас шилжин ирсэн сурагч (Jungdo ipguk haksaeng)",
+     "term": "Гадаадаас шилжин ирсэн сурагч",
      "def": "Гадаадад өсөж байгаад Солонгост ирж сургуульд суралцаж буй сурагч.",
      "source": "llm"
     },
     "th": {
-     "term": "นักเรียนที่ย้ายเข้าเกาหลีภายหลัง (Jungdo ipguk)",
+     "term": "นักเรียนที่ย้ายเข้าเกาหลีภายหลัง",
      "def": "นักเรียนที่เติบโตในต่างประเทศแล้วย้ายมาเกาหลีและเข้าเรียนในโรงเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "विदेशबाट बीचमा आएका विद्यार्थी (Jungdo ipguk haksaeng)",
+     "term": "विदेशबाट बीचमा आएका विद्यार्थी",
      "def": "विदेशमा हुर्केर पछि कोरिया आई यहाँको विद्यालयमा पढ्ने विद्यार्थी।",
      "source": "llm"
     },
     "fil": {
-     "term": "Estudyanteng dumating mula abroad (Jungdo ipguk haksaeng)",
+     "term": "Estudyanteng dumating mula abroad",
      "def": "Estudyanteng lumaki sa ibang bansa bago lumipat sa Korea at pumasok sa paaralan dito.",
      "source": "llm"
     },
     "id": {
-     "term": "Siswa pendatang dari luar negeri (Jungdo ipguk)",
+     "term": "Siswa pendatang dari luar negeri",
      "def": "Siswa yang dibesarkan di luar negeri, lalu pindah ke Korea dan bersekolah di sini.",
      "source": "llm"
     }
@@ -6310,62 +6310,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Recognition of foreign schooling (Hangnyeok injeong)",
+     "term": "Recognition of foreign schooling",
      "def": "The procedure for having your child's years of schooling abroad officially recognized as equivalent Korean schooling.",
      "source": "llm"
     },
     "ja": {
-     "term": "学歴認定 (Hangnyeok injeong)",
+     "term": "学歴認定",
      "def": "外国の学校で修了した学歴を、韓国の学歴として認めてもらう手続きです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការទទួលស្គាល់កម្រិតសិក្សា (Hangnyeok injeong)",
+     "term": "ការទទួលស្គាល់កម្រិតសិក្សា",
      "def": "នីតិវិធីដើម្បីឱ្យកូរ៉េទទួលស្គាល់ការសិក្សារបស់កូននៅសាលាបរទេស។",
      "source": "llm"
     },
     "ru": {
-     "term": "Признание образования (Hangnyeok injeong)",
+     "term": "Признание образования",
      "def": "Процедура, по которой обучение в зарубежной школе официально признаётся равным корейскому образованию.",
      "source": "llm"
     },
     "vi": {
-     "term": "Công nhận học lực (Hangnyeok injeong)",
+     "term": "Công nhận học lực",
      "def": "Thủ tục để quá trình học ở trường nước ngoài được công nhận tương đương trình độ học tại Hàn Quốc.",
      "source": "llm"
     },
     "zh": {
-     "term": "学历认定 (Hangnyeok injeong)",
+     "term": "学历认定",
      "def": "把孩子在外国学校取得的学历认定为同等韩国学历的手续。",
      "source": "llm"
     },
     "uz": {
-     "term": "Ta'limni tan oldirish (Hangnyeok injeong)",
+     "term": "Ta'limni tan oldirish",
      "def": "Chet eldagi maktabda olingan ta'limni Koreya ta'limiga teng deb rasman tan oldirish tartibi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Боловсрол хүлээн зөвшөөрүүлэх (Hangnyeok injeong)",
+     "term": "Боловсрол хүлээн зөвшөөрүүлэх",
      "def": "Гадаадад суралцсан боловсролыг Солонгосын боловсролтой адил гэж албан ёсоор хүлээн зөвшөөрүүлэх журам.",
      "source": "llm"
     },
     "th": {
-     "term": "การรับรองวุฒิการศึกษา (Hangnyeok injeong)",
+     "term": "การรับรองวุฒิการศึกษา",
      "def": "ขั้นตอนการขอให้วุฒิการศึกษาจากโรงเรียนต่างประเทศได้รับการยอมรับเทียบเท่าวุฒิของเกาหลี",
      "source": "llm"
     },
     "ne": {
-     "term": "शैक्षिक योग्यता मान्यता (Hangnyeok Injeong)",
+     "term": "शैक्षिक योग्यता मान्यता",
      "def": "विदेशी विद्यालयमा गरेको पढाइलाई कोरियाली शैक्षिक योग्यताको रूपमा मान्यता दिलाउने प्रक्रिया।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pagkilala sa pag-aaral sa ibang bansa (Hangnyeok injeong)",
+     "term": "Pagkilala sa pag-aaral sa ibang bansa",
      "def": "Proseso para kilalanin sa Korea ang antas ng pag-aaral na natapos ng anak sa ibang bansa.",
      "source": "llm"
     },
     "id": {
-     "term": "Pengakuan pendidikan luar negeri (Hangnyeok injeong)",
+     "term": "Pengakuan pendidikan luar negeri",
      "def": "Prosedur agar pendidikan di sekolah luar negeri diakui setara dengan pendidikan di Korea.",
      "source": "llm"
     }
@@ -6384,57 +6384,57 @@
      "source": "llm"
     },
     "ja": {
-     "term": "アポスティーユ (Aposeutiyu)",
+     "term": "アポスティーユ",
      "def": "外国で発行された書類が公的に有効であることを証明する国際的な認証です。",
      "source": "llm"
     },
     "km": {
-     "term": "ការបញ្ជាក់ឯកសារអន្តរជាតិ (Aposeutiyu)",
+     "term": "ការបញ្ជាក់ឯកសារអន្តរជាតិ",
      "def": "ការបញ្ជាក់ជាផ្លូវការលើឯកសារបរទេស ដើម្បីឱ្យអាចប្រើបាននៅកូរ៉េ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Апостиль (Aposeutiyu)",
+     "term": "Апостиль",
      "def": "Международное официальное заверение иностранных документов, чтобы их принимали в Корее; иногда вместо него нужна консульская легализация.",
      "source": "llm"
     },
     "vi": {
-     "term": "Chứng nhận Apostille (Aposeutiyu)",
+     "term": "Chứng nhận Apostille",
      "def": "Chứng nhận quốc tế xác nhận giấy tờ nước ngoài là hợp lệ, thường cần khi nộp hồ sơ ở Hàn Quốc.",
      "source": "llm"
     },
     "zh": {
-     "term": "海牙认证 (Aposeutiyu)",
+     "term": "海牙认证",
      "def": "对外国出具的文件进行官方国际认证的手续，也可通过领事认证办理。",
      "source": "llm"
     },
     "uz": {
-     "term": "Apostil (Aposeutiyu)",
+     "term": "Apostil",
      "def": "Chet eldan olingan hujjatning haqiqiyligini xalqaro miqyosda rasman tasdiqlovchi belgi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Апостиль (Aposeutiyu)",
+     "term": "Апостиль",
      "def": "Гадаад улсын бичиг баримтыг олон улсад хүчинтэй гэж албан ёсоор баталгаажуулах тэмдэглэгээ.",
      "source": "llm"
     },
     "th": {
-     "term": "การรับรองเอกสาร (Aposeutiyu)",
+     "term": "การรับรองเอกสาร",
      "def": "การรับรองเอกสารจากต่างประเทศอย่างเป็นทางการตามมาตรฐานสากล เพื่อให้นำมาใช้ในเกาหลีได้",
      "source": "llm"
     },
     "ne": {
-     "term": "अपोस्टिल प्रमाणीकरण (Aposeutiyu)",
+     "term": "अपोस्टिल प्रमाणीकरण",
      "def": "विदेशी कागजातलाई अन्तर्राष्ट्रिय रूपमा आधिकारिक मान्यता दिने प्रमाणीकरण।",
      "source": "llm"
     },
     "fil": {
-     "term": "Apostille (Aposeutiyu)",
+     "term": "Apostille",
      "def": "Opisyal na internasyonal na pagpapatunay na totoo ang mga dokumentong galing sa ibang bansa.",
      "source": "llm"
     },
     "id": {
-     "term": "Apostille (Aposeutiyu)",
+     "term": "Apostille",
      "def": "Pengesahan resmi internasional atas dokumen dari luar negeri agar diakui di Korea.",
      "source": "llm"
     }
@@ -6451,62 +6451,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Visa status (Cheryu jagyeok)",
+     "term": "Visa status",
      "def": "The type of visa that allows a foreigner to stay in Korea, such as F-4, F-6, or D-4.",
      "source": "llm"
     },
     "ja": {
-     "term": "在留資格 (Cheryu jagyeok)",
+     "term": "在留資格",
      "def": "外国人が韓国に住むための資格で、F-4やD-4などのビザの種類を指します。",
      "source": "llm"
     },
     "km": {
-     "term": "ប្រភេទទិដ្ឋាការ (Cheryu jagyeok)",
+     "term": "ប្រភេទទិដ្ឋាការ",
      "def": "សិទ្ធិស្នាក់នៅកូរ៉េរបស់ជនបរទេស ដូចជាទិដ្ឋាការ F-4, F-6 ឬ D-4។",
      "source": "llm"
     },
     "ru": {
-     "term": "Статус пребывания, тип визы (Cheryu jagyeok)",
+     "term": "Статус пребывания, тип визы",
      "def": "Вид визы, дающий иностранцу право жить в Корее, например F-4, F-6 или D-4.",
      "source": "llm"
     },
     "vi": {
-     "term": "Tư cách lưu trú (Cheryu jagyeok)",
+     "term": "Tư cách lưu trú",
      "def": "Loại visa quy định quyền cư trú của người nước ngoài tại Hàn Quốc, ví dụ F-4, F-6, D-4.",
      "source": "llm"
     },
     "zh": {
-     "term": "滞留资格 (Cheryu jagyeok)",
+     "term": "滞留资格",
      "def": "外国人在韩国居住的合法资格，即签证种类，如F-4、F-6、D-4等。",
      "source": "llm"
     },
     "uz": {
-     "term": "Yashash maqomi, viza turi (Cheryu jagyeok)",
+     "term": "Yashash maqomi, viza turi",
      "def": "Chet ellikning Koreyada yashash huquqi, ya'ni viza turi, masalan F-4, F-6 yoki D-4.",
      "source": "llm"
     },
     "mn": {
-     "term": "Визний төрөл (Cheryu jagyeok)",
+     "term": "Визний төрөл",
      "def": "Гадаад иргэн Солонгост амьдрах эрхийн ангилал, жишээ нь F-4, F-6, D-4 виз.",
      "source": "llm"
     },
     "th": {
-     "term": "ประเภทวีซ่า (Cheryu jagyeok)",
+     "term": "ประเภทวีซ่า",
      "def": "สถานะที่อนุญาตให้ชาวต่างชาติพำนักอยู่ในเกาหลี ซึ่งก็คือประเภทวีซ่า เช่น F-4, F-6 หรือ D-4",
      "source": "llm"
     },
     "ne": {
-     "term": "भिसाको प्रकार (Cheryu Jagyeok)",
+     "term": "भिसाको प्रकार",
      "def": "विदेशीले कोरियामा बस्न पाउने कानुनी हैसियत, अर्थात् भिसाको प्रकार, जस्तै F-4, F-6, D-4।",
      "source": "llm"
     },
     "fil": {
-     "term": "Uri ng visa (Cheryu jagyeok)",
+     "term": "Uri ng visa",
      "def": "Ang legal na katayuan o uri ng visa na nagpapahintulot sa dayuhan na manirahan sa Korea, gaya ng F-4, F-6 o D-4.",
      "source": "llm"
     },
     "id": {
-     "term": "Status izin tinggal (Cheryu jagyeok)",
+     "term": "Status izin tinggal",
      "def": "Jenis visa atau izin yang menentukan hak orang asing untuk tinggal di Korea, misalnya F-4, F-6, D-4.",
      "source": "llm"
     }
@@ -6520,62 +6520,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Residence card (Oegugin deungnokjeung)",
+     "term": "Residence card",
      "def": "The official ID card for foreign residents in Korea, showing their foreigner registration number.",
      "source": "llm"
     },
     "ja": {
-     "term": "外国人登録証 (Oegugin deungnokjeung)",
+     "term": "外国人登録証",
      "def": "韓国に住む外国人が持つ身分証明書です。",
      "source": "llm"
     },
     "km": {
-     "term": "ប័ណ្ណចុះឈ្មោះជនបរទេស (Oegugin deungnokjeung)",
+     "term": "ប័ណ្ណចុះឈ្មោះជនបរទេស",
      "def": "ប័ណ្ណសម្គាល់អត្តសញ្ញាណសម្រាប់ជនបរទេសដែលរស់នៅកូរ៉េ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Карта регистрации иностранца (Oegugin deungnokjeung)",
+     "term": "Карта регистрации иностранца",
      "def": "Удостоверение личности иностранца, проживающего в Корее, с личным регистрационным номером.",
      "source": "llm"
     },
     "vi": {
-     "term": "Thẻ người nước ngoài (Oegugin deungnokjeung)",
+     "term": "Thẻ người nước ngoài",
      "def": "Thẻ căn cước dành cho người nước ngoài đang cư trú tại Hàn Quốc.",
      "source": "llm"
     },
     "zh": {
-     "term": "外国人登录证 (Oegugin deungnokjeung)",
+     "term": "外国人登录证",
      "def": "在韩外国人的身份证件，上面有外国人登录号码。",
      "source": "llm"
     },
     "uz": {
-     "term": "Chet ellik ID kartasi (Oegugin deungnokjeung)",
+     "term": "Chet ellik ID kartasi",
      "def": "Koreyada yashovchi chet elliklarning shaxsini tasdiqlovchi rasmiy hujjat.",
      "source": "llm"
     },
     "mn": {
-     "term": "Гадаадын иргэний үнэмлэх (Oegugin deungnokjeung)",
+     "term": "Гадаадын иргэний үнэмлэх",
      "def": "Солонгост амьдарч буй гадаад иргэний хувийн үнэмлэх.",
      "source": "llm"
     },
     "th": {
-     "term": "บัตรประจำตัวคนต่างชาติ (Oegugin deungnokjeung)",
+     "term": "บัตรประจำตัวคนต่างชาติ",
      "def": "บัตรประจำตัวที่ใช้ยืนยันตัวตนของชาวต่างชาติที่อาศัยอยู่ในเกาหลี",
      "source": "llm"
     },
     "ne": {
-     "term": "विदेशी दर्ता कार्ड (Oegugin Deungnokjeung)",
+     "term": "विदेशी दर्ता कार्ड",
      "def": "कोरियामा बस्ने विदेशीहरूको आधिकारिक परिचयपत्र।",
      "source": "llm"
     },
     "fil": {
-     "term": "Alien Registration Card (Oegugin deungnokjeung)",
+     "term": "Alien Registration Card",
      "def": "Opisyal na ID card ng mga dayuhang naninirahan sa Korea, na may sariling registration number.",
      "source": "llm"
     },
     "id": {
-     "term": "Kartu registrasi orang asing (Oegugin deungnokjeung)",
+     "term": "Kartu registrasi orang asing",
      "def": "Kartu identitas resmi bagi orang asing yang tinggal di Korea.",
      "source": "llm"
     }
@@ -6589,62 +6589,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Standard median income (Gijun jungwi sodeuk)",
+     "term": "Standard median income",
      "def": "The national middle household income level the government uses to decide who qualifies for financial support.",
      "source": "llm"
     },
     "ja": {
-     "term": "基準中位所得 (Gijun jungwi sodeuk)",
+     "term": "基準中位所得",
      "def": "国の所得の中間値で、各種支援を受けられるかどうかの基準になります。",
      "source": "llm"
     },
     "km": {
-     "term": "ប្រាក់ចំណូលមធ្យមស្តង់ដារ (Gijun jungwi sodeuk)",
+     "term": "ប្រាក់ចំណូលមធ្យមស្តង់ដារ",
      "def": "ប្រាក់ចំណូលកណ្តាលរបស់ប្រទេស ដែលប្រើជាគោលកំណត់សិទ្ធិទទួលជំនួយ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Базовый медианный доход (Gijun jungwi sodeuk)",
+     "term": "Базовый медианный доход",
      "def": "Средний доход по стране, от которого рассчитывают право семьи на государственную помощь и льготы.",
      "source": "llm"
     },
     "vi": {
-     "term": "Thu nhập trung vị chuẩn (Gijun jungwi sodeuk)",
+     "term": "Thu nhập trung vị chuẩn",
      "def": "Mức thu nhập ở giữa của cả nước, dùng làm chuẩn để xét các khoản hỗ trợ.",
      "source": "llm"
     },
     "zh": {
-     "term": "基准中位收入 (Gijun jungwi sodeuk)",
+     "term": "基准中位收入",
      "def": "国家公布的家庭收入中间值，用来判断能否获得各类补助。",
      "source": "llm"
     },
     "uz": {
-     "term": "Bazaviy median daromad (Gijun jungwi sodeuk)",
+     "term": "Bazaviy median daromad",
      "def": "Davlat yordamiga kim munosibligini aniqlashda asos qilinadigan, mamlakat bo'yicha o'rtacha oila daromadi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Жишиг дундаж орлого (Gijun jungwi sodeuk)",
+     "term": "Жишиг дундаж орлого",
      "def": "Төрийн дэмжлэг авах эрхийг тогтооход ашигладаг улсын дундаж орлогын түвшин.",
      "source": "llm"
     },
     "th": {
-     "term": "รายได้มัธยฐานมาตรฐาน (Gijun jungwi sodeuk)",
+     "term": "รายได้มัธยฐานมาตรฐาน",
      "def": "ระดับรายได้กลางของประเทศ ซึ่งรัฐใช้เป็นเกณฑ์ตัดสินสิทธิ์การรับความช่วยเหลือด้านรายได้",
      "source": "llm"
     },
     "ne": {
-     "term": "राष्ट्रिय मध्यम आय मापदण्ड (Gijun Jungwi Sodeuk)",
+     "term": "राष्ट्रिय मध्यम आय मापदण्ड",
      "def": "सरकारी सहायता पाउने योग्यता तय गर्न प्रयोग हुने देशको बीचको (मध्यम) घरायसी आय।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pambansang median na kita (Gijun jungwi sodeuk)",
+     "term": "Pambansang median na kita",
      "def": "Ang gitnang antas ng kita ng mga pamilya sa Korea na ginagamit na batayan sa pagbibigay ng tulong pinansyal.",
      "source": "llm"
     },
     "id": {
-     "term": "Pendapatan median standar (Gijun jungwi sodeuk)",
+     "term": "Pendapatan median standar",
      "def": "Pendapatan menengah nasional yang dipakai sebagai patokan untuk menentukan hak atas bantuan pemerintah.",
      "source": "llm"
     }
@@ -6658,62 +6658,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Basic livelihood recipient (Sugeupja)",
+     "term": "Basic livelihood recipient",
      "def": "A low-income household that receives basic living support from the government.",
      "source": "llm"
     },
     "ja": {
-     "term": "生活保護受給者 (Gicho saenghwal sugeupja)",
+     "term": "生活保護受給者",
      "def": "国から生活費の支援を受けている低所得の世帯です。",
      "source": "llm"
     },
     "km": {
-     "term": "គ្រួសារទទួលជំនួយជីវភាព (Gicho saenghwal sugeupja)",
+     "term": "គ្រួសារទទួលជំនួយជីវភាព",
      "def": "គ្រួសារមានចំណូលទាប ដែលទទួលជំនួយជីវភាពប្រចាំខែពីរដ្ឋ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Получатель базового пособия (Gicho saenghwal sugeupja)",
+     "term": "Получатель базового пособия",
      "def": "Малообеспеченная семья, получающая от государства пособие на жизнь.",
      "source": "llm"
     },
     "vi": {
-     "term": "Hộ nhận trợ cấp cơ bản (Gicho saenghwal sugeupja)",
+     "term": "Hộ nhận trợ cấp cơ bản",
      "def": "Hộ gia đình thu nhập thấp được nhà nước hỗ trợ chi phí sinh hoạt.",
      "source": "llm"
     },
     "zh": {
-     "term": "基本生活保障对象 (Gicho saenghwal sugeupja)",
+     "term": "基本生活保障对象",
      "def": "收入很低、由国家提供生活费等支援的家庭。",
      "source": "llm"
     },
     "uz": {
-     "term": "Davlat yordami oluvchi oila (Gicho saenghwal sugeupja)",
+     "term": "Davlat yordami oluvchi oila",
      "def": "Turmush uchun davlatdan muntazam moddiy yordam oladigan kam daromadli oila.",
      "source": "llm"
     },
     "mn": {
-     "term": "Амьжиргааны тэтгэмж авагч (Gicho saenghwal sugeupja)",
+     "term": "Амьжиргааны тэтгэмж авагч",
      "def": "Төрөөс амьжиргааны дэмжлэг авдаг бага орлоготой өрх.",
      "source": "llm"
     },
     "th": {
-     "term": "ผู้รับสวัสดิการยังชีพ (Gicho saenghwal sugeupja)",
+     "term": "ผู้รับสวัสดิการยังชีพ",
      "def": "ครอบครัวรายได้น้อยที่ได้รับเงินช่วยเหลือค่าครองชีพจากรัฐบาล",
      "source": "llm"
     },
     "ne": {
-     "term": "आधारभूत जीविका सहायता प्राप्त परिवार (Gicho Saenghwal Sugeupja)",
+     "term": "आधारभूत जीविका सहायता प्राप्त परिवार",
      "def": "सरकारबाट जीविकोपार्जन सहायता पाउने न्यून आय भएको परिवार।",
      "source": "llm"
     },
     "fil": {
-     "term": "Benepisyaryo ng pangunahing tulong (Gicho saenghwal sugeupja)",
+     "term": "Benepisyaryo ng pangunahing tulong",
      "def": "Pamilyang may mababang kita na tumatanggap ng buwanang tulong sa pamumuhay mula sa gobyerno.",
      "source": "llm"
     },
     "id": {
-     "term": "Penerima bantuan hidup dasar (Gichosaenghwal sugeupja)",
+     "term": "Penerima bantuan hidup dasar",
      "def": "Keluarga berpenghasilan rendah yang menerima bantuan biaya hidup dari negara.",
      "source": "llm"
     }
@@ -6727,62 +6727,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Near-poverty group (Chasangwi)",
+     "term": "Near-poverty group",
      "def": "Households with income just above the basic livelihood recipient level, often eligible for some support.",
      "source": "llm"
     },
     "ja": {
-     "term": "準低所得層 (Chasangwi gyecheung)",
+     "term": "準低所得層",
      "def": "生活保護受給者のすぐ上の所得層で、一部の支援の対象になります。",
      "source": "llm"
     },
     "km": {
-     "term": "គ្រួសារចំណូលទាបកម្រិតបន្ទាប់ (Chasangwi gyecheung)",
+     "term": "គ្រួសារចំណូលទាបកម្រិតបន្ទាប់",
      "def": "គ្រួសារដែលមានចំណូលខ្ពស់ជាងគ្រួសារទទួលជំនួយជីវភាពបន្តិច ហើយអាចទទួលជំនួយខ្លះ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Почти малоимущие семьи (Chasangwi)",
+     "term": "Почти малоимущие семьи",
      "def": "Семьи с доходом чуть выше уровня получателей базового пособия, которые тоже имеют право на некоторые льготы.",
      "source": "llm"
     },
     "vi": {
-     "term": "Hộ cận nghèo (Chasangwi gyecheung)",
+     "term": "Hộ cận nghèo",
      "def": "Nhóm thu nhập thấp nằm ngay trên mức hộ nhận trợ cấp sinh hoạt cơ bản.",
      "source": "llm"
     },
     "zh": {
-     "term": "次低收入阶层 (Chasangwi gyecheung)",
+     "term": "次低收入阶层",
      "def": "收入略高于基本生活保障对象的低收入家庭，也可享受部分支援。",
      "source": "llm"
     },
     "uz": {
-     "term": "Kam daromadga yaqin oila (Chasangwi gyecheung)",
+     "term": "Kam daromadga yaqin oila",
      "def": "Daromadi davlat yordami oluvchi oilalardan biroz yuqori bo'lgan kam ta'minlangan oilalar toifasi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Бага орлогын ойролцоо өрх (Chasangwi gyecheung)",
+     "term": "Бага орлогын ойролцоо өрх",
      "def": "Амьжиргааны тэтгэмж авагчаас арай өндөр боловч бага орлоготой өрх.",
      "source": "llm"
     },
     "th": {
-     "term": "กลุ่มรายได้เกือบยากจน (Chasangwi gyecheung)",
+     "term": "กลุ่มรายได้เกือบยากจน",
      "def": "ครอบครัวที่มีรายได้สูงกว่ากลุ่มผู้รับสวัสดิการยังชีพเพียงเล็กน้อย และอาจได้รับความช่วยเหลือบางอย่าง",
      "source": "llm"
     },
     "ne": {
-     "term": "न्यून आय सीमावर्ती वर्ग (Chasangwi Gyecheung)",
+     "term": "न्यून आय सीमावर्ती वर्ग",
      "def": "आधारभूत जीविका सहायता पाउने परिवारभन्दा ठीक माथिको न्यून आय भएको वर्ग।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pamilyang halos mababa ang kita (Chasangwi gyecheung)",
+     "term": "Pamilyang halos mababa ang kita",
      "def": "Mga pamilyang medyo mababa ang kita, nasa itaas lang ng mga tumatanggap ng pangunahing tulong ng gobyerno.",
      "source": "llm"
     },
     "id": {
-     "term": "Kelompok hampir miskin (Chasangwi gyecheung)",
+     "term": "Kelompok hampir miskin",
      "def": "Kelompok berpenghasilan sedikit di atas penerima bantuan hidup dasar, yang juga bisa mendapat dukungan tertentu.",
      "source": "llm"
     }
@@ -6796,62 +6796,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Career path (Jillo)",
+     "term": "Career path",
      "def": "Your child's future direction in work and study.",
      "source": "llm"
     },
     "ja": {
-     "term": "進路 (Jillo)",
+     "term": "進路",
      "def": "将来の職業や学業の方向性のことです。",
      "source": "llm"
     },
     "km": {
-     "term": "ទិសដៅអាជីព (Jillo)",
+     "term": "ទិសដៅអាជីព",
      "def": "ទិសដៅការងារ និងការសិក្សារបស់កូននាពេលអនាគត។",
      "source": "llm"
     },
     "ru": {
-     "term": "Будущий путь, профориентация (Jillo)",
+     "term": "Будущий путь, профориентация",
      "def": "Направление будущей профессии и учёбы ребёнка.",
      "source": "llm"
     },
     "vi": {
-     "term": "Định hướng nghề nghiệp (Jillo)",
+     "term": "Định hướng nghề nghiệp",
      "def": "Hướng đi tương lai của con về công việc và học tập.",
      "source": "llm"
     },
     "zh": {
-     "term": "未来发展方向 (Jillo)",
+     "term": "未来发展方向",
      "def": "孩子今后想走的学业和职业方向。",
      "source": "llm"
     },
     "uz": {
-     "term": "Kelajak yo'nalishi (Jillo)",
+     "term": "Kelajak yo'nalishi",
      "def": "Farzandingizning kelajakda tanlaydigan kasbi va o'qish yo'nalishi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Ирээдүйн чиглэл (Jillo)",
+     "term": "Ирээдүйн чиглэл",
      "def": "Хүүхдийн цаашид сонгох мэргэжил, суралцах чиглэл.",
      "source": "llm"
     },
     "th": {
-     "term": "แนวทางอนาคต (Jillo)",
+     "term": "แนวทางอนาคต",
      "def": "ทิศทางด้านอาชีพและการเรียนที่นักเรียนวางแผนไว้สำหรับอนาคต",
      "source": "llm"
     },
     "ne": {
-     "term": "भविष्यको करियर दिशा (Jillo)",
+     "term": "भविष्यको करियर दिशा",
      "def": "विद्यार्थीले भविष्यमा कुन पेशा र पढाइको बाटो लिने भन्ने दिशा।",
      "source": "llm"
     },
     "fil": {
-     "term": "Landas sa karera (Jillo)",
+     "term": "Landas sa karera",
      "def": "Ang direksyon ng anak sa hinaharap pagdating sa trabaho at pag-aaral.",
      "source": "llm"
     },
     "id": {
-     "term": "Arah karier (Jillo)",
+     "term": "Arah karier",
      "def": "Rencana arah pekerjaan dan pendidikan anak di masa depan.",
      "source": "llm"
     }
@@ -6863,62 +6863,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Advancing to the next school (Jinhak)",
+     "term": "Advancing to the next school",
      "def": "Moving on to a higher-level school, such as from high school to university.",
      "source": "llm"
     },
     "ja": {
-     "term": "進学 (Jinhak)",
+     "term": "進学",
      "def": "上級の学校に進むことです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការបន្តការសិក្សា (Jinhak)",
+     "term": "ការបន្តការសិក្សា",
      "def": "ការចូលរៀននៅសាលាកម្រិតខ្ពស់ជាង ដូចជាវិទ្យាល័យ ឬសាកលវិទ្យាល័យ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Поступление (Jinhak)",
+     "term": "Поступление",
      "def": "Переход ребёнка в учебное заведение следующей ступени, например в старшую школу или университет.",
      "source": "llm"
     },
     "vi": {
-     "term": "Học lên cấp trên (Jinhak)",
+     "term": "Học lên cấp trên",
      "def": "Việc vào học ở trường cấp cao hơn, ví dụ từ cấp ba lên đại học.",
      "source": "llm"
     },
     "zh": {
-     "term": "升学 (Jinhak)",
+     "term": "升学",
      "def": "进入更高一级的学校，如从初中升入高中、从高中升入大学。",
      "source": "llm"
     },
     "uz": {
-     "term": "Keyingi bosqichga o'qishga kirish (Jinhak)",
+     "term": "Keyingi bosqichga o'qishga kirish",
      "def": "Yuqori bosqichdagi maktab yoki universitetga o'qishga kirish.",
      "source": "llm"
     },
     "mn": {
-     "term": "Дээд шатны сургуульд элсэх (Jinhak)",
+     "term": "Дээд шатны сургуульд элсэх",
      "def": "Дараагийн шатны сургууль, жишээ нь ахлах сургууль эсвэл их сургуульд орох.",
      "source": "llm"
     },
     "th": {
-     "term": "การศึกษาต่อ (Jinhak)",
+     "term": "การศึกษาต่อ",
      "def": "การเข้าเรียนในโรงเรียนหรือสถาบันการศึกษาระดับที่สูงขึ้น",
      "source": "llm"
     },
     "ne": {
-     "term": "माथिल्लो तहमा भर्ना (Jinhak)",
+     "term": "माथिल्लो तहमा भर्ना",
      "def": "अर्को तहको विद्यालय वा विश्वविद्यालयमा भर्ना भएर पढाइ अघि बढाउनु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pagpasok sa mas mataas na paaralan (Jinhak)",
+     "term": "Pagpasok sa mas mataas na paaralan",
      "def": "Ang pagtuloy ng estudyante sa susunod na antas ng paaralan, gaya ng high school o kolehiyo.",
      "source": "llm"
     },
     "id": {
-     "term": "Melanjutkan sekolah (Jinhak)",
+     "term": "Melanjutkan sekolah",
      "def": "Masuk ke jenjang sekolah yang lebih tinggi, misalnya dari SMA ke universitas.",
      "source": "llm"
     }
@@ -6937,12 +6937,12 @@
      "source": "llm"
     },
     "ja": {
-     "term": "進路・進学相談 (Jillo jinhak sangdam)",
+     "term": "進路・進学相談",
      "def": "進路や進学について専門家に相談することです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការប្រឹក្សាអាជីព និងការសិក្សា (Jillo jinhak sangdam)",
+     "term": "ការប្រឹក្សាអាជីព និងការសិក្សា",
      "def": "ការពិគ្រោះជាមួយអ្នកជំនាញអំពីអាជីព និងការបន្តការសិក្សារបស់កូន។",
      "source": "llm"
     },
@@ -6952,42 +6952,42 @@
      "source": "llm"
     },
     "vi": {
-     "term": "Tư vấn hướng nghiệp và học lên (Jillo jinhak sangdam)",
+     "term": "Tư vấn hướng nghiệp và học lên",
      "def": "Việc trao đổi với chuyên gia về định hướng nghề nghiệp và chọn trường học lên.",
      "source": "llm"
     },
     "zh": {
-     "term": "升学与生涯咨询 (Jillo jinhak sangdam)",
+     "term": "升学与生涯咨询",
      "def": "就孩子的未来方向和升学问题向专业人员进行咨询。",
      "source": "llm"
     },
     "uz": {
-     "term": "Kasb va o'qish maslahati (Jillo jinhak sangdam)",
+     "term": "Kasb va o'qish maslahati",
      "def": "Farzandingizning kasbi va o'qishga kirishi haqida mutaxassis bilan maslahatlashish.",
      "source": "llm"
     },
     "mn": {
-     "term": "Мэргэжил, элсэлтийн зөвлөгөө (Jillo jinhak sangdam)",
+     "term": "Мэргэжил, элсэлтийн зөвлөгөө",
      "def": "Хүүхдийн ирээдүйн мэргэжил, сургуульд элсэх талаар мэргэжилтэнтэй зөвлөлдөх.",
      "source": "llm"
     },
     "th": {
-     "term": "การแนะแนวอาชีพและการศึกษาต่อ (Jillo jinhak sangdam)",
+     "term": "การแนะแนวอาชีพและการศึกษาต่อ",
      "def": "การปรึกษาผู้เชี่ยวชาญเกี่ยวกับเส้นทางอาชีพและการศึกษาต่อของนักเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "करियर तथा भर्ना परामर्श (Jillo Jinhak Sangdam)",
+     "term": "करियर तथा भर्ना परामर्श",
      "def": "भविष्यको करियर र माथिल्लो तहको भर्नाबारे विशेषज्ञसँग गरिने परामर्श।",
      "source": "llm"
     },
     "fil": {
-     "term": "Gabay sa karera at pag-aaral (Jillo jinhak sangdam)",
+     "term": "Gabay sa karera at pag-aaral",
      "def": "Pakikipag-usap sa eksperto tungkol sa magiging trabaho at susunod na paaralan ng anak.",
      "source": "llm"
     },
     "id": {
-     "term": "Konseling karier dan studi lanjut (Jillo jinhak sangdam)",
+     "term": "Konseling karier dan studi lanjut",
      "def": "Konsultasi dengan tenaga ahli tentang rencana karier dan pilihan sekolah atau universitas berikutnya.",
      "source": "llm"
     }
@@ -7006,12 +7006,12 @@
      "source": "llm"
     },
     "ja": {
-     "term": "進路進学相談センター (Jillo jinhak sangdam senteo)",
+     "term": "進路進学相談センター",
      "def": "忠清南道教育庁が運営している無料の相談機関です。",
      "source": "llm"
     },
     "km": {
-     "term": "មជ្ឈមណ្ឌលប្រឹក្សាអាជីព (Jillo jinhak sangdam senteo)",
+     "term": "មជ្ឈមណ្ឌលប្រឹក្សាអាជីព",
      "def": "មជ្ឈមណ្ឌលប្រឹក្សាឥតគិតថ្លៃ ដែលដំណើរការដោយការិយាល័យអប់រំខេត្តឈុងណាម។",
      "source": "llm"
     },
@@ -7021,17 +7021,17 @@
      "source": "llm"
     },
     "vi": {
-     "term": "Trung tâm tư vấn hướng nghiệp (Jillo jinhak sangdam senteo)",
+     "term": "Trung tâm tư vấn hướng nghiệp",
      "def": "Cơ quan tư vấn miễn phí do Sở Giáo dục tỉnh Chungnam điều hành.",
      "source": "llm"
     },
     "zh": {
-     "term": "升学咨询中心 (Jillo jinhak sangdam senteo)",
+     "term": "升学咨询中心",
      "def": "忠清南道教育厅运营的免费升学与生涯咨询机构。",
      "source": "llm"
     },
     "uz": {
-     "term": "Kasb-o'qish maslahat markazi (Jillo jinhak sangdam senteo)",
+     "term": "Kasb-o'qish maslahat markazi",
      "def": "Chungnam viloyati ta'lim boshqarmasi tomonidan yuritiladigan bepul maslahat markazi.",
      "source": "llm"
     },
@@ -7041,22 +7041,22 @@
      "source": "llm"
     },
     "th": {
-     "term": "ศูนย์แนะแนวการศึกษาต่อ (Jillo jinhak sangdam senteo)",
+     "term": "ศูนย์แนะแนวการศึกษาต่อ",
      "def": "หน่วยงานให้คำปรึกษาฟรีด้านอาชีพและการศึกษาต่อ ดำเนินการโดยสำนักงานการศึกษาจังหวัดชุงชองใต้",
      "source": "llm"
     },
     "ne": {
-     "term": "करियर तथा भर्ना परामर्श केन्द्र (Jillo Jinhak Sangdam Senteo)",
+     "term": "करियर तथा भर्ना परामर्श केन्द्र",
      "def": "चुङनाम प्रान्तीय शिक्षा कार्यालयले सञ्चालन गर्ने निःशुल्क परामर्श केन्द्र।",
      "source": "llm"
     },
     "fil": {
-     "term": "Sentro ng gabay sa karera at pag-aaral (Jillo jinhak sangdam senteo)",
+     "term": "Sentro ng gabay sa karera at pag-aaral",
      "def": "Libreng counseling center na pinapatakbo ng Chungnam Office of Education para sa karera at pagpasok sa paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Pusat konseling karier dan studi lanjut (Jillo jinhak sangdam senteo)",
+     "term": "Pusat konseling karier dan studi lanjut",
      "def": "Lembaga konseling gratis yang dikelola Dinas Pendidikan Provinsi Chungcheongnam-do.",
      "source": "llm"
     }
@@ -7076,12 +7076,12 @@
      "source": "llm"
     },
     "ja": {
-     "term": "専攻選び (Hakgwa seontaek)",
+     "term": "専攻選び",
      "def": "大学で学ぶ専攻（学科）を選ぶことです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការជ្រើសរើសមុខជំនាញ (Hakgwa seontaek)",
+     "term": "ការជ្រើសរើសមុខជំនាញ",
      "def": "ការជ្រើសរើសមុខជំនាញដែលកូននឹងសិក្សានៅសាកលវិទ្យាល័យ។",
      "source": "llm"
     },
@@ -7091,42 +7091,42 @@
      "source": "llm"
     },
     "vi": {
-     "term": "Chọn ngành học (Hakgwa seontaek)",
+     "term": "Chọn ngành học",
      "def": "Việc chọn chuyên ngành mà con sẽ theo học ở đại học.",
      "source": "llm"
     },
     "zh": {
-     "term": "选择专业 (Hakgwa seontaek)",
+     "term": "选择专业",
      "def": "决定孩子在大学里要学习的专业。",
      "source": "llm"
     },
     "uz": {
-     "term": "Mutaxassislik tanlash (Hakgwa seontaek)",
+     "term": "Mutaxassislik tanlash",
      "def": "Universitetda qaysi yo'nalishda o'qishni tanlash.",
      "source": "llm"
     },
     "mn": {
-     "term": "Мэргэжил сонголт (Hakgwa seontaek)",
+     "term": "Мэргэжил сонголт",
      "def": "Их сургуульд ямар мэргэжлээр суралцахаа сонгох.",
      "source": "llm"
     },
     "th": {
-     "term": "การเลือกสาขาวิชา (Hakgwa seontaek)",
+     "term": "การเลือกสาขาวิชา",
      "def": "การตัดสินใจเลือกวิชาเอกที่จะเรียนในมหาวิทยาลัย",
      "source": "llm"
     },
     "ne": {
-     "term": "मुख्य विषय (मेजर) छनोट (Hakgwa Seontaek)",
+     "term": "मुख्य विषय (मेजर) छनोट",
      "def": "विश्वविद्यालयमा कुन मुख्य विषय पढ्ने भनेर छान्नु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pagpili ng kurso (Hakgwa seontaek)",
+     "term": "Pagpili ng kurso",
      "def": "Ang pagpili ng major o kursong pag-aaralan ng anak sa unibersidad.",
      "source": "llm"
     },
     "id": {
-     "term": "Pemilihan jurusan (Hakgwa seontaek)",
+     "term": "Pemilihan jurusan",
      "def": "Memilih bidang studi atau jurusan yang akan dipelajari di universitas.",
      "source": "llm"
     }
@@ -7140,62 +7140,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Scholarship (Janghakgeum)",
+     "term": "Scholarship",
      "def": "Money to help pay for school, given based on grades, family income, or other criteria.",
      "source": "llm"
     },
     "ja": {
-     "term": "奨学金 (Janghakgeum)",
+     "term": "奨学金",
      "def": "成績や家庭の所得などに応じて支給される学費の支援金です。",
      "source": "llm"
     },
     "km": {
-     "term": "អាហារូបករណ៍ (Janghakgeum)",
+     "term": "អាហារូបករណ៍",
      "def": "ប្រាក់ជំនួយថ្លៃសិក្សា ដែលផ្តល់តាមលទ្ធផលសិក្សា ឬចំណូលគ្រួសារ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Стипендия (Janghakgeum)",
+     "term": "Стипендия",
      "def": "Денежная помощь на оплату учёбы, которую дают по успеваемости, доходу семьи и другим критериям.",
      "source": "llm"
     },
     "vi": {
-     "term": "Học bổng (Janghakgeum)",
+     "term": "Học bổng",
      "def": "Khoản tiền hỗ trợ học phí, xét theo thành tích học tập hoặc thu nhập gia đình.",
      "source": "llm"
     },
     "zh": {
-     "term": "奖学金 (Janghakgeum)",
+     "term": "奖学金",
      "def": "根据成绩或家庭收入等发放的学费补助，如国家奖学金。",
      "source": "llm"
     },
     "uz": {
-     "term": "Stipendiya (Janghakgeum)",
+     "term": "Stipendiya",
      "def": "Baholar yoki oila daromadiga qarab beriladigan o'qish to'lovi uchun yordam puli.",
      "source": "llm"
     },
     "mn": {
-     "term": "Тэтгэлэг (Janghakgeum)",
+     "term": "Тэтгэлэг",
      "def": "Сурлагын дүн, гэр бүлийн орлого зэргээс хамаарч олгодог сургалтын төлбөрийн дэмжлэг.",
      "source": "llm"
     },
     "th": {
-     "term": "ทุนการศึกษา (Janghakgeum)",
+     "term": "ทุนการศึกษา",
      "def": "เงินช่วยเหลือค่าเล่าเรียนที่ให้ตามผลการเรียน รายได้ครอบครัว หรือเงื่อนไขอื่น",
      "source": "llm"
     },
     "ne": {
-     "term": "छात्रवृत्ति (Janghakgeum)",
+     "term": "छात्रवृत्ति",
      "def": "राम्रो नतिजा वा पारिवारिक आय आदिका आधारमा दिइने पढाइ खर्च सहायता रकम।",
      "source": "llm"
     },
     "fil": {
-     "term": "Iskolarship (Janghakgeum)",
+     "term": "Iskolarship",
      "def": "Tulong pinansyal sa matrikula na ibinibigay batay sa marka, kita ng pamilya, o iba pang batayan.",
      "source": "llm"
     },
     "id": {
-     "term": "Beasiswa (Janghakgeum)",
+     "term": "Beasiswa",
      "def": "Bantuan biaya pendidikan yang diberikan berdasarkan nilai, penghasilan keluarga, atau kriteria lain.",
      "source": "llm"
     }
@@ -7209,62 +7209,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Tuition (Deungnokgeum)",
+     "term": "Tuition",
      "def": "The fees you pay to a university for your child's studies.",
      "source": "llm"
     },
     "ja": {
-     "term": "大学の授業料 (Deungnokgeum)",
+     "term": "大学の授業料",
      "def": "大学に納める学費のことです。",
      "source": "llm"
     },
     "km": {
-     "term": "ថ្លៃសិក្សា (Deungnokgeum)",
+     "term": "ថ្លៃសិក្សា",
      "def": "ប្រាក់ដែលត្រូវបង់ឱ្យសាកលវិទ្យាល័យសម្រាប់ការសិក្សា។",
      "source": "llm"
     },
     "ru": {
-     "term": "Плата за обучение (Deungnokgeum)",
+     "term": "Плата за обучение",
      "def": "Деньги, которые платят университету за учёбу каждый семестр.",
      "source": "llm"
     },
     "vi": {
-     "term": "Học phí đại học (Deungnokgeum)",
+     "term": "Học phí đại học",
      "def": "Khoản tiền học phí phải nộp cho trường đại học mỗi học kỳ.",
      "source": "llm"
     },
     "zh": {
-     "term": "大学学费 (Deungnokgeum)",
+     "term": "大学学费",
      "def": "每学期需要向大学缴纳的学费。",
      "source": "llm"
     },
     "uz": {
-     "term": "O'qish to'lovi (Deungnokgeum)",
+     "term": "O'qish to'lovi",
      "def": "Universitetda o'qish uchun har semestr to'lanadigan pul.",
      "source": "llm"
     },
     "mn": {
-     "term": "Сургалтын төлбөр (Deungnokgeum)",
+     "term": "Сургалтын төлбөр",
      "def": "Их сургуульд төлдөг сургалтын төлбөр.",
      "source": "llm"
     },
     "th": {
-     "term": "ค่าเล่าเรียน (Deungnokgeum)",
+     "term": "ค่าเล่าเรียน",
      "def": "ค่าธรรมเนียมการศึกษาที่ต้องจ่ายให้มหาวิทยาลัยในแต่ละภาคเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "विश्वविद्यालय शुल्क (Deungnokgeum)",
+     "term": "विश्वविद्यालय शुल्क",
      "def": "विश्वविद्यालयमा पढ्नका लागि तिर्नुपर्ने शैक्षिक शुल्क।",
      "source": "llm"
     },
     "fil": {
-     "term": "Matrikula (Deungnokgeum)",
+     "term": "Matrikula",
      "def": "Ang bayad sa pag-aaral na ibinabayad sa unibersidad bawat semestre.",
      "source": "llm"
     },
     "id": {
-     "term": "Uang kuliah (Deungnokgeum)",
+     "term": "Uang kuliah",
      "def": "Biaya pendidikan yang dibayarkan kepada universitas.",
      "source": "llm"
     }
@@ -7276,62 +7276,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Dormitory (Gisuksa)",
+     "term": "Dormitory",
      "def": "Student housing on the school or university campus.",
      "source": "llm"
     },
     "ja": {
-     "term": "寮 (Gisuksa)",
+     "term": "寮",
      "def": "学校の敷地内にある、学生が生活するための施設です。",
      "source": "llm"
     },
     "km": {
-     "term": "អន្តេវាសិកដ្ឋាន (Gisuksa)",
+     "term": "អន្តេវាសិកដ្ឋាន",
      "def": "កន្លែងស្នាក់នៅសម្រាប់សិស្សនៅក្នុងបរិវេណសាលា។",
      "source": "llm"
     },
     "ru": {
-     "term": "Общежитие (Gisuksa)",
+     "term": "Общежитие",
      "def": "Жильё для учащихся на территории учебного заведения.",
      "source": "llm"
     },
     "vi": {
-     "term": "Ký túc xá (Gisuksa)",
+     "term": "Ký túc xá",
      "def": "Nơi ở dành cho học sinh, sinh viên nằm trong khuôn viên trường.",
      "source": "llm"
     },
     "zh": {
-     "term": "学生宿舍 (Gisuksa)",
+     "term": "学生宿舍",
      "def": "学校内供学生住宿生活的设施。",
      "source": "llm"
     },
     "uz": {
-     "term": "Yotoqxona (Gisuksa)",
+     "term": "Yotoqxona",
      "def": "Talaba yoki o'quvchilar yashaydigan, maktab hududidagi turar joy.",
      "source": "llm"
     },
     "mn": {
-     "term": "Дотуур байр (Gisuksa)",
+     "term": "Дотуур байр",
      "def": "Сургуулийн дэргэдэх сурагч, оюутнуудын амьдрах байр.",
      "source": "llm"
     },
     "th": {
-     "term": "หอพักของสถานศึกษา (Gisuksa)",
+     "term": "หอพักของสถานศึกษา",
      "def": "ที่พักอาศัยสำหรับนักเรียนหรือนักศึกษาซึ่งตั้งอยู่ภายในโรงเรียนหรือมหาวิทยาลัย",
      "source": "llm"
     },
     "ne": {
-     "term": "छात्रावास (Gisuksa)",
+     "term": "छात्रावास",
      "def": "विद्यार्थीहरू बस्न मिल्ने विद्यालय परिसरभित्रको आवास सुविधा।",
      "source": "llm"
     },
     "fil": {
-     "term": "Dormitoryo (Gisuksa)",
+     "term": "Dormitoryo",
      "def": "Tirahan ng mga estudyante na nasa loob o pinapatakbo ng paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Asrama (Gisuksa)",
+     "term": "Asrama",
      "def": "Tempat tinggal bagi siswa atau mahasiswa di lingkungan sekolah atau kampus.",
      "source": "llm"
     }
@@ -7345,62 +7345,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Employment (Chwieop)",
+     "term": "Employment",
      "def": "Getting a job; schools often report their graduates' employment rate.",
      "source": "llm"
     },
     "ja": {
-     "term": "就職 (Chwieop)",
+     "term": "就職",
      "def": "仕事に就くことです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការរកការងារធ្វើ (Chwieop)",
+     "term": "ការរកការងារធ្វើ",
      "def": "ការទទួលបានការងារធ្វើ ជាពិសេសបន្ទាប់ពីបញ្ចប់ការសិក្សា។",
      "source": "llm"
     },
     "ru": {
-     "term": "Трудоустройство (Chwieop)",
+     "term": "Трудоустройство",
      "def": "Получение работы после окончания учёбы; часто сравнивают процент трудоустройства выпускников.",
      "source": "llm"
     },
     "vi": {
-     "term": "Có việc làm (Chwieop)",
+     "term": "Có việc làm",
      "def": "Việc tìm được công việc; tỷ lệ có việc làm thường được dùng để đánh giá ngành học.",
      "source": "llm"
     },
     "zh": {
-     "term": "就业 (Chwieop)",
+     "term": "就业",
      "def": "找到工作；就业率指毕业生成功找到工作的比例。",
      "source": "llm"
     },
     "uz": {
-     "term": "Ishga joylashish (Chwieop)",
+     "term": "Ishga joylashish",
      "def": "O'qishni tugatgandan keyin ish topish.",
      "source": "llm"
     },
     "mn": {
-     "term": "Ажилд орох (Chwieop)",
+     "term": "Ажилд орох",
      "def": "Сургууль төгсөөд ажлын байртай болох.",
      "source": "llm"
     },
     "th": {
-     "term": "การได้งานทำ (Chwieop)",
+     "term": "การได้งานทำ",
      "def": "การได้เข้าทำงานในบริษัทหรือองค์กรหลังเรียนจบ",
      "source": "llm"
     },
     "ne": {
-     "term": "रोजगारी (Chwieop)",
+     "term": "रोजगारी",
      "def": "पढाइ सकेपछि जागिर वा काम पाउनु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pagkakaroon ng trabaho (Chwieop)",
+     "term": "Pagkakaroon ng trabaho",
      "def": "Ang pagkakuha ng trabaho; madalas tinitingnan ang employment rate ng isang kurso o paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Mendapat pekerjaan (Chwieop)",
+     "term": "Mendapat pekerjaan",
      "def": "Berhasil memperoleh pekerjaan setelah lulus sekolah atau kuliah.",
      "source": "llm"
     }
@@ -7415,62 +7415,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Homeroom teacher (Damim)",
+     "term": "Homeroom teacher",
      "def": "The teacher in charge of your child's class and your main contact at school.",
      "source": "llm"
     },
     "ja": {
-     "term": "担任の先生 (Damim)",
+     "term": "担任の先生",
      "def": "クラスを受け持っている先生です。",
      "source": "llm"
     },
     "km": {
-     "term": "គ្រូបន្ទុកថ្នាក់ (Damim gyosa)",
+     "term": "គ្រូបន្ទុកថ្នាក់",
      "def": "គ្រូដែលទទួលខុសត្រូវលើថ្នាក់របស់កូន និងជាអ្នកទំនាក់ទំនងសំខាន់សម្រាប់មាតាបិតា។",
      "source": "llm"
     },
     "ru": {
-     "term": "Классный руководитель (Damim)",
+     "term": "Классный руководитель",
      "def": "Учитель, который отвечает за класс вашего ребёнка и является главным контактом для родителей.",
      "source": "llm"
     },
     "vi": {
-     "term": "Giáo viên chủ nhiệm (Damim)",
+     "term": "Giáo viên chủ nhiệm",
      "def": "Giáo viên phụ trách lớp của con, là người liên lạc chính với phụ huynh.",
      "source": "llm"
     },
     "zh": {
-     "term": "班主任 (Damim)",
+     "term": "班主任",
      "def": "负责管理一个班级的老师，是家长最主要的联系人。",
      "source": "llm"
     },
     "uz": {
-     "term": "Sinf rahbari (Damim gyosa)",
+     "term": "Sinf rahbari",
      "def": "Farzandingiz sinfiga mas'ul bo'lgan asosiy o'qituvchi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Ангийн багш (Damim gyosa)",
+     "term": "Ангийн багш",
      "def": "Нэг ангийг хариуцдаг, эцэг эхтэй гол харилцдаг багш.",
      "source": "llm"
     },
     "th": {
-     "term": "ครูประจำชั้น (Damim gyosa)",
+     "term": "ครูประจำชั้น",
      "def": "ครูที่รับผิดชอบดูแลนักเรียนในห้องเรียนหนึ่งห้อง และเป็นผู้ติดต่อหลักของผู้ปกครอง",
      "source": "llm"
     },
     "ne": {
-     "term": "कक्षा शिक्षक (Damim Seonsaengnim)",
+     "term": "कक्षा शिक्षक",
      "def": "तपाईंको बच्चाको कक्षाको जिम्मा लिने मुख्य शिक्षक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Class adviser (Damim seonsaengnim)",
+     "term": "Class adviser",
      "def": "Ang gurong namamahala sa isang klase at pangunahing kausap ng magulang tungkol sa anak.",
      "source": "llm"
     },
     "id": {
-     "term": "Wali kelas (Damim gyosa)",
+     "term": "Wali kelas",
      "def": "Guru yang bertanggung jawab atas satu kelas dan menjadi kontak utama orang tua.",
      "source": "llm"
     }
@@ -7485,62 +7485,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Career counseling teacher (Jillo gyosa)",
+     "term": "Career counseling teacher",
      "def": "A teacher dedicated to advising students on careers and school or university admissions.",
      "source": "llm"
     },
     "ja": {
-     "term": "進路指導の先生 (Jillo gyosa)",
+     "term": "進路指導の先生",
      "def": "進路や進学の相談を専門に担当する先生です。",
      "source": "llm"
     },
     "km": {
-     "term": "គ្រូប្រឹក្សាអាជីព (Jillo gyosa)",
+     "term": "គ្រូប្រឹក្សាអាជីព",
      "def": "គ្រូនៅសាលាដែលទទួលបន្ទុកប្រឹក្សាអំពីអាជីព និងការបន្តការសិក្សា។",
      "source": "llm"
     },
     "ru": {
-     "term": "Учитель-профконсультант (Jillo gyosa)",
+     "term": "Учитель-профконсультант",
      "def": "Учитель в школе, который специально консультирует по выбору профессии и поступлению.",
      "source": "llm"
     },
     "vi": {
-     "term": "Giáo viên hướng nghiệp (Jillo gyosa)",
+     "term": "Giáo viên hướng nghiệp",
      "def": "Giáo viên chuyên tư vấn về định hướng nghề nghiệp và chọn trường cho học sinh.",
      "source": "llm"
     },
     "zh": {
-     "term": "升学指导老师 (Jillo gyosa)",
+     "term": "升学指导老师",
      "def": "学校里专门负责升学和未来方向咨询的老师。",
      "source": "llm"
     },
     "uz": {
-     "term": "Kasb maslahatchi o'qituvchi (Jillo gyosa)",
+     "term": "Kasb maslahatchi o'qituvchi",
      "def": "Maktabda faqat kasb va o'qishga kirish bo'yicha maslahat beradigan o'qituvchi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Мэргэжил чиглүүлэх багш (Jillo gyosa)",
+     "term": "Мэргэжил чиглүүлэх багш",
      "def": "Сурагчдад мэргэжил сонголт, элсэлтийн талаар зөвлөгөө өгдөг тусгай багш.",
      "source": "llm"
     },
     "th": {
-     "term": "ครูแนะแนว (Jillo gyosa)",
+     "term": "ครูแนะแนว",
      "def": "ครูที่ทำหน้าที่ให้คำปรึกษาด้านอาชีพและการศึกษาต่อแก่นักเรียนโดยเฉพาะ",
      "source": "llm"
     },
     "ne": {
-     "term": "करियर परामर्श शिक्षक (Jillo Gyosa)",
+     "term": "करियर परामर्श शिक्षक",
      "def": "विद्यालयमा करियर र भर्ना परामर्शको जिम्मा लिने विशेष शिक्षक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Guro sa gabay sa karera (Jillo seonsaengnim)",
+     "term": "Guro sa gabay sa karera",
      "def": "Gurong nakatalaga sa paaralan para tumulong sa estudyante sa pagpili ng karera at susunod na paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Guru konseling karier (Jillo gyosa)",
+     "term": "Guru konseling karier",
      "def": "Guru khusus yang menangani konsultasi karier dan studi lanjut siswa.",
      "source": "llm"
     }
@@ -7554,62 +7554,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Parents (Hakbumo)",
+     "term": "Parents",
      "def": "The parents or guardians of a student.",
      "source": "llm"
     },
     "ja": {
-     "term": "保護者 (Hakbumo)",
+     "term": "保護者",
      "def": "生徒の親や保護者のことです。",
      "source": "llm"
     },
     "km": {
-     "term": "មាតាបិតាសិស្ស (Hakbumo)",
+     "term": "មាតាបិតាសិស្ស",
      "def": "ឪពុកម្តាយ ឬអាណាព្យាបាលរបស់សិស្ស។",
      "source": "llm"
     },
     "ru": {
-     "term": "Родители учащегося (Hakbumo)",
+     "term": "Родители учащегося",
      "def": "Родители или законные представители ученика.",
      "source": "llm"
     },
     "vi": {
-     "term": "Phụ huynh (Hakbumo)",
+     "term": "Phụ huynh",
      "def": "Cha mẹ hoặc người giám hộ của học sinh.",
      "source": "llm"
     },
     "zh": {
-     "term": "学生家长 (Hakbumo)",
+     "term": "学生家长",
      "def": "学生的父母或其他监护人。",
      "source": "llm"
     },
     "uz": {
-     "term": "Ota-ona (Hakbumo)",
+     "term": "Ota-ona",
      "def": "O'quvchining ota-onasi yoki qonuniy vasiysi.",
      "source": "llm"
     },
     "mn": {
-     "term": "Эцэг эх, асран хамгаалагч (Hakbumo)",
+     "term": "Эцэг эх, асран хамгаалагч",
      "def": "Сурагчийн эцэг эх эсвэл хууль ёсны асран хамгаалагч.",
      "source": "llm"
     },
     "th": {
-     "term": "ผู้ปกครอง (Hakbumo)",
+     "term": "ผู้ปกครอง",
      "def": "พ่อแม่หรือผู้ดูแลตามกฎหมายของนักเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "अभिभावक (Hakbumo)",
+     "term": "अभिभावक",
      "def": "विद्यार्थीका आमाबुबा वा संरक्षक।",
      "source": "llm"
     },
     "fil": {
-     "term": "Magulang o tagapag-alaga (Hakbumo)",
+     "term": "Magulang o tagapag-alaga",
      "def": "Ang mga magulang o legal na tagapag-alaga ng estudyante.",
      "source": "llm"
     },
     "id": {
-     "term": "Orang tua murid (Hakbumo)",
+     "term": "Orang tua murid",
      "def": "Orang tua atau wali yang bertanggung jawab atas siswa.",
      "source": "llm"
     }
@@ -7626,62 +7626,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "School year / grade (Hangnyeon)",
+     "term": "School year / grade",
      "def": "The student's year level in school, for example Go-1 means first year of high school.",
      "source": "llm"
     },
     "ja": {
-     "term": "学年 (Hangnyeon)",
+     "term": "学年",
      "def": "学校の学年で、中学・高校はそれぞれ1年生から3年生まであります。",
      "source": "llm"
     },
     "km": {
-     "term": "កម្រិតថ្នាក់ (Hangnyeon)",
+     "term": "កម្រិតថ្នាក់",
      "def": "ឆ្នាំសិក្សានៅសាលា ពីឆ្នាំទី១ ដល់ឆ្នាំទី៣ ឧទាហរណ៍ វិទ្យាល័យឆ្នាំទី៣។",
      "source": "llm"
     },
     "ru": {
-     "term": "Класс, год обучения (Hangnyeon)",
+     "term": "Класс, год обучения",
      "def": "Год обучения в школе; в средней и старшей школе их три — с первого по третий.",
      "source": "llm"
     },
     "vi": {
-     "term": "Khối lớp (Hangnyeon)",
+     "term": "Khối lớp",
      "def": "Năm học của học sinh trong mỗi cấp, từ năm 1 đến năm 3; ví dụ Go 1 là lớp 10.",
      "source": "llm"
     },
     "zh": {
-     "term": "年级 (Hangnyeon)",
+     "term": "年级",
      "def": "初中和高中各分1至3年级，如\"高3\"指高中三年级。",
      "source": "llm"
     },
     "uz": {
-     "term": "Sinf bosqichi (Hangnyeon)",
+     "term": "Sinf bosqichi",
      "def": "Maktabdagi o'qish bosqichi; o'rta va yuqori maktabda 1–3-sinflar bor.",
      "source": "llm"
     },
     "mn": {
-     "term": "Анги (Hangnyeon)",
+     "term": "Анги",
      "def": "Сургуулийн 1-3-р анги; жишээ нь Go-1 нь ахлах сургуулийн 1-р анги.",
      "source": "llm"
     },
     "th": {
-     "term": "ชั้นปี (Hangnyeon)",
+     "term": "ชั้นปี",
      "def": "ระดับชั้นปีที่ 1 ถึง 3 ในโรงเรียน เช่น Go-3 หมายถึงมัธยมปลายปีที่ 3",
      "source": "llm"
     },
     "ne": {
-     "term": "कक्षा वर्ष (Hangnyeon)",
+     "term": "कक्षा वर्ष",
      "def": "विद्यालयको तह, जस्तै हाई स्कुलको पहिलो, दोस्रो वा तेस्रो वर्ष।",
      "source": "llm"
     },
     "fil": {
-     "term": "Baitang (Hangnyeon)",
+     "term": "Baitang",
      "def": "Antas ng estudyante sa paaralan, mula 1 hanggang 3; halimbawa, ang Go3 ay ikatlong taon sa high school.",
      "source": "llm"
     },
     "id": {
-     "term": "Tingkat kelas (Hangnyeon)",
+     "term": "Tingkat kelas",
      "def": "Jenjang kelas di sekolah, misalnya kelas 1 sampai 3 di SMP atau SMA.",
      "source": "llm"
     }
@@ -7696,62 +7696,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Semester (Hakgi)",
+     "term": "Semester",
      "def": "Half of the school year; Korean schools have a first and second semester.",
      "source": "llm"
     },
     "ja": {
-     "term": "学期 (Hakgi)",
+     "term": "学期",
      "def": "1年を2つに分けた授業期間で、1学期と2学期があります。",
      "source": "llm"
     },
     "km": {
-     "term": "ឆមាស (Hakgi)",
+     "term": "ឆមាស",
      "def": "រយៈពេលសិក្សាពាក់កណ្តាលឆ្នាំ ដោយមួយឆ្នាំមានពីរឆមាស។",
      "source": "llm"
     },
     "ru": {
-     "term": "Семестр (Hakgi)",
+     "term": "Семестр",
      "def": "Половина учебного года; первый семестр начинается в марте, второй — в августе.",
      "source": "llm"
     },
     "vi": {
-     "term": "Học kỳ (Hakgi)",
+     "term": "Học kỳ",
      "def": "Một năm học được chia làm hai học kỳ: học kỳ 1 và học kỳ 2.",
      "source": "llm"
     },
     "zh": {
-     "term": "学期 (Hakgi)",
+     "term": "学期",
      "def": "一学年分为两个学期，分别称为第1学期和第2学期。",
      "source": "llm"
     },
     "uz": {
-     "term": "Semestr (Hakgi)",
+     "term": "Semestr",
      "def": "O'quv yilining ikki qismidan biri: birinchi va ikkinchi semestr.",
      "source": "llm"
     },
     "mn": {
-     "term": "Улирал (Hakgi)",
+     "term": "Улирал",
      "def": "Хичээлийн жилийг хоёр хуваасан хугацаа: 1-р улирал ба 2-р улирал.",
      "source": "llm"
     },
     "th": {
-     "term": "ภาคเรียน (Hakgi)",
+     "term": "ภาคเรียน",
      "def": "ช่วงเวลาเรียนที่แบ่งหนึ่งปีการศึกษาออกเป็นสองภาค คือภาคเรียนที่ 1 และภาคเรียนที่ 2",
      "source": "llm"
     },
     "ne": {
-     "term": "सेमेस्टर (Hakgi)",
+     "term": "सेमेस्टर",
      "def": "शैक्षिक वर्षलाई दुई भागमा बाँडिएको अवधि, अर्थात् पहिलो र दोस्रो सेमेस्टर।",
      "source": "llm"
     },
     "fil": {
-     "term": "Semestre (Hakgi)",
+     "term": "Semestre",
      "def": "Isa sa dalawang bahagi ng taon ng pag-aaral: unang semestre at ikalawang semestre.",
      "source": "llm"
     },
     "id": {
-     "term": "Semester (Hakgi)",
+     "term": "Semester",
      "def": "Periode belajar; satu tahun ajaran dibagi menjadi dua semester.",
      "source": "llm"
     }
@@ -7765,62 +7765,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "After-school program (Banggwahu)",
+     "term": "After-school program",
      "def": "Extra classes and activities the school runs after regular lessons end.",
      "source": "llm"
     },
     "ja": {
-     "term": "放課後プログラム (Banggwahu hakgyo)",
+     "term": "放課後プログラム",
      "def": "通常の授業の後に、学校が運営する追加の授業や活動です。",
      "source": "llm"
     },
     "km": {
-     "term": "កម្មវិធីក្រោយម៉ោងរៀន (Banggwahu hakgyo)",
+     "term": "កម្មវិធីក្រោយម៉ោងរៀន",
      "def": "កម្មវិធីបន្ថែមដែលសាលារៀបចំបន្ទាប់ពីម៉ោងរៀនធម្មតា។",
      "source": "llm"
     },
     "ru": {
-     "term": "Занятия после уроков (Banggwahu hakgyo)",
+     "term": "Занятия после уроков",
      "def": "Дополнительные кружки и занятия, которые школа проводит после основных уроков.",
      "source": "llm"
     },
     "vi": {
-     "term": "Lớp sau giờ học (Banggwahu)",
+     "term": "Lớp sau giờ học",
      "def": "Chương trình học thêm do nhà trường tổ chức sau giờ học chính khóa.",
      "source": "llm"
     },
     "zh": {
-     "term": "课后课程 (Banggwahu)",
+     "term": "课后课程",
      "def": "正规课程结束后学校开设的额外课程和活动。",
      "source": "llm"
     },
     "uz": {
-     "term": "Darsdan keyingi mashg'ulotlar (Banggwahu hakgyo)",
+     "term": "Darsdan keyingi mashg'ulotlar",
      "def": "Asosiy darslardan keyin maktabda o'tkaziladigan qo'shimcha mashg'ulotlar.",
      "source": "llm"
     },
     "mn": {
-     "term": "Хичээлийн дараах сургалт (Banggwahu hakgyo)",
+     "term": "Хичээлийн дараах сургалт",
      "def": "Үндсэн хичээлийн дараа сургууль дээр явагддаг нэмэлт хөтөлбөр.",
      "source": "llm"
     },
     "th": {
-     "term": "กิจกรรมหลังเลิกเรียน (Banggwahu hakgyo)",
+     "term": "กิจกรรมหลังเลิกเรียน",
      "def": "โปรแกรมเสริมที่โรงเรียนจัดขึ้นหลังเวลาเรียนปกติ",
      "source": "llm"
     },
     "ne": {
-     "term": "विद्यालयपछिको कार्यक्रम (Banggwahu Hakgyo)",
+     "term": "विद्यालयपछिको कार्यक्रम",
      "def": "नियमित कक्षा सकिएपछि विद्यालयले चलाउने थप कक्षा तथा क्रियाकलाप।",
      "source": "llm"
     },
     "fil": {
-     "term": "After-school na programa (Banggwahu hakgyo)",
+     "term": "After-school na programa",
      "def": "Mga dagdag na klase o aktibidad sa paaralan pagkatapos ng regular na oras ng klase.",
      "source": "llm"
     },
     "id": {
-     "term": "Program sepulang sekolah (Banggwahu hakgyo)",
+     "term": "Program sepulang sekolah",
      "def": "Program tambahan yang diselenggarakan sekolah setelah jam pelajaran reguler selesai.",
      "source": "llm"
     }
@@ -7834,62 +7834,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Private academy (Hagwon)",
+     "term": "Private academy",
      "def": "A private, paid tutoring school outside the regular school system.",
      "source": "llm"
     },
     "ja": {
-     "term": "塾 (Hagwon)",
+     "term": "塾",
      "def": "民間の教育機関で、学校外で勉強する塾や習い事のことです。",
      "source": "llm"
     },
     "km": {
-     "term": "សាលាបង្រៀនគួរឯកជន (Hagwon)",
+     "term": "សាលាបង្រៀនគួរឯកជន",
      "def": "ស្ថាប័នអប់រំឯកជនដែលបង្រៀនបន្ថែមក្រៅសាលា ហើយត្រូវបង់ថ្លៃ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Частные курсы (Hagwon)",
+     "term": "Частные курсы",
      "def": "Платное частное учебное заведение, где дети занимаются дополнительно после школы.",
      "source": "llm"
     },
     "vi": {
-     "term": "Trung tâm học thêm (Hagwon)",
+     "term": "Trung tâm học thêm",
      "def": "Cơ sở giáo dục tư nhân nơi học sinh học thêm ngoài giờ, phải trả phí.",
      "source": "llm"
     },
     "zh": {
-     "term": "补习班 (Hagwon)",
+     "term": "补习班",
      "def": "校外的私人教育机构，即课外辅导班。",
      "source": "llm"
     },
     "uz": {
-     "term": "Xususiy o'quv markazi (Hagwon)",
+     "term": "Xususiy o'quv markazi",
      "def": "Maktabdan tashqari pullik qo'shimcha dars beradigan xususiy muassasa.",
      "source": "llm"
     },
     "mn": {
-     "term": "Хувийн сургалтын төв (Hagwon)",
+     "term": "Хувийн сургалтын төв",
      "def": "Сургуулиас гадуурх төлбөртэй хувийн сургалтын байгууллага.",
      "source": "llm"
     },
     "th": {
-     "term": "สถาบันกวดวิชา (Hagwon)",
+     "term": "สถาบันกวดวิชา",
      "def": "สถาบันการศึกษาเอกชนที่สอนพิเศษนอกเวลาเรียนและต้องเสียค่าเรียน",
      "source": "llm"
     },
     "ne": {
-     "term": "निजी ट्युसन केन्द्र (Hagwon)",
+     "term": "निजी ट्युसन केन्द्र",
      "def": "विद्यालय बाहिर शुल्क तिरेर पढ्ने निजी शिक्षण संस्था।",
      "source": "llm"
     },
     "fil": {
-     "term": "Pribadong tutorial center (Hagwon)",
+     "term": "Pribadong tutorial center",
      "def": "Pribadong paaralan o review center na binabayaran para sa dagdag na pag-aaral sa labas ng paaralan.",
      "source": "llm"
     },
     "id": {
-     "term": "Lembaga bimbingan belajar (Hagwon)",
+     "term": "Lembaga bimbingan belajar",
      "def": "Tempat les atau kursus swasta di luar sekolah, biasanya berbayar.",
      "source": "llm"
     }
@@ -7904,62 +7904,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "Retake year (Jaesu)",
+     "term": "Retake year",
      "def": "Spending an extra year preparing to apply again after not getting into the desired university.",
      "source": "llm"
     },
     "ja": {
-     "term": "浪人 (Jaesu)",
+     "term": "浪人",
      "def": "大学入試に合格できず、もう1年かけて再挑戦の準備をすることです。",
      "source": "llm"
     },
     "km": {
-     "term": "ការត្រៀមប្រឡងចូលម្តងទៀត (Jaesu)",
+     "term": "ការត្រៀមប្រឡងចូលម្តងទៀត",
      "def": "ការត្រៀមមួយឆ្នាំទៀតដើម្បីប្រឡងចូលសាកលវិទ្យាល័យ បន្ទាប់ពីមិនបានជាប់។",
      "source": "llm"
     },
     "ru": {
-     "term": "Повторная подготовка к поступлению (Jaesu)",
+     "term": "Повторная подготовка к поступлению",
      "def": "Ещё один год подготовки к поступлению в университет после неудачной попытки.",
      "source": "llm"
     },
     "vi": {
-     "term": "Ôn thi lại (Jaesu)",
+     "term": "Ôn thi lại",
      "def": "Việc dành thêm một năm để chuẩn bị thi lại sau khi chưa đỗ đại học mong muốn.",
      "source": "llm"
     },
     "zh": {
-     "term": "复读 (Jaesu)",
+     "term": "复读",
      "def": "大学入学考试失利后，再花一年时间准备重新报考。",
      "source": "llm"
     },
     "uz": {
-     "term": "Qayta tayyorlanish yili (Jaesu)",
+     "term": "Qayta tayyorlanish yili",
      "def": "Universitetga kira olmagach, yana bir yil tayyorlanib qayta topshirish.",
      "source": "llm"
     },
     "mn": {
-     "term": "Дахин бэлтгэл (Jaesu)",
+     "term": "Дахин бэлтгэл",
      "def": "Их сургуульд тэнцээгүйн дараа нэг жил дахин бэлдэж элсэлтэд орох.",
      "source": "llm"
     },
     "th": {
-     "term": "การสอบเข้ามหาวิทยาลัยใหม่ (Jaesu)",
+     "term": "การสอบเข้ามหาวิทยาลัยใหม่",
      "def": "การใช้เวลาเตรียมตัวอีกหนึ่งปีเพื่อสอบเข้ามหาวิทยาลัยใหม่หลังจากสอบไม่ผ่าน",
      "source": "llm"
     },
     "ne": {
-     "term": "एक वर्ष थप तयारी (Jaesu)",
+     "term": "एक वर्ष थप तयारी",
      "def": "विश्वविद्यालय भर्नामा सफल नभएपछि अर्को वर्ष फेरि प्रयास गर्न एक वर्ष तयारी गर्नु।",
      "source": "llm"
     },
     "fil": {
-     "term": "Muling paghahanda sa entrance (Jaesu)",
+     "term": "Muling paghahanda sa entrance",
      "def": "Paggugol ng isa pang taon para maghanda muli matapos hindi makapasok sa gustong unibersidad.",
      "source": "llm"
     },
     "id": {
-     "term": "Mengulang persiapan masuk universitas (Jaesu)",
+     "term": "Mengulang persiapan masuk universitas",
      "def": "Menghabiskan satu tahun lagi untuk mempersiapkan ujian masuk universitas setelah gagal sebelumnya.",
      "source": "llm"
     }
@@ -8112,62 +8112,62 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "TOPIK Korean proficiency test (Topik)",
+     "term": "TOPIK Korean proficiency test",
      "def": "The official Korean language test for foreigners, often required for university admission.",
      "source": "llm"
     },
     "ja": {
-     "term": "韓国語能力試験 (Topik)",
+     "term": "韓国語能力試験",
      "def": "外国人を対象にした韓国語の公的な試験で、TOPIKと呼ばれます。",
      "source": "llm"
     },
     "km": {
-     "term": "ការប្រឡងសមត្ថភាពភាសាកូរ៉េ (TOPIK)",
+     "term": "ការប្រឡងសមត្ថភាពភាសាកូរ៉េ",
      "def": "ការប្រឡងផ្លូវការសម្រាប់ជនបរទេស ដើម្បីវាស់កម្រិតភាសាកូរ៉េ។",
      "source": "llm"
     },
     "ru": {
-     "term": "Экзамен TOPIK (Topik)",
+     "term": "Экзамен TOPIK",
      "def": "Официальный экзамен по корейскому языку для иностранцев, результат которого часто нужен при поступлении.",
      "source": "llm"
     },
     "vi": {
-     "term": "Kỳ thi TOPIK (Hangugeo neungnyeok siheom)",
+     "term": "Kỳ thi TOPIK",
      "def": "Kỳ thi chính thức đánh giá năng lực tiếng Hàn dành cho người nước ngoài.",
      "source": "llm"
     },
     "zh": {
-     "term": "韩国语能力考试 (TOPIK)",
+     "term": "韩国语能力考试",
      "def": "面向外国人的官方韩语水平考试，成绩常用于升学申请。",
      "source": "llm"
     },
     "uz": {
-     "term": "TOPIK imtihoni (Hangugeo neungnyeok siheom)",
+     "term": "TOPIK imtihoni",
      "def": "Chet elliklar uchun koreys tili bilimini rasman tasdiqlovchi imtihon.",
      "source": "llm"
     },
     "mn": {
-     "term": "TOPIK шалгалт (Hangugeo neungnyeok siheom)",
+     "term": "TOPIK шалгалт",
      "def": "Гадаадынханд зориулсан Солонгос хэлний түвшин тогтоох албан ёсны шалгалт.",
      "source": "llm"
     },
     "th": {
-     "term": "การสอบวัดระดับภาษาเกาหลี (TOPIK)",
+     "term": "การสอบวัดระดับภาษาเกาหลี",
      "def": "การสอบภาษาเกาหลีที่เป็นทางการสำหรับชาวต่างชาติ ใช้ยืนยันระดับความสามารถทางภาษา",
      "source": "llm"
     },
     "ne": {
-     "term": "कोरियाली भाषा दक्षता परीक्षा (TOPIK)",
+     "term": "कोरियाली भाषा दक्षता परीक्षा",
      "def": "विदेशीहरूको कोरियाली भाषा क्षमता जाँच्ने आधिकारिक परीक्षा।",
      "source": "llm"
     },
     "fil": {
-     "term": "TOPIK na pagsusulit sa Korean (Topik)",
+     "term": "TOPIK na pagsusulit sa Korean",
      "def": "Opisyal na pagsusulit para sa mga dayuhan na sumusukat sa kakayahan sa wikang Korean.",
      "source": "llm"
     },
     "id": {
-     "term": "Ujian kemampuan bahasa Korea (Topik)",
+     "term": "Ujian kemampuan bahasa Korea",
      "def": "Ujian resmi kemampuan bahasa Korea bagi orang asing, sering diminta untuk masuk universitas.",
      "source": "llm"
     }
