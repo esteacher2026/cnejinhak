@@ -1,4 +1,4 @@
-/* 상담 통역 패드 — app.js
+/* 온말(ONMAL) 진로진학 상담 통역 — app.js
    구조: 언어표 → 동기화(Firestore/로컬) → 음성인식(Azure/WebSpeech) → 번역(Worker/데모) → 화면
    음성은 어디에도 저장하지 않는다. 텍스트는 방 종료 시 삭제된다. */
 (() => {
@@ -449,11 +449,11 @@ async function makeSummary(btn) {
   } catch (e) { console.warn(e); btn.disabled = false; btn.textContent = "상담 요약 만들기 (AI, 5항목)"; toast("요약 실패: " + String(e.message || e), 4000); }
 }
 function exportTxt() {
-  const lines = [`${CFG.CENTER_NAME} 상담 통역 기록`, `일시: ${new Date().toLocaleString("ko-KR")}`, `언어: 한국어 ⇄ ${L[S.theirLang]?.ko || ""}`, `※ AI 자동 통역 기록이며 오역이 있을 수 있습니다. 개인 식별 정보는 포함하지 않습니다.`, ""];
+  const lines = [`온말(ONMAL) 상담 통역 기록 · ${CFG.CENTER_NAME}`, `일시: ${new Date().toLocaleString("ko-KR")}`, `언어: 한국어 ⇄ ${L[S.theirLang]?.ko || ""}`, `※ AI 자동 통역 기록이며 오역이 있을 수 있습니다. 개인 식별 정보는 포함하지 않습니다.`, ""];
   for (const id of S.order) { const m = S.msgs.get(id); if (!m || m.partial || !m.src || m.deleted) continue; const who = m.role === "counselor" ? "상담사" : "내담자"; const t = new Date(m.ts).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
     lines.push(`[${t}] ${who}: ${m.src}`); if (m.tgtLang !== m.srcLang && (m.tgtRefined || m.tgt)) lines.push(`        → ${m.tgtRefined || m.tgt}`); }
   if (S.summary) { lines.push("", "■ 상담 요약 (AI 자동 작성, 확인 후 사용)", S.summary); }
-  const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/plain;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); const d = new Date(), p2 = (n) => String(n).padStart(2, "0"); a.download = `상담통역_${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}_${p2(d.getHours())}${p2(d.getMinutes())}.txt`; a.click();
+  const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/plain;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); const d = new Date(), p2 = (n) => String(n).padStart(2, "0"); a.download = `온말_상담기록_${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}_${p2(d.getHours())}${p2(d.getMinutes())}.txt`; a.click();
 }
 
 /* ───────────── 설정·문장 시트 ───────────── */
@@ -501,7 +501,7 @@ function prepareRoom() {
 async function boot() {
   $("#modeBadge").className = "badge " + (LIVE ? "live" : "demo"); $("#modeBadge").textContent = LIVE ? "운영 모드" : "데모 모드";
   $("#startNotice").style.display = LIVE ? "none" : "";
-  $("#centerName").textContent = CFG.CENTER_NAME + " · 이주배경 학생·학부모 상담용 실시간 자막 통역";
+  $("#centerName").textContent = "모든 말이 통하는 진로진학 상담 통역 · " + CFG.CENTER_NAME;
   try { S.glossary = await (await fetch("glossary.json")).json(); buildGlIndex(); } catch (e) { console.warn("glossary", e); }
   try { S.phrases = await (await fetch("phrases.json")).json(); } catch {}
   // 버튼

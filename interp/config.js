@@ -1,4 +1,4 @@
-// 상담 통역 패드 설정 — 이 파일만 센터 환경에 맞게 수정합니다.
+// 온말(ONMAL) 설정 — 이 파일만 센터 환경에 맞게 수정합니다.
 window.INTERP_CONFIG = {
   // Cloudflare Worker 주소. 비워 두면 "데모 모드"(브라우저 내장 음성인식 + 가짜 번역 + 같은 브라우저 탭 간 동기화)
   WORKER_URL: "https://interp-pad.cnejinhak2025.workers.dev",
