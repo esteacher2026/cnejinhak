@@ -15,8 +15,10 @@ window.INTERP_CONFIG = {
   // 식별정보(이름·연락처 등)를 말할 때 정밀 번역(해외 API)을 잠시 끄는 토글을 상담사 화면에 표시
   SHOW_PRIVACY_TOGGLE: true,
 
-  // 말 멈춤을 문장 끝으로 판단하는 시간(ms). 짧을수록 빠르지만 문장이 잘게 끊김
-  SEGMENT_SILENCE_MS: 750,
+  // 말 멈춤을 문장 끝으로 판단하는 시간(ms). 짧을수록 빠르지만 문장이 잘게 끊김.
+  // 상담사(한국어, 쉼표마다 쉬는 긴 설명)는 900, 내담자(단어를 고르느라 자주 멈춤)는 1050 권장
+  SEGMENT_SILENCE_MS: 900,
+  SEGMENT_SILENCE_MS_CLIENT: 1050,
 
   // 용어 뒤 한국어 발음 병기 표시(용어집 term에 이미 포함된 경우 그대로 사용)
   SHOW_KO_READING: true,
