@@ -16,7 +16,7 @@ window.INTERP_CONFIG = {
   SHOW_PRIVACY_TOGGLE: true,
 
   // 말 멈춤을 문장 끝으로 판단하는 시간(ms). 짧을수록 빠르지만 문장이 잘게 끊김
-  SEGMENT_SILENCE_MS: 650,
+  SEGMENT_SILENCE_MS: 900,
 
   // 용어 뒤 한국어 발음 병기 표시(용어집 term에 이미 포함된 경우 그대로 사용)
   SHOW_KO_READING: true,

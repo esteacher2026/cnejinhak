@@ -4,7 +4,7 @@
 (() => {
 "use strict";
 const CFG = Object.assign({ WORKER_URL: "", FIREBASE: null, REFINE_KO_TO_X: true, REFINE_X_TO_KO: false,
-  SHOW_PRIVACY_TOGGLE: true, SEGMENT_SILENCE_MS: 650, AUTO_END_MIN: 60, SHOW_KO_READING: true, CENTER_NAME: "충남진로진학상담센터" }, window.INTERP_CONFIG || {});
+  SHOW_PRIVACY_TOGGLE: true, SEGMENT_SILENCE_MS: 900, AUTO_END_MIN: 60, SHOW_KO_READING: true, CENTER_NAME: "충남진로진학상담센터" }, window.INTERP_CONFIG || {});
 const LIVE = !!CFG.WORKER_URL;
 const BASE = CFG.WORKER_URL === "/" ? "" : CFG.WORKER_URL;   // "/" = 같은 서버(로컬 시험 서버)
 const $ = (s) => document.querySelector(s);
@@ -179,6 +179,7 @@ class AzureReco {
     } else { sc.speechRecognitionLanguage = this.langs[0]; reco = new SDK.SpeechRecognizer(sc, audio); }
     if (this.langs.includes("ko-KR") && S.glossary) {                 // 입시 용어 인식 힌트
       const pl = SDK.PhraseListGrammar.fromRecognizer(reco); let n = 0;
+      ["정시는", "정시로", "정시 모집", "수시는", "수시로", "수시 모집", "아포스티유", "학종은", "내신은", "수능최저"].forEach(a => { pl.addPhrase(a); n++; });
       for (const [term, v] of Object.entries(S.glossary.terms)) { if (!v.stt_hint) continue; pl.addPhrase(term); n++; (v.aliases_ko || []).forEach(a => { if (n < 480) { pl.addPhrase(a); n++; } }); if (n >= 480) break; }
     }
     const langOf = (res) => { try { const d = SDK.AutoDetectSourceLanguageResult.fromResult(res).language; return d || this.langs[0]; } catch { return this.langs[0]; } };
@@ -224,6 +225,7 @@ async function onFinal(text, azureLang) {
   const srcLang = codeOfAzure(azureLang); const tgtLang = srcLang === S.myLang ? S.theirLang : S.myLang;
   const id = partialId || uid(); partialId = null;
   const base = S.msgs.get(id) || { id, role: S.role, seq: ++S.seq * 1000 + Date.now() % 1000 };
+  if (srcLang === "ko") text = fixKo(text);
   const m = Object.assign(base, { srcLang, tgtLang, src: text, partial: false, ts: Date.now() });
   upsert(m); S.sync.send(m);
   try { m.tgt = await translateQuick(text, srcLang, tgtLang); } catch (e) { m.tgt = m.tgt || text; m.err = true; console.warn(e); }
@@ -233,6 +235,15 @@ async function onFinal(text, azureLang) {
       if (out && out !== m.tgt) { m.tgtRefined = out; } else { delete m.tgtRefined; } upsert(m); S.sync.send(m); } catch (e) { console.warn("refine", e); }
   }
 }
+/* 한국어 인식 오류 교정: 시험에서 확인된 오인식을 확정 문장에서 바로잡는다(번역 전에 적용) */
+const KO_FIX = [
+  [/(?<![가-힣])정 ?씨(는|로|에|가|와|를|도|만|의)(?=\s|$|[,.?!])/g, "정시$1"], [/정 ?씨 ?모집/g, "정시모집"],
+  [/아스포스티유|아포스티 유|아포 스티유|아포스티부/g, "아포스티유"],
+  [/수시 ?로 ?지원/g, "수시로 지원"], [/학종 ?전형/g, "학생부종합전형"],
+  [/학생부 ?종합 ?전형/g, "학생부종합전형"], [/학교 ?생활 ?기록부 ?를/g, "학교생활기록부를"], [/학교 ?생활 ?기록부/g, "학교생활기록부"],
+  [/수능 ?최저 ?학력 ?기준/g, "수능최저학력기준"], [/특성화 ?고(는|를|에|가|의)/g, "특성화고$1"], [/교육감 ?전형/g, "교육감전형"],
+];
+function fixKo(t) { let s = t; for (const [re, rep] of KO_FIX) s = s.replace(re, rep); return s; }
 function codeOfAzure(az) { return (LANGS.find(l => l.azure === az) || L[az] || L[S.myLang]).code; }
 async function sendTyped(text) {   // 글자 입력(음성 없는 언어·소음 환경)
   if (!text.trim()) return; await onFinal(text.trim(), L[S.myLang].azure || S.myLang);
