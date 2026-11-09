@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>상담 통역 패드</title>
+<style>
+:root{
+  --bg:#f4f6f9; --card:#fff; --ink:#111827; --sub:#6b7280; --line:#e5e7eb;
+  --navy:#1f4e79; --blue:#2e5395; --teal:#006a7f; --amber:#b45309; --red:#b42318; --green:#15803d;
+  --partial:#9ca3af; --refined:#1d4ed8;
+  --fs:22px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR","Noto Sans",system-ui,sans-serif;overscroll-behavior:none}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px}
+.screen{display:none;min-height:100%;flex-direction:column}
+.screen.on{display:flex}
+/* ── 공통 ── */
+.wrap{max-width:860px;width:100%;margin:0 auto;padding:24px 20px;flex:1}
+h1{font-size:30px;margin:8px 0 4px;color:var(--navy)}
+.lead{color:var(--sub);margin:0 0 20px;font-size:17px}
+.btn{display:block;width:100%;padding:18px 20px;font-size:20px;font-weight:700;background:var(--navy);color:#fff;margin:10px 0}
+.btn.secondary{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.btn.ghost{background:transparent;color:var(--sub);font-weight:500;font-size:16px}
+.btn:disabled{opacity:.5;cursor:default}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:12px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}
+.badge.demo{background:#fef3c7;color:var(--amber)}
+.badge.live{background:#dcfce7;color:var(--green)}
+input[type=text],input[type=password],input[type=tel]{font:inherit;font-size:22px;padding:14px;border:2px solid var(--line);border-radius:14px;width:100%;letter-spacing:.1em}
+label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
+/* 언어 선택 */
+.langs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.lang{padding:14px 10px;border:2px solid var(--line);border-radius:14px;background:#fff;text-align:left}
+.lang b{display:block;font-size:19px}
+.lang span{font-size:13px;color:var(--sub)}
+.lang.sel{border-color:var(--navy);background:#eef3f9}
+.lang.textonly b::after{content:" ⌨";font-size:13px;color:var(--amber)}
+/* 방 코드 */
+.code{font-size:64px;font-weight:800;letter-spacing:.25em;color:var(--navy);text-align:center;margin:6px 0}
+#qr{display:flex;justify-content:center;margin:8px 0}
+#qr img,#qr canvas{border:10px solid #fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+/* ── 대화 화면 ── */
+#s-talk{height:100vh;height:100dvh}
+.top{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);flex:none}
+.dot{width:12px;height:12px;border-radius:50%;background:#d1d5db}
+.dot.ok{background:var(--green)} .dot.warn{background:var(--amber)} .dot.bad{background:var(--red)}
+.top .info{flex:1;font-size:15px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .info b{color:var(--ink)}
+.iconbtn{background:#f3f4f6;color:var(--ink);padding:10px 14px;font-size:16px;font-weight:700;border-radius:12px}
+#list{flex:1;overflow-y:auto;padding:14px 14px 40px;scroll-behavior:smooth}
+.msg{max-width:92%;margin:10px 0;padding:12px 16px;border-radius:18px;background:#fff;border:1px solid var(--line);position:relative}
+.msg.theirs{margin-right:auto;border-bottom-left-radius:6px}
+.msg.mine{margin-left:auto;background:#eef3f9;border-color:#d7e2f0;border-bottom-right-radius:6px;max-width:80%}
+.msg .big{font-size:var(--fs);line-height:1.45;word-break:break-word}
+.msg.mine .big{font-size:calc(var(--fs) * .78);color:#1f2937}
+.msg .orig{font-size:calc(var(--fs) * .62);color:var(--sub);margin-top:6px;line-height:1.4;word-break:break-word}
+.msg.partial .big{color:var(--partial);font-style:italic}
+.msg.partial .big::after{content:"▍";animation:blink 1s infinite;color:var(--partial)}
+@keyframes blink{50%{opacity:0}}
+.msg .tag{position:absolute;right:10px;top:-9px;font-size:11px;padding:2px 8px;border-radius:999px;background:#eef2ff;color:var(--refined);font-weight:700;display:none}
+.msg.refined .tag{display:inline-block}
+.msg.refined .big{text-decoration:underline;text-decoration-color:#bfdbfe;text-decoration-thickness:3px;text-underline-offset:6px}
+.msg .meta{font-size:12px;color:#9ca3af;margin-top:6px;display:flex;gap:8px;align-items:center}
+.msg .who{font-weight:700}
+.gl{border-bottom:2px dotted var(--teal);cursor:pointer}
+.bottom{flex:none;background:#fff;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.mic{display:flex;align-items:center;gap:10px;flex:1;min-width:200px;font-size:16px;color:var(--sub)}
+.mic .vu{display:flex;gap:3px;align-items:flex-end;height:26px}
+.mic .vu i{display:block;width:5px;background:var(--green);border-radius:3px;height:6px;transition:height .08s}
+.mic.off .vu i{background:#d1d5db}
+.bottom .iconbtn.primary{background:var(--navy);color:#fff}
+.bottom .iconbtn.danger{background:#fee2e2;color:var(--red)}
+/* 시트·팝업 */
+.sheet{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:22px 22px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.15);max-height:75vh;overflow:auto;padding:16px 16px calc(16px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .25s;z-index:30}
+.sheet.on{transform:none}
+.sheet h3{margin:4px 0 12px;font-size:18px;color:var(--navy)}
+.sheet .phr{display:block;width:100%;text-align:left;background:#f3f4f6;color:var(--ink);padding:14px;font-size:17px;margin:6px 0;border-radius:12px;line-height:1.4}
+.sheet .opt{display:flex;justify-content:space-between;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line);font-size:16px}
+.switch{width:52px;height:30px;border-radius:999px;background:#d1d5db;position:relative;flex:none}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .2s}
+.switch.on{background:var(--green)} .switch.on::after{left:25px}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.25);display:none;z-index:20}
+.scrim.on{display:block}
+.pop{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:18px;padding:20px;max-width:90vw;width:420px;box-shadow:0 10px 40px rgba(0,0,0,.2);z-index:40;display:none}
+.pop.on{display:block}
+.pop h4{margin:0 0 6px;font-size:22px;color:var(--teal)}
+.pop p{margin:6px 0;font-size:17px;line-height:1.5}
+.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:#111827;color:#fff;padding:12px 18px;border-radius:12px;font-size:15px;z-index:50;display:none;max-width:90vw;text-align:center}
+.toast.on{display:block}
+.notice{font-size:14px;color:var(--sub);background:#f9fafb;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;margin:10px 0}
+.textin{display:none;flex:1;gap:8px}
+.textin.on{display:flex}
+.textin input{flex:1;font-size:18px;padding:10px 12px;letter-spacing:0}
+.end-big{font-size:34px;text-align:center;margin:60px 0 10px;color:var(--navy)}
+.end-sub{text-align:center;color:var(--sub);font-size:18px}
+@media (max-width:600px){ h1{font-size:24px} .code{font-size:52px} .msg{max-width:96%} }
+</style>
+</head>
+<body>
+
+<!-- 시작 -->
+<section class="screen on" id="s-start">
+  <div class="wrap">
+    <div class="row" style="justify-content:space-between">
+      <div><span id="modeBadge" class="badge demo">데모 모드</span></div>
+      <button class="btn ghost" style="width:auto;margin:0" id="btnPin">PIN 설정</button>
+    </div>
+    <h1>상담 통역 패드</h1>
+    <p class="lead" id="centerName">충남진로진학상담센터 · 이주배경 학생·학부모 상담용 실시간 자막 통역</p>
+    <button class="btn" id="btnCounselor">상담사 패드로 시작</button>
+    <button class="btn secondary" id="btnClient">내담자 패드로 참여 (코드 입력)</button>
+    <div class="notice" id="startNotice">데모 모드: 브라우저 내장 음성인식과 가짜 번역으로 화면 흐름만 확인합니다. 같은 브라우저에서 탭 두 개를 열어 상담사·내담자로 각각 들어가면 연결됩니다. 운영 모드는 config.js에 Worker 주소와 Firebase 설정을 넣으면 켜집니다.</div>
+    <div class="card" id="pinCard" style="display:none">
+      <label class="small">센터 PIN (Worker 접근용, 기기에 저장됩니다)</label>
+      <input type="password" id="pinInput" placeholder="PIN">
+      <button class="btn" style="margin-top:10px" id="btnPinSave">저장</button>
+    </div>
+  </div>
+</section>
+
+<!-- 상담사 설정 -->
+<section class="screen" id="s-setup">
+  <div class="wrap">
+    <h1>내담자 언어 선택</h1>
+    <p class="lead">자주 쓰는 언어가 먼저 나옵니다. ⌨ 표시는 음성 인식이 없어 글자 입력으로만 가능한 언어입니다.</p>
+    <div class="langs" id="langGrid"></div>
+    <button class="btn ghost" id="btnMoreLangs">더 많은 언어 보기</button>
+    <div class="card" id="roomCard" style="display:none">
+      <div class="row" style="justify-content:space-between"><b style="font-size:18px">내담자 패드에서 이 코드를 입력하거나 QR을 찍어 주세요</b></div>
+      <div class="code" id="roomCode">----</div>
+      <div id="qr"></div>
+      <div class="notice" id="joinUrlNote"></div>
+      <button class="btn" id="btnStartTalk">상담 시작</button>
+    </div>
+    <button class="btn ghost" id="btnBackStart">← 처음으로</button>
+  </div>
+</section>
+
+<!-- 내담자 참여 -->
+<section class="screen" id="s-join">
+  <div class="wrap">
+    <h1>Join · 참여</h1>
+    <p class="lead">상담사 패드에 보이는 4자리 코드를 입력하세요. Enter the 4-digit code shown on the counselor's screen.</p>
+    <input type="tel" id="joinCode" maxlength="4" placeholder="0000" inputmode="numeric">
+    <button class="btn" id="btnJoin">참여 · Join</button>
+    <button class="btn ghost" id="btnBackStart2">← 처음으로</button>
+  </div>
+</section>
+
+<!-- 대화 -->
+<section class="screen" id="s-talk">
+  <div class="top">
+    <div class="dot" id="connDot"></div>
+    <div class="info" id="topInfo"><b>방 ----</b></div>
+    <button class="iconbtn" id="btnFontDown" title="글자 작게">A−</button>
+    <button class="iconbtn" id="btnFontUp" title="글자 크게">A+</button>
+    <button class="iconbtn" id="btnSettings">⚙</button>
+  </div>
+  <div id="list"></div>
+  <div class="bottom">
+    <div class="mic off" id="micBox"><div class="vu"><i></i><i></i><i></i><i></i><i></i></div><span id="micText">마이크 꺼짐</span></div>
+    <div class="textin" id="textIn"><input type="text" id="textInput" placeholder="글자로 입력…"><button class="iconbtn primary" id="btnTextSend">보내기</button></div>
+    <button class="iconbtn" id="btnMic">🎤 시작</button>
+    <button class="iconbtn" id="btnKeyboard" title="글자 입력">⌨</button>
+    <button class="iconbtn" id="btnSpeak">🔊</button>
+    <button class="iconbtn" id="btnPhrases">문장</button>
+    <button class="iconbtn danger" id="btnEnd">종료</button>
+  </div>
+</section>
+
+<!-- 종료 -->
+<section class="screen" id="s-end">
+  <div class="wrap">
+    <div class="end-big" id="endTitle">상담이 종료되었습니다</div>
+    <div class="end-sub" id="endSub">감사합니다.</div>
+    <div id="endActions" style="margin-top:30px"></div>
+  </div>
+</section>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheetPhrases"><h3>자주 쓰는 문장 (탭하면 번역되어 전송)</h3><div id="phraseList"></div></div>
+<div class="sheet" id="sheetSettings"><h3>설정</h3><div id="settingsBody"></div></div>
+<div class="pop" id="popGl"><h4 id="glTerm"></h4><p id="glDef"></p><p id="glDef2" style="color:var(--sub)"></p><button class="btn secondary" id="btnGlClose" style="margin-top:10px">닫기 · Close</button></div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
