@@ -1462,9 +1462,9 @@
      "source": "llm"
     },
     "id": {
-     "term": "Jalur khusus WNI di luar negeri dan WNA (Jaeoegungmin)",
-     "def": "Jalur di luar kuota bagi warga Korea atau orang asing yang memenuhi syarat lama tinggal di luar negeri.",
-     "source": "llm"
+     "term": "Jalur khusus warga Korea di luar negeri dan warga asing (Jaeoegungmin jeonhyeong)",
+     "def": "Jalur masuk universitas di luar kuota bagi warga Korea yang lama tinggal di luar negeri atau warga negara asing.",
+     "source": "human"
     }
    }
   },
@@ -3853,9 +3853,9 @@
      "source": "seed"
     },
     "vi": {
-     "term": "THPT chuyên biệt hóa",
-     "def": "Trường THPT tập trung đào tạo nghề, học sinh có thể đi làm hoặc học tiếp đại học.",
-     "source": "seed"
+     "term": "THPT dạy nghề (Teukseonghwago)",
+     "def": "Trường trung học phổ thông đào tạo nghề; sau khi tốt nghiệp có thể đi làm hoặc học lên đại học.",
+     "source": "human"
     },
     "zh": {
      "term": "特性化高中",
@@ -3986,9 +3986,9 @@
      "source": "seed"
     },
     "ru": {
-     "term": "Школа специального назначения",
-     "def": "Старшие школы с углублённым профилем: естественнонаучные, языковые, художественные, спортивные и другие.",
-     "source": "seed"
+     "term": "Профильная школа особого направления (Teukmokgo)",
+     "def": "Старшая школа с углублённым профилем: научная, языковая, искусств или спорта.",
+     "source": "human"
     },
     "vi": {
      "term": "THPT mục đích đặc biệt",
@@ -4055,9 +4055,9 @@
      "source": "seed"
     },
     "ru": {
-     "term": "Научная школа",
-     "def": "Специализированная старшая школа для учеников, одарённых в естественных науках.",
-     "source": "seed"
+     "term": "Естественнонаучная школа (Gwahakgo)",
+     "def": "Профильная старшая школа с углублённым изучением математики и естественных наук.",
+     "source": "human"
     },
     "vi": {
      "term": "THPT khoa học",
@@ -4204,9 +4204,9 @@
      "source": "seed"
     },
     "zh": {
-     "term": "自律型私立高中",
-     "def": "课程安排自主性较高的私立高中，简称“自私高”，通常学费较高、需自行申请。",
-     "source": "seed"
+     "term": "自主型私立高中 (Jasago)",
+     "def": "课程设置较自由的私立高中。",
+     "source": "human"
     },
     "uz": {
      "term": "Avtonom xususiy litsey (Jasago)",
@@ -4542,9 +4542,9 @@
      "source": "seed"
     },
     "ru": {
-     "term": "Квалификационный экзамен",
-     "def": "Государственный экзамен, позволяющий получить официально признанный уровень образования без посещения школы.",
-     "source": "seed"
+     "term": "Экзамен экстерном на аттестат (Geomjeong gosi)",
+     "def": "Государственный экзамен, подтверждающий школьное образование без посещения школы.",
+     "source": "human"
     },
     "vi": {
      "term": "Thi kiểm định trình độ",
@@ -4818,9 +4818,9 @@
      "source": "seed"
     },
     "ru": {
-     "term": "Отбор начальника управления",
-     "def": "Способ зачисления в обычные школы Чхонана и Асана: вы указываете школы по приоритету, затем распределяет жребий.",
-     "source": "seed"
+     "term": "Распределение по жребию через управление образования (Gyoyukgam jeonhyeong)",
+     "def": "В Чхонане и Асане ученики указывают обычные школы по желанию, а места распределяются жеребьёвкой.",
+     "source": "human"
     },
     "vi": {
      "term": "Tuyển sinh theo Giám đốc Sở",
