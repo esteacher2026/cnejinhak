@@ -312,7 +312,14 @@ async function startMic() {
     S.reco = LIVE ? new AzureReco(langs, onPartial, onFinal, micState) : new WebSpeechReco(langs, onPartial, onFinal, micState);
     if (!LIVE && !WebSpeechReco.ok()) { $("#textIn").classList.add("on"); return toast("이 브라우저는 내장 음성인식이 없습니다. 글자 입력으로 시험하세요 (운영 모드에서는 Azure 사용)"); }
     await S.reco.start();
-  } catch (e) { console.warn(e); micState("off"); $("#textIn").classList.add("on"); toast("음성 인식 시작 실패: " + String(e?.message || e || "마이크를 사용할 수 없습니다"), 4000); }
+  } catch (e) {
+    console.warn(e); micState("off");
+    if (String(e?.message || e).includes("401")) {   // PIN 없음/불일치 → 바로 입력받기
+      const p = prompt("센터 PIN을 입력하세요 · Enter the center PIN", ""); if (p) { localStorage.setItem("interp_pin", p.trim()); return startMic(); }
+      return toast("PIN이 없어 음성 인식을 시작할 수 없습니다. 첫 화면의 PIN 설정에서 입력하세요.", 5000);
+    }
+    $("#textIn").classList.add("on"); toast("음성 인식 시작 실패: " + String(e?.message || e || "마이크를 사용할 수 없습니다"), 4000);
+  }
 }
 function stopMic() { S.reco?.stop(); S.reco = null; micState("off"); }
 
@@ -390,7 +397,7 @@ function renderLangGrid(all) {
 function prepareRoom() {
   S.room = String(Math.floor(1000 + Math.random() * 9000));
   $("#roomCode").textContent = S.room; $("#roomCard").style.display = "";
-  const url = `${location.origin}${location.pathname}?room=${S.room}&role=client&lang=${S.theirLang}`;
+  const url = `${location.origin}${location.pathname}?room=${S.room}&role=client&lang=${S.theirLang}` + (pin() ? `&pin=${encodeURIComponent(pin())}` : "");
   $("#qr").innerHTML = ""; try { new QRCode($("#qr"), { text: url, width: 220, height: 220, correctLevel: QRCode.CorrectLevel.M }); } catch {}
   $("#joinUrlNote").textContent = "내담자 패드 주소: " + url;
   $("#roomCard").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -424,6 +431,7 @@ async function boot() {
   window.addEventListener("beforeunload", () => { if (S.role === "counselor" && S.sync && S.msgs.size) return "상담이 진행 중입니다."; });
   // URL로 바로 참여(QR·센터 고정 방) — 버튼 바인딩 뒤에 처리
   const q = new URLSearchParams(location.search);
+  if (q.get("pin")) { localStorage.setItem("interp_pin", q.get("pin")); history.replaceState(null, "", location.pathname + "?" + (() => { q.delete("pin"); return q.toString(); })()); }
   if (q.get("room") && q.get("role") === "client") { const lang = q.get("lang") || "en"; return openRoom(q.get("room"), "client", L[lang] ? lang : "en", "ko"); }
   if (q.get("room") && q.get("role") === "counselor") { const lang = q.get("lang") || "vi"; return openRoom(q.get("room"), "counselor", "ko", L[lang] ? lang : "vi"); }   // 센터 고정 방 URL용
 }
