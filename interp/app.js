@@ -64,7 +64,7 @@ const S = {
   order: [],
   sync: null, reco: null, tts: null,
   micOn: false, fs: 22,
-  refineKoToX: CFG.REFINE_KO_TO_X, refineXToKo: CFG.REFINE_X_TO_KO, privacyOff: false, autoSpeak: false,
+  refineKoToX: CFG.REFINE_KO_TO_X, refineXToKo: CFG.REFINE_X_TO_KO, privacyOff: false, autoSpeak: false, showLatency: localStorage.getItem('interp_lat') === '1',
   peerSeen: 0, glossary: null, phrases: [], wake: null, seq: 0,
 };
 const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
@@ -216,7 +216,7 @@ let partialId = null, partialTimer = null, lastQuickAt = 0;
 function onPartial(text, azureLang) {
   const srcLang = codeOfAzure(azureLang); const tgtLang = srcLang === S.myLang ? S.theirLang : S.myLang;
   if (!partialId) partialId = uid();
-  const m = { id: partialId, role: S.role, srcLang, tgtLang, src: text, partial: true, ts: Date.now(), seq: S.msgs.get(partialId)?.seq ?? ++S.seq * 1000 + Date.now() % 1000 };
+  const m = { id: partialId, role: S.role, srcLang, tgtLang, src: text, partial: true, ts: Date.now(), tLast: Date.now(), seq: S.msgs.get(partialId)?.seq ?? ++S.seq * 1000 + Date.now() % 1000 };
   upsert(m); S.sync.send(m);
   const now = Date.now();
   if (now - lastQuickAt > 700) { lastQuickAt = now; const id = partialId; translateQuick(text, srcLang, tgtLang).then(t => { const cur = S.msgs.get(id); if (cur && cur.partial) { cur.tgt = t; upsert(cur); S.sync.send(cur); } }).catch(() => {}); }
@@ -226,13 +226,14 @@ async function onFinal(text, azureLang) {
   const id = partialId || uid(); partialId = null;
   const base = S.msgs.get(id) || { id, role: S.role, seq: ++S.seq * 1000 + Date.now() % 1000 };
   if (srcLang === "ko") text = fixKo(text);
-  const m = Object.assign(base, { srcLang, tgtLang, src: text, partial: false, ts: Date.now() });
+  const t0 = base.tLast || Date.now();
+  const m = Object.assign(base, { srcLang, tgtLang, src: text, partial: false, ts: Date.now(), tLast: t0, tFinal: Date.now() });
   upsert(m); S.sync.send(m);
   try { m.tgt = await translateQuick(text, srcLang, tgtLang); } catch (e) { m.tgt = m.tgt || text; m.err = true; console.warn(e); }
-  upsert(m); S.sync.send(m);
+  m.tQuick = Date.now(); upsert(m); S.sync.send(m);
   if (wantRefine(srcLang, tgtLang)) {
     try { let last = 0; const out = await refine(m, (acc) => { if (Date.now() - last > 250) { last = Date.now(); m.tgtRefined = acc; upsert(m); } });
-      if (out && out !== m.tgt) { m.tgtRefined = out; } else { delete m.tgtRefined; } upsert(m); S.sync.send(m); } catch (e) { console.warn("refine", e); }
+      if (out && out !== m.tgt) { m.tgtRefined = out; } else { delete m.tgtRefined; } m.tRefined = Date.now(); upsert(m); S.sync.send(m); } catch (e) { console.warn("refine", e); }
   }
 }
 /* 한국어 인식 오류 교정: 시험에서 확인된 오인식을 확정 문장에서 바로잡는다(번역 전에 적용) */
@@ -289,7 +290,9 @@ function render(id) {
   big.innerHTML = underline(esc(showText), showLang); big.dir = L[showLang]?.rtl ? "rtl" : "ltr"; big.lang = L[showLang]?.azure || showLang;
   if (!mine && m.srcLang !== S.myLang) { orig.textContent = m.src || ""; orig.style.display = ""; orig.dir = L[m.srcLang]?.rtl ? "rtl" : "ltr"; } else orig.style.display = "none";
   el.querySelector(".who").textContent = mine ? (S.role === "counselor" ? "상담사" : L[S.myLang]?.name || "") : (S.role === "counselor" ? `내담자 · ${L[m.srcLang]?.name || ""}` : (L[m.srcLang]?.name || ""));
-  el.querySelector(".time").textContent = new Date(m.ts || Date.now()).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
+  let timeTxt = new Date(m.ts || Date.now()).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
+  if (S.showLatency && S.role === "counselor" && m.tLast && m.tFinal) { const f = (a) => a ? ((a - m.tLast) / 1000).toFixed(1) + "s" : "–"; timeTxt = `확정 ${f(m.tFinal)} · 번역 ${f(m.tQuick)} · 정밀 ${f(m.tRefined)} · ` + timeTxt; }
+  el.querySelector(".time").textContent = timeTxt;
   if (atBottom) list.scrollTop = list.scrollHeight;
 }
 /* 용어 밑줄: 보여주는 언어의 용어집 항목을 찾아 점선 밑줄 */
@@ -444,6 +447,7 @@ function renderSettings() {
   opt("정밀 번역: 한국어 → 내담자 언어", "refineKoToX", "Claude가 용어집·상담 문맥을 반영해 1~2초 뒤 자막을 교체");
   opt("정밀 번역: 내담자 언어 → 한국어", "refineXToKo", "끄면 초벌 번역만 표시(더 빠름)");
   if (CFG.SHOW_PRIVACY_TOGGLE) opt("개인정보 구간 (정밀 번역 일시 중지)", "privacyOff", "이름·연락처·주소를 말하는 동안 켜 두면 해외 API로 문장이 가지 않음");
+  opt("지연 시간 표시 (시험용)", "showLatency", "말이 끝난 뒤 자막 확정·초벌·정밀까지 걸린 초를 말풍선에 표시"); b.lastChild.querySelector(".switch").addEventListener("click", () => { localStorage.setItem("interp_lat", S.showLatency ? "1" : "0"); S.order.forEach(render); });
   const d = document.createElement("div"); d.className = "opt"; d.innerHTML = `<div>내담자 언어 바꾸기</div><select id="selLang" style="font:inherit;font-size:16px;padding:8px"></select>`; b.appendChild(d);
   const sel = d.querySelector("select"); LANGS.filter(l => l.code !== "ko").forEach(l => { const o = document.createElement("option"); o.value = l.code; o.textContent = `${l.ko} · ${l.name}`; if (l.code === S.theirLang) o.selected = true; sel.appendChild(o); });
   sel.onchange = () => { S.theirLang = sel.value; setConn("ok"); toast("내담자 언어를 바꿨습니다. 내담자 패드는 다시 접속해야 합니다."); };
