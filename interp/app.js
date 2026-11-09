@@ -4,7 +4,7 @@
 (() => {
 "use strict";
 const CFG = Object.assign({ WORKER_URL: "", FIREBASE: null, REFINE_KO_TO_X: true, REFINE_X_TO_KO: false,
-  SHOW_PRIVACY_TOGGLE: true, SEGMENT_SILENCE_MS: 900, AUTO_END_MIN: 60, SHOW_KO_READING: true, CENTER_NAME: "충남진로진학상담센터" }, window.INTERP_CONFIG || {});
+  SHOW_PRIVACY_TOGGLE: true, SEGMENT_SILENCE_MS: 750, AUTO_END_MIN: 60, SHOW_KO_READING: true, CENTER_NAME: "충남진로진학상담센터" }, window.INTERP_CONFIG || {});
 const LIVE = !!CFG.WORKER_URL;
 const BASE = CFG.WORKER_URL === "/" ? "" : CFG.WORKER_URL;   // "/" = 같은 서버(로컬 시험 서버)
 const $ = (s) => document.querySelector(s);
