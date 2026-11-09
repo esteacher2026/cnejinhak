@@ -19,6 +19,9 @@ button{font:inherit;cursor:pointer;border:0;border-radius:14px}
 .screen{display:none;min-height:100%;flex-direction:column}
 .screen.on{display:flex}
 /* ── 공통 ── */
+.brand{display:block;height:96px;width:auto;margin:4px 0 16px}
+.brand.small{height:44px;margin:0 0 10px}
+.top .sym{height:26px;width:auto;flex:none;margin-right:2px}
 .wrap{max-width:860px;width:100%;margin:0 auto;padding:24px 20px;flex:1}
 h1{font-size:30px;margin:8px 0 4px;color:var(--navy)}
 .lead{color:var(--sub);margin:0 0 20px;font-size:17px}
@@ -98,7 +101,7 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 .textin{display:none;flex:1;gap:8px}
 .textin.on{display:flex}
 .textin input{flex:1;font-size:18px;padding:10px 12px;letter-spacing:0}
-.end-big{font-size:34px;text-align:center;margin:60px 0 10px;color:var(--navy)}
+.end-big{font-size:34px;text-align:center;margin:30px 0 10px;color:var(--navy)}
 .end-sub{text-align:center;color:var(--sub);font-size:18px}
 @media (max-width:600px){ h1{font-size:24px} .code{font-size:52px} .msg{max-width:96%} }
 </style>
@@ -112,6 +115,7 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
       <div><span id="modeBadge" class="badge demo">데모 모드</span></div>
       <button class="btn ghost" style="width:auto;margin:0" id="btnPin">PIN 설정</button>
     </div>
+    <img class="brand" src="assets/logo.png" alt="충청남도교육청진로융합교육원">
     <h1>상담 통역 패드</h1>
     <p class="lead" id="centerName">충남진로진학상담센터 · 이주배경 학생·학부모 상담용 실시간 자막 통역</p>
     <button class="btn" id="btnCounselor">상담사 패드로 시작</button>
@@ -128,6 +132,7 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 <!-- 상담사 설정 -->
 <section class="screen" id="s-setup">
   <div class="wrap">
+    <img class="brand small" src="assets/logo.png" alt="충청남도교육청진로융합교육원">
     <h1>내담자 언어 선택</h1>
     <p class="lead">자주 쓰는 언어가 먼저 나옵니다. ⌨ 표시는 음성 인식이 없어 글자 입력으로만 가능한 언어입니다.</p>
     <div class="langs" id="langGrid"></div>
@@ -146,6 +151,7 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 <!-- 내담자 참여 -->
 <section class="screen" id="s-join">
   <div class="wrap">
+    <img class="brand small" src="assets/logo.png" alt="충청남도교육청진로융합교육원">
     <h1>Join · 참여</h1>
     <p class="lead">1) 언어를 고르고 · Choose your language &nbsp; 2) 상담사 화면의 4자리 코드 입력 · Enter the 4-digit code</p>
     <div class="langs" id="joinLangGrid"></div>
@@ -159,6 +165,7 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 <!-- 대화 -->
 <section class="screen" id="s-talk">
   <div class="top">
+    <img class="sym" src="assets/symbol.png" alt="">
     <div class="dot" id="connDot"></div>
     <div class="info" id="topInfo"><b>방 ----</b></div>
     <button class="iconbtn" id="btnFontDown" title="글자 작게">A−</button>
@@ -180,6 +187,7 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 <!-- 종료 -->
 <section class="screen" id="s-end">
   <div class="wrap">
+    <div style="text-align:center;margin-top:30px"><img class="brand" src="assets/logo.png" alt="충청남도교육청진로융합교육원"></div>
     <div class="end-big" id="endTitle">상담이 종료되었습니다</div>
     <div class="end-sub" id="endSub">감사합니다.</div>
     <div id="endActions" style="margin-top:30px"></div>
