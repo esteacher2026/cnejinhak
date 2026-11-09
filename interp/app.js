@@ -128,7 +128,7 @@ class FirestoreSync {
     const expireAt = new Date(Date.now() + 24 * 3600e3);
     await fs.setDoc(this.roomRef, { [this.role + "At"]: fs.serverTimestamp(), expireAt, status: "open" }, { merge: true });
     this.unsubRoom = fs.onSnapshot(this.roomRef, (d) => { const v = d.data() || {}; const other = this.role === "counselor" ? "client" : "counselor"; const ts = v[other + "At"]; if (ts) this.onPeer(other, v[other + "Lang"] || null, v.status === "ended"); });
-    this.unsubMsgs = fs.onSnapshot(fs.query(fs.collection(this.roomRef, "msgs"), fs.orderBy("seq")), (snap) => { snap.docChanges().forEach(c => { const m = c.doc.data(); if (m.role !== this.role) this.onMsg(m); }); });
+    this.unsubMsgs = fs.onSnapshot(fs.query(fs.collection(this.roomRef, "msgs"), fs.orderBy("seq")), (snap) => { snap.docChanges().forEach(c => { const m = c.doc.data(); if (m.role !== this.role || (m.editedBy && m.editedBy !== this.role)) this.onMsg(m); }); });
     this.hb = setInterval(() => this.beat(), 8000);
   }
   async setLang(l) { this.lang = l; await this.fs.setDoc(this.roomRef, { [this.role + "Lang"]: l }, { merge: true }); }
@@ -237,17 +237,40 @@ function codeOfAzure(az) { return (LANGS.find(l => l.azure === az) || L[az] || L
 async function sendTyped(text) {   // 글자 입력(음성 없는 언어·소음 환경)
   if (!text.trim()) return; await onFinal(text.trim(), L[S.myLang].azure || S.myLang);
 }
+/* 상담사 전용: 말풍선 수정·다시 번역·삭제 */
+async function retranslate(m) {
+  m.editedBy = S.role; delete m.tgtRefined; m.tgt = ""; upsert(m); S.sync.send(m);
+  try { m.tgt = await translateQuick(m.src, m.srcLang, m.tgtLang); } catch (e) { m.tgt = m.src; console.warn(e); }
+  upsert(m); S.sync.send(m);
+  if (wantRefine(m.srcLang, m.tgtLang)) { try { const out = await refine(m, () => {}); if (out && out !== m.tgt) m.tgtRefined = out; } catch (e) { console.warn(e); } }
+  upsert(m); S.sync.send(m);
+}
+function msgActions(id) {
+  const m = S.msgs.get(id); if (!m || m.partial) return;
+  const mine = m.role === S.role; const b = $("#msgActionBody"); b.innerHTML = "";
+  const add = (label, desc, fn, danger) => { const e = document.createElement("button"); e.className = "phr"; if (danger) e.style.color = "var(--red)"; e.innerHTML = `<b>${label}</b><div style="font-size:13px;color:var(--sub)">${desc}</div>`; e.onclick = () => { closeAll(); fn(); }; b.appendChild(e); };
+  const preview = document.createElement("div"); preview.className = "notice"; preview.textContent = (mine ? m.src : (m.tgtRefined || m.tgt || m.src)).slice(0, 120); b.appendChild(preview);
+  if (mine) add("원문 수정 후 다시 번역", "잘못 인식된 내 말을 고치면 상대 화면의 번역도 바뀝니다", () => { const v = prompt("원문 수정", m.src); if (v && v.trim() && v.trim() !== m.src) { m.src = v.trim(); m.edited = true; retranslate(m); } });
+  else add("번역문 직접 수정", "내 화면의 한국어 번역만 고칩니다(상대 화면은 그대로)", () => { const v = prompt("번역문 수정", m.tgtRefined || m.tgt || ""); if (v && v.trim()) { m.tgtRefined = v.trim(); m.edited = true; upsert(m); } });
+  add("다시 번역", "같은 원문으로 초벌·정밀 번역을 다시 받습니다", () => retranslate(m));
+  if (!mine && m.tgtLang !== m.srcLang) add("읽어주기", "이 문장을 내 언어로 읽어줍니다", () => speak(m.tgtRefined || m.tgt, S.myLang));
+  add("이 말풍선 삭제", "잘못 인식된 소음·헛말을 양쪽 화면에서 지웁니다", () => { m.deleted = true; m.editedBy = S.role; upsert(m); S.sync.send(m); }, true);
+  const x = document.createElement("button"); x.className = "btn secondary"; x.textContent = "닫기"; x.onclick = closeAll; b.appendChild(x);
+  openSheet("#sheetMsg");
+}
 
 /* ───────────── 화면 ───────────── */
 function render(id) {
   const m = S.msgs.get(id); if (!m) return;
   const list = $("#list"); let el = document.getElementById("m-" + id);
+  if (m.deleted) { el?.remove(); return; }
   const atBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 120;
   if (!el) { el = document.createElement("div"); el.id = "m-" + id; el.innerHTML = `<span class="tag">정밀</span><div class="big"></div><div class="orig"></div><div class="meta"><span class="who"></span><span class="time"></span></div>`;
     // seq 순서에 맞는 위치에 삽입
     const idx = S.order.indexOf(id); const next = S.order[idx + 1]; const nextEl = next && document.getElementById("m-" + next); list.insertBefore(el, nextEl || null); }
   const mine = m.role === S.role;
-  el.className = "msg " + (mine ? "mine" : "theirs") + (m.partial ? " partial" : "") + (m.tgtRefined ? " refined" : "");
+  el.className = "msg " + (mine ? "mine" : "theirs") + (m.partial ? " partial" : "") + (m.tgtRefined ? " refined" : "") + (m.edited ? " edited" : "");
+  el.querySelector(".tag").textContent = m.edited ? "수정됨" : "정밀";
   const big = el.querySelector(".big"), orig = el.querySelector(".orig");
   // 내 화면 언어로 보여줄 글: 원문이 내 언어면 원문, 아니면 번역
   const showText = m.srcLang === S.myLang ? m.src : (m.tgtRefined || m.tgt || (m.partial ? "…" : m.src));
@@ -327,7 +350,7 @@ function stopMic() { S.reco?.stop(); S.reco = null; micState("off"); }
 async function openRoom(room, role, myLang, theirLang) {
   S.room = room; S.role = role; S.myLang = myLang; S.theirLang = theirLang; S.msgs.clear(); S.order = []; $("#list").innerHTML = "";
   S.fs = +localStorage.getItem("interp_fs_" + role) || (role === "client" ? 26 : 22); document.documentElement.style.setProperty("--fs", S.fs + "px");
-  const onMsg = (m) => upsert(m, true);
+  const onMsg = (m) => { if (m.role === S.role && !(m.editedBy && m.editedBy !== S.role)) return; upsert(m, true); };   // 내 발화는 상대가 고친 경우에만 받음
   const onPeer = (otherRole, lang, ended) => { S.peerSeen = Date.now(); if (lang && otherRole === "client" && S.role === "counselor") { S.theirLang = lang; } if (ended) return endScreen(true); setConn("ok"); };
   S.sync = CFG.FIREBASE ? new FirestoreSync(room, role, onMsg, onPeer) : new LocalSync(room, role, onMsg, onPeer);
   if (S.sync.init) { try { await S.sync.init(); } catch (e) { console.error(e); toast("동기화 연결 실패: " + e.message, 5000); } }
@@ -363,7 +386,7 @@ function endScreen(byPeer) {
 }
 function exportTxt() {
   const lines = [`${CFG.CENTER_NAME} 상담 통역 기록`, `일시: ${new Date().toLocaleString("ko-KR")}`, `언어: 한국어 ⇄ ${L[S.theirLang]?.ko || ""}`, `※ AI 자동 통역 기록이며 오역이 있을 수 있습니다. 개인 식별 정보는 포함하지 않습니다.`, ""];
-  for (const id of S.order) { const m = S.msgs.get(id); if (!m || m.partial || !m.src) continue; const who = m.role === "counselor" ? "상담사" : "내담자"; const t = new Date(m.ts).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
+  for (const id of S.order) { const m = S.msgs.get(id); if (!m || m.partial || !m.src || m.deleted) continue; const who = m.role === "counselor" ? "상담사" : "내담자"; const t = new Date(m.ts).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
     lines.push(`[${t}] ${who}: ${m.src}`); if (m.tgtLang !== m.srcLang && (m.tgtRefined || m.tgt)) lines.push(`        → ${m.tgtRefined || m.tgt}`); }
   const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/plain;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `상담통역_${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-")}.txt`; a.click();
 }
@@ -394,6 +417,13 @@ function renderLangGrid(all) {
     const e = document.createElement("button"); e.className = "lang" + (l.azure ? "" : " textonly"); e.innerHTML = `<b>${esc(l.name)}</b><span>${esc(l.ko)}</span>`;
     e.onclick = () => { document.querySelectorAll(".lang").forEach(x => x.classList.remove("sel")); e.classList.add("sel"); S.theirLang = l.code; prepareRoom(); }; g.appendChild(e); });
 }
+function renderJoinLangs(all) {   // 내담자 참여 화면 언어 버튼(모국어 표기 크게)
+  const g = $("#joinLangGrid"); g.innerHTML = "";
+  LANGS.filter(l => l.code !== "ko" && (all || l.top)).sort((a, b) => (a.top || 99) - (b.top || 99)).forEach(l => {
+    const e = document.createElement("button"); e.className = "lang" + (l.code === S.joinLang ? " sel" : ""); e.innerHTML = `<b>${esc(l.name)}</b><span>${esc(l.ko)}</span>`;
+    e.onclick = () => { S.joinLang = l.code; document.querySelectorAll("#joinLangGrid .lang").forEach(x => x.classList.remove("sel")); e.classList.add("sel"); $("#joinCode").focus(); }; g.appendChild(e); });
+  $("#btnMoreJoinLangs").style.display = all ? "none" : "";
+}
 function prepareRoom() {
   S.room = String(Math.floor(1000 + Math.random() * 9000));
   $("#roomCode").textContent = S.room; $("#roomCard").style.display = "";
@@ -412,8 +442,9 @@ async function boot() {
   $("#btnCounselor").onclick = () => { renderLangGrid(false); $("#roomCard").style.display = "none"; show("#s-setup"); };
   $("#btnMoreLangs").onclick = () => renderLangGrid(true);
   $("#btnStartTalk").onclick = () => openRoom(S.room, "counselor", "ko", S.theirLang);
-  $("#btnClient").onclick = () => show("#s-join");
-  $("#btnJoin").onclick = () => { const c = $("#joinCode").value.trim(); if (c.length !== 4) return toast("4자리 코드를 입력하세요"); const lang = prompt("내담자 언어 코드 (vi, zh, ru, uz, mn, th, km, ne, fil, id, ja, en …)", "vi") || "en"; openRoom(c, "client", L[lang] ? lang : "en", "ko"); };
+  $("#btnClient").onclick = () => { S.joinLang = null; renderJoinLangs(false); show("#s-join"); };
+  $("#btnJoin").onclick = () => { const c = $("#joinCode").value.trim(); if (c.length !== 4) return toast("4자리 코드를 입력하세요 · Enter the 4-digit code"); if (!S.joinLang) return toast("언어를 선택하세요 · Select your language"); openRoom(c, "client", S.joinLang, "ko"); };
+  $("#btnMoreJoinLangs").onclick = () => renderJoinLangs(true);
   $("#btnBackStart").onclick = $("#btnBackStart2").onclick = () => show("#s-start");
   $("#btnPin").onclick = () => { $("#pinCard").style.display = $("#pinCard").style.display === "none" ? "" : "none"; $("#pinInput").value = pin(); };
   $("#btnPinSave").onclick = () => { localStorage.setItem("interp_pin", $("#pinInput").value.trim()); $("#pinCard").style.display = "none"; toast("PIN 저장됨"); };
@@ -427,7 +458,7 @@ async function boot() {
   $("#btnTextSend").onclick = () => { const v = $("#textInput").value; $("#textInput").value = ""; sendTyped(v); };
   $("#textInput").onkeydown = (e) => { if (e.key === "Enter") $("#btnTextSend").click(); };
   $("#scrim").onclick = $("#btnGlClose").onclick = closeAll;
-  $("#list").addEventListener("click", (e) => { const g = e.target.closest(".gl"); if (g) showGl(g.dataset.ko); });
+  $("#list").addEventListener("click", (e) => { const g = e.target.closest(".gl"); if (g) return showGl(g.dataset.ko); const b = e.target.closest(".msg"); if (b && S.role === "counselor") msgActions(b.id.slice(2)); });
   window.addEventListener("beforeunload", () => { if (S.role === "counselor" && S.sync && S.msgs.size) return "상담이 진행 중입니다."; });
   // URL로 바로 참여(QR·센터 고정 방) — 버튼 바인딩 뒤에 처리
   const q = new URLSearchParams(location.search);

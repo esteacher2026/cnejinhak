@@ -63,7 +63,9 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 .msg.partial .big::after{content:"▍";animation:blink 1s infinite;color:var(--partial)}
 @keyframes blink{50%{opacity:0}}
 .msg .tag{position:absolute;right:10px;top:-9px;font-size:11px;padding:2px 8px;border-radius:999px;background:#eef2ff;color:var(--refined);font-weight:700;display:none}
-.msg.refined .tag{display:inline-block}
+.msg.refined .tag,.msg.edited .tag{display:inline-block}
+.msg.edited .tag{background:#fef3c7;color:var(--amber)}
+#s-talk .msg{cursor:pointer}
 .msg.refined .big{text-decoration:underline;text-decoration-color:#bfdbfe;text-decoration-thickness:3px;text-underline-offset:6px}
 .msg .meta{font-size:12px;color:#9ca3af;margin-top:6px;display:flex;gap:8px;align-items:center}
 .msg .who{font-weight:700}
@@ -145,8 +147,10 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 <section class="screen" id="s-join">
   <div class="wrap">
     <h1>Join · 참여</h1>
-    <p class="lead">상담사 패드에 보이는 4자리 코드를 입력하세요. Enter the 4-digit code shown on the counselor's screen.</p>
-    <input type="tel" id="joinCode" maxlength="4" placeholder="0000" inputmode="numeric">
+    <p class="lead">1) 언어를 고르고 · Choose your language &nbsp; 2) 상담사 화면의 4자리 코드 입력 · Enter the 4-digit code</p>
+    <div class="langs" id="joinLangGrid"></div>
+    <button class="btn ghost" id="btnMoreJoinLangs">More languages · 더 많은 언어</button>
+    <input type="tel" id="joinCode" maxlength="4" placeholder="0000" inputmode="numeric" style="margin-top:8px">
     <button class="btn" id="btnJoin">참여 · Join</button>
     <button class="btn ghost" id="btnBackStart2">← 처음으로</button>
   </div>
@@ -185,6 +189,7 @@ label.small{font-size:14px;color:var(--sub);display:block;margin:10px 0 4px}
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheetPhrases"><h3>자주 쓰는 문장 (탭하면 번역되어 전송)</h3><div id="phraseList"></div></div>
 <div class="sheet" id="sheetSettings"><h3>설정</h3><div id="settingsBody"></div></div>
+<div class="sheet" id="sheetMsg"><h3>이 말풍선</h3><div id="msgActionBody"></div></div>
 <div class="pop" id="popGl"><h4 id="glTerm"></h4><p id="glDef"></p><p id="glDef2" style="color:var(--sub)"></p><button class="btn secondary" id="btnGlClose" style="margin-top:10px">닫기 · Close</button></div>
 <div class="toast" id="toast"></div>
 
