@@ -4,7 +4,7 @@
 (() => {
 "use strict";
 const CFG = Object.assign({ WORKER_URL: "", FIREBASE: null, REFINE_KO_TO_X: true, REFINE_X_TO_KO: false,
-  SHOW_PRIVACY_TOGGLE: true, SEGMENT_SILENCE_MS: 650, SHOW_KO_READING: true, CENTER_NAME: "충남진로진학상담센터" }, window.INTERP_CONFIG || {});
+  SHOW_PRIVACY_TOGGLE: true, SEGMENT_SILENCE_MS: 650, AUTO_END_MIN: 60, SHOW_KO_READING: true, CENTER_NAME: "충남진로진학상담센터" }, window.INTERP_CONFIG || {});
 const LIVE = !!CFG.WORKER_URL;
 const BASE = CFG.WORKER_URL === "/" ? "" : CFG.WORKER_URL;   // "/" = 같은 서버(로컬 시험 서버)
 const $ = (s) => document.querySelector(s);
@@ -368,13 +368,33 @@ async function openRoom(room, role, myLang, theirLang) {
   else { const n = document.createElement("div"); n.className = "notice"; n.textContent = `내담자 패드에서 코드 ${room} 로 접속하면 연결됩니다. 🎤 시작을 누르고 말씀하세요. 상대 발화는 한국어로, 내 발화는 ${L[theirLang]?.ko || ""}로 번역되어 상대 화면에 표시됩니다.`; $("#list").appendChild(n); }
   try { S.wake = await navigator.wakeLock?.request("screen"); } catch {}
   document.addEventListener("visibilitychange", async () => { if (document.visibilityState === "visible" && !S.wake?.released) return; try { S.wake = await navigator.wakeLock?.request("screen"); } catch {} });
+  scheduleAutoEnd(CFG.AUTO_END_MIN);
   startMic();
 }
+/* 자동 종료: 시작 N분 뒤 종료, 5분 전 안내 + 연장 */
+let autoEndAt = 0, autoTimer = null, autoWarned = false;
+function scheduleAutoEnd(minutes) {
+  clearInterval(autoTimer); if (!minutes) return;
+  autoEndAt = Date.now() + minutes * 60e3; autoWarned = false;
+  autoTimer = setInterval(() => {
+    const left = autoEndAt - Date.now();
+    if (left <= 0) { clearInterval(autoTimer); toast(S.myLang === "ko" ? "1시간이 지나 상담을 자동 종료합니다" : T(S.myLang, "ended"), 4000); return S.role === "counselor" ? endRoom() : endScreen(true); }
+    if (left <= 5 * 60e3 && !autoWarned) { autoWarned = true; showAutoEndBanner(Math.ceil(left / 60e3)); }
+  }, 15e3);
+}
+function showAutoEndBanner(min) {
+  let b = document.getElementById("autoEndBanner");
+  if (!b) { b = document.createElement("div"); b.id = "autoEndBanner"; b.className = "notice"; b.style.cssText = "position:sticky;top:0;z-index:5;background:#fff7ed;border-color:#fdba74;color:#9a3412;display:flex;gap:10px;align-items:center;justify-content:space-between"; $("#list").prepend(b); }
+  const ko = S.myLang === "ko";
+  b.innerHTML = `<span>${ko ? `약 ${min}분 뒤 상담이 자동 종료됩니다.` : `This session will end automatically in about ${min} min.`}</span>` + (S.role === "counselor" ? `<button class="iconbtn" id="btnExtend">30분 연장</button>` : "");
+  const x = b.querySelector("#btnExtend"); if (x) x.onclick = () => { scheduleAutoEnd(30); b.remove(); toast("30분 연장했습니다"); };
+}
 async function endRoom() {
+  clearInterval(autoTimer);
   stopMic(); await S.sync?.end(); endScreen(false);
 }
 function endScreen(byPeer) {
-  stopMic(); if (byPeer) S.sync?.end?.();
+  clearInterval(autoTimer); stopMic(); if (byPeer) S.sync?.end?.();
   $("#endTitle").textContent = T(S.myLang, "ended"); $("#endSub").textContent = T(S.myLang, "thanks");
   const acts = $("#endActions"); acts.innerHTML = "";
   if (S.role === "counselor") {
