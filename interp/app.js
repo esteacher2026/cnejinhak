@@ -5,7 +5,7 @@
 "use strict";
 const CFG = Object.assign({ WORKER_URL: "", FIREBASE: null, REFINE_KO_TO_X: true, REFINE_X_TO_KO: false,
   SHOW_PRIVACY_TOGGLE: true, SEGMENT_SILENCE_MS: 900, SEGMENT_SILENCE_MS_CLIENT: 1050, AUTO_END_MIN: 60, IDLE_PAUSE_MIN: 10, GATED_AUDIO: false, SHOW_KO_READING: true, CENTER_NAME: "충남진로진학상담센터" }, window.INTERP_CONFIG || {});
-const APP_VERSION = "2026.11.10b";
+const APP_VERSION = "2026.11.10c";
 const QS = new URLSearchParams(location.search);
 const DEMO = QS.has("demo") || !CFG.WORKER_URL;   // 연습 모드(?demo=1): 내장 음성인식 + 가짜 번역 + 같은 브라우저 탭 간 동기화. 외부 서비스를 쓰지 않는다
 const LIVE = !DEMO;
@@ -180,7 +180,7 @@ class LocalSync {   // 같은 브라우저 탭 간(데모)
   async end(byPeer) { if (!byPeer) this.beat(true); clearInterval(this.hb); this.ch.close(); }
 }
 class FirestoreSync {   // 여기서 id는 모두 방 문서 ID(roomDocId로 계산한 값)다. 4자리 코드를 그대로 넘기지 않는다
-  constructor(id, role, onMsg, onPeer) { this.id = id; this.role = role; this.onMsg = onMsg; this.onPeer = onPeer; this.pending = new Map(); this.lang = null; this.peerMs = undefined; }
+  constructor(id, role, onMsg, onPeer) { this.id = id; this.role = role; this.onMsg = onMsg; this.onPeer = onPeer; this.pending = new Map(); this.lang = null; this.peerMs = undefined; this.closed = false; }
   static sdk() {   // Firebase SDK는 처음 필요할 때 한 번만 불러온다
     return FirestoreSync._sdk ||= Promise.all([import("https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"), import("https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js")])
       .then(([app, fs]) => ({ fs, db: fs.getFirestore(app.initializeApp(FB)) })).catch((e) => { FirestoreSync._sdk = null; throw e; });
@@ -190,11 +190,14 @@ class FirestoreSync {   // 여기서 id는 모두 방 문서 ID(roomDocId로 계
     const { fs, db } = await FirestoreSync.sdk(); const d = await fs.getDoc(fs.doc(db, "rooms", id)); if (!d.exists()) return null;
     const v = d.data(); const at = v.counselorAt?.toMillis?.() || 0; return { open: v.status === "open", at, age: at ? Date.now() - at : Infinity };
   }
-  /* 방 비우기: 메시지와 방 문서를 지운다. notify면 먼저 '종료'를 알려 상대 패드가 종료 화면으로 가게 한다 */
+  /* 방 비우기: 메시지와 방 문서를 지운다. notify면 먼저 '종료'를 알려 상대 패드가 종료 화면으로 가게 한다.
+     알린 경우에는 잠시 뒤 메시지를 한 번 더 지운다(종료 신호와 엇갈려 상대 패드에서 뒤늦게 도착한 자막이 남지 않게) */
   static async purge(id, notify) {
     const { fs, db } = await FirestoreSync.sdk(); const ref = fs.doc(db, "rooms", id);
+    const wipe = async () => { const snap = await fs.getDocs(fs.collection(ref, "msgs")); await Promise.all(snap.docs.map(d => fs.deleteDoc(d.ref))); };
     if (notify) await fs.setDoc(ref, { status: "ended" }, { merge: true });
-    const snap = await fs.getDocs(fs.collection(ref, "msgs")); await Promise.all(snap.docs.map(d => fs.deleteDoc(d.ref))); await fs.deleteDoc(ref);
+    await wipe(); await fs.deleteDoc(ref);
+    if (notify) setTimeout(() => wipe().catch(() => {}), 1500);
   }
   /* 새 상담용으로 방 차지: 다른 상담이 쓰는 중이면 false. 끝나지 않고 남은 옛 방이면 비운 뒤 차지한다(옛 대화가 다음 사람에게 보이지 않게) */
   static async claim(id) {
@@ -209,10 +212,15 @@ class FirestoreSync {   // 여기서 id는 모두 방 문서 ID(roomDocId로 계
   async init() {
     const { fs, db } = await FirestoreSync.sdk(); this.fs = fs; this.db = db;
     this.roomRef = fs.doc(db, "rooms", this.id);
-    await fs.setDoc(this.roomRef, { [this.role + "At"]: fs.serverTimestamp(), expireAt: new Date(Date.now() + 24 * 3600e3), status: "open" }, { merge: true });
     const other = this.role === "counselor" ? "client" : "counselor";
+    // 방 문서는 상담사 패드만 만든다. 내담자 패드는 있는 방에만 들어가고, 방이 없으면(끝났거나 상담사가 방을 바꿨다) 종료로 처리한다
+    const here = { [this.role + "At"]: fs.serverTimestamp(), expireAt: new Date(Date.now() + 24 * 3600e3) };
+    if (this.role === "counselor") await fs.setDoc(this.roomRef, { ...here, status: "open" }, { merge: true });
+    else { try { await fs.updateDoc(this.roomRef, here); } catch (e) { if (e?.code !== "not-found") throw e; return this.gone(); } }
+    if (this.closed) return;   // 연결하는 사이 이미 끝났다
     this.unsubRoom = fs.onSnapshot(this.roomRef, (d) => {
-      const v = d.data() || {}; const lang = v[other + "Lang"] || null;
+      if (!d.exists()) { if (!d.metadata.fromCache) this.gone(); return; }   // 방이 지워졌다(종료 신호 없이 비워졌거나 신호를 놓쳤다) → 종료. 내 신호로 방을 되살리지 않는다
+      const v = d.data(); const lang = v[other + "Lang"] || null;
       if (v.status === "ended") return this.onPeer(other, lang, true);
       if (other === "counselor" && !lang) return;   // 상담사가 방 코드만 잡아 두고 아직 들어오지 않았다(들어오면 언어가 기록된다)
       // 상대의 신호 시각이 '바뀌었을 때'만 살아 있다고 본다. 내 신호로 생긴 스냅숏에 그대로 남아 있는 옛 값은 세지 않는다
@@ -228,19 +236,24 @@ class FirestoreSync {   // 여기서 id는 모두 방 문서 ID(roomDocId로 계
     this.hb = setInterval(() => this.beat(), 12000);
     this.flush();   // 연결 전에 쌓인 것이 있으면 보낸다
   }
-  async setLang(l) { this.lang = l; if (this.fs) await this.fs.setDoc(this.roomRef, { [this.role + "Lang"]: l }, { merge: true }); }
-  beat() { if (this.fs) this.fs.setDoc(this.roomRef, { [this.role + "At"]: this.fs.serverTimestamp(), [this.role + "Lang"]: this.lang }, { merge: true }).catch(() => {}); }
+  /* 방 문서가 없어졌다: 상대가 끝냈거나 상담사가 시작 전에 방을 바꿨다. 종료 화면으로 보낸다(그 뒤로는 아무것도 쓰지 않는다) */
+  gone() { if (!this.closed) this.onPeer(this.role === "counselor" ? "client" : "counselor", null, true); }
+  // 언어·신호는 있는 방 문서만 고친다(updateDoc). 지워진 방을 다시 만들지 않기 위해서다
+  async setLang(l) { this.lang = l; if (this.fs && !this.closed) await this.fs.updateDoc(this.roomRef, { [this.role + "Lang"]: l }).catch((e) => { if (e?.code === "not-found") this.gone(); else console.warn(e); }); }
+  beat() { if (this.fs && !this.closed) this.fs.updateDoc(this.roomRef, { [this.role + "At"]: this.fs.serverTimestamp(), [this.role + "Lang"]: this.lang }).catch((e) => { if (e?.code === "not-found") this.gone(); }); }
   send(msg) {   // 같은 id는 덮어쓰기(부분→확정→정밀). 확정·번역은 바로, 말하는 중의 부분 자막은 300ms 묶음
+    if (this.closed) return;   // 끝난 뒤에 돌아온 번역 결과는 보내지 않는다(지운 방에 메시지가 다시 생기지 않게)
     this.pending.set(msg.id, { ...msg });
     if (!msg.partial) return this.flush();
     this.t ||= setTimeout(() => this.flush(), 300);
   }
   flush() {
-    clearTimeout(this.t); this.t = null; if (!this.fs) return;
+    clearTimeout(this.t); this.t = null; if (!this.fs || this.closed) return;
     const batch = [...this.pending.values()]; this.pending.clear();
     batch.forEach(m => this.fs.setDoc(this.fs.doc(this.roomRef, "msgs", m.id), { ...m, expireAt: new Date(Date.now() + 24 * 3600e3) }).catch(e => { console.warn(e); this.onError?.(e); }));
   }
   async end(byPeer) {
+    this.closed = true; this.pending.clear();   // 이 뒤로는 방에 아무것도 쓰지 않는다
     clearInterval(this.hb); clearTimeout(this.t); this.unsubRoom?.(); this.unsubMsgs?.();
     if (byPeer || this.role !== "counselor") return;   // 방을 지우는 것은 상담사 패드만(상대가 끝낸 방을 다시 만들지 않는다)
     try { await FirestoreSync.purge(this.id, true); } catch (e) { console.warn("room cleanup", e); }
@@ -713,6 +726,7 @@ async function openRoom(room, role, myLang, theirLang, id) {   // room = 4자리
   scheduleAutoEnd(role === "counselor" ? CFG.AUTO_END_MIN : (CFG.AUTO_END_MIN ? CFG.AUTO_END_MIN + 40 : 0));   // 내담자 패드는 상담사 종료를 따르고, 예비로 40분 더 뒤에 자체 종료
   if (CFG.IDLE_PAUSE_MIN) setInterval(() => { if (!S.ended && S.micOn && Date.now() - S.lastTalk > CFG.IDLE_PAUSE_MIN * 60e3) pauseMic("idle"); }, 20000);
   await Promise.race([glossaryReady, sleep(3500)]);   // 용어 인식 힌트에 용어집이 필요(느린 네트워크에서는 기다리지 않고 시작)
+  if (S.ended) return;   // 기다리는 사이 끝났으면(방이 없어졌거나 상대가 종료) 마이크를 켜지 않는다
   if (role === "client" && !S.peerSeen && L[myLang].azure) { S.micHold = true; $("#micText").textContent = T(myLang, "waiting"); }   // 기다리는 동안은 음성 인식 사용 시간을 쓰지 않는다
   else startMic();
 }
