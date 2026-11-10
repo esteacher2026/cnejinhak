@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="9 5 104 100" role="img" aria-label="온말"><clipPath id="s-ring"><path clip-rule="evenodd" d="M44 8a32 32 0 1 0 0 64a32 32 0 1 0 0-64Z M44 21a19 19 0 1 1 0 38a19 19 0 1 1 0-38Z"/></clipPath>
+<path d="M18 58 L15.5 80 L34.5 71.5 Z" fill="#006878" stroke="#006878" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="44" cy="40" r="25.5" fill="none" stroke="#006878" stroke-width="13"/>
+<path d="M85 89 L104.5 101.5 L101.5 84 Z" fill="#F88828" stroke="#F88828" stroke-width="3" stroke-linejoin="round"/>
+<rect x="60.5" y="44.5" width="43" height="39" rx="10" fill="none" stroke="#F88828" stroke-width="13"/>
+<rect x="60.5" y="44.5" width="43" height="39" rx="10" fill="none" stroke="#1d2b33" stroke-width="13" clip-path="url(#s-ring)"/></svg>

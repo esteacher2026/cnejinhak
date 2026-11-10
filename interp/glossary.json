@@ -2445,9 +2445,9 @@
    "stt_hint": true,
    "tr": {
     "en": {
-     "term": "School records",
+     "term": "School grades (Naesin)",
      "def": "A student's high school subject grades, calculated from school exam results.",
-     "source": "seed"
+     "source": "human"
     },
     "ja": {
      "term": "内申成績",
